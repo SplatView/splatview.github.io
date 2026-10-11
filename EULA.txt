@@ -1,0 +1,167 @@
+SplatView End-User License Agreement
+Version 1.1 - October 10, 2026
+
+1. Agreement and publisher
+This End-User License Agreement ("Agreement") is between you and OpsiClear LLC,
+a United States limited liability company ("OpsiClear", "we", "us"). It covers
+the official SplatView application, Explorer integration, save helper, related
+documentation and updates supplied under this Agreement ("Software").
+Contact: support@opsiclear.com.
+
+By accepting this Agreement, or installing or using the Software after an
+opportunity to review it, you agree to these terms. Otherwise do not install
+or use it. If acting for an organization, you must have authority to bind it;
+"you" then includes that organization.
+
+2. Free license and permitted use
+Subject to this Agreement, we grant you a non-exclusive, worldwide license to
+install and use official Software binaries on devices you own or control for
+personal, educational and commercial purposes, without a license fee for the
+functionality included in this release. You may make reasonable backup copies
+and deploy the Software internally to your organization's authorized users,
+provided they comply with this Agreement. You may share links to our official
+downloads. Other distribution requires our written permission or authorization
+through an official distribution channel.
+
+The Software is licensed, not sold. No source-code access or ownership rights
+are granted. OpsiClear and its licensors retain rights not expressly granted.
+No rights to use our names, logos or branding to imply endorsement are granted.
+
+The current alpha has no ads, paid features or subscriptions. Future releases
+or optional services may have separate terms and prices. Charges require your
+affirmative agreement. No later purchase is required to use this free release;
+future releases need not be free.
+
+3. Restrictions
+Except where applicable law, Microsoft Store usage rights or a third-party
+license gives you the right, you may not:
+- Modify, translate, create derivative works of, reverse engineer, decompile
+  or disassemble the proprietary parts of the Software.
+- Resell, rent, sublicense, publicly redistribute or offer the Software as a
+  separately hosted service without our written permission.
+- Remove or alter copyright, attribution, license or proprietary notices.
+- Bypass technical protections or misrepresent the Software's source.
+- Use the Software unlawfully or infringe another person's rights.
+
+These restrictions do not apply to your content or prevent internal business
+use under section 2, mandatory interoperability or other legal rights.
+
+4. Your files, outputs and responsibilities
+You retain your rights in your scene files, images, measurements, exports and
+other content. Using the Software does not transfer those rights to OpsiClear.
+You may use outputs commercially, subject to any rights in the input content.
+You are responsible for having the rights needed to process your content and
+for checking your work before relying on, sharing or overwriting it.
+
+The Software performs local scene processing. Keep independent backup copies
+of important files. Alpha or experimental functionality may be incomplete or
+produce inaccurate results. Verify measurements, edited scenes, thumbnails
+and exports independently. The Software is not designed as the sole basis for
+decisions or operations where an error could cause injury or significant harm.
+
+5. Third-party components and distribution platforms
+Third-party components, adapted code and assets retain their separate licenses.
+See THIRD-PARTY-NOTICES.txt and the accompanying licenses directory. Those
+licenses control the respective materials and prevail over this Agreement
+where necessary to preserve their permissions. Nothing here restricts rights
+granted under those licenses, requires surrender of them, or changes rights
+previously granted for copies distributed under a different license.
+
+For Microsoft Store acquisitions, this Agreement is between you and OpsiClear,
+not Microsoft. Your Store transactions and Microsoft services remain governed
+by their applicable terms. Your rights to download, stream, install and use
+the Software are at least those provided by the Microsoft Usage Rules
+applicable to it; those rights prevail over any conflicting restriction here.
+OpsiClear is responsible for the Software and any support it provides.
+Microsoft Usage Rules:
+https://support.microsoft.com/en-us/windows/apps/usage-rules-for-digital-goods-rules
+
+6. Privacy and optional reporting
+Our separate privacy information in PRIVACY.txt describes data practices.
+Scene files and outputs are not uploaded by the Software. Usage reporting and
+error reporting are separate, optional settings, off by default. Declining or
+disabling either does not restrict the current free functionality. Accepting
+this Agreement does not opt you into reporting, advertising or marketing.
+Bug reports and support requests follow the applicable privacy information.
+Submit only material you have permission to share.
+
+7. Updates, support and changes
+Microsoft Store copies may check for and download updates through Windows
+Store services, subject to Windows and Store settings. Windows manages package
+installation. Updates do not themselves enable optional reporting.
+Subject to law and Store obligations, we may change or discontinue future
+releases, support or optional services. We do not promise updates, response
+times, compatibility with every system or continued support.
+
+Materially revised terms will be presented before applying to a new version,
+with acceptance obtained where required. They do not change earlier rights
+retroactively. This Agreement also covers updates unless they specify otherwise.
+
+8. Feedback
+If you voluntarily provide non-confidential suggestions or improvement ideas,
+you grant OpsiClear a worldwide, perpetual, irrevocable, non-exclusive,
+royalty-free license to use, reproduce, adapt and incorporate that feedback
+without an obligation to pay or attribute you. This does not transfer ownership
+of your files or license content you merely open or create in the Software.
+Personal information remains subject to the applicable privacy information.
+
+9. Warranty disclaimer
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE SOFTWARE AND ANY SUPPORT
+ARE PROVIDED "AS IS", "WITH ALL FAULTS" AND "AS AVAILABLE". OPSICLEAR AND ITS
+LICENSORS DISCLAIM ALL WARRANTIES, WHETHER EXPRESS, IMPLIED OR STATUTORY,
+INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE AND
+NON-INFRINGEMENT. WE DO NOT WARRANT ACCURACY, UNINTERRUPTED OR ERROR-FREE
+OPERATION, SECURITY, COMPATIBILITY OR THAT FILES OR DATA WILL BE PRESERVED.
+THIS DISCLAIMER DOES NOT OVERRIDE A WARRANTY THAT APPLICABLE LAW REQUIRES US
+TO HONOR.
+
+10. Exclusion and limitation of liability
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, OPSICLEAR AND ITS LICENSORS HAVE NO
+LIABILITY FOR CLAIMS, LOSSES, COSTS OR DAMAGES ARISING FROM THE SOFTWARE OR THIS
+AGREEMENT, INCLUDING DIRECT, INDIRECT, INCIDENTAL, CONSEQUENTIAL OR PUNITIVE
+DAMAGES AND LOSS OF PROFITS, BUSINESS, DATA OR USE, EVEN IF ADVISED OF THE RISK.
+IF FULL EXCLUSION IS UNENFORCEABLE BUT A MONETARY LIMIT IS PERMITTED, THEIR
+TOTAL AGGREGATE LIABILITY WILL NOT EXCEED US$100 (OR ITS LOCAL EQUIVALENT).
+THESE PROVISIONS APPLY TO CONTRACT, TORT (INCLUDING ORDINARY NEGLIGENCE) AND
+OTHER LEGAL THEORIES, SUBJECT TO THE EXCEPTIONS BELOW.
+
+NOTHING IN THIS AGREEMENT EXCLUDES OR LIMITS LIABILITY FOR FRAUD, WILLFUL
+MISCONDUCT, GROSS NEGLIGENCE, DEATH OR PERSONAL INJURY CAUSED BY NEGLIGENCE,
+OR ANY OTHER LIABILITY OR REMEDY THAT CANNOT LAWFULLY BE EXCLUDED OR LIMITED.
+IF YOUR JURISDICTION DOES NOT ALLOW A PARTICULAR DISCLAIMER OR LIMITATION,
+IT APPLIES ONLY TO THE EXTENT ALLOWED. YOUR MANDATORY CONSUMER RIGHTS REMAIN.
+
+11. Business-user indemnity
+For business use, to the extent permitted by law, your business will defend
+and indemnify OpsiClear and its officers and employees against third-party
+claims and reasonable costs, including attorneys' fees, arising from its
+unlawful use, unauthorized distribution or infringement by content it supplies.
+This excludes claims caused by OpsiClear's breach, negligence or misconduct.
+OpsiClear must promptly notify the business, reasonably cooperate and allow a
+reasonable defense. Settlements imposing an admission or obligation on
+OpsiClear require its consent, not unreasonably withheld.
+
+12. Term and termination
+Your license continues until terminated. You may terminate by uninstalling
+and deleting your copies. We may terminate for material breach, after notice
+and 30 days to cure a curable breach. Where lawful, termination may be immediate
+for unlawful use, deliberate infringement or an incurable material breach.
+Then stop using and delete the proprietary Software, except legally required
+archival copies. Your content and separate third-party rights are unaffected.
+Ownership, feedback, disclaimers, liability limits, applicable indemnity and
+general terms survive as needed to give them effect.
+
+13. General terms
+Comply with export-control and sanctions laws applicable to your use.
+Mandatory law and non-waivable consumer protections take priority over this
+Agreement. An unenforceable provision will be limited as legally permitted,
+and the remaining provisions will continue in effect. A delay in enforcement
+does not waive a right.
+
+Transfers require our consent unless allowed by law or Store usage rights.
+We may assign this Agreement to a successor to the relevant business, subject
+to law and without reducing your mandatory rights.
+
+This is the complete agreement on use of the proprietary Software, subject to
+the separate terms described above. Changes require a valid revised agreement
+or a written agreement with OpsiClear. Contact: support@opsiclear.com.

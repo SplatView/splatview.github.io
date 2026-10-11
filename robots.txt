@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://splatview.github.io/sitemap.xml

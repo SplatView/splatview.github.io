@@ -1,0 +1,93 @@
+SplatView privacy information
+Publisher: OpsiClear LLC (United States)
+Last updated: October 10, 2026
+
+Contact
+For support or privacy questions, contact support@opsiclear.com. To request access
+to or deletion of reports, email this address. Locating reports may require the
+random installation identifier saved in your local reporting preferences.
+
+Local processing
+SplatView opens, renders and edits scene files on your computer. It does not upload
+your scenes, exports, screenshots or clipboard contents. File exports and custom
+view/thumbnail information are written locally. The app works without an account
+or an internet connection.
+
+Local license acceptance
+When you choose "I agree and continue", SplatView saves the agreement version,
+a SHA-256 hash identifying its text and the UTC acceptance time in
+SplatView/license.json under your Windows user's LocalAppData directory. This
+record stays on your device and is not uploaded. It contains no account or
+analytics identifier. Accepting the license does not enable usage or error
+reporting. A changed agreement or a missing record requires review again.
+
+Microsoft Store updates
+For copies acquired from Microsoft Store, SplatView asks Windows Store services
+to check for and download available app updates at launch and periodically while
+open. Windows manages package verification and installation using Store update
+and network settings. These requests do not enable optional usage or error
+reporting and do not upload your scenes, exports, screenshots or clipboard.
+Portable and locally test-signed builds do not make these Store update requests.
+
+Optional usage reporting
+Usage reporting is OFF by default. Open Tools, then Settings beside Undo/Redo,
+to choose whether to share usage statistics with OpsiClear in the standalone app.
+Declining does not restrict any app features.
+
+When you enable reporting, the app sends these events to PostHog US Cloud:
+- App opened.
+- Scene open requested, with a fixed file-format label.
+- Scene export finished, with format, success/failure and duration (capped at one hour).
+- Selected actions: capture image, copy image, save default view and export measurements.
+
+Each report includes the app version, Store/portable distribution, event time and
+a randomly generated installation identifier. This identifier is not your name,
+Microsoft account, hardware identifier or advertising ID. Reports contain no file
+names, file paths, scene contents, screenshots, account details or error messages.
+No session recording, automatic interaction capture, person profiles or location
+enrichment is enabled. Like any internet service, PostHog receives the connecting
+IP address; disabling location enrichment does not hide that address from PostHog.
+
+Purpose and retention
+OpsiClear uses these reports to understand usage and prioritize improvements.
+PostHog hosts the reports in the United States. The project's current Free plan
+provides one year of event retention. Provider details: https://posthog.com/privacy
+
+Optional error reporting
+Error reporting is a separate setting, OFF by default. Previously enabling usage
+statistics does not enable error reporting. Either choice works independently.
+When enabled, handled failures in scene loading, GPU preparation, editing, export,
+thumbnail updates, window initialization and application/viewport actions send
+PostHog an exception event. This contains a fixed category, a fixed generic message,
+app version, Store/portable distribution, event time and a separate random identifier.
+No raw exception text, stack traces, file names, paths or memory dumps are collected.
+PostHog receives the connecting IP address; person profiles, location enrichment
+and session recording are disabled. The same provider and retention apply.
+Repeated failures are limited to once per category per minute in each app instance.
+Reports are best effort; this does not collect Windows crash dumps or guarantee
+delivery when the process terminates unexpectedly.
+
+Bug reports and feedback
+When configured, Report a bug opens a PostHog-hosted survey in your browser. You
+choose which details to submit. Avoid confidential scene content or personal data
+you do not wish to send. No files, logs, app reporting identifier or error messages
+are attached automatically. Opening the survey does not change reporting choices.
+Survey responses are separate from optional usage and error reporting. The website
+has its own privacy information and PostHog receives your browser's connecting IP.
+The survey should collect only completed submissions, with partial responses disabled.
+
+Your choice
+You may turn either kind of reporting off at any time in Settings. Doing so clears
+its unsent events and its local identifier, leaving the other choice unchanged.
+A report already being sent may finish.
+Turning reporting off does not delete reports already received by PostHog.
+Turning it on again creates a new identifier. Reporting is best effort: events
+are queued only in memory, and unavailable networks do not prevent local work.
+
+Preferences are stored under the app's per-user LocalAppData directory at
+SplatView/analytics.json (usage) and SplatView/analytics-errors.json (errors).
+Explorer previews, thumbnail handlers, command-line operations and the save helper
+do not collect usage or error reports.
+
+The Opsiclear website and provider privacy links open in your browser when you
+choose them. Those websites have their own privacy information.
