@@ -1,5 +1,5 @@
 SplatView End-User License Agreement
-Version 1.2 - October 15, 2026
+Version 1.3 - October 15, 2026
 
 1. Agreement and publisher
 This End-User License Agreement ("Agreement") is between you and OpsiClear LLC,
@@ -48,24 +48,19 @@ use under section 2, mandatory interoperability or other legal rights.
 
 4. Your files, outputs and responsibilities
 You retain your rights in your scene files, images, measurements, exports and
-other content. Using the Software does not transfer those rights to OpsiClear.
-You may use outputs commercially, subject to any rights in the input content.
-You are responsible for having the rights needed to process your content and
-for checking your work before relying on, sharing or overwriting it.
+other content. You may use outputs commercially, subject to any rights in the
+input content. You are responsible for having the rights needed to process
+your content and for checking your work before relying on, sharing or
+overwriting it.
 
 The Software performs local scene processing. Keep independent backup copies
 of important files. Experimental functionality may be incomplete or produce
-inaccurate results. Verify measurements, edited scenes, thumbnails
-and exports independently. The Software is not designed as the sole basis for
+inaccurate results. Verify measurements, edited scenes, thumbnails and exports
+independently. The Software is not designed as the sole basis for
 decisions or operations where an error could cause injury or significant harm.
 
-Agent access is optional and off each time SplatView opens. When you enable
-it, programs you connect through its local connection, such as coding agents,
-can read your scene and its images, change it and save new files, acting with
-your permissions. You are responsible for the programs you connect and for
-their actions. Data they read may be sent to their providers under those
-providers' terms; OpsiClear does not control third-party agents or services and
-is not responsible for them. Agent changes appear as labeled steps you can undo.
+Programs you connect through optional agent access act with your permissions;
+you are responsible for them, including what they send to their providers.
 
 5. Third-party components and distribution platforms
 Third-party components, adapted code and assets retain their separate licenses.
@@ -90,15 +85,13 @@ Scene files and outputs are not uploaded by the Software. Usage reporting and
 error reporting are separate, optional settings, off by default. Declining or
 disabling either does not restrict the current free functionality. Accepting
 this Agreement does not opt you into reporting, advertising or marketing.
-With agent access on, programs you connect may send what they read to their
-providers; see section 4.
 Bug reports and support requests follow the applicable privacy information.
 Submit only material you have permission to share.
 
 7. Updates, support and changes
 Microsoft Store copies may check for and download updates through Windows
-Store services, subject to Windows and Store settings. Windows manages package
-installation. Updates do not themselves enable optional reporting.
+Store services, subject to Windows and Store settings. Updates do not themselves
+enable optional reporting.
 Subject to law and Store obligations, we may change or discontinue future
 releases, support or optional services. We do not promise updates, response
 times, compatibility with every system or continued support.
@@ -174,4 +167,4 @@ to law and without reducing your mandatory rights.
 
 This is the complete agreement on use of the proprietary Software, subject to
 the separate terms described above. Changes require a valid revised agreement
-or a written agreement with OpsiClear. Contact: support@opsiclear.com.
+or a written agreement with OpsiClear.
