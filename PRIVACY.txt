@@ -1,6 +1,6 @@
 SplatView privacy information
 Publisher: OpsiClear LLC (United States)
-Last updated: October 10, 2026
+Last updated: October 15, 2026
 
 Contact
 For support or privacy questions, contact support@opsiclear.com. To request access
@@ -12,6 +12,17 @@ SplatView opens, renders and edits scene files on your computer. It does not upl
 your scenes, exports, screenshots or clipboard contents. File exports and custom
 view/thumbnail information are written locally. The app works without an account
 or an internet connection.
+
+Optional agent access
+Agent access is OFF each time SplatView opens. When you turn it on for a window,
+SplatView accepts requests only from programs on this computer: it listens on the
+local loopback address, rejects browser requests and requires a private connection
+token saved under your Windows user's LocalAppData directory (SplatView/api). A
+program you connect, such as Codex or Claude Code, can read scene data and images,
+make edits and save new files. SplatView sends nothing to OpsiClear for this, but
+the program you connect may send what it reads to its provider, such as an AI
+service, under that provider's privacy terms. Turn agent access off or close the
+window to stop it.
 
 Local license acceptance
 When you choose "I agree and continue", SplatView saves the agreement version,
@@ -38,7 +49,7 @@ When you enable reporting, the app sends these events to PostHog US Cloud:
 - App opened.
 - Scene open requested, with a fixed file-format label.
 - Scene export finished, with format, success/failure and duration (capped at one hour).
-- Selected actions: capture image, copy image, save default view and export measurements.
+- Selected actions: capture image, copy image and save default view.
 
 Each report includes the app version, Store/portable distribution, event time and
 a randomly generated installation identifier. This identifier is not your name,

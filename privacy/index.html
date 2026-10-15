@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark light"><title>Privacy policy | SplatView</title><meta name="description" content="SplatView publisher information, privacy policy and software license."><link rel="canonical" href="https://splatview.github.io/privacy/"><link rel="stylesheet" href="/style.css"></head><body><a class="skip" href="#content">Skip to content</a><header><a href="/">SplatView</a><nav aria-label="Publisher information"><a href="/privacy/">Privacy</a><a href="/terms/">License terms</a><a href="mailto:support@opsiclear.com">Support</a></nav></header><main id="content"><h1>Privacy policy</h1><p><a href="/PRIVACY.txt">Download plain text</a></p><pre>SplatView privacy information
 Publisher: OpsiClear LLC (United States)
-Last updated: October 10, 2026
+Last updated: October 15, 2026
 
 Contact
 For support or privacy questions, contact support@opsiclear.com. To request access
@@ -14,10 +14,21 @@ your scenes, exports, screenshots or clipboard contents. File exports and custom
 view/thumbnail information are written locally. The app works without an account
 or an internet connection.
 
+Optional agent access
+Agent access is OFF each time SplatView opens. When you turn it on for a window,
+SplatView accepts requests only from programs on this computer: it listens on the
+local loopback address, rejects browser requests and requires a private connection
+token saved under your Windows user&#39;s LocalAppData directory (SplatView/api). A
+program you connect, such as Codex or Claude Code, can read scene data and images,
+make edits and save new files. SplatView sends nothing to OpsiClear for this, but
+the program you connect may send what it reads to its provider, such as an AI
+service, under that provider&#39;s privacy terms. Turn agent access off or close the
+window to stop it.
+
 Local license acceptance
 When you choose &quot;I agree and continue&quot;, SplatView saves the agreement version,
 a SHA-256 hash identifying its text and the UTC acceptance time in
-SplatView/license.json under your Windows user&#x27;s LocalAppData directory. This
+SplatView/license.json under your Windows user&#39;s LocalAppData directory. This
 record stays on your device and is not uploaded. It contains no account or
 analytics identifier. Accepting the license does not enable usage or error
 reporting. A changed agreement or a missing record requires review again.
@@ -39,7 +50,7 @@ When you enable reporting, the app sends these events to PostHog US Cloud:
 - App opened.
 - Scene open requested, with a fixed file-format label.
 - Scene export finished, with format, success/failure and duration (capped at one hour).
-- Selected actions: capture image, copy image, save default view and export measurements.
+- Selected actions: capture image, copy image and save default view.
 
 Each report includes the app version, Store/portable distribution, event time and
 a randomly generated installation identifier. This identifier is not your name,
@@ -51,7 +62,7 @@ IP address; disabling location enrichment does not hide that address from PostHo
 
 Purpose and retention
 OpsiClear uses these reports to understand usage and prioritize improvements.
-PostHog hosts the reports in the United States. The project&#x27;s current Free plan
+PostHog hosts the reports in the United States. The project&#39;s current Free plan
 provides one year of event retention. Provider details: https://posthog.com/privacy
 
 Optional error reporting
@@ -74,7 +85,7 @@ choose which details to submit. Avoid confidential scene content or personal dat
 you do not wish to send. No files, logs, app reporting identifier or error messages
 are attached automatically. Opening the survey does not change reporting choices.
 Survey responses are separate from optional usage and error reporting. The website
-has its own privacy information and PostHog receives your browser&#x27;s connecting IP.
+has its own privacy information and PostHog receives your browser&#39;s connecting IP.
 The survey should collect only completed submissions, with partial responses disabled.
 
 Your choice
@@ -85,7 +96,7 @@ Turning reporting off does not delete reports already received by PostHog.
 Turning it on again creates a new identifier. Reporting is best effort: events
 are queued only in memory, and unavailable networks do not prevent local work.
 
-Preferences are stored under the app&#x27;s per-user LocalAppData directory at
+Preferences are stored under the app&#39;s per-user LocalAppData directory at
 SplatView/analytics.json (usage) and SplatView/analytics-errors.json (errors).
 Explorer previews, thumbnail handlers, command-line operations and the save helper
 do not collect usage or error reports.

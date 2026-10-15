@@ -1,5 +1,5 @@
 SplatView End-User License Agreement
-Version 1.1 - October 10, 2026
+Version 1.2 - October 15, 2026
 
 1. Agreement and publisher
 This End-User License Agreement ("Agreement") is between you and OpsiClear LLC,
@@ -27,7 +27,7 @@ The Software is licensed, not sold. No source-code access or ownership rights
 are granted. OpsiClear and its licensors retain rights not expressly granted.
 No rights to use our names, logos or branding to imply endorsement are granted.
 
-The current alpha has no ads, paid features or subscriptions. Future releases
+This release has no ads, paid features or subscriptions. Future releases
 or optional services may have separate terms and prices. Charges require your
 affirmative agreement. No later purchase is required to use this free release;
 future releases need not be free.
@@ -54,10 +54,18 @@ You are responsible for having the rights needed to process your content and
 for checking your work before relying on, sharing or overwriting it.
 
 The Software performs local scene processing. Keep independent backup copies
-of important files. Alpha or experimental functionality may be incomplete or
-produce inaccurate results. Verify measurements, edited scenes, thumbnails
+of important files. Experimental functionality may be incomplete or produce
+inaccurate results. Verify measurements, edited scenes, thumbnails
 and exports independently. The Software is not designed as the sole basis for
 decisions or operations where an error could cause injury or significant harm.
+
+Agent access is optional and off each time SplatView opens. When you enable
+it, programs you connect through its local connection, such as coding agents,
+can read your scene and its images, change it and save new files, acting with
+your permissions. You are responsible for the programs you connect and for
+their actions. Data they read may be sent to their providers under those
+providers' terms; OpsiClear does not control third-party agents or services and
+is not responsible for them. Agent changes appear as labeled steps you can undo.
 
 5. Third-party components and distribution platforms
 Third-party components, adapted code and assets retain their separate licenses.
@@ -82,6 +90,8 @@ Scene files and outputs are not uploaded by the Software. Usage reporting and
 error reporting are separate, optional settings, off by default. Declining or
 disabling either does not restrict the current free functionality. Accepting
 this Agreement does not opt you into reporting, advertising or marketing.
+With agent access on, programs you connect may send what they read to their
+providers; see section 4.
 Bug reports and support requests follow the applicable privacy information.
 Submit only material you have permission to share.
 
