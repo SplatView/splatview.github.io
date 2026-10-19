@@ -1,0 +1,327 @@
+{
+  "schemaVersion": 1,
+  "buildMode": "clean-first",
+  "qualification": "Verified source snapshot, adapters, installed Windows toolchain/cache fingerprints and codec trees. Not complete host closure, independent source-to-sysroot-cache reproduction, upstream binary authentication, native executable provenance, or cross-host bit reproducibility.",
+  "inputs": {
+    "sourceLock": {
+      "bytes": 270929,
+      "sha256": "d6515ebbc1f22ca1498b37d6369420f87cf48a39aba2d0ec952fcc9dbae9c747"
+    },
+    "dependencyLock": {
+      "bytes": 984,
+      "sha256": "60767567735a536be378067ea88e3b01cbd42840bbcf26c318cb0cff957e272c"
+    },
+    "toolchainLock": {
+      "bytes": 2816,
+      "sha256": "d75fff40237635b80e9ab1532c33a0df9f15037dc57ec8230a86dab3ab9048d7"
+    },
+    "wasmAdapters": {
+      "files": 111,
+      "bytes": 2615442,
+      "sha256": "a96c321017cab490138284bf0b1c2b8335200fdcdc3c5fdf67ece195e1ba8d51"
+    },
+    "buildScripts": {
+      "build-core.py": {
+        "bytes": 55323,
+        "sha256": "66a3d29cf2d53baff9c6a97461030ec0d0849da99cd657fa9c962c81eb504062"
+      },
+      "verify-toolchain.py": {
+        "bytes": 20286,
+        "sha256": "67123e649053c0944472620225e210c79246d7c1a165f496cd066de187f1cca8"
+      },
+      "capture-sources.py": {
+        "bytes": 12160,
+        "sha256": "8912073be6945e6c12b7fd341162712d7d246b18c8c1d4b73dbfa003ebd05917"
+      },
+      "spz_stream_cleanup.py": {
+        "bytes": 3490,
+        "sha256": "eee52796c239569235e51507cdd448960abe222362878738ec5aeade286d5072"
+      },
+      "json_cleanup_overlay.py": {
+        "bytes": 10935,
+        "sha256": "98bf7ddd8a531cec15cf86cd9f817c4b860127c37e5acc99fd2a5a4b58fa6267"
+      }
+    }
+  },
+  "toolchain": {
+    "host": "windows-x86_64",
+    "emscriptenVersion": "6.0.12",
+    "sdkRelease": "6e9f6885cb17a3d6c8fd488a5cff730f50aba61d",
+    "emscriptenRevision": "5488e0871d46d19a3209988190fa6a653126256f",
+    "files": {
+      "emsdkConfig": {
+        "bytes": 221,
+        "sha256": "142a4c27839e91a0671807fd9428e67700a4025cacb0a4ed2d865be4f26ec063"
+      },
+      "cmake": {
+        "bytes": 13465160,
+        "sha256": "3a329667300846abc8dffccbdcb1c8c2d4a6cebe342d499181825205ea8c766c"
+      },
+      "ninja": {
+        "bytes": 598528,
+        "sha256": "2df494116decdae84d74c02373119176bbfc4797a6f49a6c709d85d961d6a0d8"
+      }
+    },
+    "trees": {
+      "emscriptenCompilerSources": {
+        "files": 7941,
+        "bytes": 147455601,
+        "sha256": "26b2bead885289cd78209491d24e6a5424a66b84b023be228ba253cacd655fbf"
+      },
+      "llvmAndBinaryenExecutables": {
+        "files": 41,
+        "bytes": 1135943168,
+        "sha256": "73f1fabd67ce20d47764acfdd6a2c4c0247c4c3707a6081abeddb8a6a57f9039"
+      },
+      "clangBuiltinHeaders": {
+        "files": 292,
+        "bytes": 8199429,
+        "sha256": "464f8910bb6836e02c120c2edcfd3be1f3efb662527fc575b373ff84afa10287"
+      },
+      "sdkPythonRuntime": {
+        "files": 1945,
+        "bytes": 59788396,
+        "sha256": "1e70d9b1da58ef99fb08dd398d0a306872af47c69ff1e3987c48c35df850ce8d"
+      },
+      "sdkNodeRuntime": {
+        "files": 1990,
+        "bytes": 106112896,
+        "sha256": "bb0d835ad92d3e17e6d7e8598e175f260627ccb621ecc38c92fa5b751ce42cc0"
+      },
+      "cmakeDistribution": {
+        "files": 4145,
+        "bytes": 87942448,
+        "sha256": "3f9165cde1add88960b5e997cacff0003ecf9ccf6d4c2552cc548383f62613e9"
+      },
+      "compiledSysrootCache": {
+        "files": 2098,
+        "bytes": 629060889,
+        "sha256": "ae8b44533b23c3ed8271f35a999ae76f12e9a0c67753ac668a714ca25593f080"
+      }
+    }
+  },
+  "nativeInputId": "59b0d5f23b429590c4804a68ecba23fb6d3b0b1c3c44f17cb92d6b5ba81b3230",
+  "nativeIdentity": {
+    "core": {
+      "schemaVersion": 1,
+      "kind": "core",
+      "abi": 24,
+      "variant": "scalar",
+      "mapLayoutVersion": 1,
+      "capabilities": {
+        "atomicCheckpoint": 1,
+        "transactionReceipt": 2,
+        "recoveryCheckpoint": 2,
+        "duplicate": 1,
+        "selectionMap": 1,
+        "volumeSelection": 1,
+        "fillSelection": 1,
+        "connectedColorSelection": 1,
+        "toleranceCheckpoint": 1,
+        "colorFillRange": 1,
+        "liveSelectionOutcome": 1,
+        "geometryPreview": 1,
+        "sourceHash": 1,
+        "allocationCensus": 1,
+        "selectionMorphology": 2,
+        "absoluteColorSession": 1,
+        "autoColor": 1,
+        "colorBaseStream": 1,
+        "alignment": 4,
+        "groupedSog": 3,
+        "exportSpz4": 1,
+        "boundedAttributeExport": 1,
+        "boundedSpz3Export": 1,
+        "boundedSogExport": 1,
+        "selectionFilter": 2,
+        "selectionActions": 2,
+        "proTransformSession": 2,
+        "transformPivot": 2,
+        "absoluteOpacitySession": 1,
+        "opacityBaseStream": 1,
+        "currentViewScope": 1
+      },
+      "nativeInputId": "59b0d5f23b429590c4804a68ecba23fb6d3b0b1c3c44f17cb92d6b5ba81b3230"
+    },
+    "camera": {
+      "schemaVersion": 1,
+      "kind": "camera",
+      "abi": 4,
+      "variant": "scalar",
+      "capabilities": {
+        "cameraInput": 1,
+        "cameraTransform": 1,
+        "cameraFrame": 1,
+        "cameraOrientation": 1,
+        "cameraFilterView": 1,
+        "cameraFilterGizmo": 1,
+        "cameraTransformGizmo": 1
+      },
+      "nativeInputId": "59b0d5f23b429590c4804a68ecba23fb6d3b0b1c3c44f17cb92d6b5ba81b3230"
+    }
+  },
+  "codecDependencies": {
+    "ports": {
+      "webp": {
+        "archiveSha512": "5c159d9760efcb92749092536daada22c0a73c20926c76097a5f0448ddbf874cf761324ca97925ca5f578b30477564b2b072b47667e504673797128b31cafcbf",
+        "tree": {
+          "files": 367,
+          "bytes": 10092224,
+          "sha256": "821829a47a9912a0e1bb0714d93b581786de6824b798b45e5bb24acafe6cb200"
+        }
+      },
+      "zlib": {
+        "archiveSha512": "16fea4df307a68cf0035858abe2fd550250618a97590e202037acd18a666f57afc10f8836cbbd472d54a0e76539d0e558cb26f059d53de52ff90634bbf4f47d4",
+        "tree": {
+          "files": 262,
+          "bytes": 3603929,
+          "sha256": "9a190188d052b3a1315d28738f4795fe2088c06282c1526e6d3e0ae71ee33ded"
+        }
+      }
+    },
+    "zstd": {
+      "archiveSha256": "8c29e06cf42aacc1eafc4077ae2ec6c6fcb96a626157e0593d5e82a34fd403c1",
+      "omittedNonBuildSymlinksOnWindows": {
+        "tests/cli-tests/bin/unzstd": "zstd",
+        "tests/cli-tests/bin/zstdcat": "zstd"
+      },
+      "tree": {
+        "files": 634,
+        "bytes": 8249254,
+        "sha256": "9ca9e0937c8d43a9c6af1f02d00cb2ec19cbb66690d8e498e169bb02eb5fb9c8"
+      }
+    }
+  },
+  "desktopOverlay": {
+    "files": 306,
+    "bytes": 7829181,
+    "sha256": "4f526b28c9a2e1a9574c272fec18a2337966847065cc6c7cb118068ac2e5a6ca"
+  },
+  "jsonCleanup": {
+    "scope": "exact parsed SOG cleanup authority; compatibility fallback; no quotas; separate fixed-constructed admitted SOG export specialization",
+    "inputs": {
+      "dependencyHeader": {
+        "path": "native/deps/include/nlohmann/json.hpp",
+        "bytes": 953436,
+        "sha256": "aaf127c04cb31c406e5b04a63f1ae89369fccde6d8fa7cdda1ed4f32dfc5de63"
+      },
+      "modelSource": {
+        "path": ".build/desktop-package/src/core/model.cpp",
+        "bytes": 50433,
+        "sha256": "ddfe812e09467afc3113b32fff7c777aa6421413d76686c2676643878b26e523"
+      }
+    },
+    "outputs": {
+      "generatedHeader": {
+        "path": ".build/desktop-package/browser-include/nlohmann/json.hpp",
+        "bytes": 979413,
+        "sha256": "bebd9f2b8629469a1bfef38eb364705520bfd9848070105536e396cdf557e846"
+      },
+      "modelSource": {
+        "path": ".build/desktop-package/src/core/model.cpp",
+        "bytes": 49564,
+        "sha256": "906ef7e42596c209d77206ace8478810cae57a49aa1cb2d3f41c598807a5e8f2"
+      }
+    }
+  },
+  "groupedSogReader": {
+    "scope": "grouped-v1/v2-SH0-3 borrowed callback wrapper and all-role predecode plan; bundled path unchanged",
+    "inputs": {
+      "postJsonModelSource": {
+        "path": ".build/desktop-package/src/core/model.cpp",
+        "bytes": 49564,
+        "sha256": "906ef7e42596c209d77206ace8478810cae57a49aa1cb2d3f41c598807a5e8f2"
+      }
+    },
+    "outputs": {
+      "modelSource": {
+        "path": ".build/desktop-package/src/core/model.cpp",
+        "bytes": 50478,
+        "sha256": "900592d3238369b79c796304a41c2b9e43da585c050e2f87c20a38f47df69a25"
+      }
+    }
+  },
+  "contentKeyCleanup": {
+    "scope": "complete content-key formatting; propagate allocation failure before publication",
+    "inputs": {
+      "fileIoSource": {
+        "path": ".build/desktop-package/src/platform/file_io.cpp",
+        "bytes": 9720,
+        "sha256": "094b71a3982a42a47001d2e5167b2c895995ef53b11d68c38959ea5c91d40fa1"
+      }
+    },
+    "outputs": {
+      "fileIoSource": {
+        "path": ".build/desktop-package/src/platform/file_io.cpp",
+        "bytes": 10066,
+        "sha256": "bae4c5163773aa6fead8e02bb967fcf9d229e70f8cd04f5091be2b9476d37e32"
+      }
+    }
+  },
+  "bootstrapPython": {
+    "version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "executable": {
+      "bytes": 103192,
+      "sha256": "5f7b89a612c9b8af1d6456cdfcd1dbe5ca630849e79aebced9bee9a6694952ec"
+    }
+  },
+  "configureCommand": [
+    "{cmake}",
+    "-S",
+    "{workspace}\\native\\wasm",
+    "-B",
+    "{workspace}\\.build\\wasm",
+    "-G",
+    "Ninja",
+    "-DCMAKE_BUILD_TYPE=Release",
+    "-DCMAKE_TOOLCHAIN_FILE={sdk}\\upstream\\emscripten\\cmake\\Modules\\Platform\\Emscripten.cmake",
+    "-DCMAKE_MAKE_PROGRAM={ninja}",
+    "-DSPLATVIEW_PACKAGE={workspace}\\.build\\desktop-package",
+    "-DSPLATVIEW_WEBP_SOURCE={sdk}\\upstream\\emscripten\\cache\\ports\\contrib.libwebp\\libwebp-1.6.0",
+    "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
+    "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
+    "-DCMAKE_DISABLE_FIND_PACKAGE_zstd=ON",
+    "-DCMAKE_FIND_USE_PACKAGE_REGISTRY=OFF",
+    "-DFETCHCONTENT_SOURCE_DIR_ZSTD={workspace}\\.build\\wasm\\_deps\\zstd-src"
+  ],
+  "buildCommand": [
+    "{cmake}",
+    "--build",
+    "{workspace}\\.build\\wasm",
+    "--clean-first",
+    "--parallel",
+    "6"
+  ],
+  "commandEvidence": {
+    "path": ".build/wasm/build-commands.txt",
+    "bytes": 495286,
+    "sha256": "44b9f107a2096a43c144bd8844a8bbb1d7deb59f8ca1300c68fc309d9b3d44fc"
+  },
+  "compileCommands": {
+    "bytes": 516797,
+    "sha256": "a19a7b8e60341070cc59f12428b127c6e6c1dcf666a165609676742140205b0e"
+  },
+  "cmakeCache": {
+    "bytes": 28382,
+    "sha256": "95b6aecceca3faa4e42fb5aed2193ab12c6030538bfa43737eaf9f0a5a1e916f"
+  },
+  "environmentPolicy": "Locked SDK paths; ambient compiler/Python/Node overrides removed; empty isolated Python bytecode prefix; fresh root CMake cache; external zstd package discovery disabled.",
+  "outputs": {
+    "splatview-core.mjs": {
+      "bytes": 85553,
+      "sha256": "56f17094ccd8b9ded2d0fe8c7f5797a93cb5397c83b7c6ce39484c134be65a21"
+    },
+    "splatview-core.wasm": {
+      "bytes": 2370662,
+      "sha256": "2f0e9b58778894a4299c1b6e3f71faf4a88bb509c4f81abab4581685193398f8"
+    },
+    "splatview-camera.mjs": {
+      "bytes": 16479,
+      "sha256": "25f49d0b2983bad9b938a61198d89071d1a6db884b196d81826e4fefb9e75711"
+    },
+    "splatview-camera.wasm": {
+      "bytes": 84407,
+      "sha256": "7189addf497dbc3c8180b09d7f6ddbbce57bcd40b3f83ca470f97edf7e34652a"
+    }
+  }
+}

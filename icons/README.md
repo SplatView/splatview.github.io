@@ -1,0 +1,16 @@
+# Viewer icons
+
+These outline SVGs are from [Lucide](https://github.com/lucide-icons/lucide), pinned to commit `a04f228cd01185e09c188b7227b9600c08c565ec`. The additional `selection-*.svg`, `alignment-*.svg`, `view-auto-orbit.svg`, `volume-brush.svg`, `magnet.svg`, `settings.svg` and `fullscreen*.svg` are original SplatView icons using the same grid and stroke style, covered by the proprietary notice in the project's `LICENSE`. Selection filters show their actual volume shapes; opacity uses a transparency checkerboard and scale uses small/large splats above a size arrow.
+
+The `color-*.svg`, `flip-*.svg` and `image-*.svg` icons are also original SplatView designs covered by that proprietary notice. Color actions use a magic wand for automatic correction, the camera exposure-compensation symbol, a half-filled contrast circle, a thermometer with sun rays for white balance and a palette for presets. The flip icons identify the X/Y/Z axes.
+
+Image actions have distinct destinations: Camera captures an image file, Copy Image shows two overlapping frames with a picture, and Set Explorer thumbnail shows a picture with a refresh arrow. The thumbnail tooltip explains that the current view becomes both the file thumbnail and its default camera. Keep these as compact icon buttons, with localized action names and explanations on hover.
+
+The spherical brush (`volume-brush.svg`) combines a brush with a wireframe sphere. Polygon selection shows clickable vertices, while rectangle selection uses a marquee. Include splat edges shows a splat extending across that marquee; Visible only retains the eye. Invert selection uses a partially selected marquee instead of the color-contrast circle.
+
+Color selection uses an eyedropper (`selection-eyedropper.svg`); connected fill uses a tipped bucket and droplet (`selection-fill.svg`). The Connected colors option uses a branching group of linked points (`selection-connected.svg`) to show a connected component, distinct from the polygon outline. These are original SplatView icons covered by that proprietary notice and select splats without recoloring them.
+
+Snap uses an upright horseshoe magnet with a wide opening and marked pole tips to remain readable at 16 pixels. Coordinate space uses Lucide's 3D axes and point picking uses its crosshair. Camera navigation uses an orbit, object rotation uses rotation rings and automatic orbit adds a play symbol to a clockwise arrow. Alignment has separate two-point dimension, three-point plane and floor-normal glyphs. These distinctions keep unrelated commands from sharing the same icon. See the [complete visual catalog](../../design/icon-catalog.html) for each glyph's role and rationale at actual control sizes.
+
+`LICENSE.txt` includes Lucide's ISC license and the MIT notice for icons derived from Feather; those third-party licenses remain unchanged and are not replaced by SplatView's proprietary notice. Source Lucide SVGs are unchanged. CMake assembles the selected icons into an embedded white atlas, using 1.75-unit strokes on their original 24-unit grid to match the visual weight of SplatView's controls. The SVGs render locally through Windows Direct2D at twice the display resolution; runtime downloads are unnecessary.
+
