@@ -1,0 +1,38 @@
+Mip-NeRF 360 dataset attribution
+
+The bundled Bench example is a reconstructed Gaussian scene supplied by the
+SplatView app owner, who identifies its source data as Mip-NeRF 360.
+The web app uses the same SOG bytes as the desktop tutorial scene.
+
+Dataset authors: Jonathan T. Barron, Ben Mildenhall, Dor Verbin,
+Pratul P. Srinivasan and Peter Hedman.
+
+Project and original dataset links:
+https://jonbarron.info/mipnerf360/
+
+Publication:
+Mip-NeRF 360: Unbounded Anti-Aliased Neural Radiance Fields.
+CVPR, 2022.
+https://arxiv.org/abs/2111.12077
+
+Citation:
+@article{barron2022mipnerf360,
+  title={Mip-NeRF 360: Unbounded Anti-Aliased Neural Radiance Fields},
+  author={Jonathan T. Barron and Ben Mildenhall and Dor Verbin and
+          Pratul P. Srinivasan and Peter Hedman},
+  journal={CVPR},
+  year={2022}
+}
+
+Bundled derivative: examples/bench.sog
+Original supplied filename: Model_40000-bike_gone-preview.sog
+Bytes: 5124962; splats: 262556.
+SHA-256: a4f0b3d623a10a3d15cf4179c44a54ae88258ef66dbaddbf67009a40b44b1570
+The SOG metadata identifies its encoder as "SplatView CPU encoder".
+Original dataset photographs and MultiNeRF source code are not bundled.
+
+This is a data attribution notice. The dataset and reconstructed model retain
+their respective rights independently of SplatView and its software dependencies.
+This notice does not assign an Apache, MIT, Creative Commons or public-domain
+license to the data or model. The MultiNeRF software license is not treated as
+a license for the separately downloaded dataset.

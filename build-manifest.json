@@ -63,26 +63,38 @@
         "nativeInputId": "59b0d5f23b429590c4804a68ecba23fb6d3b0b1c3c44f17cb92d6b5ba81b3230"
       }
     },
-    "appInputId": "9cfca9e8791dd1c2c882f424c34b98eba80488e2aec3ebdd59cd7eadebdbc127"
+    "appInputId": "9df66f670600481add5f211691b624cbafbe25648d47c7cc101850b54f8cf8da"
   },
   "artifacts": [
     {
       "role": "document-worker",
-      "path": "assets/document.worker-BMn3n-na.js",
+      "path": "assets/document.worker-D4bEJACz.js",
       "bytes": 218549,
-      "sha256": "3354ed188450df268dba9b19513cec35846183dea838dbadadff01406690d023"
-    },
-    {
-      "role": "application-entry",
-      "path": "assets/index-D6UGNiaH.js",
-      "bytes": 1753261,
-      "sha256": "f20a5c8c6501a40b5291a14b022aa020baaa654579a1d375696095db01713840"
+      "sha256": "58ae603f3a2f7bdc1ab08e2ed342b0d8834d6ad88af6ad6a2b5ff1b9b13147fb"
     },
     {
       "role": "stylesheet",
       "path": "assets/index-DB06e-EC.css",
       "bytes": 46470,
       "sha256": "a5a5ef6a8dc739aee7dda83aa282391f240482671549581957561ff41b6261a6"
+    },
+    {
+      "role": "application-entry",
+      "path": "assets/index-DDEZDsmf.js",
+      "bytes": 1756055,
+      "sha256": "ccc9b951dc709effd2fa46d3f69334cddf8898dfd8ad1c9fb32117ccafa9acf9"
+    },
+    {
+      "role": "runtime-asset",
+      "path": "examples/bench.json",
+      "bytes": 1047,
+      "sha256": "26de42644e76a4c8119eb4cad258466226ed9c348faaf5faeeb1e36e2df44fb4"
+    },
+    {
+      "role": "runtime-asset",
+      "path": "examples/bench.sog",
+      "bytes": 5124962,
+      "sha256": "a4f0b3d623a10a3d15cf4179c44a54ae88258ef66dbaddbf67009a40b44b1570"
     },
     {
       "role": "runtime-asset",
@@ -598,13 +610,13 @@
       "role": "html",
       "path": "index.html",
       "bytes": 773,
-      "sha256": "7064eaab776d0f20c9dfcd5c8c9434aa2c3b7196b121534788ddc036975a0d8e"
+      "sha256": "a7ce63027c3226827b67c6395c0c1e5778fd02f8da56bca993fe7c874d322cdf"
     },
     {
       "role": "runtime-asset",
       "path": "licenses/BROWSER_DEPENDENCIES.md",
-      "bytes": 1210,
-      "sha256": "4b6b88ab0017659988760f5d7f97ea1de8c159dfaeea2886329d5853c9e6d75f"
+      "bytes": 1391,
+      "sha256": "d2e12656af8fd9dea6b65c6f6fcece5e7d36a9a9b8219aeb1503c0f8165dc04b"
     },
     {
       "role": "runtime-asset",
@@ -617,6 +629,12 @@
       "path": "licenses/ImGuizmo-MIT.txt",
       "bytes": 1083,
       "sha256": "b957968be18bbc4fde7705cfcbda10bea1a71614e62361ace0473bb97dd0b700"
+    },
+    {
+      "role": "runtime-asset",
+      "path": "licenses/Mip-NeRF-360-NOTICE.txt",
+      "bytes": 1522,
+      "sha256": "3e0cae3b493ba40daede49744abcfb4ed11d0231f259899008bdc7c848e043ed"
     },
     {
       "role": "runtime-asset",
@@ -697,5 +715,5 @@
       "sha256": "2f0e9b58778894a4299c1b6e3f71faf4a88bb509c4f81abab4581685193398f8"
     }
   ],
-  "deploymentId": "834529d71d61caf37d26201fa3bd2e4f1bd2aca6b912dceb03a4d592f9a85921"
+  "deploymentId": "375b238cfd855e5dc739a43846c430ac6e3b3662f1f23cecabf43d45ccbcca1e"
 }

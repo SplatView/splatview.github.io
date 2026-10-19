@@ -1,0 +1,31 @@
+{
+  "name": "Bench example",
+  "file": "bench.sog",
+  "bytes": 5124962,
+  "splats": 262556,
+  "sha256": "a4f0b3d623a10a3d15cf4179c44a54ae88258ef66dbaddbf67009a40b44b1570",
+  "source": {
+    "desktopAsset": "SplatPreview/assets/tutorial/bench.sog",
+    "ownerSuppliedFilename": "Model_40000-bike_gone-preview.sog",
+    "ownerSuppliedOn": "2026-10-15",
+    "dataset": "Mip-NeRF 360",
+    "datasetLineage": "Identified by the app owner on 2026-10-19.",
+    "project": "https://jonbarron.info/mipnerf360/"
+  },
+  "view": {
+    "background": "black",
+    "distance": 3.7993321418762207,
+    "field_of_view": 45.0,
+    "pitch": 0.38079535961151123,
+    "roll": 0.21997733414173126,
+    "target": [
+      2.602029323577881,
+      -0.36847925186157227,
+      -1.6119190454483032
+    ],
+    "y_up": true,
+    "yaw": -7.259469985961914
+  },
+  "notice": "../licenses/Mip-NeRF-360-NOTICE.txt",
+  "rights": "Dataset/model rights are separate from application and software dependency licenses; no dataset license is inferred from the MultiNeRF code license."
+}

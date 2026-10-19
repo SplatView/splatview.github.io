@@ -12,6 +12,18 @@ The root serves the Basic SplatView browser viewer and lightweight editor over H
 
 This repository contains the emitted static site. Publish the complete verified `dist` closure from the application workspace, retaining the existing publisher/legal pages and `.nojekyll`. Do not copy build caches, toolchains, fixtures or test reports. Keep all application assets, native modules, workers, notices, maps and `build-manifest.json` together.
 
-Published application input: `9cfca9e8791dd1c2c882f424c34b98eba80488e2aec3ebdd59cd7eadebdbc127`.
+Published application input: `9df66f670600481add5f211691b624cbafbe25648d47c7cc101850b54f8cf8da`.
 
-Deployment identity: `834529d71d61caf37d26201fa3bd2e4f1bd2aca6b912dceb03a4d592f9a85921`.
+Deployment identity: `375b238cfd855e5dc739a43846c430ac6e3b3662f1f23cecabf43d45ccbcca1e`.
+
+## Demo data
+
+The browser demo and tutorial use the same Bench reconstruction and authored
+view as the desktop application: 5,124,962 bytes (5.1 MB), 262,556 splats.
+The app owner identifies its source data as
+[Mip-NeRF 360](https://jonbarron.info/mipnerf360/), by Jonathan T. Barron,
+Ben Mildenhall, Dor Verbin, Pratul P. Srinivasan and Peter Hedman (CVPR 2022).
+See the [sample provenance and authored view](examples/bench.json) and the
+[distributed dataset attribution](licenses/Mip-NeRF-360-NOTICE.txt).
+Data and model rights are separate from application and dependency licenses;
+this attribution assigns no new license to the dataset or reconstruction.
