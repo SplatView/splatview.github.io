@@ -12,6 +12,6 @@ The root serves the Basic SplatView browser viewer and lightweight editor over H
 
 This repository contains the emitted static site. Publish the complete verified `dist` closure from the application workspace, retaining the existing publisher/legal pages and `.nojekyll`. Do not copy build caches, toolchains, fixtures or test reports. Keep all application assets, native modules, workers, notices, maps and `build-manifest.json` together.
 
-Published application input: `5cafe5032b182dc92ce9fc414df2a1d22ff90285341d4a8f0e346505327b08e3`.
+Published application input: `d85f4299c3249961723f2782431f7ad68e14ddd27031a2ab2e4154b0bf6edfc7`.
 
-Deployment identity: `5885f7e52d0d1ba5ddeecf8ea7ccd2ef8100576092230321295ee4ffed1f8fff`.
+Deployment identity: `0c178d046f3eef4e1759483958290c808c772243b29bbf82afae3c85205b4fb2`.
