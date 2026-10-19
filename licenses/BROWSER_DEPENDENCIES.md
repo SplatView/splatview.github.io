@@ -19,5 +19,9 @@ Other bundled component and codec notices remain alongside these files in this
 directory; icon attribution is provided in `../icons/LICENSE.txt`.
 
 The bundled desktop tutorial scene uses source data credited to
-[Mip-NeRF 360](Mip-NeRF-360-NOTICE.txt). Its data attribution is separate from
-the software package licenses above.
+[Mip-NeRF 360](Mip-NeRF-360-NOTICE.txt), licensed under
+[Creative Commons Attribution 4.0 International (CC-BY-4.0)](https://creativecommons.org/licenses/by/4.0/).
+The [full license text](CC-BY-4.0.txt) is bundled here. The owner-supplied edited
+Gaussian-splat reconstruction is encoded as SOG and adapted from the original
+photographs; its notice identifies the authors, source and changes. These
+dataset terms are separate from the software package licenses above.

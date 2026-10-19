@@ -63,14 +63,20 @@
         "nativeInputId": "59b0d5f23b429590c4804a68ecba23fb6d3b0b1c3c44f17cb92d6b5ba81b3230"
       }
     },
-    "appInputId": "9df66f670600481add5f211691b624cbafbe25648d47c7cc101850b54f8cf8da"
+    "appInputId": "0c976706ac154456b4fd5c8cbebd59113cc0dfc9b2add7efd6f2ccf3d416b086"
   },
   "artifacts": [
     {
       "role": "document-worker",
-      "path": "assets/document.worker-D4bEJACz.js",
+      "path": "assets/document.worker-CShT6YiJ.js",
       "bytes": 218549,
-      "sha256": "58ae603f3a2f7bdc1ab08e2ed342b0d8834d6ad88af6ad6a2b5ff1b9b13147fb"
+      "sha256": "6a6ddccfbfa7b093b4fe418870450f00ae6b9f769e9e21f73f293a462c80b218"
+    },
+    {
+      "role": "application-entry",
+      "path": "assets/index-3uEXhmkV.js",
+      "bytes": 1756055,
+      "sha256": "43f678ba955dc881bfd603d2dc69aa5893a86aa20979b2c730aac62c6f23ef20"
     },
     {
       "role": "stylesheet",
@@ -79,16 +85,10 @@
       "sha256": "a5a5ef6a8dc739aee7dda83aa282391f240482671549581957561ff41b6261a6"
     },
     {
-      "role": "application-entry",
-      "path": "assets/index-DDEZDsmf.js",
-      "bytes": 1756055,
-      "sha256": "ccc9b951dc709effd2fa46d3f69334cddf8898dfd8ad1c9fb32117ccafa9acf9"
-    },
-    {
       "role": "runtime-asset",
       "path": "examples/bench.json",
-      "bytes": 1047,
-      "sha256": "26de42644e76a4c8119eb4cad258466226ed9c348faaf5faeeb1e36e2df44fb4"
+      "bytes": 1783,
+      "sha256": "65cef8e41c5510036feb5c593d89635fe4bbf05bcccdec7fba13f3d1141f2d42"
     },
     {
       "role": "runtime-asset",
@@ -610,13 +610,19 @@
       "role": "html",
       "path": "index.html",
       "bytes": 773,
-      "sha256": "a7ce63027c3226827b67c6395c0c1e5778fd02f8da56bca993fe7c874d322cdf"
+      "sha256": "a2bb6080616c17989981b82bdb5993130c821fb84059722a8b5d20f6248ffefa"
     },
     {
       "role": "runtime-asset",
       "path": "licenses/BROWSER_DEPENDENCIES.md",
-      "bytes": 1391,
-      "sha256": "d2e12656af8fd9dea6b65c6f6fcece5e7d36a9a9b8219aeb1503c0f8165dc04b"
+      "bytes": 1742,
+      "sha256": "c421d5d0ff54dc6a5b769e22a49e9237eee0ea3a4d1638e784991286e93723b5"
+    },
+    {
+      "role": "runtime-asset",
+      "path": "licenses/CC-BY-4.0.txt",
+      "bytes": 18657,
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411"
     },
     {
       "role": "runtime-asset",
@@ -633,8 +639,8 @@
     {
       "role": "runtime-asset",
       "path": "licenses/Mip-NeRF-360-NOTICE.txt",
-      "bytes": 1522,
-      "sha256": "3e0cae3b493ba40daede49744abcfb4ed11d0231f259899008bdc7c848e043ed"
+      "bytes": 2606,
+      "sha256": "2d9504a85c7c8fb1cfed38ba047f93532a968448d2394b6b68ce1ff76eafce70"
     },
     {
       "role": "runtime-asset",
@@ -715,5 +721,5 @@
       "sha256": "2f0e9b58778894a4299c1b6e3f71faf4a88bb509c4f81abab4581685193398f8"
     }
   ],
-  "deploymentId": "375b238cfd855e5dc739a43846c430ac6e3b3662f1f23cecabf43d45ccbcca1e"
+  "deploymentId": "9973275c9323d0c39dc674975545dc1e68e55f1472b58581d5c7caf613f48b21"
 }

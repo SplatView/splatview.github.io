@@ -12,9 +12,9 @@ The root serves the Basic SplatView browser viewer and lightweight editor over H
 
 This repository contains the emitted static site. Publish the complete verified `dist` closure from the application workspace, retaining the existing publisher/legal pages and `.nojekyll`. Do not copy build caches, toolchains, fixtures or test reports. Keep all application assets, native modules, workers, notices, maps and `build-manifest.json` together.
 
-Published application input: `9df66f670600481add5f211691b624cbafbe25648d47c7cc101850b54f8cf8da`.
+Published application input: `0c976706ac154456b4fd5c8cbebd59113cc0dfc9b2add7efd6f2ccf3d416b086`.
 
-Deployment identity: `375b238cfd855e5dc739a43846c430ac6e3b3662f1f23cecabf43d45ccbcca1e`.
+Deployment identity: `9973275c9323d0c39dc674975545dc1e68e55f1472b58581d5c7caf613f48b21`.
 
 ## Demo data
 
@@ -25,5 +25,12 @@ The app owner identifies its source data as
 Ben Mildenhall, Dor Verbin, Pratul P. Srinivasan and Peter Hedman (CVPR 2022).
 See the [sample provenance and authored view](examples/bench.json) and the
 [distributed dataset attribution](licenses/Mip-NeRF-360-NOTICE.txt).
-Data and model rights are separate from application and dependency licenses;
-this attribution assigns no new license to the dataset or reconstruction.
+The underlying Mip-NeRF 360 dataset is licensed under
+[Creative Commons Attribution 4.0 International](licenses/CC-BY-4.0.txt),
+as declared in the official [SMERF dataset release](https://smerf-3d.github.io/#data)
+and its [June 18, 2024 source commit](https://github.com/smerf-3d/smerf-3d.github.io/commit/f4fd7c9978164b2cd7eaa718fa19bc6ec62551e8).
+Bench is the owner-supplied edited Gaussian reconstruction, encoded as SOG;
+these are changes from the original dataset photographs. It is not an official
+SMERF teacher checkpoint. The data license is separate from application and
+software dependency licenses. The supplied notice credits the dataset authors,
+identifies these changes and includes the license link and warranty disclaimer.

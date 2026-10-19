@@ -1,14 +1,27 @@
-Mip-NeRF 360 dataset attribution
+Mip-NeRF 360 dataset - CC BY 4.0 attribution
 
-The bundled Bench example is a reconstructed Gaussian scene supplied by the
-SplatView app owner, who identifies its source data as Mip-NeRF 360.
-The web app uses the same SOG bytes as the desktop tutorial scene.
+The bundled Bench example is an owner-supplied edited Gaussian-splat
+reconstruction encoded as SOG, adapted from the original Mip-NeRF 360
+photographs. The web app uses the same supplied bytes as the desktop tutorial.
 
 Dataset authors: Jonathan T. Barron, Ben Mildenhall, Dor Verbin,
 Pratul P. Srinivasan and Peter Hedman.
 
 Project and original dataset links:
 https://jonbarron.info/mipnerf360/
+
+Dataset license: Creative Commons Attribution 4.0 International (CC-BY-4.0).
+https://creativecommons.org/licenses/by/4.0/
+Full license text bundled alongside this notice: CC-BY-4.0.txt
+Canonical legal text:
+https://creativecommons.org/licenses/by/4.0/legalcode.txt
+
+Author-issued dataset license declaration:
+https://smerf-3d.github.io/#data
+The Datasets & Teacher Checkpoints section lists Mip-NeRF 360 and declares
+the listed datasets and checkpoints released under CC BY 4.0. The declaration
+was introduced by SMERF author Daniel Duckworth on June 18, 2024:
+https://github.com/smerf-3d/smerf-3d.github.io/commit/f4fd7c9978164b2cd7eaa718fa19bc6ec62551e8
 
 Publication:
 Mip-NeRF 360: Unbounded Anti-Aliased Neural Radiance Fields.
@@ -31,8 +44,17 @@ SHA-256: a4f0b3d623a10a3d15cf4179c44a54ae88258ef66dbaddbf67009a40b44b1570
 The SOG metadata identifies its encoder as "SplatView CPU encoder".
 Original dataset photographs and MultiNeRF source code are not bundled.
 
-This is a data attribution notice. The dataset and reconstructed model retain
-their respective rights independently of SplatView and its software dependencies.
-This notice does not assign an Apache, MIT, Creative Commons or public-domain
-license to the data or model. The MultiNeRF software license is not treated as
-a license for the separately downloaded dataset.
+Change notice: The app owner supplied an edited Gaussian-splat reconstruction
+encoded as SOG, adapted from the original photographs. SplatView supplies the
+tutorial camera separately. This scene is an owner-supplied adaptation, not a
+checkpoint released by SMERF.
+
+Retain the dataset attribution, license link and indication of changes when
+sharing this adapted content under CC BY 4.0. The license includes its own
+warranty and liability terms. No endorsement by the dataset or SMERF authors
+is implied.
+
+The dataset license is separate from SplatView's application and software
+dependency licenses. Application terms do not restrict the rights granted
+under CC BY 4.0 in this third-party dataset content. MultiNeRF's software
+license is independent of these dataset terms.

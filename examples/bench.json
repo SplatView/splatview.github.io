@@ -10,7 +10,19 @@
     "ownerSuppliedOn": "2026-10-15",
     "dataset": "Mip-NeRF 360",
     "datasetLineage": "Identified by the app owner on 2026-10-19.",
-    "project": "https://jonbarron.info/mipnerf360/"
+    "project": "https://jonbarron.info/mipnerf360/",
+    "authors": [
+      "Jonathan T. Barron",
+      "Ben Mildenhall",
+      "Dor Verbin",
+      "Pratul P. Srinivasan",
+      "Peter Hedman"
+    ],
+    "paper": "https://arxiv.org/abs/2111.12077",
+    "datasetLicense": "CC-BY-4.0",
+    "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+    "licenseDeclaration": "https://smerf-3d.github.io/#data",
+    "licenseDeclarationCommit": "https://github.com/smerf-3d/smerf-3d.github.io/commit/f4fd7c9978164b2cd7eaa718fa19bc6ec62551e8"
   },
   "view": {
     "background": "black",
@@ -27,5 +39,7 @@
     "yaw": -7.259469985961914
   },
   "notice": "../licenses/Mip-NeRF-360-NOTICE.txt",
-  "rights": "Dataset/model rights are separate from application and software dependency licenses; no dataset license is inferred from the MultiNeRF code license."
+  "licenseText": "../licenses/CC-BY-4.0.txt",
+  "modifications": "Owner-supplied edited Gaussian-splat reconstruction encoded as SOG, adapted from the original photographs. The tutorial camera is supplied separately.",
+  "rights": "The Mip-NeRF 360 source dataset is licensed under CC-BY-4.0. Dataset content and the supplied reconstruction are separate from the application and software dependency licenses."
 }
