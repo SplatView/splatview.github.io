@@ -1,6 +1,6 @@
 # SplatView web and publisher pages
 
-Public privacy information, license terms and support links for SplatView, published by OpsiClear LLC. The app source is maintained separately in a private repository.
+Public privacy information, license terms and support links for SplatView, published by OpsiClear LLC. Application source and contributor instructions are available on the [source branch](https://github.com/SplatView/splatview.github.io/tree/source).
 
 GitHub Pages: https://splatview.github.io/
 
@@ -10,11 +10,11 @@ Publish from the `main` branch and `/` root. Keep the plain-text legal documents
 
 The root serves the Basic SplatView browser viewer and lightweight editor over HTTPS. Selected scene files are processed locally in the browser. WebGPU is required. The previous desktop publisher homepage is retained at [/publisher/](https://splatview.github.io/publisher/); existing privacy and license URLs remain unchanged.
 
-This repository contains the emitted static site. Publish the complete verified `dist` closure from the application workspace, retaining the existing publisher/legal pages and `.nojekyll`. Do not copy build caches, toolchains, fixtures or test reports. Keep all application assets, native modules, workers, notices, maps and `build-manifest.json` together.
+The `main` branch contains the emitted static site. Downloadable web builds are available in [Releases](https://github.com/SplatView/splatview.github.io/releases). Publish the complete verified `dist` closure from the application workspace, retaining the existing publisher/legal pages and `.nojekyll`. Do not copy build caches, toolchains, fixtures or test reports. Keep all application assets, native modules, workers, notices, maps and `build-manifest.json` together.
 
-Published application input: `7cd9a1a4db75e8ee7c2453decdc2084e1134a9d508503bd965d8b2415c0ea893`.
+Published application input: `7dac8f6dbffe9131b036806a82831ce5a811f0335a851ec8cc6c010aca8b2374`.
 
-Deployment identity: `4ebb309cb98d0f36344b6b522941a7efd3f53854661002ea378c74e04c49908a`.
+Deployment identity: `45bb9b11d1ebd2dc08789494f6fe91192f4d256304193e06f5328c3bb14b5799`.
 
 ## Demo data
 
