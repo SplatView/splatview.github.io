@@ -11,8 +11,9 @@ __pycache__/
 /test-results-*
 *.tsbuildinfo
 
-# Captured desktop sources stay local: their own nested .gitattributes would
-# rewrite hash-locked bytes. Commit each capture's manifest/status instead.
+# Restore frozen desktop sources explicitly from reference/frozen-sources.zip.
+# Its byte-locked members bypass nested .gitattributes normalization; retain
+# capture manifests/status and the already tracked finite pivot capture.
 /reference/windows/
 /reference/targets/*/source/
 !/reference/targets/windows-pivot-20261016-01/source/

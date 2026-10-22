@@ -108,6 +108,15 @@ The native builder expects Emscripten 6.0.12 under `.tools/emsdk` or `EMSDK`, pl
 the pinned CMake/Ninja and codec inputs. Its installed SDK/cache fingerprints
 must match the lock. Build commands verify these inputs and never update the lock.
 
+After a fresh checkout, restore the frozen desktop references from the checked-in
+archive. This explicit step verifies every member against the existing source
+lock/capture manifests and refuses conflicting local files. It never reads a
+sibling checkout or regenerates assets. See [the packaging review](design/feature-reviews/frozen-reference-packaging-2026-10-22.md).
+
+```sh
+python -B tools/restore-references.py
+```
+
 From that workspace:
 
 ```sh
