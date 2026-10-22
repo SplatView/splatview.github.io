@@ -1,0 +1,25 @@
+SplatView - Proprietary Software Notice
+
+Copyright (c) 2026 OpsiClear LLC. All rights reserved.
+
+SplatView's original application code, documentation and original artwork are
+proprietary. Source code is not provided or licensed as part of a binary
+distribution. This notice does not grant permission to copy, modify,
+redistribute, sublicense or sell those proprietary materials.
+
+Use of official application binaries is governed by EULA.txt when supplied
+and accepted, and by the applicable distribution-channel terms. Microsoft Store
+acquisitions are governed by the applicable Store application license terms,
+including any additional terms supplied by the publisher through the Store.
+This notice does not replace those end-user terms or limit rights required by
+applicable law.
+
+Third-party software, adapted code and assets retain their respective
+copyrights and licenses. See THIRD-PARTY-NOTICES.txt and the licenses directory
+included with the application. The proprietary notice above does not apply to
+those third-party materials or restrict rights granted by their licenses.
+
+This notice does not revoke rights already granted for copies previously
+distributed under another license.
+
+Licensing and support: support@opsiclear.com

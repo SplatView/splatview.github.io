@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Genuine pre-handshake ABI6 core and ABI1 camera artifacts for initialization refusal tests; never publish as application assets",
+  "desktopBaseline": "Windows SplatView 0.12.82",
+  "coreAbi": 6,
+  "cameraAbi": 1,
+  "nativeIdentityExportsPresent": false,
+  "provenanceVerification": "tools/verify-toolchain.py verify-build --local-evidence passed before capture",
+  "sourceLockSha256": "d6515ebbc1f22ca1498b37d6369420f87cf48a39aba2d0ec952fcc9dbae9c747",
+  "artifacts": {
+    "splatview-core.mjs": {
+      "bytes": 77935,
+      "sha256": "d983622631b19f713d194952f56bc37abe92f028184847b1de10e47c659512e1"
+    },
+    "splatview-core.wasm": {
+      "bytes": 1446804,
+      "sha256": "61108a68be7a5e700b03aaf512499d887549a63331c46eb7bf3071dde1c61761"
+    },
+    "splatview-camera.mjs": {
+      "bytes": 10854,
+      "sha256": "085ece724dad161b45d2b49630d8e64556b52e2bc94aade1052379977bc18c64"
+    },
+    "splatview-camera.wasm": {
+      "bytes": 26675,
+      "sha256": "01068841465e51d348d620f8a66b33353094310113191d9bc775480b994d60b5"
+    },
+    "build-provenance.json": {
+      "bytes": 6968,
+      "sha256": "79e73f1e272beb2acb46ce994b1567706ef51ad80b78f7a559a5a5db03cc7653"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+# One source owner and standalone/add_subdirectory entry point.
+add_subdirectory("${PROJECT_SOURCE_DIR}/shared" "${PROJECT_BINARY_DIR}/shared")
+if(NOT TARGET SplatView::Domain)
+    message(FATAL_ERROR "The root build requires SPLATVIEW_BUILD_DOMAIN=ON. For a Scene-only package use cmake -S shared -DSPLATVIEW_BUILD_DOMAIN=OFF.")
+endif()
+if(BUILD_TESTING)
+    add_executable(SplatViewDomainTests tests/domain_contracts.cpp)
+    target_link_libraries(SplatViewDomainTests PRIVATE splatview_domain)
+    add_test(NAME DomainContracts COMMAND SplatViewDomainTests)
+    set_tests_properties(DomainContracts PROPERTIES TIMEOUT 30 LABELS "portable;domain")
+
+    # One translation unit per header catches accidental transitive includes.
+    set(domain_headers scene.hpp scene_storage.hpp admitted_storage.hpp mask_storage.hpp model.hpp camera.hpp math.hpp color.hpp render_types.hpp
+        editing.hpp navigation.hpp geometry_tools.hpp surface_selection.hpp
+        recipe.hpp depth_sort.hpp parallel_for.hpp tools_mode.hpp processing_kernels.hpp resource_budget.hpp)
+    set(header_units "")
+    foreach(header IN LISTS domain_headers)
+        string(REPLACE "." "_" unit_name "${header}")
+        set(unit "${PROJECT_BINARY_DIR}/domain-headers/${unit_name}.cpp")
+        file(GENERATE OUTPUT "${unit}" CONTENT "#include \"${header}\"\n#include <charconv>\n")
+        list(APPEND header_units "${unit}")
+    endforeach()
+    add_library(SplatViewDomainHeaders OBJECT ${header_units})
+    target_link_libraries(SplatViewDomainHeaders PRIVATE splatview_domain)
+    if(TARGET SplatView::RenderCPU)
+        add_executable(SplatViewCpuRenderTests tests/cpu_render_contracts.cpp)
+        target_link_libraries(SplatViewCpuRenderTests PRIVATE SplatView::RenderCPU)
+        add_test(NAME CpuRenderContracts COMMAND SplatViewCpuRenderTests)
+        set_tests_properties(CpuRenderContracts PROPERTIES TIMEOUT 30 LABELS "portable;renderer")
+    endif()
+endif()

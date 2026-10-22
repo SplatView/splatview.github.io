@@ -1,0 +1,48 @@
+﻿{
+    "schemaVersion":  1,
+    "kind":  "observed-local-command-terminal",
+    "workingDirectory":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+    "executable":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+    "arguments":  [
+                      "node_modules/@playwright/test/cli.js",
+                      "test",
+                      "e2e/settings-panel.spec.ts",
+                      "e2e/viewer-shell.spec.ts",
+                      "e2e/app.spec.ts",
+                      "e2e/background.spec.ts",
+                      "e2e/fill-shortcut.spec.ts",
+                      "e2e/geometry-viewer.spec.ts",
+                      "e2e/live-preview-failure.spec.ts",
+                      "e2e/native-memory.spec.ts",
+                      "e2e/portable-saved-view.spec.ts",
+                      "e2e/saved-view.spec.ts",
+                      "e2e/ui-size.spec.ts",
+                      "e2e/ui-size-native.spec.ts",
+                      "e2e/limited-input.spec.ts",
+                      "e2e/source-navigation.spec.ts",
+                      "--workers=1",
+                      "--max-failures=5",
+                      "--reporter=json",
+                      "--output=.build/settings-panel-tests/affected-01"
+                  ],
+    "startedAtUtc":  "2026-10-12T21:33:51.7502279Z",
+    "finishedAtUtc":  "2026-10-12T21:39:13.9750226Z",
+    "exitCode":  0,
+    "exception":  null,
+    "log":  {
+                "path":  "test-results-coherent-startup-settings-panel-affected-browser-01.log",
+                "bytes":  55582,
+                "sha256":  "ca4803cd5bec6089bcfd3413dc7cea412877e9cb812e36f8fd7d4f6427acb566"
+            },
+    "report":  {
+                   "path":  "test-results-settings-panel-affected-browser-01.json",
+                   "bytes":  996209,
+                   "sha256":  "02f6279a3c50471ef304105c03da8f026a5c4fd22ba7531ba63e993f49b149c6"
+               },
+    "browserOutputDirectory":  ".build/settings-panel-tests/affected-01",
+    "lastRun":  {
+                    "path":  ".build/settings-panel-tests/affected-01/.last-run.json",
+                    "bytes":  45,
+                    "sha256":  "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+                }
+}

@@ -1,0 +1,23 @@
+﻿{
+    "schemaVersion":  1,
+    "kind":  "observed-local-command-terminal",
+    "workingDirectory":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+    "executable":  "C:\\Users\\opsiclear\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+    "arguments":  [
+                      "-m",
+                      "unittest",
+                      "tools/test_verify_toolchain.py"
+                  ],
+    "startedAtUtc":  "2026-10-12T18:00:24.1054174Z",
+    "finishedAtUtc":  "2026-10-12T18:00:24.9610854Z",
+    "exitCode":  0,
+    "exception":  null,
+    "log":  {
+                "path":  "test-results-coherent-startup-cleanup-toolchain-tests-01.log",
+                "bytes":  1094,
+                "sha256":  "fc6b33250007415b33a8af445e6f8ccc1d856f6d6d625b59622fcf2a115b493f"
+            },
+    "report":  null,
+    "browserOutputDirectory":  "",
+    "lastRun":  null
+}

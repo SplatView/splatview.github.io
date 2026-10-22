@@ -1,0 +1,1599 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://splatview.github.io/docs/validation/release-evidence.schema.json",
+  "title": "SplatView release evidence and referenced request contracts",
+  "$ref": "#/$defs/ReleaseBundle",
+  "$defs": {
+    "FileRef": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "path",
+        "bytes",
+        "sha256"
+      ],
+      "additionalProperties": false
+    },
+    "RequiredCell": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/ -]*$"
+        },
+        "kind": {
+          "enum": [
+            "vitest",
+            "playwright",
+            "native",
+            "format",
+            "visual",
+            "manual",
+            "https",
+            "benchmark"
+          ]
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "configurationIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/ -]*$"
+          },
+          "maxItems": 1000
+        },
+        "requiredCaseIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "maxItems": 50000
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "scope",
+        "configurationIds",
+        "requiredCaseIds"
+      ],
+      "additionalProperties": false
+    },
+    "Capability": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/ -]*$"
+        },
+        "desktopFeature": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "scope": {
+          "enum": [
+            "retained",
+            "excluded"
+          ]
+        },
+        "implementation": {
+          "enum": [
+            "implemented",
+            "partial",
+            "planned",
+            "excluded"
+          ]
+        },
+        "requiredCells": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/RequiredCell"
+          },
+          "maxItems": 1000
+        },
+        "approvedDifferenceIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/ -]*$"
+          },
+          "maxItems": 1000
+        },
+        "exclusionReason": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "desktopFeature",
+        "scope",
+        "implementation",
+        "requiredCells",
+        "approvedDifferenceIds",
+        "exclusionReason"
+      ],
+      "additionalProperties": false
+    },
+    "CapabilityLedger": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "kind": {
+          "const": "splatview-capability-ledger"
+        },
+        "desktopContract": {
+          "type": "object",
+          "properties": {
+            "revision": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "capture": {
+              "$ref": "#/$defs/FileRef"
+            }
+          },
+          "required": [
+            "revision",
+            "capture"
+          ],
+          "additionalProperties": false
+        },
+        "sourceFeatureLedger": {
+          "$ref": "#/$defs/FileRef"
+        },
+        "capabilityInventory": {
+          "$ref": "#/$defs/FileRef"
+        },
+        "capabilities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Capability"
+          },
+          "maxItems": 1000
+        },
+        "gates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/RequiredCell"
+          },
+          "maxItems": 1000
+        },
+        "differences": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/ -]*$"
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              }
+            },
+            "required": [
+              "id",
+              "description",
+              "reason"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 1000
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "kind",
+        "desktopContract",
+        "sourceFeatureLedger",
+        "capabilityInventory",
+        "capabilities",
+        "gates",
+        "differences"
+      ],
+      "additionalProperties": false
+    },
+    "SourceCapture": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "kind": {
+          "const": "splatview-release-source-capture"
+        },
+        "appInputId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "deploymentId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "applicationInputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/FileRef"
+          },
+          "maxItems": 50000
+        },
+        "nativeFiles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/FileRef"
+          },
+          "maxItems": 5
+        },
+        "distribution": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/FileRef"
+          },
+          "maxItems": 50000
+        },
+        "coveredInputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/FileRef"
+          },
+          "maxItems": 50000
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "kind",
+        "appInputId",
+        "deploymentId",
+        "applicationInputs",
+        "nativeFiles",
+        "distribution",
+        "coveredInputs"
+      ],
+      "additionalProperties": false
+    },
+    "Shipping": {
+      "type": "object",
+      "properties": {
+        "sourceCapture": {
+          "$ref": "#/$defs/FileRef"
+        },
+        "applicationInputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/FileRef"
+          },
+          "maxItems": 50000
+        },
+        "nativeFiles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/FileRef"
+          },
+          "maxItems": 5
+        },
+        "distribution": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/FileRef"
+          },
+          "maxItems": 50000
+        },
+        "manifest": {
+          "$ref": "#/$defs/FileRef"
+        }
+      },
+      "required": [
+        "sourceCapture",
+        "applicationInputs",
+        "nativeFiles",
+        "distribution",
+        "manifest"
+      ],
+      "additionalProperties": false
+    },
+    "ReportExpectation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/ -]*$"
+        },
+        "adapter": {
+          "enum": [
+            "vitest",
+            "playwright"
+          ]
+        },
+        "command": {
+          "type": "object",
+          "properties": {
+            "executable": {
+              "$ref": "#/$defs/FileRef"
+            },
+            "arguments": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 4096
+              },
+              "maxItems": 1000
+            },
+            "workingDirectory": {
+              "const": "."
+            }
+          },
+          "required": [
+            "executable",
+            "arguments",
+            "workingDirectory"
+          ],
+          "additionalProperties": false
+        },
+        "report": {
+          "$ref": "#/$defs/FileRef"
+        },
+        "coveredInputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/FileRef"
+          },
+          "maxItems": 50000
+        },
+        "files": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              },
+              "leaves": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4096
+                    },
+                    "title": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4096
+                    },
+                    "project": {
+                      "type": "string",
+                      "maxLength": 4096
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "title",
+                    "project"
+                  ],
+                  "additionalProperties": false
+                },
+                "maxItems": 50000
+              }
+            },
+            "required": [
+              "path",
+              "leaves"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 50000
+        },
+        "outputDirectory": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "outputFiles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/FileRef"
+          },
+          "maxItems": 50000
+        },
+        "requiredAttachments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "caseId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              },
+              "project": {
+                "type": "string",
+                "maxLength": 4096
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              },
+              "sha256": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "fixtureSetId": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "caseId",
+              "project",
+              "name",
+              "sha256",
+              "fixtureSetId"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 50000
+        }
+      },
+      "required": [
+        "id",
+        "adapter",
+        "command",
+        "report",
+        "coveredInputs",
+        "files",
+        "outputDirectory",
+        "outputFiles",
+        "requiredAttachments"
+      ],
+      "additionalProperties": false
+    },
+    "ExpectedInventory": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "kind": {
+          "const": "splatview-release-expected-inventory"
+        },
+        "suites": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ReportExpectation"
+          },
+          "maxItems": 1000
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "kind",
+        "suites"
+      ],
+      "additionalProperties": false
+    },
+    "Applicability": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "enum": [
+            "exact",
+            "unchanged-covered-inputs"
+          ]
+        },
+        "observedAppInputId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "observedDeploymentId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "observedSourceCapture": {
+          "$ref": "#/$defs/FileRef"
+        },
+        "coveredInputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/FileRef"
+          },
+          "maxItems": 50000
+        },
+        "review": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "identity": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                },
+                "atUtc": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                },
+                "reason": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                }
+              },
+              "required": [
+                "identity",
+                "atUtc",
+                "reason"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "kind",
+        "observedAppInputId",
+        "observedDeploymentId",
+        "observedSourceCapture",
+        "coveredInputs",
+        "review"
+      ],
+      "additionalProperties": false
+    },
+    "TestEvidence": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/ -]*$"
+        },
+        "kind": {
+          "enum": [
+            "vitest",
+            "playwright"
+          ]
+        },
+        "terminal": {
+          "$ref": "#/$defs/FileRef"
+        },
+        "expectationId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/ -]*$"
+        },
+        "applicability": {
+          "$ref": "#/$defs/Applicability"
+        },
+        "fixtureSet": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/FileRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "fixtureApplicability": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/FileRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "terminal",
+        "expectationId",
+        "applicability",
+        "fixtureSet"
+      ],
+      "additionalProperties": false
+    },
+    "FixtureApplicability": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "kind": {
+          "const": "splatview-offline-fixture-applicability"
+        },
+        "fixtureSet": {
+          "$ref": "#/$defs/FileRef"
+        },
+        "observedSourceCapture": {
+          "$ref": "#/$defs/FileRef"
+        },
+        "currentSourceInventory": {
+          "$ref": "#/$defs/FileRef"
+        },
+        "coveredInputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/FileRef"
+          },
+          "maxItems": 50000
+        },
+        "differences": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              },
+              "before": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "bytes": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 9007199254740991
+                      },
+                      "sha256": {
+                        "type": "string",
+                        "pattern": "^[0-9a-f]{64}$"
+                      }
+                    },
+                    "required": [
+                      "bytes",
+                      "sha256"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "after": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "bytes": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 9007199254740991
+                      },
+                      "sha256": {
+                        "type": "string",
+                        "pattern": "^[0-9a-f]{64}$"
+                      }
+                    },
+                    "required": [
+                      "bytes",
+                      "sha256"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              }
+            },
+            "required": [
+              "path",
+              "before",
+              "after",
+              "reason"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 50000
+        },
+        "tools": {
+          "type": "object",
+          "properties": {
+            "node": {
+              "type": "object",
+              "properties": {
+                "recordedPath": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                },
+                "artifact": {
+                  "$ref": "#/$defs/FileRef"
+                }
+              },
+              "required": [
+                "recordedPath",
+                "artifact"
+              ],
+              "additionalProperties": false
+            },
+            "npm": {
+              "type": "object",
+              "properties": {
+                "recordedPath": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                },
+                "artifact": {
+                  "$ref": "#/$defs/FileRef"
+                }
+              },
+              "required": [
+                "recordedPath",
+                "artifact"
+              ],
+              "additionalProperties": false
+            },
+            "python": {
+              "type": "object",
+              "properties": {
+                "recordedPath": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                },
+                "artifact": {
+                  "$ref": "#/$defs/FileRef"
+                }
+              },
+              "required": [
+                "recordedPath",
+                "artifact"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "node",
+            "npm",
+            "python"
+          ],
+          "additionalProperties": false
+        },
+        "hostOrigin": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "review": {
+          "type": "object",
+          "properties": {
+            "identity": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "atUtc": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            }
+          },
+          "required": [
+            "identity",
+            "atUtc",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "kind",
+        "fixtureSet",
+        "observedSourceCapture",
+        "currentSourceInventory",
+        "coveredInputs",
+        "differences",
+        "tools",
+        "hostOrigin",
+        "review"
+      ],
+      "additionalProperties": false
+    },
+    "BenchmarkEvidence": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/ -]*$"
+        },
+        "kind": {
+          "const": "benchmark"
+        },
+        "terminal": {
+          "$ref": "#/$defs/FileRef"
+        },
+        "report": {
+          "$ref": "#/$defs/FileRef"
+        },
+        "target": {
+          "$ref": "#/$defs/FileRef"
+        },
+        "expectedBuild": {
+          "$ref": "#/$defs/FileRef"
+        },
+        "applicability": {
+          "$ref": "#/$defs/Applicability"
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "terminal",
+        "report",
+        "target",
+        "expectedBuild",
+        "applicability"
+      ],
+      "additionalProperties": false
+    },
+    "PendingEvidence": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/ -]*$"
+        },
+        "kind": {
+          "const": "pending"
+        },
+        "pendingKind": {
+          "enum": [
+            "vitest",
+            "playwright",
+            "native",
+            "format",
+            "visual",
+            "manual",
+            "https",
+            "benchmark"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "pendingKind",
+        "reason"
+      ],
+      "additionalProperties": false
+    },
+    "Evidence": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/TestEvidence"
+        },
+        {
+          "$ref": "#/$defs/BenchmarkEvidence"
+        },
+        {
+          "$ref": "#/$defs/PendingEvidence"
+        }
+      ]
+    },
+    "Claims": {
+      "type": "object",
+      "properties": {
+        "configurations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/ -]*$"
+          },
+          "maxItems": 1000
+        },
+        "budgets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/ -]*$"
+              },
+              "benchmarkEvidenceId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/ -]*$"
+              },
+              "cellId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/ -]*$"
+              },
+              "maximumSceneRecords": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 9007199254740991
+              }
+            },
+            "required": [
+              "id",
+              "benchmarkEvidenceId",
+              "cellId",
+              "maximumSceneRecords"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 1000
+        }
+      },
+      "required": [
+        "configurations",
+        "budgets"
+      ],
+      "additionalProperties": false
+    },
+    "ReleaseRequest": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "kind": {
+          "const": "splatview-release-request"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/ -]*$"
+        },
+        "mode": {
+          "enum": [
+            "bounded",
+            "full-editor"
+          ]
+        },
+        "ledger": {
+          "$ref": "#/$defs/FileRef"
+        },
+        "shipping": {
+          "$ref": "#/$defs/Shipping"
+        },
+        "expectedInventory": {
+          "$ref": "#/$defs/FileRef"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Evidence"
+          },
+          "maxItems": 1000
+        },
+        "requestedCells": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/ -]*$"
+          },
+          "maxItems": 10000
+        },
+        "bindings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "cellId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/ -]*$"
+              },
+              "evidenceId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/ -]*$"
+              },
+              "caseIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                },
+                "maxItems": 50000
+              }
+            },
+            "required": [
+              "cellId",
+              "evidenceId",
+              "caseIds"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 10000
+        },
+        "claims": {
+          "$ref": "#/$defs/Claims"
+        },
+        "review": {
+          "type": "object",
+          "properties": {
+            "identity": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "atUtc": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            }
+          },
+          "required": [
+            "identity",
+            "atUtc",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "kind",
+        "id",
+        "mode",
+        "ledger",
+        "shipping",
+        "expectedInventory",
+        "evidence",
+        "requestedCells",
+        "bindings",
+        "claims",
+        "review"
+      ],
+      "additionalProperties": false
+    },
+    "EvidenceResult": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/ -]*$"
+        },
+        "kind": {
+          "enum": [
+            "vitest",
+            "playwright",
+            "benchmark",
+            "pending"
+          ]
+        },
+        "valid": {
+          "type": "boolean"
+        },
+        "qualified": {
+          "type": "boolean"
+        },
+        "issues": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "maxItems": 50000
+        },
+        "pending": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "maxItems": 50000
+        },
+        "caseIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "maxItems": 50000
+        },
+        "configurationIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/ -]*$"
+          },
+          "maxItems": 50000
+        },
+        "references": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/FileRef"
+          },
+          "maxItems": 50000
+        },
+        "leaves": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              },
+              "file": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              },
+              "project": {
+                "type": "string",
+                "maxLength": 4096
+              },
+              "passed": {
+                "type": "boolean"
+              },
+              "attachments": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4096
+                    },
+                    "contentType": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4096
+                    },
+                    "bytes": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "sha256": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$"
+                    },
+                    "path": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 4096
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "contentType",
+                    "bytes",
+                    "sha256",
+                    "path"
+                  ],
+                  "additionalProperties": false
+                },
+                "maxItems": 50000
+              }
+            },
+            "required": [
+              "id",
+              "file",
+              "title",
+              "project",
+              "passed",
+              "attachments"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 50000
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "valid",
+        "qualified",
+        "issues",
+        "pending",
+        "caseIds",
+        "configurationIds",
+        "references",
+        "leaves"
+      ],
+      "additionalProperties": false
+    },
+    "ReleaseBundle": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "kind": {
+          "const": "splatview-release-evidence"
+        },
+        "request": {
+          "$ref": "#/$defs/FileRef"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/ -]*$"
+        },
+        "observedAtUtc": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "valid": {
+          "type": "boolean"
+        },
+        "boundedAccepted": {
+          "type": "boolean"
+        },
+        "fullEditorAccepted": {
+          "type": "boolean"
+        },
+        "status": {
+          "enum": [
+            "invalid",
+            "pending",
+            "accepted"
+          ]
+        },
+        "shipping": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "appInputId": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "deploymentId": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "manifest": {
+                  "$ref": "#/$defs/FileRef"
+                },
+                "sourceCapture": {
+                  "$ref": "#/$defs/FileRef"
+                },
+                "distribution": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/FileRef"
+                  },
+                  "maxItems": 50000
+                }
+              },
+              "required": [
+                "appInputId",
+                "deploymentId",
+                "manifest",
+                "sourceCapture",
+                "distribution"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "ledger": {
+          "$ref": "#/$defs/FileRef"
+        },
+        "expectedInventory": {
+          "$ref": "#/$defs/FileRef"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/EvidenceResult"
+          },
+          "maxItems": 50000
+        },
+        "cells": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/ -]*$"
+              },
+              "kind": {
+                "enum": [
+                  "vitest",
+                  "playwright",
+                  "native",
+                  "format",
+                  "visual",
+                  "manual",
+                  "https",
+                  "benchmark"
+                ]
+              },
+              "status": {
+                "enum": [
+                  "qualified",
+                  "pending"
+                ]
+              },
+              "evidenceId": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 256,
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/ -]*$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              }
+            },
+            "required": [
+              "id",
+              "kind",
+              "status",
+              "evidenceId",
+              "reason"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 50000
+        },
+        "acceptedCells": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/ -]*$"
+          },
+          "maxItems": 50000
+        },
+        "pendingCells": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/ -]*$"
+          },
+          "maxItems": 50000
+        },
+        "issues": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "maxItems": 50000
+        },
+        "pending": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "maxItems": 50000
+        },
+        "claims": {
+          "$ref": "#/$defs/Claims"
+        },
+        "review": {
+          "type": "object",
+          "properties": {
+            "identity": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "atUtc": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            }
+          },
+          "required": [
+            "identity",
+            "atUtc",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "maxItems": 50000
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "kind",
+        "request",
+        "id",
+        "observedAtUtc",
+        "valid",
+        "boundedAccepted",
+        "fullEditorAccepted",
+        "status",
+        "shipping",
+        "ledger",
+        "expectedInventory",
+        "evidence",
+        "cells",
+        "acceptedCells",
+        "pendingCells",
+        "issues",
+        "pending",
+        "claims",
+        "review",
+        "limitations"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

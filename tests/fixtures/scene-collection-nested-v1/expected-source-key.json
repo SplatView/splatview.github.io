@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "scheme": "splatview-source-v1",
+  "kind": "group",
+  "primaryPath": "asset/META.JSON",
+  "resourceCount": 8,
+  "totalBytes": 1815,
+  "assetDigest": "dabb154326d88c7b1ae2b12e346643a0492afe55c8740f57850800e73542ef35",
+  "canonicalHex": "53706c617456696577536f75726365007631000100000008010000000f61737365742f4d4554412e4a534f4e000000000000056b22922035de316a61e9140e40e7cc293f8fe40d71c5d9935e146a18ae76d3b3ad000000001a61737365742f74657874757265732f6c6162656c732e7765627000000000000000326166e18707c310b9a659f7a4fe8dc6f2bfb7ee376c9da6e5622569ac25ec7234000000002161737365742f74657874757265732f706f736974696f6e732d6c6f772e7765627000000000000000306503abb6f705b662ee8c000004a74536261f2f71c53ff9a5c884140c22bfb1dd000000002861737365742f74657874757265732f7472616e73666f726d732f726f746174696f6e732e77656270000000000000003a7108a24a5ddeef7b2dbb50ca4acd9078e3db9bddfdd84b59e955d41ed34e2d6800000000167368617265642f617070656172616e63652e7765627000000000000000385fd3a41900844fc9eab819d0bc5dff97114c5f50d3f45c3cbf34335e581535c600000000197368617265642f6465636c617265642d65787472612e62696e000000000000002866551ca49ff652b17e9f0945d4ac7f57b1ce161a60fef5857aec5d80b5a35ac2000000001d7368617265642f70616c657474652f63656e74726f6964732e77656270000000000000007ed4b5abd4bad4f7d96a4844363e6030687917124df605c6812ab9a721d7ffd846000000001a7368617265642f706f736974696f6e732d686967682e776562700000000000000032fec47c8c33092f90ec525df5b82cb83846bb656c30ec32a4548ce442603b56d3",
+  "resources": [
+    {
+      "path": "asset/META.JSON",
+      "bytes": 1387,
+      "sha256": "22922035de316a61e9140e40e7cc293f8fe40d71c5d9935e146a18ae76d3b3ad",
+      "role": "primary"
+    },
+    {
+      "path": "asset/textures/labels.webp",
+      "bytes": 50,
+      "sha256": "6166e18707c310b9a659f7a4fe8dc6f2bfb7ee376c9da6e5622569ac25ec7234",
+      "role": "referenced"
+    },
+    {
+      "path": "asset/textures/positions-low.webp",
+      "bytes": 48,
+      "sha256": "6503abb6f705b662ee8c000004a74536261f2f71c53ff9a5c884140c22bfb1dd",
+      "role": "referenced"
+    },
+    {
+      "path": "asset/textures/transforms/rotations.webp",
+      "bytes": 58,
+      "sha256": "7108a24a5ddeef7b2dbb50ca4acd9078e3db9bddfdd84b59e955d41ed34e2d68",
+      "role": "referenced"
+    },
+    {
+      "path": "shared/appearance.webp",
+      "bytes": 56,
+      "sha256": "5fd3a41900844fc9eab819d0bc5dff97114c5f50d3f45c3cbf34335e581535c6",
+      "role": "referenced"
+    },
+    {
+      "path": "shared/declared-extra.bin",
+      "bytes": 40,
+      "sha256": "66551ca49ff652b17e9f0945d4ac7f57b1ce161a60fef5857aec5d80b5a35ac2",
+      "role": "referenced"
+    },
+    {
+      "path": "shared/palette/centroids.webp",
+      "bytes": 126,
+      "sha256": "d4b5abd4bad4f7d96a4844363e6030687917124df605c6812ab9a721d7ffd846",
+      "role": "referenced"
+    },
+    {
+      "path": "shared/positions-high.webp",
+      "bytes": 50,
+      "sha256": "fec47c8c33092f90ec525df5b82cb83846bb656c30ec32a4548ce442603b56d3",
+      "role": "referenced"
+    }
+  ],
+  "numericOracle": {
+    "path": "tests/fixtures/sog-group-sh/packets/v2-sh3/expected-records.json",
+    "bytes": 16292,
+    "sha256": "891fbc31358d23f74fb539102064e1011b3770a4edcb1884f27e4ad10af53916"
+  },
+  "scope": "Independent framing over complete original metadata and unique declared resource bytes. No production decoder, resource catalog or fingerprint implementation used."
+}

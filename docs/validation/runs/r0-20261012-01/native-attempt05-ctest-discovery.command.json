@@ -1,0 +1,21 @@
+{
+    "name":  "native-attempt05-ctest-discovery",
+    "executable":  "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\ctest.exe",
+    "executableSha256":  "e603e19535326eaa213bc9820312d1b7d3a718ae63da3877078d6ecc4d980d91",
+    "arguments":  [
+                      "--test-dir",
+                      "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.build\\r0-native-02\\attempt05",
+                      "-C",
+                      "Release",
+                      "--show-only=json-v1",
+                      "-R",
+                      "^(SelectionMorphologyContracts|ExportFormatContracts|InputFormatContracts|ViewCommandPolicyContracts|CliOutputContracts|SettingsContracts|ToolsModeContracts|LanguageContracts)$"
+                  ],
+    "workingDirectory":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\reference\\targets\\windows-r0-20261012-02\\source",
+    "startedUtc":  "2026-10-12T15:15:34.3004434Z",
+    "completedUtc":  "2026-10-12T15:15:34.4639743Z",
+    "durationSeconds":  0.15251979999999998,
+    "exitCode":  0,
+    "mergedOutputLog":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\docs\\validation\\runs\\r0-20261012-01\\native-attempt05-ctest-discovery.log",
+    "mergedOutputLogSha256":  "13bb72a78557369c423c24cb958e2625f960e5fbb49ac2537219d10108ac4141"
+}

@@ -1,0 +1,1441 @@
+{
+  "schemaVersion": 1,
+  "kind": "qualified-explicit-pivot-controls",
+  "status": "passed",
+  "goalStatus": "active",
+  "observedAtUtc": "2026-10-16T23:27:52.677189+00:00",
+  "helper": {
+    "path": ".build/pivot-controls-tests/qualify-01.py",
+    "bytes": 8583,
+    "sha256": "d1d2d28b24d8b30831b5fca4cd94873a3b591776170302c459b7cf0100b4fc20"
+  },
+  "functionalExplicitPivotAccepted": true,
+  "automaticSelectionPivotDefaultsAccepted": false,
+  "fullDesktopParityAccepted": false,
+  "performanceAndCapacityAccepted": false,
+  "source": {
+    "path": ".build/pivot-controls-tests/source-candidate-06.json",
+    "bytes": 11457,
+    "sha256": "d61ca28f0ac8c5bc664a62568e28233bf965acfcb352244ef7c29a1dc9a60719"
+  },
+  "predecessor": {
+    "path": "docs/validation/runs/pro-duplicate-web-20261016-01/validation.json",
+    "bytes": 28301,
+    "sha256": "9e6c6ced873f180b9264a7732933cc837c4d5207bb0e7e3b42b07304d93b48f3"
+  },
+  "descriptor": {
+    "schemaVersion": 1,
+    "protocolVersion": 28,
+    "uiWorkerContract": 23,
+    "native": {
+      "core": {
+        "schemaVersion": 1,
+        "kind": "core",
+        "abi": 24,
+        "variant": "scalar",
+        "mapLayoutVersion": 1,
+        "capabilities": {
+          "atomicCheckpoint": 1,
+          "transactionReceipt": 2,
+          "recoveryCheckpoint": 2,
+          "duplicate": 1,
+          "selectionMap": 1,
+          "volumeSelection": 1,
+          "fillSelection": 1,
+          "connectedColorSelection": 1,
+          "toleranceCheckpoint": 1,
+          "liveSelectionOutcome": 1,
+          "geometryPreview": 1,
+          "sourceHash": 1,
+          "allocationCensus": 1,
+          "selectionMorphology": 2,
+          "absoluteColorSession": 1,
+          "autoColor": 1,
+          "colorBaseStream": 1,
+          "alignment": 4,
+          "groupedSog": 3,
+          "exportSpz4": 1,
+          "boundedAttributeExport": 1,
+          "boundedSpz3Export": 1,
+          "boundedSogExport": 1,
+          "selectionFilter": 1,
+          "proTransformSession": 1,
+          "transformPivot": 1,
+          "absoluteOpacitySession": 1,
+          "opacityBaseStream": 1,
+          "currentViewScope": 1
+        },
+        "nativeInputId": "24463ea6b4182933a9375608015e43fa61cb58809c3958ad96f3816d870bc3d4"
+      },
+      "camera": {
+        "schemaVersion": 1,
+        "kind": "camera",
+        "abi": 4,
+        "variant": "scalar",
+        "capabilities": {
+          "cameraInput": 1,
+          "cameraTransform": 1,
+          "cameraFrame": 1,
+          "cameraOrientation": 1,
+          "cameraFilterView": 1,
+          "cameraFilterGizmo": 1,
+          "cameraTransformGizmo": 1
+        },
+        "nativeInputId": "24463ea6b4182933a9375608015e43fa61cb58809c3958ad96f3816d870bc3d4"
+      }
+    },
+    "appInputId": "0d9f218577946cd32571f05a2534cf03ffb1d6b90a804331569005aa32728f22"
+  },
+  "deploymentId": "2d789c9f3c262de478f1f04c1906e497a3f07da9c5786a065296ae8e244f9d65",
+  "buildAudit": {
+    "path": ".build/pivot-controls-tests/build-audit-02.json",
+    "bytes": 63292,
+    "sha256": "724a5c61af0fed603b8cd0a15e827a1844d150226170e0a5d3818983338af2ff"
+  },
+  "generatedBuildIdentity": {
+    "path": "src/generated/buildIdentity.ts",
+    "bytes": 1948,
+    "sha256": "2bb4a1fa0a3b9e22a83af37bfae0664d3f155c53bf3ea63978e835f4ded76fbe"
+  },
+  "nativeProvenance": {
+    "path": ".build/pivot-controls-tests/native-provenance-04.json",
+    "bytes": 11541,
+    "sha256": "ddd84689965eff22be14dcf99a437b7b639888e2e6312ad8f95fefa90d892623"
+  },
+  "commands": {
+    "native-build-02": {
+      "path": "test-results-coherent-startup-pivot-native-build-02.command.json",
+      "bytes": 893,
+      "sha256": "bf79cf2d6e1a60f9d46b14b0ba09b80d741f09a4fdb6d4156bda919ed87d469b"
+    },
+    "native-contracts-04": {
+      "path": "test-results-coherent-startup-pivot-native-contracts-04.command.json",
+      "bytes": 1180,
+      "sha256": "4e3e7945db4ea1bb352a87d12c8ed3eb1807646eb1d32dec96469143a1734a35"
+    },
+    "web-build-03": {
+      "path": "test-results-coherent-startup-pivot-web-build-03.command.json",
+      "bytes": 1006,
+      "sha256": "336e578c0b6477111cb5b317adb0f87fe9e13823271fada0c5c5e7136699bbff"
+    },
+    "python-tests-01": {
+      "path": "test-results-coherent-startup-pivot-python-tests-01.command.json",
+      "bytes": 1016,
+      "sha256": "e3594772162fd4d06e50618a088ea95748c84d9f98d5da607b1bd1797445e38c"
+    },
+    "typecheck-02": {
+      "path": "test-results-coherent-startup-pivot-typecheck-02.command.json",
+      "bytes": 728,
+      "sha256": "361774811d3ab2cc50b4ba4330cfe93b6366e2d6375fd2dff6ff108e4fcd22dc"
+    },
+    "cpu-01": {
+      "path": "test-results-coherent-startup-pivot-cpu-01.command.json",
+      "bytes": 1325,
+      "sha256": "bc40775b6944a27930fb8e84c6017df858720a2fda6b28828ea6af8ae46d9e6b"
+    },
+    "production-02": {
+      "path": "test-results-coherent-startup-pivot-production-02.command.json",
+      "bytes": 1579,
+      "sha256": "7f2ec1d0dc6d51cd4da96700ffc698e4e6c9c727ec9eb57f3d9c5a0bb1083525"
+    },
+    "build-audit-02": {
+      "path": "test-results-coherent-startup-pivot-build-audit-02.command.json",
+      "bytes": 1206,
+      "sha256": "3e749eb2d76c6562fd6cf8d9235a0cc4d62f076b56c9ac7061d0a93efa6b958f"
+    },
+    "preview-stop-02": {
+      "path": "test-results-coherent-startup-pivot-preview-stop-02.command.json",
+      "bytes": 1259,
+      "sha256": "a04aacd3835d909f369f5056665f5817ec7de1e04ebc65de08a24fcb4d97e996"
+    },
+    "preview-02": {
+      "path": "test-results-coherent-startup-pivot-preview-02.command.json",
+      "bytes": 1018,
+      "sha256": "9c21360aeed00575cae0ba7d6ebb570895725ed30dc4b812aa0286a893a81882"
+    },
+    "cache-cleanup-01": {
+      "path": "test-results-coherent-startup-pivot-cache-cleanup-01.command.json",
+      "bytes": 1339,
+      "sha256": "4acf1c0ee1a059da3927690ae4e4a6cb9804e1a02861dd5c260a893f835f30ec"
+    },
+    "object-cleanup-01": {
+      "path": "test-results-coherent-startup-pivot-object-cleanup-01.command.json",
+      "bytes": 1243,
+      "sha256": "ff858716403a053654e4c9469e8eb5c6a481f40c80029e278ad32bca34b914d9"
+    },
+    "process-final-01": {
+      "path": "test-results-coherent-startup-pivot-process-final-01.command.json",
+      "bytes": 1255,
+      "sha256": "29dac4e97a77634db0a3f3c6ade4b3b0a515879207f134017057580e44a9c7f1"
+    }
+  },
+  "cpu": {
+    "report": {
+      "path": ".build/pivot-controls-tests/cpu-01.json",
+      "bytes": 2238699,
+      "sha256": "1bc3bc0ac8855794ceb1d8dd183ac3e068937e9dcfc404e4afd8d1af66f0c670"
+    },
+    "tests": 5774,
+    "files": 174,
+    "maximumWorkers": 4,
+    "unchangedInputsProof": {
+      "path": ".build/pivot-controls-tests/build-audit-01.json",
+      "bytes": 63292,
+      "sha256": "31a6708ecdca9eeff5b14373e94f3d216e9b52b0e2fb0da7e9e5fca3b7cfd8db"
+    },
+    "reuseReason": "Only the browser PLY-Y oracle changed afterward; application, native, source maps, distribution and CPU test sources are byte-identical."
+  },
+  "browser": {
+    "report": {
+      "path": ".build/pivot-controls-tests/production-02.json",
+      "bytes": 1758531,
+      "sha256": "422c34c9c225d3db59c922c09ec3f6678e60a7776a7083a776227cca184462d9"
+    },
+    "tests": 96,
+    "specFiles": [
+      "build-compat.spec.ts",
+      "coherent-builds.spec.ts",
+      "duplicate.spec.ts",
+      "initialization-faults.spec.ts",
+      "interactions.spec.ts",
+      "pivot.spec.ts",
+      "worker-recovery.spec.ts"
+    ],
+    "pivotTests": [
+      "shipped pivot cycle uses full selected bounds and changes no geometry, history or edit owner",
+      "shipped retained transform pivots preserve staged translation and original base coordinates"
+    ],
+    "evidence": [
+      {
+        "test": "shipped pivot cycle uses full selected bounds and changes no geometry, history or edit owner",
+        "name": "pivot-canonical-bounds-and-cycle",
+        "value": {
+          "before": {
+            "ok": true,
+            "loaded": true,
+            "count": 2,
+            "sourceCount": 2,
+            "sourceFaces": 0,
+            "duplicateRange": null,
+            "sampledGeometry": false,
+            "geometry": null,
+            "shDegree": 0,
+            "format": "PLY",
+            "kind": 0,
+            "selected": 2,
+            "visible": 2,
+            "canUndo": true,
+            "canRedo": false,
+            "transaction": false,
+            "selectionDraft": false,
+            "toleranceSessionId": null,
+            "filter": null,
+            "transformSession": null,
+            "opacitySession": null,
+            "toleranceTool": null,
+            "toleranceConnected": null,
+            "toleranceMapId": null,
+            "selectionMapId": null,
+            "pendingSelectionMapId": null,
+            "selectionMapBytes": 0,
+            "selectionMapRetainedIds": [],
+            "sceneChanged": false,
+            "revision": 1,
+            "contentRevision": 0,
+            "pending": false,
+            "progress": 1,
+            "center": [
+              3,
+              -1,
+              0
+            ],
+            "radius": 6.162277698516846,
+            "yUp": true,
+            "camera": [
+              3,
+              -1,
+              0,
+              0.3499999940395355,
+              0.18000000715255737,
+              19.323368072509766,
+              6.162277698516846,
+              45,
+              1,
+              0,
+              1
+            ],
+            "memoryBytes": 7414,
+            "exportBytes": 0,
+            "exportOutputBytes": 0,
+            "colorSession": null,
+            "alignment": {
+              "version": 2,
+              "frame": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1
+              ],
+              "branchId": 0,
+              "canReset": false,
+              "retainedBranchIds": [
+                0
+              ]
+            },
+            "floor": null,
+            "morphologyRange": {
+              "version": 1,
+              "minimum": 1,
+              "maximum": 12,
+              "default": 3.464101552963257
+            }
+          },
+          "observed": {
+            "focus": [
+              {
+                "command": {
+                  "command": "transformFocus",
+                  "scope": "selection",
+                  "revision": 1,
+                  "contentRevision": 0,
+                  "transformBase": null
+                },
+                "summary": {
+                  "ok": true,
+                  "loaded": true,
+                  "count": 2,
+                  "sourceCount": 2,
+                  "sourceFaces": 0,
+                  "duplicateRange": null,
+                  "sampledGeometry": false,
+                  "geometry": null,
+                  "shDegree": 0,
+                  "format": "PLY",
+                  "kind": 0,
+                  "selected": 2,
+                  "visible": 2,
+                  "canUndo": true,
+                  "canRedo": false,
+                  "transaction": false,
+                  "selectionDraft": false,
+                  "toleranceSessionId": null,
+                  "filter": null,
+                  "transformSession": null,
+                  "opacitySession": null,
+                  "toleranceTool": null,
+                  "toleranceConnected": null,
+                  "toleranceMapId": null,
+                  "selectionMapId": null,
+                  "pendingSelectionMapId": null,
+                  "selectionMapBytes": 0,
+                  "selectionMapRetainedIds": [],
+                  "sceneChanged": false,
+                  "revision": 1,
+                  "contentRevision": 0,
+                  "pending": false,
+                  "progress": 1,
+                  "center": [
+                    3,
+                    -1,
+                    0
+                  ],
+                  "radius": 6.162277698516846,
+                  "yUp": true,
+                  "camera": [
+                    3,
+                    -1,
+                    0,
+                    0.3499999940395355,
+                    0.18000000715255737,
+                    19.323368072509766,
+                    6.162277698516846,
+                    45,
+                    1,
+                    0,
+                    1
+                  ],
+                  "memoryBytes": 7414,
+                  "exportBytes": 0,
+                  "exportOutputBytes": 0,
+                  "colorSession": null,
+                  "alignment": {
+                    "version": 2,
+                    "frame": [
+                      1,
+                      0,
+                      0,
+                      0,
+                      0,
+                      1,
+                      0,
+                      0,
+                      0,
+                      0,
+                      1,
+                      0,
+                      0,
+                      0,
+                      0,
+                      1
+                    ],
+                    "branchId": 0,
+                    "canReset": false,
+                    "retainedBranchIds": [
+                      0
+                    ]
+                  },
+                  "floor": null,
+                  "morphologyRange": {
+                    "version": 1,
+                    "minimum": 1,
+                    "maximum": 12,
+                    "default": 3.464101552963257
+                  },
+                  "point": [
+                    6,
+                    -2,
+                    0
+                  ]
+                },
+                "ownsPoint": true,
+                "editOwner": false
+              },
+              {
+                "command": {
+                  "command": "transformFocus",
+                  "scope": "scene",
+                  "revision": 1,
+                  "contentRevision": 0,
+                  "transformBase": null
+                },
+                "summary": {
+                  "ok": true,
+                  "loaded": true,
+                  "count": 2,
+                  "sourceCount": 2,
+                  "sourceFaces": 0,
+                  "duplicateRange": null,
+                  "sampledGeometry": false,
+                  "geometry": null,
+                  "shDegree": 0,
+                  "format": "PLY",
+                  "kind": 0,
+                  "selected": 2,
+                  "visible": 2,
+                  "canUndo": true,
+                  "canRedo": false,
+                  "transaction": false,
+                  "selectionDraft": false,
+                  "toleranceSessionId": null,
+                  "filter": null,
+                  "transformSession": null,
+                  "opacitySession": null,
+                  "toleranceTool": null,
+                  "toleranceConnected": null,
+                  "toleranceMapId": null,
+                  "selectionMapId": null,
+                  "pendingSelectionMapId": null,
+                  "selectionMapBytes": 0,
+                  "selectionMapRetainedIds": [],
+                  "sceneChanged": false,
+                  "revision": 1,
+                  "contentRevision": 0,
+                  "pending": false,
+                  "progress": 1,
+                  "center": [
+                    3,
+                    -1,
+                    0
+                  ],
+                  "radius": 6.162277698516846,
+                  "yUp": true,
+                  "camera": [
+                    3,
+                    -1,
+                    0,
+                    0.3499999940395355,
+                    0.18000000715255737,
+                    19.323368072509766,
+                    6.162277698516846,
+                    45,
+                    1,
+                    0,
+                    1
+                  ],
+                  "memoryBytes": 7414,
+                  "exportBytes": 0,
+                  "exportOutputBytes": 0,
+                  "colorSession": null,
+                  "alignment": {
+                    "version": 2,
+                    "frame": [
+                      1,
+                      0,
+                      0,
+                      0,
+                      0,
+                      1,
+                      0,
+                      0,
+                      0,
+                      0,
+                      1,
+                      0,
+                      0,
+                      0,
+                      0,
+                      1
+                    ],
+                    "branchId": 0,
+                    "canReset": false,
+                    "retainedBranchIds": [
+                      0
+                    ]
+                  },
+                  "floor": null,
+                  "morphologyRange": {
+                    "version": 1,
+                    "minimum": 1,
+                    "maximum": 12,
+                    "default": 3.464101552963257
+                  },
+                  "point": [
+                    3,
+                    -1,
+                    0
+                  ]
+                },
+                "ownsPoint": true,
+                "editOwner": false
+              }
+            ],
+            "commands": [
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 1,
+                "contentRevision": 0,
+                "transformBase": null
+              },
+              {
+                "command": "transformFocus",
+                "scope": "scene",
+                "revision": 1,
+                "contentRevision": 0,
+                "transformBase": null
+              }
+            ],
+            "after": {
+              "ok": true,
+              "loaded": true,
+              "count": 2,
+              "sourceCount": 2,
+              "sourceFaces": 0,
+              "duplicateRange": null,
+              "sampledGeometry": false,
+              "geometry": null,
+              "shDegree": 0,
+              "format": "PLY",
+              "kind": 0,
+              "selected": 2,
+              "visible": 2,
+              "canUndo": true,
+              "canRedo": false,
+              "transaction": false,
+              "selectionDraft": false,
+              "toleranceSessionId": null,
+              "filter": null,
+              "transformSession": null,
+              "opacitySession": null,
+              "toleranceTool": null,
+              "toleranceConnected": null,
+              "toleranceMapId": null,
+              "selectionMapId": null,
+              "pendingSelectionMapId": null,
+              "selectionMapBytes": 0,
+              "selectionMapRetainedIds": [],
+              "sceneChanged": false,
+              "revision": 1,
+              "contentRevision": 0,
+              "pending": false,
+              "progress": 1,
+              "center": [
+                3,
+                -1,
+                0
+              ],
+              "radius": 6.162277698516846,
+              "yUp": true,
+              "camera": [
+                3,
+                -1,
+                0,
+                0.3499999940395355,
+                0.18000000715255737,
+                19.323368072509766,
+                6.162277698516846,
+                45,
+                1,
+                0,
+                1
+              ],
+              "memoryBytes": 7414,
+              "exportBytes": 0,
+              "exportOutputBytes": 0,
+              "colorSession": null,
+              "alignment": {
+                "version": 2,
+                "frame": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "branchId": 0,
+                "canReset": false,
+                "retainedBranchIds": [
+                  0
+                ]
+              },
+              "floor": null,
+              "morphologyRange": {
+                "version": 1,
+                "minimum": 1,
+                "maximum": 12,
+                "default": 3.464101552963257
+              },
+              "point": [
+                3,
+                -1,
+                0
+              ]
+            }
+          }
+        }
+      },
+      {
+        "test": "shipped retained transform pivots preserve staged translation and original base coordinates",
+        "name": "pivot-retained-transform-base",
+        "value": {
+          "applied": {
+            "ok": true,
+            "loaded": true,
+            "count": 2,
+            "sourceCount": 2,
+            "sourceFaces": 0,
+            "duplicateRange": null,
+            "sampledGeometry": false,
+            "geometry": null,
+            "shDegree": 0,
+            "format": "PLY",
+            "kind": 0,
+            "selected": 2,
+            "visible": 2,
+            "canUndo": true,
+            "canRedo": false,
+            "transaction": false,
+            "selectionDraft": false,
+            "toleranceSessionId": null,
+            "filter": null,
+            "transformSession": {
+              "id": 1,
+              "baseId": 2,
+              "epoch": 1,
+              "kind": "numeric",
+              "selectedOnly": true,
+              "appliedEpoch": 1,
+              "appliedMatrix": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                4,
+                0,
+                0,
+                1
+              ],
+              "pivot": [
+                3,
+                -1,
+                0
+              ]
+            },
+            "opacitySession": null,
+            "toleranceTool": null,
+            "toleranceConnected": null,
+            "toleranceMapId": null,
+            "selectionMapId": null,
+            "pendingSelectionMapId": null,
+            "selectionMapBytes": 0,
+            "selectionMapRetainedIds": [],
+            "sceneChanged": false,
+            "revision": 2,
+            "contentRevision": 1,
+            "pending": false,
+            "progress": 1,
+            "center": [
+              7,
+              -1,
+              0
+            ],
+            "radius": 6.162277698516846,
+            "yUp": true,
+            "camera": [
+              7,
+              -1,
+              0,
+              0.3499999940395355,
+              0.18000000715255737,
+              19.323368072509766,
+              6.162277698516846,
+              45,
+              1,
+              0,
+              1
+            ],
+            "memoryBytes": 8008,
+            "exportBytes": 0,
+            "exportOutputBytes": 0,
+            "colorSession": null,
+            "alignment": {
+              "version": 2,
+              "frame": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1
+              ],
+              "branchId": 0,
+              "canReset": false,
+              "retainedBranchIds": [
+                0
+              ]
+            },
+            "floor": null,
+            "morphologyRange": {
+              "version": 1,
+              "minimum": 1,
+              "maximum": 12,
+              "default": 3.464101552963257
+            }
+          },
+          "observed": {
+            "commands": [
+              {
+                "command": "morphologyRange"
+              },
+              {
+                "command": "selectAll"
+              },
+              {
+                "command": "beginTransform",
+                "kind": "numeric",
+                "selectedOnly": true
+              },
+              {
+                "command": "applyTransform",
+                "id": 1,
+                "epoch": 1,
+                "parameters": {
+                  "translation": [
+                    4,
+                    0,
+                    0
+                  ],
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "pivot": [
+                    3,
+                    -1,
+                    0
+                  ],
+                  "flips": [
+                    false,
+                    false,
+                    false
+                  ],
+                  "mode": "euler",
+                  "euler": [
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              },
+              {
+                "command": "morphologyRange"
+              },
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 2,
+                "contentRevision": 1,
+                "transformBase": {
+                  "id": 1,
+                  "baseId": 2,
+                  "epoch": 1
+                }
+              }
+            ],
+            "focus": [
+              {
+                "command": {
+                  "command": "transformFocus",
+                  "scope": "selection",
+                  "revision": 2,
+                  "contentRevision": 1,
+                  "transformBase": {
+                    "id": 1,
+                    "baseId": 2,
+                    "epoch": 1
+                  }
+                },
+                "summary": {
+                  "ok": true,
+                  "loaded": true,
+                  "count": 2,
+                  "sourceCount": 2,
+                  "sourceFaces": 0,
+                  "duplicateRange": null,
+                  "sampledGeometry": false,
+                  "geometry": null,
+                  "shDegree": 0,
+                  "format": "PLY",
+                  "kind": 0,
+                  "selected": 2,
+                  "visible": 2,
+                  "canUndo": true,
+                  "canRedo": false,
+                  "transaction": false,
+                  "selectionDraft": false,
+                  "toleranceSessionId": null,
+                  "filter": null,
+                  "transformSession": {
+                    "id": 1,
+                    "baseId": 2,
+                    "epoch": 1,
+                    "kind": "numeric",
+                    "selectedOnly": true,
+                    "appliedEpoch": 1,
+                    "appliedMatrix": [
+                      1,
+                      0,
+                      0,
+                      0,
+                      0,
+                      1,
+                      0,
+                      0,
+                      0,
+                      0,
+                      1,
+                      0,
+                      4,
+                      0,
+                      0,
+                      1
+                    ],
+                    "pivot": [
+                      3,
+                      -1,
+                      0
+                    ]
+                  },
+                  "opacitySession": null,
+                  "toleranceTool": null,
+                  "toleranceConnected": null,
+                  "toleranceMapId": null,
+                  "selectionMapId": null,
+                  "pendingSelectionMapId": null,
+                  "selectionMapBytes": 0,
+                  "selectionMapRetainedIds": [],
+                  "sceneChanged": false,
+                  "revision": 2,
+                  "contentRevision": 1,
+                  "pending": false,
+                  "progress": 1,
+                  "center": [
+                    7,
+                    -1,
+                    0
+                  ],
+                  "radius": 6.162277698516846,
+                  "yUp": true,
+                  "camera": [
+                    7,
+                    -1,
+                    0,
+                    0.3499999940395355,
+                    0.18000000715255737,
+                    19.323368072509766,
+                    6.162277698516846,
+                    45,
+                    1,
+                    0,
+                    1
+                  ],
+                  "memoryBytes": 8008,
+                  "exportBytes": 0,
+                  "exportOutputBytes": 0,
+                  "colorSession": null,
+                  "alignment": {
+                    "version": 2,
+                    "frame": [
+                      1,
+                      0,
+                      0,
+                      0,
+                      0,
+                      1,
+                      0,
+                      0,
+                      0,
+                      0,
+                      1,
+                      0,
+                      0,
+                      0,
+                      0,
+                      1
+                    ],
+                    "branchId": 0,
+                    "canReset": false,
+                    "retainedBranchIds": [
+                      0
+                    ]
+                  },
+                  "floor": null,
+                  "morphologyRange": {
+                    "version": 1,
+                    "minimum": 1,
+                    "maximum": 12,
+                    "default": 3.464101552963257
+                  },
+                  "point": [
+                    6,
+                    -2,
+                    0
+                  ]
+                },
+                "ownsPoint": true,
+                "editOwner": false
+              }
+            ],
+            "summary": {
+              "ok": true,
+              "loaded": true,
+              "count": 2,
+              "sourceCount": 2,
+              "sourceFaces": 0,
+              "duplicateRange": null,
+              "sampledGeometry": false,
+              "geometry": null,
+              "shDegree": 0,
+              "format": "PLY",
+              "kind": 0,
+              "selected": 2,
+              "visible": 2,
+              "canUndo": true,
+              "canRedo": false,
+              "transaction": false,
+              "selectionDraft": false,
+              "toleranceSessionId": null,
+              "filter": null,
+              "transformSession": {
+                "id": 1,
+                "baseId": 2,
+                "epoch": 1,
+                "kind": "numeric",
+                "selectedOnly": true,
+                "appliedEpoch": 1,
+                "appliedMatrix": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  4,
+                  0,
+                  0,
+                  1
+                ],
+                "pivot": [
+                  3,
+                  -1,
+                  0
+                ]
+              },
+              "opacitySession": null,
+              "toleranceTool": null,
+              "toleranceConnected": null,
+              "toleranceMapId": null,
+              "selectionMapId": null,
+              "pendingSelectionMapId": null,
+              "selectionMapBytes": 0,
+              "selectionMapRetainedIds": [],
+              "sceneChanged": false,
+              "revision": 2,
+              "contentRevision": 1,
+              "pending": false,
+              "progress": 1,
+              "center": [
+                7,
+                -1,
+                0
+              ],
+              "radius": 6.162277698516846,
+              "yUp": true,
+              "camera": [
+                7,
+                -1,
+                0,
+                0.3499999940395355,
+                0.18000000715255737,
+                19.323368072509766,
+                6.162277698516846,
+                45,
+                1,
+                0,
+                1
+              ],
+              "memoryBytes": 8008,
+              "exportBytes": 0,
+              "exportOutputBytes": 0,
+              "colorSession": null,
+              "alignment": {
+                "version": 2,
+                "frame": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "branchId": 0,
+                "canReset": false,
+                "retainedBranchIds": [
+                  0
+                ]
+              },
+              "floor": null,
+              "morphologyRange": {
+                "version": 1,
+                "minimum": 1,
+                "maximum": 12,
+                "default": 3.464101552963257
+              },
+              "point": [
+                6,
+                -2,
+                0
+              ]
+            }
+          }
+        }
+      }
+    ],
+    "environment": "Chromium on the current Windows host"
+  },
+  "nativeContracts": {
+    "report": {
+      "path": ".build/pivot-controls-tests/native-contracts-04.json",
+      "bytes": 9892,
+      "sha256": "f161a2e7e11778137a21968d42153aa1dbe2b887a43b87654fc1e63c8fa0b5e4"
+    },
+    "executedModuleFactories": 10,
+    "results": [
+      {
+        "name": "focus-bounds",
+        "executable": {
+          "path": ".build/wasm/contracts/splatview-focus-bounds-contracts.mjs",
+          "bytes": 80394,
+          "sha256": "f29f528af7176e69784c38b521932acb8b58629fd729648b63a0c52703af66c8"
+        },
+        "wasm": {
+          "path": ".build/wasm/contracts/splatview-focus-bounds-contracts.wasm",
+          "bytes": 2347306,
+          "sha256": "8e2ba679b77c560b7fb493cbdbc1029b0a5a1ec5bf3d46593997975f8ce10344"
+        },
+        "lines": [
+          "FOCUS_BOUNDS_GROUP_PASS literal-covariance-empty-bounded",
+          "FOCUS_BOUNDS_GROUP_PASS identity-late-admission",
+          "FOCUS_BOUNDS_GROUP_PASS actual-readonly-strict-fields",
+          "FOCUS_BOUNDS_GROUP_PASS retained-canonical-base-cancel",
+          "FOCUS_BOUNDS_GROUP_PASS active-owner-refusals",
+          "FOCUS_BOUNDS_GROUP_PASS response-backend-source-retirement",
+          "SPLATVIEW_FOCUS_BOUNDS_CONTRACTS_PASS cases=6 checks=1377 refusals=43 publication=1 backend=25 jobBytes=144"
+        ],
+        "observedCounters": [
+          6,
+          1377,
+          43,
+          1,
+          25,
+          144
+        ]
+      },
+      {
+        "name": "transform-session",
+        "executable": {
+          "path": ".build/wasm/contracts/splatview-transform-session-contracts.mjs",
+          "bytes": 80853,
+          "sha256": "efb20960e20d806108a927bdbf2c0189dd45131d3de61ac59b7a78bea2e68d2d"
+        },
+        "wasm": {
+          "path": ".build/wasm/contracts/splatview-transform-session-contracts.wasm",
+          "bytes": 2376964,
+          "sha256": "6ea1f657f5fd2a4ad4dd5b46481128efd6a391ee051f19d6496b6e9ef2df191e"
+        },
+        "lines": [
+          "SPLATVIEW_TRANSFORM_SESSION_CONTRACTS_PASS cases=11 checks=48342 bakes=9 refusals=34 publication=7 backend=68 cancelPhases=10 ownerBytes=744 jobBytes=1504"
+        ],
+        "observedCounters": [
+          11,
+          48342,
+          9,
+          34,
+          7,
+          68,
+          10,
+          744,
+          1504
+        ]
+      },
+      {
+        "name": "transform-gizmo",
+        "executable": {
+          "path": ".build/wasm/contracts/splatview-transform-gizmo-contracts.mjs",
+          "bytes": 16526,
+          "sha256": "9bafbb373498a31c39a7a8652a1c3899dcd0a8d2741aa60b2379d21b16e476e6"
+        },
+        "wasm": {
+          "path": ".build/wasm/contracts/splatview-transform-gizmo-contracts.wasm",
+          "bytes": 137169,
+          "sha256": "11f460da1bfed2d5081bb62caa177798d215d2f488763f892c344ee27a5e022e"
+        },
+        "lines": [
+          "SPLATVIEW_TRANSFORM_GIZMO_CONTRACTS_PASS cases=7 checks=4489 handles=36 frames=36 updates=71 compositions=4 refusals=16 aliases=7 inputBytes=244 stateBytes=512 frameBytes=24592 resultBytes=192"
+        ],
+        "observedCounters": [
+          7,
+          4489,
+          36,
+          36,
+          71,
+          4,
+          16,
+          7
+        ]
+      },
+      {
+        "name": "current-view",
+        "executable": {
+          "path": ".build/wasm/contracts/splatview-current-view-contracts.mjs",
+          "bytes": 80593,
+          "sha256": "b98a91727c9cfa1f12434762f2b37b79eb3d3ea0778cc3fb501817c88605fba0"
+        },
+        "wasm": {
+          "path": ".build/wasm/contracts/splatview-current-view-contracts.wasm",
+          "bytes": 2395273,
+          "sha256": "e4a99f9b47504a3f45531bfeeb0c40f8b9f120441c185a91059916507e157836"
+        },
+        "lines": [
+          "SPLATVIEW_CURRENT_VIEW_CONTRACTS_PASS cases=24 checks=1476 boundaries=17 refusals=13 sessions=3 history=6 backend=100 backendControlAttempts=100 morphologyOwnerBytes=6256"
+        ],
+        "observedCounters": [
+          24,
+          1476,
+          17,
+          13,
+          3,
+          6,
+          100,
+          100,
+          6256
+        ]
+      },
+      {
+        "name": "camera-transform",
+        "executable": {
+          "path": ".build/wasm/contracts/splatview-camera-transform-contracts.mjs",
+          "bytes": 15289,
+          "sha256": "a06f25cd4c9378f4299d5b95de66ab1f59326e455c79cb2b062035b2fcd7adc6"
+        },
+        "wasm": {
+          "path": ".build/wasm/contracts/splatview-camera-transform-contracts.wasm",
+          "bytes": 84965,
+          "sha256": "c2657c1f90bae736f83311d89abd935fb5ffd06eb59b0ee8884d532da7db0830"
+        },
+        "lines": [
+          "SPLATVIEW_CAMERA_TRANSFORM_CONTRACTS_PASS cases=9 checks=426 successes=21 refusals=68 aliasCases=3 frameCases=2 frameSuccesses=5 frameRefusals=45 frameAliases=12 orientationCases=2 orientationSuccesses=2 orientationRefusals=48 orientationAliases=6"
+        ],
+        "observedCounters": [
+          9,
+          426,
+          21,
+          68,
+          3
+        ]
+      },
+      {
+        "name": "duplicate",
+        "executable": {
+          "path": ".build/wasm/contracts/splatview-duplicate-contracts.mjs",
+          "bytes": 68757,
+          "sha256": "c3d3ac1ebef45a8beaf2ef390594c7efc7b29287f697a1dd31f7f18661ec0138"
+        },
+        "wasm": {
+          "path": ".build/wasm/contracts/splatview-duplicate-contracts.wasm",
+          "bytes": 305893,
+          "sha256": "e9d9ee5e6e2c018f50e9901d37e265ffe157f14907f49d5c595c55efb8bd9b7e"
+        },
+        "lines": [
+          "PASS SH0-SH3 exact bytes, masks, one history entry and repeated-copy guard",
+          "PASS suffix ownership, null/expired/full lineage and attribute edit lifetime",
+          "PASS captured camera center-only scope and empty-view refusal",
+          "PASS uint32 source, shared identity and exact 1M boundaries",
+          "PASS cancellation, stale publication, draft and history refusal atomicity",
+          "PASS admission and intercepted C++ new allocation ordinal sweeps",
+          "Duplicate contracts passed: groups=6 admission-refusals=24 backend-refusals=80 sizeof(Job)=184 sizeof(Lineage)=1024"
+        ],
+        "observedCounters": [
+          24,
+          80,
+          184,
+          1024
+        ]
+      },
+      {
+        "name": "duplicate-binding",
+        "executable": {
+          "path": ".build/wasm/contracts/splatview-duplicate-binding-contracts.mjs",
+          "bytes": 81442,
+          "sha256": "8b8a40e2244ce89b57f1c38e706e7b5d4761478210e4955d88800beb7ec614be"
+        },
+        "wasm": {
+          "path": ".build/wasm/contracts/splatview-duplicate-binding-contracts.wasm",
+          "bytes": 2431577,
+          "sha256": "63c33eca7d0e72cdf5ff066fd0363a449c2798d4ab285186e48efda648544dcd"
+        },
+        "lines": [
+          "PASS actual SH3 append/current-view/history and topology receipts",
+          "PASS transaction rollback, cancellation and response refusal",
+          "PASS alignment Reset boundary and grown baseline",
+          "PASS retained tool/draft/shape ownership refusals",
+          "PASS actual publication intercepted-allocation sweep",
+          "PASS typed grown-graph restore, UndoRedo and marker ownership",
+          "SPLATVIEW_DUPLICATE_BINDING_CONTRACTS_PASS cases=6 checks=1709 allocationRefusals=30"
+        ],
+        "observedCounters": [
+          1709,
+          30
+        ]
+      },
+      {
+        "name": "document-checkpoint",
+        "executable": {
+          "path": ".build/wasm/contracts/splatview-document-checkpoint-contracts.mjs",
+          "bytes": 64531,
+          "sha256": "98be3696971b71c6fae54aca94fc304794b7e193a227d06fb65aedafa16a2148"
+        },
+        "wasm": {
+          "path": ".build/wasm/contracts/splatview-document-checkpoint-contracts.wasm",
+          "bytes": 250681,
+          "sha256": "dbdac5e7adfe725ccafae469a6e7220dd5eb6c75f58c3dc8f04af3c668505b34"
+        },
+        "lines": [
+          "SPLATVIEW_DOCUMENT_CHECKPOINT_CONTRACTS_PASS cases=28 checks=992 scopedResumes=3 legacyReads=9 refusals=25"
+        ],
+        "observedCounters": [
+          28,
+          992,
+          3,
+          9,
+          25
+        ]
+      },
+      {
+        "name": "operation-receipt",
+        "executable": {
+          "path": ".build/wasm/contracts/splatview-operation-receipt-contracts.mjs",
+          "bytes": 80810,
+          "sha256": "2c32ea288f404e6a4844270acec93514c56adb0cc5b698ff6e7234658a6b1b38"
+        },
+        "wasm": {
+          "path": ".build/wasm/contracts/splatview-operation-receipt-contracts.wasm",
+          "bytes": 2348268,
+          "sha256": "f037e6b4584c31723a1198e017476fe470f179bf29bac7ed4758f6747e4f19d0"
+        },
+        "lines": [
+          "SPLATVIEW_OPERATION_RECEIPT_CONTRACTS_PASS cases=21 checks=189 terminalReplyRefusals=2 preparationRefusals=2 receiptBytes=464 ledgerBytes=568"
+        ],
+        "observedCounters": [
+          21,
+          189,
+          2,
+          2,
+          464,
+          568
+        ]
+      },
+      {
+        "name": "response",
+        "executable": {
+          "path": ".build/wasm/contracts/splatview-response-contracts.mjs",
+          "bytes": 80495,
+          "sha256": "faa4d500ed174597a4a4091eb23f29c9fb9440157568d821cf5c9b77e177b7c1"
+        },
+        "wasm": {
+          "path": ".build/wasm/contracts/splatview-response-contracts.wasm",
+          "bytes": 2435756,
+          "sha256": "c7dbe6a4fcc22bd756dc174bd9fe4baec2d2874f10bfc87f101827639968a4f4"
+        },
+        "lines": [
+          "SPLATVIEW_RESPONSE_CONTRACTS_PASS cases=50 assertions=1280 noNewObservations=544 observedNewCalls=0 staticBytes=32933 repeatedRefusals=16"
+        ],
+        "observedCounters": [
+          50,
+          1280,
+          544,
+          0,
+          32933,
+          16
+        ]
+      }
+    ]
+  },
+  "pythonVerificationTests": 47,
+  "focusOwnerBytes": 144,
+  "focusMaximumStepRecords": 65536,
+  "accepted": [
+    "Pro Scene/Selection/Origin cycle and manual Custom state with exact desktop icons and eight-language copy",
+    "Readonly covariance-expanded selected AABB query; canonical mask and original retained transform coordinates",
+    "Neutral pivot references preserve pending fields and add no content or Undo; nonneutral changes remain explicit previews",
+    "Gizmo mode switch references and default Origin/Selection reset; canceled and stale queries cannot publish",
+    "Strict request/result identity, unchanged ABI24/protocol28/ui23, required additive transformPivot:1 capability"
+  ],
+  "remaining": [
+    "Accurate committed selection membership signal and automatic pivot default/refresh",
+    "Color/Fill Range, logarithmic Radius and range feedback",
+    "Floating confirmation controls and current tutorial coverage",
+    "Complete current desktop visual/assistive acceptance and measured limited-size browser operating budget"
+  ],
+  "cleanup": {
+    "cache": {
+      "path": ".build/pivot-controls-tests/cleanup-01.json",
+      "bytes": 3593,
+      "sha256": "1f2a1933a46b580187898f33a7e16ffb1da6c2d1dbb5aa71e1699a2626ddb30d"
+    },
+    "objects": {
+      "path": ".build/pivot-controls-tests/objects-cleanup-01.json",
+      "bytes": 2314,
+      "sha256": "12137e3a4cfe941a61d37ef280020e71dbb967bc1e7c3689cdd315e1d2edd9ac"
+    },
+    "removedObjectFiles": 226,
+    "removedObjectBytes": 41285992
+  },
+  "diagnostics": [
+    {
+      "path": "test-results-coherent-startup-pivot-native-contracts-01.command.json",
+      "bytes": 948,
+      "sha256": "1efdafb221987cffddd406cc6f8a075d52ab13fa0ed96c9a0b862b7e2e6fd16a"
+    },
+    {
+      "path": "test-results-coherent-startup-pivot-native-diagnostic-probe-01.command.json",
+      "bytes": 944,
+      "sha256": "3d31f52bea8300d7153b1b397094048a84bdf07f1f542d67ead3c9185bf4ac1b"
+    },
+    {
+      "path": "test-results-coherent-startup-pivot-native-diagnostic-probe-02.command.json",
+      "bytes": 943,
+      "sha256": "9cefd707fe5c2753eda1c1b01e2f2f0175319740b5f9495584c718c732963f5b"
+    },
+    {
+      "path": "test-results-coherent-startup-pivot-typecheck-01.command.json",
+      "bytes": 949,
+      "sha256": "f38b652ea7416892773a8330190af6767bb5be03d015f1e7c5edc93fd7e69a80"
+    },
+    {
+      "path": "test-results-coherent-startup-pivot-web-build-01.command.json",
+      "bytes": 1006,
+      "sha256": "f7ed8e9871db0ac1e3f1aba3690ec96e1d10e0aa78947d5f22de0cc33a965ccd"
+    },
+    {
+      "path": "test-results-coherent-startup-pivot-production-01.command.json",
+      "bytes": 1580,
+      "sha256": "5867cd958ac99818d61baaa05931ff561bd4147b743a9e27f4e3bafb76ab918e"
+    }
+  ],
+  "limitations": [
+    "Existing selected beginTransform focus remains synchronous; the new readonly query alone is cooperative",
+    "No dedicated Mac hardware test required or performed; no full Safari/performance/capacity acceptance is inferred"
+  ],
+  "committed": false,
+  "pushed": false,
+  "deployed": false
+}

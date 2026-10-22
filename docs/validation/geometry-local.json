@@ -1,0 +1,1616 @@
+{
+  "schemaVersion": 1,
+  "kind": "geometry-local-regression-validation",
+  "status": "passed",
+  "recordedAtUtc": "2026-10-11T20:58:09.198774+00:00",
+  "qualification": "Bounded local regression for current geometry points/meshes, retained Gaussian behavior and coherent production startup. No whole W12b, native-reference visual, actual Mac, deployed-host, complete format/UI parity or product-performance acceptance.",
+  "actualMacRunOccurred": false,
+  "deployed": false,
+  "overlap": "The 47 focused cases are included in the 589 development cases; inventory listings are unexecuted and not added. Native contract assertions are reported separately.",
+  "assembler": {
+    "path": "test-results-geometry-evidence-05.py",
+    "bytes": 36940,
+    "sha256": "3eb912bcac63b380174a967f247fc6a294fdead884d5fb9feca52f357eba5c69"
+  },
+  "reviewedHelpers": [
+    {
+      "path": "test-results-coherent-startup-evidence.py",
+      "bytes": 22371,
+      "sha256": "fc4abb8531280e01e5e264d53c74861b63884a6d69758f0034dabd084571c5e7"
+    },
+    {
+      "path": "tools/build-compat-fixtures.py",
+      "bytes": 28603,
+      "sha256": "b0ae99cc9b21c88047fc21c74511b067fc98c80bd18d31129cb79f05300b1343"
+    },
+    {
+      "path": "tools/verify-toolchain.py",
+      "bytes": 19237,
+      "sha256": "ee9658f4f909724d2a9e889daa6fa02d9eedfdd0075b9f89cdd15922e9a6ded9"
+    }
+  ],
+  "fixtureSet": {
+    "path": ".build/cf/geometry04/fixture-set.json",
+    "bytes": 1518198,
+    "sha256": "8ff78bf53e5e7a389e35a6dc07849b684bda118217340f75767ba7ee32352903",
+    "fixtureSetId": "86f3debc01f495065543b6a4312de902376ade01161262621b3bab8ed8e31206",
+    "captureId": "geometry04",
+    "capturedSourceFiles": 1262,
+    "capturedSourceSha256": "6a36ced015cb85bd47cec0a4e91ac724f1e45469b0e4f690e680a57cca33cce4",
+    "allCoveredInputsUnchanged": true,
+    "nativeModes": {
+      "A": "reused",
+      "B": "compiled",
+      "C": "reused"
+    }
+  },
+  "shipping": {
+    "appInputId": "4cd4961e32bb3114ba4657aca471be0e5ea90eae76b050498ba08d372c16a342",
+    "deploymentId": "cda08afde26fc618c3463382d9460cd579b1b51133a2a16f49a2fc2976cccb3c",
+    "nativeInputId": "3b31183d0532bb60bb9e9b54814eda0c776e8a5c746ddc491d3d21bf2d8dd51d",
+    "runtimeArtifactCount": 92,
+    "protocolVersion": 8,
+    "uiWorkerContract": 3,
+    "geometryPreview": 1,
+    "generatedContract": {
+      "path": "src/generated/buildIdentity.ts",
+      "bytes": 1123,
+      "sha256": "94726ecc2c589ed46db8da84678f47bc20f4bf934e40abaa577c7e106af46337"
+    },
+    "runtimeContract": {
+      "path": "native/wasm/runtime-contract.json",
+      "bytes": 610,
+      "sha256": "9594b06ab0e1a9b3e0066201cf95f1edca9ecf8680dad77cefe044e7068732c1"
+    },
+    "freshNativePublicationAndLocalBuildEvidenceVerified": true
+  },
+  "nativeContracts": {
+    "geometryAssertions": 257,
+    "geometryMainPassed": true,
+    "currentExecutionReport": {
+      "path": "test-results-geometry-native-execution-01.json",
+      "bytes": 3230,
+      "sha256": "4b6b94d28db543a9f21d670dc2f7061e2779478109f318d86de975fe99bac110",
+      "helper": {
+        "path": "test-results-geometry-native-execution-01.mjs",
+        "bytes": 5620,
+        "sha256": "78ebd35ad05a4809a7d7a3a9e28e72ed7704a67e4dd566bef66dd5acdf1c064a"
+      },
+      "artifactsBefore": [
+        {
+          "path": ".build/wasm/contracts/splatview-geometry-contracts.mjs",
+          "bytes": 77850,
+          "sha256": "2874a566b52ce4fb7664183ef2118047d6e22816c492c5cb88248ad3cad6cb84"
+        },
+        {
+          "path": ".build/wasm/contracts/splatview-geometry-contracts.wasm",
+          "bytes": 1554511,
+          "sha256": "96b6b06208fff20ed03a9ef95feebca7775ce7f3af0838b72763c17fe9009534"
+        },
+        {
+          "path": ".build/wasm/contracts/splatview-live-selection-contracts.mjs",
+          "bytes": 69339,
+          "sha256": "720f8df6b054c234c33ad45ec08ca33e1c067e89806b4716d263940281644a4e"
+        },
+        {
+          "path": ".build/wasm/contracts/splatview-live-selection-contracts.wasm",
+          "bytes": 387072,
+          "sha256": "d8a1753cf591c949351a4323e8180e53bfbed4dcfb65ea424645ba718adfc0a0"
+        }
+      ],
+      "artifactsAfter": [
+        {
+          "path": ".build/wasm/contracts/splatview-geometry-contracts.mjs",
+          "bytes": 77850,
+          "sha256": "2874a566b52ce4fb7664183ef2118047d6e22816c492c5cb88248ad3cad6cb84"
+        },
+        {
+          "path": ".build/wasm/contracts/splatview-geometry-contracts.wasm",
+          "bytes": 1554511,
+          "sha256": "96b6b06208fff20ed03a9ef95feebca7775ce7f3af0838b72763c17fe9009534"
+        },
+        {
+          "path": ".build/wasm/contracts/splatview-live-selection-contracts.mjs",
+          "bytes": 69339,
+          "sha256": "720f8df6b054c234c33ad45ec08ca33e1c067e89806b4716d263940281644a4e"
+        },
+        {
+          "path": ".build/wasm/contracts/splatview-live-selection-contracts.wasm",
+          "bytes": 387072,
+          "sha256": "d8a1753cf591c949351a4323e8180e53bfbed4dcfb65ea424645ba718adfc0a0"
+        }
+      ],
+      "invocations": [
+        {
+          "name": "geometry",
+          "modulePath": ".build/wasm/contracts/splatview-geometry-contracts.mjs",
+          "actualFactoryMainInvoked": true,
+          "factoryResolved": true,
+          "stdout": [
+            "SPLATVIEW_GEOMETRY_CONTRACTS_PASS assertions=257"
+          ],
+          "stderr": [],
+          "assertions": 257
+        },
+        {
+          "name": "live-selection",
+          "modulePath": ".build/wasm/contracts/splatview-live-selection-contracts.mjs",
+          "actualFactoryMainInvoked": true,
+          "factoryResolved": true,
+          "stdout": [
+            "Live selection contracts passed: real Rectangle/Polygon/analytic Brush/map Brush/Volume, typed candidate discard, unchanged/degenerate publication, exact catch scope, admission/publication errors, baseline/Redo/revisions and admitted-storage release."
+          ],
+          "stderr": []
+        }
+      ],
+      "startedAtUtc": "2026-10-11T19:31:38.721Z",
+      "finishedAtUtc": "2026-10-11T19:31:38.801Z"
+    },
+    "reuseVerification": {
+      "originalCapture": {
+        "path": ".build/cf/geometry03/fixture-set.json",
+        "bytes": 1514503,
+        "sha256": "2b175dda5a32a158f46c1fc335217a2c53d410cb282a2aea1d20e9b6804fbe2e"
+      },
+      "currentCapture": {
+        "path": ".build/cf/geometry04/fixture-set.json",
+        "bytes": 1518198,
+        "sha256": "8ff78bf53e5e7a389e35a6dc07849b684bda118217340f75767ba7ee32352903"
+      },
+      "identicalCapturedNativeAndBuildScriptRows": 418,
+      "nativeBuildTools": [
+        "tools/build-core.py",
+        "tools/capture-sources.py",
+        "tools/verify-toolchain.py"
+      ],
+      "localBuildEvidence": [
+        {
+          "original": {
+            "path": ".build/cf/geometry03/shipping-native-evidence/build-commands.txt",
+            "bytes": 118150,
+            "sha256": "3fce8d3d8128f5da3552378560cded714aae186e3b3dfa9ec123eb3a5e07cfa4"
+          },
+          "currentCapture": {
+            "path": ".build/cf/geometry04/shipping-native-evidence/build-commands.txt",
+            "bytes": 118150,
+            "sha256": "3fce8d3d8128f5da3552378560cded714aae186e3b3dfa9ec123eb3a5e07cfa4"
+          },
+          "current": {
+            "path": ".build/wasm/build-commands.txt",
+            "bytes": 118150,
+            "sha256": "3fce8d3d8128f5da3552378560cded714aae186e3b3dfa9ec123eb3a5e07cfa4"
+          }
+        },
+        {
+          "original": {
+            "path": ".build/cf/geometry03/shipping-native-evidence/compile_commands.json",
+            "bytes": 128055,
+            "sha256": "b808ab94c75090d1d10eeae04eabe8ac802200728a3bd4654dd4fe61ce082e35"
+          },
+          "currentCapture": {
+            "path": ".build/cf/geometry04/shipping-native-evidence/compile_commands.json",
+            "bytes": 128055,
+            "sha256": "b808ab94c75090d1d10eeae04eabe8ac802200728a3bd4654dd4fe61ce082e35"
+          },
+          "current": {
+            "path": ".build/wasm/compile_commands.json",
+            "bytes": 128055,
+            "sha256": "b808ab94c75090d1d10eeae04eabe8ac802200728a3bd4654dd4fe61ce082e35"
+          }
+        },
+        {
+          "original": {
+            "path": ".build/cf/geometry03/shipping-native-evidence/CMakeCache.txt",
+            "bytes": 28141,
+            "sha256": "ea9a225dee118e6110eec069b083db0eb0026a3fe279f685ecf4c5f1fce86b14"
+          },
+          "currentCapture": {
+            "path": ".build/cf/geometry04/shipping-native-evidence/CMakeCache.txt",
+            "bytes": 28141,
+            "sha256": "ea9a225dee118e6110eec069b083db0eb0026a3fe279f685ecf4c5f1fce86b14"
+          },
+          "current": {
+            "path": ".build/wasm/CMakeCache.txt",
+            "bytes": 28141,
+            "sha256": "ea9a225dee118e6110eec069b083db0eb0026a3fe279f685ecf4c5f1fce86b14"
+          }
+        }
+      ],
+      "publications": [
+        {
+          "original": {
+            "path": ".build/cf/geometry03/A/public/wasm/build-provenance.json",
+            "bytes": 7976,
+            "sha256": "3b68970a89cf6d45c87cd43ed4cd07b5a28ba2ab5c32024c12f497e3086c2129"
+          },
+          "currentCapture": {
+            "path": ".build/cf/geometry04/A/public/wasm/build-provenance.json",
+            "bytes": 7976,
+            "sha256": "3b68970a89cf6d45c87cd43ed4cd07b5a28ba2ab5c32024c12f497e3086c2129"
+          },
+          "current": {
+            "path": "public/wasm/build-provenance.json",
+            "bytes": 7976,
+            "sha256": "3b68970a89cf6d45c87cd43ed4cd07b5a28ba2ab5c32024c12f497e3086c2129"
+          }
+        },
+        {
+          "original": {
+            "path": ".build/cf/geometry03/A/public/wasm/splatview-camera.mjs",
+            "bytes": 12043,
+            "sha256": "82616e5b11115f6331364df2a29124736065edbf658e803fa9861ac8931c2f11"
+          },
+          "currentCapture": {
+            "path": ".build/cf/geometry04/A/public/wasm/splatview-camera.mjs",
+            "bytes": 12043,
+            "sha256": "82616e5b11115f6331364df2a29124736065edbf658e803fa9861ac8931c2f11"
+          },
+          "current": {
+            "path": "public/wasm/splatview-camera.mjs",
+            "bytes": 12043,
+            "sha256": "82616e5b11115f6331364df2a29124736065edbf658e803fa9861ac8931c2f11"
+          }
+        },
+        {
+          "original": {
+            "path": ".build/cf/geometry03/A/public/wasm/splatview-camera.wasm",
+            "bytes": 26871,
+            "sha256": "20cda433187391f85edfedf74af839485a49ffbb574af5ec15b72bb2f4db55e1"
+          },
+          "currentCapture": {
+            "path": ".build/cf/geometry04/A/public/wasm/splatview-camera.wasm",
+            "bytes": 26871,
+            "sha256": "20cda433187391f85edfedf74af839485a49ffbb574af5ec15b72bb2f4db55e1"
+          },
+          "current": {
+            "path": "public/wasm/splatview-camera.wasm",
+            "bytes": 26871,
+            "sha256": "20cda433187391f85edfedf74af839485a49ffbb574af5ec15b72bb2f4db55e1"
+          }
+        },
+        {
+          "original": {
+            "path": ".build/cf/geometry03/A/public/wasm/splatview-core.mjs",
+            "bytes": 78281,
+            "sha256": "ed15de43cf635b1091e3d185b7c1b7dc56a8d968cab75a67719af15021c8b0f6"
+          },
+          "currentCapture": {
+            "path": ".build/cf/geometry04/A/public/wasm/splatview-core.mjs",
+            "bytes": 78281,
+            "sha256": "ed15de43cf635b1091e3d185b7c1b7dc56a8d968cab75a67719af15021c8b0f6"
+          },
+          "current": {
+            "path": "public/wasm/splatview-core.mjs",
+            "bytes": 78281,
+            "sha256": "ed15de43cf635b1091e3d185b7c1b7dc56a8d968cab75a67719af15021c8b0f6"
+          }
+        },
+        {
+          "original": {
+            "path": ".build/cf/geometry03/A/public/wasm/splatview-core.wasm",
+            "bytes": 1475195,
+            "sha256": "7ca343d432d8f76ca383eb56e15f8cdb5ee8d16281d2444a0950f9e95eb121fd"
+          },
+          "currentCapture": {
+            "path": ".build/cf/geometry04/A/public/wasm/splatview-core.wasm",
+            "bytes": 1475195,
+            "sha256": "7ca343d432d8f76ca383eb56e15f8cdb5ee8d16281d2444a0950f9e95eb121fd"
+          },
+          "current": {
+            "path": "public/wasm/splatview-core.wasm",
+            "bytes": 1475195,
+            "sha256": "7ca343d432d8f76ca383eb56e15f8cdb5ee8d16281d2444a0950f9e95eb121fd"
+          }
+        }
+      ],
+      "scope": "The earlier actual nativeExecution01 is reused only for exact unchanged native/build-script inputs, three local build-evidence files, five qualified publications and four contract artifacts. It is not a new native execution for geometry04, viewport TypeScript or W11 native hashing. Earlier main logs remain historical and do not retrospectively bind their original bytes."
+    },
+    "retainedLiveSelectionMainPassed": true,
+    "artifacts": [
+      {
+        "path": ".build/wasm/contracts/splatview-geometry-contracts.mjs",
+        "bytes": 77850,
+        "sha256": "2874a566b52ce4fb7664183ef2118047d6e22816c492c5cb88248ad3cad6cb84"
+      },
+      {
+        "path": ".build/wasm/contracts/splatview-geometry-contracts.wasm",
+        "bytes": 1554511,
+        "sha256": "96b6b06208fff20ed03a9ef95feebca7775ce7f3af0838b72763c17fe9009534"
+      },
+      {
+        "path": ".build/wasm/contracts/splatview-live-selection-contracts.mjs",
+        "bytes": 69339,
+        "sha256": "720f8df6b054c234c33ad45ec08ca33e1c067e89806b4716d263940281644a4e"
+      },
+      {
+        "path": ".build/wasm/contracts/splatview-live-selection-contracts.wasm",
+        "bytes": 387072,
+        "sha256": "d8a1753cf591c949351a4323e8180e53bfbed4dcfb65ea424645ba718adfc0a0"
+      }
+    ],
+    "scope": "Retained actual nativeExecution01 binds its linked C++ main invocations to exact pre/post artifact hashes. Geometry04 reuses that execution only after the explicit unchanged native/build-script/evidence/publication/artifact closure checks; no new native main ran for this capture. Earlier successful main logs/terminals remain historical and do not retrospectively bind their executed bytes. Native assertions are separate from browser/unit counts; W11 native hashing remains unintegrated."
+  },
+  "reports": {
+    "units": {
+      "path": "test-results-geometry-units-05.json",
+      "bytes": 221027,
+      "sha256": "a9c9631ead60c39795dc80f941ede64ccf0d666f5030f70568cad09e7e7405d6",
+      "passed": 611,
+      "files": 16,
+      "passedByFile": {
+        "tests/build-compat.test.ts": 33,
+        "tests/camera.test.ts": 9,
+        "tests/capture-admission.test.ts": 20,
+        "tests/core.test.ts": 175,
+        "tests/document.test.ts": 4,
+        "tests/geometry-worker.test.ts": 11,
+        "tests/geometry.test.ts": 40,
+        "tests/live-preview-core.test.ts": 38,
+        "tests/live-preview.test.ts": 18,
+        "tests/load-probe.test.ts": 43,
+        "tests/selection-map-cache.test.ts": 6,
+        "tests/selection-map.test.ts": 45,
+        "tests/selection-session.test.ts": 60,
+        "tests/source-fingerprint.test.ts": 52,
+        "tests/source-paths.test.ts": 51,
+        "tests/tolerance-session.test.ts": 6
+      },
+      "distinctDisplayTitles": 610,
+      "expectedRepeatedDisplayTitle": {
+        "file": "tests/source-fingerprint.test.ts",
+        "title": "canonical encoding rejects invalid length 3 before any emission",
+        "assertions": 2,
+        "sourceValues": [
+          "string 3",
+          "bigint 3n"
+        ]
+      }
+    },
+    "nativeExecution": {
+      "path": "test-results-geometry-native-execution-01.json",
+      "bytes": 3230,
+      "sha256": "4b6b94d28db543a9f21d670dc2f7061e2779478109f318d86de975fe99bac110",
+      "helper": {
+        "path": "test-results-geometry-native-execution-01.mjs",
+        "bytes": 5620,
+        "sha256": "78ebd35ad05a4809a7d7a3a9e28e72ed7704a67e4dd566bef66dd5acdf1c064a"
+      },
+      "artifactsBefore": [
+        {
+          "path": ".build/wasm/contracts/splatview-geometry-contracts.mjs",
+          "bytes": 77850,
+          "sha256": "2874a566b52ce4fb7664183ef2118047d6e22816c492c5cb88248ad3cad6cb84"
+        },
+        {
+          "path": ".build/wasm/contracts/splatview-geometry-contracts.wasm",
+          "bytes": 1554511,
+          "sha256": "96b6b06208fff20ed03a9ef95feebca7775ce7f3af0838b72763c17fe9009534"
+        },
+        {
+          "path": ".build/wasm/contracts/splatview-live-selection-contracts.mjs",
+          "bytes": 69339,
+          "sha256": "720f8df6b054c234c33ad45ec08ca33e1c067e89806b4716d263940281644a4e"
+        },
+        {
+          "path": ".build/wasm/contracts/splatview-live-selection-contracts.wasm",
+          "bytes": 387072,
+          "sha256": "d8a1753cf591c949351a4323e8180e53bfbed4dcfb65ea424645ba718adfc0a0"
+        }
+      ],
+      "artifactsAfter": [
+        {
+          "path": ".build/wasm/contracts/splatview-geometry-contracts.mjs",
+          "bytes": 77850,
+          "sha256": "2874a566b52ce4fb7664183ef2118047d6e22816c492c5cb88248ad3cad6cb84"
+        },
+        {
+          "path": ".build/wasm/contracts/splatview-geometry-contracts.wasm",
+          "bytes": 1554511,
+          "sha256": "96b6b06208fff20ed03a9ef95feebca7775ce7f3af0838b72763c17fe9009534"
+        },
+        {
+          "path": ".build/wasm/contracts/splatview-live-selection-contracts.mjs",
+          "bytes": 69339,
+          "sha256": "720f8df6b054c234c33ad45ec08ca33e1c067e89806b4716d263940281644a4e"
+        },
+        {
+          "path": ".build/wasm/contracts/splatview-live-selection-contracts.wasm",
+          "bytes": 387072,
+          "sha256": "d8a1753cf591c949351a4323e8180e53bfbed4dcfb65ea424645ba718adfc0a0"
+        }
+      ],
+      "invocations": [
+        {
+          "name": "geometry",
+          "modulePath": ".build/wasm/contracts/splatview-geometry-contracts.mjs",
+          "actualFactoryMainInvoked": true,
+          "factoryResolved": true,
+          "stdout": [
+            "SPLATVIEW_GEOMETRY_CONTRACTS_PASS assertions=257"
+          ],
+          "stderr": [],
+          "assertions": 257
+        },
+        {
+          "name": "live-selection",
+          "modulePath": ".build/wasm/contracts/splatview-live-selection-contracts.mjs",
+          "actualFactoryMainInvoked": true,
+          "factoryResolved": true,
+          "stdout": [
+            "Live selection contracts passed: real Rectangle/Polygon/analytic Brush/map Brush/Volume, typed candidate discard, unchanged/degenerate publication, exact catch scope, admission/publication errors, baseline/Redo/revisions and admitted-storage release."
+          ],
+          "stderr": []
+        }
+      ],
+      "startedAtUtc": "2026-10-11T19:31:38.721Z",
+      "finishedAtUtc": "2026-10-11T19:31:38.801Z"
+    },
+    "developmentInventory": {
+      "path": "test-results-geometry-dev-inventory-03.json",
+      "bytes": 403467,
+      "sha256": "05c5e0c904a29aa5a6fb1b9314f5691d6e3858eca6dbc813e01b9f2640c9e812",
+      "leaves": 589,
+      "files": 22,
+      "purpose": "Exact unexecuted reference inventory; not counted as passed tests."
+    },
+    "productionInventory": {
+      "path": "test-results-geometry-prod-inventory-03.json",
+      "bytes": 53263,
+      "sha256": "c3e63425c212ffb1c706acdc4ad2afef26c73684d3d5b46af1eddb3db51d183c",
+      "leaves": 81,
+      "files": 3,
+      "purpose": "Exact unexecuted reference inventory; not counted as passed tests."
+    },
+    "full": {
+      "path": "test-results-geometry-full-03.json",
+      "bytes": 2199589,
+      "sha256": "be16b6ed4cb09232e66de81d69696233be67d323c164587e309506aff5e847b5",
+      "stats": {
+        "startTime": "2026-10-11T20:35:42.181Z",
+        "duration": 1184730.93,
+        "expected": 589,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "files": 22,
+      "passedByFile": {
+        "e2e/app.spec.ts": 6,
+        "e2e/background.spec.ts": 11,
+        "e2e/camera.spec.ts": 10,
+        "e2e/cancel-cleanup.spec.ts": 20,
+        "e2e/color.spec.ts": 14,
+        "e2e/connected.spec.ts": 32,
+        "e2e/fill-shortcut.spec.ts": 20,
+        "e2e/fill.spec.ts": 23,
+        "e2e/geometric-live-preview.spec.ts": 32,
+        "e2e/geometry-render.spec.ts": 22,
+        "e2e/geometry-viewer.spec.ts": 17,
+        "e2e/gesture.spec.ts": 58,
+        "e2e/gpu.spec.ts": 24,
+        "e2e/live-preview-failure.spec.ts": 26,
+        "e2e/map-cache.spec.ts": 24,
+        "e2e/map.spec.ts": 40,
+        "e2e/polygon.spec.ts": 47,
+        "e2e/queue.spec.ts": 90,
+        "e2e/recovery.spec.ts": 6,
+        "e2e/selection.spec.ts": 7,
+        "e2e/surface.spec.ts": 44,
+        "e2e/volume.spec.ts": 16
+      },
+      "workers": 2,
+      "lastRun": {
+        "path": "test-results-geometry-full-03/.last-run.json",
+        "bytes": 45,
+        "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+      },
+      "fixtureBindings": [],
+      "passedExactlyOnce": true
+    },
+    "production": {
+      "path": "test-results-geometry-production-03.json",
+      "bytes": 212759,
+      "sha256": "8157b54f156f9c4e9132fc81fcf5c6032ef7a428b85c6f0d3508ab7ce4706a03",
+      "stats": {
+        "startTime": "2026-10-11T20:35:42.177Z",
+        "duration": 167510.96,
+        "expected": 81,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "files": 3,
+      "passedByFile": {
+        "tests/production/build-compat.spec.ts": 51,
+        "tests/production/coherent-builds.spec.ts": 17,
+        "tests/production/initialization-faults.spec.ts": 13
+      },
+      "workers": 1,
+      "lastRun": {
+        "path": "test-results-geometry-production-03/.last-run.json",
+        "bytes": 45,
+        "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+      },
+      "fixtureBindings": [
+        {
+          "testId": "1a878a7a893be77ce52d-b219ef9a1044cd0f1c29",
+          "title": "genuine coherent A opens, edits, Undo/Redo and exports at /",
+          "file": "tests/production/coherent-builds.spec.ts",
+          "name": "genuine-compatibility-fixture-set",
+          "bytes": 206,
+          "sha256": "67413f23fd8f4a02822372f770a4f44754b525e5a19c89d077917e7576559206",
+          "fixtureSetId": "86f3debc01f495065543b6a4312de902376ade01161262621b3bab8ed8e31206"
+        },
+        {
+          "testId": "1a878a7a893be77ce52d-2c602998e62f909c1ef3",
+          "title": "genuine coherent A opens, edits, Undo/Redo and exports at /project/",
+          "file": "tests/production/coherent-builds.spec.ts",
+          "name": "genuine-compatibility-fixture-set",
+          "bytes": 206,
+          "sha256": "67413f23fd8f4a02822372f770a4f44754b525e5a19c89d077917e7576559206",
+          "fixtureSetId": "86f3debc01f495065543b6a4312de902376ade01161262621b3bab8ed8e31206"
+        },
+        {
+          "testId": "1a878a7a893be77ce52d-7eec11d778b671e2bc92",
+          "title": "genuine coherent B opens, edits, Undo/Redo and exports at /",
+          "file": "tests/production/coherent-builds.spec.ts",
+          "name": "genuine-compatibility-fixture-set",
+          "bytes": 206,
+          "sha256": "67413f23fd8f4a02822372f770a4f44754b525e5a19c89d077917e7576559206",
+          "fixtureSetId": "86f3debc01f495065543b6a4312de902376ade01161262621b3bab8ed8e31206"
+        },
+        {
+          "testId": "1a878a7a893be77ce52d-f901fea81297f2f216d2",
+          "title": "genuine coherent B opens, edits, Undo/Redo and exports at /project/",
+          "file": "tests/production/coherent-builds.spec.ts",
+          "name": "genuine-compatibility-fixture-set",
+          "bytes": 206,
+          "sha256": "67413f23fd8f4a02822372f770a4f44754b525e5a19c89d077917e7576559206",
+          "fixtureSetId": "86f3debc01f495065543b6a4312de902376ade01161262621b3bab8ed8e31206"
+        },
+        {
+          "testId": "1a878a7a893be77ce52d-e9e6b7bda85d30b4664b",
+          "title": "genuine coherent C opens, edits, Undo/Redo and exports at /",
+          "file": "tests/production/coherent-builds.spec.ts",
+          "name": "genuine-compatibility-fixture-set",
+          "bytes": 206,
+          "sha256": "67413f23fd8f4a02822372f770a4f44754b525e5a19c89d077917e7576559206",
+          "fixtureSetId": "86f3debc01f495065543b6a4312de902376ade01161262621b3bab8ed8e31206"
+        },
+        {
+          "testId": "1a878a7a893be77ce52d-d43c31e67e2fd8d66e0f",
+          "title": "genuine coherent C opens, edits, Undo/Redo and exports at /project/",
+          "file": "tests/production/coherent-builds.spec.ts",
+          "name": "genuine-compatibility-fixture-set",
+          "bytes": 206,
+          "sha256": "67413f23fd8f4a02822372f770a4f44754b525e5a19c89d077917e7576559206",
+          "fixtureSetId": "86f3debc01f495065543b6a4312de902376ade01161262621b3bab8ed8e31206"
+        },
+        {
+          "testId": "1a878a7a893be77ce52d-66dcb69792890004150f",
+          "title": "actual cached A entry refuses genuine B deployment before worker/camera creation",
+          "file": "tests/production/coherent-builds.spec.ts",
+          "name": "genuine-compatibility-fixture-set",
+          "bytes": 206,
+          "sha256": "67413f23fd8f4a02822372f770a4f44754b525e5a19c89d077917e7576559206",
+          "fixtureSetId": "86f3debc01f495065543b6a4312de902376ade01161262621b3bab8ed8e31206"
+        },
+        {
+          "testId": "1a878a7a893be77ce52d-605d0b0634ce8bbf7dd5",
+          "title": "actual cached B entry refuses genuine A deployment before worker/camera creation",
+          "file": "tests/production/coherent-builds.spec.ts",
+          "name": "genuine-compatibility-fixture-set",
+          "bytes": 206,
+          "sha256": "67413f23fd8f4a02822372f770a4f44754b525e5a19c89d077917e7576559206",
+          "fixtureSetId": "86f3debc01f495065543b6a4312de902376ade01161262621b3bab8ed8e31206"
+        },
+        {
+          "testId": "1a878a7a893be77ce52d-b541d6d8b30f6b1d6160",
+          "title": "actual cached A entry refuses genuine C deployment before worker/camera creation",
+          "file": "tests/production/coherent-builds.spec.ts",
+          "name": "genuine-compatibility-fixture-set",
+          "bytes": 206,
+          "sha256": "67413f23fd8f4a02822372f770a4f44754b525e5a19c89d077917e7576559206",
+          "fixtureSetId": "86f3debc01f495065543b6a4312de902376ade01161262621b3bab8ed8e31206"
+        },
+        {
+          "testId": "1a878a7a893be77ce52d-f87033bf5ba1cbd7c641",
+          "title": "actual cached C entry refuses genuine A deployment before worker/camera creation",
+          "file": "tests/production/coherent-builds.spec.ts",
+          "name": "genuine-compatibility-fixture-set",
+          "bytes": 206,
+          "sha256": "67413f23fd8f4a02822372f770a4f44754b525e5a19c89d077917e7576559206",
+          "fixtureSetId": "86f3debc01f495065543b6a4312de902376ade01161262621b3bab8ed8e31206"
+        },
+        {
+          "testId": "1a878a7a893be77ce52d-dccbf3cb99a1e7bffaac",
+          "title": "mixed actual B document-worker in A reaches compiled identity refusal after matching digests",
+          "file": "tests/production/coherent-builds.spec.ts",
+          "name": "genuine-compatibility-fixture-set",
+          "bytes": 206,
+          "sha256": "67413f23fd8f4a02822372f770a4f44754b525e5a19c89d077917e7576559206",
+          "fixtureSetId": "86f3debc01f495065543b6a4312de902376ade01161262621b3bab8ed8e31206"
+        },
+        {
+          "testId": "1a878a7a893be77ce52d-59596195482c26bd4343",
+          "title": "mixed actual B core in A reaches compiled identity refusal after matching digests",
+          "file": "tests/production/coherent-builds.spec.ts",
+          "name": "genuine-compatibility-fixture-set",
+          "bytes": 206,
+          "sha256": "67413f23fd8f4a02822372f770a4f44754b525e5a19c89d077917e7576559206",
+          "fixtureSetId": "86f3debc01f495065543b6a4312de902376ade01161262621b3bab8ed8e31206"
+        },
+        {
+          "testId": "1a878a7a893be77ce52d-00a7ba8af6ad1963b1c5",
+          "title": "mixed actual B camera in A reaches compiled identity refusal after matching digests",
+          "file": "tests/production/coherent-builds.spec.ts",
+          "name": "genuine-compatibility-fixture-set",
+          "bytes": 206,
+          "sha256": "67413f23fd8f4a02822372f770a4f44754b525e5a19c89d077917e7576559206",
+          "fixtureSetId": "86f3debc01f495065543b6a4312de902376ade01161262621b3bab8ed8e31206"
+        },
+        {
+          "testId": "1a878a7a893be77ce52d-7e2e18ec108f3c3a6ffc",
+          "title": "mixed actual A document-worker in B reaches compiled identity refusal after matching digests",
+          "file": "tests/production/coherent-builds.spec.ts",
+          "name": "genuine-compatibility-fixture-set",
+          "bytes": 206,
+          "sha256": "67413f23fd8f4a02822372f770a4f44754b525e5a19c89d077917e7576559206",
+          "fixtureSetId": "86f3debc01f495065543b6a4312de902376ade01161262621b3bab8ed8e31206"
+        },
+        {
+          "testId": "1a878a7a893be77ce52d-1729b4ab2b1272351923",
+          "title": "mixed actual A core in B reaches compiled identity refusal after matching digests",
+          "file": "tests/production/coherent-builds.spec.ts",
+          "name": "genuine-compatibility-fixture-set",
+          "bytes": 206,
+          "sha256": "67413f23fd8f4a02822372f770a4f44754b525e5a19c89d077917e7576559206",
+          "fixtureSetId": "86f3debc01f495065543b6a4312de902376ade01161262621b3bab8ed8e31206"
+        },
+        {
+          "testId": "1a878a7a893be77ce52d-dc6e656f953d1ea3806a",
+          "title": "mixed actual A camera in B reaches compiled identity refusal after matching digests",
+          "file": "tests/production/coherent-builds.spec.ts",
+          "name": "genuine-compatibility-fixture-set",
+          "bytes": 206,
+          "sha256": "67413f23fd8f4a02822372f770a4f44754b525e5a19c89d077917e7576559206",
+          "fixtureSetId": "86f3debc01f495065543b6a4312de902376ade01161262621b3bab8ed8e31206"
+        },
+        {
+          "testId": "1a878a7a893be77ce52d-54d4127d8d2057b7dea2",
+          "title": "edited A tab remains on genuine pinned A after the host offers B, including canceled candidate and late actual ready",
+          "file": "tests/production/coherent-builds.spec.ts",
+          "name": "genuine-compatibility-fixture-set",
+          "bytes": 206,
+          "sha256": "67413f23fd8f4a02822372f770a4f44754b525e5a19c89d077917e7576559206",
+          "fixtureSetId": "86f3debc01f495065543b6a4312de902376ade01161262621b3bab8ed8e31206"
+        }
+      ],
+      "passedExactlyOnce": true
+    },
+    "focus": {
+      "path": "test-results-geometry-browser-04.json",
+      "bytes": 153509,
+      "sha256": "484014e5fa544b09ca2e419fc0b39a4d50e932121fdeff377139c17d7018cef8",
+      "stats": {
+        "startTime": "2026-10-11T20:30:01.886Z",
+        "duration": 48289.227,
+        "expected": 47,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "files": 4,
+      "passedByFile": {
+        "e2e/geometry-render.spec.ts": 22,
+        "e2e/geometry-viewer.spec.ts": 17,
+        "e2e/gpu.spec.ts": 2,
+        "e2e/recovery.spec.ts": 6
+      },
+      "workers": 1,
+      "lastRun": {
+        "path": "test-results-geometry-browser-04/.last-run.json",
+        "bytes": 45,
+        "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+      },
+      "fixtureBindings": [],
+      "passedExactlyOnce": true
+    }
+  },
+  "artifactAudit": {
+    "passed": true,
+    "manifest": {
+      "path": "dist/build-manifest.json",
+      "bytes": 18285,
+      "sha256": "1cc818a0d8c72f8d294359de1f515aca8b074b52f13e15fd958c1141f10e0cd0"
+    },
+    "completeDistInventory": [
+      {
+        "path": "assets/document.worker-BDP05ATC.js",
+        "bytes": 21665,
+        "sha256": "0b0c620d564e8082ed5e1e69a44b3f03ad1b1916ffda30d8d1cdef833a5254a6"
+      },
+      {
+        "path": "assets/document.worker-BDP05ATC.js.map",
+        "bytes": 85401,
+        "sha256": "e93c20b6844f0490cc68a2895f35ee29957252975e76508151f2ba06b35311e1"
+      },
+      {
+        "path": "assets/index-B0uHp0Sx.css",
+        "bytes": 6309,
+        "sha256": "59dec6bf5fe1df57e286103571997759b9a8083a41f5de1145c5c2f76b43d325"
+      },
+      {
+        "path": "assets/index-Btuc4zj5.js",
+        "bytes": 439262,
+        "sha256": "ec8ef0eb25067386fc93b379d9b8a4eb94f95d9ee26e3a8988a7300137cf477f"
+      },
+      {
+        "path": "assets/index-Btuc4zj5.js.map",
+        "bytes": 1587228,
+        "sha256": "f41acbda31f191fba18ddf5d1279a29bd53c5d63ce6eb2ee787dc337bbfca478"
+      },
+      {
+        "path": "build-manifest.json",
+        "bytes": 18285,
+        "sha256": "1cc818a0d8c72f8d294359de1f515aca8b074b52f13e15fd958c1141f10e0cd0"
+      },
+      {
+        "path": "icons/LICENSE.txt",
+        "bytes": 3208,
+        "sha256": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57"
+      },
+      {
+        "path": "icons/README.md",
+        "bytes": 3235,
+        "sha256": "2f0384ee7b606e191fec67f5baf4139ecfe273f9bdd199b4e350427d5fb7661d"
+      },
+      {
+        "path": "icons/alignment-floor.svg",
+        "bytes": 246,
+        "sha256": "9d1283d7bd150a90724ef56a8e19cc0cd24031145a0039308f3934b37dacd224"
+      },
+      {
+        "path": "icons/alignment-plane.svg",
+        "bytes": 330,
+        "sha256": "a08a450ac1072f7111b6edfa7695a09aa9104971f31cf672668c0055ec3b1f88"
+      },
+      {
+        "path": "icons/alignment-scale.svg",
+        "bytes": 325,
+        "sha256": "ee24b9231a99960ec2757470aae771b2c25225e728666f756c29806dc027fdbb"
+      },
+      {
+        "path": "icons/archive-restore.svg",
+        "bytes": 393,
+        "sha256": "7b589719d9c539dcb77844ea02b7c548f354a74b2931734f57b041d4e9de8ff8"
+      },
+      {
+        "path": "icons/arrow-up-down.svg",
+        "bytes": 313,
+        "sha256": "d15411438095bac7cab0cf91f18cadfbde2ca752284c06b4b3642c4695b1774e"
+      },
+      {
+        "path": "icons/axis-3d.svg",
+        "bytes": 342,
+        "sha256": "edea2bc3b4f6d3b896e444c946d034064273861edd5d1bcba51df16a49730959"
+      },
+      {
+        "path": "icons/book-open.svg",
+        "bytes": 387,
+        "sha256": "9b9bed0ff057283d5c5c5a1c71f8d3e927db26a56639603a92fdf7b25961510e"
+      },
+      {
+        "path": "icons/brush.svg",
+        "bytes": 398,
+        "sha256": "70a2174ebd2601367ba0e8ce6ddb3d6a844d5d17e24235197f04481a1bed27e9"
+      },
+      {
+        "path": "icons/bug.svg",
+        "bytes": 615,
+        "sha256": "c4fddf0d43b4c4f0b8fc52eb8810173c8d8bd25618034a70f162d85e8189d69d"
+      },
+      {
+        "path": "icons/camera.svg",
+        "bytes": 437,
+        "sha256": "ebbb3178dd80dfd942770a2237fe7bfc3515c55c7daa9d3666933a656d2790e3"
+      },
+      {
+        "path": "icons/check.svg",
+        "bytes": 239,
+        "sha256": "7f33acc9a77a61659531044525fc008edebe215bf4dcf1c789c8674ad3277db0"
+      },
+      {
+        "path": "icons/circle-question-mark.svg",
+        "bytes": 322,
+        "sha256": "975db087da041530dbf59ba1e61a7b99c3519fad43dae6375e42ccc74ba63924"
+      },
+      {
+        "path": "icons/color-auto.svg",
+        "bytes": 256,
+        "sha256": "fae2734a293f0875d15f5513e13d2a508812ee4c9415354072c583af39553334"
+      },
+      {
+        "path": "icons/color-contrast.svg",
+        "bytes": 270,
+        "sha256": "32524829634f0cec2cd1187f13b0077cbd3ea73510c74f473f21ad3ee92cb453"
+      },
+      {
+        "path": "icons/color-exposure.svg",
+        "bytes": 262,
+        "sha256": "8ea322a788fc2bc4e5147167030971c63605844c12dc360028e040a9a9d66a85"
+      },
+      {
+        "path": "icons/color-presets.svg",
+        "bytes": 434,
+        "sha256": "7f52ca4ad8fad4c9c82b59611c00676fff3d92d6d2be1dd6554615783f84c7f7"
+      },
+      {
+        "path": "icons/color-white-balance.svg",
+        "bytes": 304,
+        "sha256": "9dc4f5e56a0e2e4fa0952ac6ae2ede7fdebd113836e2424f00cbf94df06d9473"
+      },
+      {
+        "path": "icons/contrast.svg",
+        "bytes": 285,
+        "sha256": "a9f1a6166c479cd3e546625b09686a7e97322c850a9b146f270f912e886c395c"
+      },
+      {
+        "path": "icons/copy.svg",
+        "bytes": 339,
+        "sha256": "ea80e566c7a12628a447cb53179b19aea4f60b9143e2becd0d0f20bf260e5718"
+      },
+      {
+        "path": "icons/crop.svg",
+        "bytes": 288,
+        "sha256": "9229f7832445ee0caa15eecd6323397a3ebb5c9a124f923212605ad3529d64b8"
+      },
+      {
+        "path": "icons/crosshair.svg",
+        "bytes": 412,
+        "sha256": "ae9ed8583286ea03bffae85bb69aee5227540e588b0370cf185f2141ebe25e8d"
+      },
+      {
+        "path": "icons/download.svg",
+        "bytes": 318,
+        "sha256": "3daeee13ded5a3afa2198b1bb4e2262d163922f97d96ac6ff9953e8ed4fe039d"
+      },
+      {
+        "path": "icons/flip-x.svg",
+        "bytes": 234,
+        "sha256": "07731ec50608c365e711f1e93d4c3f3304bdf395a41dd78850770df7fa0aca2e"
+      },
+      {
+        "path": "icons/flip-y.svg",
+        "bytes": 235,
+        "sha256": "776a23697c5e8de2b25d0ca0f6148728e41bdf194d4ffdbd0aa71a4b98422803"
+      },
+      {
+        "path": "icons/flip-z.svg",
+        "bytes": 229,
+        "sha256": "47473c0564a9b6c21d08a78f7a3915b05c3eff1f358cfb2cf25fc6c1c3881fa7"
+      },
+      {
+        "path": "icons/focus.svg",
+        "bytes": 401,
+        "sha256": "d52fde05ccbd7bf629e05daeb8eadf824c85333aeca78e674db01493bc8b1f10"
+      },
+      {
+        "path": "icons/folder-open.svg",
+        "bytes": 401,
+        "sha256": "ee57452b40e71df310214091dd9da1941a397c83197b8ff8d7ae66dd4242578b"
+      },
+      {
+        "path": "icons/fullscreen-exit.svg",
+        "bytes": 152,
+        "sha256": "314727ed0b19b57fc2239e3fcc6a957cd190d1758b7785cdfe07cba89fa0447d"
+      },
+      {
+        "path": "icons/fullscreen.svg",
+        "bytes": 153,
+        "sha256": "2111b2c743a2601b4cef92bb23a32f4c8e7e1425a7358c7be2e1277eff61b6a4"
+      },
+      {
+        "path": "icons/image-copy.svg",
+        "bytes": 411,
+        "sha256": "1215e5f021683fa903f06d59775ca196edfcde213acb842864776a179174e8fb"
+      },
+      {
+        "path": "icons/image-thumbnail.svg",
+        "bytes": 376,
+        "sha256": "8b20a2f0a28e045dd23de7d3c18e374fef296dc59b099294d61c71cba184a773"
+      },
+      {
+        "path": "icons/image.svg",
+        "bytes": 358,
+        "sha256": "619c9db58c879dce6250376ba67d9c9102ca6dbb3b1efb9294c9f180e22273a5"
+      },
+      {
+        "path": "icons/magnet.svg",
+        "bytes": 297,
+        "sha256": "cbcb0f6d8d486f75bcbe8057ec122a8f1ff0413001715de3d1b65a6e078a810e"
+      },
+      {
+        "path": "icons/minus.svg",
+        "bytes": 232,
+        "sha256": "a0c743ab6dbf545d8a6e19ef3874f48ede686ce68d25e231bd81f540d97b1f19"
+      },
+      {
+        "path": "icons/mouse-pointer-2.svg",
+        "bytes": 356,
+        "sha256": "a87128b1d33024c22ab598d1ce313081ce8942efd1a70274215bcc53421b7c7e"
+      },
+      {
+        "path": "icons/move-3d.svg",
+        "bytes": 317,
+        "sha256": "1c76c067c9ef6922af206ca42fc275e82cb5c4413422ce284c7015d3682f55eb"
+      },
+      {
+        "path": "icons/move.svg",
+        "bytes": 371,
+        "sha256": "915074a1292f72d59165339b8b93f8d440c8d55b7116b52fca240b9ded5af74d"
+      },
+      {
+        "path": "icons/navigation.svg",
+        "bytes": 258,
+        "sha256": "3c1adf655f06c733013ddf00848c3efe905ed70d7b3eba7a6be5e60e65880503"
+      },
+      {
+        "path": "icons/orbit.svg",
+        "bytes": 418,
+        "sha256": "e2b8b7d7f82044181860cbc2dab9b7e8d3c4778fbbce9a62f5c4038175f4faf4"
+      },
+      {
+        "path": "icons/pentagon.svg",
+        "bytes": 362,
+        "sha256": "e27daa75dc936fbbd84d517393cc2c3cecd00a65b9ea8e4b95d5c3298408597a"
+      },
+      {
+        "path": "icons/plus.svg",
+        "bytes": 256,
+        "sha256": "7f6af73bf1ff6c4bca3f18351c8d1bdec6749c0c2530c4de5da85d520c21df17"
+      },
+      {
+        "path": "icons/redo-2.svg",
+        "bytes": 308,
+        "sha256": "4cbd2cdebc70b6b7979c681ed3f313d9cbb102465dcf7d0d2d6a72c937b344bc"
+      },
+      {
+        "path": "icons/replace.svg",
+        "bytes": 468,
+        "sha256": "abaaab3d3f74242f09968e4bbbf6450281c0dea23989d9e13cfc0aba22b6fca7"
+      },
+      {
+        "path": "icons/rotate-3d.svg",
+        "bytes": 371,
+        "sha256": "ce65f2ca79f71638ff69f382c27cefba4b72be10f708927695e63a55b4dd5b6f"
+      },
+      {
+        "path": "icons/rotate-ccw.svg",
+        "bytes": 297,
+        "sha256": "622685386ab4017eabfde01cd74550a20b1924df233b353f73b6b155371f2afd"
+      },
+      {
+        "path": "icons/ruler.svg",
+        "bytes": 461,
+        "sha256": "af9710f70510217ef33773d502d0be2425c3a9cb1e3294ace27da9f0b4c8850b"
+      },
+      {
+        "path": "icons/save.svg",
+        "bytes": 417,
+        "sha256": "ee9d56a7fec4b20dd6689546d41f68219ea8cbd67f99bd17a1bdaff5be6edb53"
+      },
+      {
+        "path": "icons/scaling.svg",
+        "bytes": 360,
+        "sha256": "587b5758bfbf2df54bc4701819a58fc63278682760bfb05213f093840ff1cfd5"
+      },
+      {
+        "path": "icons/scan.svg",
+        "bytes": 366,
+        "sha256": "c77f0e634b2451a14a262a59b61d75bbcea3994b16eeba1f5753e86b33282a4d"
+      },
+      {
+        "path": "icons/selection-angle.svg",
+        "bytes": 243,
+        "sha256": "f4c9d831ac1ae76fb3b49a7f91707e0835e6f4e339ab36855e6da19d324ebdc0"
+      },
+      {
+        "path": "icons/selection-box.svg",
+        "bytes": 262,
+        "sha256": "97a3b8c22f70e929b215f6ce9c7d3054ab03e52545cb91fc4ad56d4bb833dce2"
+      },
+      {
+        "path": "icons/selection-connected.svg",
+        "bytes": 368,
+        "sha256": "bbbb6b9b7b00c1476e217cb285df32860fcb845dac4d7a0b36ddd7fd62488d5e"
+      },
+      {
+        "path": "icons/selection-ellipsoid.svg",
+        "bytes": 303,
+        "sha256": "2fd41f11aa47b638b8aeb05fa0ca817161eb09d3ad1ac6799a4f1e5ee5eb2e93"
+      },
+      {
+        "path": "icons/selection-eyedropper.svg",
+        "bytes": 276,
+        "sha256": "4dae2daf78d9529d81a5489c0723ef2c0af07675a341ae3361414aaced7232fd"
+      },
+      {
+        "path": "icons/selection-fill.svg",
+        "bytes": 328,
+        "sha256": "8ab6af02bafea2346a1aa49a6ccb495ac749176a1878343d71107908d8fb6800"
+      },
+      {
+        "path": "icons/selection-frustum.svg",
+        "bytes": 283,
+        "sha256": "2a67c19021bd3129335483a091db8e0a7fb633fe700ac155b668fc0c0aed541d"
+      },
+      {
+        "path": "icons/selection-intersect.svg",
+        "bytes": 346,
+        "sha256": "ddb0881059e44b9d947da79749f4e6340ba83d3b5675dd79a455b16421b5419e"
+      },
+      {
+        "path": "icons/selection-invert.svg",
+        "bytes": 382,
+        "sha256": "e0bdd24e80b123458b55a45ae1b4108c54645d4f5b3ca726d5074d2694b65735"
+      },
+      {
+        "path": "icons/selection-live.svg",
+        "bytes": 264,
+        "sha256": "c1c49735e3a1cf2e460dea158c2f329b690dc36660814ab9b1ab6cea44542fc9"
+      },
+      {
+        "path": "icons/selection-opacity.svg",
+        "bytes": 337,
+        "sha256": "3d4bbab7772a4b7595c3a9638155184b97c829f612b57457f6d2c9c21a07e21e"
+      },
+      {
+        "path": "icons/selection-outline.svg",
+        "bytes": 285,
+        "sha256": "676a6d637bbbb3042cb1011682631fe1e73ab7503028d1431dc05dac10c14c36"
+      },
+      {
+        "path": "icons/selection-overlap.svg",
+        "bytes": 353,
+        "sha256": "03320f8414d5b2db7d7235d66b367502253ba5d9952d4272c05ce7455e2e667c"
+      },
+      {
+        "path": "icons/selection-polygon.svg",
+        "bytes": 424,
+        "sha256": "546dd02517acd8cf2c456c25c9d10517601644a75245c266ccaa4845d51a6447"
+      },
+      {
+        "path": "icons/selection-rectangle.svg",
+        "bytes": 266,
+        "sha256": "be8fc3eb6ddbbf7a6bfbaab15159f75c75a19fa0423576483455e9a46e8045b6"
+      },
+      {
+        "path": "icons/selection-scale.svg",
+        "bytes": 322,
+        "sha256": "912e0873fe366be064a00f0fe11a6581398085d6bdf7b1d50f8fbb28a6c0d575"
+      },
+      {
+        "path": "icons/selection-sphere.svg",
+        "bytes": 289,
+        "sha256": "f9dfcb63a4f6c4d8f3c7362ce8368d656b70e31a99e964f356c58c341bd57bc6"
+      },
+      {
+        "path": "icons/selection-visible.svg",
+        "bytes": 286,
+        "sha256": "2f9310ebf311e5ac447fe0fc1fc51edf02e4e9ec95305427b512bf1102b02c1f"
+      },
+      {
+        "path": "icons/settings.svg",
+        "bytes": 727,
+        "sha256": "de614b1ed9676819bcc9fdcde4ebfa019f7ddf9f1ccceb7b9b2045d553b836b4"
+      },
+      {
+        "path": "icons/shield-check.svg",
+        "bytes": 415,
+        "sha256": "8d4fcdbde5bba4abb1a2f6fe53e37ceb6343a1d5449a9d88f6f97c1971d26c4e"
+      },
+      {
+        "path": "icons/sliders-horizontal.svg",
+        "bytes": 422,
+        "sha256": "e43a00e5eb684e6cbb61083bed2528d7a3fa5f265693eb2b5f314cd432aa65f4"
+      },
+      {
+        "path": "icons/square-check-big.svg",
+        "bytes": 320,
+        "sha256": "3329bc2e10145074994ffe4cc21e99103c22ccbdb9f651588cf4aed0238fd9d7"
+      },
+      {
+        "path": "icons/square-x.svg",
+        "bytes": 317,
+        "sha256": "fbc62d7310eb57f6a3233d65a4d12a895e9a014cf56f0b62349855f523498cb9"
+      },
+      {
+        "path": "icons/trash.svg",
+        "bytes": 389,
+        "sha256": "27299f69ad7c6272be64b1b8e2d48cbd6dcf0ef0d4f92827a1affa945c91700e"
+      },
+      {
+        "path": "icons/triangle-right.svg",
+        "bytes": 296,
+        "sha256": "037574bb1c862bc4b626f58f49ea168858619770f60475b2e78315dfeb9a1f1e"
+      },
+      {
+        "path": "icons/undo-2.svg",
+        "bytes": 309,
+        "sha256": "efad2edbbd2be6038cc23fd64df2d012fad5cc6460dfbf227cfa3d990e9e897f"
+      },
+      {
+        "path": "icons/view-auto-orbit.svg",
+        "bytes": 299,
+        "sha256": "296bce315561c161d2e93b2df5534833369702b82ea3c8c9e3c3ecf05be92245"
+      },
+      {
+        "path": "icons/volume-brush.svg",
+        "bytes": 378,
+        "sha256": "aef3e24916646aa016748e7f920b345cbd57e447c9b1651cf20047bc937066e5"
+      },
+      {
+        "path": "icons/x.svg",
+        "bytes": 260,
+        "sha256": "4a9cdab38fbb96162e7dace28e33f4ca0e49d8963a6162abc3d4691b7d675117"
+      },
+      {
+        "path": "icons/zoom-in.svg",
+        "bytes": 376,
+        "sha256": "91206ae20013e2c84f2f5d09db5a7200f11698a84fc4e857b06fab2ce7c933f1"
+      },
+      {
+        "path": "icons/zoom-out.svg",
+        "bytes": 334,
+        "sha256": "28e7849b55bb9b34cb24be83b4e8ef58f2ae164fc451fbd60e026bfb507d2921"
+      },
+      {
+        "path": "index.html",
+        "bytes": 709,
+        "sha256": "fe2662057c145def68ec104e6e174a01002f14d5ca5da821fa2e05302dab3972"
+      },
+      {
+        "path": "opsiclear.png",
+        "bytes": 32220,
+        "sha256": "af85ab51e850d02db093a0502a3551e20ce2f058c71d913d6c36e324c43160a6"
+      },
+      {
+        "path": "wasm/build-provenance.json",
+        "bytes": 7976,
+        "sha256": "3b68970a89cf6d45c87cd43ed4cd07b5a28ba2ab5c32024c12f497e3086c2129"
+      },
+      {
+        "path": "wasm/splatview-camera.mjs",
+        "bytes": 12043,
+        "sha256": "82616e5b11115f6331364df2a29124736065edbf658e803fa9861ac8931c2f11"
+      },
+      {
+        "path": "wasm/splatview-camera.wasm",
+        "bytes": 26871,
+        "sha256": "20cda433187391f85edfedf74af839485a49ffbb574af5ec15b72bb2f4db55e1"
+      },
+      {
+        "path": "wasm/splatview-core.mjs",
+        "bytes": 78281,
+        "sha256": "ed15de43cf635b1091e3d185b7c1b7dc56a8d968cab75a67719af15021c8b0f6"
+      },
+      {
+        "path": "wasm/splatview-core.wasm",
+        "bytes": 1475195,
+        "sha256": "7ca343d432d8f76ca383eb56e15f8cdb5ee8d16281d2444a0950f9e95eb121fd"
+      }
+    ],
+    "htmlIntegrityPaths": [
+      "assets/index-Btuc4zj5.js",
+      "assets/index-B0uHp0Sx.css"
+    ],
+    "nativePublication": [
+      {
+        "path": "public/wasm/splatview-core.mjs",
+        "bytes": 78281,
+        "sha256": "ed15de43cf635b1091e3d185b7c1b7dc56a8d968cab75a67719af15021c8b0f6",
+        "productionCopy": {
+          "path": "dist/wasm/splatview-core.mjs",
+          "bytes": 78281,
+          "sha256": "ed15de43cf635b1091e3d185b7c1b7dc56a8d968cab75a67719af15021c8b0f6"
+        }
+      },
+      {
+        "path": "public/wasm/splatview-core.wasm",
+        "bytes": 1475195,
+        "sha256": "7ca343d432d8f76ca383eb56e15f8cdb5ee8d16281d2444a0950f9e95eb121fd",
+        "productionCopy": {
+          "path": "dist/wasm/splatview-core.wasm",
+          "bytes": 1475195,
+          "sha256": "7ca343d432d8f76ca383eb56e15f8cdb5ee8d16281d2444a0950f9e95eb121fd"
+        }
+      },
+      {
+        "path": "public/wasm/splatview-camera.mjs",
+        "bytes": 12043,
+        "sha256": "82616e5b11115f6331364df2a29124736065edbf658e803fa9861ac8931c2f11",
+        "productionCopy": {
+          "path": "dist/wasm/splatview-camera.mjs",
+          "bytes": 12043,
+          "sha256": "82616e5b11115f6331364df2a29124736065edbf658e803fa9861ac8931c2f11"
+        }
+      },
+      {
+        "path": "public/wasm/splatview-camera.wasm",
+        "bytes": 26871,
+        "sha256": "20cda433187391f85edfedf74af839485a49ffbb574af5ec15b72bb2f4db55e1",
+        "productionCopy": {
+          "path": "dist/wasm/splatview-camera.wasm",
+          "bytes": 26871,
+          "sha256": "20cda433187391f85edfedf74af839485a49ffbb574af5ec15b72bb2f4db55e1"
+        }
+      },
+      {
+        "path": "public/wasm/build-provenance.json",
+        "bytes": 7976,
+        "sha256": "3b68970a89cf6d45c87cd43ed4cd07b5a28ba2ab5c32024c12f497e3086c2129",
+        "productionCopy": {
+          "path": "dist/wasm/build-provenance.json",
+          "bytes": 7976,
+          "sha256": "3b68970a89cf6d45c87cd43ed4cd07b5a28ba2ab5c32024c12f497e3086c2129"
+        }
+      }
+    ],
+    "unpublishedNativeIntermediatesExcludedBeforeTraversal": true
+  },
+  "retainedCommandLogs": {
+    "nativeBuild": {
+      "path": "test-results-coherent-startup-geometry-native-01.log",
+      "bytes": 33806,
+      "sha256": "e90796c11f32a98bcd632e8a3683b05ea48e9722043a0ac49663b7d548c65524"
+    },
+    "geometryContracts": {
+      "path": "test-results-coherent-startup-geometry-contracts-01.log",
+      "bytes": 102,
+      "sha256": "ca519bc60ddec00a92e49390a20e0a708c66444e5b2ef7039e59f5b9ea7f707b"
+    },
+    "liveSelectionContracts": {
+      "path": "test-results-coherent-startup-geometry-live-contracts-01.log",
+      "bytes": 506,
+      "sha256": "c3681570b81fbf5648f5513e12432bc4dac69d2d717917d5605d67be35e04087"
+    },
+    "currentTypecheck": {
+      "path": "test-results-coherent-startup-geometry-typecheck-05.log",
+      "bytes": 108,
+      "sha256": "ef57755f37a17215d1466c1bdbd5cb6792aa8f4186b4d5d9ab00f3ec457ec323"
+    },
+    "currentBuild": {
+      "path": "test-results-coherent-startup-geometry-build-05.log",
+      "bytes": 3916,
+      "sha256": "9b10e717b6f7a4e8cb2042aa70def1df05ed2228341cc8e4099f87dfffbee429"
+    },
+    "finalBuild": {
+      "path": "test-results-coherent-startup-geometry-build-final-02.log",
+      "bytes": 3916,
+      "sha256": "0c732a8540d8724d82eead4e06b75b8a4e27b8dfa8e7bb719db5d38d9532c470"
+    },
+    "postbuildFixtureVerification": {
+      "path": "test-results-coherent-startup-geometry-fixtures-postbuild-02.log",
+      "bytes": 354,
+      "sha256": "3252c6f5628a78bfe1cccf807cb439ad49d81e073773374271dace02b23c9b76"
+    }
+  },
+  "observedCommandTerminals": [
+    {
+      "path": "test-results-coherent-startup-geometry-native-execution-01.command.json",
+      "bytes": 1306,
+      "sha256": "d4cc0a84eff9f3dfb93c9be697fc8d332f8e8c19e61101fe409fb245de48549f",
+      "observedExitCode": 0,
+      "log": {
+        "path": "test-results-coherent-startup-geometry-native-execution-01.log",
+        "bytes": 892,
+        "sha256": "369779df98b9c74324cd7b163f0aba302aac319e00b77c580a0054cacf9fc9ea"
+      },
+      "startedAtUtc": "2026-10-11T19:31:38.6577053Z",
+      "finishedAtUtc": "2026-10-11T19:31:38.8164672Z",
+      "report": {
+        "path": "test-results-geometry-native-execution-01.json",
+        "bytes": 3230,
+        "sha256": "4b6b94d28db543a9f21d670dc2f7061e2779478109f318d86de975fe99bac110"
+      }
+    },
+    {
+      "path": "test-results-coherent-startup-geometry-units-05.command.json",
+      "bytes": 1253,
+      "sha256": "37be70e0ab12ff6a23a66fa69df35550a822e22ce3d394f803dd35630a1d0386",
+      "observedExitCode": 0,
+      "log": {
+        "path": "test-results-coherent-startup-geometry-units-05.log",
+        "bytes": 272,
+        "sha256": "e19ddd87f5aab2481dd5140689e9cef0f0ab632a22b7ee0a6797ba3492653d9e"
+      },
+      "startedAtUtc": "2026-10-11T20:24:33.5693865Z",
+      "finishedAtUtc": "2026-10-11T20:24:35.3401281Z",
+      "report": {
+        "path": "test-results-geometry-units-05.json",
+        "bytes": 221027,
+        "sha256": "a9c9631ead60c39795dc80f941ede64ccf0d666f5030f70568cad09e7e7405d6"
+      }
+    },
+    {
+      "path": "test-results-coherent-startup-geometry-full-03.command.json",
+      "bytes": 1572,
+      "sha256": "ec81c85b2c4cc10d55a9b7899a5c6b7758905ff9a5df7b9381a97002d0e29128",
+      "observedExitCode": 0,
+      "log": {
+        "path": "test-results-coherent-startup-geometry-full-03.log",
+        "bytes": 186228,
+        "sha256": "3c2e0ac56034406309125313dc2488a22a396cd858555faf98f7bf21ae2540bb"
+      },
+      "startedAtUtc": "2026-10-11T20:35:41.7587247Z",
+      "finishedAtUtc": "2026-10-11T20:55:26.9816355Z",
+      "report": {
+        "path": "test-results-geometry-full-03.json",
+        "bytes": 2199589,
+        "sha256": "be16b6ed4cb09232e66de81d69696233be67d323c164587e309506aff5e847b5"
+      }
+    },
+    {
+      "path": "test-results-coherent-startup-geometry-production-03.command.json",
+      "bytes": 1625,
+      "sha256": "9fe7b9ecb2b6cec0e2881e3202213d5ee3f6178fdf9c867645eb70df2bc05fa4",
+      "observedExitCode": 0,
+      "log": {
+        "path": "test-results-coherent-startup-geometry-production-03.log",
+        "bytes": 23696,
+        "sha256": "1b283a1a6839aba067fa9df13789d8ad2dd314c7fb4a32c46092d2f6ff197f51"
+      },
+      "startedAtUtc": "2026-10-11T20:35:41.7587247Z",
+      "finishedAtUtc": "2026-10-11T20:38:29.7214478Z",
+      "report": {
+        "path": "test-results-geometry-production-03.json",
+        "bytes": 212759,
+        "sha256": "8157b54f156f9c4e9132fc81fcf5c6032ef7a428b85c6f0d3508ab7ce4706a03"
+      }
+    },
+    {
+      "path": "test-results-coherent-startup-geometry-browser-04.command.json",
+      "bytes": 1962,
+      "sha256": "a4515b752f4f654b459c75dc05c84f9f898a24b13dfbc0b7deb266a612bd2bee",
+      "observedExitCode": 0,
+      "log": {
+        "path": "test-results-coherent-startup-geometry-browser-04.log",
+        "bytes": 13160,
+        "sha256": "117b6aa282c4cc603f167ebc8c3a64eea46ac081d5f09e94913de189098cbe62"
+      },
+      "startedAtUtc": "2026-10-11T20:30:01.4711778Z",
+      "finishedAtUtc": "2026-10-11T20:30:50.2006393Z",
+      "report": {
+        "path": "test-results-geometry-browser-04.json",
+        "bytes": 153509,
+        "sha256": "484014e5fa544b09ca2e419fc0b39a4d50e932121fdeff377139c17d7018cef8"
+      }
+    },
+    {
+      "path": "test-results-coherent-startup-geometry-dev-inventory-03.command.json",
+      "bytes": 1262,
+      "sha256": "04adeb4cfdd9b1434ddf95d581b5e36ea465845d03784b14bdc1c768eff405c6",
+      "observedExitCode": 0,
+      "log": {
+        "path": "test-results-coherent-startup-geometry-dev-inventory-03.log",
+        "bytes": 170452,
+        "sha256": "7722f699039e76d93f454998ed784b2ad80e926112dda01cc729553f8d4d23f4"
+      },
+      "startedAtUtc": "2026-10-11T20:29:19.9193478Z",
+      "finishedAtUtc": "2026-10-11T20:29:20.7260219Z",
+      "report": {
+        "path": "test-results-geometry-dev-inventory-03.json",
+        "bytes": 403467,
+        "sha256": "05c5e0c904a29aa5a6fb1b9314f5691d6e3858eca6dbc813e01b9f2640c9e812"
+      }
+    },
+    {
+      "path": "test-results-coherent-startup-geometry-prod-inventory-03.command.json",
+      "bytes": 1325,
+      "sha256": "6a58cfdfc1ac6f385c88e918b580e0abc76c95b3df9bacc99091765484ae90e8",
+      "observedExitCode": 0,
+      "log": {
+        "path": "test-results-coherent-startup-geometry-prod-inventory-03.log",
+        "bytes": 18386,
+        "sha256": "aeebb7ea1624d45c403ca4535cb6d2a74a1d13a96d8dde4e9a8384fabfe60ef7"
+      },
+      "startedAtUtc": "2026-10-11T20:29:19.9193478Z",
+      "finishedAtUtc": "2026-10-11T20:29:20.3459103Z",
+      "report": {
+        "path": "test-results-geometry-prod-inventory-03.json",
+        "bytes": 53263,
+        "sha256": "c3e63425c212ffb1c706acdc4ad2afef26c73684d3d5b46af1eddb3db51d183c"
+      }
+    },
+    {
+      "path": "test-results-coherent-startup-geometry-native-01.command.json",
+      "bytes": 924,
+      "sha256": "b9c241fbb41aca965e37090db1fbf82863a8abaa83938bbed56f99fa9be8c4c8",
+      "observedExitCode": 0,
+      "log": {
+        "path": "test-results-coherent-startup-geometry-native-01.log",
+        "bytes": 33806,
+        "sha256": "e90796c11f32a98bcd632e8a3683b05ea48e9722043a0ac49663b7d548c65524"
+      },
+      "startedAtUtc": "2026-10-11T18:52:17.9962441Z",
+      "finishedAtUtc": "2026-10-11T18:53:46.0083198Z",
+      "retainedLogName": "nativeBuild"
+    },
+    {
+      "path": "test-results-coherent-startup-geometry-contracts-01.command.json",
+      "bytes": 1059,
+      "sha256": "1db1a4e0042753fe225fcfb593487bcbeca202c361360da94d512aab7d0cf30e",
+      "observedExitCode": 0,
+      "log": {
+        "path": "test-results-coherent-startup-geometry-contracts-01.log",
+        "bytes": 102,
+        "sha256": "ca519bc60ddec00a92e49390a20e0a708c66444e5b2ef7039e59f5b9ea7f707b"
+      },
+      "startedAtUtc": "2026-10-11T18:53:56.8733111Z",
+      "finishedAtUtc": "2026-10-11T18:53:57.0200374Z",
+      "retainedLogName": "geometryContracts"
+    },
+    {
+      "path": "test-results-coherent-startup-geometry-live-contracts-01.command.json",
+      "bytes": 1070,
+      "sha256": "a475107eb868e0318e6316561f23c8e78f66c391b79368eddbaf91b8125bbf80",
+      "observedExitCode": 0,
+      "log": {
+        "path": "test-results-coherent-startup-geometry-live-contracts-01.log",
+        "bytes": 506,
+        "sha256": "c3681570b81fbf5648f5513e12432bc4dac69d2d717917d5605d67be35e04087"
+      },
+      "startedAtUtc": "2026-10-11T18:53:56.8733111Z",
+      "finishedAtUtc": "2026-10-11T18:53:56.9730742Z",
+      "retainedLogName": "liveSelectionContracts"
+    },
+    {
+      "path": "test-results-coherent-startup-geometry-typecheck-05.command.json",
+      "bytes": 924,
+      "sha256": "783b93f40ab7de3e64396e766ce5cb9ff1b37ad3ee3b19697e39f87b326eb9aa",
+      "observedExitCode": 0,
+      "log": {
+        "path": "test-results-coherent-startup-geometry-typecheck-05.log",
+        "bytes": 108,
+        "sha256": "ef57755f37a17215d1466c1bdbd5cb6792aa8f4186b4d5d9ab00f3ec457ec323"
+      },
+      "startedAtUtc": "2026-10-11T20:24:33.5693865Z",
+      "finishedAtUtc": "2026-10-11T20:24:34.3264752Z",
+      "retainedLogName": "currentTypecheck"
+    },
+    {
+      "path": "test-results-coherent-startup-geometry-build-05.command.json",
+      "bytes": 917,
+      "sha256": "e593b2fa604223956eea07e222dc864c4defbbe977a2b4bf9c6439ca53cc390c",
+      "observedExitCode": 0,
+      "log": {
+        "path": "test-results-coherent-startup-geometry-build-05.log",
+        "bytes": 3916,
+        "sha256": "9b10e717b6f7a4e8cb2042aa70def1df05ed2228341cc8e4099f87dfffbee429"
+      },
+      "startedAtUtc": "2026-10-11T20:25:58.6994189Z",
+      "finishedAtUtc": "2026-10-11T20:26:02.7962501Z",
+      "retainedLogName": "currentBuild"
+    },
+    {
+      "path": "test-results-coherent-startup-geometry-build-final-02.command.json",
+      "bytes": 923,
+      "sha256": "ecc98fc9cb79332b86a800271cb75ae924f89d0ee279f8586c4f8383f5dee065",
+      "observedExitCode": 0,
+      "log": {
+        "path": "test-results-coherent-startup-geometry-build-final-02.log",
+        "bytes": 3916,
+        "sha256": "0c732a8540d8724d82eead4e06b75b8a4e27b8dfa8e7bb719db5d38d9532c470"
+      },
+      "startedAtUtc": "2026-10-11T20:55:46.8367030Z",
+      "finishedAtUtc": "2026-10-11T20:55:50.8711774Z",
+      "retainedLogName": "finalBuild"
+    },
+    {
+      "path": "test-results-coherent-startup-geometry-fixtures-postbuild-02.command.json",
+      "bytes": 1014,
+      "sha256": "1a80ace99d6ba3b2b77521a5a8518ab3102dcfc475dc3435cc758ea514db01e8",
+      "observedExitCode": 0,
+      "log": {
+        "path": "test-results-coherent-startup-geometry-fixtures-postbuild-02.log",
+        "bytes": 354,
+        "sha256": "3252c6f5628a78bfe1cccf807cb439ad49d81e073773374271dace02b23c9b76"
+      },
+      "startedAtUtc": "2026-10-11T20:55:53.6326250Z",
+      "finishedAtUtc": "2026-10-11T20:55:55.1361293Z",
+      "retainedLogName": "postbuildFixtureVerification"
+    }
+  ],
+  "priorDiagnostics": {
+    "geometryProduction01": {
+      "path": "test-results-geometry-production-01.json",
+      "bytes": 219814,
+      "sha256": "98815499571623fc0b5a339bb7eddffd2c62da87d6d3508d9c6d847ac903ed1c"
+    },
+    "geometryFull02AndDiagnostics": {
+      "test-results-geometry-full-02-startup-diagnostic.json": {
+        "path": "test-results-geometry-full-02-startup-diagnostic.json",
+        "bytes": 28732,
+        "sha256": "c9b4f3ee8b331af35669ef35a357c08e5bed21b16a5d67e10cd8bb2f822802b2"
+      },
+      "test-results-color-readiness-diagnostic-01.json": {
+        "path": "test-results-color-readiness-diagnostic-01.json",
+        "bytes": 8707563,
+        "sha256": "977f245a03e99b9fcbb5c4bccf00f06408a5674b417ff723b687a8d13c01d8ff"
+      },
+      "test-results-geometry-startup-network-01.json": {
+        "path": "test-results-geometry-startup-network-01.json",
+        "bytes": 8520610,
+        "sha256": "cba515fde55377119348eeb7ad02f06cef58066828a54b4e9cb3c48a21161043"
+      },
+      "geometryFull02": {
+        "path": "test-results-geometry-full-02.json",
+        "bytes": 2165825,
+        "sha256": "f38bc55a53fba7e6cfaedcf0f5a94cfa849af0a58ebc14690df0d08fd8f3621e"
+      },
+      "geometryFull02Terminal": {
+        "path": "test-results-coherent-startup-geometry-full-02.command.json",
+        "bytes": 1546,
+        "sha256": "ec1a6a2bc6e99d483d5f01700ecf3b49f95a260d729a240c64bef710d3d02d4d"
+      },
+      "geometryFull02Log": {
+        "path": "test-results-coherent-startup-geometry-full-02.log",
+        "bytes": 197122,
+        "sha256": "a5ced28702ed3cba86187d2e781f5ac51cad180a0507b13fc58189eb7a96ba92"
+      },
+      "scope": "Historical failed full02 and startup/Color/network diagnostics are retained by hash and excluded from passing totals. The network probe observed 120 successful diagnostic boots; it does not establish the OS resource cause of earlier entry failures. Color observations have their recorded limits and do not retrospectively prove the full02 cancelled-export cause."
+    },
+    "geometryProduction01Terminal": {
+      "path": "test-results-coherent-startup-geometry-production-01.command.json",
+      "bytes": 1636,
+      "sha256": "a9be0dd757c66b721cf9a9adf10b41102dece371addd6b24e2854cd7ab52c98d"
+    },
+    "productionCorrectionFocus": {
+      "path": "test-results-geometry-production-focus-01.json",
+      "bytes": 8008,
+      "sha256": "cb3660fc574a31bf2e4113511b7faa8a847162800ce87bd0bee4679b4d02d28d"
+    },
+    "disposalAndStartupFocus": {
+      "path": "test-results-geometry-regression-focus-01.json",
+      "bytes": 76650,
+      "sha256": "7aecddd502e7c34eb619e28084fae0a6f3ef6ef81372f193811982c6db3fbb7d"
+    },
+    "geometryBrowser01": {
+      "path": "test-results-geometry-browser-01.json",
+      "bytes": 173555,
+      "sha256": "5370be8c289c162d76f37d28cd073f3b8bd32f59fd1ced471d9d40f51ffa6e6a"
+    },
+    "geometryBrowser01Terminal": {
+      "path": "test-results-coherent-startup-geometry-browser-01.command.json",
+      "bytes": 1713,
+      "sha256": "9bda951c16cd4d5bd1c9e3d17b48d039a21409c5dc5e1503a125fe4216bb5c18"
+    },
+    "geometryFull01": {
+      "path": "test-results-geometry-full-01.json",
+      "bytes": 2142924,
+      "sha256": "78da128d2da66c7c39e795589dac17fa0206bdd40321ebe713f13cdab2f0840c"
+    },
+    "geometryFull01Terminal": {
+      "path": "test-results-coherent-startup-geometry-full-01.command.json",
+      "bytes": 1546,
+      "sha256": "e733c87ebb73903a71ef2f4e9b0a04729113e0d1a62643b776b75f59d8dc8172"
+    },
+    "historicalFull04": {
+      "path": "test-results-live-preview-full-04.json",
+      "bytes": 1977721,
+      "sha256": "412553577a5ed91b50a6f6460666b0f847cfa45a749e668b7113f51defbc591f"
+    },
+    "historicalFull04Terminal": {
+      "path": "test-results-coherent-startup-live-preview-full-04.command.json",
+      "bytes": 1566,
+      "sha256": "5fd21b0912d5daa278f0590536f5f08b9d267feddc4a3a11e63f6c0206a9eb99"
+    },
+    "scope": "Retained failed attempts from earlier inputs; excluded from passing totals. Current evidence does not retrospectively determine the cause of historical full04 failures."
+  },
+  "remaining": [
+    "Complete desktop parity and remaining formats/folders, Basic/Pro tools and saved views.",
+    "Windows executable visual/behavior comparison and actual supported Mac/Safari/Chromium runs.",
+    "Measured scene budgets/performance, deployed host headers/cache/offline behavior and whole W12b acceptance."
+  ]
+}

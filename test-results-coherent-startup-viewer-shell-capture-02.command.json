@@ -1,0 +1,25 @@
+﻿{
+    "schemaVersion":  1,
+    "kind":  "observed-local-command-terminal",
+    "workingDirectory":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+    "executable":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+    "arguments":  [
+                      "test-results-viewer-shell-capture-02.mjs"
+                  ],
+    "startedAtUtc":  "2026-10-12T20:51:38.9544551Z",
+    "finishedAtUtc":  "2026-10-12T20:51:41.1348126Z",
+    "exitCode":  0,
+    "exception":  null,
+    "log":  {
+                "path":  "test-results-coherent-startup-viewer-shell-capture-02.log",
+                "bytes":  274,
+                "sha256":  "3054511094107a53f36fdb426370912e3490673bd9ad9f7a951a5346bc130b2f"
+            },
+    "report":  {
+                   "path":  "docs/validation/runs/viewer-shell-20261012-01/ui-comparison-02.json",
+                   "bytes":  81231,
+                   "sha256":  "7ec6724938b2eb86be33c9cb1546589e7fe75ed8d08a7c733e0549a21ffe33c1"
+               },
+    "browserOutputDirectory":  "",
+    "lastRun":  null
+}

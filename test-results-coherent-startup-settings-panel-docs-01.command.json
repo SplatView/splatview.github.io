@@ -1,0 +1,29 @@
+﻿{
+    "schemaVersion":  1,
+    "kind":  "observed-local-command-terminal",
+    "workingDirectory":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+    "executable":  "C:\\Users\\opsiclear\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+    "arguments":  [
+                      "test-results-runtime-handshake-docs-check.py",
+                      "--phase",
+                      "final",
+                      "--output",
+                      "test-results-settings-panel-docs-01.json"
+                  ],
+    "startedAtUtc":  "2026-10-12T21:47:59.8661571Z",
+    "finishedAtUtc":  "2026-10-12T21:48:01.4331656Z",
+    "exitCode":  0,
+    "exception":  null,
+    "log":  {
+                "path":  "test-results-coherent-startup-settings-panel-docs-01.log",
+                "bytes":  636,
+                "sha256":  "cf7941c0e309a1e3c9d9a02d65b5c44d9cbace1a13ed702c9a531daf0d5953b8"
+            },
+    "report":  {
+                   "path":  "test-results-settings-panel-docs-01.json",
+                   "bytes":  2047,
+                   "sha256":  "04e1b993343d0c9e4d853e611e0c4d9c94c5c8dae349fb5e30af5641c1305851"
+               },
+    "browserOutputDirectory":  "",
+    "lastRun":  null
+}

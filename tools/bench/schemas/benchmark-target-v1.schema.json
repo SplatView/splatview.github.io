@@ -1,0 +1,701 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "benchmark-target-v1",
+  "description": "Structural schema only. validateBenchmark also enforces cross-field identities, repeat procedures, metrics, raw summaries and qualification gates. No collected performance evidence.",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "enum": [
+        1
+      ]
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+    },
+    "scope": {
+      "enum": [
+        "tooling-only",
+        "w09-initial"
+      ]
+    },
+    "status": {
+      "enum": [
+        "pending",
+        "approved"
+      ]
+    },
+    "machines": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+          },
+          "tier": {
+            "enum": [
+              "minimum",
+              "newer"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "tier"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "maxItems": 16
+    },
+    "browsers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+          },
+          "family": {
+            "enum": [
+              "Safari",
+              "Chrome"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "family"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "maxItems": 16
+    },
+    "fixtures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+          },
+          "inputSha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$",
+            "minLength": 64,
+            "maxLength": 64
+          },
+          "manifestSha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$",
+            "minLength": 64,
+            "maxLength": 64
+          },
+          "sourceOrderSha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$",
+            "minLength": 64,
+            "maxLength": 64
+          },
+          "distributionSha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$",
+            "minLength": 64,
+            "maxLength": 64
+          },
+          "expectedSceneSha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$",
+            "minLength": 64,
+            "maxLength": 64
+          },
+          "sourceCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "loadedCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "shDegree": {
+            "enum": [
+              0,
+              3
+            ]
+          },
+          "overdraw": {
+            "enum": [
+              "low",
+              "high"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "inputSha256",
+          "manifestSha256",
+          "sourceOrderSha256",
+          "distributionSha256",
+          "expectedSceneSha256",
+          "sourceCount",
+          "loadedCount",
+          "shDegree",
+          "overdraw"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "maxItems": 100
+    },
+    "traces": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$",
+            "minLength": 64,
+            "maxLength": 64
+          },
+          "projectionSha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$",
+            "minLength": 64,
+            "maxLength": 64
+          },
+          "warmupMs": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "durationMs": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "idleHiddenMs": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          }
+        },
+        "required": [
+          "id",
+          "sha256",
+          "projectionSha256",
+          "warmupMs",
+          "durationMs",
+          "idleHiddenMs"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "maxItems": 16
+    },
+    "framebuffers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+          },
+          "kind": {
+            "enum": [
+              "standard",
+              "retina"
+            ]
+          },
+          "cssWidth": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "cssHeight": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "width": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "height": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "dpr": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "cssWidth",
+          "cssHeight",
+          "width",
+          "height",
+          "dpr"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "maxItems": 16
+    },
+    "cells": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+          },
+          "machineId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+          },
+          "browserId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+          },
+          "fixtureId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+          },
+          "traceId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+          },
+          "framebufferId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+          }
+        },
+        "required": [
+          "id",
+          "machineId",
+          "browserId",
+          "fixtureId",
+          "traceId",
+          "framebufferId"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "maxItems": 1024
+    },
+    "selectionCases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+          },
+          "fixtureId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+          },
+          "kind": {
+            "enum": [
+              "pick",
+              "query",
+              "amendment"
+            ]
+          },
+          "parametersSha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$",
+            "minLength": 64,
+            "maxLength": 64
+          },
+          "expectedMaskSha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$",
+            "minLength": 64,
+            "maxLength": 64
+          },
+          "expectedSelectedCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          }
+        },
+        "required": [
+          "id",
+          "fixtureId",
+          "kind",
+          "parametersSha256",
+          "expectedMaskSha256",
+          "expectedSelectedCount"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "maxItems": 1000
+    },
+    "exportCases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+          },
+          "fixtureId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+          },
+          "format": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+          },
+          "scope": {
+            "enum": [
+              "all",
+              "selected",
+              "remainder"
+            ]
+          },
+          "parametersSha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$",
+            "minLength": 64,
+            "maxLength": 64
+          },
+          "capturedRevision": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "expectedOutputSha256": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$",
+                "minLength": 64,
+                "maxLength": 64
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "expectedRecordCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "membership": {
+            "type": "object",
+            "properties": {
+              "loadedCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "selectedCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "deletedCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "selectedDeletedCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "expectedMembershipSha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$",
+                "minLength": 64,
+                "maxLength": 64
+              }
+            },
+            "required": [
+              "loadedCount",
+              "selectedCount",
+              "deletedCount",
+              "selectedDeletedCount",
+              "expectedMembershipSha256"
+            ],
+            "additionalProperties": false
+          },
+          "precision": {
+            "type": "object",
+            "properties": {
+              "mode": {
+                "enum": [
+                  "exact",
+                  "bounded"
+                ]
+              },
+              "absoluteTolerance": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "oracleSha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$",
+                "minLength": 64,
+                "maxLength": 64
+              },
+              "components": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 128,
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+                    },
+                    "unit": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 128,
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+                    },
+                    "expected": {
+                      "type": "number",
+                      "minimum": -9007199254740991,
+                      "maximum": 9007199254740991
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "unit",
+                    "expected"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 0,
+                "maxItems": 10000
+              }
+            },
+            "required": [
+              "mode",
+              "absoluteTolerance",
+              "oracleSha256",
+              "components"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "id",
+          "fixtureId",
+          "format",
+          "scope",
+          "parametersSha256",
+          "capturedRevision",
+          "expectedOutputSha256",
+          "expectedRecordCount",
+          "membership",
+          "precision"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "maxItems": 1000
+    },
+    "thresholds": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "cellId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+              },
+              "scenarioId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+              },
+              "metric": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+              },
+              "statistic": {
+                "enum": [
+                  "p50",
+                  "p95"
+                ]
+              },
+              "unit": {
+                "enum": [
+                  "ms",
+                  "bytes",
+                  "count"
+                ]
+              },
+              "maximum": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              }
+            },
+            "required": [
+              "cellId",
+              "scenarioId",
+              "metric",
+              "statistic",
+              "unit",
+              "maximum"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "maxItems": 100000
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "memoryCeilings": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "cellId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+              },
+              "point": {
+                "enum": [
+                  "baseline",
+                  "load-peak",
+                  "edit-peak",
+                  "export-peak",
+                  "capture-peak",
+                  "post-close",
+                  "final-cycle"
+                ]
+              },
+              "category": {
+                "enum": [
+                  "ledgerLive",
+                  "ledgerPeak",
+                  "nativeLivePayload",
+                  "wasmLinearCapacity",
+                  "wasmLinearHighWater",
+                  "jsHeapEstimate",
+                  "browserProcess",
+                  "workerProcess",
+                  "gpuDriver"
+                ]
+              },
+              "maximumBytes": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              }
+            },
+            "required": [
+              "cellId",
+              "point",
+              "category",
+              "maximumBytes"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "maxItems": 100000
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "id",
+    "scope",
+    "status",
+    "machines",
+    "browsers",
+    "fixtures",
+    "traces",
+    "framebuffers",
+    "cells",
+    "selectionCases",
+    "exportCases",
+    "thresholds",
+    "memoryCeilings"
+  ],
+  "additionalProperties": false
+}

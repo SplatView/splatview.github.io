@@ -1,0 +1,8 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "types": ["node"],
+    "erasableSyntaxOnly": true
+  },
+  "include": ["*.ts", "../../tests/benchmark-validator.test.ts", "../../tests/benchmark-fixture-generator.test.ts", "../../tests/benchmark-oracles.test.ts", "../../tests/fixtures/bench-validator/fixtures.ts"]
+}

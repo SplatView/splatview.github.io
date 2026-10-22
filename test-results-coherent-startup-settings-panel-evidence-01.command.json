@@ -1,0 +1,25 @@
+﻿{
+    "schemaVersion":  1,
+    "kind":  "observed-local-command-terminal",
+    "workingDirectory":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+    "executable":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+    "arguments":  [
+                      "test-results-settings-panel-evidence.mjs"
+                  ],
+    "startedAtUtc":  "2026-10-12T21:44:11.1895950Z",
+    "finishedAtUtc":  "2026-10-12T21:44:11.8136477Z",
+    "exitCode":  0,
+    "exception":  null,
+    "log":  {
+                "path":  "test-results-coherent-startup-settings-panel-evidence-01.log",
+                "bytes":  1712,
+                "sha256":  "2ee423dbf3607c1717d5269c7c3d6fad2217ed311c809a3426523efa4880f081"
+            },
+    "report":  {
+                   "path":  "docs/validation/runs/settings-panel-20261012-01/validation.json",
+                   "bytes":  182982,
+                   "sha256":  "cd3312d180a5732f3b6d00c3c69262a7e22e07a3774c5ca4068234076416aaf8"
+               },
+    "browserOutputDirectory":  "",
+    "lastRun":  null
+}

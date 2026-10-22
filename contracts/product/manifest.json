@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "contractVersion": "2.0.0",
+  "files": [
+    {
+      "path": ".clang-format-ignore",
+      "sha256": "814f6a390728bf34472aba5a99c3a8f89eff9cb3a18a6d4c2f3fe794eccbbc83"
+    },
+    {
+      "path": ".gitattributes",
+      "sha256": "5d8468a99d0e358545196eb17a5ec7b1e95d8f64f7218b86c94c296e6e9ad883"
+    },
+    {
+      "path": "README.md",
+      "sha256": "ac6a4d7baa7b4442eaf3ea3a64d9dd9d156b7d9ef45fa02f1ac4a1ffc4da181e"
+    },
+    {
+      "path": "cmake/ProductContract.cmake",
+      "sha256": "b24cb0c7f979f74b1945ca48eac8a394b8b30e8937113dd1168bf2c2043b9d88"
+    },
+    {
+      "path": "components.json",
+      "sha256": "7b3e8c270085f25b06d37f59f3af9a8beb6279acd7d9361fd5e7d5e6879f4a78"
+    },
+    {
+      "path": "features.json",
+      "sha256": "e7e0603b381a8ebe260985f2f08190f2d4771ce781d66ad2bf94274ee3a3584d"
+    },
+    {
+      "path": "fixtures/availability.json",
+      "sha256": "4a991da0d67a53e8d746839474a867bd85089ca7c98b373d1b27fe45ad7f8b04"
+    },
+    {
+      "path": "generated/policy.ts",
+      "sha256": "b253f59d704a6cf32e867f223da4983186490e34eb29f1a40fba06caf72f4fbc"
+    },
+    {
+      "path": "include/splatview_product/measurement.hpp",
+      "sha256": "b330ee661f4c13e743e24a781cb813cf6608256fee1d05cdc73f895f983ceee0"
+    },
+    {
+      "path": "include/splatview_product/measurement_request.hpp",
+      "sha256": "61f307c2e86443f362179e1d3a6595912774ba54a80ea72ba96f22cdeb556110"
+    },
+    {
+      "path": "include/splatview_product/measurement_schema.hpp",
+      "sha256": "4d3a675bba770b22b2472dd2b5beb8c271fe1f1329f6d8eb00602c1ad4e1ef23"
+    },
+    {
+      "path": "include/splatview_product/policy.hpp",
+      "sha256": "e410bc406f1efb9f3462521070c2ee41658ea5b9773cb0abf878134e1bfecade"
+    },
+    {
+      "path": "layout.json",
+      "sha256": "c2d2c0dbf8fbd82e2792e4215830bf142cf275c6fbb4c8e6e1f81b29b1791251"
+    },
+    {
+      "path": "profiles.json",
+      "sha256": "2f5047461394941cd5c519e25534be78d546d5d739e07d4fa9560b5abc432d02"
+    },
+    {
+      "path": "review.md",
+      "sha256": "ecfcc54685a377d48aa8f1359189e9d691eb757cf80a68d7afd1d3b4455372ed"
+    },
+    {
+      "path": "tests/policy_contracts.cpp",
+      "sha256": "f71282c30cde060e9551d84863a86595246cea9a5e5cbfb39a391caf852e79bb"
+    },
+    {
+      "path": "tokens.json",
+      "sha256": "d09f907a2d66e7854499da0f5f5f64346731148001fc7fc67bccccb1d4976182"
+    },
+    {
+      "path": "tool.py",
+      "sha256": "76d60f7a8bd2ab9a688f96357ea34708e5b4e17828c297d5891121c1550e79ab"
+    },
+    {
+      "path": "tutorial.json",
+      "sha256": "0ef8a80ebf58289b76b768bc175b26cf6df8cacdfc229467715713aa7bdc1059"
+    },
+    {
+      "path": "workflows.json",
+      "sha256": "d2a37d88089c5ad1e671ee270257ea4cf39507b64829ff87e6dfe245a80c99f1"
+    }
+  ]
+}

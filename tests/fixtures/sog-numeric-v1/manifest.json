@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "scope": "Native uint64 source-count numeric-kind comparison only",
+  "baseArchiveSha256": "e243b5f55754a627d37d7465e4105fa6e300055d72c968d9185e3e9aa6e2ce28",
+  "generatorSha256": "35af90a7d6beb881cb87d50950ad6f7f91a966974c46f75842d6f099aa386f54",
+  "cases": [
+    {
+      "file": "v1-count-one.sog",
+      "bytes": 1257,
+      "sha256": "f82810b4e10c1a14c75f43677e577d1ed5f5c203c6ace0d49f28c19e7295edd9",
+      "version": 1,
+      "accepted": true,
+      "sourceCount": 1
+    },
+    {
+      "file": "v1-count-true.sog",
+      "bytes": 1260,
+      "sha256": "c8514049427b1cdb95cf46beea109bd97be90a55ad4483787cb15640cae02377",
+      "version": 1,
+      "accepted": false,
+      "sourceCount": null
+    },
+    {
+      "file": "v2-count-one.sog",
+      "bytes": 2241,
+      "sha256": "b2b55186bf90a7d3c567766d80e0675790e659c5e72c8a23931daaefcfabeb60",
+      "version": 2,
+      "accepted": true,
+      "sourceCount": 1
+    },
+    {
+      "file": "v2-count-true.sog",
+      "bytes": 2244,
+      "sha256": "6922cbfa24180141007e3468893bbe527a0539fbb27f2ba6fd6e4a4b6c2f15d5",
+      "version": 2,
+      "accepted": false,
+      "sourceCount": null
+    }
+  ]
+}

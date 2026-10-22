@@ -1,0 +1,984 @@
+{
+  "schemaVersion": 1,
+  "kind": "actual-browser-viewer-shell-observation",
+  "status": "captured",
+  "startedAtUtc": "2026-10-12T20:37:59.033Z",
+  "finishedAtUtc": "2026-10-12T20:38:00.652Z",
+  "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+  "assembler": {
+    "path": "test-results-viewer-shell-capture.mjs",
+    "bytes": 6814,
+    "sha256": "1c085e10d00b7506eff0e4338080dc4af9f3961a4e78ea47bbf2003f39118a2c"
+  },
+  "browser": {
+    "engine": "Chromium",
+    "version": "156.0.8078.4",
+    "platform": "win32",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+    "viewport": {
+      "width": 1920,
+      "height": 1080
+    },
+    "deviceScaleFactor": 1,
+    "launchArguments": [
+      "--enable-unsafe-webgpu"
+    ]
+  },
+  "application": {
+    "url": "http://127.0.0.1:5173/e2e/geometry-viewer-harness.html",
+    "mode": "development",
+    "harness": {
+      "path": "e2e/geometry-viewer-harness.ts",
+      "bytes": 16052,
+      "sha256": "9d4e83f225c10a3f5514d3ca019458d7791934782f629c606ebae9f4d607ea3b"
+    },
+    "fixture": {
+      "path": ".build/native-ui-reference/r0-20261012-01/fixtures/demo.ply",
+      "bytes": 409283,
+      "sha256": "65d269d5c3554670e70c2ea13bf3463abb1ca181b7cb58bfc3b5e0ed97b630d6"
+    },
+    "qualification": "Harness delegates real App initialization. Source is acquired through the real file input and decoded by the actual native worker; mode switches use visible App controls. No substituted renderer, scene or state."
+  },
+  "referenceResult": {
+    "path": "docs/validation/runs/r0-20261012-01/native-ui-reference-results.json",
+    "bytes": 56557,
+    "sha256": "d5c807ec43473d0f7cb3d6b56bad0dddef3c26ee23ab3b1e68bdaff985be352a"
+  },
+  "sourceCaptureManifest": {
+    "path": "reference/targets/windows-r0-20261012-02/CAPTURE_MANIFEST.json",
+    "bytes": 149390,
+    "sha256": "0156c58d345ecf633d57a0ff339c8c07a270efb0575e6158e49d7d0840678fe4"
+  },
+  "states": [
+    {
+      "name": "empty",
+      "image": {
+        "path": ".build/viewer-shell-comparison/capture01/actual-app-empty-1920x1080.png",
+        "bytes": 24096,
+        "sha256": "ecf720d0d93e07487ce8ec77d089b36a69808125abfa5cc5f2c0352829f48818"
+      },
+      "documentTitle": "SplatView geometry App contracts",
+      "viewport": {
+        "width": 1920,
+        "height": 1080,
+        "devicePixelRatio": 1
+      },
+      "camera": [
+        0,
+        0,
+        0,
+        0.3499999940395355,
+        0.18000000715255737,
+        3,
+        1,
+        45,
+        0,
+        0,
+        1.7777777910232544
+      ],
+      "sceneKind": null,
+      "sceneCount": null,
+      "panel": null,
+      "headings": [],
+      "toolbarGroups": [
+        {
+          "label": "Scene files",
+          "bounds": {
+            "x": 12,
+            "y": 12,
+            "width": 180,
+            "height": 36
+          },
+          "buttons": [
+            {
+              "label": "Open scene",
+              "bounds": {
+                "x": 12,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            },
+            {
+              "label": "Save scene",
+              "bounds": {
+                "x": 48,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": true
+            },
+            {
+              "label": "Update Thumbnail",
+              "bounds": {
+                "x": 84,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": true
+            },
+            {
+              "label": "Capture image",
+              "bounds": {
+                "x": 120,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": true
+            },
+            {
+              "label": "Copy image",
+              "bounds": {
+                "x": 156,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": true
+            }
+          ]
+        },
+        {
+          "label": "View navigation",
+          "bounds": {
+            "x": 198,
+            "y": 12,
+            "width": 180,
+            "height": 36
+          },
+          "buttons": [
+            {
+              "label": "Reset camera",
+              "bounds": {
+                "x": 198,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": true
+            },
+            {
+              "label": "Orbit / Look",
+              "bounds": {
+                "x": 234,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": true
+            },
+            {
+              "label": "Auto orbit",
+              "bounds": {
+                "x": 270,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": true
+            },
+            {
+              "label": "Flip up",
+              "bounds": {
+                "x": 306,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": true
+            },
+            {
+              "label": "Background",
+              "bounds": {
+                "x": 342,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": true
+            }
+          ]
+        },
+        {
+          "label": "Lens and display",
+          "bounds": {
+            "x": 384,
+            "y": 12,
+            "width": 108,
+            "height": 36
+          },
+          "buttons": [
+            {
+              "label": "Narrower lens",
+              "bounds": {
+                "x": 384,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": true
+            },
+            {
+              "label": "Wider lens",
+              "bounds": {
+                "x": 420,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": true
+            },
+            {
+              "label": "Fullscreen",
+              "bounds": {
+                "x": 456,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            }
+          ]
+        },
+        {
+          "label": "Viewer panel",
+          "bounds": {
+            "x": 498,
+            "y": 12,
+            "width": 36,
+            "height": 36
+          },
+          "buttons": [
+            {
+              "label": "Tools",
+              "bounds": {
+                "x": 498,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            }
+          ]
+        }
+      ],
+      "nativeReference": null
+    },
+    {
+      "name": "viewer",
+      "image": {
+        "path": ".build/viewer-shell-comparison/capture01/actual-app-viewer-1920x1080.png",
+        "bytes": 188517,
+        "sha256": "755503c4a87315d04e2cae2137e25e4e116166f37becddfe426ad8968919a3c2"
+      },
+      "documentTitle": "demo.ply — SplatView",
+      "viewport": {
+        "width": 1920,
+        "height": 1080,
+        "devicePixelRatio": 1
+      },
+      "camera": [
+        0,
+        0,
+        -1.1920928955078125e-7,
+        0.3499999940395355,
+        0.18000000715255737,
+        6.258817672729492,
+        1.9959548711776733,
+        45,
+        1,
+        0,
+        1.7777777910232544
+      ],
+      "sourceFingerprint": {
+        "scheme": "splatview-source-v1",
+        "assetDigest": "e2e555a5dd155221135700f131d1b2848c2bb74cc46b3bce7551c4fa4ee97026",
+        "resourceCount": 1,
+        "totalBytes": 409283,
+        "sourceKindHint": "PLY"
+      },
+      "sceneKind": "gaussian",
+      "sceneCount": 1728,
+      "panel": null,
+      "headings": [],
+      "toolbarGroups": [
+        {
+          "label": "Scene files",
+          "bounds": {
+            "x": 12,
+            "y": 12,
+            "width": 180,
+            "height": 36
+          },
+          "buttons": [
+            {
+              "label": "Open scene",
+              "bounds": {
+                "x": 12,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            },
+            {
+              "label": "Save scene",
+              "bounds": {
+                "x": 48,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            },
+            {
+              "label": "Update Thumbnail",
+              "bounds": {
+                "x": 84,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            },
+            {
+              "label": "Capture image",
+              "bounds": {
+                "x": 120,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            },
+            {
+              "label": "Copy image",
+              "bounds": {
+                "x": 156,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            }
+          ]
+        },
+        {
+          "label": "View navigation",
+          "bounds": {
+            "x": 198,
+            "y": 12,
+            "width": 180,
+            "height": 36
+          },
+          "buttons": [
+            {
+              "label": "Reset camera",
+              "bounds": {
+                "x": 198,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            },
+            {
+              "label": "Orbit / Look",
+              "bounds": {
+                "x": 234,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            },
+            {
+              "label": "Auto orbit",
+              "bounds": {
+                "x": 270,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            },
+            {
+              "label": "Flip up",
+              "bounds": {
+                "x": 306,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            },
+            {
+              "label": "Background",
+              "bounds": {
+                "x": 342,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            }
+          ]
+        },
+        {
+          "label": "Lens and display",
+          "bounds": {
+            "x": 384,
+            "y": 12,
+            "width": 108,
+            "height": 36
+          },
+          "buttons": [
+            {
+              "label": "Narrower lens",
+              "bounds": {
+                "x": 384,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            },
+            {
+              "label": "Wider lens",
+              "bounds": {
+                "x": 420,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            },
+            {
+              "label": "Fullscreen",
+              "bounds": {
+                "x": 456,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            }
+          ]
+        },
+        {
+          "label": "Viewer panel",
+          "bounds": {
+            "x": 498,
+            "y": 12,
+            "width": 36,
+            "height": 36
+          },
+          "buttons": [
+            {
+              "label": "Tools",
+              "bounds": {
+                "x": 498,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            }
+          ]
+        }
+      ],
+      "nativeReference": {
+        "path": ".build/native-ui-reference/r0-20261012-01/store-assets/01-viewer.png",
+        "bytes": 214093,
+        "sha256": "2adb614329cc01487c93bb2767ed17075d6d881f02bae71032a468c1dd3c6182"
+      }
+    },
+    {
+      "name": "basic",
+      "image": {
+        "path": ".build/viewer-shell-comparison/capture01/actual-app-basic-1920x1080.png",
+        "bytes": 216270,
+        "sha256": "43f5e93d844ef0080cd5fbe7c6bd9edcc98ba73ec1d45655307a8ffaf1de556f"
+      },
+      "documentTitle": "demo.ply — SplatView",
+      "viewport": {
+        "width": 1920,
+        "height": 1080,
+        "devicePixelRatio": 1
+      },
+      "camera": [
+        0,
+        0,
+        -1.1920928955078125e-7,
+        0.3499999940395355,
+        0.18000000715255737,
+        6.258817672729492,
+        1.9959548711776733,
+        45,
+        1,
+        0,
+        1.7777777910232544
+      ],
+      "sourceFingerprint": {
+        "scheme": "splatview-source-v1",
+        "assetDigest": "e2e555a5dd155221135700f131d1b2848c2bb74cc46b3bce7551c4fa4ee97026",
+        "resourceCount": 1,
+        "totalBytes": 409283,
+        "sourceKindHint": "PLY"
+      },
+      "sceneKind": "gaussian",
+      "sceneCount": 1728,
+      "panel": {
+        "x": 1608,
+        "y": 12,
+        "width": 300,
+        "height": 593
+      },
+      "headings": [
+        "Selection",
+        "Color",
+        "Transform"
+      ],
+      "toolbarGroups": [
+        {
+          "label": "Scene files",
+          "bounds": {
+            "x": 12,
+            "y": 12,
+            "width": 180,
+            "height": 36
+          },
+          "buttons": [
+            {
+              "label": "Open scene",
+              "bounds": {
+                "x": 12,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            },
+            {
+              "label": "Save scene",
+              "bounds": {
+                "x": 48,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            },
+            {
+              "label": "Update Thumbnail",
+              "bounds": {
+                "x": 84,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            },
+            {
+              "label": "Capture image",
+              "bounds": {
+                "x": 120,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            },
+            {
+              "label": "Copy image",
+              "bounds": {
+                "x": 156,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            }
+          ]
+        },
+        {
+          "label": "View navigation",
+          "bounds": {
+            "x": 198,
+            "y": 12,
+            "width": 180,
+            "height": 36
+          },
+          "buttons": [
+            {
+              "label": "Reset camera",
+              "bounds": {
+                "x": 198,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            },
+            {
+              "label": "Orbit / Look",
+              "bounds": {
+                "x": 234,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            },
+            {
+              "label": "Auto orbit",
+              "bounds": {
+                "x": 270,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            },
+            {
+              "label": "Flip up",
+              "bounds": {
+                "x": 306,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            },
+            {
+              "label": "Background",
+              "bounds": {
+                "x": 342,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            }
+          ]
+        },
+        {
+          "label": "Lens and display",
+          "bounds": {
+            "x": 384,
+            "y": 12,
+            "width": 108,
+            "height": 36
+          },
+          "buttons": [
+            {
+              "label": "Narrower lens",
+              "bounds": {
+                "x": 384,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            },
+            {
+              "label": "Wider lens",
+              "bounds": {
+                "x": 420,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            },
+            {
+              "label": "Fullscreen",
+              "bounds": {
+                "x": 456,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            }
+          ]
+        },
+        {
+          "label": "Viewer panel",
+          "bounds": {
+            "x": 498,
+            "y": 12,
+            "width": 36,
+            "height": 36
+          },
+          "buttons": [
+            {
+              "label": "Tools",
+              "bounds": {
+                "x": 498,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            }
+          ]
+        }
+      ],
+      "nativeReference": {
+        "path": ".build/native-ui-reference/r0-20261012-01/store-assets/02-basic-tools.png",
+        "bytes": 268604,
+        "sha256": "14750288d57a7119f8ffe19f35808ae7fd80313c85dc9c060061443b978fe0e1"
+      }
+    },
+    {
+      "name": "pro",
+      "image": {
+        "path": ".build/viewer-shell-comparison/capture01/actual-app-pro-1920x1080.png",
+        "bytes": 235908,
+        "sha256": "984a2256ae6853d3dad0a3b37ef45550a9f38ce6ea653d180cdcf9e68484d1a2"
+      },
+      "documentTitle": "demo.ply — SplatView",
+      "viewport": {
+        "width": 1920,
+        "height": 1080,
+        "devicePixelRatio": 1
+      },
+      "camera": [
+        0,
+        0,
+        -1.1920928955078125e-7,
+        0.3499999940395355,
+        0.18000000715255737,
+        6.258817672729492,
+        1.9959548711776733,
+        45,
+        1,
+        0,
+        1.7777777910232544
+      ],
+      "sourceFingerprint": {
+        "scheme": "splatview-source-v1",
+        "assetDigest": "e2e555a5dd155221135700f131d1b2848c2bb74cc46b3bce7551c4fa4ee97026",
+        "resourceCount": 1,
+        "totalBytes": 409283,
+        "sourceKindHint": "PLY"
+      },
+      "sceneKind": "gaussian",
+      "sceneCount": 1728,
+      "panel": {
+        "x": 1608,
+        "y": 12,
+        "width": 300,
+        "height": 971
+      },
+      "headings": [
+        "Selection",
+        "Color",
+        "Transform"
+      ],
+      "toolbarGroups": [
+        {
+          "label": "Scene files",
+          "bounds": {
+            "x": 12,
+            "y": 12,
+            "width": 180,
+            "height": 36
+          },
+          "buttons": [
+            {
+              "label": "Open scene",
+              "bounds": {
+                "x": 12,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            },
+            {
+              "label": "Save scene",
+              "bounds": {
+                "x": 48,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            },
+            {
+              "label": "Update Thumbnail",
+              "bounds": {
+                "x": 84,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            },
+            {
+              "label": "Capture image",
+              "bounds": {
+                "x": 120,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            },
+            {
+              "label": "Copy image",
+              "bounds": {
+                "x": 156,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            }
+          ]
+        },
+        {
+          "label": "View navigation",
+          "bounds": {
+            "x": 198,
+            "y": 12,
+            "width": 180,
+            "height": 36
+          },
+          "buttons": [
+            {
+              "label": "Reset camera",
+              "bounds": {
+                "x": 198,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            },
+            {
+              "label": "Orbit / Look",
+              "bounds": {
+                "x": 234,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            },
+            {
+              "label": "Auto orbit",
+              "bounds": {
+                "x": 270,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            },
+            {
+              "label": "Flip up",
+              "bounds": {
+                "x": 306,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            },
+            {
+              "label": "Background",
+              "bounds": {
+                "x": 342,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            }
+          ]
+        },
+        {
+          "label": "Lens and display",
+          "bounds": {
+            "x": 384,
+            "y": 12,
+            "width": 108,
+            "height": 36
+          },
+          "buttons": [
+            {
+              "label": "Narrower lens",
+              "bounds": {
+                "x": 384,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            },
+            {
+              "label": "Wider lens",
+              "bounds": {
+                "x": 420,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            },
+            {
+              "label": "Fullscreen",
+              "bounds": {
+                "x": 456,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            }
+          ]
+        },
+        {
+          "label": "Viewer panel",
+          "bounds": {
+            "x": 498,
+            "y": 12,
+            "width": 36,
+            "height": 36
+          },
+          "buttons": [
+            {
+              "label": "Tools",
+              "bounds": {
+                "x": 498,
+                "y": 12,
+                "width": 36,
+                "height": 36
+              },
+              "disabled": false
+            }
+          ]
+        }
+      ],
+      "nativeReference": {
+        "path": ".build/native-ui-reference/r0-20261012-01/store-assets/03-pro-tools.png",
+        "bytes": 296164,
+        "sha256": "e0706a0d8b55255fdf64456139a8a80a32b16ee5c9911835f11fa1932d992183"
+      }
+    }
+  ],
+  "pageErrors": [],
+  "limitations": [
+    "Source-matched scene and client pixel extents do not establish matching native DPR, font metrics or numeric camera.",
+    "Native references are offscreen test-generated production AppUi renders, not desktop-window screenshots.",
+    "Screenshots document remaining differences; no whole-page pixel threshold, rendered histogram, complete Settings, Guides or full visual parity is accepted.",
+    "This is local Windows Chromium development capture, not a deployed-host, Mac, Safari or performance qualification."
+  ]
+}

@@ -1,0 +1,5 @@
+# Contract adoption, October 17, 2026
+
+Windows, macOS and Ubuntu require the native editor feature families, including API-only read-only measurement. Web-lite requires viewing and lightweight manual/color selection, cleanup, manual transforms/alignment, basic/auto color and create-copy export; advanced authoring, native agent/server/measurement, shell effects and overwrite are excluded. Fullscreen, clipboard and local persistence require the probed browser capability and declared fallback. All preview/thumbnail hosts exclude agent entry.
+
+Import a sealed local contract bundle with an explicit digest, classify every existing registered enum/action/command and preserve source/native/WASM locks and existing controllers/history. New or changed declarations require an amended local review and bundle policy, then regeneration; do not extend a grandfather inventory to bypass review. Runtime policy is checked in existing dispatch paths and tutorial availability. Native/installed desktop or browser GPU qualification is separate from portable metadata/unit tests. No application version, legal text, installations or source locks change.

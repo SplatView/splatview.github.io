@@ -1,0 +1,805 @@
+{
+  "schemaVersion": 1,
+  "kind": "actual-floor-app-focus03-observation",
+  "status": "passed",
+  "recordedAtUtc": "2026-10-14T00:34:45.924Z",
+  "sourceSnapshot": {
+    "path": ".build/floor-tests/source-snapshot-04.json",
+    "bytes": 80438,
+    "sha256": "5b938be5af8d1f68819701008c7f9ca18696f9b72ac5d5cdbae1b679303cbd46"
+  },
+  "testInputs": {
+    "path": ".build/floor-tests/test-inputs-03.json",
+    "bytes": 36000,
+    "sha256": "67f3bde903a892fb110ac83b758bd9b63ef8ed5d968b9600caa5e81ea0deabd8"
+  },
+  "sourceReport": {
+    "path": "test-results-floor-focus-03.json",
+    "bytes": 1339765,
+    "sha256": "3b160389eab7d1e9066170f45052d55d2ee7a4cfd2859bd7510020b70ce417ef"
+  },
+  "build": {
+    "schemaVersion": 1,
+    "protocolVersion": 16,
+    "uiWorkerContract": 12,
+    "native": {
+      "core": {
+        "schemaVersion": 1,
+        "kind": "core",
+        "abi": 12,
+        "variant": "scalar",
+        "mapLayoutVersion": 1,
+        "capabilities": {
+          "atomicCheckpoint": 1,
+          "selectionMap": 1,
+          "volumeSelection": 1,
+          "fillSelection": 1,
+          "connectedColorSelection": 1,
+          "toleranceCheckpoint": 1,
+          "liveSelectionOutcome": 1,
+          "geometryPreview": 1,
+          "sourceHash": 1,
+          "allocationCensus": 1,
+          "selectionMorphology": 1,
+          "absoluteColorSession": 1,
+          "autoColor": 1,
+          "colorBaseStream": 1,
+          "alignment": 4
+        },
+        "nativeInputId": "fe73c22f3350c8fe9808a4d69a4cd755595ebc87a6fb224cd4c5f3b63aa0d181"
+      },
+      "camera": {
+        "schemaVersion": 1,
+        "kind": "camera",
+        "abi": 4,
+        "variant": "scalar",
+        "capabilities": {
+          "cameraInput": 1,
+          "cameraTransform": 1,
+          "cameraFrame": 1,
+          "cameraOrientation": 1
+        },
+        "nativeInputId": "fe73c22f3350c8fe9808a4d69a4cd755595ebc87a6fb224cd4c5f3b63aa0d181"
+      }
+    },
+    "appInputId": "a0e431e1ef6a7efc881f564d8ff39fbd39603bf583bed2bb56f0214649a79db1"
+  },
+  "deploymentId": "ce70940bd4c6d689e0f76f13b65c3289b75ff7bb047a88b448f2ee3f986a6507",
+  "scope": "Actual Windows Chromium App and worker observations in separately passing cases; exact three rawPNG attachments inspected by the root assistant via view_image. No same-instant/nativevisual comparison, latency, full-domain, host/offline or Mac/Safari acceptance. Full retained-plan qualification remains separate.",
+  "rootVisualReview": {
+    "images": [
+      {
+        "path": ".build/floor-tests/review-images-01/floor-basic-native-candidate-ready.png",
+        "bytes": 89703,
+        "sha256": "1c13165c337cdab17ec0777da22dc63f4d30273300d21bfc2abd8eca7be6fdc9"
+      },
+      {
+        "path": ".build/floor-tests/review-images-01/floor-basic-accepted-result.png",
+        "bytes": 65121,
+        "sha256": "bf450ac3c7af79fd2263e00e7e05af3ec3e869a89de10a7dca6210be04e6ec12"
+      },
+      {
+        "path": ".build/floor-tests/review-images-01/floor-compact-pro-fixed-candidate-flipped.png",
+        "bytes": 33095,
+        "sha256": "3b02bd71bee00dee74dffed3efb8acaab139cd2fc1aa860e230b192850eff404"
+      }
+    ],
+    "observations": [
+      "Basic ready popup has readable Flip/Level floor/Cancel and avoids candidate normal, Tools and toolbar.",
+      "Applied Basic state has no candidate grid orpopup; all-record native/GPU transform and Reset/history checks are recorded separately.",
+      "Compact640x300 Pro popup and three controls remain insideviewport and outside normal/Tools/toolbar."
+    ]
+  },
+  "basic": {
+    "layout": {
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "popup": {
+        "x": 692,
+        "y": 652.203125,
+        "width": 252,
+        "height": 122.796875
+      },
+      "normalParts": [
+        {
+          "x": 634.6354370117188,
+          "y": 367.7445373535156,
+          "width": 6.1685791015625,
+          "height": 28.216796875
+        },
+        {
+          "x": 634.223388671875,
+          "y": 385.13641357421875,
+          "width": 7.94329833984375,
+          "height": 9.324920654296875
+        }
+      ],
+      "normalBounds": {
+        "x": 634.223388671875,
+        "y": 367.7445373535156,
+        "width": 7.94329833984375,
+        "height": 28.216796875
+      },
+      "otherControls": [
+        {
+          "kind": "toolbar",
+          "x": 12,
+          "y": 12,
+          "width": 180,
+          "height": 36
+        },
+        {
+          "kind": "toolbar",
+          "x": 198,
+          "y": 12,
+          "width": 180,
+          "height": 36
+        },
+        {
+          "kind": "toolbar",
+          "x": 384,
+          "y": 12,
+          "width": 108,
+          "height": 36
+        },
+        {
+          "kind": "toolbar",
+          "x": 498,
+          "y": 12,
+          "width": 36,
+          "height": 36
+        },
+        {
+          "kind": "tools",
+          "x": 968,
+          "y": 12,
+          "width": 300,
+          "height": 737
+        }
+      ],
+      "buttons": [
+        {
+          "label": "Flip normal",
+          "x": 703,
+          "y": 713.203125,
+          "width": 24,
+          "height": 24
+        },
+        {
+          "label": "\n  \n\nLevel floor",
+          "x": 733,
+          "y": 711.203125,
+          "width": 97.625,
+          "height": 28
+        },
+        {
+          "label": "Cancel alignment",
+          "x": 836.625,
+          "y": 713.203125,
+          "width": 24,
+          "height": 24
+        }
+      ],
+      "normalPresent": true,
+      "popupOutsideNormal": true,
+      "popupOutsideControls": true
+    },
+    "candidate": {
+      "phase": "candidate",
+      "progress": 1,
+      "candidate": {
+        "version": 1,
+        "id": 1,
+        "selectedOnly": false,
+        "status": "ready",
+        "stage": "complete",
+        "plane": {
+          "normal": [
+            0,
+            -0.2821663022041321,
+            0.9593654870986938
+          ],
+          "center": [
+            -2.7755575615628914e-17,
+            -0.17000000178813934,
+            -0.05000000074505806
+          ],
+          "radius": 0.7706490755081177,
+          "rms": 4.518280204935331e-17,
+          "inliers": 5,
+          "tested": 5
+        }
+      },
+      "message": null
+    },
+    "native": {
+      "version": 1,
+      "id": 1,
+      "selectedOnly": false,
+      "status": "ready",
+      "stage": "complete",
+      "plane": {
+        "normal": [
+          0,
+          -0.2821663022041321,
+          0.9593654870986938
+        ],
+        "center": [
+          -2.7755575615628914e-17,
+          -0.17000000178813934,
+          -0.05000000074505806
+        ],
+        "radius": 0.7706490755081177,
+        "rms": 4.518280204935331e-17,
+        "inliers": 5,
+        "tested": 5
+      }
+    },
+    "commandObservation": [],
+    "retainedCandidateAfterNavigation": {
+      "phase": "candidate",
+      "progress": 1,
+      "candidate": {
+        "version": 1,
+        "id": 1,
+        "selectedOnly": false,
+        "status": "ready",
+        "stage": "complete",
+        "plane": {
+          "normal": [
+            0,
+            -0.2821663022041321,
+            0.9593654870986938
+          ],
+          "center": [
+            -2.7755575615628914e-17,
+            -0.17000000178813934,
+            -0.05000000074505806
+          ],
+          "radius": 0.7706490755081177,
+          "rms": 4.518280204935331e-17,
+          "inliers": 5,
+          "tested": 5
+        }
+      },
+      "message": null
+    }
+  },
+  "compact": {
+    "layout": {
+      "viewport": {
+        "width": 640,
+        "height": 300
+      },
+      "popup": {
+        "x": 52,
+        "y": 152.203125,
+        "width": 252,
+        "height": 122.796875
+      },
+      "normalParts": [
+        {
+          "x": 317.05078125,
+          "y": 136.96670532226562,
+          "width": 4.188232421875,
+          "height": 12.456298828125
+        },
+        {
+          "x": 317.8337707519531,
+          "y": 144.4261474609375,
+          "width": 2.978729248046875,
+          "height": 3.496856689453125
+        }
+      ],
+      "normalBounds": {
+        "x": 317.05078125,
+        "y": 136.96670532226562,
+        "width": 4.188232421875,
+        "height": 12.456298828125
+      },
+      "otherControls": [
+        {
+          "kind": "toolbar",
+          "x": 12,
+          "y": 12,
+          "width": 180,
+          "height": 36
+        },
+        {
+          "kind": "toolbar",
+          "x": 12,
+          "y": 54,
+          "width": 180,
+          "height": 36
+        },
+        {
+          "kind": "toolbar",
+          "x": 198,
+          "y": 54,
+          "width": 108,
+          "height": 36
+        },
+        {
+          "kind": "toolbar",
+          "x": 12,
+          "y": 96,
+          "width": 36,
+          "height": 36
+        },
+        {
+          "kind": "tools",
+          "x": 328,
+          "y": 12,
+          "width": 300,
+          "height": 276
+        }
+      ],
+      "buttons": [
+        {
+          "label": "Flip normal",
+          "x": 63,
+          "y": 213.203125,
+          "width": 24,
+          "height": 24
+        },
+        {
+          "label": "\n  \n\nLevel floor",
+          "x": 93,
+          "y": 211.203125,
+          "width": 97.625,
+          "height": 28
+        },
+        {
+          "label": "Cancel alignment",
+          "x": 196.625,
+          "y": 213.203125,
+          "width": 24,
+          "height": 24
+        }
+      ],
+      "normalPresent": true,
+      "popupOutsideNormal": true,
+      "popupOutsideControls": true
+    },
+    "candidate": {
+      "phase": "candidate",
+      "progress": 1,
+      "candidate": {
+        "version": 1,
+        "id": 1,
+        "selectedOnly": false,
+        "status": "ready",
+        "stage": "complete",
+        "plane": {
+          "normal": [
+            0,
+            -0.2821663022041321,
+            0.9593654870986938
+          ],
+          "center": [
+            -2.7755575615628914e-17,
+            -0.17000000178813934,
+            -0.05000000074505806
+          ],
+          "radius": 0.7706490755081177,
+          "rms": 4.518280204935331e-17,
+          "inliers": 5,
+          "tested": 5
+        }
+      },
+      "message": null
+    },
+    "flip": true
+  },
+  "confirmation": {
+    "beforeSummary": {
+      "ok": true,
+      "loaded": true,
+      "count": 5,
+      "sourceCount": 5,
+      "sourceFaces": 0,
+      "sampledGeometry": false,
+      "geometry": null,
+      "shDegree": 3,
+      "format": "PLY",
+      "kind": 0,
+      "selected": 4,
+      "visible": 4,
+      "canUndo": true,
+      "canRedo": false,
+      "transaction": false,
+      "selectionDraft": false,
+      "toleranceSessionId": null,
+      "toleranceTool": null,
+      "toleranceConnected": null,
+      "toleranceMapId": null,
+      "selectionMapId": null,
+      "pendingSelectionMapId": null,
+      "selectionMapBytes": 0,
+      "selectionMapRetainedIds": [],
+      "sceneChanged": false,
+      "revision": 6,
+      "contentRevision": 1,
+      "pending": false,
+      "progress": 1,
+      "center": [
+        0,
+        -0.42500001192092896,
+        -0.125
+      ],
+      "radius": 1.1410624980926514,
+      "yUp": true,
+      "camera": [
+        0,
+        -0.42500001192092896,
+        -0.125,
+        0.3499999940395355,
+        0.18000000715255737,
+        3.5780880451202393,
+        1.1410624980926514,
+        45,
+        1,
+        0,
+        1
+      ],
+      "memoryBytes": 4809,
+      "colorSession": null,
+      "alignment": {
+        "version": 2,
+        "frame": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "branchId": 0,
+        "canReset": false,
+        "retainedBranchIds": [
+          0
+        ]
+      },
+      "floor": null
+    },
+    "afterSummary": {
+      "ok": true,
+      "loaded": true,
+      "count": 5,
+      "sourceCount": 5,
+      "sourceFaces": 0,
+      "sampledGeometry": false,
+      "geometry": null,
+      "shDegree": 3,
+      "format": "PLY",
+      "kind": 0,
+      "selected": 4,
+      "visible": 4,
+      "canUndo": true,
+      "canRedo": false,
+      "transaction": false,
+      "selectionDraft": false,
+      "toleranceSessionId": null,
+      "toleranceTool": null,
+      "toleranceConnected": null,
+      "toleranceMapId": null,
+      "selectionMapId": null,
+      "pendingSelectionMapId": null,
+      "selectionMapBytes": 0,
+      "selectionMapRetainedIds": [],
+      "sceneChanged": false,
+      "revision": 7,
+      "contentRevision": 2,
+      "pending": false,
+      "progress": 1,
+      "center": [
+        0,
+        -2.4225311534564753e-8,
+        -0.4430011510848999
+      ],
+      "radius": 1.1358706951141357,
+      "yUp": true,
+      "camera": [
+        0,
+        -2.2351741790771484e-8,
+        -0.4430011510848999,
+        0.6624018549919128,
+        -0.9901814460754395,
+        3.5780882835388184,
+        1.1358706951141357,
+        45,
+        1,
+        0,
+        1
+      ],
+      "memoryBytes": 5534,
+      "colorSession": null,
+      "alignment": {
+        "version": 2,
+        "frame": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.28216642141342163,
+          0.9593654870986938,
+          0,
+          0,
+          -0.9593654870986938,
+          0.28216642141342163,
+          0,
+          0,
+          2.2351741790771484e-8,
+          0,
+          1
+        ],
+        "branchId": 1,
+        "canReset": true,
+        "retainedBranchIds": [
+          0,
+          1
+        ]
+      },
+      "floor": null
+    },
+    "resetSummary": {
+      "ok": true,
+      "loaded": true,
+      "count": 5,
+      "sourceCount": 5,
+      "sourceFaces": 0,
+      "sampledGeometry": false,
+      "geometry": null,
+      "shDegree": 3,
+      "format": "PLY",
+      "kind": 0,
+      "selected": 4,
+      "visible": 4,
+      "canUndo": true,
+      "canRedo": false,
+      "transaction": false,
+      "selectionDraft": false,
+      "toleranceSessionId": null,
+      "toleranceTool": null,
+      "toleranceConnected": null,
+      "toleranceMapId": null,
+      "selectionMapId": null,
+      "pendingSelectionMapId": null,
+      "selectionMapBytes": 0,
+      "selectionMapRetainedIds": [],
+      "sceneChanged": false,
+      "revision": 8,
+      "contentRevision": 3,
+      "pending": false,
+      "progress": 1,
+      "center": [
+        0,
+        -0.42500001192092896,
+        -0.125
+      ],
+      "radius": 1.1410624980926514,
+      "yUp": true,
+      "camera": [
+        0,
+        -0.42500001192092896,
+        -0.125,
+        0.3499999940395355,
+        0.18000000715255737,
+        3.5780880451202393,
+        1.1410624980926514,
+        45,
+        1,
+        0,
+        1
+      ],
+      "memoryBytes": 5539,
+      "colorSession": null,
+      "alignment": {
+        "version": 2,
+        "frame": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "branchId": 0,
+        "canReset": false,
+        "retainedBranchIds": [
+          0,
+          1
+        ]
+      },
+      "floor": null
+    },
+    "nativeHashBefore": "ebf3c994fba0c8666b291a4be38b63056c08cb942bbb5d5fdb23ae33992de729",
+    "gpuHashBefore": "ebf3c994fba0c8666b291a4be38b63056c08cb942bbb5d5fdb23ae33992de729",
+    "nativeHashAfter": "923ea42b2ad8860e22966e46d355996531f4ec3f2e23f4cc8ccc8482581ffbb1",
+    "gpuHashAfter": "923ea42b2ad8860e22966e46d355996531f4ec3f2e23f4cc8ccc8482581ffbb1",
+    "nativeHashReset": "ebf3c994fba0c8666b291a4be38b63056c08cb942bbb5d5fdb23ae33992de729",
+    "gpuHashReset": "ebf3c994fba0c8666b291a4be38b63056c08cb942bbb5d5fdb23ae33992de729",
+    "masks": [
+      1,
+      1,
+      2,
+      1,
+      1
+    ],
+    "historySequence": [
+      "Floor",
+      "Reset",
+      "UndoReset",
+      "UndoFloor",
+      "RedoFloor",
+      "RedoReset"
+    ]
+  },
+  "realWorker": {
+    "count": 60000,
+    "inputBytes": 5447661,
+    "progress": [
+      {
+        "stage": "Detecting floor",
+        "fraction": 0.25
+      },
+      {
+        "stage": "Detecting floor",
+        "fraction": 0.25
+      }
+    ],
+    "posts": [
+      {
+        "type": "command",
+        "command": "detectFloor",
+        "requestId": 4,
+        "base": {
+          "documentId": "36ce9459-6975-4c42-bde8-feb495a88c4e",
+          "sourceGeneration": 1,
+          "contentRevision": 1,
+          "selectionRevision": 1,
+          "draftRevision": 0
+        }
+      },
+      {
+        "type": "cancel",
+        "requestId": 4,
+        "base": {
+          "documentId": "36ce9459-6975-4c42-bde8-feb495a88c4e",
+          "sourceGeneration": 1,
+          "contentRevision": 1,
+          "selectionRevision": 1,
+          "draftRevision": 0
+        }
+      },
+      {
+        "type": "command",
+        "command": "summary",
+        "requestId": 5,
+        "base": {
+          "documentId": "36ce9459-6975-4c42-bde8-feb495a88c4e",
+          "sourceGeneration": 1,
+          "contentRevision": 1,
+          "selectionRevision": 1,
+          "draftRevision": 0
+        }
+      },
+      {
+        "type": "command",
+        "command": "summary",
+        "requestId": 7,
+        "base": {
+          "documentId": "36ce9459-6975-4c42-bde8-feb495a88c4e",
+          "sourceGeneration": 1,
+          "contentRevision": 1,
+          "selectionRevision": 1,
+          "draftRevision": 0
+        }
+      },
+      {
+        "type": "command",
+        "command": "detectFloor",
+        "requestId": 8,
+        "base": {
+          "documentId": "36ce9459-6975-4c42-bde8-feb495a88c4e",
+          "sourceGeneration": 1,
+          "contentRevision": 1,
+          "selectionRevision": 1,
+          "draftRevision": 0
+        }
+      },
+      {
+        "type": "command",
+        "command": "cancelFloor",
+        "requestId": 9,
+        "base": {
+          "documentId": "36ce9459-6975-4c42-bde8-feb495a88c4e",
+          "sourceGeneration": 1,
+          "contentRevision": 1,
+          "selectionRevision": 1,
+          "draftRevision": 0
+        }
+      },
+      {
+        "type": "command",
+        "command": "summary",
+        "requestId": 10,
+        "base": {
+          "documentId": "36ce9459-6975-4c42-bde8-feb495a88c4e",
+          "sourceGeneration": 1,
+          "contentRevision": 1,
+          "selectionRevision": 1,
+          "draftRevision": 0
+        }
+      }
+    ],
+    "sameWorker": true,
+    "terminations": 0,
+    "failure": {
+      "name": "AbortError",
+      "message": "Edit cancelled"
+    },
+    "successor": {
+      "version": 1,
+      "id": 2,
+      "selectedOnly": false,
+      "status": "ready",
+      "stage": "complete",
+      "plane": {
+        "normal": [
+          0.2182178944349289,
+          -0.8728715777397156,
+          0.4364357888698578
+        ],
+        "center": [
+          2.995427131652832,
+          3.7441577911376953,
+          1.9906020164489746
+        ],
+        "radius": 3.997144937515259,
+        "rms": 9.005153600583071e-8,
+        "inliers": 50000,
+        "tested": 50000
+      }
+    },
+    "retired": null,
+    "sourceLedger": {
+      "bytes": 0,
+      "peakBytes": 8658925,
+      "allocations": 0
+    }
+  },
+  "pngExtraction": {
+    "path": ".build/floor-tests/review-images-01/extraction.json",
+    "bytes": 1559,
+    "sha256": "42306266f04ce40262d5ee419a61c4c74130cae4a8979f162ce8bb13d0d5637c"
+  },
+  "helper": {
+    "path": "test-results-floor-ui-observation-01.mjs",
+    "bytes": 4796,
+    "sha256": "7e226d3af26ca717555ce0261c87f5adf3908a9f37a815d6da7e7ceed8349873"
+  }
+}

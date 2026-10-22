@@ -1,0 +1,26 @@
+{
+    "name":  "native-attempt05-ctest",
+    "executable":  "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\ctest.exe",
+    "executableSha256":  "e603e19535326eaa213bc9820312d1b7d3a718ae63da3877078d6ecc4d980d91",
+    "arguments":  [
+                      "--test-dir",
+                      "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.build\\r0-native-02\\attempt05",
+                      "-C",
+                      "Release",
+                      "--output-on-failure",
+                      "--no-tests=error",
+                      "--parallel",
+                      "1",
+                      "--output-junit",
+                      "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\docs\\validation\\runs\\r0-20261012-01\\native-attempt05-ctest.junit.xml",
+                      "-R",
+                      "^(SelectionMorphologyContracts|ExportFormatContracts|InputFormatContracts|ViewCommandPolicyContracts|CliOutputContracts|SettingsContracts|ToolsModeContracts|LanguageContracts)$"
+                  ],
+    "workingDirectory":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\reference\\targets\\windows-r0-20261012-02\\source",
+    "startedUtc":  "2026-10-12T15:15:34.4639743Z",
+    "completedUtc":  "2026-10-12T15:17:05.8914109Z",
+    "durationSeconds":  91.4078534,
+    "exitCode":  0,
+    "mergedOutputLog":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\docs\\validation\\runs\\r0-20261012-01\\native-attempt05-ctest.log",
+    "mergedOutputLogSha256":  "6ae7c5ce9349cc9be04876a2cca8b24e4da07f4a51d9087ca4d23fe78e382394"
+}

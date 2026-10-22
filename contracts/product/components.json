@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "iconButtons": {
+    "label": "Accessible name and concise localized tooltip",
+    "states": [
+      "normal",
+      "hover",
+      "pressed",
+      "selected",
+      "disabled",
+      "focus"
+    ],
+    "groups": "Shared frame for related actions; icons preserve semantic meaning."
+  },
+  "preview": "Image and histogram preview together; leave restores both; choose applies once.",
+  "tutorial": "One merged outline per semantic group; smooth alpha pulse of border only; content-sized panel."
+}

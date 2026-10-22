@@ -1,0 +1,2 @@
+# The manifest and consumer pins bind exact payload bytes on every OS.
+* -text

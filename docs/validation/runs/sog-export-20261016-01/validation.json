@@ -1,0 +1,695 @@
+{
+  "schemaVersion": 1,
+  "kind": "sog-export-qualification",
+  "status": "passed",
+  "goalStatus": "active",
+  "observedAtUtc": "2026-10-16T06:12:38.414421+00:00",
+  "helper": {
+    "path": ".build/sog-export-tests/evidence-01.py",
+    "bytes": 19325,
+    "sha256": "5df2088aebe449f5e317283a37183829ba80f932311a44d5772aba413af0deff"
+  },
+  "inputs": {
+    "path": ".build/sog-export-tests/qualification-inputs-01.json",
+    "bytes": 2250,
+    "sha256": "b1da233450fe763a6aca71f4cd2b68285efce4261ce8edfc5ed4aecedf23a0fb"
+  },
+  "sourceSeal": {
+    "path": ".build/sog-export-tests/source-final/manifest.json",
+    "bytes": 767845,
+    "sha256": "ac4f86c573a0e574e959ad8b4d3818a855fa1ae14f6d37271b2f8314f66e5f0f"
+  },
+  "executionSourceSeal": {
+    "path": ".build/sog-export-tests/source-checks-02/manifest.json",
+    "bytes": 767853,
+    "sha256": "d4d825d144e988d57b6e39c4a1a06d11ac3d5756d9885b70e34bc899c76a360c"
+  },
+  "sourceRows": 2573,
+  "browserSourceSeal": {
+    "path": ".build/sog-export-tests/source-checks-02/manifest.json",
+    "bytes": 767853,
+    "sha256": "d4d825d144e988d57b6e39c4a1a06d11ac3d5756d9885b70e34bc899c76a360c"
+  },
+  "diagnostics": [
+    {
+      "terminal": {
+        "path": "test-results-coherent-startup-sog-export-native-build-01.command.json",
+        "bytes": 897,
+        "sha256": "83371d738dc80a68394bbd7f9cd7a0efaabcff8a14ebb71fdc224bf6518c59c8"
+      },
+      "outcome": {
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "arguments": [
+          "-B",
+          "tools/build-core.py"
+        ],
+        "startedAtUtc": "2026-10-16T05:52:39.9586389Z",
+        "finishedAtUtc": "2026-10-16T05:53:45.0460059Z",
+        "exitCode": 1,
+        "exception": null,
+        "log": {
+          "path": "test-results-coherent-startup-sog-export-native-build-01.log",
+          "bytes": 43102,
+          "sha256": "4e7c88024f8b3ebf4f2a3317aa8a8d3616981f59ef624651a165387a3e127283"
+        },
+        "report": null,
+        "browserOutputDirectory": "",
+        "lastRun": null
+      },
+      "acceptedCases": 0
+    },
+    {
+      "terminal": {
+        "path": "test-results-coherent-startup-sog-export-source-pre-repair-01.command.json",
+        "bytes": 1109,
+        "sha256": "975bcf4a56ada6b6a84a1063933e32a02830b9d5a10014b2db44e239be15cca4"
+      },
+      "outcome": {
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "arguments": [
+          "-B",
+          ".build/sog-export-tests/capture-02.py",
+          "--name",
+          "pre-repair-01",
+          "--previous",
+          ".build/sog-export-tests/source-build-01/manifest.json"
+        ],
+        "startedAtUtc": "2026-10-16T05:54:05.3813187Z",
+        "finishedAtUtc": "2026-10-16T05:54:05.5974017Z",
+        "exitCode": 1,
+        "exception": null,
+        "log": {
+          "path": "test-results-coherent-startup-sog-export-source-pre-repair-01.log",
+          "bytes": 1716,
+          "sha256": "fc0d360b212e41ac6a5e449af33ce459e5e87f3755a150f66e326891170cbddd"
+        },
+        "report": null,
+        "browserOutputDirectory": "",
+        "lastRun": null
+      },
+      "acceptedCases": 0
+    },
+    {
+      "terminal": {
+        "path": "test-results-coherent-startup-sog-export-unit-01.command.json",
+        "bytes": 1338,
+        "sha256": "31122573060b5ef68adc6f2429868698837983d3b56574e7c83cb7f457db1207"
+      },
+      "outcome": {
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+        "arguments": [
+          "node_modules/vitest/vitest.mjs",
+          "run",
+          "--maxWorkers=4",
+          "--reporter=json",
+          "--outputFile=.build/sog-export-tests/unit-report-01.json"
+        ],
+        "startedAtUtc": "2026-10-16T05:58:35.4953741Z",
+        "finishedAtUtc": "2026-10-16T05:59:15.5207584Z",
+        "exitCode": 1,
+        "exception": null,
+        "log": {
+          "path": "test-results-coherent-startup-sog-export-unit-01.log",
+          "bytes": 9614,
+          "sha256": "bcc99d57df02119867feea6315f7a5a39c7883fcf3e474d637f197123c5db4d4"
+        },
+        "report": {
+          "path": ".build/sog-export-tests/unit-report-01.json",
+          "bytes": 2021964,
+          "sha256": "df397d29c78edc0a61396e69297252287196c940accb991356ec6c7ad56616ab"
+        },
+        "browserOutputDirectory": "",
+        "lastRun": null
+      },
+      "acceptedCases": 0
+    }
+  ],
+  "compilerRepairPreimage": {
+    "path": ".build/sog-export-tests/source-pre-repair-02/manifest.json",
+    "bytes": 766678,
+    "sha256": "26a8bb01ae4e490aaea55d053035014067ee8c05720c6e6195d7b80de1e927d2"
+  },
+  "compilerRepair": "One mixed-auto declaration now has explicit size_t; codec byte storage uses an explicit byte pointer. Failed build/capture add no accepted cases. Capture03 preserves exact-five missing native leaves during incomplete publication.",
+  "reporterRepairPreimage": {
+    "path": ".build/sog-export-tests/source-pre-repair-03/manifest.json",
+    "bytes": 767249,
+    "sha256": "f8c63a6441cbabceabe01f37b28d58d55cae0e0a55051713dc0beb5f4463c67e"
+  },
+  "reporterDiagnostic": [
+    {
+      "path": ".build/release-vitest-reporter-Ok5j93/vitest.config.mts",
+      "bytes": 369,
+      "sha256": "35cb0e8eb9e153e119c04058e49fd7c2460b01aa390e5f88aba10ebcdb1a0698"
+    },
+    {
+      "path": ".build/release-vitest-reporter-Ok5j93/interrupt.test.ts",
+      "bytes": 508,
+      "sha256": "bc1799ce3d16bca3fa2b04dcaeecfa2777e85d123e94258df5b87f8b479a1e1c"
+    },
+    {
+      "path": ".build/release-vitest-reporter-Ok5j93/cancel-reporter.ts",
+      "bytes": 525,
+      "sha256": "d7b600a8511f384c455d6baea9e3b2968c027e10e1721faf9e5830bb0dc0efe8"
+    },
+    {
+      "path": ".build/release-vitest-reporter-Ok5j93/cancel-requested.txt",
+      "bytes": 29,
+      "sha256": "09186fa2d5db18218aad3104422a3ca145778901922f55f81e8ccb2b0e26f49a"
+    },
+    {
+      "path": ".build/release-vitest-reporter-Ok5j93/interrupted.json",
+      "bytes": 3710,
+      "sha256": "0b300c9d6a8cc96a0342052b4ecf009f540c5c77da7992192111ac0db975a40d"
+    }
+  ],
+  "reporterRepair": "The original onTestCaseReady-driven request arrived after the active fixture timed out. The repaired fixture observes an actual body marker independently, then invokes public cancellation. Interrupted/skipped/diagnostic assertions and existing timeouts remain required. The failed full run contributes no accepted cases.",
+  "sourceCopiesVerified": true,
+  "executedApplicationTestsAndNativeUnchanged": true,
+  "gates": {
+    "nativeBuild": {
+      "terminal": {
+        "path": "test-results-coherent-startup-sog-export-native-build-02.command.json",
+        "bytes": 898,
+        "sha256": "7d193c12254a1975c7e20cc8873b3121b308ea6e09ab6309c0764e8782c7aeea"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\Users\\opsiclear\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+      "arguments": [
+        "-B",
+        "tools/build-core.py"
+      ],
+      "startedAtUtc": "2026-10-16T05:55:17.1185454Z",
+      "finishedAtUtc": "2026-10-16T05:57:52.0938599Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-sog-export-native-build-02.log",
+        "bytes": 211350,
+        "sha256": "5b85f6b9015dea7a3fcd8d78bfcf1164bde814cc6fd58a3ce0222a6075639ffd"
+      },
+      "report": null,
+      "browserOutputDirectory": "",
+      "lastRun": null
+    },
+    "python": {
+      "terminal": {
+        "path": "test-results-coherent-startup-sog-export-python-01.command.json",
+        "bytes": 1023,
+        "sha256": "566a1302ba9fdd5a24fb08de234f102072debbc2bb7b0695d6fc8971c1d35411"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\Users\\opsiclear\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+      "arguments": [
+        "-B",
+        "-m",
+        "unittest",
+        "tools.test_build_core_dependencies",
+        "tools.test_verify_toolchain"
+      ],
+      "startedAtUtc": "2026-10-16T05:52:33.5494843Z",
+      "finishedAtUtc": "2026-10-16T05:52:35.2223511Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-sog-export-python-01.log",
+        "bytes": 1860,
+        "sha256": "075ca429e901e6d328c6c206b3966090331aa91da1dca19c06112a993887a995"
+      },
+      "report": null,
+      "browserOutputDirectory": "",
+      "lastRun": null
+    },
+    "native": {
+      "terminal": {
+        "path": "test-results-coherent-startup-sog-export-native-01.command.json",
+        "bytes": 1272,
+        "sha256": "30ad84cd59405a0ff7df9d15b3adec02ce9707126aebc52a3334e57e692b821a"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+      "arguments": [
+        "tools/run-native-contracts.mjs",
+        "--output",
+        "docs/validation/runs/sog-export-20261016-01/native.json"
+      ],
+      "startedAtUtc": "2026-10-16T05:58:35.4899268Z",
+      "finishedAtUtc": "2026-10-16T05:58:40.7242606Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-sog-export-native-01.log",
+        "bytes": 15600,
+        "sha256": "6bd0eddeed1aec53fbf26f725f425f9b1d25cc3cf2be8990703839668b636cb9"
+      },
+      "report": {
+        "path": "docs/validation/runs/sog-export-20261016-01/native.json",
+        "bytes": 37684,
+        "sha256": "1b71b121567904b87c32015bd4437c1015aeaed3f82928c78185bd5ac1b7675c"
+      },
+      "browserOutputDirectory": "",
+      "lastRun": null
+    },
+    "build": {
+      "terminal": {
+        "path": "test-results-coherent-startup-sog-export-build-01.command.json",
+        "bytes": 1007,
+        "sha256": "d1d2820fe32bea607e804b53b36b46709ab82fdcd5b5fd6334b144735ddb3f9f"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+      "arguments": [
+        ".tools/node-v24.21.0-win-x64/node_modules/npm/bin/npm-cli.js",
+        "run",
+        "build"
+      ],
+      "startedAtUtc": "2026-10-16T05:58:10.8198385Z",
+      "finishedAtUtc": "2026-10-16T05:58:15.7679808Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-sog-export-build-01.log",
+        "bytes": 6250,
+        "sha256": "b5fc3f5e8f88c07d9afeaf87b65595e088e027476c5e0bcd6247c34e08114d39"
+      },
+      "report": null,
+      "browserOutputDirectory": "",
+      "lastRun": null
+    },
+    "unit": {
+      "terminal": {
+        "path": "test-results-coherent-startup-sog-export-unit-02.command.json",
+        "bytes": 1338,
+        "sha256": "05ccef91ae60de58f6b13a382f4fb4316e48ba33f072fbee89b3152c47d15ee5"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+      "arguments": [
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "--maxWorkers=4",
+        "--reporter=json",
+        "--outputFile=.build/sog-export-tests/unit-report-02.json"
+      ],
+      "startedAtUtc": "2026-10-16T06:04:35.0037765Z",
+      "finishedAtUtc": "2026-10-16T06:05:15.7236363Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-sog-export-unit-02.log",
+        "bytes": 9614,
+        "sha256": "58a59e9c6fd94869a9b1a1e0c99212fd71772578bc6d78450f646f93028bea80"
+      },
+      "report": {
+        "path": ".build/sog-export-tests/unit-report-02.json",
+        "bytes": 2020995,
+        "sha256": "dcc65062d390b837e15a8b5e888d086e97c147c0e7f28bf0c1231385d04c91ce"
+      },
+      "browserOutputDirectory": "",
+      "lastRun": null
+    },
+    "reporterFocus": {
+      "terminal": {
+        "path": "test-results-coherent-startup-sog-export-reporter-focus-01.command.json",
+        "bytes": 1414,
+        "sha256": "e23f31842ccb10648dfef0901006693af8e20248d908373112817e0dae9813a7"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+      "arguments": [
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "tests/release-vitest-reporter.test.ts",
+        "--maxWorkers=1",
+        "--reporter=json",
+        "--outputFile=.build/sog-export-tests/reporter-focus-01.json"
+      ],
+      "startedAtUtc": "2026-10-16T06:04:17.7900142Z",
+      "finishedAtUtc": "2026-10-16T06:04:21.6023815Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-sog-export-reporter-focus-01.log",
+        "bytes": 294,
+        "sha256": "78adf1607d9c09cc56895dd4cfdc570b50afbbdc2eea12266a4629b926f65abe"
+      },
+      "report": {
+        "path": ".build/sog-export-tests/reporter-focus-01.json",
+        "bytes": 6937,
+        "sha256": "e6325bb7478e5c7d161ab7e331a37adda1cb367d0ebb81d6575e01f2595eb55a"
+      },
+      "browserOutputDirectory": "",
+      "lastRun": null
+    },
+    "audit": {
+      "terminal": {
+        "path": "test-results-coherent-startup-sog-export-audit-01.command.json",
+        "bytes": 1146,
+        "sha256": "4384147f4a29c48371f44ed42d08cdd0e46c446bdf244543d00d17ece3f617d0"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+      "arguments": [
+        ".build/sog-export-tests/audit-01.mjs"
+      ],
+      "startedAtUtc": "2026-10-16T05:58:35.5207339Z",
+      "finishedAtUtc": "2026-10-16T05:58:35.6707137Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-sog-export-audit-01.log",
+        "bytes": 810,
+        "sha256": "a92e117053dbbdccfefb228df34dfb730419b5fc39f73048ff4c7d0e80b3791e"
+      },
+      "report": {
+        "path": ".build/sog-export-tests/build-audit-01.json",
+        "bytes": 61348,
+        "sha256": "82787f4b2cbee0a08f7288d5aa01eea0c897c32fe6add92986023d4a2fc19303"
+      },
+      "browserOutputDirectory": "",
+      "lastRun": null
+    },
+    "production": {
+      "terminal": {
+        "path": "test-results-coherent-startup-sog-export-production-01.command.json",
+        "bytes": 1771,
+        "sha256": "6ce1c0e5a4ad787aaaa620a2928bb61896a428de01bfe9baa5fc54606b45e31b"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+      "arguments": [
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "--config=.build/sog-export-tests/playwright-owned-01.config.ts",
+        "e2e/export-admitted.spec.ts",
+        "e2e/export-spz4.spec.ts",
+        "e2e/navigation-return.spec.ts",
+        "e2e/app.spec.ts"
+      ],
+      "startedAtUtc": "2026-10-16T06:04:52.5332594Z",
+      "finishedAtUtc": "2026-10-16T06:06:30.1891463Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-sog-export-production-01.log",
+        "bytes": 10974,
+        "sha256": "4ea73c6cd8bb6eda8a9b143ded92c732dc0395ec23e56c3c609935a1bfec4844"
+      },
+      "report": {
+        "path": ".build/sog-export-tests/production-report-01.json",
+        "bytes": 316572,
+        "sha256": "bbdb62ab4618687f2fd086eac54e1507aa80fc9ba0bdbd01e4648b22f474c46f"
+      },
+      "browserOutputDirectory": ".build/sog-export-tests/browser-production-01",
+      "lastRun": {
+        "path": ".build/sog-export-tests/browser-production-01/.last-run.json",
+        "bytes": 45,
+        "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+      }
+    },
+    "compatibility": {
+      "terminal": {
+        "path": "test-results-coherent-startup-sog-export-compatibility-01.command.json",
+        "bytes": 1744,
+        "sha256": "f3e0e07552c5feef2b8bed0812c38231af738b60d0a35b570f75a5b6569e4d2d"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+      "arguments": [
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "--config=.build/sog-export-tests/playwright-compat-owned-01.config.ts",
+        "tests/production/build-compat.spec.ts",
+        "--grep",
+        "real sealed core13 proves isolated"
+      ],
+      "startedAtUtc": "2026-10-16T06:06:45.5855458Z",
+      "finishedAtUtc": "2026-10-16T06:06:47.5833855Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-sog-export-compatibility-01.log",
+        "bytes": 1654,
+        "sha256": "92b4967aa0da215be9babbcaafd9ac1cffd3b4fa25e92b6e54cdd1aa207ad1c3"
+      },
+      "report": {
+        "path": ".build/sog-export-tests/compatibility-report-01.json",
+        "bytes": 11287,
+        "sha256": "93a81c47d2a658982b4900a7c62f55d8ae6a492bc53a8bc863f311c4e737e407"
+      },
+      "browserOutputDirectory": ".build/sog-export-tests/browser-compatibility-01",
+      "lastRun": {
+        "path": ".build/sog-export-tests/browser-compatibility-01/.last-run.json",
+        "bytes": 45,
+        "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+      }
+    },
+    "development": {
+      "terminal": {
+        "path": "test-results-coherent-startup-sog-export-development-01.command.json",
+        "bytes": 1817,
+        "sha256": "d65c198e716c0f31710b59aa7f77bcfc474fe2bf049a52ccb04b0728f27bd8de"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+      "arguments": [
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "--config=.build/sog-export-tests/playwright-owned-01.config.ts",
+        "e2e/native-memory.spec.ts",
+        "e2e/gpu.spec.ts",
+        "e2e/worker-history.spec.ts",
+        "e2e/alignment.spec.ts",
+        "e2e/connected.spec.ts"
+      ],
+      "startedAtUtc": "2026-10-16T06:07:29.0376886Z",
+      "finishedAtUtc": "2026-10-16T06:10:48.5424897Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-sog-export-development-01.log",
+        "bytes": 33026,
+        "sha256": "758e03f942f4fde0cbd629255044aa2c372b7afcc69d36b2aea2e2a33a31809b"
+      },
+      "report": {
+        "path": ".build/sog-export-tests/development-report-01.json",
+        "bytes": 4815235,
+        "sha256": "80afe4473d9dfb1d85468f01cd5ca2d150f9840550d37112ce0e1d4400753af3"
+      },
+      "browserOutputDirectory": ".build/sog-export-tests/browser-development-01",
+      "lastRun": {
+        "path": ".build/sog-export-tests/browser-development-01/.last-run.json",
+        "bytes": 45,
+        "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+      }
+    },
+    "cleanup": {
+      "terminal": {
+        "path": "test-results-coherent-startup-sog-export-cleanup-01.command.json",
+        "bytes": 1262,
+        "sha256": "3784897913ea7e4b86f155ad738849f50dd04bc3cdd56149aaaf168cd2d00b77"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        ".build/sog-export-tests/cleanup-01.ps1",
+        "-AuditPath",
+        ".build/sog-export-tests/build-audit-01.json"
+      ],
+      "startedAtUtc": "2026-10-16T06:11:53.4412276Z",
+      "finishedAtUtc": "2026-10-16T06:11:58.6075298Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-sog-export-cleanup-01.log",
+        "bytes": 244,
+        "sha256": "102df76dee0d8f260fe2ce1e1b9784e4abbe3acd3ac899dacb6bd08751dfeb02"
+      },
+      "report": {
+        "path": ".build/sog-export-tests/cleanup-01.json",
+        "bytes": 1565,
+        "sha256": "cedb1636a55b10485c1d4174b0923acc8c4d26a84e63cfabc3fcd7f6e81924f8"
+      },
+      "browserOutputDirectory": "",
+      "lastRun": null
+    }
+  },
+  "buildAudit": {
+    "path": ".build/sog-export-tests/build-audit-01.json",
+    "bytes": 61348,
+    "sha256": "82787f4b2cbee0a08f7288d5aa01eea0c897c32fe6add92986023d4a2fc19303"
+  },
+  "appInputId": "753995e0b5f67026004c517cb2dd67c4ebd45abd2afbbb7621d8bc13a6ab6cd2",
+  "deploymentId": "f776152d649a506bd5e947d6a6911cc572373d2a80207920c8b6a6dadce66b69",
+  "distributionFiles": 102,
+  "staleFiles": [],
+  "unit": {
+    "passed": 5211,
+    "files": 155,
+    "report": {
+      "path": ".build/sog-export-tests/unit-report-02.json",
+      "bytes": 2020995,
+      "sha256": "dcc65062d390b837e15a8b5e888d086e97c147c0e7f28bf0c1231385d04c91ce"
+    }
+  },
+  "browser": [
+    {
+      "name": "production",
+      "passed": 29,
+      "report": {
+        "path": ".build/sog-export-tests/production-report-01.json",
+        "bytes": 316572,
+        "sha256": "bbdb62ab4618687f2fd086eac54e1507aa80fc9ba0bdbd01e4648b22f474c46f"
+      },
+      "discovery": {
+        "path": ".build/sog-export-tests/production-list-01.json",
+        "bytes": 199823,
+        "sha256": "2a79639f0b6c0defe25ee4e7e7867c0cf16d76cacaeb1fe384bd3d8aa88b2cdd"
+      },
+      "identitiesMatched": true,
+      "attachments": []
+    },
+    {
+      "name": "compatibility",
+      "passed": 1,
+      "report": {
+        "path": ".build/sog-export-tests/compatibility-report-01.json",
+        "bytes": 11287,
+        "sha256": "93a81c47d2a658982b4900a7c62f55d8ae6a492bc53a8bc863f311c4e737e407"
+      },
+      "discovery": {
+        "path": ".build/sog-export-tests/compatibility-list-01.json",
+        "bytes": 4760,
+        "sha256": "359902176919de7ead5d634445861390590080a23feb139daa54d08d8f3c23f4"
+      },
+      "identitiesMatched": true,
+      "attachments": []
+    },
+    {
+      "name": "development",
+      "passed": 90,
+      "report": {
+        "path": ".build/sog-export-tests/development-report-01.json",
+        "bytes": 4815235,
+        "sha256": "80afe4473d9dfb1d85468f01cd5ca2d150f9840550d37112ce0e1d4400753af3"
+      },
+      "discovery": {
+        "path": ".build/sog-export-tests/development-list-01.json",
+        "bytes": 244095,
+        "sha256": "e12052a4b0121a27cebd16a9302d5ebd657e956a3e82e747eff1308b281a1f23"
+      },
+      "identitiesMatched": true,
+      "attachments": []
+    }
+  ],
+  "native": {
+    "linkedMains": 24,
+    "receipt": {
+      "path": "docs/validation/runs/sog-export-20261016-01/native.json",
+      "bytes": 37684,
+      "sha256": "1b71b121567904b87c32015bd4437c1015aeaed3f82928c78185bd5ac1b7675c"
+    }
+  },
+  "desktopDeltaReview": {
+    "path": ".build/spz3-export-tests/desktop-review/manifest.json",
+    "bytes": 4722,
+    "sha256": "e0d58ee8509382b4ae82e8f77f053eed11904ea9787a216ff044e01a9fb61f5c"
+  },
+  "attribution": {
+    "path": "docs/third-party/SOG_EXPORT_REFERENCES.md",
+    "bytes": 3681,
+    "sha256": "2bc533b2b8e46451831419959b21ebe985edf1e4bcbebe3a0b2e3edbb348bbab"
+  },
+  "cleanup": {
+    "kind": "lifecycle-cleanup",
+    "status": "passed",
+    "observedAtUtc": "2026-10-16T06:11:58.5681536Z",
+    "before": {
+      "path": ".build/sog-export-tests/cleanup-before-01.json",
+      "bytes": 115446,
+      "sha256": "b278f14ec97ca5112c5bd4f9beed339bbee70db0d83b4b66b11bda76bfb4c881"
+    },
+    "helper": {
+      "path": ".build/sog-export-tests/cleanup-01.ps1",
+      "bytes": 9250,
+      "sha256": "2439dc13d63e10fc05aa2bbdf3cb3b160be55bb217c3219500f30a41383acd80"
+    },
+    "shippingAudit": {
+      "path": ".build/sog-export-tests/build-audit-01.json",
+      "bytes": 61348,
+      "sha256": "82787f4b2cbee0a08f7288d5aa01eea0c897c32fe6add92986023d4a2fc19303"
+    },
+    "removedFiles": 16,
+    "removedBytes": 2810254,
+    "removedDirectories": 5,
+    "absentScopes": [
+      "node_modules/.vite",
+      "node_modules/.vite-temp"
+    ],
+    "absentSingleFiles": [],
+    "closedPorts": [
+      4173,
+      5173,
+      5273,
+      5373
+    ],
+    "remainingOwnedRunners": [],
+    "shippingAndNativeAndReferenceLibrariesUnchanged": true,
+    "preservedSourceFixturesReportsCapturesAndExecutables": true
+  },
+  "admittedFormats": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "remainingLegacyCodecFormats": [],
+  "allNineFormatsUseOwnedPipeline": true,
+  "scope": "Admitted SOG/SOGS C++ and codec payloads, policy-capped WebP workspace, retained native output and owned browser downloads; unchanged desktop complete-file byte oracles and refusal contracts.",
+  "fullReleaseAccepted": false,
+  "fullAppearanceAccepted": false,
+  "closedExportAccounting": false,
+  "performanceAccepted": false,
+  "capacityQualified": false,
+  "physicalMemoryMeasured": false,
+  "commit": false,
+  "push": false,
+  "deployment": false
+}

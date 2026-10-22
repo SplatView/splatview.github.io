@@ -1,0 +1,775 @@
+{
+  "kind": "delivery-readiness-ui-qualification",
+  "status": "passed",
+  "goalStatus": "active",
+  "observedAtUtc": "2026-10-16T09:55:43.663904+00:00",
+  "sourceSeal": {
+    "path": ".build/delivery-readiness-tests/source-final.json",
+    "bytes": 851676,
+    "sha256": "df50934e300bb959d07b249f17f3671f7832b9474487a7b081fc28db48400dc0"
+  },
+  "executionSourceSeal": {
+    "path": ".build/delivery-readiness-tests/source-checks-04.json",
+    "bytes": 851680,
+    "sha256": "1ab2e48534de2a816cca73035e1518c841f4e1d67e3c73981770835660073764"
+  },
+  "retainedExecutionSourceSeal": {
+    "path": ".build/delivery-readiness-tests/source-checks-01.json",
+    "bytes": 850871,
+    "sha256": "f15ef0cd8158a0744aaa12fcb446a656db9cd0905afa2e1b63f59c8f34bb2ef4"
+  },
+  "helper": {
+    "path": ".build/delivery-readiness-tests/evidence-01.py",
+    "bytes": 14957,
+    "sha256": "b52564e5a9ba038a2ea66c56671c1374d798083f9c591c743ddaa4505091c60f"
+  },
+  "inputs": {
+    "path": ".build/delivery-readiness-tests/inputs-01.json",
+    "bytes": 4388,
+    "sha256": "5c89691c17ff047216f852939f99f8afb60b2368e144d6504cc6d055bd4cd2f7"
+  },
+  "buildAudit": {
+    "path": ".build/delivery-readiness-tests/build-audit-01.json",
+    "bytes": 61548,
+    "sha256": "b64977484fa48525ea856008c329292c4783355ab9cb090509fd4ff9a0cffe3e"
+  },
+  "previousValidation": {
+    "path": "docs/validation/runs/compressed-ply-20261016-01/validation.json",
+    "bytes": 47677,
+    "sha256": "01fa6b297e04b4e0c182616aad3c3ad1c85b37119913cf80fe4cda73e135bbca"
+  },
+  "desktopReference": {
+    "path": ".build/delivery-readiness-tests/desktop-reference/manifest.json",
+    "bytes": 2243,
+    "sha256": "af356eb6fa3a79fce40d47c3e59822cad1d898dbfc235f1bc6378d63bc6b3720"
+  },
+  "appInputId": "b156459b7f95be99b265d7a650e3c5a7524e66d9a7be309f448961c0de9172cc",
+  "deploymentId": "d78bc190d256590cec30325a52c66c1f322c99df35f756fb2ff2b52c056d0931",
+  "nativeUnchanged": true,
+  "unit": {
+    "passed": 5469,
+    "files": 164,
+    "report": {
+      "path": ".build/delivery-readiness-tests/unit-report-01.json",
+      "bytes": 2123824,
+      "sha256": "2afe252aa9196826fba07ffe8e2d278b471cd5f9115da34da564b1ee09899dba"
+    }
+  },
+  "browser": [
+    {
+      "name": "production",
+      "passed": 29,
+      "report": {
+        "path": ".build/delivery-readiness-tests/production-report-01.json",
+        "bytes": 349935,
+        "sha256": "e73274069f2aaf21e0f08d00df31649ba304f7e8293eb73fa3459fb9c47a63c0"
+      },
+      "discovery": {
+        "path": ".build/delivery-readiness-tests/production-list-01.json",
+        "bytes": 208737,
+        "sha256": "4057be7530061d1fde500fa444cd4a7797b119113d0848d85efffdf072bac1ac"
+      },
+      "identitiesMatched": true,
+      "attachments": [],
+      "files": [
+        "e2e/app.spec.ts",
+        "e2e/current-view-only.spec.ts",
+        "e2e/export-admitted.spec.ts",
+        "e2e/navigation-return.spec.ts",
+        "e2e/desktop-section-headers.spec.ts"
+      ]
+    },
+    {
+      "name": "development",
+      "passed": 119,
+      "report": {
+        "path": ".build/delivery-readiness-tests/development-report-03.json",
+        "bytes": 6169367,
+        "sha256": "286ff9365256c090afcb7730287673adf1a9932e7550e5e83e9e968d7eda6d81"
+      },
+      "discovery": {
+        "path": ".build/delivery-readiness-tests/development-list-03.json",
+        "bytes": 273023,
+        "sha256": "c54d4f168f8dade23c43dd7643a9cbf6f67ef8b0c367fadb354feb864e654692"
+      },
+      "identitiesMatched": true,
+      "attachments": [],
+      "files": [
+        "e2e/toolbar-feedback.spec.ts",
+        "e2e/alignment-menu.spec.ts",
+        "e2e/manual-feedback.spec.ts",
+        "e2e/input-scope.spec.ts",
+        "e2e/scene-accessibility.spec.ts",
+        "e2e/image-capture.spec.ts",
+        "e2e/alignment.spec.ts",
+        "e2e/alignment-scale.spec.ts",
+        "e2e/alignment-plane.spec.ts",
+        "e2e/thumbnail-shortcut.spec.ts",
+        "e2e/menu-press.spec.ts",
+        "e2e/settings-panel.spec.ts"
+      ]
+    }
+  ],
+  "gates": {
+    "typecheck": {
+      "terminal": {
+        "path": "test-results-coherent-startup-delivery-readiness-typecheck-03.command.json",
+        "bytes": 728,
+        "sha256": "cc284d07e6dcb0e10851ca1de4f3229fb25a5c5d73bfa9c279a6b35d29f7dc2e"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+      "arguments": [
+        "node_modules/typescript/bin/tsc",
+        "--noEmit"
+      ],
+      "startedAtUtc": "2026-10-16T09:49:44.1534736Z",
+      "finishedAtUtc": "2026-10-16T09:49:45.4691028Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": null,
+      "report": null,
+      "browserOutputDirectory": "",
+      "lastRun": null
+    },
+    "benchTypecheck": {
+      "terminal": {
+        "path": "test-results-coherent-startup-delivery-readiness-bench-typecheck-01.command.json",
+        "bytes": 816,
+        "sha256": "53de3473a20ac83d2d0010fdd7295a6aac72a228f612183d78de56dc9f51a99b"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+      "arguments": [
+        "node_modules/typescript/bin/tsc",
+        "--project",
+        "tools/bench/tsconfig.json",
+        "--noEmit"
+      ],
+      "startedAtUtc": "2026-10-16T09:39:05.7490313Z",
+      "finishedAtUtc": "2026-10-16T09:39:06.0053718Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": null,
+      "report": null,
+      "browserOutputDirectory": "",
+      "lastRun": null
+    },
+    "unit": {
+      "terminal": {
+        "path": "test-results-coherent-startup-delivery-readiness-unit-01.command.json",
+        "bytes": 1363,
+        "sha256": "e94e75a6a607e39bc4d85742e0beaa6befb990d92ab1065b6ad913b7cf7cee5d"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+      "arguments": [
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "--maxWorkers=4",
+        "--reporter=json",
+        "--outputFile=.build/delivery-readiness-tests/unit-report-01.json"
+      ],
+      "startedAtUtc": "2026-10-16T09:40:37.2516061Z",
+      "finishedAtUtc": "2026-10-16T09:41:18.7895089Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-delivery-readiness-unit-01.log",
+        "bytes": 13696,
+        "sha256": "a23ab189b37dff5a9c0284e1090cb4502b59c822a3b5379afb2a9613fe4d64b2"
+      },
+      "report": {
+        "path": ".build/delivery-readiness-tests/unit-report-01.json",
+        "bytes": 2123824,
+        "sha256": "2afe252aa9196826fba07ffe8e2d278b471cd5f9115da34da564b1ee09899dba"
+      },
+      "browserOutputDirectory": "",
+      "lastRun": null
+    },
+    "build": {
+      "terminal": {
+        "path": "test-results-coherent-startup-delivery-readiness-build-01.command.json",
+        "bytes": 1015,
+        "sha256": "c438d6705b9679f377de6193b58c62a2f0db8edaa6732170988ff7c4c094a6d9"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+      "arguments": [
+        ".tools/node-v24.21.0-win-x64/node_modules/npm/bin/npm-cli.js",
+        "run",
+        "build"
+      ],
+      "startedAtUtc": "2026-10-16T09:40:06.1203932Z",
+      "finishedAtUtc": "2026-10-16T09:40:11.5616290Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-delivery-readiness-build-01.log",
+        "bytes": 6250,
+        "sha256": "7af040c4a7c712b545fa7641cf720cdb44c99bc5d5b4eea12880d60ad0ad053d"
+      },
+      "report": null,
+      "browserOutputDirectory": "",
+      "lastRun": null
+    },
+    "audit": {
+      "terminal": {
+        "path": "test-results-coherent-startup-delivery-readiness-audit-01.command.json",
+        "bytes": 1170,
+        "sha256": "2d2f743a8e62eb8a24f9c8110bc674de380adb8f6fc4d0e14156627a421cdde5"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+      "arguments": [
+        ".build/delivery-readiness-tests/audit-01.mjs"
+      ],
+      "startedAtUtc": "2026-10-16T09:40:25.6010556Z",
+      "finishedAtUtc": "2026-10-16T09:40:25.7436574Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-delivery-readiness-audit-01.log",
+        "bytes": 514,
+        "sha256": "15ed0ad34dc03ce16180b5c7b656b3315d616cd8e78242932f6ab4981ad5b00b"
+      },
+      "report": {
+        "path": ".build/delivery-readiness-tests/build-audit-01.json",
+        "bytes": 61548,
+        "sha256": "b64977484fa48525ea856008c329292c4783355ab9cb090509fd4ff9a0cffe3e"
+      },
+      "browserOutputDirectory": "",
+      "lastRun": null
+    },
+    "cleanup": {
+      "terminal": {
+        "path": "test-results-coherent-startup-delivery-readiness-cleanup-01.command.json",
+        "bytes": 1255,
+        "sha256": "55e37708042e6b9ffeabbaece0493eb52edf803faeca6081e5464f83c600a1d0"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "arguments": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        ".build/delivery-readiness-tests/cleanup-01.ps1"
+      ],
+      "startedAtUtc": "2026-10-16T09:54:58.6144977Z",
+      "finishedAtUtc": "2026-10-16T09:55:02.0175122Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-delivery-readiness-cleanup-01.log",
+        "bytes": 244,
+        "sha256": "387247d3b00eba37a5ff1f94e7a11762304f7f18065e12c8f621283a0667df3e"
+      },
+      "report": {
+        "path": ".build/delivery-readiness-tests/cleanup-01.json",
+        "bytes": 1589,
+        "sha256": "922ac5f5b772f6c08bf87db68e6f996da5e71a5a6b886e58eeacc08cd30029de"
+      },
+      "browserOutputDirectory": "",
+      "lastRun": null
+    },
+    "production": {
+      "terminal": {
+        "path": "test-results-coherent-startup-delivery-readiness-production-01.command.json",
+        "bytes": 1879,
+        "sha256": "551a1d2a42d016539d4976204f81cd77184ae0ca172df1096eac1e535cedba4a"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+      "arguments": [
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "--config=.build/delivery-readiness-tests/playwright-owned-01.config.ts",
+        "e2e/app.spec.ts",
+        "e2e/current-view-only.spec.ts",
+        "e2e/export-admitted.spec.ts",
+        "e2e/navigation-return.spec.ts",
+        "e2e/desktop-section-headers.spec.ts"
+      ],
+      "startedAtUtc": "2026-10-16T09:41:42.5949086Z",
+      "finishedAtUtc": "2026-10-16T09:43:31.3334154Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-delivery-readiness-production-01.log",
+        "bytes": 12276,
+        "sha256": "497b360feaf422f368321dc91f2553c01ad2887d8a0d1eac4a57619a897e6e0f"
+      },
+      "report": {
+        "path": ".build/delivery-readiness-tests/production-report-01.json",
+        "bytes": 349935,
+        "sha256": "e73274069f2aaf21e0f08d00df31649ba304f7e8293eb73fa3459fb9c47a63c0"
+      },
+      "browserOutputDirectory": ".build/delivery-readiness-tests/browser-production-01",
+      "lastRun": {
+        "path": ".build/delivery-readiness-tests/browser-production-01/.last-run.json",
+        "bytes": 45,
+        "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+      }
+    },
+    "development": {
+      "terminal": {
+        "path": "test-results-coherent-startup-delivery-readiness-development-03.command.json",
+        "bytes": 2251,
+        "sha256": "29b645ca52d5f8402e99d1ba6981e8ea24c88ef430153654a4213047343d0be3"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+      "arguments": [
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "--config=.build/delivery-readiness-tests/playwright-owned-01.config.ts",
+        "e2e/toolbar-feedback.spec.ts",
+        "e2e/alignment-menu.spec.ts",
+        "e2e/manual-feedback.spec.ts",
+        "e2e/input-scope.spec.ts",
+        "e2e/scene-accessibility.spec.ts",
+        "e2e/image-capture.spec.ts",
+        "e2e/alignment.spec.ts",
+        "e2e/alignment-scale.spec.ts",
+        "e2e/alignment-plane.spec.ts",
+        "e2e/thumbnail-shortcut.spec.ts",
+        "e2e/menu-press.spec.ts",
+        "e2e/settings-panel.spec.ts"
+      ],
+      "startedAtUtc": "2026-10-16T09:50:16.6355863Z",
+      "finishedAtUtc": "2026-10-16T09:54:47.2755809Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-delivery-readiness-development-03.log",
+        "bytes": 48094,
+        "sha256": "418d7a6fe3f361d8909d127a64a4a39c8469a2ba3e9a1c1031e78de4e34c9c93"
+      },
+      "report": {
+        "path": ".build/delivery-readiness-tests/development-report-03.json",
+        "bytes": 6169367,
+        "sha256": "286ff9365256c090afcb7730287673adf1a9932e7550e5e83e9e968d7eda6d81"
+      },
+      "browserOutputDirectory": ".build/delivery-readiness-tests/browser-development-03",
+      "lastRun": {
+        "path": ".build/delivery-readiness-tests/browser-development-03/.last-run.json",
+        "bytes": 45,
+        "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+      }
+    },
+    "productionReady": {
+      "terminal": {
+        "path": "test-results-coherent-startup-delivery-readiness-production-ready-01.command.json",
+        "bytes": 1116,
+        "sha256": "5302997cc74f68048c17b49256f30cd2bf11dcab5a0622fbc1be220d0a6e2883"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "arguments": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        ".build/delivery-readiness-tests/ready-01.ps1",
+        "-Origin",
+        "http://127.0.0.1:4173/"
+      ],
+      "startedAtUtc": "2026-10-16T09:41:36.8609558Z",
+      "finishedAtUtc": "2026-10-16T09:41:37.1498044Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-delivery-readiness-production-ready-01.log",
+        "bytes": 198,
+        "sha256": "3a2c97c446b8d704b5bae93c1a839f35926b7faf4b2182ef2bd668131c39f64a"
+      },
+      "report": null,
+      "browserOutputDirectory": "",
+      "lastRun": null
+    },
+    "developmentReady": {
+      "terminal": {
+        "path": "test-results-coherent-startup-delivery-readiness-development-ready-03.command.json",
+        "bytes": 1117,
+        "sha256": "25873c14d2f8e4684fda7942aa61e4e14a91e705f46aef3eb22a91d0f436b489"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "arguments": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        ".build/delivery-readiness-tests/ready-01.ps1",
+        "-Origin",
+        "http://127.0.0.1:5173/"
+      ],
+      "startedAtUtc": "2026-10-16T09:50:06.4558864Z",
+      "finishedAtUtc": "2026-10-16T09:50:23.1686842Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-delivery-readiness-development-ready-03.log",
+        "bytes": 204,
+        "sha256": "2f9e118bd6c294f364e63f3bb89d92b59074baf62a2d93de6c7d482c3f72f9e4"
+      },
+      "report": null,
+      "browserOutputDirectory": "",
+      "lastRun": null
+    },
+    "productionDiscovery": {
+      "terminal": {
+        "path": "test-results-coherent-startup-delivery-readiness-production-list-01.command.json",
+        "bytes": 1609,
+        "sha256": "dabadfcc526ee2bd84816d53084e04b4c37f8dcafddd21a4496dfd37e6223258"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+      "arguments": [
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "--config=.build/delivery-readiness-tests/playwright-owned-01.config.ts",
+        "e2e/app.spec.ts",
+        "e2e/current-view-only.spec.ts",
+        "e2e/export-admitted.spec.ts",
+        "e2e/navigation-return.spec.ts",
+        "e2e/desktop-section-headers.spec.ts",
+        "--list"
+      ],
+      "startedAtUtc": "2026-10-16T09:39:05.7598756Z",
+      "finishedAtUtc": "2026-10-16T09:39:06.3602484Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-delivery-readiness-production-list-01.log",
+        "bytes": 9134,
+        "sha256": "fa0c8d21b94d91b6dcb87f5d3ab62d02ccd447df0b9e6881bb0c21cdda785bd5"
+      },
+      "report": {
+        "path": ".build/delivery-readiness-tests/production-list-01.json",
+        "bytes": 208737,
+        "sha256": "4057be7530061d1fde500fa444cd4a7797b119113d0848d85efffdf072bac1ac"
+      },
+      "browserOutputDirectory": "",
+      "lastRun": null
+    },
+    "developmentDiscovery": {
+      "terminal": {
+        "path": "test-results-coherent-startup-delivery-readiness-development-list-03.command.json",
+        "bytes": 1979,
+        "sha256": "9f273eb95f8aedb6ab6f697223d60d69e3a78fb0fd1f2abfc175aecf8e3e47da"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+      "arguments": [
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "--config=.build/delivery-readiness-tests/playwright-owned-01.config.ts",
+        "e2e/toolbar-feedback.spec.ts",
+        "e2e/alignment-menu.spec.ts",
+        "e2e/manual-feedback.spec.ts",
+        "e2e/input-scope.spec.ts",
+        "e2e/scene-accessibility.spec.ts",
+        "e2e/image-capture.spec.ts",
+        "e2e/alignment.spec.ts",
+        "e2e/alignment-scale.spec.ts",
+        "e2e/alignment-plane.spec.ts",
+        "e2e/thumbnail-shortcut.spec.ts",
+        "e2e/menu-press.spec.ts",
+        "e2e/settings-panel.spec.ts",
+        "--list"
+      ],
+      "startedAtUtc": "2026-10-16T09:49:44.1575666Z",
+      "finishedAtUtc": "2026-10-16T09:49:44.8981799Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-delivery-readiness-development-list-03.log",
+        "bytes": 40496,
+        "sha256": "f8af602c209af6d168bf1d352381818b40d9ea402f39508205ad7e76f5298b63"
+      },
+      "report": {
+        "path": ".build/delivery-readiness-tests/development-list-03.json",
+        "bytes": 273023,
+        "sha256": "c54d4f168f8dade23c43dd7643a9cbf6f67ef8b0c367fadb354feb864e654692"
+      },
+      "browserOutputDirectory": "",
+      "lastRun": null
+    }
+  },
+  "cleanup": {
+    "kind": "lifecycle-cleanup",
+    "status": "passed",
+    "observedAtUtc": "2026-10-16T09:55:01.9842171Z",
+    "before": {
+      "path": ".build/delivery-readiness-tests/cleanup-before-01.json",
+      "bytes": 115756,
+      "sha256": "0acb3c1e589b8b8fc2a93778fac74f94640c25c0515ec2ca0a40e05200c7401a"
+    },
+    "helper": {
+      "path": ".build/delivery-readiness-tests/cleanup-01.ps1",
+      "bytes": 9189,
+      "sha256": "577decc6e2abece47f3083266e2fcc50f041b9702a4104cec7f468b33b0a3082"
+    },
+    "shippingAudit": {
+      "path": ".build/delivery-readiness-tests/build-audit-01.json",
+      "bytes": 61548,
+      "sha256": "b64977484fa48525ea856008c329292c4783355ab9cb090509fd4ff9a0cffe3e"
+    },
+    "removedFiles": 16,
+    "removedBytes": 2811041,
+    "removedDirectories": 5,
+    "absentScopes": [
+      "node_modules/.vite",
+      "node_modules/.vite-temp"
+    ],
+    "absentSingleFiles": [],
+    "closedPorts": [
+      4173,
+      5173,
+      5273,
+      5373
+    ],
+    "remainingOwnedRunners": [],
+    "shippingAndNativeAndReferenceLibrariesUnchanged": true,
+    "preservedSourceFixturesReportsCapturesAndExecutables": true
+  },
+  "diagnostics": [
+    {
+      "outcome": {
+        "terminal": {
+          "path": "test-results-coherent-startup-delivery-readiness-typecheck-01.command.json",
+          "bytes": 963,
+          "sha256": "907cea991926f8a02a95211a6bf8d6475cb61d32c559600d1c31ae3e8e07e8f5"
+        },
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+        "arguments": [
+          "node_modules/typescript/bin/tsc",
+          "--noEmit"
+        ],
+        "startedAtUtc": "2026-10-16T09:39:05.7244184Z",
+        "finishedAtUtc": "2026-10-16T09:39:06.9646797Z",
+        "exitCode": 1,
+        "exception": null,
+        "log": {
+          "path": "test-results-coherent-startup-delivery-readiness-typecheck-01.log",
+          "bytes": 2226,
+          "sha256": "5db4b9123d69c415f5f69c6e1bc696702bdfbc7ce75a166be4c82a95386e8723"
+        },
+        "report": null,
+        "browserOutputDirectory": "",
+        "lastRun": null
+      },
+      "acceptedCases": 0
+    },
+    {
+      "outcome": {
+        "terminal": {
+          "path": "test-results-coherent-startup-delivery-readiness-development-01.command.json",
+          "bytes": 2251,
+          "sha256": "9014d2d2cafaf473fbe9b39a7702f3a313b334a4a21f5b64780f7d9825fd9037"
+        },
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+        "arguments": [
+          "node_modules/@playwright/test/cli.js",
+          "test",
+          "--config=.build/delivery-readiness-tests/playwright-owned-01.config.ts",
+          "e2e/toolbar-feedback.spec.ts",
+          "e2e/alignment-menu.spec.ts",
+          "e2e/manual-feedback.spec.ts",
+          "e2e/input-scope.spec.ts",
+          "e2e/scene-accessibility.spec.ts",
+          "e2e/image-capture.spec.ts",
+          "e2e/alignment.spec.ts",
+          "e2e/alignment-scale.spec.ts",
+          "e2e/alignment-plane.spec.ts",
+          "e2e/thumbnail-shortcut.spec.ts",
+          "e2e/menu-press.spec.ts",
+          "e2e/settings-panel.spec.ts"
+        ],
+        "startedAtUtc": "2026-10-16T09:43:56.3959607Z",
+        "finishedAtUtc": "2026-10-16T09:44:57.9437308Z",
+        "exitCode": 1,
+        "exception": null,
+        "log": {
+          "path": "test-results-coherent-startup-delivery-readiness-development-01.log",
+          "bytes": 6164,
+          "sha256": "2754748e7e3db32f6e347f646107bd5628c2336d6226a40808a263ba4edba92f"
+        },
+        "report": {
+          "path": ".build/delivery-readiness-tests/development-report-01.json",
+          "bytes": 281570,
+          "sha256": "34f3299b669233156e323f9b229f5d2dc856e9974b0802f7e64375086ea5c694"
+        },
+        "browserOutputDirectory": ".build/delivery-readiness-tests/browser-development-01",
+        "lastRun": {
+          "path": ".build/delivery-readiness-tests/browser-development-01/.last-run.json",
+          "bytes": 5878,
+          "sha256": "04e164149ee34e43d45d0963b9feeeeb69d82f5986d9d124744ae1b09cfac352"
+        }
+      },
+      "acceptedCases": 0
+    },
+    {
+      "outcome": {
+        "terminal": {
+          "path": "test-results-coherent-startup-delivery-readiness-development-02.command.json",
+          "bytes": 2251,
+          "sha256": "55d12920b8dc638141ea0b8e50401837e54c881385b414784091d5c5edc5b8e1"
+        },
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+        "arguments": [
+          "node_modules/@playwright/test/cli.js",
+          "test",
+          "--config=.build/delivery-readiness-tests/playwright-owned-01.config.ts",
+          "e2e/toolbar-feedback.spec.ts",
+          "e2e/alignment-menu.spec.ts",
+          "e2e/manual-feedback.spec.ts",
+          "e2e/input-scope.spec.ts",
+          "e2e/scene-accessibility.spec.ts",
+          "e2e/image-capture.spec.ts",
+          "e2e/alignment.spec.ts",
+          "e2e/alignment-scale.spec.ts",
+          "e2e/alignment-plane.spec.ts",
+          "e2e/thumbnail-shortcut.spec.ts",
+          "e2e/menu-press.spec.ts",
+          "e2e/settings-panel.spec.ts"
+        ],
+        "startedAtUtc": "2026-10-16T09:47:08.6892143Z",
+        "finishedAtUtc": "2026-10-16T09:48:17.6840379Z",
+        "exitCode": 1,
+        "exception": null,
+        "log": {
+          "path": "test-results-coherent-startup-delivery-readiness-development-02.log",
+          "bytes": 6630,
+          "sha256": "b39362fa229bbe7ec9d3f70ce792737ea8d431ffa5a4a426bd3ae6372ab5b43a"
+        },
+        "report": {
+          "path": ".build/delivery-readiness-tests/development-report-02.json",
+          "bytes": 379888,
+          "sha256": "5348e4f24a9edcae2788e80166103d636eb91e0ae64c2436dabbfd3699cf234f"
+        },
+        "browserOutputDirectory": ".build/delivery-readiness-tests/browser-development-02",
+        "lastRun": {
+          "path": ".build/delivery-readiness-tests/browser-development-02/.last-run.json",
+          "bytes": 5829,
+          "sha256": "96bafda6e7ad8076aca5f3e5266bda45f8a9759ac9dc8cd8714f1415869213f1"
+        }
+      },
+      "acceptedCases": 0
+    }
+  ],
+  "diagnosticArtifacts": [
+    {
+      "path": ".build/delivery-readiness-tests/browser-development-01/alignment-menu-Alignment-h-70242-U-bytes-and-executable-Redo-spec-alignment-menu-spec-ts/error-context.md",
+      "bytes": 29424,
+      "sha256": "e9eee110ab6f2a8b9e8f2ae96e95a479562a07106985e884922e4cd2646d5188"
+    },
+    {
+      "path": ".build/delivery-readiness-tests/browser-development-01/alignment-menu-Alignment-h-70242-U-bytes-and-executable-Redo-spec-alignment-menu-spec-ts/trace.zip",
+      "bytes": 1392975,
+      "sha256": "922f77c0e5bd8ab437d40f8fffbfa1b6a1411e3c036b7cbb8ba42d1b34f15ea4"
+    },
+    {
+      "path": ".build/delivery-readiness-tests/browser-development-02/alignment-menu-Alignment-o-1f87f-s-can-confirm-a-real-Center-spec-alignment-menu-spec-ts/error-context.md",
+      "bytes": 26436,
+      "sha256": "65c90002973ec87b6d01b45e45849080bf2a3babea9fc0d9dff2de7fa5b2133c"
+    },
+    {
+      "path": ".build/delivery-readiness-tests/browser-development-02/alignment-menu-Alignment-o-1f87f-s-can-confirm-a-real-Center-spec-alignment-menu-spec-ts/trace.zip",
+      "bytes": 1346215,
+      "sha256": "5f82139cf540ce47c95b41efefb8e7e61c80d29565333462d9bdb00d74949545"
+    }
+  ],
+  "repairSourceSeals": [
+    {
+      "path": ".build/delivery-readiness-tests/source-pre-repair-01.json",
+      "bytes": 849398,
+      "sha256": "6c24afe3d5869b2eba36a83037289def25b5eeb6b9f26582cf6638cb8c223b9f"
+    },
+    {
+      "path": ".build/delivery-readiness-tests/source-pre-repair-02.json",
+      "bytes": 849395,
+      "sha256": "9f6f544c3f7a89c432585bc7d086718f39311bf161bcb6ebf740596f9b1c76ca"
+    },
+    {
+      "path": ".build/delivery-readiness-tests/source-pre-repair-03.json",
+      "bytes": 849726,
+      "sha256": "5857f35f49fee597f8345825db606dec2d9ddad88fa4ea59490285d1140f3d72"
+    },
+    {
+      "path": ".build/delivery-readiness-tests/source-pre-repair-04.json",
+      "bytes": 851026,
+      "sha256": "e3eb6c695ba140ad57baa1a99a3ca131b5ba1441b1c641cbed94346135ef5128"
+    }
+  ],
+  "joinedServices": [
+    {
+      "path": ".build/delivery-readiness-tests/preview-joined-01.json",
+      "bytes": 369,
+      "sha256": "5a500b4749d301f2a89dfda3ae862d919f32b62cf9223181f9ccf6fe87919bcc"
+    },
+    {
+      "path": ".build/delivery-readiness-tests/development-joined-01.json",
+      "bytes": 373,
+      "sha256": "166435a7e64ff7bc4474287ee03f3bd5ac4913b631b3fd598cf233f95593b262"
+    },
+    {
+      "path": ".build/delivery-readiness-tests/development-joined-02.json",
+      "bytes": 373,
+      "sha256": "805d13723749dc978cca20c1fa34158c3dffcd171a152f37c4de898aa7c15cbd"
+    },
+    {
+      "path": ".build/delivery-readiness-tests/development-joined-03.json",
+      "bytes": 373,
+      "sha256": "c85d7aa3c7f0f509104bc06ff6d138bad83af98f2d549a671c947d2f659685a7"
+    },
+    {
+      "path": ".build/delivery-readiness-tests/development-joined-04.json",
+      "bytes": 373,
+      "sha256": "4677b715b38022c117ebaada38930c88066757b99a1548e702dced73e51f99a5"
+    }
+  ],
+  "fullReleaseAccepted": false,
+  "performanceAccepted": false,
+  "capacityQualified": false,
+  "macRequired": false,
+  "scope": "Current-document toolbar feedback, UI Escape ownership, Alignment popup ownership/hover, and affected actual-App regressions. Native runtime remains the previously qualified ABI23 build.",
+  "commit": false,
+  "push": false,
+  "deployment": false
+}

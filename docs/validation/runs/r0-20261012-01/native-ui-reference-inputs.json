@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "startedUtc": "2026-10-12T15:26:16.932627+00:00",
+  "outputDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.build\\native-ui-reference\\r0-20261012-01",
+  "runner": {
+    "path": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\docs\\validation\\runs\\r0-20261012-01\\native-ui-reference-capture.py",
+    "bytes": 10815,
+    "sha256": "d88d4d9c32e70d101862aa28c3ff5b05a4cf47a8e48c51794843c0f7ef2ec3ab"
+  },
+  "environment": {
+    "platform": "Windows-10-10.0.26100-SP0",
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "note": "DPI values describe this observer process; child test DPI is not measured.",
+    "observerGetDpiForSystem": 96,
+    "observerVirtualScreen": {
+      "76": 0,
+      "77": 0,
+      "78": 1920,
+      "79": 1080
+    }
+  },
+  "sourceCapture": {
+    "path": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\reference\\targets\\windows-r0-20261012-02",
+    "manifest": {
+      "path": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\reference\\targets\\windows-r0-20261012-02\\CAPTURE_MANIFEST.json",
+      "bytes": 149390,
+      "sha256": "0156c58d345ecf633d57a0ff339c8c07a270efb0575e6158e49d7d0840678fe4"
+    },
+    "status": {
+      "path": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\reference\\targets\\windows-r0-20261012-02\\CAPTURE_STATUS.json",
+      "bytes": 375,
+      "sha256": "9ad2412c57653baa2567c4f1a84aeb83199016903e377ee42bbfeb77c28a0a74"
+    },
+    "captureId": "cc71f0df-8f38-4900-8aff-5c9ee0d6814c",
+    "product": {
+      "name": "SplatView",
+      "version": "0.12.116",
+      "versionSource": "CMakeLists.txt"
+    },
+    "treeSha256": "162c4bb2b129dc49169b3678e21b1b607a13bfd249f75cb1a2b3a5b7e8e9a2f4",
+    "fileCount": 720
+  },
+  "inspectedSourceFiles": [
+    {
+      "path": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\reference\\targets\\windows-r0-20261012-02\\source\\tests\\tools_mode_contracts.cpp",
+      "bytes": 63910,
+      "sha256": "2b13d11378083b86e209e43129c0f6fb5b3bd3d18f483c40a2b3cf6538a4cbdd",
+      "captureRelativePath": "tests/tools_mode_contracts.cpp"
+    },
+    {
+      "path": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\reference\\targets\\windows-r0-20261012-02\\source\\tests\\processing_ui_contracts.cpp",
+      "bytes": 143967,
+      "sha256": "209855b0d650fa4e143f63cfcf7049b1a7f5c8759a4a8f31a871f2e3a2c2753f",
+      "captureRelativePath": "tests/processing_ui_contracts.cpp"
+    },
+    {
+      "path": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\reference\\targets\\windows-r0-20261012-02\\source\\tests\\tools_workflow_contracts.cpp",
+      "bytes": 53407,
+      "sha256": "fa83a55b652967c1a903a78d747285621d31bcd262510738851978adc51836f1",
+      "captureRelativePath": "tests/tools_workflow_contracts.cpp"
+    },
+    {
+      "path": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\reference\\targets\\windows-r0-20261012-02\\source\\tests\\tools_settings_contracts.cpp",
+      "bytes": 84799,
+      "sha256": "4e8d344b636975e2aad21a605a8e0751a02ca7b8aef3a70efdcdd8d53348f007",
+      "captureRelativePath": "tests/tools_settings_contracts.cpp"
+    },
+    {
+      "path": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\reference\\targets\\windows-r0-20261012-02\\source\\tests\\tools_onboarding_contracts.cpp",
+      "bytes": 20150,
+      "sha256": "ac86279b7aa4d1f28709c0dc612cca981f3527a6c813f46b61c4812435cd41c7",
+      "captureRelativePath": "tests/tools_onboarding_contracts.cpp"
+    },
+    {
+      "path": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\reference\\targets\\windows-r0-20261012-02\\source\\tests\\tools_ui_support.cpp",
+      "bytes": 48917,
+      "sha256": "30c32632f6054715e8923af94535ea8669b9aa082037a8248bcc1ce9197c4612",
+      "captureRelativePath": "tests/tools_ui_support.cpp"
+    },
+    {
+      "path": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\reference\\targets\\windows-r0-20261012-02\\source\\tests\\shared_fixtures.cpp",
+      "bytes": 21863,
+      "sha256": "3c49d3bec6aecb6bcf898f20c00b310584cf4bcdeb352a7fb18d96b12c8e26ac",
+      "captureRelativePath": "tests/shared_fixtures.cpp"
+    },
+    {
+      "path": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\reference\\targets\\windows-r0-20261012-02\\source\\tests\\fixture_generator.cpp",
+      "bytes": 761,
+      "sha256": "58484b90ef438cda306258eff3a35a92e9ca5594b5b248483844efeb806a3ebb",
+      "captureRelativePath": "tests/fixture_generator.cpp"
+    },
+    {
+      "path": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\reference\\targets\\windows-r0-20261012-02\\source\\src\\main.cpp",
+      "bytes": 50059,
+      "sha256": "c102d043566a2865fd482e326a2169eaba001ac60268e5ef2d9396efa7a9f40c",
+      "captureRelativePath": "src/main.cpp"
+    }
+  ],
+  "binariesBefore": {
+    "SplatViewFixtureGenerator.exe": {
+      "path": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.build\\r0-native-02\\attempt05\\Release\\SplatViewFixtureGenerator.exe",
+      "bytes": 2181120,
+      "sha256": "9c32c42839b0735104007c00b50b3453402af4239197eae8e038a24bde52426e"
+    },
+    "SplatViewModeTests.exe": {
+      "path": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.build\\r0-native-02\\attempt05\\Release\\SplatViewModeTests.exe",
+      "bytes": 4212736,
+      "sha256": "1cc6747a818987d4ef730a1dfb4a8bffb0b37820a7cf603c814bddb2bb87eeea"
+    },
+    "SplatViewToolsTests.exe": {
+      "path": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.build\\r0-native-02\\attempt05\\Release\\SplatViewToolsTests.exe",
+      "bytes": 4654080,
+      "sha256": "1234b08d00a497dc439d547b99900d4a6788a66c2eb840df7335573a283a2523"
+    }
+  },
+  "scope": "Native test-generated offscreen AppUi draw-list renders; no desktop/window screenshot or browser pairing.",
+  "buildProvenanceBoundary": "Parent native build receipt binds binaries to source; this runner observes their identities.",
+  "limitations": [
+    "Existing commands have hardcoded render cases; no arbitrary logical viewport, DPR, UI font preset, or camera CLI.",
+    "PNG dimensions are render pixels. Test ui.scale_ injection is distinct from observed Windows window DPI.",
+    "Default Store/workflow UI scale is not explicitly forced by these routes; do not infer DPR=1 from PNG size.",
+    "Font presets/language are test state, and this runner does not measure actual glyph/font metrics.",
+    "Camera values are not exported by these routes; Store case uses the scene-load default camera.",
+    "Draw-list helper clears a private texture and renders ImGui; scene framebuffer composition is not independently established here.",
+    "No clean empty Basic/Pro pair is produced. Settings cases follow an intentional failed scene load and use test reporting callbacks.",
+    "Workflow points/mesh captures follow scripted navigation, guide cycling, and gray-background selection.",
+    "No native/browser visual acceptance or production desktop host behavior is asserted."
+  ]
+}

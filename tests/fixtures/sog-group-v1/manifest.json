@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 1,
+  "packet": "sog-group-v1",
+  "scope": "One three-source default-v1 SH0 unpacked group; construction/key vectors only, no native/App/group ABI/SOG parity qualification",
+  "provenance": "Original analytic project pixels and metadata; no decoder/export-generated expected records",
+  "encoder": {
+    "library": "libwebp",
+    "version": "1.6.0",
+    "toolchain": "Emscripten6.0.12",
+    "config": {
+      "lossless": 1,
+      "quality": 100,
+      "method": 6,
+      "exact": 1,
+      "near_lossless": 100,
+      "thread_level": 0
+    },
+    "source": "tests/fixtures/sog-group-v1/generator.cpp",
+    "sourceSha256": "44f4ca54940d48a40cbe3f72144b99fac4ce1e09552ce8b8fc020931a941f85a"
+  },
+  "oracle": "tools/generate-sog-fixtures.py: Python hashlib/struct binary framing and Decimal80 literal-pixel math; no application imports",
+  "constructionSourceSha256": "509aa259e99541cf8ed054c555fc2e8de25bae48a1dc3183556cb20e6ced249c",
+  "nativeReferences": [
+    {
+      "path": "native/upstream/splatview/src/core/model.cpp",
+      "sha256": "ddfe812e09467afc3113b32fff7c777aa6421413d76686c2676643878b26e523"
+    },
+    {
+      "path": "native/upstream/splatview/src/core/format_utils.hpp",
+      "sha256": "8f73a8514b3120ed7e6fe01d548dc9b20904ccfc9c39863a04be075c04a276ef"
+    },
+    {
+      "path": "native/upstream/splatview/src/core/scene_math.cpp",
+      "sha256": "0ddeb96721e8b3be50e22755f97660c256ab31a0cd55399003ccfc5d20baea31"
+    },
+    {
+      "path": "reference/windows/tests/shared_fixtures.cpp",
+      "sha256": "3c49d3bec6aecb6bcf898f20c00b310584cf4bcdeb352a7fb18d96b12c8e26ac"
+    }
+  ],
+  "frozenPackageTreeSha256": "f0b272ebe75f0c8380610e4c242faab76e3922f7494cf675d679c9d8dad37e61",
+  "windowsReferenceTreeSha256": "f57d33182ace6183bad32ddee673b08182f7f8fe42fc95967afcaecbfa7f23e0",
+  "sourceCount": 3,
+  "shDegree": 0,
+  "defaultVersion": 1,
+  "kind": "group",
+  "format": "SOG v1",
+  "uniqueResourceCountIncludingMetadata": 6,
+  "declaredReferenceCount": 6,
+  "decodedTextureCalls": 5,
+  "uniqueDecodedTextures": 4,
+  "rgbaBytesPerDecode": 16,
+  "decodedRgbaBytesAcrossCalls": 80,
+  "declaredExtraCount": 1,
+  "repeatedAliasCount": 1,
+  "unrelatedNeighborCount": 1,
+  "completeAssetDigest": "126dfdd28649b4c968ad8d1755042aa3616113315ee080664fad89f2e8bfec22",
+  "bundle": {
+    "file": "bundled-v1-sh0.sog",
+    "bytes": 1365,
+    "sha256": "e243b5f55754a627d37d7465e4105fa6e300055d72c968d9185e3e9aa6e2ce28",
+    "singleFileAssetDigest": "919b0ab29b0dea5c12192dbc075c8ac7f6cf1df3dec758fd6d40d0d06e862b4f",
+    "entries": [
+      "appearance.webp",
+      "declared-extra.bin",
+      "meta.json",
+      "positions-high.webp",
+      "positions-low.webp",
+      "rotations.webp"
+    ],
+    "compression": "ZIP_STORED",
+    "timestamp": "1980-01-01T00:00:00",
+    "originalEntryBytesUnchanged": true,
+    "unrelatedNeighborIncluded": false
+  },
+  "negativeBundles": [
+    {
+      "file": "negative-malformed-metadata.sog",
+      "bytes": 927,
+      "sha256": "8748ee058113aa4b40caf07387b83e9216f65b98ae622503d8fb619107703fa1",
+      "mutation": "Replace only original metadata body with truncated JSON; ZIP/CRC remain valid",
+      "zipMetadataAndCrcValid": true,
+      "expected": "Native loader refusal before replacing an edited owner; actual executable Redo remains to be tested"
+    },
+    {
+      "file": "negative-missing-appearance.sog",
+      "bytes": 1199,
+      "sha256": "3880237e49a33bd2a1acdfdf6c139441d0d057510fcaaae171c0cc5e495a4888",
+      "mutation": "Omit required shared scale/SH0 resource; metadata and all other bodies unchanged",
+      "zipMetadataAndCrcValid": true,
+      "expected": "Native loader refusal before replacing an edited owner; actual executable Redo remains to be tested"
+    },
+    {
+      "file": "negative-truncated-webp.sog",
+      "bytes": 1329,
+      "sha256": "dc4b531cfe08e8c3102fc91e3aec2ddaceaa22a072b934188991f3855d82286a",
+      "mutation": "Retain only RIFF/WEBP twelve-byte envelope of required low-position texture; ZIP/CRC remain valid",
+      "zipMetadataAndCrcValid": true,
+      "expected": "Native loader refusal before replacing an edited owner; actual executable Redo remains to be tested"
+    }
+  ],
+  "inputs": [
+    {
+      "file": "collection/asset/meta.json",
+      "bytes": 448,
+      "sha256": "48d49696a95668e454d34b7f319288205d39dc3ac1a7d5ec4758a2bf9d987098",
+      "role": "primary"
+    },
+    {
+      "file": "collection/asset/positions-low.webp",
+      "bytes": 48,
+      "sha256": "6503abb6f705b662ee8c000004a74536261f2f71c53ff9a5c884140c22bfb1dd",
+      "role": "declared-resource"
+    },
+    {
+      "file": "collection/asset/positions-high.webp",
+      "bytes": 50,
+      "sha256": "fec47c8c33092f90ec525df5b82cb83846bb656c30ec32a4548ce442603b56d3",
+      "role": "declared-resource"
+    },
+    {
+      "file": "collection/asset/appearance.webp",
+      "bytes": 60,
+      "sha256": "67b08fa5d7f55f719de9cc40a5dcb68f763a5734bbc0ca71ed881906621f3120",
+      "role": "declared-resource"
+    },
+    {
+      "file": "collection/asset/rotations.webp",
+      "bytes": 58,
+      "sha256": "762eb06d2940633d32d6624e90f0e5579e7f7258e800388259e346b15ea64407",
+      "role": "declared-resource"
+    },
+    {
+      "file": "collection/asset/declared-extra.bin",
+      "bytes": 37,
+      "sha256": "fe24d357dd418c82cb2d79dcba46331c2386986694c586c0c199d869ad1ec3e6",
+      "role": "declared-resource"
+    },
+    {
+      "file": "collection/unrelated-neighbor.bin",
+      "bytes": 42,
+      "sha256": "7009f23222640cad6e78f4902b3f684d6229dbb756810acc15c9f8a97caf3e6b",
+      "role": "excluded-neighbor"
+    }
+  ],
+  "artifacts": [
+    {
+      "file": "bundled-v1-sh0.sog",
+      "bytes": 1365,
+      "sha256": "e243b5f55754a627d37d7465e4105fa6e300055d72c968d9185e3e9aa6e2ce28"
+    },
+    {
+      "file": "negative-malformed-metadata.sog",
+      "bytes": 927,
+      "sha256": "8748ee058113aa4b40caf07387b83e9216f65b98ae622503d8fb619107703fa1"
+    },
+    {
+      "file": "negative-missing-appearance.sog",
+      "bytes": 1199,
+      "sha256": "3880237e49a33bd2a1acdfdf6c139441d0d057510fcaaae171c0cc5e495a4888"
+    },
+    {
+      "file": "negative-truncated-webp.sog",
+      "bytes": 1329,
+      "sha256": "dc4b531cfe08e8c3102fc91e3aec2ddaceaa22a072b934188991f3855d82286a"
+    },
+    {
+      "file": "rgba-literals.json",
+      "bytes": 1242,
+      "sha256": "f58b577963921e3fccb44e18533afbc705d21891048462ed9d785a0a368511f0"
+    },
+    {
+      "file": "expected-records.json",
+      "bytes": 5483,
+      "sha256": "377c43224b2c35c10942cab1abb735f13d62560e1d750116c30697e281d56b90"
+    },
+    {
+      "file": "source-key-vectors.json",
+      "bytes": 17151,
+      "sha256": "7778758f19237e06a1383ab7c1841f9ff7837745e68ebbb32a355a82f0c09706"
+    }
+  ]
+}

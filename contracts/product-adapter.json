@@ -1,0 +1,807 @@
+{
+  "schemaVersion": 1,
+  "platform": "web",
+  "profile": "web-lite",
+  "bundleSha256": "fff64dad4589c07b26821cb23a866aaec6f824e7786d719ca6e3122b3750895a",
+  "inventories": [
+    {
+      "syntax": "string-union",
+      "prefix": "SelectionTool.",
+      "name": "SelectionTool",
+      "path": "src/app/store.ts"
+    },
+    {
+      "syntax": "string-union",
+      "prefix": "ToolsMode.",
+      "name": "ToolsMode",
+      "path": "src/app/store.ts"
+    },
+    {
+      "syntax": "string-union",
+      "prefix": "ToolbarAction.",
+      "name": "ToolbarAction",
+      "path": "src/app/store.ts"
+    },
+    {
+      "syntax": "wasm-commands",
+      "prefix": "WorkerCommand.",
+      "path": "native/wasm/bindings.cpp"
+    },
+    {
+      "syntax": "string-array",
+      "prefix": "TutorialTarget.",
+      "name": "TUTORIAL_TARGETS",
+      "path": "src/app/tutorialCatalog.ts"
+    }
+  ],
+  "bindings": {
+    "SelectionTool.single": {
+      "feature": "selection.manual",
+      "fingerprint": "5ec9691b431e29961ae1d670de1917d9ef81fde5f1da85805ff3e3ef03709dec",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "SelectionTool.brush": {
+      "feature": "selection.manual",
+      "fingerprint": "dfaf32e77be2a6ee2c797f605a8b3a97e2579459d8a1e3734b163426dc036e0f",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "SelectionTool.volume": {
+      "feature": "selection.manual",
+      "fingerprint": "d26219b000c350c3223784da620fa525bb413e1fc261769be55a2cc48eec3f8b",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "SelectionTool.rectangle": {
+      "feature": "selection.manual",
+      "fingerprint": "4243b551e3336ada0e97baa298b21dd9610ee51c0344aa6cf35cc3e355c73169",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "SelectionTool.polygon": {
+      "feature": "selection.manual",
+      "fingerprint": "ad0b492149a059534877ae6cdf8474d645215db156b8ccdd5ccf7b88a9054ceb",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "SelectionTool.color": {
+      "feature": "selection.color",
+      "fingerprint": "7f5c3493d494b5f927a18974c291a8929def7782158375f87719f47448077b6e",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "SelectionTool.fill": {
+      "feature": "selection.color",
+      "fingerprint": "9f2953ec76e97b5fc0f0c43ca3b9080e1c7a8300e8a3cc8d038687ce48fa25ee",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "ToolsMode.basic": {
+      "feature": "settings.general",
+      "fingerprint": "8630f6bdb0e06a9167722b29c0d0428180b912f248abe561843f8c31877ac1a8",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "ToolsMode.pro": {
+      "feature": "processing.advanced",
+      "fingerprint": "9dbfba674485ef1c79b8d18a16507687f1d7b6faabcf5d3ca5ddf0ab8158081d",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "ToolbarAction.save": {
+      "feature": "save.copy",
+      "fingerprint": "fbddac3ffc9c5a17675d226f165bfe171e3666a50f0cb3437ead746f5b4efc64",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "ToolbarAction.capture": {
+      "feature": "view.capture",
+      "fingerprint": "e7b0884d15895f50c39b919c6e17a24a026773c31653ce42e524fe2862c3373c",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "ToolbarAction.thumbnail": {
+      "feature": "view.remember",
+      "fingerprint": "981a90143cbf0082f19f4ad09eceab08bdc8cb2b6c3dc19240daa12ad6941ef8",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.alignCenter": {
+      "feature": "alignment.manual",
+      "fingerprint": "27f6b5c17ebd9c4e63b6da6be77edc0dba9bd477ade4714197ca85ee363575b7",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.alignFloor": {
+      "feature": "alignment.auto",
+      "fingerprint": "22d368edb5f89613a9ce58545c839779ec8c315c1381a7d5b4c785126fef2d42",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.alignPlane": {
+      "feature": "alignment.manual",
+      "fingerprint": "6be63894fdf3d2e37563bc8c5f44af8099ba2906286699eea7003b0fecfac3ef",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.alignScale": {
+      "feature": "alignment.manual",
+      "fingerprint": "8c62386b0ec7b7313004d0491176e011aa4c64c5afe8ecda415a13245030d117",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.applyOpacity": {
+      "feature": "color.advanced",
+      "fingerprint": "a3babc236b7e8d7ebf6219dbe30f01a6c6f2b33efadbc92b669aac23985afa3b",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.applyTransform": {
+      "feature": "transform.manual",
+      "fingerprint": "5c952ea6fdf3d5a2a460c18d50e3b8b257c7086fae98ca0016ceb3c3ad751f04",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.autoColor": {
+      "feature": "color.auto",
+      "fingerprint": "15f2fcbb5f97e4f1d856935cc5022665cdb7016307ec502365635199a1ca6c44",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.beginColor": {
+      "feature": "color.basic",
+      "fingerprint": "68dacb4163c5dd24b1d73f3aced508de2261da8df76a640e88e9ef9ebe2d3527",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.beginFilter": {
+      "feature": "selection.volume",
+      "fingerprint": "b139a600aecef1a3e1aed66bc098a487dc352353dddb51aa2fe968fa949117a8",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.beginOpacity": {
+      "feature": "color.advanced",
+      "fingerprint": "923570d05c222827cc5ef96b87b3e7bcfa280c4a73c30a16bd14493257498ee9",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.beginSelection": {
+      "feature": "selection.manual",
+      "fingerprint": "fe1bdc4a0f8c1c7ad0756ff3f90c76c5e80a758650e0512a53df837e9845226c",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.beginTransaction": {
+      "feature": "internal.lifecycle",
+      "fingerprint": "f369d5f96f8297032021e50512ddcaaf14829b12743b3a1381bc58d881bdee49",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.beginTransform": {
+      "feature": "transform.manual",
+      "fingerprint": "e2c7d7d9f260111434ab78a9ecf38b8ad83b181ba0fd120ef2e4451b84c4dd1d",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.brush": {
+      "feature": "selection.manual",
+      "fingerprint": "029f33c2a6a1143cf125d495f861e073528ebf1e261e88201d0cc58d22d05987",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.cancel": {
+      "feature": "internal.lifecycle",
+      "fingerprint": "2374d91794b79f4fb4ec9587d2cf00aecc4f9953fab3ed1dd12ab147a0b721f9",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.cancelFilter": {
+      "feature": "selection.volume",
+      "fingerprint": "beb097c48e9ab8209be00df51711944480a09237a29b164285c2b023946f7f3b",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.cancelFloor": {
+      "feature": "alignment.auto",
+      "fingerprint": "441d02300dfa052f9e28e26d53d7451b7fe6f5b8c7d6f8ccdd3c9b8a18355509",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.cancelSelection": {
+      "feature": "selection.manual",
+      "fingerprint": "f6ce58af07f1ade14b830b28774acb7c80a5be24202a8d7996cbca8c510b074f",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.cancelTransform": {
+      "feature": "transform.manual",
+      "fingerprint": "5f58e6764aee072cc695e0ba6e74c122f3fbd1440e10346f3045385e6720e127",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.clipSelection": {
+      "feature": "selection.advanced",
+      "fingerprint": "5b274c0a3005dee7e79e420276171946731015b571ee1ef1768ecc0b6db8b59f",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.color": {
+      "feature": "color.basic",
+      "fingerprint": "74284d9dcbcc09928ca5d7d6187270a62ac1b58ccdc4a44b81e47257ffa53b9e",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.colorPick": {
+      "feature": "selection.color",
+      "fingerprint": "ff12d4ab1fb1d63310dbdda98b3b7e4adb85d16c26e0d2c5150e8f726b616e6b",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.colorTolerance": {
+      "feature": "selection.color",
+      "fingerprint": "0cc52c54c0c958b10f7c5d9a9e314dfd5bb76a2aea10c0e6321c3cfba6445a97",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.commitTransaction": {
+      "feature": "internal.lifecycle",
+      "fingerprint": "9ea13ab1c3d200e3b2c234a174e8cf257d54e4cd93b55f5ac65a1d88d1607e1f",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.confirmFilter": {
+      "feature": "selection.volume",
+      "fingerprint": "62cdb769fee9c5e06956b16743c8a31d361193d204f6e8d4171758651da3cb39",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.confirmSelection": {
+      "feature": "selection.manual",
+      "fingerprint": "396be208ce5f0ee0830ee71efd3e4c5cb584f87e6931ca092544bcda2363bc3c",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.crop": {
+      "feature": "cleanup.edit",
+      "fingerprint": "375676bd26868505668fce072799a6e029a37fbbe67b70b89f7b68def282344c",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.delete": {
+      "feature": "cleanup.edit",
+      "fingerprint": "6197595503f01ee2a34e403fe08d2e1d9d0c14cf1cdfc2b74739895dc9a15a04",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.detectFloor": {
+      "feature": "alignment.auto",
+      "fingerprint": "43027ed3b8644e5594751e7aa6adf77ea375f944073de47833bae261ef03d9a1",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.duplicate": {
+      "feature": "processing.advanced",
+      "fingerprint": "e24a5a32c9b8c8637ee33cd72bff6a05a140a48891a1c1a3b06447e1900b6446",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.endColor": {
+      "feature": "color.basic",
+      "fingerprint": "4256481bfa8d921fd8e388c0467a7948a91e36975e7c20a17d152747be0273d3",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.endOpacity": {
+      "feature": "color.advanced",
+      "fingerprint": "0876354fa4cd4fd4e22556f9bddb22cafe84764b4f8fd9f26842edf88f13bdef",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.endTolerance": {
+      "feature": "selection.color",
+      "fingerprint": "800cab52760aff558900e4594892ef76f2dd84df10b182424dd8dd91d32dd30e",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.endTransform": {
+      "feature": "transform.manual",
+      "fingerprint": "81c20ef31d806f8a335b9a41d97849d0fbd2cb4332faae7a0a3e8f2576ce01f6",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.export": {
+      "feature": "save.copy",
+      "fingerprint": "d46aee08cc49f6d1eb41800c1d6bab4506c960c700cff0efffe490d7cb1de5e3",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.fillPick": {
+      "feature": "selection.color",
+      "fingerprint": "4854d73d18d5d70b306721209256eeb943ff8a2a78c876971d3bc3aa39f8088f",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.fillTolerance": {
+      "feature": "selection.color",
+      "fingerprint": "3db3ea1170a3a5c5c55c063d1110dbb0aab9a9c9ef7c89a465b30d69bbf3de3f",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.grade": {
+      "feature": "color.basic",
+      "fingerprint": "ffe97bba510b9f5cf1bb187bebb59cefa42a3f1654d2c993654382cd10468c2e",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.invert": {
+      "feature": "selection.manual",
+      "fingerprint": "6e77e1227ec256cfedfd885649b8d30d1e955edef5af3e4ee848dd75cb1d9a75",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.morphology": {
+      "feature": "selection.advanced",
+      "fingerprint": "be3be3a7ea1e9c43a444b0336b8b929dc19e69495673afc700af02c44d00918e",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.morphologyRange": {
+      "feature": "selection.advanced",
+      "fingerprint": "78491fcb7c999e50d2a88f502be078777b2455b6b037da84726f22f298b036ba",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.operationBind": {
+      "feature": "internal.lifecycle",
+      "fingerprint": "eda0575e5ffd2679a23646f94f6b12b3b1d7f468537b4ad33e4de3ded4ca5498",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.operationRetire": {
+      "feature": "internal.lifecycle",
+      "fingerprint": "2e30a600a7704db6f0fe756d46ab1bed62440a1c9bcbeeadc81c00b22f680d68",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.operationStatus": {
+      "feature": "internal.lifecycle",
+      "fingerprint": "793d3713dd526840b425b4bbc570a04b782c2f5ba94c8c618da8a1b0f6d9e108",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.planeNormal": {
+      "feature": "alignment.manual",
+      "fingerprint": "136c0810cc4254d35342970c4e10952af1e0f1296279b05a6c6952a7f6265cb5",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.point": {
+      "feature": "alignment.manual",
+      "fingerprint": "251fecd592e56e6c4a95121752f4a73bb802dffc1cc4bce6100206ee2b7cb650",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.polygon": {
+      "feature": "selection.manual",
+      "fingerprint": "2b3b181209241d3f3cc2fb32428a2d442cbb8265589891dbe8d2f8572cd08ebf",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.previewFilter": {
+      "feature": "selection.volume",
+      "fingerprint": "08bf238d0739d379237262c361204588d151095eb2efb0a3181e7967a2e9a2cc",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.rebaseTransform": {
+      "feature": "transform.manual",
+      "fingerprint": "1895ec9e5951d6928a6381f07ff2fb778c18dac38dd4ecc407725a55b97349dd",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.rectangle": {
+      "feature": "selection.manual",
+      "fingerprint": "32dfed947e8bca93c393bba8525ecad6b7d623d9aaad23078343783f8e3603ff",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.redo": {
+      "feature": "history.edit",
+      "fingerprint": "77276c72c008b0652e0aa28321a47c3bae8f104d8e549c419f1e4c1796a8484c",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.redoTransform": {
+      "feature": "transform.manual",
+      "fingerprint": "34a114a6686ed0cfc93f75f204f9617d39441d615104624f3739c98c73d4a8af",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.resetAlignment": {
+      "feature": "alignment.manual",
+      "fingerprint": "6ee6fba78cf51a45422b2985d2dc658846ae2e934e7b2182bbc9eaef260fd9ad",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.resetCleanup": {
+      "feature": "cleanup.edit",
+      "fingerprint": "bf0b50f0a96265579778e2a1795f237574702039f17595f75fc588ad95af4f7c",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.resetOpacity": {
+      "feature": "color.advanced",
+      "fingerprint": "a26d06a395ded60600d078c884d837b4294b5b1b4cfc56e74821dbaf4d5c0d62",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.resetTransform": {
+      "feature": "transform.manual",
+      "fingerprint": "3b6b4a7b2af3dd700e322154e1d85711231277fb68fd0f82a6d40752f28f8cd8",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.restore": {
+      "feature": "cleanup.edit",
+      "fingerprint": "f329e3a317eee6a8a1a7357f69bc0488e0fad238ad58b30fc99139445f51e6ab",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.rollbackTransaction": {
+      "feature": "internal.lifecycle",
+      "fingerprint": "f0b600e1a896fbf65b4ae83bab55bfe28ad55a00b798101ef73b9cc185d2cb4e",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.selectAll": {
+      "feature": "selection.manual",
+      "fingerprint": "c2e90de07a99e066e4e0d988845e6149259bdbbf084a454cd4585f3292361236",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.selectNone": {
+      "feature": "selection.manual",
+      "fingerprint": "34729b8db657c117d67c5df73ab372967d2d92bbcf00a047e9b8ef52c5b37043",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.selectionMapBegin": {
+      "feature": "internal.lifecycle",
+      "fingerprint": "e8894ebb0adc5e75e573dc804099f6a9f47765b1bb093b3bbc81af224f874084",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.selectionMapCommit": {
+      "feature": "internal.lifecycle",
+      "fingerprint": "d86fe6b76f2217035747f136a753711deea86c609004696ac4499b7610072431",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.selectionMapRelease": {
+      "feature": "internal.lifecycle",
+      "fingerprint": "cf08731f3900909356cd8c8b388cc553e7cd881761ce5b21bc36fe7925d29288",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.single": {
+      "feature": "selection.manual",
+      "fingerprint": "947f187506f7629c81c81879a2cb2256455038e4ac770091d897fa0a8b945e3b",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.summary": {
+      "feature": "internal.lifecycle",
+      "fingerprint": "761b7ad8ad439b2855fcbb611331c646ef0870b0631247bba3f3025cb6df5a53",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.transform": {
+      "feature": "transform.manual",
+      "fingerprint": "aa214ea38326805d95661c3ad1643cc07f88e2bae0438ac0448a66d93335ca6e",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.transformFocus": {
+      "feature": "transform.manual",
+      "fingerprint": "77267b631cdbaefb3093fe0eb101886a552bfac8fd8ec8f0c1056ef8aed76a54",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.undo": {
+      "feature": "history.edit",
+      "fingerprint": "f015346ae3563d83d3a9cad3223586a53d2a62b08a6a7f47d7eeeb3f89be4e90",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.undoTransform": {
+      "feature": "transform.manual",
+      "fingerprint": "8509525c3188e14eee3ba05da46f477cfd4568fbabda1f812521dbf1f425865c",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "WorkerCommand.volume": {
+      "feature": "selection.manual",
+      "fingerprint": "62d7a6b1211d627650e2bf0c869b69b564e2cd74290ae1dd78ae4b5e20b0cfe7",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.open": {
+      "feature": "document.open",
+      "fingerprint": "9e4608972b92f507e83d3ef69f2bb48710d75cb3a4f17277141404619b828cb7",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.save": {
+      "feature": "save.copy",
+      "fingerprint": "fbddac3ffc9c5a17675d226f165bfe171e3666a50f0cb3437ead746f5b4efc64",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.navigation": {
+      "feature": "view.navigate",
+      "fingerprint": "e4508263758f67ed2440367d641eff8fd3d59b7cd7cee4aceb6a4d172640105f",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.auto-rotate": {
+      "feature": "view.navigate",
+      "fingerprint": "427d8c4432498e676c04f0e19071e14d9cf0c6c6dbe48c4b8b90881627ecc56f",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.guides": {
+      "feature": "view.navigate",
+      "fingerprint": "645c2ec25d844f520dfb1244d1a5ebbcb2232c8271bf58eed6bc7c6b72e94299",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.lens": {
+      "feature": "view.navigate",
+      "fingerprint": "3dabcfa4dddeb6e35989f031836e88a1d8d366eb4e600505045d1febd92282d2",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.capture": {
+      "feature": "view.capture",
+      "fingerprint": "e7b0884d15895f50c39b919c6e17a24a026773c31653ce42e524fe2862c3373c",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.thumbnail": {
+      "feature": "view.remember",
+      "fingerprint": "981a90143cbf0082f19f4ad09eceab08bdc8cb2b6c3dc19240daa12ad6941ef8",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.tools": {
+      "feature": "settings.general",
+      "fingerprint": "f83edad70040cc4fd38c5e6376eef50e6f9f07f402811f1dd13250ba2af76c81",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.undo-redo": {
+      "feature": "history.edit",
+      "fingerprint": "c486e9ab186d0688011f0cfc781c59a578d0772af76665e8ec5fa2d4d1875fae",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.settings": {
+      "feature": "settings.general",
+      "fingerprint": "7c6ffffbc12a23edd5ec865c26ab24baf5707cc538c06e2272f23e727ff8e03b",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.modes": {
+      "feature": "processing.advanced",
+      "fingerprint": "0459c1c0dca7405e4aba92f139db94431e334ace8aa8d929ca2094a5f940f4ba",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.scope": {
+      "feature": "settings.general",
+      "fingerprint": "c5b949a85217c28987d26a9e59e320bf3c8d3d765e65a3e4b99e1e46703b6835",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.histogram": {
+      "feature": "color.auto",
+      "fingerprint": "e4ba5870b4dee3fb8478e51f3362bc7e40ba53ead6023bad4674828c87160d43",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.single": {
+      "feature": "selection.manual",
+      "fingerprint": "5ec9691b431e29961ae1d670de1917d9ef81fde5f1da85805ff3e3ef03709dec",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.brushes": {
+      "feature": "selection.manual",
+      "fingerprint": "5e769a5a8911142e187e5c2404ebc339f92f99e63bcbc4dca783620a3d1ad83a",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.area": {
+      "feature": "selection.manual",
+      "fingerprint": "b66f9fffa3fb9a052fcde3763df508c2a4a470f94dd27204883cae092da062ad",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.color-select": {
+      "feature": "selection.color",
+      "fingerprint": "82dc7cee2bff50da8031ce6b7df5a934cbc5ae0909cf1881519c9f8b6ea9ef03",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.fill": {
+      "feature": "selection.color",
+      "fingerprint": "9f2953ec76e97b5fc0f0c43ca3b9080e1c7a8300e8a3cc8d038687ce48fa25ee",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.combine": {
+      "feature": "selection.manual",
+      "fingerprint": "c67995cd5e004c5dc16a4288e47c0dca5ebdaac6b01b606821b79f919604e4d0",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.refine": {
+      "feature": "selection.advanced",
+      "fingerprint": "128ee429f70ad3c0d5f5890c397e8794bbeaab9e930abf60e55859a7824ea46d",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.actions": {
+      "feature": "selection.manual",
+      "fingerprint": "0d1b75191aed26f2691299c9e5478289b50f53abe7525d4ceac628a8df7fff03",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.selection-edits": {
+      "feature": "selection.manual",
+      "fingerprint": "14ddfa8752a707e1bf91558cb05802f886a5b68247fbfbfc1500df90c93c28a1",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.duplicate": {
+      "feature": "processing.advanced",
+      "fingerprint": "35a467811b1636367875dca21208f968eb7289029854a2a8f81e2131dbb8810e",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.current-view": {
+      "feature": "selection.advanced",
+      "fingerprint": "6f03f51e6d05b1a14a799bc0d6b1cf31fdd897fa9670b2fc439e549412d56ec3",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.options": {
+      "feature": "selection.manual",
+      "fingerprint": "cf75b2e3b4466cb9e75cb5d852befe778eba08bb75d81277202849dd6da2ca1b",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.range": {
+      "feature": "selection.advanced",
+      "fingerprint": "9054584a84c5e2291e81f6985a56087addcd09040ce6c712c3704fe599b9a010",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.selection-finish": {
+      "feature": "selection.manual",
+      "fingerprint": "48c0c090f5e663525e96adf83a84cef7e32554876e8f87729ecd95347abebfaf",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.cleanup-reset": {
+      "feature": "cleanup.edit",
+      "fingerprint": "729a542987a3bd125090f57303427a40dbe4d4b2a4063048ad1f32b4f18e7cfd",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.filter": {
+      "feature": "selection.volume",
+      "fingerprint": "69aff49b10ec0effd9451a283a84a2c82547a9e092485555d0ac4079c4651136",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.auto-color": {
+      "feature": "color.auto",
+      "fingerprint": "f26f8e717308cc4da6ac94f8578afb0d57dc59c3da8cd0d1f0e31a91061527bc",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.presets": {
+      "feature": "color.basic",
+      "fingerprint": "f57393cdddeb7f13debb2bdfe866602d22dd10ee5f41f9e3bf93347f49baef55",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.color-slider": {
+      "feature": "color.basic",
+      "fingerprint": "d852b7c743e6cbd21686460984cd77859657aa02d2c117794e3dc16266b320a9",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.pro-color": {
+      "feature": "color.advanced",
+      "fingerprint": "9f9568ebc4f0b02b07e74249fa533bc643397eeb40106a3eadb3e85db23b8931",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.color-reset": {
+      "feature": "color.basic",
+      "fingerprint": "f7bc2dfbf5e4437029f547768e61aa8d5f2f44a4ea66c8f8099a93e8e5cf0f17",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.pick-center": {
+      "feature": "alignment.manual",
+      "fingerprint": "d8349b38881acca57e9c64563e3777de25ba43f2ce164241a4cf0efae2875eba",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.scale-align": {
+      "feature": "alignment.manual",
+      "fingerprint": "6865a8cfe15f9c1494daac9a635f7d77403ee34e22f96366a58f863758b9cbb6",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.plane-align": {
+      "feature": "alignment.manual",
+      "fingerprint": "85046a71128822894c108964543f19be9dc10cde5dabf62d119fa6fb38ff42b7",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.floor": {
+      "feature": "alignment.auto",
+      "fingerprint": "47b639795e0b2e5b9740b11e9d4559ac3b3ad5a91fd00ebb535838ea417d9e70",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.gizmo": {
+      "feature": "transform.manual",
+      "fingerprint": "305ea8c313782a4002edc6b2ed747e4c665e396c24b2eff552c1a6e04e6ad6cf",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.transform-mode": {
+      "feature": "transform.numeric",
+      "fingerprint": "d37f64adbe8ed0862661a4d11b7cad6b32eb718b488a10c95a87ebeae054c347",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.coordinates": {
+      "feature": "transform.numeric",
+      "fingerprint": "dc3da6a08ca91da879419d9cd4b173e43a4844768671cbd8e83671c1419f1a2a",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.snap-flips": {
+      "feature": "transform.manual",
+      "fingerprint": "659d2c9ed75ce4f9d8f88f6b74d307353c987cffd7f8be34b7965bd6b08e49d9",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.pivot": {
+      "feature": "transform.numeric",
+      "fingerprint": "14c42024ade9f42264859a272069ef79b6d0fc5a8a555982d9bb1c6be3de3dad",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.transform-values": {
+      "feature": "transform.numeric",
+      "fingerprint": "3121feb526d0707769c80b5c663ea11070bfea426e61767a15d285a9598e564d",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "TutorialTarget.transform-reset": {
+      "feature": "transform.manual",
+      "fingerprint": "2196f427764472c2dc8d532627bf6047504c0c9118e9f9641c2d6f94f995fa4b",
+      "review": "design/feature-reviews/contract-gap-implementation.md",
+      "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    }
+  }
+}

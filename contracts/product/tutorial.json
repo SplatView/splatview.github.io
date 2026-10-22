@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "topics": [
+    {
+      "id": "open",
+      "features": [
+        "document.open"
+      ]
+    },
+    {
+      "id": "save",
+      "features": [
+        "save.copy"
+      ]
+    },
+    {
+      "id": "thumbnail",
+      "features": [
+        "view.thumbnail"
+      ]
+    },
+    {
+      "id": "capture",
+      "features": [
+        "view.capture"
+      ]
+    },
+    {
+      "id": "navigation",
+      "features": [
+        "view.navigate"
+      ]
+    },
+    {
+      "id": "settings",
+      "features": [
+        "settings.general"
+      ]
+    },
+    {
+      "id": "selection",
+      "features": [
+        "selection.manual"
+      ]
+    },
+    {
+      "id": "color-selection",
+      "features": [
+        "selection.color"
+      ]
+    },
+    {
+      "id": "selection-actions",
+      "features": [
+        "cleanup.edit"
+      ]
+    },
+    {
+      "id": "undo-redo",
+      "features": [
+        "history.edit"
+      ]
+    },
+    {
+      "id": "volume-selection",
+      "features": [
+        "selection.volume"
+      ]
+    },
+    {
+      "id": "paint",
+      "features": [
+        "painting.manual"
+      ]
+    },
+    {
+      "id": "transform",
+      "features": [
+        "transform.manual"
+      ]
+    },
+    {
+      "id": "alignment",
+      "features": [
+        "alignment.manual"
+      ]
+    },
+    {
+      "id": "auto-color",
+      "features": [
+        "color.auto"
+      ]
+    },
+    {
+      "id": "presets",
+      "features": [
+        "color.basic"
+      ]
+    },
+    {
+      "id": "advanced-color",
+      "features": [
+        "color.advanced"
+      ]
+    },
+    {
+      "id": "floor",
+      "features": [
+        "alignment.auto"
+      ]
+    }
+  ]
+}

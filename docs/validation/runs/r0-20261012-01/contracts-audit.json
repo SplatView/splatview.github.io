@@ -1,0 +1,600 @@
+{
+  "schemaVersion": 1,
+  "kind": "splatview-r0-current-target-contract-binding-audit",
+  "generatedUtc": "2026-10-12T15:22:18.688523+00:00",
+  "status": "pass",
+  "scope": {
+    "sourceBindingOnly": true,
+    "directoryWalkPerformed": false,
+    "fullCaptureTreeRehashed": false,
+    "publicWasmTraversalPerformed": false,
+    "nativeAcceptance": "pending;not-run",
+    "browserAcceptance": "pending;not-run",
+    "macAcceptance": "pending;not-run",
+    "note": "Checks recorded capture tree identity and referenced file hashes; does not execute parity fixtures."
+  },
+  "target": {
+    "snapshot": "windows-r0-20261012-02",
+    "version": "0.12.116",
+    "recordedTreeSha256": "162c4bb2b129dc49169b3678e21b1b607a13bfd249f75cb1a2b3a5b7e8e9a2f4",
+    "cmakeProject": {
+      "name": "SplatView",
+      "version": "0.12.116"
+    }
+  },
+  "counts": {
+    "primary_anchors": 32,
+    "supporting_anchors": 130,
+    "historical_anchors": 40,
+    "valid_primary_anchors": 32,
+    "valid_supporting_anchors": 130,
+    "valid_historical_anchors": 40,
+    "rows": 32,
+    "fields": 28,
+    "supporting_and_historical_anchors": 170,
+    "current_anchor_files": 29,
+    "historical_anchor_files": 13,
+    "current_files_hashed": 29,
+    "current_manifest_hash_matches": 29,
+    "manifest_file_entries": 720,
+    "markdown_links": 8,
+    "valid_markdown_links": 8
+  },
+  "schemaFields": [
+    "inventory_version",
+    "target_version",
+    "source_snapshot",
+    "source_tree_sha256",
+    "target_cmake_sha256",
+    "contract_id",
+    "area",
+    "delta_kind",
+    "source_path",
+    "source_line",
+    "source_symbol",
+    "source_sha256",
+    "supporting_anchors",
+    "baseline_reference",
+    "basic_available",
+    "pro_available",
+    "enabled_rule",
+    "desktop_contract",
+    "browser_boundary",
+    "fixture_id",
+    "fixture_spec",
+    "acceptance_criteria",
+    "review_status",
+    "native_acceptance",
+    "browser_implementation_status",
+    "browser_acceptance",
+    "mac_acceptance",
+    "notes"
+  ],
+  "uniqueness": {
+    "contract_id": {
+      "values": 32,
+      "unique": 32
+    },
+    "fixture_id": {
+      "values": 32,
+      "unique": 32
+    }
+  },
+  "matchingRequiredRowValues": {
+    "inventory_version": 32,
+    "target_version": 32,
+    "source_snapshot": 32,
+    "source_tree_sha256": 32,
+    "target_cmake_sha256": 32,
+    "review_status": 32,
+    "native_acceptance": 32,
+    "browser_implementation_status": 32,
+    "browser_acceptance": 32,
+    "mac_acceptance": 32
+  },
+  "inputFiles": {
+    "docs/parity/current-target-deltas-v1.csv": {
+      "bytes": 65496,
+      "sha256": "0cae65c140e11a8bfe48e9713dd6addd6fc80182825094c58fc6f121134198bf"
+    },
+    "docs/parity/current-target-deltas-v1.md": {
+      "bytes": 6937,
+      "sha256": "d4e6a5351abf8b01bb6214d5c4b659e244bac8d9f2390fd9858dcde5c0ab50f5"
+    },
+    "reference/targets/windows-r0-20261012-02/CAPTURE_MANIFEST.json": {
+      "bytes": 149390,
+      "sha256": "0156c58d345ecf633d57a0ff339c8c07a270efb0575e6158e49d7d0840678fe4"
+    },
+    "reference/targets/windows-r0-20261012-02/CAPTURE_STATUS.json": {
+      "bytes": 375,
+      "sha256": "9ad2412c57653baa2567c4f1a84aeb83199016903e377ee42bbfeb77c28a0a74"
+    },
+    "reference/targets/windows-r0-20261012-02/source/CMakeLists.txt": {
+      "bytes": 13922,
+      "sha256": "7255cf561615136a965a7b37dc6d88aba5020dde9109a213a575b45d0de724cd"
+    },
+    "reference/targets/windows-r0-20261012-02/source/src/alignment_ui.cpp": {
+      "bytes": 2677,
+      "sha256": "ed35cd64691da095c1bc982903e84c09aa56d3a9db30df8e7f2bd194fae30e62"
+    },
+    "reference/targets/windows-r0-20261012-02/source/src/app_ui.cpp": {
+      "bytes": 67853,
+      "sha256": "27c47e26e16186a96d4d287acf66d2e29b4964988816577839004483204c4700"
+    },
+    "reference/targets/windows-r0-20261012-02/source/src/app_ui_about.cpp": {
+      "bytes": 5122,
+      "sha256": "8d1acafc8271da618e3464736c9b3468db56fa5c521247282a583104cad108ec"
+    },
+    "reference/targets/windows-r0-20261012-02/source/src/app_ui_default_apps.cpp": {
+      "bytes": 9572,
+      "sha256": "c563ec5733ca639949865a76b1b504516ccc5ebece0f6aee92ded4ffac8c7a66"
+    },
+    "reference/targets/windows-r0-20261012-02/source/src/app_ui_settings.cpp": {
+      "bytes": 12876,
+      "sha256": "df5cb79ad36896c20ebb85526865dde11818788f925eb2b9574fdf537497b747"
+    },
+    "reference/targets/windows-r0-20261012-02/source/src/app_ui_tutorial.cpp": {
+      "bytes": 16102,
+      "sha256": "6aa6586a8568b9d1b0d4da49da2b492c1d6ab9940d70da5a297e1a0c8b570189"
+    },
+    "reference/targets/windows-r0-20261012-02/source/src/camera.cpp": {
+      "bytes": 10539,
+      "sha256": "62559afd1906dc7aa9d2705b3a11adc9c0afb3d45ab400933dc2530b0f55a8c4"
+    },
+    "reference/targets/windows-r0-20261012-02/source/src/commands.hpp": {
+      "bytes": 755,
+      "sha256": "931ffaac725eeced96049328ae852941cb657b407b96b61686d763be7bca4ff0"
+    },
+    "reference/targets/windows-r0-20261012-02/source/src/editing.cpp": {
+      "bytes": 36662,
+      "sha256": "8f986a35b64860d1948680e7746f06ba307364237a60c0b7f0f99856ffb3fd8a"
+    },
+    "reference/targets/windows-r0-20261012-02/source/src/editing.hpp": {
+      "bytes": 9238,
+      "sha256": "14d0fc2bda39c3f3f725e642addd07c02c2640db552e338ab89eba4d02ba8eb4"
+    },
+    "reference/targets/windows-r0-20261012-02/source/src/geometry_tools.cpp": {
+      "bytes": 11813,
+      "sha256": "317d9ef29c74cbfca9ad9cf620c06c83794cd5452ac3d006125d024326588923"
+    },
+    "reference/targets/windows-r0-20261012-02/source/src/main.cpp": {
+      "bytes": 50059,
+      "sha256": "c102d043566a2865fd482e326a2169eaba001ac60268e5ef2d9396efa7a9f40c"
+    },
+    "reference/targets/windows-r0-20261012-02/source/src/processing.cpp": {
+      "bytes": 57616,
+      "sha256": "49b7da99a10436d385e34ff205cbc99d0a633fb0ff7f8497f339b2289930462f"
+    },
+    "reference/targets/windows-r0-20261012-02/source/src/processing_ui.cpp": {
+      "bytes": 26538,
+      "sha256": "48ac70e1211eb6e61b1e5efe5fe4dd2b855f422e34c0054e181c524126404b15"
+    },
+    "reference/targets/windows-r0-20261012-02/source/src/save_dialog.cpp": {
+      "bytes": 8237,
+      "sha256": "35e9da28d7eb3436e33c7a3f5a8f7b083c061d79febe14969bb8839d85b54548"
+    },
+    "reference/targets/windows-r0-20261012-02/source/src/scene_export_formats.hpp": {
+      "bytes": 3518,
+      "sha256": "8013bd283eb7eeb933482873faad72211be75098ff67c08011fe4c92229ac574"
+    },
+    "reference/targets/windows-r0-20261012-02/source/src/scene_exports.cpp": {
+      "bytes": 17583,
+      "sha256": "46e040e3c46da5025c01c9f0e66ce68301888c3226c3ddd1d1168e20724f288f"
+    },
+    "reference/targets/windows-r0-20261012-02/source/src/selection_morphology.cpp": {
+      "bytes": 13520,
+      "sha256": "96e5b83b9d34c52204e0283ac07b527683a281c0f5997c59a06559278a2a7dbe"
+    },
+    "reference/targets/windows-r0-20261012-02/source/src/selection_morphology.hpp": {
+      "bytes": 741,
+      "sha256": "a26ac168f0d135cc969782aa2a3e28a8260c2b4b91ac5d891f99fdc1b6834a86"
+    },
+    "reference/targets/windows-r0-20261012-02/source/src/selection_ui.cpp": {
+      "bytes": 46403,
+      "sha256": "6880ed61e5f7aaa31594c1cd0b52ebad36a1a1633ecf5e5cf498201ec595862c"
+    },
+    "reference/targets/windows-r0-20261012-02/source/src/tools_preferences.cpp": {
+      "bytes": 5303,
+      "sha256": "7dcb03c6228aaf6c7383af4170cb6b5335f5b47da80a53439528ca5489617a3b"
+    },
+    "reference/targets/windows-r0-20261012-02/source/src/tutorial.hpp": {
+      "bytes": 7606,
+      "sha256": "f6483dfcc7c1918e595f5a4cc1b4c1b5dd402b0c7598d5a1bf8bb4defd6deeb1"
+    },
+    "reference/targets/windows-r0-20261012-02/source/src/ui_size.hpp": {
+      "bytes": 903,
+      "sha256": "9b4c1ab5c22db4125a6caf057d5cc2268ae1f5edcee79c45aa2b0741aa7cde72"
+    },
+    "reference/targets/windows-r0-20261012-02/source/src/viewer.cpp": {
+      "bytes": 45885,
+      "sha256": "9644da5fdb7a97d0c3fcc6dcd4e80ecab614f67ba04fffc6ca96121a4679086e"
+    },
+    "reference/targets/windows-r0-20261012-02/source/src/viewer.hpp": {
+      "bytes": 22071,
+      "sha256": "037ee7b9cfe13d4c13266f9394b6126a846741a744a6c4d1bc45c5a22770e444"
+    },
+    "reference/targets/windows-r0-20261012-02/source/src/viewer_processing.cpp": {
+      "bytes": 32363,
+      "sha256": "26930730a03f9d7a5cfbabe8e2e37d6b89a8d7cb5466538a7ac8d4efced0d93c"
+    },
+    "reference/targets/windows-r0-20261012-02/source/src/viewer_selection.cpp": {
+      "bytes": 59776,
+      "sha256": "ee3a4abf3b42222de6a9149663e9ee3a8e5634b614a702cb58dfb39115de7fcc"
+    },
+    "reference/targets/windows-r0-20261012-02/source/src/viewport_tools.cpp": {
+      "bytes": 41127,
+      "sha256": "88750c02e90319cec5ec103cd5502920f8e0d1de0740e1ac09193518407eb80d"
+    },
+    "reference/targets/windows-r0-20261012-02/source/src/viewport_tools.hpp": {
+      "bytes": 4282,
+      "sha256": "c2c055f677a715048f6d0cf86be70e9bac3376aaed700d498df3e912608004dd"
+    },
+    "reference/windows/src/alignment_ui.cpp": {
+      "bytes": 1850,
+      "sha256": "69ed5e1b033aa69ef2ad077ae214945db9b9c58e9c863c866b14265a916fe684"
+    },
+    "reference/windows/src/app_ui_settings.cpp": {
+      "bytes": 8536,
+      "sha256": "033b267cdd3e03c92ef63a692b615ddabbac5b398bb1c60532ccf1ee79f45493"
+    },
+    "reference/windows/src/app_ui_tutorial.cpp": {
+      "bytes": 8515,
+      "sha256": "be68b96b1f0672457360958a8ee898084398b7ef25345266b050b2b1c3fbf7b0"
+    },
+    "reference/windows/src/camera.cpp": {
+      "bytes": 7501,
+      "sha256": "55ab01db6699d723737ceafc4306df2f0c7922b0c61b886fa98593c0aad7e86b"
+    },
+    "reference/windows/src/geometry_tools.cpp": {
+      "bytes": 11857,
+      "sha256": "38ca8dea5d1ca518194baccd286ead4423598da7cd732dfab1d4cbc131dd2eb2"
+    },
+    "reference/windows/src/processing.cpp": {
+      "bytes": 59215,
+      "sha256": "e5d85b9584111b4e0ddbb62f69acfa291a557b848bf96903539b045636a82140"
+    },
+    "reference/windows/src/processing_ui.cpp": {
+      "bytes": 24987,
+      "sha256": "6bd0fdf3fbbd1fff4eba2cf95a41bedf47778c39cfa5be6d1e8132e5b21dbc81"
+    },
+    "reference/windows/src/scene_export_formats.hpp": {
+      "bytes": 3351,
+      "sha256": "e79a17d0f5129b033b99c5f058881cf0e7ad70b06c5552b1694dc54744932262"
+    },
+    "reference/windows/src/tools_preferences.cpp": {
+      "bytes": 2838,
+      "sha256": "a10070f704b67140784f4d69b8d550373a85bc2b90b08e331811a8bb115a7666"
+    },
+    "reference/windows/src/tutorial.hpp": {
+      "bytes": 3783,
+      "sha256": "cbfebe67482b685efad29dd362d5766980986ca4e0188af13346814c05be1cce"
+    },
+    "reference/windows/src/viewer.cpp": {
+      "bytes": 53547,
+      "sha256": "0c7d10d767542d1e651f8c98f94e0fabf2c40797b8afbda1ceb89db4a363bdf7"
+    },
+    "reference/windows/src/viewport_tools.cpp": {
+      "bytes": 45176,
+      "sha256": "c1e5380ed24ab3a7045ef9474b8d61c5b559c99ff7c28baec58c005bc1fe4f0e"
+    },
+    "reference/windows/src/viewport_tools.hpp": {
+      "bytes": 4334,
+      "sha256": "9468622519739e5d3f991b9c3730b8f8f1cc96fb3d48fadc13e6677563280b4b"
+    }
+  },
+  "currentSourceFiles": [
+    {
+      "path": "reference/targets/windows-r0-20261012-02/source/src/alignment_ui.cpp",
+      "sha256": "ed35cd64691da095c1bc982903e84c09aa56d3a9db30df8e7f2bd194fae30e62",
+      "bytes": 2677,
+      "lines": 60,
+      "manifest_match": true
+    },
+    {
+      "path": "reference/targets/windows-r0-20261012-02/source/src/app_ui.cpp",
+      "sha256": "27c47e26e16186a96d4d287acf66d2e29b4964988816577839004483204c4700",
+      "bytes": 67853,
+      "lines": 1394,
+      "manifest_match": true
+    },
+    {
+      "path": "reference/targets/windows-r0-20261012-02/source/src/app_ui_about.cpp",
+      "sha256": "8d1acafc8271da618e3464736c9b3468db56fa5c521247282a583104cad108ec",
+      "bytes": 5122,
+      "lines": 106,
+      "manifest_match": true
+    },
+    {
+      "path": "reference/targets/windows-r0-20261012-02/source/src/app_ui_default_apps.cpp",
+      "sha256": "c563ec5733ca639949865a76b1b504516ccc5ebece0f6aee92ded4ffac8c7a66",
+      "bytes": 9572,
+      "lines": 204,
+      "manifest_match": true
+    },
+    {
+      "path": "reference/targets/windows-r0-20261012-02/source/src/app_ui_settings.cpp",
+      "sha256": "df5cb79ad36896c20ebb85526865dde11818788f925eb2b9574fdf537497b747",
+      "bytes": 12876,
+      "lines": 279,
+      "manifest_match": true
+    },
+    {
+      "path": "reference/targets/windows-r0-20261012-02/source/src/app_ui_tutorial.cpp",
+      "sha256": "6aa6586a8568b9d1b0d4da49da2b492c1d6ab9940d70da5a297e1a0c8b570189",
+      "bytes": 16102,
+      "lines": 350,
+      "manifest_match": true
+    },
+    {
+      "path": "reference/targets/windows-r0-20261012-02/source/src/camera.cpp",
+      "sha256": "62559afd1906dc7aa9d2705b3a11adc9c0afb3d45ab400933dc2530b0f55a8c4",
+      "bytes": 10539,
+      "lines": 231,
+      "manifest_match": true
+    },
+    {
+      "path": "reference/targets/windows-r0-20261012-02/source/src/commands.hpp",
+      "sha256": "931ffaac725eeced96049328ae852941cb657b407b96b61686d763be7bca4ff0",
+      "bytes": 755,
+      "lines": 35,
+      "manifest_match": true
+    },
+    {
+      "path": "reference/targets/windows-r0-20261012-02/source/src/editing.cpp",
+      "sha256": "8f986a35b64860d1948680e7746f06ba307364237a60c0b7f0f99856ffb3fd8a",
+      "bytes": 36662,
+      "lines": 857,
+      "manifest_match": true
+    },
+    {
+      "path": "reference/targets/windows-r0-20261012-02/source/src/editing.hpp",
+      "sha256": "14d0fc2bda39c3f3f725e642addd07c02c2640db552e338ab89eba4d02ba8eb4",
+      "bytes": 9238,
+      "lines": 177,
+      "manifest_match": true
+    },
+    {
+      "path": "reference/targets/windows-r0-20261012-02/source/src/geometry_tools.cpp",
+      "sha256": "317d9ef29c74cbfca9ad9cf620c06c83794cd5452ac3d006125d024326588923",
+      "bytes": 11813,
+      "lines": 283,
+      "manifest_match": true
+    },
+    {
+      "path": "reference/targets/windows-r0-20261012-02/source/src/main.cpp",
+      "sha256": "c102d043566a2865fd482e326a2169eaba001ac60268e5ef2d9396efa7a9f40c",
+      "bytes": 50059,
+      "lines": 1082,
+      "manifest_match": true
+    },
+    {
+      "path": "reference/targets/windows-r0-20261012-02/source/src/processing.cpp",
+      "sha256": "49b7da99a10436d385e34ff205cbc99d0a633fb0ff7f8497f339b2289930462f",
+      "bytes": 57616,
+      "lines": 1166,
+      "manifest_match": true
+    },
+    {
+      "path": "reference/targets/windows-r0-20261012-02/source/src/processing_ui.cpp",
+      "sha256": "48ac70e1211eb6e61b1e5efe5fe4dd2b855f422e34c0054e181c524126404b15",
+      "bytes": 26538,
+      "lines": 614,
+      "manifest_match": true
+    },
+    {
+      "path": "reference/targets/windows-r0-20261012-02/source/src/save_dialog.cpp",
+      "sha256": "35e9da28d7eb3436e33c7a3f5a8f7b083c061d79febe14969bb8839d85b54548",
+      "bytes": 8237,
+      "lines": 175,
+      "manifest_match": true
+    },
+    {
+      "path": "reference/targets/windows-r0-20261012-02/source/src/scene_export_formats.hpp",
+      "sha256": "8013bd283eb7eeb933482873faad72211be75098ff67c08011fe4c92229ac574",
+      "bytes": 3518,
+      "lines": 85,
+      "manifest_match": true
+    },
+    {
+      "path": "reference/targets/windows-r0-20261012-02/source/src/scene_exports.cpp",
+      "sha256": "46e040e3c46da5025c01c9f0e66ce68301888c3226c3ddd1d1168e20724f288f",
+      "bytes": 17583,
+      "lines": 409,
+      "manifest_match": true
+    },
+    {
+      "path": "reference/targets/windows-r0-20261012-02/source/src/selection_morphology.cpp",
+      "sha256": "96e5b83b9d34c52204e0283ac07b527683a281c0f5997c59a06559278a2a7dbe",
+      "bytes": 13520,
+      "lines": 303,
+      "manifest_match": true
+    },
+    {
+      "path": "reference/targets/windows-r0-20261012-02/source/src/selection_morphology.hpp",
+      "sha256": "a26ac168f0d135cc969782aa2a3e28a8260c2b4b91ac5d891f99fdc1b6834a86",
+      "bytes": 741,
+      "lines": 20,
+      "manifest_match": true
+    },
+    {
+      "path": "reference/targets/windows-r0-20261012-02/source/src/selection_ui.cpp",
+      "sha256": "6880ed61e5f7aaa31594c1cd0b52ebad36a1a1633ecf5e5cf498201ec595862c",
+      "bytes": 46403,
+      "lines": 880,
+      "manifest_match": true
+    },
+    {
+      "path": "reference/targets/windows-r0-20261012-02/source/src/tools_preferences.cpp",
+      "sha256": "7dcb03c6228aaf6c7383af4170cb6b5335f5b47da80a53439528ca5489617a3b",
+      "bytes": 5303,
+      "lines": 161,
+      "manifest_match": true
+    },
+    {
+      "path": "reference/targets/windows-r0-20261012-02/source/src/tutorial.hpp",
+      "sha256": "f6483dfcc7c1918e595f5a4cc1b4c1b5dd402b0c7598d5a1bf8bb4defd6deeb1",
+      "bytes": 7606,
+      "lines": 153,
+      "manifest_match": true
+    },
+    {
+      "path": "reference/targets/windows-r0-20261012-02/source/src/ui_size.hpp",
+      "sha256": "9b4c1ab5c22db4125a6caf057d5cc2268ae1f5edcee79c45aa2b0741aa7cde72",
+      "bytes": 903,
+      "lines": 26,
+      "manifest_match": true
+    },
+    {
+      "path": "reference/targets/windows-r0-20261012-02/source/src/viewer.cpp",
+      "sha256": "9644da5fdb7a97d0c3fcc6dcd4e80ecab614f67ba04fffc6ca96121a4679086e",
+      "bytes": 45885,
+      "lines": 1087,
+      "manifest_match": true
+    },
+    {
+      "path": "reference/targets/windows-r0-20261012-02/source/src/viewer.hpp",
+      "sha256": "037ee7b9cfe13d4c13266f9394b6126a846741a744a6c4d1bc45c5a22770e444",
+      "bytes": 22071,
+      "lines": 463,
+      "manifest_match": true
+    },
+    {
+      "path": "reference/targets/windows-r0-20261012-02/source/src/viewer_processing.cpp",
+      "sha256": "26930730a03f9d7a5cfbabe8e2e37d6b89a8d7cb5466538a7ac8d4efced0d93c",
+      "bytes": 32363,
+      "lines": 690,
+      "manifest_match": true
+    },
+    {
+      "path": "reference/targets/windows-r0-20261012-02/source/src/viewer_selection.cpp",
+      "sha256": "ee3a4abf3b42222de6a9149663e9ee3a8e5634b614a702cb58dfb39115de7fcc",
+      "bytes": 59776,
+      "lines": 1294,
+      "manifest_match": true
+    },
+    {
+      "path": "reference/targets/windows-r0-20261012-02/source/src/viewport_tools.cpp",
+      "sha256": "88750c02e90319cec5ec103cd5502920f8e0d1de0740e1ac09193518407eb80d",
+      "bytes": 41127,
+      "lines": 894,
+      "manifest_match": true
+    },
+    {
+      "path": "reference/targets/windows-r0-20261012-02/source/src/viewport_tools.hpp",
+      "sha256": "c2c055f677a715048f6d0cf86be70e9bac3376aaed700d498df3e912608004dd",
+      "bytes": 4282,
+      "lines": 94,
+      "manifest_match": true
+    }
+  ],
+  "historicalSourceFiles": [
+    {
+      "path": "reference/windows/src/alignment_ui.cpp",
+      "lines": 44,
+      "sha256": "69ed5e1b033aa69ef2ad077ae214945db9b9c58e9c863c866b14265a916fe684"
+    },
+    {
+      "path": "reference/windows/src/app_ui_settings.cpp",
+      "lines": 196,
+      "sha256": "033b267cdd3e03c92ef63a692b615ddabbac5b398bb1c60532ccf1ee79f45493"
+    },
+    {
+      "path": "reference/windows/src/app_ui_tutorial.cpp",
+      "lines": 188,
+      "sha256": "be68b96b1f0672457360958a8ee898084398b7ef25345266b050b2b1c3fbf7b0"
+    },
+    {
+      "path": "reference/windows/src/camera.cpp",
+      "lines": 157,
+      "sha256": "55ab01db6699d723737ceafc4306df2f0c7922b0c61b886fa98593c0aad7e86b"
+    },
+    {
+      "path": "reference/windows/src/geometry_tools.cpp",
+      "lines": 280,
+      "sha256": "38ca8dea5d1ca518194baccd286ead4423598da7cd732dfab1d4cbc131dd2eb2"
+    },
+    {
+      "path": "reference/windows/src/processing.cpp",
+      "lines": 1231,
+      "sha256": "e5d85b9584111b4e0ddbb62f69acfa291a557b848bf96903539b045636a82140"
+    },
+    {
+      "path": "reference/windows/src/processing_ui.cpp",
+      "lines": 579,
+      "sha256": "6bd0fdf3fbbd1fff4eba2cf95a41bedf47778c39cfa5be6d1e8132e5b21dbc81"
+    },
+    {
+      "path": "reference/windows/src/scene_export_formats.hpp",
+      "lines": 83,
+      "sha256": "e79a17d0f5129b033b99c5f058881cf0e7ad70b06c5552b1694dc54744932262"
+    },
+    {
+      "path": "reference/windows/src/tools_preferences.cpp",
+      "lines": 89,
+      "sha256": "a10070f704b67140784f4d69b8d550373a85bc2b90b08e331811a8bb115a7666"
+    },
+    {
+      "path": "reference/windows/src/tutorial.hpp",
+      "lines": 82,
+      "sha256": "cbfebe67482b685efad29dd362d5766980986ca4e0188af13346814c05be1cce"
+    },
+    {
+      "path": "reference/windows/src/viewer.cpp",
+      "lines": 1359,
+      "sha256": "0c7d10d767542d1e651f8c98f94e0fabf2c40797b8afbda1ceb89db4a363bdf7"
+    },
+    {
+      "path": "reference/windows/src/viewport_tools.cpp",
+      "lines": 1005,
+      "sha256": "c1e5380ed24ab3a7045ef9474b8d61c5b559c99ff7c28baec58c005bc1fe4f0e"
+    },
+    {
+      "path": "reference/windows/src/viewport_tools.hpp",
+      "lines": 99,
+      "sha256": "9468622519739e5d3f991b9c3730b8f8f1cc96fb3d48fadc13e6677563280b4b"
+    }
+  ],
+  "markdownLinks": [
+    {
+      "destination": "current-target-deltas-v1.csv",
+      "allowed": true,
+      "exists": true
+    },
+    {
+      "destination": "../../reference/targets/windows-r0-20261012-02/source",
+      "allowed": true,
+      "exists": true
+    },
+    {
+      "destination": "../../reference/targets/windows-r0-20261012-02/source/CMakeLists.txt",
+      "allowed": true,
+      "exists": true
+    },
+    {
+      "destination": "../../src/ui/App.tsx",
+      "allowed": true,
+      "exists": true
+    },
+    {
+      "destination": "../../src/app/controller.ts",
+      "allowed": true,
+      "exists": true
+    },
+    {
+      "destination": "../../src/app/store.ts",
+      "allowed": true,
+      "exists": true
+    },
+    {
+      "destination": "../../src/document/coreClient.ts",
+      "allowed": true,
+      "exists": true
+    },
+    {
+      "destination": "../../src/document/types.ts",
+      "allowed": true,
+      "exists": true
+    }
+  ],
+  "errors": []
+}

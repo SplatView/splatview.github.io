@@ -1,0 +1,930 @@
+{
+  "schemaVersion": 1,
+  "kind": "bounded-local-public-inventory-hygiene-validation",
+  "status": "passed",
+  "observedAtUtc": "2026-10-15T14:09:02.580013+00:00",
+  "helper": {
+    "path": ".build/hygiene-tests/qualify-01.py",
+    "bytes": 12379,
+    "sha256": "0e9be2e4c84b1e8b2cded0e842d8ad7352b1048f5a7e813c3d68d45ba644cc07"
+  },
+  "baseline": {
+    "path": ".build/hygiene-tests/baseline-01/manifest.json",
+    "bytes": 86567,
+    "sha256": "4924d90d2bb4d8ee53b8f6f0470755aeb5c64e90a1677bc8875024c97b881863"
+  },
+  "predecessor": {
+    "path": "docs/validation/runs/reconciliation-20261015-01/validation.json",
+    "bytes": 393410,
+    "sha256": "0447f98c527340491174cd00b384665ec95a282f333196ccca568d32f2554115"
+  },
+  "before": {
+    "path": ".build/reconciliation-tests/capture-06.json",
+    "bytes": 159455,
+    "sha256": "7a6601d0cc052d82b5144bd2edeea44992209d18e0e8b3ac6fae8d6bef9496f1"
+  },
+  "initial": {
+    "path": ".build/hygiene-tests/capture-01.json",
+    "bytes": 159817,
+    "sha256": "fec9e6dcff13a5449da885a6b5d814996935e4028d33679af01c90930a2e092e"
+  },
+  "closing": {
+    "path": ".build/hygiene-tests/capture-02.json",
+    "bytes": 159989,
+    "sha256": "0f820526d1191b2d6110bbebf7402198709ba7e8abe871d833527cf33d038107"
+  },
+  "descriptor": {
+    "schemaVersion": 1,
+    "protocolVersion": 23,
+    "uiWorkerContract": 19,
+    "native": {
+      "core": {
+        "schemaVersion": 1,
+        "kind": "core",
+        "abi": 17,
+        "variant": "scalar",
+        "mapLayoutVersion": 1,
+        "capabilities": {
+          "atomicCheckpoint": 1,
+          "transactionReceipt": 1,
+          "selectionMap": 1,
+          "volumeSelection": 1,
+          "fillSelection": 1,
+          "connectedColorSelection": 1,
+          "toleranceCheckpoint": 1,
+          "liveSelectionOutcome": 1,
+          "geometryPreview": 1,
+          "sourceHash": 1,
+          "allocationCensus": 1,
+          "selectionMorphology": 1,
+          "absoluteColorSession": 1,
+          "autoColor": 1,
+          "colorBaseStream": 1,
+          "alignment": 4,
+          "groupedSog": 3,
+          "exportSpz4": 1,
+          "selectionFilter": 1,
+          "proTransformSession": 1,
+          "absoluteOpacitySession": 1,
+          "opacityBaseStream": 1
+        },
+        "nativeInputId": "32d70948a68042274a8b2f675a546af22bd3ded1c4efc0618485e3d98debc484"
+      },
+      "camera": {
+        "schemaVersion": 1,
+        "kind": "camera",
+        "abi": 4,
+        "variant": "scalar",
+        "capabilities": {
+          "cameraInput": 1,
+          "cameraTransform": 1,
+          "cameraFrame": 1,
+          "cameraOrientation": 1,
+          "cameraFilterView": 1,
+          "cameraFilterGizmo": 1,
+          "cameraTransformGizmo": 1
+        },
+        "nativeInputId": "32d70948a68042274a8b2f675a546af22bd3ded1c4efc0618485e3d98debc484"
+      }
+    },
+    "appInputId": "579f4c40f2fd1aa1cbe522d9dd11c102f66e32c3b2766a3c711190c2b408dff0"
+  },
+  "deploymentId": "a87b6bf5e9e14cc6d5cdb43ea04c28a4b53ef147067f136ab1c5d66cfde13f5c",
+  "policy": {
+    "implementation": {
+      "path": "tools/web-build.mjs",
+      "bytes": 22309,
+      "sha256": "5d187271add92af0c4a893171168ec725c2757dc4f0765f0ed6fb15dfc735f53"
+    },
+    "inventory": {
+      "path": "tools/public-assets.json",
+      "bytes": 2554,
+      "sha256": "3d417e056172e9bbe287d4447d8d039da47828ab124b2a110700fae91bdb23cb"
+    },
+    "tests": {
+      "path": "tools/web-build.test.mjs",
+      "bytes": 34308,
+      "sha256": "9598b4288c275e3364373a3ada6edc7e565b0c1f2288e7edf8cebb70c2b0be94"
+    },
+    "reviewedPublicFiles": 87
+  },
+  "sourceDelta": {
+    "added": [
+      {
+        "path": "tools/public-assets.json",
+        "bytes": 2554,
+        "sha256": "3d417e056172e9bbe287d4447d8d039da47828ab124b2a110700fae91bdb23cb"
+      }
+    ],
+    "changed": [
+      {
+        "before": {
+          "path": "tools/web-build.mjs",
+          "bytes": 20711,
+          "sha256": "c2510b760ebb94ed4149d4dfb053774f175d50d6c077191e6e6e65204382726e"
+        },
+        "after": {
+          "path": "tools/web-build.mjs",
+          "bytes": 22309,
+          "sha256": "5d187271add92af0c4a893171168ec725c2757dc4f0765f0ed6fb15dfc735f53"
+        }
+      }
+    ],
+    "generated": {
+      "before": {
+        "path": "src/generated/buildIdentity.ts",
+        "bytes": 1731,
+        "sha256": "517903545cf3dac8a482378ac60141c9ba243a8626aabd37392249dec8f109bf"
+      },
+      "after": {
+        "path": "src/generated/buildIdentity.ts",
+        "bytes": 1731,
+        "sha256": "7204c4d6666264894298affc53929356cf8457514abeab3d8546e7358fa18a15"
+      }
+    },
+    "policyTests": {
+      "before": {
+        "path": "tools/web-build.test.mjs",
+        "bytes": 29780,
+        "sha256": "e9c06b47ab3cfceed478a90f22648ea9d255ba90cb1154bc8c082883b634b6ca"
+      },
+      "after": {
+        "path": "tools/web-build.test.mjs",
+        "bytes": 34308,
+        "sha256": "9598b4288c275e3364373a3ada6edc7e565b0c1f2288e7edf8cebb70c2b0be94"
+      }
+    },
+    "runtimeSourcesUnchanged": true,
+    "nativeArtifactsUnchanged": true,
+    "browserAndCpuTestSourcesUnchanged": true
+  },
+  "hygiene": {
+    "runtimeArtifacts": 96,
+    "distributionFiles": 99,
+    "maps": 2,
+    "staleFiles": 0,
+    "compilerIntermediates": [],
+    "viteTemporaries": []
+  },
+  "observations": {
+    "buildPolicy": {
+      "terminal": {
+        "path": "test-results-coherent-startup-hygiene-build-policy-01.command.json",
+        "bytes": 946,
+        "sha256": "1e9ae4c80e3d41bb4d6b30c48317b0381f4442cb5eaaae91a4a9213b5e9992da"
+      },
+      "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+      "arguments": [
+        "--test",
+        "tools/web-build.test.mjs"
+      ],
+      "startedAtUtc": "2026-10-15T14:01:01.5982657Z",
+      "finishedAtUtc": "2026-10-15T14:01:08.4678703Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-hygiene-build-policy-01.log",
+        "bytes": 7072,
+        "sha256": "474f8410681f2c90e161f8b057026214691966c5a44fbc52f5a318ca89d9e39a"
+      },
+      "report": null,
+      "passed": 32,
+      "failed": 0,
+      "skipped": 0
+    },
+    "build": {
+      "terminal": {
+        "path": "test-results-coherent-startup-hygiene-web-build-01.command.json",
+        "bytes": 1008,
+        "sha256": "269143407205cb605ec77600d65d63ae34a50f66a975d0846f08335c0c34431a"
+      },
+      "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+      "arguments": [
+        ".tools/node-v24.21.0-win-x64/node_modules/npm/bin/npm-cli.js",
+        "run",
+        "build"
+      ],
+      "startedAtUtc": "2026-10-15T14:01:21.5581302Z",
+      "finishedAtUtc": "2026-10-15T14:01:29.6577302Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-hygiene-web-build-01.log",
+        "bytes": 6124,
+        "sha256": "2533aeee88c6fb56558239716ed6ee27f51d95b2ad62e2f9f3ecbb3c4d1274b9"
+      },
+      "report": null
+    },
+    "production": {
+      "terminal": {
+        "path": "test-results-coherent-startup-hygiene-production-01.command.json",
+        "bytes": 1620,
+        "sha256": "a4b8b38c8d54539a8943547ca5d283f0451c64ddd3f7c891f71c426e012516e5"
+      },
+      "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+      "arguments": [
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "--config=playwright.compat.config.ts",
+        "--reporter=json",
+        "--output=test-results-hygiene-production-01"
+      ],
+      "startedAtUtc": "2026-10-15T14:02:15.5304406Z",
+      "finishedAtUtc": "2026-10-15T14:05:31.6566901Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-hygiene-production-01.log",
+        "bytes": 26472,
+        "sha256": "ecc5d75498874111cfe9c2e60949ef27d1d32e36bfca8743392ca33c7c34b639"
+      },
+      "report": {
+        "path": "test-results-hygiene-production-01.json",
+        "bytes": 765091,
+        "sha256": "3010c021417a0caaadeabcd20cba9f124cf03ffd2f733620a69218c02e72fdac"
+      },
+      "passed": 90,
+      "files": 4,
+      "failed": 0,
+      "skipped": 0,
+      "retries": 0,
+      "flaky": 0,
+      "cases": [
+        {
+          "id": "5f9fe70e32bf36c1c210-ea9ebc63a9379fb73935",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped entry opens, selects, edits, retains isolated Redo and exports real native bytes",
+          "line": 185,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-daf02f25895672de5d0a",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped Settings tabs and Font size preserve native edits and Redo while owning keyboard focus",
+          "line": 194,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-ec3c76c1dc81ece2f66a",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped eight-theme selector previews, persists and follows System without document operations or losing native Redo",
+          "line": 258,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-f124f0662dd3aa6506ef",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped language preview and all eight catalogs preserve the edited native scene and executable Redo",
+          "line": 288,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-b33608887ce5fc577f8e",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped viewport guides cycle without worker operations or changing exact edited native bytes and Redo",
+          "line": 314,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-647dd9feb2cc8a56467f",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped Help tutorial replays over an edited native scene without touching worker history or export bytes",
+          "line": 341,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-b69421b9406c47f96256",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "same production entry and native workers operate under a GitHub Pages project subpath",
+          "line": 376,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-e9965deb79f69810bfcd",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped entry refuses application-input mismatch before creating a worker",
+          "line": 392,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-f6da6c06a1ccb4fbe02b",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped entry refuses protocol mismatch before creating a worker",
+          "line": 392,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-207dbe48d38c17a21682",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped entry refuses ui-worker-contract mismatch before creating a worker",
+          "line": 392,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-bc6ba12f9be0c20bc27d",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped entry refuses native-input mismatch before creating a worker",
+          "line": 392,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-d0179bccccc9b22d974d",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped entry refuses native-semantics mismatch before creating a worker",
+          "line": 392,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-2688782618902467fb5b",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped entry refuses missing-native-capability mismatch before creating a worker",
+          "line": 392,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-8fe1a9e79a02d44447f8",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped entry refuses camera-input mismatch before creating a worker",
+          "line": 392,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-958aace90282fe6e9318",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped entry refuses camera-semantics mismatch before creating a worker",
+          "line": 392,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-189878a6ce048911c7d6",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped entry refuses map-layout mismatch before creating a worker",
+          "line": 392,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-4812863638723c2cd190",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped entry refuses native-variant mismatch before creating a worker",
+          "line": 392,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-074087b4985a68d614d3",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped entry refuses manifest missing-worker before creating a worker",
+          "line": 414,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-a6082cbde16d35b1abcd",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped entry refuses manifest duplicate-role before creating a worker",
+          "line": 414,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-ca98c5e006bf61eb41f4",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped entry refuses manifest duplicate-url before creating a worker",
+          "line": 414,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-adf14d4a75e96336f235",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped entry refuses manifest foreign-url before creating a worker",
+          "line": 414,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-26ccd977a2bfc7675ca6",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped entry refuses manifest escaping-path before creating a worker",
+          "line": 414,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-155e9cd7099e391e11e8",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped entry refuses manifest encoded-path before creating a worker",
+          "line": 414,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-a81b3efb187b7c916534",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped entry refuses manifest query-path before creating a worker",
+          "line": 414,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-22549f4b69c7d78f2e13",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped entry refuses manifest fragment-path before creating a worker",
+          "line": 414,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-32b1fc1e3a4fd0bf0afd",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped entry refuses manifest wrong-entry before creating a worker",
+          "line": 414,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-b0cb71e797406c31e464",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped entry refuses manifest wrong-deployment-id before creating a worker",
+          "line": 414,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-ac763a45133a874e68f5",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped entry refuses tampered document-worker bytes before creating a worker",
+          "line": 438,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-19357cd34ecb8e75df42",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped entry refuses truncated document-worker bytes before creating a worker",
+          "line": 438,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-71135720ef4d8b5498e4",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped entry refuses tampered core-glue bytes before creating a worker",
+          "line": 438,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-7f0ac581a5b0ddcc2c8d",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped entry refuses truncated core-glue bytes before creating a worker",
+          "line": 438,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-86f7cf1c420785a3984f",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped entry refuses tampered core-wasm bytes before creating a worker",
+          "line": 438,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-ca3c6869a945d4ae3299",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped entry refuses truncated core-wasm bytes before creating a worker",
+          "line": 438,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-30a3e135255ed91a0fa5",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped entry refuses tampered camera-glue bytes before creating a worker",
+          "line": 438,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-24698f0ac3bf0828a18b",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped entry refuses truncated camera-glue bytes before creating a worker",
+          "line": 438,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-514e81725038b2974851",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped entry refuses tampered camera-wasm bytes before creating a worker",
+          "line": 438,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-ac57aa4f61f9e8ba2c40",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped entry refuses truncated camera-wasm bytes before creating a worker",
+          "line": 438,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-1d7d8cc4c12e002a8ee4",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "real legacy core passes exact-byte hashes and is refused by its older ABI",
+          "line": 450,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-09eb48cab95181f9e119",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "real legacy camera passes exact-byte hashes and is refused by its older ABI",
+          "line": 450,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-516e21a92cf344afe38f",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "real sealed core13 groupedSog1 proves an isolated cap3 refusal and shipped ABI17 refusal despite exact hashes",
+          "line": 467,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-81bf994997012e3958a4",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "verified production points PLY streams real geometry and keeps desktop view-only controls",
+          "line": 547,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-a2b871c7522950a20bea",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "verified production mesh PLY streams real geometry and keeps desktop view-only controls",
+          "line": 547,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-6634ba2f8974e3ba16b9",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "actual production worker refuses source-load before initialize",
+          "line": 592,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-dd0e23a2e61de6703009",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "actual production worker refuses source-range before initialize",
+          "line": 592,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-351520e4bbb4f3fec888",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "actual production worker refuses command before initialize",
+          "line": 592,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-bbbcdc9dceef348149ad",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "actual production worker refuses live-preview before initialize",
+          "line": 592,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-0e26568924b4c95e764d",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "actual production worker refuses geometry-stream before initialize",
+          "line": 592,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-18f8de7f87a14bac507e",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "actual production worker refuses stream before initialize",
+          "line": 592,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-70861cbe8673507c5499",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "actual production worker refuses masks before initialize",
+          "line": 592,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-95b621323e6de6f6de3a",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "actual production worker refuses export before initialize",
+          "line": 592,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-3bf0779435ebf35b99be",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "actual production worker refuses selection-map before initialize",
+          "line": 592,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-4f37e4151503479e63ad",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "actual production worker refuses ack before initialize",
+          "line": 592,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-d5b11074f93a83ce6447",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "actual production worker refuses cancel before initialize",
+          "line": 592,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-7df0d799b09bd8ff1e47",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "actual production worker refuses map-chunk before initialize",
+          "line": 592,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-f8ce922531b0b4ca5841",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "actual production worker refuses map-commit before initialize",
+          "line": 592,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-84ddf15e6b404169b5c2",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "actual production worker refuses duplicate initialization and oversized input, then loads a supported file",
+          "line": 620,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-f0994c6a6ec6e8ae79dc",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "a real candidate ready mismatch retains the edited active scene, exact bytes and isolated Redo",
+          "line": 721,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-31fb6b5de5f9c511fe84",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "Cancel while a real candidate ready is held retires its worker and preserves the edited active scene",
+          "line": 737,
+          "project": ""
+        },
+        {
+          "id": "5f9fe70e32bf36c1c210-ccc505583abdf197b196",
+          "file": "tests/production/build-compat.spec.ts",
+          "title": "shipped Save traps and restores focus while UI and modal shortcuts preserve native edits and executable Redo",
+          "line": 757,
+          "project": ""
+        },
+        {
+          "id": "1a878a7a893be77ce52d-b219ef9a1044cd0f1c29",
+          "file": "tests/production/coherent-builds.spec.ts",
+          "title": "genuine coherent A opens, edits, Undo/Redo and exports at /",
+          "line": 21,
+          "project": ""
+        },
+        {
+          "id": "1a878a7a893be77ce52d-2c602998e62f909c1ef3",
+          "file": "tests/production/coherent-builds.spec.ts",
+          "title": "genuine coherent A opens, edits, Undo/Redo and exports at /project/",
+          "line": 21,
+          "project": ""
+        },
+        {
+          "id": "1a878a7a893be77ce52d-7eec11d778b671e2bc92",
+          "file": "tests/production/coherent-builds.spec.ts",
+          "title": "genuine coherent B opens, edits, Undo/Redo and exports at /",
+          "line": 21,
+          "project": ""
+        },
+        {
+          "id": "1a878a7a893be77ce52d-f901fea81297f2f216d2",
+          "file": "tests/production/coherent-builds.spec.ts",
+          "title": "genuine coherent B opens, edits, Undo/Redo and exports at /project/",
+          "line": 21,
+          "project": ""
+        },
+        {
+          "id": "1a878a7a893be77ce52d-e9e6b7bda85d30b4664b",
+          "file": "tests/production/coherent-builds.spec.ts",
+          "title": "genuine coherent C opens, edits, Undo/Redo and exports at /",
+          "line": 21,
+          "project": ""
+        },
+        {
+          "id": "1a878a7a893be77ce52d-d43c31e67e2fd8d66e0f",
+          "file": "tests/production/coherent-builds.spec.ts",
+          "title": "genuine coherent C opens, edits, Undo/Redo and exports at /project/",
+          "line": 21,
+          "project": ""
+        },
+        {
+          "id": "1a878a7a893be77ce52d-66dcb69792890004150f",
+          "file": "tests/production/coherent-builds.spec.ts",
+          "title": "actual cached A entry refuses genuine B deployment before worker/camera creation",
+          "line": 45,
+          "project": ""
+        },
+        {
+          "id": "1a878a7a893be77ce52d-605d0b0634ce8bbf7dd5",
+          "file": "tests/production/coherent-builds.spec.ts",
+          "title": "actual cached B entry refuses genuine A deployment before worker/camera creation",
+          "line": 45,
+          "project": ""
+        },
+        {
+          "id": "1a878a7a893be77ce52d-b541d6d8b30f6b1d6160",
+          "file": "tests/production/coherent-builds.spec.ts",
+          "title": "actual cached A entry refuses genuine C deployment before worker/camera creation",
+          "line": 45,
+          "project": ""
+        },
+        {
+          "id": "1a878a7a893be77ce52d-f87033bf5ba1cbd7c641",
+          "file": "tests/production/coherent-builds.spec.ts",
+          "title": "actual cached C entry refuses genuine A deployment before worker/camera creation",
+          "line": 45,
+          "project": ""
+        },
+        {
+          "id": "1a878a7a893be77ce52d-dccbf3cb99a1e7bffaac",
+          "file": "tests/production/coherent-builds.spec.ts",
+          "title": "mixed actual B document-worker in A reaches compiled identity refusal after matching digests",
+          "line": 61,
+          "project": ""
+        },
+        {
+          "id": "1a878a7a893be77ce52d-59596195482c26bd4343",
+          "file": "tests/production/coherent-builds.spec.ts",
+          "title": "mixed actual B core in A reaches compiled identity refusal after matching digests",
+          "line": 61,
+          "project": ""
+        },
+        {
+          "id": "1a878a7a893be77ce52d-00a7ba8af6ad1963b1c5",
+          "file": "tests/production/coherent-builds.spec.ts",
+          "title": "mixed actual B camera in A reaches compiled identity refusal after matching digests",
+          "line": 61,
+          "project": ""
+        },
+        {
+          "id": "1a878a7a893be77ce52d-7e2e18ec108f3c3a6ffc",
+          "file": "tests/production/coherent-builds.spec.ts",
+          "title": "mixed actual A document-worker in B reaches compiled identity refusal after matching digests",
+          "line": 61,
+          "project": ""
+        },
+        {
+          "id": "1a878a7a893be77ce52d-1729b4ab2b1272351923",
+          "file": "tests/production/coherent-builds.spec.ts",
+          "title": "mixed actual A core in B reaches compiled identity refusal after matching digests",
+          "line": 61,
+          "project": ""
+        },
+        {
+          "id": "1a878a7a893be77ce52d-dc6e656f953d1ea3806a",
+          "file": "tests/production/coherent-builds.spec.ts",
+          "title": "mixed actual A camera in B reaches compiled identity refusal after matching digests",
+          "line": 61,
+          "project": ""
+        },
+        {
+          "id": "1a878a7a893be77ce52d-54d4127d8d2057b7dea2",
+          "file": "tests/production/coherent-builds.spec.ts",
+          "title": "edited A tab remains on genuine pinned A after the host offers B, including canceled candidate and late actual ready",
+          "line": 84,
+          "project": ""
+        },
+        {
+          "id": "6e9c3f2f0de953aef8d2-db0e549a520d54fe4400",
+          "file": "tests/production/initialization-faults.spec.ts",
+          "title": "production core wasm-compile fails after matching-byte verification and retires startup ownership",
+          "line": 12,
+          "project": ""
+        },
+        {
+          "id": "6e9c3f2f0de953aef8d2-21bb194ee81490aef308",
+          "file": "tests/production/initialization-faults.spec.ts",
+          "title": "production core glue-import fails after matching-byte verification and retires startup ownership",
+          "line": 12,
+          "project": ""
+        },
+        {
+          "id": "6e9c3f2f0de953aef8d2-666b79c51bac7df4c3f3",
+          "file": "tests/production/initialization-faults.spec.ts",
+          "title": "production core missing-factory fails after matching-byte verification and retires startup ownership",
+          "line": 12,
+          "project": ""
+        },
+        {
+          "id": "6e9c3f2f0de953aef8d2-0393099b37f9f88498df",
+          "file": "tests/production/initialization-faults.spec.ts",
+          "title": "production core factory-rejection fails after matching-byte verification and retires startup ownership",
+          "line": 12,
+          "project": ""
+        },
+        {
+          "id": "6e9c3f2f0de953aef8d2-9c5e5d1c3b02ddcef17d",
+          "file": "tests/production/initialization-faults.spec.ts",
+          "title": "production camera wasm-compile fails after matching-byte verification and retires startup ownership",
+          "line": 12,
+          "project": ""
+        },
+        {
+          "id": "6e9c3f2f0de953aef8d2-d9794cd559b13324bf77",
+          "file": "tests/production/initialization-faults.spec.ts",
+          "title": "production camera glue-import fails after matching-byte verification and retires startup ownership",
+          "line": 12,
+          "project": ""
+        },
+        {
+          "id": "6e9c3f2f0de953aef8d2-4390dcfc75e349a2f8e8",
+          "file": "tests/production/initialization-faults.spec.ts",
+          "title": "production camera missing-factory fails after matching-byte verification and retires startup ownership",
+          "line": 12,
+          "project": ""
+        },
+        {
+          "id": "6e9c3f2f0de953aef8d2-3d3293444e67f069b14a",
+          "file": "tests/production/initialization-faults.spec.ts",
+          "title": "production camera factory-rejection fails after matching-byte verification and retires startup ownership",
+          "line": 12,
+          "project": ""
+        },
+        {
+          "id": "6e9c3f2f0de953aef8d2-77432b8115d3a66f0b38",
+          "file": "tests/production/initialization-faults.spec.ts",
+          "title": "candidate genuine-factory rejection retains exact edited bytes, masks, revisions, source and isolated Redo",
+          "line": 46,
+          "project": ""
+        },
+        {
+          "id": "6e9c3f2f0de953aef8d2-fde6bebcd1b4d5c373bd",
+          "file": "tests/production/initialization-faults.spec.ts",
+          "title": "real 45-second candidate bootstrap bound retires a hung genuine factory and preserves the edited document",
+          "line": 58,
+          "project": ""
+        },
+        {
+          "id": "6e9c3f2f0de953aef8d2-b8b7d01fe7f1027e72f5",
+          "file": "tests/production/initialization-faults.spec.ts",
+          "title": "Cancel disposes a candidate while its genuine factory is hung and keeps prior edits usable",
+          "line": 72,
+          "project": ""
+        },
+        {
+          "id": "6e9c3f2f0de953aef8d2-557d20c5291807d9e4ee",
+          "file": "tests/production/initialization-faults.spec.ts",
+          "title": "a superseded held actual candidate cannot replace the edited scene after its successor fails initialization",
+          "line": 81,
+          "project": ""
+        },
+        {
+          "id": "6e9c3f2f0de953aef8d2-f614d9cf8c4033d35814",
+          "file": "tests/production/initialization-faults.spec.ts",
+          "title": "changing server responses cannot cause a second native or worker executable fetch during repeated open, edit and export",
+          "line": 103,
+          "project": ""
+        },
+        {
+          "id": "e3a1181bd00640addebc-ea6517e7b79e34dec2d3",
+          "file": "tests/production/interactions.spec.ts",
+          "title": "shipped hover menus, browser wheel admission and T saved view preserve executable native Redo",
+          "line": 4,
+          "project": ""
+        }
+      ]
+    }
+  },
+  "supersededAssets": {
+    "files": [
+      {
+        "path": "dist/assets/document.worker-DPbLrqcM.js",
+        "bytes": 121747,
+        "sha256": "337147abbbb6e995b0e4b5cbc758a5dc873324149cb5ea32b6baa48ea7942753"
+      },
+      {
+        "path": "dist/assets/document.worker-DPbLrqcM.js.map",
+        "bytes": 522869,
+        "sha256": "90812f0679ce7022e7e9d73a0d4ebfcfd90435d9233bbc71916c8ae36c71daa9"
+      },
+      {
+        "path": "dist/assets/index-BY7_NOYt.js",
+        "bytes": 1376110,
+        "sha256": "aca1746b17c9111a390859f04bb518008e2fe0545aff37d9e225313a3e7cd175"
+      },
+      {
+        "path": "dist/assets/index-BY7_NOYt.js.map",
+        "bytes": 3345237,
+        "sha256": "93a74461b2ce08e8f28e56d45a0e60696a2e816e8bda9503ca12b57aeee97615"
+      }
+    ],
+    "count": 4,
+    "bytes": 5365963,
+    "absent": true,
+    "preservedOutsideDeployment": true
+  },
+  "closure": {
+    "path": ".build/hygiene-tests/services-closed-01.json",
+    "bytes": 705,
+    "sha256": "0f5d77499472499f8ff267bcf6c957e545e9bb5c2c1e8ee7161d10c35306891c"
+  },
+  "historicalAcceptance": {
+    "evidence": {
+      "path": "docs/validation/runs/reconciliation-20261015-01/validation.json",
+      "bytes": 393410,
+      "sha256": "0447f98c527340491174cd00b384665ec95a282f333196ccca568d32f2554115"
+    },
+    "appInputId": "bb88f680ed1bdc2d1d85e7fd11b901843030146b20057188bce68b3467d476f7",
+    "deploymentId": "30cac01fd31920361751f56be5d56dc8e5323f3000fc99fba55335d0ee6d3114",
+    "scope": "The predecessor remains historical evidence for its own source/build state; its CPU, native and workflow counts are not fresh acceptance for this packet."
+  },
+  "scope": "Bounded local public asset membership and clean production output. Fresh 32 build-policy cases, source/native verification, both TypeScript checks, production build and 90 production browser cases/4 files. Runtime source, native artifacts and browser/CPU test sources remain bytewise unchanged. No fresh CPU/native-main, full workflow, deployed-host, offline/update, capacity/performance or Mac/Safari qualification is claimed."
+}

@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "status": "Generated from the verified native capture.",
+  "ownership": {
+    "copyright": "Copyright (c) 2026 OpsiClear LLC. All rights reserved.",
+    "license": "LicenseRef-OpsiClear-Proprietary",
+    "notice": "Contains proprietary SplatView native translations owned by OpsiClear LLC. No MIT license or additional redistribution permission is granted by generation.",
+    "licenseFile": "/licenses/SplatView-translations.txt",
+    "licenseRepositoryPath": "public/licenses/SplatView-translations.txt",
+    "sourceLicensePath": "reference/targets/windows-r0-20261012-02/source/LICENSE",
+    "sourceLicenseSha256": "ff39f450fd56ce98a7da38c5981e2f4661c55cdd404b6294eace5e805f9fc132"
+  },
+  "source": {
+    "captureId": "cc71f0df-8f38-4900-8aff-5c9ee0d6814c",
+    "capturePath": "reference/targets/windows-r0-20261012-02",
+    "capturedUtc": "2026-10-12T14:58:30.444801+00:00",
+    "manifestSha256": "0156c58d345ecf633d57a0ff339c8c07a270efb0575e6158e49d7d0840678fe4",
+    "tablePath": "source/src/translations.inc",
+    "tableSha256": "cc87e6c8e130805f1edca9e96eb4c83c943116dd151234eda60912ddcb15940a"
+  },
+  "verifiedInputs": [
+    {
+      "path": "src/translations.inc",
+      "bytes": 195483,
+      "sha256": "cc87e6c8e130805f1edca9e96eb4c83c943116dd151234eda60912ddcb15940a"
+    },
+    {
+      "path": "src/language.cpp",
+      "bytes": 8284,
+      "sha256": "19080c18f43393d66100e9a6294c238ddced911975f85a9b2d43d1e54c8c3d2f"
+    },
+    {
+      "path": "src/language.hpp",
+      "bytes": 2233,
+      "sha256": "968dafa3bf92dfe3cc7f8e793154ba453c41ae84ba664be0822b50b587f02018"
+    },
+    {
+      "path": "tests/language_contracts.cpp",
+      "bytes": 8374,
+      "sha256": "c7b4b25fca4df39a8fc1501604b898fa133fc84dfe76ade40d503d9f2fb23344"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1265,
+      "sha256": "ff39f450fd56ce98a7da38c5981e2f4661c55cdd404b6294eace5e805f9fc132"
+    }
+  ],
+  "contracts": {
+    "lookup": "Exact decoded English source key; case sensitive; unknown-key behavior belongs to runtime.",
+    "columnOrder": [
+      "en",
+      "es",
+      "fr",
+      "de",
+      "pt",
+      "zh-Hans",
+      "ja",
+      "ko"
+    ],
+    "system": "Preference only; no system catalog, resolve to one of the eight locales at runtime.",
+    "printf": "Exact ordered native-regex specifiers, including flags, width, precision, length and %%.",
+    "newlines": "Decoded LF characters preserve every cell verbatim; newline run lengths/order match English.",
+    "unicode": "Strict UTF-8, no unpaired surrogates, BMP-only native font-atlas range.",
+    "strings": "No trimming, case folding, normalization, browser wording, plurals or RTL additions."
+  },
+  "census": {
+    "keyCount": 592,
+    "catalogCount": 8,
+    "translationCellCount": 4736,
+    "languageOptionCount": 9,
+    "formatBearingKeyCount": 11,
+    "multilineKeyCount": 24,
+    "newlineCountPerCatalog": 39,
+    "totalNewlineCount": 312
+  },
+  "formatBearingKeys": [
+    "%u filters",
+    "%u enabled",
+    "%zu points",
+    "%s/%s splats | SH%u",
+    "%.1f%% inliers | RMS %.4g",
+    "%zu / %zu points",
+    "Distance %.5g %s",
+    "Target %.5g",
+    "%s | Confirm or pick again | Click outside or Esc to cancel",
+    "%s | %zu/%zu points | Click highlighted point | Backspace undo | Esc cancel | MMB orbit",
+    "Tutorial %u / %u"
+  ],
+  "multilineKeys": [
+    "Contact radius (σ)\n0.5 to 10, in 0.5 steps. Higher values include more neighbors.\nClick to reset to 1 sigma. Changes apply on the next Grow or Shrink.",
+    "Grow selection\nAdd one layer of touching splats in 3D",
+    "Shrink selection\nRemove selected splats touching unselected splats",
+    "Connected colors\nOff: match across the scene\nOn: match only the connected region in the current view",
+    "Color picker (Ctrl+E)\nClick a splat to select connected matching colors in the current view",
+    "Color picker (Ctrl+E)\nClick a splat to select similar colors across the scene",
+    "Fill select (Ctrl+G)\nClick a patch to select its connected area in the current view",
+    "Visible only (N)\nBrush and fill tools\nOff: select through all depths\nOn: select splats contributing to the rendered surface",
+    "Live selection\nSingle splat, brush, rectangle and polygon tools\nOff: update when finished\nOn: preview while drawing",
+    "Brush select (B)\nSelect while painting\nAlt + scroll to change size",
+    "Look (V for Orbit)\nWASD move, Q/E down/up\nShift faster, Alt slower",
+    "Orbit (V for Look)\nArrow keys turn; WASD enters Look",
+    "Single splat select\nPick the strongest contributor at the clicked pixel",
+    "Brush select (B)\nPaint, then release to select\nAlt + scroll to change size",
+    "Volume brush (Shift+B)\nPaint a sphere along the rendered surface\nAlt + scroll to change size",
+    "Polygon select (P)\nClick points or drag a contour",
+    "Box select (X)\nDrag a rectangle",
+    "Visible only (N)\nBrush tools only\nOff: select through all depths\nOn: select splats contributing to the rendered surface",
+    "Include splat edges (M)\nArea tools only\nOff: select by center\nOn: include splats whose edges touch the selection",
+    "Pick three points to align their plane to the current up direction\nRotation preserves their centroid",
+    "Snap: move 0.1 units, rotate 15 degrees, scale 0.1\nHold Ctrl to snap temporarily",
+    "Scene units are arbitrary until calibrated with 2-point scale\nPhysical units treat one scene unit as one meter",
+    "Brush select (B)\nPaint visible splats; include touched edges\nAlt + scroll to change size",
+    "Box select (X)\nSelect splat centers through the scene"
+  ],
+  "outputs": [
+    {
+      "path": "src/generated/native-translations.json",
+      "bytes": 388671,
+      "sha256": "221f81bd84515616d20d1743d39b4762be0e361cfaab54d14397fdc9b8dc50c2"
+    },
+    {
+      "path": "public/licenses/SplatView-translations.txt",
+      "bytes": 1265,
+      "sha256": "ff39f450fd56ce98a7da38c5981e2f4661c55cdd404b6294eace5e805f9fc132"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+﻿{
+    "schemaVersion":  1,
+    "kind":  "observed-local-command-terminal",
+    "workingDirectory":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+    "executable":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\npm.cmd",
+    "arguments":  [
+                      "run",
+                      "build"
+                  ],
+    "startedAtUtc":  "2026-10-12T19:29:23.5951992Z",
+    "finishedAtUtc":  "2026-10-12T19:29:30.2275902Z",
+    "exitCode":  0,
+    "exception":  null,
+    "log":  {
+                "path":  "test-results-coherent-startup-json-cleanup-web-build-01.log",
+                "bytes":  5724,
+                "sha256":  "a781e3215687d3ffc56935ed820d5c4b438a57dc9f169da536b3f7f61ae86d21"
+            },
+    "report":  null,
+    "browserOutputDirectory":  "",
+    "lastRun":  null
+}

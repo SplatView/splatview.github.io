@@ -1,0 +1,453 @@
+{
+  "schemaVersion": 1,
+  "scheme": "splatview-source-v1",
+  "declaredOrder": [
+    {
+      "group": "means",
+      "index": 0,
+      "reference": "positions-low.webp",
+      "decoded": true
+    },
+    {
+      "group": "means",
+      "index": 1,
+      "reference": "positions-high.webp",
+      "decoded": true
+    },
+    {
+      "group": "means",
+      "index": 2,
+      "reference": "declared-extra.bin",
+      "decoded": false
+    },
+    {
+      "group": "scales",
+      "index": 0,
+      "reference": "appearance.webp",
+      "decoded": true
+    },
+    {
+      "group": "quats",
+      "index": 0,
+      "reference": "rotations.webp",
+      "decoded": true
+    },
+    {
+      "group": "sh0",
+      "index": 0,
+      "reference": "appearance.webp",
+      "decoded": true
+    },
+    {
+      "group": "shN",
+      "index": 0,
+      "reference": "centroids.webp",
+      "decoded": true
+    },
+    {
+      "group": "shN",
+      "index": 1,
+      "reference": "labels.webp",
+      "decoded": true
+    },
+    {
+      "group": "shN",
+      "index": 2,
+      "reference": "declared-extra.bin",
+      "decoded": false
+    }
+  ],
+  "expectedDecodedCalls": [
+    "positions-low.webp",
+    "positions-high.webp",
+    "appearance.webp",
+    "rotations.webp",
+    "appearance.webp",
+    "centroids.webp",
+    "labels.webp"
+  ],
+  "vectors": [
+    {
+      "name": "original-complete-group",
+      "scheme": "splatview-source-v1",
+      "kind": "group",
+      "resourceCount": 8,
+      "totalBytes": 1709,
+      "canonicalByteLength": 502,
+      "canonicalHex": "53706c617456696577536f75726365007631000100000008000000000f617070656172616e63652e7765627000000000000000385fd3a41900844fc9eab819d0bc5dff97114c5f50d3f45c3cbf34335e581535c6000000000e63656e74726f6964732e77656270000000000000007ed4b5abd4bad4f7d96a4844363e6030687917124df605c6812ab9a721d7ffd84600000000126465636c617265642d65787472612e62696e000000000000002866551ca49ff652b17e9f0945d4ac7f57b1ce161a60fef5857aec5d80b5a35ac2000000000b6c6162656c732e7765627000000000000000326166e18707c310b9a659f7a4fe8dc6f2bfb7ee376c9da6e5622569ac25ec723401000000096d6574612e6a736f6e0000000000000501e2bc59c5ad04fcefcf9114d8e6472276673cfc173adcfeadb91345a70d3dfaa50000000013706f736974696f6e732d686967682e776562700000000000000032fec47c8c33092f90ec525df5b82cb83846bb656c30ec32a4548ce442603b56d30000000012706f736974696f6e732d6c6f772e7765627000000000000000306503abb6f705b662ee8c000004a74536261f2f71c53ff9a5c884140c22bfb1dd000000000e726f746174696f6e732e77656270000000000000003a7108a24a5ddeef7b2dbb50ca4acd9078e3db9bddfdd84b59e955d41ed34e2d68",
+      "assetDigest": "d2d91adec5613581b4fbbd2139342eb2651a166629b876ba12ebc1ccdce5a6b7",
+      "resources": [
+        {
+          "path": "appearance.webp",
+          "role": "referenced",
+          "byteLength": 56,
+          "sha256": "5fd3a41900844fc9eab819d0bc5dff97114c5f50d3f45c3cbf34335e581535c6"
+        },
+        {
+          "path": "centroids.webp",
+          "role": "referenced",
+          "byteLength": 126,
+          "sha256": "d4b5abd4bad4f7d96a4844363e6030687917124df605c6812ab9a721d7ffd846"
+        },
+        {
+          "path": "declared-extra.bin",
+          "role": "referenced",
+          "byteLength": 40,
+          "sha256": "66551ca49ff652b17e9f0945d4ac7f57b1ce161a60fef5857aec5d80b5a35ac2"
+        },
+        {
+          "path": "labels.webp",
+          "role": "referenced",
+          "byteLength": 50,
+          "sha256": "6166e18707c310b9a659f7a4fe8dc6f2bfb7ee376c9da6e5622569ac25ec7234"
+        },
+        {
+          "path": "meta.json",
+          "role": "primary",
+          "byteLength": 1281,
+          "sha256": "e2bc59c5ad04fcefcf9114d8e6472276673cfc173adcfeadb91345a70d3dfaa5"
+        },
+        {
+          "path": "positions-high.webp",
+          "role": "referenced",
+          "byteLength": 50,
+          "sha256": "fec47c8c33092f90ec525df5b82cb83846bb656c30ec32a4548ce442603b56d3"
+        },
+        {
+          "path": "positions-low.webp",
+          "role": "referenced",
+          "byteLength": 48,
+          "sha256": "6503abb6f705b662ee8c000004a74536261f2f71c53ff9a5c884140c22bfb1dd"
+        },
+        {
+          "path": "rotations.webp",
+          "role": "referenced",
+          "byteLength": 58,
+          "sha256": "7108a24a5ddeef7b2dbb50ca4acd9078e3db9bddfdd84b59e955d41ed34e2d68"
+        }
+      ]
+    },
+    {
+      "name": "reversed-acquisition-order",
+      "scheme": "splatview-source-v1",
+      "kind": "group",
+      "resourceCount": 8,
+      "totalBytes": 1709,
+      "canonicalByteLength": 502,
+      "canonicalHex": "53706c617456696577536f75726365007631000100000008000000000f617070656172616e63652e7765627000000000000000385fd3a41900844fc9eab819d0bc5dff97114c5f50d3f45c3cbf34335e581535c6000000000e63656e74726f6964732e77656270000000000000007ed4b5abd4bad4f7d96a4844363e6030687917124df605c6812ab9a721d7ffd84600000000126465636c617265642d65787472612e62696e000000000000002866551ca49ff652b17e9f0945d4ac7f57b1ce161a60fef5857aec5d80b5a35ac2000000000b6c6162656c732e7765627000000000000000326166e18707c310b9a659f7a4fe8dc6f2bfb7ee376c9da6e5622569ac25ec723401000000096d6574612e6a736f6e0000000000000501e2bc59c5ad04fcefcf9114d8e6472276673cfc173adcfeadb91345a70d3dfaa50000000013706f736974696f6e732d686967682e776562700000000000000032fec47c8c33092f90ec525df5b82cb83846bb656c30ec32a4548ce442603b56d30000000012706f736974696f6e732d6c6f772e7765627000000000000000306503abb6f705b662ee8c000004a74536261f2f71c53ff9a5c884140c22bfb1dd000000000e726f746174696f6e732e77656270000000000000003a7108a24a5ddeef7b2dbb50ca4acd9078e3db9bddfdd84b59e955d41ed34e2d68",
+      "assetDigest": "d2d91adec5613581b4fbbd2139342eb2651a166629b876ba12ebc1ccdce5a6b7",
+      "resources": [
+        {
+          "path": "appearance.webp",
+          "role": "referenced",
+          "byteLength": 56,
+          "sha256": "5fd3a41900844fc9eab819d0bc5dff97114c5f50d3f45c3cbf34335e581535c6"
+        },
+        {
+          "path": "centroids.webp",
+          "role": "referenced",
+          "byteLength": 126,
+          "sha256": "d4b5abd4bad4f7d96a4844363e6030687917124df605c6812ab9a721d7ffd846"
+        },
+        {
+          "path": "declared-extra.bin",
+          "role": "referenced",
+          "byteLength": 40,
+          "sha256": "66551ca49ff652b17e9f0945d4ac7f57b1ce161a60fef5857aec5d80b5a35ac2"
+        },
+        {
+          "path": "labels.webp",
+          "role": "referenced",
+          "byteLength": 50,
+          "sha256": "6166e18707c310b9a659f7a4fe8dc6f2bfb7ee376c9da6e5622569ac25ec7234"
+        },
+        {
+          "path": "meta.json",
+          "role": "primary",
+          "byteLength": 1281,
+          "sha256": "e2bc59c5ad04fcefcf9114d8e6472276673cfc173adcfeadb91345a70d3dfaa5"
+        },
+        {
+          "path": "positions-high.webp",
+          "role": "referenced",
+          "byteLength": 50,
+          "sha256": "fec47c8c33092f90ec525df5b82cb83846bb656c30ec32a4548ce442603b56d3"
+        },
+        {
+          "path": "positions-low.webp",
+          "role": "referenced",
+          "byteLength": 48,
+          "sha256": "6503abb6f705b662ee8c000004a74536261f2f71c53ff9a5c884140c22bfb1dd"
+        },
+        {
+          "path": "rotations.webp",
+          "role": "referenced",
+          "byteLength": 58,
+          "sha256": "7108a24a5ddeef7b2dbb50ca4acd9078e3db9bddfdd84b59e955d41ed34e2d68"
+        }
+      ]
+    },
+    {
+      "name": "unrelated-neighbor-mutated",
+      "scheme": "splatview-source-v1",
+      "kind": "group",
+      "resourceCount": 8,
+      "totalBytes": 1709,
+      "canonicalByteLength": 502,
+      "canonicalHex": "53706c617456696577536f75726365007631000100000008000000000f617070656172616e63652e7765627000000000000000385fd3a41900844fc9eab819d0bc5dff97114c5f50d3f45c3cbf34335e581535c6000000000e63656e74726f6964732e77656270000000000000007ed4b5abd4bad4f7d96a4844363e6030687917124df605c6812ab9a721d7ffd84600000000126465636c617265642d65787472612e62696e000000000000002866551ca49ff652b17e9f0945d4ac7f57b1ce161a60fef5857aec5d80b5a35ac2000000000b6c6162656c732e7765627000000000000000326166e18707c310b9a659f7a4fe8dc6f2bfb7ee376c9da6e5622569ac25ec723401000000096d6574612e6a736f6e0000000000000501e2bc59c5ad04fcefcf9114d8e6472276673cfc173adcfeadb91345a70d3dfaa50000000013706f736974696f6e732d686967682e776562700000000000000032fec47c8c33092f90ec525df5b82cb83846bb656c30ec32a4548ce442603b56d30000000012706f736974696f6e732d6c6f772e7765627000000000000000306503abb6f705b662ee8c000004a74536261f2f71c53ff9a5c884140c22bfb1dd000000000e726f746174696f6e732e77656270000000000000003a7108a24a5ddeef7b2dbb50ca4acd9078e3db9bddfdd84b59e955d41ed34e2d68",
+      "assetDigest": "d2d91adec5613581b4fbbd2139342eb2651a166629b876ba12ebc1ccdce5a6b7",
+      "resources": [
+        {
+          "path": "appearance.webp",
+          "role": "referenced",
+          "byteLength": 56,
+          "sha256": "5fd3a41900844fc9eab819d0bc5dff97114c5f50d3f45c3cbf34335e581535c6"
+        },
+        {
+          "path": "centroids.webp",
+          "role": "referenced",
+          "byteLength": 126,
+          "sha256": "d4b5abd4bad4f7d96a4844363e6030687917124df605c6812ab9a721d7ffd846"
+        },
+        {
+          "path": "declared-extra.bin",
+          "role": "referenced",
+          "byteLength": 40,
+          "sha256": "66551ca49ff652b17e9f0945d4ac7f57b1ce161a60fef5857aec5d80b5a35ac2"
+        },
+        {
+          "path": "labels.webp",
+          "role": "referenced",
+          "byteLength": 50,
+          "sha256": "6166e18707c310b9a659f7a4fe8dc6f2bfb7ee376c9da6e5622569ac25ec7234"
+        },
+        {
+          "path": "meta.json",
+          "role": "primary",
+          "byteLength": 1281,
+          "sha256": "e2bc59c5ad04fcefcf9114d8e6472276673cfc173adcfeadb91345a70d3dfaa5"
+        },
+        {
+          "path": "positions-high.webp",
+          "role": "referenced",
+          "byteLength": 50,
+          "sha256": "fec47c8c33092f90ec525df5b82cb83846bb656c30ec32a4548ce442603b56d3"
+        },
+        {
+          "path": "positions-low.webp",
+          "role": "referenced",
+          "byteLength": 48,
+          "sha256": "6503abb6f705b662ee8c000004a74536261f2f71c53ff9a5c884140c22bfb1dd"
+        },
+        {
+          "path": "rotations.webp",
+          "role": "referenced",
+          "byteLength": 58,
+          "sha256": "7108a24a5ddeef7b2dbb50ca4acd9078e3db9bddfdd84b59e955d41ed34e2d68"
+        }
+      ],
+      "excludedNeighborSha256": "2bdeeaa9b367b73aeb1a149832bb3efc4e01f148b1e52829be9e278e23ad2a6d"
+    },
+    {
+      "name": "declared-extra-last-byte-changed",
+      "scheme": "splatview-source-v1",
+      "kind": "group",
+      "resourceCount": 8,
+      "totalBytes": 1709,
+      "canonicalByteLength": 502,
+      "canonicalHex": "53706c617456696577536f75726365007631000100000008000000000f617070656172616e63652e7765627000000000000000385fd3a41900844fc9eab819d0bc5dff97114c5f50d3f45c3cbf34335e581535c6000000000e63656e74726f6964732e77656270000000000000007ed4b5abd4bad4f7d96a4844363e6030687917124df605c6812ab9a721d7ffd84600000000126465636c617265642d65787472612e62696e0000000000000028144a8b33ff9de9bd2c8b8be2675386d7bdb4f87c9934b73c8a5017975f513e0f000000000b6c6162656c732e7765627000000000000000326166e18707c310b9a659f7a4fe8dc6f2bfb7ee376c9da6e5622569ac25ec723401000000096d6574612e6a736f6e0000000000000501e2bc59c5ad04fcefcf9114d8e6472276673cfc173adcfeadb91345a70d3dfaa50000000013706f736974696f6e732d686967682e776562700000000000000032fec47c8c33092f90ec525df5b82cb83846bb656c30ec32a4548ce442603b56d30000000012706f736974696f6e732d6c6f772e7765627000000000000000306503abb6f705b662ee8c000004a74536261f2f71c53ff9a5c884140c22bfb1dd000000000e726f746174696f6e732e77656270000000000000003a7108a24a5ddeef7b2dbb50ca4acd9078e3db9bddfdd84b59e955d41ed34e2d68",
+      "assetDigest": "271ba3b40f2b06d7f76ef780feb2e88497f8e8664cb74bd55ee1193aaee17e5d",
+      "resources": [
+        {
+          "path": "appearance.webp",
+          "role": "referenced",
+          "byteLength": 56,
+          "sha256": "5fd3a41900844fc9eab819d0bc5dff97114c5f50d3f45c3cbf34335e581535c6"
+        },
+        {
+          "path": "centroids.webp",
+          "role": "referenced",
+          "byteLength": 126,
+          "sha256": "d4b5abd4bad4f7d96a4844363e6030687917124df605c6812ab9a721d7ffd846"
+        },
+        {
+          "path": "declared-extra.bin",
+          "role": "referenced",
+          "byteLength": 40,
+          "sha256": "144a8b33ff9de9bd2c8b8be2675386d7bdb4f87c9934b73c8a5017975f513e0f"
+        },
+        {
+          "path": "labels.webp",
+          "role": "referenced",
+          "byteLength": 50,
+          "sha256": "6166e18707c310b9a659f7a4fe8dc6f2bfb7ee376c9da6e5622569ac25ec7234"
+        },
+        {
+          "path": "meta.json",
+          "role": "primary",
+          "byteLength": 1281,
+          "sha256": "e2bc59c5ad04fcefcf9114d8e6472276673cfc173adcfeadb91345a70d3dfaa5"
+        },
+        {
+          "path": "positions-high.webp",
+          "role": "referenced",
+          "byteLength": 50,
+          "sha256": "fec47c8c33092f90ec525df5b82cb83846bb656c30ec32a4548ce442603b56d3"
+        },
+        {
+          "path": "positions-low.webp",
+          "role": "referenced",
+          "byteLength": 48,
+          "sha256": "6503abb6f705b662ee8c000004a74536261f2f71c53ff9a5c884140c22bfb1dd"
+        },
+        {
+          "path": "rotations.webp",
+          "role": "referenced",
+          "byteLength": 58,
+          "sha256": "7108a24a5ddeef7b2dbb50ca4acd9078e3db9bddfdd84b59e955d41ed34e2d68"
+        }
+      ]
+    },
+    {
+      "name": "declared-extra-empty",
+      "scheme": "splatview-source-v1",
+      "kind": "group",
+      "resourceCount": 8,
+      "totalBytes": 1669,
+      "canonicalByteLength": 502,
+      "canonicalHex": "53706c617456696577536f75726365007631000100000008000000000f617070656172616e63652e7765627000000000000000385fd3a41900844fc9eab819d0bc5dff97114c5f50d3f45c3cbf34335e581535c6000000000e63656e74726f6964732e77656270000000000000007ed4b5abd4bad4f7d96a4844363e6030687917124df605c6812ab9a721d7ffd84600000000126465636c617265642d65787472612e62696e0000000000000000e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855000000000b6c6162656c732e7765627000000000000000326166e18707c310b9a659f7a4fe8dc6f2bfb7ee376c9da6e5622569ac25ec723401000000096d6574612e6a736f6e0000000000000501e2bc59c5ad04fcefcf9114d8e6472276673cfc173adcfeadb91345a70d3dfaa50000000013706f736974696f6e732d686967682e776562700000000000000032fec47c8c33092f90ec525df5b82cb83846bb656c30ec32a4548ce442603b56d30000000012706f736974696f6e732d6c6f772e7765627000000000000000306503abb6f705b662ee8c000004a74536261f2f71c53ff9a5c884140c22bfb1dd000000000e726f746174696f6e732e77656270000000000000003a7108a24a5ddeef7b2dbb50ca4acd9078e3db9bddfdd84b59e955d41ed34e2d68",
+      "assetDigest": "268f1b21f3538a0618b373e4f2c568af2edda0337af4926832d82c1f1cec54df",
+      "resources": [
+        {
+          "path": "appearance.webp",
+          "role": "referenced",
+          "byteLength": 56,
+          "sha256": "5fd3a41900844fc9eab819d0bc5dff97114c5f50d3f45c3cbf34335e581535c6"
+        },
+        {
+          "path": "centroids.webp",
+          "role": "referenced",
+          "byteLength": 126,
+          "sha256": "d4b5abd4bad4f7d96a4844363e6030687917124df605c6812ab9a721d7ffd846"
+        },
+        {
+          "path": "declared-extra.bin",
+          "role": "referenced",
+          "byteLength": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "labels.webp",
+          "role": "referenced",
+          "byteLength": 50,
+          "sha256": "6166e18707c310b9a659f7a4fe8dc6f2bfb7ee376c9da6e5622569ac25ec7234"
+        },
+        {
+          "path": "meta.json",
+          "role": "primary",
+          "byteLength": 1281,
+          "sha256": "e2bc59c5ad04fcefcf9114d8e6472276673cfc173adcfeadb91345a70d3dfaa5"
+        },
+        {
+          "path": "positions-high.webp",
+          "role": "referenced",
+          "byteLength": 50,
+          "sha256": "fec47c8c33092f90ec525df5b82cb83846bb656c30ec32a4548ce442603b56d3"
+        },
+        {
+          "path": "positions-low.webp",
+          "role": "referenced",
+          "byteLength": 48,
+          "sha256": "6503abb6f705b662ee8c000004a74536261f2f71c53ff9a5c884140c22bfb1dd"
+        },
+        {
+          "path": "rotations.webp",
+          "role": "referenced",
+          "byteLength": 58,
+          "sha256": "7108a24a5ddeef7b2dbb50ca4acd9078e3db9bddfdd84b59e955d41ed34e2d68"
+        }
+      ]
+    },
+    {
+      "name": "metadata-whitespace-changed",
+      "scheme": "splatview-source-v1",
+      "kind": "group",
+      "resourceCount": 8,
+      "totalBytes": 1710,
+      "canonicalByteLength": 502,
+      "canonicalHex": "53706c617456696577536f75726365007631000100000008000000000f617070656172616e63652e7765627000000000000000385fd3a41900844fc9eab819d0bc5dff97114c5f50d3f45c3cbf34335e581535c6000000000e63656e74726f6964732e77656270000000000000007ed4b5abd4bad4f7d96a4844363e6030687917124df605c6812ab9a721d7ffd84600000000126465636c617265642d65787472612e62696e000000000000002866551ca49ff652b17e9f0945d4ac7f57b1ce161a60fef5857aec5d80b5a35ac2000000000b6c6162656c732e7765627000000000000000326166e18707c310b9a659f7a4fe8dc6f2bfb7ee376c9da6e5622569ac25ec723401000000096d6574612e6a736f6e0000000000000502ccf731aaba255989fe69a2c492785b93ceb09c41b55ca7d0ba26bd9aa4903ea50000000013706f736974696f6e732d686967682e776562700000000000000032fec47c8c33092f90ec525df5b82cb83846bb656c30ec32a4548ce442603b56d30000000012706f736974696f6e732d6c6f772e7765627000000000000000306503abb6f705b662ee8c000004a74536261f2f71c53ff9a5c884140c22bfb1dd000000000e726f746174696f6e732e77656270000000000000003a7108a24a5ddeef7b2dbb50ca4acd9078e3db9bddfdd84b59e955d41ed34e2d68",
+      "assetDigest": "0f4ab1677a3bcd775008791bf7d218afcf8d753c33f98a9d71212bfcb4c12a95",
+      "resources": [
+        {
+          "path": "appearance.webp",
+          "role": "referenced",
+          "byteLength": 56,
+          "sha256": "5fd3a41900844fc9eab819d0bc5dff97114c5f50d3f45c3cbf34335e581535c6"
+        },
+        {
+          "path": "centroids.webp",
+          "role": "referenced",
+          "byteLength": 126,
+          "sha256": "d4b5abd4bad4f7d96a4844363e6030687917124df605c6812ab9a721d7ffd846"
+        },
+        {
+          "path": "declared-extra.bin",
+          "role": "referenced",
+          "byteLength": 40,
+          "sha256": "66551ca49ff652b17e9f0945d4ac7f57b1ce161a60fef5857aec5d80b5a35ac2"
+        },
+        {
+          "path": "labels.webp",
+          "role": "referenced",
+          "byteLength": 50,
+          "sha256": "6166e18707c310b9a659f7a4fe8dc6f2bfb7ee376c9da6e5622569ac25ec7234"
+        },
+        {
+          "path": "meta.json",
+          "role": "primary",
+          "byteLength": 1282,
+          "sha256": "ccf731aaba255989fe69a2c492785b93ceb09c41b55ca7d0ba26bd9aa4903ea5"
+        },
+        {
+          "path": "positions-high.webp",
+          "role": "referenced",
+          "byteLength": 50,
+          "sha256": "fec47c8c33092f90ec525df5b82cb83846bb656c30ec32a4548ce442603b56d3"
+        },
+        {
+          "path": "positions-low.webp",
+          "role": "referenced",
+          "byteLength": 48,
+          "sha256": "6503abb6f705b662ee8c000004a74536261f2f71c53ff9a5c884140c22bfb1dd"
+        },
+        {
+          "path": "rotations.webp",
+          "role": "referenced",
+          "byteLength": 58,
+          "sha256": "7108a24a5ddeef7b2dbb50ca4acd9078e3db9bddfdd84b59e955d41ed34e2d68"
+        }
+      ]
+    }
+  ],
+  "excludedAcquiredPaths": [
+    "collection/unrelated-neighbor.bin"
+  ],
+  "bundledSingleFileVector": {
+    "name": "bundled-single-file",
+    "scheme": "splatview-source-v1",
+    "kind": "single",
+    "resourceCount": 1,
+    "totalBytes": 2575,
+    "canonicalByteLength": 69,
+    "canonicalHex": "53706c617456696577536f7572636500763100000000000101000000000000000000000a0fe38720bf897ead0084c89c80f95a84131e51edf2f33c532ab42d5602eaa9a68f",
+    "assetDigest": "a6da0f1e984056d86501acd7abea7d9b51dd14c1ca7c99f9137e9a159feba989",
+    "resources": [
+      {
+        "path": "",
+        "role": "primary",
+        "byteLength": 2575,
+        "sha256": "e38720bf897ead0084c89c80f95a84131e51edf2f33c532ab42d5602eaa9a68f"
+      }
+    ]
+  }
+}

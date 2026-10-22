@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "upstreamCommit": "affd0ecea7fbb4c265ee119475af7ee5b2997482",
+  "baselineSha256": "bf692b3106e1219ef412c01df7a7e42965808686132f97e812e64422beedb77e",
+  "sourceFiles": [
+    {
+      "path": "third_party/spz/CMakeLists.txt",
+      "upstreamSha256": "831cc46ee62340f195b483f80b0e5d160ff8b2ce09a3efaefb8f49b042068273",
+      "sha256": "831cc46ee62340f195b483f80b0e5d160ff8b2ce09a3efaefb8f49b042068273",
+      "bytes": 11135
+    },
+    {
+      "path": "third_party/spz/LICENSE",
+      "upstreamSha256": "8b1234cafec672d87a126d13bf3740858ae1a2761383342c2d0225154bb523ca",
+      "sha256": "8b1234cafec672d87a126d13bf3740858ae1a2761383342c2d0225154bb523ca",
+      "bytes": 1090
+    },
+    {
+      "path": "third_party/spz/README.md",
+      "upstreamSha256": "d647250bdac5b5ce5078b6d1cdf2e55a2131c96e63a73fa565db2d28aea91b24",
+      "sha256": "d647250bdac5b5ce5078b6d1cdf2e55a2131c96e63a73fa565db2d28aea91b24",
+      "bytes": 12209
+    },
+    {
+      "path": "third_party/spz/cmake/spzConfig.cmake.in",
+      "upstreamSha256": "02ab735b046f003187eb2e33a36cd4b341932ee0d5de03ba99cdfa05b4a28a9c",
+      "sha256": "02ab735b046f003187eb2e33a36cd4b341932ee0d5de03ba99cdfa05b4a28a9c",
+      "bytes": 349
+    },
+    {
+      "path": "third_party/spz/extensions/cc/coordinate-system-adobe.cc",
+      "upstreamSha256": "b7a9f9879f3c17cba9d1f73d20decce07dd9cd3ca9633f8b2b82e136445165cd",
+      "sha256": "b7a9f9879f3c17cba9d1f73d20decce07dd9cd3ca9633f8b2b82e136445165cd",
+      "bytes": 4026
+    },
+    {
+      "path": "third_party/spz/extensions/cc/coordinate-system-adobe.h",
+      "upstreamSha256": "0a2a1b21ce437aa2192557757e60656957b95492724d1d8e8ed33ca03c39c6ec",
+      "sha256": "0a2a1b21ce437aa2192557757e60656957b95492724d1d8e8ed33ca03c39c6ec",
+      "bytes": 3242
+    },
+    {
+      "path": "third_party/spz/extensions/cc/safe-orbit-camera-adobe.cc",
+      "upstreamSha256": "245524f15f610ccc2ba0b58c5ef0251c0658c23ab46d41fbcfebfe897bb2cfab",
+      "sha256": "245524f15f610ccc2ba0b58c5ef0251c0658c23ab46d41fbcfebfe897bb2cfab",
+      "bytes": 4936
+    },
+    {
+      "path": "third_party/spz/extensions/cc/safe-orbit-camera-adobe.h",
+      "upstreamSha256": "ead3f2765339aba1b1aa4573d05dc71bed007d6671b207f792ff18c7f7ac6453",
+      "sha256": "ead3f2765339aba1b1aa4573d05dc71bed007d6671b207f792ff18c7f7ac6453",
+      "bytes": 2259
+    },
+    {
+      "path": "third_party/spz/extensions/cc/splat-extensions.cc",
+      "upstreamSha256": "8093e4c388a9e10cf3ab456e9835653f6d0dc951fe4a23856cd079d309d7d5e4",
+      "sha256": "8093e4c388a9e10cf3ab456e9835653f6d0dc951fe4a23856cd079d309d7d5e4",
+      "bytes": 6944
+    },
+    {
+      "path": "third_party/spz/extensions/cc/splat-extensions.h",
+      "upstreamSha256": "9947b77993df4d863a91ae6d3ddb42ca8b555adb9404514a958822d7d98aa276",
+      "sha256": "9947b77993df4d863a91ae6d3ddb42ca8b555adb9404514a958822d7d98aa276",
+      "bytes": 4547
+    },
+    {
+      "path": "third_party/spz/src/cc/load-spz.cc",
+      "upstreamSha256": "e3789dd111f2758392ba6f793311b3077abfdc88b00ace67814b97fd26b2c200",
+      "sha256": "20b51058e90c7065185f459b94a833049beab89e9b5fc7fdbbbf2d49b77ec5d1",
+      "bytes": 67559
+    },
+    {
+      "path": "third_party/spz/src/cc/load-spz.h",
+      "upstreamSha256": "81a934112a6bac804a166a2bd97cd6ef9ca413e6f4e557b2ad005da5de082a05",
+      "sha256": "bf3f62697112f086bd32ffa8c15de90abf0b3b122578335ce698e5affb242c8e",
+      "bytes": 10218
+    },
+    {
+      "path": "third_party/spz/src/cc/splat-c-types.cc",
+      "upstreamSha256": "b50ca1a62358da7931776029b3f2f95a6bf14fd4447e15a278594f97a7b0b5d4",
+      "sha256": "b50ca1a62358da7931776029b3f2f95a6bf14fd4447e15a278594f97a7b0b5d4",
+      "bytes": 1141
+    },
+    {
+      "path": "third_party/spz/src/cc/splat-c-types.h",
+      "upstreamSha256": "67c0829037c627b538663607ab5b840821d42dd050b5fba3733377b58162f64a",
+      "sha256": "67c0829037c627b538663607ab5b840821d42dd050b5fba3733377b58162f64a",
+      "bytes": 1975
+    },
+    {
+      "path": "third_party/spz/src/cc/splat-types.cc",
+      "upstreamSha256": "71934e6b06713e4441f34b7ce4a35f401c8451b2307f6b6764ee83e6633d46ea",
+      "sha256": "71934e6b06713e4441f34b7ce4a35f401c8451b2307f6b6764ee83e6633d46ea",
+      "bytes": 4120
+    },
+    {
+      "path": "third_party/spz/src/cc/splat-types.h",
+      "upstreamSha256": "542c909c9ce6e6972c5bc95596665c18133f2f71877f0ca735e9d403eef13c4f",
+      "sha256": "542c909c9ce6e6972c5bc95596665c18133f2f71877f0ca735e9d403eef13c4f",
+      "bytes": 21845
+    },
+    {
+      "path": "third_party/spz/src/cc/splat-utils.h",
+      "upstreamSha256": "cef52fda8928d83a08da32708f4ce7cef84d5f79b3eb45a813f4c51a6a032473",
+      "sha256": "cef52fda8928d83a08da32708f4ce7cef84d5f79b3eb45a813f4c51a6a032473",
+      "bytes": 4796
+    }
+  ],
+  "changes": [
+    {
+      "path": "third_party/spz/src/cc/load-spz.h",
+      "reason": "Dependency-neutral caller-owned packed-view/NGSP callback API; owning APIs preserved."
+    },
+    {
+      "path": "third_party/spz/src/cc/load-spz.cc",
+      "reason": "Checked preflight, serial caller-owned decode and borrowed extension metadata; shared SH0/float16-safe point math, byte-range guard and no vector-copy byte counting."
+    }
+  ],
+  "auxiliaryFiles": [
+    {
+      "path": "third_party/spz/LOCAL_CHANGES.md",
+      "sha256": "5cd1923b0cb07858984cf1ad92eaa13d9f33f7987d0aa2d98be096fe08b4eb7b",
+      "bytes": 2269
+    }
+  ]
+}

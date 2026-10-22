@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "captureId": "windows-pivot-20261016-01",
+  "desktopCommit": "4e1be155511fb49f08fd8c863d785ac008a4c43a",
+  "desktopVersion": "1.0.2",
+  "purpose": "Finite exact source capture for the desktop pivot cycle icons and localized copy.",
+  "sourceCheckout": ".build/current-desktop-chrome-tests/desktop-source",
+  "files": [
+    {
+      "path": "src/icons.def",
+      "bytes": 2768,
+      "sha256": "ad6d4bfdb71fa00f5e19b462eb5c518bf0da5d67f2ef013ea30e1da6d77e6ea6"
+    },
+    {
+      "path": "assets/icons/pivot-selection.svg",
+      "bytes": 324,
+      "sha256": "f85caf6effc4aa768ee08734ca0c5106081d30983dd6e14dc9bc17c51e78fcf7"
+    },
+    {
+      "path": "assets/icons/pivot-origin.svg",
+      "bytes": 312,
+      "sha256": "d5357c49ada218878f065839a7098b6199048104bf61d5e62a4168bfbf891957"
+    }
+  ],
+  "authority": [
+    {
+      "path": "src/processing_ui.cpp",
+      "bytes": 32682,
+      "sha256": "cb283fae89a55a898817b73a23a035c80c1ad92a20f9edf54a0219d4e30b0587"
+    },
+    {
+      "path": "src/translations.inc",
+      "bytes": 254928,
+      "sha256": "ac3f88336d930a838f3180e1fe74a018137902bf1f2c2afd9e491ac76f90a4c2"
+    }
+  ],
+  "mappings": {
+    "SelectionPivot": "pivot-selection",
+    "OriginPivot": "pivot-origin"
+  },
+  "localeOrder": [
+    "es",
+    "fr",
+    "de",
+    "pt",
+    "zh-Hans",
+    "ja",
+    "ko"
+  ],
+  "translations": [
+    {
+      "key": "Cycle pivot",
+      "translations": [
+        "Alternar pivote",
+        "Changer le pivot",
+        "Drehpunkt wechseln",
+        "Alternar pivô",
+        "切换枢轴",
+        "ピボットを切り替え",
+        "피벗 전환"
+      ],
+      "catalogLine": 302
+    },
+    {
+      "key": "Pivot: scene center\nClick for selection center",
+      "translations": [
+        "Pivote: centro de escena\nClic para centro de selección",
+        "Pivot : centre de la scène\nCliquer pour le centre de la sélection",
+        "Drehpunkt: Szenenmitte\nKlicken für Auswahlmitte",
+        "Pivô: centro da cena\nClique para o centro da seleção",
+        "枢轴：场景中心\n点击切换到选区中心",
+        "ピボット：シーン中心\nクリックで選択の中心へ",
+        "피벗: 장면 중심\n클릭하면 선택 중심으로 전환"
+      ],
+      "catalogLine": 303
+    },
+    {
+      "key": "Pivot: scene center\nClick for origin (0,0,0)",
+      "translations": [
+        "Pivote: centro de escena\nClic para origen (0,0,0)",
+        "Pivot : centre de la scène\nCliquer pour l’origine (0,0,0)",
+        "Drehpunkt: Szenenmitte\nKlicken für Ursprung (0,0,0)",
+        "Pivô: centro da cena\nClique para a origem (0,0,0)",
+        "枢轴：场景中心\n点击切换到原点 (0,0,0)",
+        "ピボット：シーン中心\nクリックで原点 (0,0,0) へ",
+        "피벗: 장면 중심\n클릭하면 원점 (0,0,0)으로 전환"
+      ],
+      "catalogLine": 304
+    },
+    {
+      "key": "Pivot: selection center\nClick for origin (0,0,0)",
+      "translations": [
+        "Pivote: centro de selección\nClic para origen (0,0,0)",
+        "Pivot : centre de la sélection\nCliquer pour l’origine (0,0,0)",
+        "Drehpunkt: Auswahlmitte\nKlicken für Ursprung (0,0,0)",
+        "Pivô: centro da seleção\nClique para a origem (0,0,0)",
+        "枢轴：选区中心\n点击切换到原点 (0,0,0)",
+        "ピボット：選択の中心\nクリックで原点 (0,0,0) へ",
+        "피벗: 선택 중심\n클릭하면 원점 (0,0,0)으로 전환"
+      ],
+      "catalogLine": 305
+    },
+    {
+      "key": "Pivot: origin (0,0,0)\nClick for scene center",
+      "translations": [
+        "Pivote: origen (0,0,0)\nClic para centro de escena",
+        "Pivot : origine (0,0,0)\nCliquer pour le centre de la scène",
+        "Drehpunkt: Ursprung (0,0,0)\nKlicken für Szenenmitte",
+        "Pivô: origem (0,0,0)\nClique para o centro da cena",
+        "枢轴：原点 (0,0,0)\n点击切换到场景中心",
+        "ピボット：原点 (0,0,0)\nクリックでシーン中心へ",
+        "피벗: 원점 (0,0,0)\n클릭하면 장면 중심으로 전환"
+      ],
+      "catalogLine": 306
+    },
+    {
+      "key": "Pivot: custom\nClick for scene center",
+      "translations": [
+        "Pivote: personalizado\nClic para centro de escena",
+        "Pivot : personnalisé\nCliquer pour le centre de la scène",
+        "Drehpunkt: benutzerdefiniert\nKlicken für Szenenmitte",
+        "Pivô: personalizado\nClique para o centro da cena",
+        "枢轴：自定义\n点击切换到场景中心",
+        "ピボット：カスタム\nクリックでシーン中心へ",
+        "피벗: 사용자 지정\n클릭하면 장면 중심으로 전환"
+      ],
+      "catalogLine": 307
+    }
+  ],
+  "extraction": "Exact C++ eight-string rows decoded as JSON; English key plus seven existing desktop locale columns. Newlines preserved.",
+  "notice": "Original SplatView pivot SVGs retain the desktop project proprietary notice; no third-party SVG bytes are changed."
+}

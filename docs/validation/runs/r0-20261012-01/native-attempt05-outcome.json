@@ -1,0 +1,855 @@
+{
+    "schemaVersion":  1,
+    "runId":  "r0-20261012-01",
+    "kind":  "matching-captured-native-reference-validation",
+    "result":  "succeeded",
+    "lastStage":  "test",
+    "startedUtc":  "2026-10-12T15:12:45.1828663Z",
+    "completedUtc":  "2026-10-12T15:17:06.8638817Z",
+    "durationSeconds":  261.6657355,
+    "sourceRoot":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\reference\\targets\\windows-r0-20261012-02\\source",
+    "buildRoot":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.build\\r0-native-02\\attempt05",
+    "dependencyReceiptPath":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\docs\\validation\\runs\\r0-20261012-01\\dependency-inputs.json",
+    "dependencyReceiptSha256":  "b1aeed5d80d1f04cd9301c5ccc620e763949fc5e5146cad516f5b426f0606027",
+    "sourceBefore":  {
+                         "validatedUtc":  "2026-10-12T15:12:46.3375797Z",
+                         "captureId":  "cc71f0df-8f38-4900-8aff-5c9ee0d6814c",
+                         "treeSha256":  "162c4bb2b129dc49169b3678e21b1b607a13bfd249f75cb1a2b3a5b7e8e9a2f4",
+                         "manifest":  {
+                                          "bytes":  149390,
+                                          "sha256":  "0156c58d345ecf633d57a0ff339c8c07a270efb0575e6158e49d7d0840678fe4"
+                                      },
+                         "status":  {
+                                        "bytes":  375,
+                                        "sha256":  "9ad2412c57653baa2567c4f1a84aeb83199016903e377ee42bbfeb77c28a0a74"
+                                    },
+                         "filesChecked":  720,
+                         "bytesChecked":  54156025,
+                         "allManifestFilesMatch":  true
+                     },
+    "sourceAfter":  {
+                        "validatedUtc":  "2026-10-12T15:17:06.6007882Z",
+                        "captureId":  "cc71f0df-8f38-4900-8aff-5c9ee0d6814c",
+                        "treeSha256":  "162c4bb2b129dc49169b3678e21b1b607a13bfd249f75cb1a2b3a5b7e8e9a2f4",
+                        "manifest":  {
+                                         "bytes":  149390,
+                                         "sha256":  "0156c58d345ecf633d57a0ff339c8c07a270efb0575e6158e49d7d0840678fe4"
+                                     },
+                        "status":  {
+                                       "bytes":  375,
+                                       "sha256":  "9ad2412c57653baa2567c4f1a84aeb83199016903e377ee42bbfeb77c28a0a74"
+                                   },
+                        "filesChecked":  720,
+                        "bytesChecked":  54156025,
+                        "allManifestFilesMatch":  true
+                    },
+    "dependenciesBefore":  {
+                               "validatedUtc":  "2026-10-12T15:12:46.5090636Z",
+                               "filesChecked":  158,
+                               "bytesChecked":  27443235,
+                               "payloadSha256":  "9caf917746a5452e0ec258d39d2d4caa55fe5e636b0841a1d6d059aaa4c2f48b"
+                           },
+    "dependenciesAfter":  {
+                              "validatedUtc":  "2026-10-12T15:17:06.7699816Z",
+                              "filesChecked":  158,
+                              "bytesChecked":  27443235,
+                              "payloadSha256":  "9caf917746a5452e0ec258d39d2d4caa55fe5e636b0841a1d6d059aaa4c2f48b"
+                          },
+    "toolchain":  {
+                      "generator":  "Visual Studio 17 2022",
+                      "architecture":  "x64",
+                      "configuration":  "Release",
+                      "visualStudioRoot":  "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools",
+                      "toolset":  "v143,host=x64,version=14.44.35207",
+                      "windowsSdk":  "10.0.26100.0",
+                      "externalInputHashes":  [
+                                                  {
+                                                      "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe",
+                                                      "before":  {
+                                                                     "bytes":  11307584,
+                                                                     "sha256":  "6fe2e6431b45cf32b9b2f3e50a8efae046a2366eb34d0fb36da027cf56102aec"
+                                                                 },
+                                                      "after":  {
+                                                                    "bytes":  11307584,
+                                                                    "sha256":  "6fe2e6431b45cf32b9b2f3e50a8efae046a2366eb34d0fb36da027cf56102aec"
+                                                                }
+                                                  },
+                                                  {
+                                                      "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\ctest.exe",
+                                                      "before":  {
+                                                                     "bytes":  12292672,
+                                                                     "sha256":  "e603e19535326eaa213bc9820312d1b7d3a718ae63da3877078d6ecc4d980d91"
+                                                                 },
+                                                      "after":  {
+                                                                    "bytes":  12292672,
+                                                                    "sha256":  "e603e19535326eaa213bc9820312d1b7d3a718ae63da3877078d6ecc4d980d91"
+                                                                }
+                                                  },
+                                                  {
+                                                      "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+                                                      "before":  {
+                                                                     "bytes":  677464,
+                                                                     "sha256":  "a9a3a13e4d019cfc0a9d823b3ee0cc383c6f3f86b00f861ac066032d869997e5"
+                                                                 },
+                                                      "after":  {
+                                                                    "bytes":  677464,
+                                                                    "sha256":  "a9a3a13e4d019cfc0a9d823b3ee0cc383c6f3f86b00f861ac066032d869997e5"
+                                                                }
+                                                  },
+                                                  {
+                                                      "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\link.exe",
+                                                      "before":  {
+                                                                     "bytes":  3256432,
+                                                                     "sha256":  "f5950d9bd30d14a003747dd5359fc53b5c852a2271c5ea5855e4ae44ba5b86c1"
+                                                                 },
+                                                      "after":  {
+                                                                    "bytes":  3256432,
+                                                                    "sha256":  "f5950d9bd30d14a003747dd5359fc53b5c852a2271c5ea5855e4ae44ba5b86c1"
+                                                                }
+                                                  },
+                                                  {
+                                                      "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\lib.exe",
+                                                      "before":  {
+                                                                     "bytes":  23624,
+                                                                     "sha256":  "2c74343b4f48c0b72ea341b205dc0fbf1ecc855b6ad947f67c1164b71ebc8040"
+                                                                 },
+                                                      "after":  {
+                                                                    "bytes":  23624,
+                                                                    "sha256":  "2c74343b4f48c0b72ea341b205dc0fbf1ecc855b6ad947f67c1164b71ebc8040"
+                                                                }
+                                                  },
+                                                  {
+                                                      "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\dumpbin.exe",
+                                                      "before":  {
+                                                                     "bytes":  23624,
+                                                                     "sha256":  "bcf658fdef418b1fa9c0ab0062e636e25c1673df5eb4ec5884d37cedaa9fb5c9"
+                                                                 },
+                                                      "after":  {
+                                                                    "bytes":  23624,
+                                                                    "sha256":  "bcf658fdef418b1fa9c0ab0062e636e25c1673df5eb4ec5884d37cedaa9fb5c9"
+                                                                }
+                                                  },
+                                                  {
+                                                      "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\MSBuild\\Current\\Bin\\MSBuild.exe",
+                                                      "before":  {
+                                                                     "bytes":  437016,
+                                                                     "sha256":  "3df79d6f3c7c0b4ca3a2242d3203c63ef5ed33cd5bf12fdec99d8d3ab9432062"
+                                                                 },
+                                                      "after":  {
+                                                                    "bytes":  437016,
+                                                                    "sha256":  "3df79d6f3c7c0b4ca3a2242d3203c63ef5ed33cd5bf12fdec99d8d3ab9432062"
+                                                                }
+                                                  },
+                                                  {
+                                                      "sourcePath":  "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.26100.0\\x64\\fxc.exe",
+                                                      "before":  {
+                                                                     "bytes":  182640,
+                                                                     "sha256":  "8e4fe2d57067aab105b793ae7b4380e824a8a852d65b69b3b00bbf99054ec169"
+                                                                 },
+                                                      "after":  {
+                                                                    "bytes":  182640,
+                                                                    "sha256":  "8e4fe2d57067aab105b793ae7b4380e824a8a852d65b69b3b00bbf99054ec169"
+                                                                }
+                                                  },
+                                                  {
+                                                      "sourcePath":  "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.26100.0\\x64\\rc.exe",
+                                                      "before":  {
+                                                                     "bytes":  55680,
+                                                                     "sha256":  "624cef05a26a7d964b532ddc1af0664260e0833cf55e85b49e4456453dca6842"
+                                                                 },
+                                                      "after":  {
+                                                                    "bytes":  55680,
+                                                                    "sha256":  "624cef05a26a7d964b532ddc1af0664260e0833cf55e85b49e4456453dca6842"
+                                                                }
+                                                  },
+                                                  {
+                                                      "sourcePath":  "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.26100.0\\x64\\mt.exe",
+                                                      "before":  {
+                                                                     "bytes":  1968472,
+                                                                     "sha256":  "129ed16b6a912263ffdf593831a635f7fa08693d45e2b31a0f556aa10507e154"
+                                                                 },
+                                                      "after":  {
+                                                                    "bytes":  1968472,
+                                                                    "sha256":  "129ed16b6a912263ffdf593831a635f7fa08693d45e2b31a0f556aa10507e154"
+                                                                }
+                                                  },
+                                                  {
+                                                      "sourcePath":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\vcpkg\\vcpkg.exe",
+                                                      "before":  {
+                                                                     "bytes":  6649888,
+                                                                     "sha256":  "f1edbf3a39de350e2bb065214fdc057111aa87a2e2ed9a7dcb8ddc86e17751b9"
+                                                                 },
+                                                      "after":  {
+                                                                    "bytes":  6649888,
+                                                                    "sha256":  "f1edbf3a39de350e2bb065214fdc057111aa87a2e2ed9a7dcb8ddc86e17751b9"
+                                                                }
+                                                  },
+                                                  {
+                                                      "sourcePath":  "C:\\Program Files\\Git\\cmd\\git.exe",
+                                                      "before":  {
+                                                                     "bytes":  46480,
+                                                                     "sha256":  "34a408843194be320d8a87a3c12cd5c7d2e08d03b24567a41db32e21d12569d2"
+                                                                 },
+                                                      "after":  {
+                                                                    "bytes":  46480,
+                                                                    "sha256":  "34a408843194be320d8a87a3c12cd5c7d2e08d03b24567a41db32e21d12569d2"
+                                                                }
+                                                  },
+                                                  {
+                                                      "sourcePath":  "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                                                      "before":  {
+                                                                     "bytes":  495616,
+                                                                     "sha256":  "8bb6fa8c283b4d92120b1ef249a9b311b0f804d4cabbe9981159976c8be76a5e"
+                                                                 },
+                                                      "after":  {
+                                                                    "bytes":  495616,
+                                                                    "sha256":  "8bb6fa8c283b4d92120b1ef249a9b311b0f804d4cabbe9981159976c8be76a5e"
+                                                                }
+                                                  },
+                                                  {
+                                                      "sourcePath":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake",
+                                                      "before":  {
+                                                                     "bytes":  48552,
+                                                                     "sha256":  "2b286afb0eb5d6e9d31979d206e00034888fee98a6248ffb97c82a452254a7e1"
+                                                                 },
+                                                      "after":  {
+                                                                    "bytes":  48552,
+                                                                    "sha256":  "2b286afb0eb5d6e9d31979d206e00034888fee98a6248ffb97c82a452254a7e1"
+                                                                }
+                                                  },
+                                                  {
+                                                      "sourcePath":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\vcpkg\\triplets\\x64-windows-static.cmake",
+                                                      "before":  {
+                                                                     "bytes":  100,
+                                                                     "sha256":  "e3cd9820386c639b8cbf844d43853cbc838f75a1488bfd4add98d5646c716538"
+                                                                 },
+                                                      "after":  {
+                                                                    "bytes":  100,
+                                                                    "sha256":  "e3cd9820386c639b8cbf844d43853cbc838f75a1488bfd4add98d5646c716538"
+                                                                }
+                                                  },
+                                                  {
+                                                      "sourcePath":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1",
+                                                      "before":  {
+                                                                     "bytes":  21316,
+                                                                     "sha256":  "48f51eccc35932461595af1f272f274e16d336802faae1d7e6676dba1bcec472"
+                                                                 },
+                                                      "after":  {
+                                                                    "bytes":  21316,
+                                                                    "sha256":  "48f51eccc35932461595af1f272f274e16d336802faae1d7e6676dba1bcec472"
+                                                                }
+                                                  },
+                                                  {
+                                                      "sourcePath":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\vcpkg\\scripts\\vcpkg-tool-metadata.txt",
+                                                      "before":  {
+                                                                     "bytes":  771,
+                                                                     "sha256":  "202e4bc21ec7fcca8043b6e94c017d4b57f004061018d4b09fdb320d4e068658"
+                                                                 },
+                                                      "after":  {
+                                                                    "bytes":  771,
+                                                                    "sha256":  "202e4bc21ec7fcca8043b6e94c017d4b57f004061018d4b09fdb320d4e068658"
+                                                                }
+                                                  },
+                                                  {
+                                                      "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Auxiliary\\Build\\vcvars64.bat",
+                                                      "before":  {
+                                                                     "bytes":  39,
+                                                                     "sha256":  "6b516d8fcf543c14b2d861e1f45661e0029230fe0dc48e86ce78522801822209"
+                                                                 },
+                                                      "after":  {
+                                                                    "bytes":  39,
+                                                                    "sha256":  "6b516d8fcf543c14b2d861e1f45661e0029230fe0dc48e86ce78522801822209"
+                                                                }
+                                                  },
+                                                  {
+                                                      "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Auxiliary\\Build\\vcvarsall.bat",
+                                                      "before":  {
+                                                                     "bytes":  10524,
+                                                                     "sha256":  "ee67e4181ae2578b7842f9f1549a7f66e2166638fa544ce6838d9e9033a02275"
+                                                                 },
+                                                      "after":  {
+                                                                    "bytes":  10524,
+                                                                    "sha256":  "ee67e4181ae2578b7842f9f1549a7f66e2166638fa544ce6838d9e9033a02275"
+                                                                }
+                                                  },
+                                                  {
+                                                      "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\mspdbsrv.exe",
+                                                      "before":  {
+                                                                     "bytes":  186448,
+                                                                     "sha256":  "22cef0b6e8c06b7a4c81817bc7a56cdeda22c7e0dad1706cb4ab3cabce8be526"
+                                                                 },
+                                                      "after":  {
+                                                                    "bytes":  186448,
+                                                                    "sha256":  "22cef0b6e8c06b7a4c81817bc7a56cdeda22c7e0dad1706cb4ab3cabce8be526"
+                                                                }
+                                                  },
+                                                  {
+                                                      "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\mspdbcore.dll",
+                                                      "before":  {
+                                                                     "bytes":  1322056,
+                                                                     "sha256":  "2f5629fc3713bddf52615f5f90c1fcc5ba33a222bc750d9bbcad9a9fb0845094"
+                                                                 },
+                                                      "after":  {
+                                                                    "bytes":  1322056,
+                                                                    "sha256":  "2f5629fc3713bddf52615f5f90c1fcc5ba33a222bc750d9bbcad9a9fb0845094"
+                                                                }
+                                                  }
+                                              ],
+                      "environment":  {
+                                          "CL":  null,
+                                          "_CL_":  null,
+                                          "LINK":  null,
+                                          "_LINK_":  null,
+                                          "CFLAGS":  null,
+                                          "CXXFLAGS":  null,
+                                          "CC":  null,
+                                          "CXX":  null,
+                                          "CMAKE_PREFIX_PATH":  null,
+                                          "CMAKE_TOOLCHAIN_FILE":  null,
+                                          "PATH":  "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64;C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\VC\\VCPackages;C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow;C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\MSBuild\\Current\\bin\\Roslyn;C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Team Tools\\DiagnosticsHub\\Collector;C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\Extensions\\Microsoft\\CodeCoverage.Console;C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.26100.0\\\\x64;C:\\Program Files (x86)\\Windows Kits\\10\\bin\\\\x64;C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\\\MSBuild\\Current\\Bin\\amd64;C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319;C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\;C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\Tools\\;C:\\Users\\opsiclear\\.codex\\tmp\\arg0\\codex-arg0zle91M;C:\\Users\\opsiclear\\.codex\\packages\\app-server-daemon\\releases\\0.162.1-x86_64-pc-windows-msvc\\codex-path;C:\\Users\\opsiclear\\.codex\\tmp\\arg0\\codex-arg0kKj9wA;C:\\Users\\opsiclear\\.codex\\packages\\app-server-daemon\\releases\\0.162.0-x86_64-pc-windows-msvc\\codex-path;C:\\Users\\opsiclear\\.codex\\tmp\\arg0\\codex-arg0yQrSge;C:\\Users\\opsiclear\\.codex\\packages\\standalone\\releases\\0.161.0-x86_64-pc-windows-msvc\\codex-path;C:\\Users\\opsiclear\\.codex\\tmp\\arg0\\codex-arg0Eb8NNr;C:\\Users\\opsiclear\\.codex\\packages\\standalone\\releases\\0.161.0-x86_64-pc-windows-msvc\\codex-path;C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.3\\bin\\x64;C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.3\\bin;C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.0\\bin\\x64;C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.0\\bin;C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.8\\bin;C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.8\\libnvvp;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR;C:\\Users\\opsiclear\\AppData\\Local\\nvm;C:\\nvm4w\\nodejs;C:\\Program Files (x86)\\cloudflared\\;C:\\Program Files\\Git\\cmd;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\GitHub CLI\\;C:\\Program Files\\Docker\\Docker\\resources\\bin;C:\\Program Files\\NVIDIA Corporation\\Nsight Compute 2026.2.1\\;C:\\Users\\opsiclear\\AppData\\Local\\Programs\\OpenAI\\Codex\\bin;C:\\Users\\opsiclear\\.cargo\\bin;C:\\Users\\opsiclear\\AppData\\Local\\Programs\\Python\\Python311\\Scripts\\;C:\\Users\\opsiclear\\AppData\\Local\\Programs\\Python\\Python311\\;C:\\Users\\opsiclear\\AppData\\Local\\Programs\\Python\\Python310\\Scripts\\;C:\\Users\\opsiclear\\AppData\\Local\\Programs\\Python\\Python310\\;C:\\Users\\opsiclear\\AppData\\Local\\Programs\\Python\\Python312\\Scripts\\;C:\\Users\\opsiclear\\AppData\\Local\\Programs\\Python\\Python312\\;C:\\Users\\opsiclear\\AppData\\Local\\Programs\\Python\\Launcher\\;C:\\Users\\opsiclear\\.local\\bin;C:\\Users\\opsiclear\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\opsiclear\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\opsiclear\\AppData\\Local\\Microsoft\\WinGet\\Links;C:\\Users\\opsiclear\\AppData\\Local\\nvm;C:\\nvm4w\\nodejs;C:\\Users\\opsiclear\\Desktop\\production\\colmap_bin\\bin;;C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin;C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja;C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\VC\\Linux\\bin\\ConnectionManagerExe;C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\vcpkg",
+                                          "INCLUDE":  "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\include;C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Auxiliary\\VS\\include;C:\\Program Files (x86)\\Windows Kits\\10\\include\\10.0.26100.0\\ucrt;C:\\Program Files (x86)\\Windows Kits\\10\\\\include\\10.0.26100.0\\\\um;C:\\Program Files (x86)\\Windows Kits\\10\\\\include\\10.0.26100.0\\\\shared;C:\\Program Files (x86)\\Windows Kits\\10\\\\include\\10.0.26100.0\\\\winrt;C:\\Program Files (x86)\\Windows Kits\\10\\\\include\\10.0.26100.0\\\\cppwinrt",
+                                          "LIB":  "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\lib\\x64;C:\\Program Files (x86)\\Windows Kits\\10\\lib\\10.0.26100.0\\ucrt\\x64;C:\\Program Files (x86)\\Windows Kits\\10\\\\lib\\10.0.26100.0\\\\um\\x64",
+                                          "LIBPATH":  "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\lib\\x64;C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\lib\\x86\\store\\references;C:\\Program Files (x86)\\Windows Kits\\10\\UnionMetadata\\10.0.26100.0;C:\\Program Files (x86)\\Windows Kits\\10\\References\\10.0.26100.0;C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319",
+                                          "VCPKG_ROOT":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\vcpkg",
+                                          "VCPKG_INSTALLED_DIR":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.build\\native-reference\\r0-20261012-01\\dependencies\\vcpkg_installed"
+                                      }
+                  },
+    "requestedTargets":  [
+                             "SplatView",
+                             "SplatViewSelectionMorphologyTests",
+                             "SplatViewExportFormatTests",
+                             "SplatViewInputFormatTests",
+                             "SplatViewCommandPolicyTests",
+                             "SplatViewToolsTests",
+                             "SplatViewModeTests",
+                             "SplatViewLanguageTests",
+                             "SplatViewFixtureGenerator"
+                         ],
+    "testFilter":  "^(SelectionMorphologyContracts|ExportFormatContracts|InputFormatContracts|ViewCommandPolicyContracts|CliOutputContracts|SettingsContracts|ToolsModeContracts|LanguageContracts)$",
+    "discoveredTests":  [
+                            {
+                                "backtrace":  3,
+                                "command":  [
+                                                "C:/Users/opsiclear/Desktop/projects/gaussian_splatting/splatview.github.io/.build/r0-native-02/attempt05/Release/SplatViewFixtureGenerator.exe",
+                                                "C:/Users/opsiclear/Desktop/projects/gaussian_splatting/splatview.github.io/.build/r0-native-02/attempt05/fixtures/Release"
+                                            ],
+                                "config":  "Release",
+                                "name":  "SharedSceneFixtures",
+                                "properties":  [
+                                                   {
+                                                       "name":  "FIXTURES_SETUP",
+                                                       "value":  [
+                                                                     "shared-scenes"
+                                                                 ]
+                                                   },
+                                                   {
+                                                       "name":  "LABELS",
+                                                       "value":  [
+                                                                     "fixtures",
+                                                                     "setup"
+                                                                 ]
+                                                   },
+                                                   {
+                                                       "name":  "RESOURCE_LOCK",
+                                                       "value":  [
+                                                                     "shared-scene-seeds"
+                                                                 ]
+                                                   },
+                                                   {
+                                                       "name":  "TIMEOUT",
+                                                       "value":  90.0
+                                                   },
+                                                   {
+                                                       "name":  "WORKING_DIRECTORY",
+                                                       "value":  "C:/Users/opsiclear/Desktop/projects/gaussian_splatting/splatview.github.io/.build/r0-native-02/attempt05"
+                                                   }
+                                               ]
+                            },
+                            {
+                                "backtrace":  8,
+                                "command":  [
+                                                "C:/Users/opsiclear/Desktop/projects/gaussian_splatting/splatview.github.io/.build/r0-native-02/attempt05/Release/SplatViewInputFormatTests.exe"
+                                            ],
+                                "config":  "Release",
+                                "name":  "InputFormatContracts",
+                                "properties":  [
+                                                   {
+                                                       "name":  "LABELS",
+                                                       "value":  [
+                                                                     "contract",
+                                                                     "fast",
+                                                                     "release"
+                                                                 ]
+                                                   },
+                                                   {
+                                                       "name":  "TIMEOUT",
+                                                       "value":  10.0
+                                                   },
+                                                   {
+                                                       "name":  "WORKING_DIRECTORY",
+                                                       "value":  "C:/Users/opsiclear/Desktop/projects/gaussian_splatting/splatview.github.io/.build/r0-native-02/attempt05/test-artifacts/Release/InputFormatContracts"
+                                                   }
+                                               ]
+                            },
+                            {
+                                "backtrace":  13,
+                                "command":  [
+                                                "C:/Users/opsiclear/Desktop/projects/gaussian_splatting/splatview.github.io/.build/r0-native-02/attempt05/Release/SplatViewExportFormatTests.exe"
+                                            ],
+                                "config":  "Release",
+                                "name":  "ExportFormatContracts",
+                                "properties":  [
+                                                   {
+                                                       "name":  "LABELS",
+                                                       "value":  [
+                                                                     "contract",
+                                                                     "fast",
+                                                                     "release"
+                                                                 ]
+                                                   },
+                                                   {
+                                                       "name":  "TIMEOUT",
+                                                       "value":  10.0
+                                                   },
+                                                   {
+                                                       "name":  "WORKING_DIRECTORY",
+                                                       "value":  "C:/Users/opsiclear/Desktop/projects/gaussian_splatting/splatview.github.io/.build/r0-native-02/attempt05/test-artifacts/Release/ExportFormatContracts"
+                                                   }
+                                               ]
+                            },
+                            {
+                                "backtrace":  18,
+                                "command":  [
+                                                "C:/Users/opsiclear/Desktop/projects/gaussian_splatting/splatview.github.io/.build/r0-native-02/attempt05/Release/SplatViewCommandPolicyTests.exe"
+                                            ],
+                                "config":  "Release",
+                                "name":  "ViewCommandPolicyContracts",
+                                "properties":  [
+                                                   {
+                                                       "name":  "LABELS",
+                                                       "value":  [
+                                                                     "contract",
+                                                                     "fast",
+                                                                     "release"
+                                                                 ]
+                                                   },
+                                                   {
+                                                       "name":  "TIMEOUT",
+                                                       "value":  10.0
+                                                   },
+                                                   {
+                                                       "name":  "WORKING_DIRECTORY",
+                                                       "value":  "C:/Users/opsiclear/Desktop/projects/gaussian_splatting/splatview.github.io/.build/r0-native-02/attempt05/test-artifacts/Release/ViewCommandPolicyContracts"
+                                                   }
+                                               ]
+                            },
+                            {
+                                "backtrace":  23,
+                                "command":  [
+                                                "C:/Users/opsiclear/Desktop/projects/gaussian_splatting/splatview.github.io/.build/r0-native-02/attempt05/Release/SplatViewSelectionMorphologyTests.exe"
+                                            ],
+                                "config":  "Release",
+                                "name":  "SelectionMorphologyContracts",
+                                "properties":  [
+                                                   {
+                                                       "name":  "LABELS",
+                                                       "value":  [
+                                                                     "contract",
+                                                                     "fast",
+                                                                     "release"
+                                                                 ]
+                                                   },
+                                                   {
+                                                       "name":  "TIMEOUT",
+                                                       "value":  20.0
+                                                   },
+                                                   {
+                                                       "name":  "WORKING_DIRECTORY",
+                                                       "value":  "C:/Users/opsiclear/Desktop/projects/gaussian_splatting/splatview.github.io/.build/r0-native-02/attempt05/test-artifacts/Release/SelectionMorphologyContracts"
+                                                   }
+                                               ]
+                            },
+                            {
+                                "backtrace":  28,
+                                "command":  [
+                                                "C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe",
+                                                "-NoProfile",
+                                                "-ExecutionPolicy",
+                                                "Bypass",
+                                                "-File",
+                                                "C:/Users/opsiclear/Desktop/projects/gaussian_splatting/splatview.github.io/reference/targets/windows-r0-20261012-02/source/tests/processing-cli-smoke.ps1",
+                                                "-Executable",
+                                                "C:/Users/opsiclear/Desktop/projects/gaussian_splatting/splatview.github.io/.build/r0-native-02/attempt05/Release/SplatView.exe",
+                                                "-Scene",
+                                                "C:/Users/opsiclear/Desktop/projects/gaussian_splatting/splatview.github.io/.build/r0-native-02/attempt05/fixtures/Release/demo.ply",
+                                                "-BundledSog",
+                                                "C:/Users/opsiclear/Desktop/projects/gaussian_splatting/splatview.github.io/.build/r0-native-02/attempt05/fixtures/Release/demo.sog",
+                                                "-OutputDirectory",
+                                                "C:/Users/opsiclear/Desktop/projects/gaussian_splatting/splatview.github.io/.build/r0-native-02/attempt05/test-artifacts/Release/CliOutputContracts",
+                                                "-BuildDirectory",
+                                                "C:/Users/opsiclear/Desktop/projects/gaussian_splatting/splatview.github.io/.build/r0-native-02/attempt05",
+                                                "-Configuration",
+                                                "Release"
+                                            ],
+                                "config":  "Release",
+                                "name":  "CliOutputContracts",
+                                "properties":  [
+                                                   {
+                                                       "name":  "DEPENDS",
+                                                       "value":  [
+                                                                     "SharedSceneFixtures"
+                                                                 ]
+                                                   },
+                                                   {
+                                                       "name":  "FIXTURES_REQUIRED",
+                                                       "value":  [
+                                                                     "shared-scenes"
+                                                                 ]
+                                                   },
+                                                   {
+                                                       "name":  "LABELS",
+                                                       "value":  [
+                                                                     "cli",
+                                                                     "contract",
+                                                                     "release",
+                                                                     "security"
+                                                                 ]
+                                                   },
+                                                   {
+                                                       "name":  "TIMEOUT",
+                                                       "value":  120.0
+                                                   },
+                                                   {
+                                                       "name":  "WORKING_DIRECTORY",
+                                                       "value":  "C:/Users/opsiclear/Desktop/projects/gaussian_splatting/splatview.github.io/.build/r0-native-02/attempt05/test-artifacts/Release/CliOutputContracts"
+                                                   }
+                                               ]
+                            },
+                            {
+                                "backtrace":  33,
+                                "command":  [
+                                                "C:/Users/opsiclear/Desktop/projects/gaussian_splatting/splatview.github.io/.build/r0-native-02/attempt05/Release/SplatViewToolsTests.exe",
+                                                "C:/Users/opsiclear/Desktop/projects/gaussian_splatting/splatview.github.io/.build/r0-native-02/attempt05/test-artifacts/Release/SettingsContracts",
+                                                "--settings-only"
+                                            ],
+                                "config":  "Release",
+                                "name":  "SettingsContracts",
+                                "properties":  [
+                                                   {
+                                                       "name":  "LABELS",
+                                                       "value":  [
+                                                                     "contract",
+                                                                     "release",
+                                                                     "ui"
+                                                                 ]
+                                                   },
+                                                   {
+                                                       "name":  "TIMEOUT",
+                                                       "value":  120.0
+                                                   },
+                                                   {
+                                                       "name":  "WORKING_DIRECTORY",
+                                                       "value":  "C:/Users/opsiclear/Desktop/projects/gaussian_splatting/splatview.github.io/.build/r0-native-02/attempt05/test-artifacts/Release/SettingsContracts"
+                                                   }
+                                               ]
+                            },
+                            {
+                                "backtrace":  38,
+                                "command":  [
+                                                "C:/Users/opsiclear/Desktop/projects/gaussian_splatting/splatview.github.io/.build/r0-native-02/attempt05/Release/SplatViewModeTests.exe",
+                                                "C:/Users/opsiclear/Desktop/projects/gaussian_splatting/splatview.github.io/.build/r0-native-02/attempt05/test-artifacts/Release/ToolsModeContracts"
+                                            ],
+                                "config":  "Release",
+                                "name":  "ToolsModeContracts",
+                                "properties":  [
+                                                   {
+                                                       "name":  "DEPENDS",
+                                                       "value":  [
+                                                                     "SharedSceneFixtures"
+                                                                 ]
+                                                   },
+                                                   {
+                                                       "name":  "FIXTURES_REQUIRED",
+                                                       "value":  [
+                                                                     "shared-scenes"
+                                                                 ]
+                                                   },
+                                                   {
+                                                       "name":  "LABELS",
+                                                       "value":  [
+                                                                     "contract",
+                                                                     "release",
+                                                                     "rendering",
+                                                                     "ui"
+                                                                 ]
+                                                   },
+                                                   {
+                                                       "name":  "TIMEOUT",
+                                                       "value":  180.0
+                                                   },
+                                                   {
+                                                       "name":  "WORKING_DIRECTORY",
+                                                       "value":  "C:/Users/opsiclear/Desktop/projects/gaussian_splatting/splatview.github.io/.build/r0-native-02/attempt05/test-artifacts/Release/ToolsModeContracts"
+                                                   }
+                                               ]
+                            },
+                            {
+                                "backtrace":  43,
+                                "command":  [
+                                                "C:/Users/opsiclear/Desktop/projects/gaussian_splatting/splatview.github.io/.build/r0-native-02/attempt05/Release/SplatViewLanguageTests.exe",
+                                                "C:/Users/opsiclear/Desktop/projects/gaussian_splatting/splatview.github.io/.build/r0-native-02/attempt05/test-artifacts/Release/LanguageContracts"
+                                            ],
+                                "config":  "Release",
+                                "name":  "LanguageContracts",
+                                "properties":  [
+                                                   {
+                                                       "name":  "LABELS",
+                                                       "value":  [
+                                                                     "contract",
+                                                                     "fast",
+                                                                     "release"
+                                                                 ]
+                                                   },
+                                                   {
+                                                       "name":  "TIMEOUT",
+                                                       "value":  30.0
+                                                   },
+                                                   {
+                                                       "name":  "WORKING_DIRECTORY",
+                                                       "value":  "C:/Users/opsiclear/Desktop/projects/gaussian_splatting/splatview.github.io/.build/r0-native-02/attempt05/test-artifacts/Release/LanguageContracts"
+                                                   }
+                                               ]
+                            }
+                        ],
+    "observedEntryProcess":  {
+                                 "executable":  "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                                 "argumentVector":  [
+                                                        "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                                                        "-NoProfile",
+                                                        "-ExecutionPolicy",
+                                                        "Bypass",
+                                                        "-File",
+                                                        "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\docs\\validation\\runs\\r0-20261012-01\\build-native-reference-attempt05.ps1"
+                                                    ],
+                                 "processCommandLine":  "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\"  -NoProfile -ExecutionPolicy Bypass -File \"C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\docs\\validation\\runs\\r0-20261012-01\\build-native-reference-attempt05.ps1\"",
+                                 "processId":  32580,
+                                 "workingDirectory":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+                                 "scriptPath":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\docs\\validation\\runs\\r0-20261012-01\\build-native-reference-attempt05.ps1",
+                                 "scriptSha256":  "74275c3cb45fa3a677ee10f0e4d49a7ea7134e65efc79ce34769d9fd2cb2d816",
+                                 "powerShellVersion":  "5.1.26100.9444",
+                                 "parentProcessId":  43736,
+                                 "parentExecutable":  "C:\\Windows\\System32\\cmd.exe",
+                                 "parentCommandLine":  "\"C:\\Windows\\System32\\cmd.exe\" /d /s /c \"call \"C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Auxiliary\\Build\\vcvars64.bat\" 10.0.26100.0 -vcvars_ver=14.44.35207 \u0026\u0026 \"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -NoProfile -ExecutionPolicy Bypass -File \"C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\docs\\validation\\runs\\r0-20261012-01\\build-native-reference-attempt05.ps1\"\""
+                             },
+    "observedCommands":  [
+                             {
+                                 "name":  "native-attempt05-configure",
+                                 "executable":  "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe",
+                                 "executableSha256":  "6fe2e6431b45cf32b9b2f3e50a8efae046a2366eb34d0fb36da027cf56102aec",
+                                 "arguments":  [
+                                                   "--preset",
+                                                   "win-release",
+                                                   "-S",
+                                                   "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\reference\\targets\\windows-r0-20261012-02\\source",
+                                                   "-B",
+                                                   "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.build\\r0-native-02\\attempt05",
+                                                   "-T",
+                                                   "v143,host=x64,version=14.44.35207",
+                                                   "-DCMAKE_GENERATOR_INSTANCE:PATH=C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools",
+                                                   "-DCMAKE_SYSTEM_VERSION:STRING=10.0.26100.0",
+                                                   "-DSPLATVIEW_FXC:FILEPATH=C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.26100.0\\x64\\fxc.exe",
+                                                   "-DVCPKG_INSTALLED_DIR:PATH=C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.build\\native-reference\\r0-20261012-01\\dependencies\\vcpkg_installed",
+                                                   "-DVCPKG_MANIFEST_INSTALL:BOOL=OFF",
+                                                   "-DVCPKG_TARGET_TRIPLET:STRING=x64-windows-static",
+                                                   "-DBUILD_TESTING:BOOL=ON",
+                                                   "-DSPLATVIEW_BUILD_BENCHMARKS:BOOL=OFF",
+                                                   "-DSPLATVIEW_ENABLE_ASAN:BOOL=OFF",
+                                                   "-DCMAKE_FIND_USE_PACKAGE_REGISTRY:BOOL=OFF",
+                                                   "-DCMAKE_FIND_USE_SYSTEM_PACKAGE_REGISTRY:BOOL=OFF",
+                                                   "-DZ_VCPKG_POWERSHELL_PATH:FILEPATH=C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                                                   "-DCMAKE_POLICY_DEFAULT_CMP0141:STRING=NEW",
+                                                   "-DCMAKE_MSVC_DEBUG_INFORMATION_FORMAT:STRING=$\u003c$\u003cCONFIG:Debug,RelWithDebInfo\u003e:Embedded\u003e"
+                                               ],
+                                 "workingDirectory":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\reference\\targets\\windows-r0-20261012-02\\source",
+                                 "startedUtc":  "2026-10-12T15:12:46.5729026Z",
+                                 "completedUtc":  "2026-10-12T15:12:52.9130115Z",
+                                 "durationSeconds":  6.3250234999999995,
+                                 "exitCode":  0,
+                                 "mergedOutputLog":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\docs\\validation\\runs\\r0-20261012-01\\native-attempt05-configure.log",
+                                 "mergedOutputLogSha256":  "e46012b7909b13e66417641f3e8ca055a9c5a8ef1fa0470d6823bf52d163a148"
+                             },
+                             {
+                                 "name":  "native-attempt05-build",
+                                 "executable":  "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe",
+                                 "executableSha256":  "6fe2e6431b45cf32b9b2f3e50a8efae046a2366eb34d0fb36da027cf56102aec",
+                                 "arguments":  [
+                                                   "--build",
+                                                   "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.build\\r0-native-02\\attempt05",
+                                                   "--config",
+                                                   "Release",
+                                                   "--parallel",
+                                                   "6",
+                                                   "--target",
+                                                   "SplatView",
+                                                   "SplatViewSelectionMorphologyTests",
+                                                   "SplatViewExportFormatTests",
+                                                   "SplatViewInputFormatTests",
+                                                   "SplatViewCommandPolicyTests",
+                                                   "SplatViewToolsTests",
+                                                   "SplatViewModeTests",
+                                                   "SplatViewLanguageTests",
+                                                   "SplatViewFixtureGenerator",
+                                                   "--",
+                                                   "/bl:C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\docs\\validation\\runs\\r0-20261012-01\\native-attempt05-build.binlog"
+                                               ],
+                                 "workingDirectory":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\reference\\targets\\windows-r0-20261012-02\\source",
+                                 "startedUtc":  "2026-10-12T15:12:52.9523896Z",
+                                 "completedUtc":  "2026-10-12T15:15:34.2979210Z",
+                                 "durationSeconds":  161.3332644,
+                                 "exitCode":  0,
+                                 "mergedOutputLog":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\docs\\validation\\runs\\r0-20261012-01\\native-attempt05-build.log",
+                                 "mergedOutputLogSha256":  "751baba0a4bef08e6eae7ddeb233fa9cbec4283d28a845a521f1461c64d1a4f1"
+                             },
+                             {
+                                 "name":  "native-attempt05-ctest-discovery",
+                                 "executable":  "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\ctest.exe",
+                                 "executableSha256":  "e603e19535326eaa213bc9820312d1b7d3a718ae63da3877078d6ecc4d980d91",
+                                 "arguments":  [
+                                                   "--test-dir",
+                                                   "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.build\\r0-native-02\\attempt05",
+                                                   "-C",
+                                                   "Release",
+                                                   "--show-only=json-v1",
+                                                   "-R",
+                                                   "^(SelectionMorphologyContracts|ExportFormatContracts|InputFormatContracts|ViewCommandPolicyContracts|CliOutputContracts|SettingsContracts|ToolsModeContracts|LanguageContracts)$"
+                                               ],
+                                 "workingDirectory":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\reference\\targets\\windows-r0-20261012-02\\source",
+                                 "startedUtc":  "2026-10-12T15:15:34.3004434Z",
+                                 "completedUtc":  "2026-10-12T15:15:34.4639743Z",
+                                 "durationSeconds":  0.15251979999999998,
+                                 "exitCode":  0,
+                                 "mergedOutputLog":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\docs\\validation\\runs\\r0-20261012-01\\native-attempt05-ctest-discovery.log",
+                                 "mergedOutputLogSha256":  "13bb72a78557369c423c24cb958e2625f960e5fbb49ac2537219d10108ac4141"
+                             },
+                             {
+                                 "name":  "native-attempt05-ctest",
+                                 "executable":  "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\ctest.exe",
+                                 "executableSha256":  "e603e19535326eaa213bc9820312d1b7d3a718ae63da3877078d6ecc4d980d91",
+                                 "arguments":  [
+                                                   "--test-dir",
+                                                   "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.build\\r0-native-02\\attempt05",
+                                                   "-C",
+                                                   "Release",
+                                                   "--output-on-failure",
+                                                   "--no-tests=error",
+                                                   "--parallel",
+                                                   "1",
+                                                   "--output-junit",
+                                                   "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\docs\\validation\\runs\\r0-20261012-01\\native-attempt05-ctest.junit.xml",
+                                                   "-R",
+                                                   "^(SelectionMorphologyContracts|ExportFormatContracts|InputFormatContracts|ViewCommandPolicyContracts|CliOutputContracts|SettingsContracts|ToolsModeContracts|LanguageContracts)$"
+                                               ],
+                                 "workingDirectory":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\reference\\targets\\windows-r0-20261012-02\\source",
+                                 "startedUtc":  "2026-10-12T15:15:34.4639743Z",
+                                 "completedUtc":  "2026-10-12T15:17:05.8914109Z",
+                                 "durationSeconds":  91.4078534,
+                                 "exitCode":  0,
+                                 "mergedOutputLog":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\docs\\validation\\runs\\r0-20261012-01\\native-attempt05-ctest.log",
+                                 "mergedOutputLogSha256":  "6ae7c5ce9349cc9be04876a2cca8b24e4da07f4a51d9087ca4d23fe78e382394"
+                             }
+                         ],
+    "artifacts":  [
+                      {
+                          "target":  "SplatView",
+                          "path":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.build\\r0-native-02\\attempt05\\Release\\SplatView.exe",
+                          "fileVersion":  "0.12.116",
+                          "productVersion":  "",
+                          "state":  {
+                                        "bytes":  4375552,
+                                        "sha256":  "b66eee04cbe104f7254afbf83bab2f6c68c756b0f5a21ff7b6d15c42e6afd7ce"
+                                    }
+                      },
+                      {
+                          "target":  "SplatViewSelectionMorphologyTests",
+                          "path":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.build\\r0-native-02\\attempt05\\Release\\SplatViewSelectionMorphologyTests.exe",
+                          "fileVersion":  null,
+                          "productVersion":  null,
+                          "state":  {
+                                        "bytes":  846336,
+                                        "sha256":  "9751ae8e7c8214e66f901f021f9f358840b345b5f33e9df7c2fc29e0692af5d5"
+                                    }
+                      },
+                      {
+                          "target":  "SplatViewExportFormatTests",
+                          "path":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.build\\r0-native-02\\attempt05\\Release\\SplatViewExportFormatTests.exe",
+                          "fileVersion":  null,
+                          "productVersion":  null,
+                          "state":  {
+                                        "bytes":  278528,
+                                        "sha256":  "1651556ae8b83e0abfb321ed746ffd0c07df4bc12bb096bceeea2bb20f23c6b5"
+                                    }
+                      },
+                      {
+                          "target":  "SplatViewInputFormatTests",
+                          "path":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.build\\r0-native-02\\attempt05\\Release\\SplatViewInputFormatTests.exe",
+                          "fileVersion":  null,
+                          "productVersion":  null,
+                          "state":  {
+                                        "bytes":  232448,
+                                        "sha256":  "d7383b39c38601e64e16761f5562299bb13132ecce47987eff9b6c986fd699ca"
+                                    }
+                      },
+                      {
+                          "target":  "SplatViewCommandPolicyTests",
+                          "path":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.build\\r0-native-02\\attempt05\\Release\\SplatViewCommandPolicyTests.exe",
+                          "fileVersion":  null,
+                          "productVersion":  null,
+                          "state":  {
+                                        "bytes":  218624,
+                                        "sha256":  "b2a099b83cd9462ec7039a2750ead653eb8bff72156122f336c9ebc3ba0e6007"
+                                    }
+                      },
+                      {
+                          "target":  "SplatViewToolsTests",
+                          "path":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.build\\r0-native-02\\attempt05\\Release\\SplatViewToolsTests.exe",
+                          "fileVersion":  null,
+                          "productVersion":  null,
+                          "state":  {
+                                        "bytes":  4654080,
+                                        "sha256":  "1234b08d00a497dc439d547b99900d4a6788a66c2eb840df7335573a283a2523"
+                                    }
+                      },
+                      {
+                          "target":  "SplatViewModeTests",
+                          "path":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.build\\r0-native-02\\attempt05\\Release\\SplatViewModeTests.exe",
+                          "fileVersion":  null,
+                          "productVersion":  null,
+                          "state":  {
+                                        "bytes":  4212736,
+                                        "sha256":  "1cc6747a818987d4ef730a1dfb4a8bffb0b37820a7cf603c814bddb2bb87eeea"
+                                    }
+                      },
+                      {
+                          "target":  "SplatViewLanguageTests",
+                          "path":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.build\\r0-native-02\\attempt05\\Release\\SplatViewLanguageTests.exe",
+                          "fileVersion":  null,
+                          "productVersion":  null,
+                          "state":  {
+                                        "bytes":  728576,
+                                        "sha256":  "9afbe9249b0f502bbc8297e0ab65b83a210e0472c505afa17ae7a71db9a7d124"
+                                    }
+                      },
+                      {
+                          "target":  "SplatViewFixtureGenerator",
+                          "path":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.build\\r0-native-02\\attempt05\\Release\\SplatViewFixtureGenerator.exe",
+                          "fileVersion":  null,
+                          "productVersion":  null,
+                          "state":  {
+                                        "bytes":  2181120,
+                                        "sha256":  "9c32c42839b0735104007c00b50b3453402af4239197eae8e038a24bde52426e"
+                                    }
+                      }
+                  ],
+    "limitation":  "A build from the validated frozen source and dependency capture using recorded installed tools. This is not a claim of full OS/toolchain or bit-for-bit reproducibility.",
+    "failure":  null
+}

@@ -1,0 +1,9 @@
+{
+  "captureId": "08c0a0b5-c311-429f-b96b-658ab7d0ef1a",
+  "diagnostic": "CaptureError: File changed while opening: C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\SplatPreview\\third_party\\imgui\\examples\\example_glfw_opengl2\\build_win32.bat",
+  "failedUtc": "2026-10-12T14:54:12.682710+00:00",
+  "kind": "splatview-windows-source-capture",
+  "schemaVersion": 1,
+  "stage": "initial inventory",
+  "state": "quarantined"
+}

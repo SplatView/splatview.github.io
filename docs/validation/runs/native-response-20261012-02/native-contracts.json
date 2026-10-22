@@ -1,0 +1,200 @@
+{
+  "schemaVersion": 1,
+  "kind": "linked-native-contract-main-execution",
+  "status": "passed",
+  "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+  "startedAtUtc": "2026-10-12T16:18:26.862Z",
+  "finishedAtUtc": "2026-10-12T16:18:27.118Z",
+  "nativeInputId": "f7bcd717564dda9ff604c6c8130ddc7503d24c6b0b0b84c3c6a8fa6882ddb932",
+  "before": [
+    {
+      "path": ".build/wasm/contracts/splatview-source-hash-contracts.mjs",
+      "bytes": 67369,
+      "sha256": "16a8b6f702f7b4bc94499841ad3c7dad8d70c1d8db92fb9ce35f4c32b2c96f83"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-source-hash-contracts.wasm",
+      "bytes": 215995,
+      "sha256": "40ae15efe365196fab2ac093df076db333bfb97663e7b94d159b9dd7f19150ef"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-geometry-contracts.mjs",
+      "bytes": 77969,
+      "sha256": "e329fc5f7bef28bdbf1958e50996c14e2faf627b8a5e5a5e752b2441f7a3d80d"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-geometry-contracts.wasm",
+      "bytes": 1547065,
+      "sha256": "54aae3868df07ca4f9240b85bf1a48688dedf448241810000a1733a6a831b804"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-live-selection-contracts.mjs",
+      "bytes": 69339,
+      "sha256": "720f8df6b054c234c33ad45ec08ca33e1c067e89806b4716d263940281644a4e"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-live-selection-contracts.wasm",
+      "bytes": 387072,
+      "sha256": "d8a1753cf591c949351a4323e8180e53bfbed4dcfb65ea424645ba718adfc0a0"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-response-contracts.mjs",
+      "bytes": 77362,
+      "sha256": "851758c90917eeeaebeb9af41313bf666d1a1b877194497897e92d2469173726"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-response-contracts.wasm",
+      "bytes": 1575894,
+      "sha256": "e0288083b715d80e7e749e599ff1e16a3c06f074c7b8af8b60b43ea702454ae3"
+    },
+    {
+      "path": "public/wasm/splatview-core.mjs",
+      "bytes": 79409,
+      "sha256": "f5d52de82c5f74557dd71b3edea64dda93d051d36d4f9c0f8d1829fccf41bbba"
+    },
+    {
+      "path": "public/wasm/splatview-core.wasm",
+      "bytes": 1471728,
+      "sha256": "4490817c58ab401de74f2221f2e0a03103d50915be69fb2edc55f5f539fe2447"
+    },
+    {
+      "path": "public/wasm/splatview-camera.mjs",
+      "bytes": 12043,
+      "sha256": "82616e5b11115f6331364df2a29124736065edbf658e803fa9861ac8931c2f11"
+    },
+    {
+      "path": "public/wasm/splatview-camera.wasm",
+      "bytes": 26871,
+      "sha256": "35dcc15c2649f1f6f4abbc0e5300c03c4f5cf4a9c450cd17dd0ecb65e1401b6c"
+    },
+    {
+      "path": "public/wasm/build-provenance.json",
+      "bytes": 8002,
+      "sha256": "36841b5eff436914f14548ae583d7962e76c40bf2eb7f04eec85b95f5f4cb3d7"
+    },
+    {
+      "path": "tools/run-native-contracts.mjs",
+      "bytes": 4747,
+      "sha256": "59f123a0e978bedfa76f5e1871865096ec29152fb466f57386e53c214fab7b4c"
+    }
+  ],
+  "after": [
+    {
+      "path": ".build/wasm/contracts/splatview-source-hash-contracts.mjs",
+      "bytes": 67369,
+      "sha256": "16a8b6f702f7b4bc94499841ad3c7dad8d70c1d8db92fb9ce35f4c32b2c96f83"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-source-hash-contracts.wasm",
+      "bytes": 215995,
+      "sha256": "40ae15efe365196fab2ac093df076db333bfb97663e7b94d159b9dd7f19150ef"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-geometry-contracts.mjs",
+      "bytes": 77969,
+      "sha256": "e329fc5f7bef28bdbf1958e50996c14e2faf627b8a5e5a5e752b2441f7a3d80d"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-geometry-contracts.wasm",
+      "bytes": 1547065,
+      "sha256": "54aae3868df07ca4f9240b85bf1a48688dedf448241810000a1733a6a831b804"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-live-selection-contracts.mjs",
+      "bytes": 69339,
+      "sha256": "720f8df6b054c234c33ad45ec08ca33e1c067e89806b4716d263940281644a4e"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-live-selection-contracts.wasm",
+      "bytes": 387072,
+      "sha256": "d8a1753cf591c949351a4323e8180e53bfbed4dcfb65ea424645ba718adfc0a0"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-response-contracts.mjs",
+      "bytes": 77362,
+      "sha256": "851758c90917eeeaebeb9af41313bf666d1a1b877194497897e92d2469173726"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-response-contracts.wasm",
+      "bytes": 1575894,
+      "sha256": "e0288083b715d80e7e749e599ff1e16a3c06f074c7b8af8b60b43ea702454ae3"
+    },
+    {
+      "path": "public/wasm/splatview-core.mjs",
+      "bytes": 79409,
+      "sha256": "f5d52de82c5f74557dd71b3edea64dda93d051d36d4f9c0f8d1829fccf41bbba"
+    },
+    {
+      "path": "public/wasm/splatview-core.wasm",
+      "bytes": 1471728,
+      "sha256": "4490817c58ab401de74f2221f2e0a03103d50915be69fb2edc55f5f539fe2447"
+    },
+    {
+      "path": "public/wasm/splatview-camera.mjs",
+      "bytes": 12043,
+      "sha256": "82616e5b11115f6331364df2a29124736065edbf658e803fa9861ac8931c2f11"
+    },
+    {
+      "path": "public/wasm/splatview-camera.wasm",
+      "bytes": 26871,
+      "sha256": "35dcc15c2649f1f6f4abbc0e5300c03c4f5cf4a9c450cd17dd0ecb65e1401b6c"
+    },
+    {
+      "path": "public/wasm/build-provenance.json",
+      "bytes": 8002,
+      "sha256": "36841b5eff436914f14548ae583d7962e76c40bf2eb7f04eec85b95f5f4cb3d7"
+    },
+    {
+      "path": "tools/run-native-contracts.mjs",
+      "bytes": 4747,
+      "sha256": "59f123a0e978bedfa76f5e1871865096ec29152fb466f57386e53c214fab7b4c"
+    }
+  ],
+  "invocations": [
+    {
+      "name": "source-hash",
+      "modulePath": ".build/wasm/contracts/splatview-source-hash-contracts.mjs",
+      "actualFactoryMainInvoked": true,
+      "startedAtUtc": "2026-10-12T16:18:26.871Z",
+      "finishedAtUtc": "2026-10-12T16:18:26.993Z",
+      "stdout": [
+        "SPLATVIEW_SOURCE_HASH_CONTRACTS_PASS assertions=1374314 hashCases=106 ownerBytes=152 slotBytes=160 wordBytes=4 pointerBytes=4 sizeBytes=4 compressionScheduleBytes=256"
+      ],
+      "stderr": []
+    },
+    {
+      "name": "geometry",
+      "modulePath": ".build/wasm/contracts/splatview-geometry-contracts.mjs",
+      "actualFactoryMainInvoked": true,
+      "startedAtUtc": "2026-10-12T16:18:26.996Z",
+      "finishedAtUtc": "2026-10-12T16:18:27.047Z",
+      "stdout": [
+        "SPLATVIEW_GEOMETRY_CONTRACTS_PASS assertions=257"
+      ],
+      "stderr": []
+    },
+    {
+      "name": "live-selection",
+      "modulePath": ".build/wasm/contracts/splatview-live-selection-contracts.mjs",
+      "actualFactoryMainInvoked": true,
+      "startedAtUtc": "2026-10-12T16:18:27.049Z",
+      "finishedAtUtc": "2026-10-12T16:18:27.077Z",
+      "stdout": [
+        "Live selection contracts passed: real Rectangle/Polygon/analytic Brush/map Brush/Volume, typed candidate discard, unchanged/degenerate publication, exact catch scope, admission/publication errors, baseline/Redo/revisions and admitted-storage release."
+      ],
+      "stderr": []
+    },
+    {
+      "name": "response",
+      "modulePath": ".build/wasm/contracts/splatview-response-contracts.mjs",
+      "actualFactoryMainInvoked": true,
+      "startedAtUtc": "2026-10-12T16:18:27.079Z",
+      "finishedAtUtc": "2026-10-12T16:18:27.112Z",
+      "stdout": [
+        "SPLATVIEW_RESPONSE_CONTRACTS_PASS cases=13 assertions=435 noNewObservations=136 observedNewCalls=0 staticBytes=16549 repeatedRefusals=16"
+      ],
+      "stderr": []
+    }
+  ],
+  "scope": "Actual linked source-hash, geometry, live-selection and response mains. Not browser, whole-operation quota, Mac, visual or performance acceptance."
+}

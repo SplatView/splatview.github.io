@@ -1,0 +1,28 @@
+﻿{
+    "schemaVersion":  1,
+    "kind":  "observed-local-command-terminal",
+    "workingDirectory":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+    "executable":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+    "arguments":  [
+                      "node_modules/vitest/vitest.mjs",
+                      "run",
+                      "--reporter=json",
+                      "--outputFile=test-results-viewer-shell-all-units-03.json"
+                  ],
+    "startedAtUtc":  "2026-10-12T20:44:39.8252619Z",
+    "finishedAtUtc":  "2026-10-12T20:44:46.7865347Z",
+    "exitCode":  0,
+    "exception":  null,
+    "log":  {
+                "path":  "test-results-coherent-startup-viewer-shell-all-units-03.log",
+                "bytes":  2708,
+                "sha256":  "0b80c563b6d52516ddcc040509df89ca990f44acc5190b072230f7df6493f0ab"
+            },
+    "report":  {
+                   "path":  "test-results-viewer-shell-all-units-03.json",
+                   "bytes":  663958,
+                   "sha256":  "343b89f4dd5aff09c7af1b411bd97abc02d06c8a1826774445669b3edb4a5ed6"
+               },
+    "browserOutputDirectory":  "",
+    "lastRun":  null
+}

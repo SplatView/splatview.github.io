@@ -1,0 +1,1563 @@
+{
+  "kind": "qualified-selection-interaction-optimization",
+  "status": "passed",
+  "observedAtUtc": "2026-10-18T18:28:11.105267+00:00",
+  "scope": "Asynchronous pipeline preparation, conservative bounds, bounded leased scratch reuse and exact depth-only 3D-brush coverage.",
+  "sourceAndHelpers": [
+    {
+      "path": ".build/selection-interaction-optimization-20261018-01/clean-and-audit-01.py",
+      "bytes": 3714,
+      "sha256": "4673baa3acc4f9f7b71383e89da7a79c8e9991ba07f38201288ecf4578b182d0"
+    },
+    {
+      "path": ".build/selection-interaction-optimization-20261018-01/development-01.config.ts",
+      "bytes": 1184,
+      "sha256": "c3e48a2713e06bd615312cde5ddf9675f41dc85d46411b7ba5129b4ee7c4f428"
+    },
+    {
+      "path": ".build/selection-interaction-optimization-20261018-01/development-02.config.ts",
+      "bytes": 1184,
+      "sha256": "0a6e51e3a91183d0ce9702843621d6a4e419ca77dcf96f7655e55a02791cead1"
+    },
+    {
+      "path": ".build/selection-interaction-optimization-20261018-01/measure-interaction-01.mjs",
+      "bytes": 1566,
+      "sha256": "62ac85f57e269fae37cb4e435ef807d899c934af8fb0d286f93c2bebf6853519"
+    },
+    {
+      "path": ".build/selection-interaction-optimization-20261018-01/measure-surface-01.mjs",
+      "bytes": 4060,
+      "sha256": "7fbad68343691f14143a64e38744046c5551ba7a3fa8ddc2b0b6655e35996a41"
+    },
+    {
+      "path": ".build/selection-interaction-optimization-20261018-01/production-01.config.ts",
+      "bytes": 902,
+      "sha256": "6d86aabb3eae7d402fec6bd13b08a3beddaaea8c0aa07a850b6a859013ee82c6"
+    },
+    {
+      "path": ".build/selection-interaction-optimization-20261018-01/record-validation-01.py",
+      "bytes": 10335,
+      "sha256": "d67ed8cd3418cc65be84a4a1d5042382df826991441098c5db5c7eaf89df15d4"
+    },
+    {
+      "path": ".build/selection-interaction-optimization-20261018-01/smoke-01.config.ts",
+      "bytes": 633,
+      "sha256": "ecc38ba171b84d33cbd75e78c34114d5556e17fa88c43de39b5ec7600786ef54"
+    },
+    {
+      "path": ".build/selection-interaction-optimization-20261018-01/smoke-02.config.ts",
+      "bytes": 650,
+      "sha256": "5cb9532dc6a5cf24f419a86ce7914ec1a88aa0e0335f080740643be7d7e20555"
+    },
+    {
+      "path": ".build/selection-interaction-optimization-20261018-01/smoke-03.config.ts",
+      "bytes": 650,
+      "sha256": "c4cdfdbfc68e645f749616d4b13cbd413722eaac5e744d4e9c949a3cc59e7f48"
+    },
+    {
+      "path": "IMPLEMENTATION_STATUS.md",
+      "bytes": 418033,
+      "sha256": "881514fc85dba0896ada0d34f3058c725ac7fca125b39f5fb531cebb9c9c2950"
+    },
+    {
+      "path": "README.md",
+      "bytes": 11976,
+      "sha256": "7907b6a9f51487a1c3d8ac6fe1e6c8c2dc3beeb18c136e09161f707204ddc4a3"
+    },
+    {
+      "path": "WEB_PORT_PLAN.md",
+      "bytes": 599227,
+      "sha256": "1aa4dd889ce48d0541ae1f41efd40ec6b1c6072e39decb108adfdcd7fb32bc36"
+    },
+    {
+      "path": "design/feature-reviews/selection-interaction-optimization-2026-10-18.md",
+      "bytes": 11483,
+      "sha256": "3f85f8dabc5ce6e8a8ad3adfd629b222ed4339d3327ac677b716d7e561530f64"
+    },
+    {
+      "path": "docs/third-party/PLAYCANVAS_SELECTION_REFERENCES.md",
+      "bytes": 7890,
+      "sha256": "6fbb559c10c8ac3e14ed58bc37ec837211cf28e6f262dcc144e1cfeae4b85627"
+    },
+    {
+      "path": "e2e/map-cache-harness.ts",
+      "bytes": 58337,
+      "sha256": "da9715599065eded140ce5019180bd52904e3b06ee347e8ee66c784c228f8118"
+    },
+    {
+      "path": "e2e/map-cache.spec.ts",
+      "bytes": 32970,
+      "sha256": "929586be95a530dc7d86fc8a7726cfda2e14260851d4df2108d0efe91c4e88f5"
+    },
+    {
+      "path": "e2e/selection-interaction.spec.ts",
+      "bytes": 6356,
+      "sha256": "30898e1ca800df2533feb229ede37c268bdd65407a2ba24e20686608d426dae8"
+    },
+    {
+      "path": "e2e/surface-bounds.spec.ts",
+      "bytes": 12091,
+      "sha256": "1f137b8022aa6d6494ddc2e48adbfb88f23637d2170432e72c372d80c852a2b2"
+    },
+    {
+      "path": "e2e/surface-harness.ts",
+      "bytes": 23768,
+      "sha256": "822fe5971b0e068342cfc5635dfc7fc71f6dc818ca59eff40a5dc9417a1b8db1"
+    },
+    {
+      "path": "e2e/surface-optimization.spec.ts",
+      "bytes": 8284,
+      "sha256": "b2c3fc7521a4b86c5a04179037f7dc77064cb21a99e5ccdc43beca2a067a2d47"
+    },
+    {
+      "path": "e2e/surface.spec.ts",
+      "bytes": 23047,
+      "sha256": "be0f672929d10b4cfa00d80cf016a8179d81debebfaf9afef1f43a7c8db5a4b6"
+    },
+    {
+      "path": "e2e/volume-harness.ts",
+      "bytes": 10321,
+      "sha256": "647a83a74bc72ea2139bcfb981364db3458da923a3c09d89e9a15bde0d8f8fb8"
+    },
+    {
+      "path": "package.json",
+      "bytes": 1611,
+      "sha256": "dc1f47b401e5421061d9410d5f6c869015e5d2455d0559fdba762ec9635639bf"
+    },
+    {
+      "path": "src/app/controller.ts",
+      "bytes": 470350,
+      "sha256": "d9002712fd344e5caf80e98e3dab2f257e83cafea1342d98541f265c25be6ae2"
+    },
+    {
+      "path": "src/app/selectionMaps.ts",
+      "bytes": 7566,
+      "sha256": "6db061e00b42a00febdad14270cc182de8429d011a57b61c062528edd7c42d9f"
+    },
+    {
+      "path": "src/document/selectionMapCache.ts",
+      "bytes": 9717,
+      "sha256": "ee0802733c3a2d3cdca68e1e2b9a4e004ad2ad67cd37ea8412627c4a6c663fea"
+    },
+    {
+      "path": "src/generated/buildIdentity.ts",
+      "bytes": 2008,
+      "sha256": "b2d0cbe6bd2790045cfd39def3414e1393affd9ab725ae705ce6cad156c4bf2a"
+    },
+    {
+      "path": "src/renderer/webgpu/renderer.ts",
+      "bytes": 53366,
+      "sha256": "572fcdf5140baee4b5c873a2c6234c30bea34e39fc47fb7f3f345670b8066de4"
+    },
+    {
+      "path": "src/renderer/webgpu/surface.ts",
+      "bytes": 20651,
+      "sha256": "140dcf0fbd3f22ab01f3a47a4f1fac9f9a416d1274423dec17bcebfb89d02723"
+    },
+    {
+      "path": "src/renderer/webgpu/surface.wgsl",
+      "bytes": 16428,
+      "sha256": "2bbaf0daf73bd4e590d5793008d4b6cc86883c787831325e9a32004bc13032a8"
+    },
+    {
+      "path": "src/renderer/webgpu/surfaceCoverage.ts",
+      "bytes": 3871,
+      "sha256": "7bb9bee1a58dbbbadaf4f88b159904efb0c8cf581aeef92314eccce5a94bf103"
+    },
+    {
+      "path": "src/renderer/webgpu/surfaceLayout.ts",
+      "bytes": 3145,
+      "sha256": "8a8f28c44573decf0fa6fda6be127b07c71b8aacc688f578fcc789d2f3f56696"
+    },
+    {
+      "path": "src/renderer/webgpu/surfaceResources.ts",
+      "bytes": 7585,
+      "sha256": "11c393fd06e1fb1a86f8dbd5a493d2fab3b38e2f585e8f14a00b3f129de88a00"
+    },
+    {
+      "path": "test-results-coherent-startup-run.ps1",
+      "bytes": 2436,
+      "sha256": "36f95ef0f1c339acc42c3359136d06a5c231a059aab89162b7b9a200d8a8cb46"
+    },
+    {
+      "path": "tests/opacity-selection-maps.test.ts",
+      "bytes": 8163,
+      "sha256": "0406e15018d6713519dadf7d8ee52d9750c1d1777374e4f3206883010f5eba3d"
+    },
+    {
+      "path": "tests/selection-map-cache.test.ts",
+      "bytes": 12329,
+      "sha256": "d63bb0c19e91b64c2b2c275c393bee8e5ebb91b454281f22caa5940c3d6dc009"
+    },
+    {
+      "path": "tests/surface-coverage.test.ts",
+      "bytes": 5345,
+      "sha256": "ddffaf5f74d2c742e2245d8fe0d5503f4fbc7a1276f7b1ed119bb61f04afad41"
+    },
+    {
+      "path": "tests/surface-resources.test.ts",
+      "bytes": 12849,
+      "sha256": "68a36224e56b5ad78e2b60dfba4acb6bf7ed5ddf240a669fd24724cc75a4d739"
+    }
+  ],
+  "preimages": {
+    "manifest": {
+      "path": ".build/selection-interaction-optimization-20261018-01/preimages.json",
+      "bytes": 2660,
+      "sha256": "3b7db30053b1946ff60aab622b23ae7b7b49160e67e41fa64b3b373e1ba66629"
+    },
+    "sources": [
+      {
+        "path": "src/renderer/webgpu/surface.ts",
+        "bytes": 16179,
+        "sha256": "cb95d5ccb2ff171365d02f6a282559eec7110387e3619569d5fbac513e8714a6"
+      },
+      {
+        "path": "src/renderer/webgpu/surface.wgsl",
+        "bytes": 14274,
+        "sha256": "9088fd4284d860801ca8e43707cabda072d3af090b812c52ad4c2f1be219134f"
+      },
+      {
+        "path": "src/renderer/webgpu/surfaceLayout.ts",
+        "bytes": 3145,
+        "sha256": "8a8f28c44573decf0fa6fda6be127b07c71b8aacc688f578fcc789d2f3f56696"
+      },
+      {
+        "path": "src/renderer/webgpu/renderer.ts",
+        "bytes": 52928,
+        "sha256": "25695ba041569a740e852c8adbef4b17215f7c21bac76f889e969d72887dcc1c"
+      },
+      {
+        "path": "src/app/controller.ts",
+        "bytes": 469051,
+        "sha256": "a7788dadfc3ff662616bef7eebb9b036719cefec95f7fda18a3362dc160160a0"
+      },
+      {
+        "path": "src/app/selectionMaps.ts",
+        "bytes": 6846,
+        "sha256": "56d4c2063a55b593119b32447eaa1e27c01ec763c1c908a9348c129a402955ac"
+      },
+      {
+        "path": "src/document/selectionMapCache.ts",
+        "bytes": 7992,
+        "sha256": "ba204885c9a6fa7d7e5d38263e8471065c9c59e4686c767c2f7df1db658f5cb5"
+      },
+      {
+        "path": "e2e/surface-harness.ts",
+        "bytes": 23768,
+        "sha256": "822fe5971b0e068342cfc5635dfc7fc71f6dc818ca59eff40a5dc9417a1b8db1"
+      },
+      {
+        "path": "e2e/surface.spec.ts",
+        "bytes": 23047,
+        "sha256": "be0f672929d10b4cfa00d80cf016a8179d81debebfaf9afef1f43a7c8db5a4b6"
+      },
+      {
+        "path": "e2e/surface-optimization.spec.ts",
+        "bytes": 8143,
+        "sha256": "6cfa26d6372910b9a489bf0daa2f2ab33fe832ec4dbf727a89ddb166b0208450"
+      },
+      {
+        "path": "e2e/map-cache-harness.ts",
+        "bytes": 44748,
+        "sha256": "e95a77e1823e198fda2b245adab8c8543f0359891c6f6942400435343eee7ab5"
+      },
+      {
+        "path": "README.md",
+        "bytes": 11233,
+        "sha256": "6f87b9bff76e608f4c4b35d0a922516369d9d5c85aa824778a882feba3344d0e"
+      },
+      {
+        "path": "WEB_PORT_PLAN.md",
+        "bytes": 597000,
+        "sha256": "1f77f952bf50eace7ff5f864b18185929ddd22e3830a94b813c8ddcbe5f884c2"
+      },
+      {
+        "path": "IMPLEMENTATION_STATUS.md",
+        "bytes": 415797,
+        "sha256": "e0886f5803f046ddb42e6b23e89084361d23780faee6b21d1f0f07167575dd35"
+      },
+      {
+        "path": "docs/third-party/PLAYCANVAS_SELECTION_REFERENCES.md",
+        "bytes": 7073,
+        "sha256": "1e76487b5866edb70cd4a88c969a28a54b1bb7b2df9630c73e8f98c3c5364de9"
+      }
+    ]
+  },
+  "additionalPreimages": [
+    {
+      "path": ".build/selection-interaction-optimization-20261018-01/selection-map-cache.test.ts.preimage",
+      "bytes": 7375,
+      "sha256": "baa5dc15157ee4f8e68e821c43b3acbbf6b54aeeb424209af20489aea4a1e7a1"
+    },
+    {
+      "path": ".build/selection-interaction-optimization-20261018-01/opacity-selection-maps.test.ts.preimage",
+      "bytes": 6474,
+      "sha256": "f5e876e6416477aae071e76d450f1cc553ad4b3ccbd2d966ad55c6e73de99682"
+    },
+    {
+      "path": ".build/selection-interaction-optimization-20261018-01/volume-harness.ts.preimage",
+      "bytes": 10342,
+      "sha256": "72783e3d268b91110461542a691474ed4c7d22e03159abccbd085db6b2a0ef15"
+    }
+  ],
+  "commands": {
+    "selected": {
+      "cpu": "cpu-full-02",
+      "development": "development-02",
+      "build": "build-01",
+      "production": "production-01",
+      "typecheck": "typecheck-final-01",
+      "baseline": "baseline-01",
+      "optimized": "optimized-01",
+      "interaction": "measurement-01",
+      "cleanup": "cleanup-01"
+    },
+    "attempts": {
+      "baseline-01": {
+        "receipt": {
+          "path": "test-results-coherent-startup-selection-interaction-baseline-01.command.json",
+          "bytes": 1324,
+          "sha256": "be28feaa261066b142583457f7387c55ccb7515f476a7b4d03b7fd9c3537af29"
+        },
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+        "arguments": [
+          ".build/selection-interaction-optimization-20261018-01/measure-surface-01.mjs",
+          ".build/selection-interaction-optimization-20261018-01/baseline-01.json"
+        ],
+        "startedAtUtc": "2026-10-18T18:07:25.8616117Z",
+        "finishedAtUtc": "2026-10-18T18:07:28.0697893Z",
+        "exitCode": 0,
+        "exception": null,
+        "log": {
+          "path": "test-results-coherent-startup-selection-interaction-baseline-01.log",
+          "bytes": 1908,
+          "sha256": "9cf1d831a53cbeb2ea9219d1cdd6f311d4bb983437007bc0cfae28db5f72fabf"
+        },
+        "report": {
+          "path": ".build/selection-interaction-optimization-20261018-01/baseline-01.json",
+          "bytes": 7638,
+          "sha256": "e640e51c0f236ded83f7049ea5bed6571e0eb3f6f978dae7e97d35302c7598a5"
+        },
+        "browserOutputDirectory": "",
+        "lastRun": null
+      },
+      "build-01": {
+        "receipt": {
+          "path": "test-results-coherent-startup-selection-interaction-build-01.command.json",
+          "bytes": 1018,
+          "sha256": "9aa5bc2ab334c2908ad45dfe1122582357a77889ac29c46023963489a359f65d"
+        },
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+        "arguments": [
+          ".tools/node-v24.21.0-win-x64/node_modules/npm/bin/npm-cli.js",
+          "run",
+          "build"
+        ],
+        "startedAtUtc": "2026-10-18T18:26:33.2262094Z",
+        "finishedAtUtc": "2026-10-18T18:26:39.8269454Z",
+        "exitCode": 0,
+        "exception": null,
+        "log": {
+          "path": "test-results-coherent-startup-selection-interaction-build-01.log",
+          "bytes": 6900,
+          "sha256": "a76db4cb9be0bdad2365a78baf1696bbd3b1eb7c18b54bcd489117b67d7528cd"
+        },
+        "report": null,
+        "browserOutputDirectory": "",
+        "lastRun": null
+      },
+      "cleanup-01": {
+        "receipt": {
+          "path": "test-results-coherent-startup-selection-interaction-cleanup-01.command.json",
+          "bytes": 1214,
+          "sha256": "a0eb2e17a4101d6d9b5e8de4532989c16a1a64ffe1105de88ab25a79eb04de79"
+        },
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "arguments": [
+          "-B",
+          ".build/selection-interaction-optimization-20261018-01/clean-and-audit-01.py"
+        ],
+        "startedAtUtc": "2026-10-18T18:28:09.8436866Z",
+        "finishedAtUtc": "2026-10-18T18:28:10.2490778Z",
+        "exitCode": 0,
+        "exception": null,
+        "log": {
+          "path": "test-results-coherent-startup-selection-interaction-cleanup-01.log",
+          "bytes": 542,
+          "sha256": "041ad4e30b9d6267cb9fd2ac97fd487882d559a848359ad1398230e45028a919"
+        },
+        "report": {
+          "path": ".build/selection-interaction-optimization-20261018-01/cache-cleanup-01.json",
+          "bytes": 5493,
+          "sha256": "370c76b2dcaa5f88827ded9accddbb6aaa3349314abddd50b348fbc74b9cc4b7"
+        },
+        "browserOutputDirectory": "",
+        "lastRun": null
+      },
+      "cpu-full-01": {
+        "receipt": {
+          "path": "test-results-coherent-startup-selection-interaction-cpu-full-01.command.json",
+          "bytes": 1454,
+          "sha256": "455d66ee3d055d2ae7039fb451b06b0aee00ebab742a5456d3d1b148aa0a10a5"
+        },
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+        "arguments": [
+          "node_modules/vitest/vitest.mjs",
+          "run",
+          "--maxWorkers=4",
+          "--testTimeout=15000",
+          "--reporter=json",
+          "--outputFile=.build/selection-interaction-optimization-20261018-01/cpu-full-01.json"
+        ],
+        "startedAtUtc": "2026-10-18T18:19:52.9022147Z",
+        "finishedAtUtc": "2026-10-18T18:20:52.7645941Z",
+        "exitCode": 1,
+        "exception": null,
+        "log": {
+          "path": "test-results-coherent-startup-selection-interaction-cpu-full-01.log",
+          "bytes": 16838,
+          "sha256": "1365ec6e023cc2ae9d562261124d8d26ee27f061ff91308c585c037596b0363b"
+        },
+        "report": {
+          "path": ".build/selection-interaction-optimization-20261018-01/cpu-full-01.json",
+          "bytes": 2433451,
+          "sha256": "5526392259d34077ad0732638697f004acc5d6978041c190236fcebf81587c87"
+        },
+        "browserOutputDirectory": "",
+        "lastRun": null
+      },
+      "cpu-full-02": {
+        "receipt": {
+          "path": "test-results-coherent-startup-selection-interaction-cpu-full-02.command.json",
+          "bytes": 1454,
+          "sha256": "bde2c0c475be8c53cbbed2c3287c6d0e81677c8a65d49ecfadf7133e1df82fa0"
+        },
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+        "arguments": [
+          "node_modules/vitest/vitest.mjs",
+          "run",
+          "--maxWorkers=4",
+          "--testTimeout=15000",
+          "--reporter=json",
+          "--outputFile=.build/selection-interaction-optimization-20261018-01/cpu-full-02.json"
+        ],
+        "startedAtUtc": "2026-10-18T18:22:07.7319367Z",
+        "finishedAtUtc": "2026-10-18T18:23:07.9052626Z",
+        "exitCode": 0,
+        "exception": null,
+        "log": {
+          "path": "test-results-coherent-startup-selection-interaction-cpu-full-02.log",
+          "bytes": 16838,
+          "sha256": "b4df38909671a29bdcb58b1e812c40bc0d675917511c959a3d1e5dcd64a2c6f2"
+        },
+        "report": {
+          "path": ".build/selection-interaction-optimization-20261018-01/cpu-full-02.json",
+          "bytes": 2427916,
+          "sha256": "fc72f6bdf47f3f9f1024dec34e22ce31d49d7b8b13be37c7e54c19b262e284c5"
+        },
+        "browserOutputDirectory": "",
+        "lastRun": null
+      },
+      "development-01": {
+        "receipt": {
+          "path": "test-results-coherent-startup-selection-interaction-development-01.command.json",
+          "bytes": 1712,
+          "sha256": "2f84566b86a1cd1c3950af71dee1f889b88746951fad94a3cb1e7809768b9b38"
+        },
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+        "arguments": [
+          "node_modules/playwright/cli.js",
+          "test",
+          "--config",
+          ".build/selection-interaction-optimization-20261018-01/development-01.config.ts"
+        ],
+        "startedAtUtc": "2026-10-18T18:21:42.1051017Z",
+        "finishedAtUtc": "2026-10-18T18:23:55.4267778Z",
+        "exitCode": 1,
+        "exception": null,
+        "log": {
+          "path": "test-results-coherent-startup-selection-interaction-development-01.log",
+          "bytes": 48132,
+          "sha256": "d12506b93d99fe81119892821d278999d836bc05d426c0fe668915f45389967e"
+        },
+        "report": {
+          "path": ".build/selection-interaction-optimization-20261018-01/development-01.json",
+          "bytes": 239292,
+          "sha256": "6dad1f45de2d52341ff41901b6adf018aea3c5d964f1ce1e31ecbd560d1c412b"
+        },
+        "browserOutputDirectory": ".build/selection-interaction-optimization-20261018-01/development-01-browser",
+        "lastRun": {
+          "path": ".build/selection-interaction-optimization-20261018-01/development-01-browser/.last-run.json",
+          "bytes": 96,
+          "sha256": "a618bb7e14b9c61eede9e676adc184d64c72d38dd7f846ad82cd544d11f03649"
+        }
+      },
+      "development-02": {
+        "receipt": {
+          "path": "test-results-coherent-startup-selection-interaction-development-02.command.json",
+          "bytes": 1712,
+          "sha256": "bea376369fcffe37d82cbfbdfcd2bfcbe6b167d752d854a791346b3b7d01ffd1"
+        },
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+        "arguments": [
+          "node_modules/playwright/cli.js",
+          "test",
+          "--config",
+          ".build/selection-interaction-optimization-20261018-01/development-02.config.ts"
+        ],
+        "startedAtUtc": "2026-10-18T18:24:12.3007617Z",
+        "finishedAtUtc": "2026-10-18T18:26:12.4217526Z",
+        "exitCode": 0,
+        "exception": null,
+        "log": {
+          "path": "test-results-coherent-startup-selection-interaction-development-02.log",
+          "bytes": 44676,
+          "sha256": "c092b5dfe3a740870369bdfdb9316ac1da1e48d44fd36159e76c8f7ee8cf10cf"
+        },
+        "report": {
+          "path": ".build/selection-interaction-optimization-20261018-01/development-02.json",
+          "bytes": 238411,
+          "sha256": "22efe7f9088e550b03600155ed2eccbcfe5a1f52383380abe0fd8279823d957b"
+        },
+        "browserOutputDirectory": ".build/selection-interaction-optimization-20261018-01/development-02-browser",
+        "lastRun": {
+          "path": ".build/selection-interaction-optimization-20261018-01/development-02-browser/.last-run.json",
+          "bytes": 45,
+          "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+        }
+      },
+      "focused-cpu-01": {
+        "receipt": {
+          "path": "test-results-coherent-startup-selection-interaction-focused-cpu-01.command.json",
+          "bytes": 1643,
+          "sha256": "e76d0c12cb5e73332de2ffa450e224589925d489ca68314a21228efeaf3df783"
+        },
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+        "arguments": [
+          "node_modules/vitest/vitest.mjs",
+          "run",
+          "tests/surface-resources.test.ts",
+          "tests/surface-coverage.test.ts",
+          "tests/surface-layout.test.ts",
+          "tests/selection-map-cache.test.ts",
+          "--maxWorkers=2",
+          "--reporter=json",
+          "--outputFile=.build/selection-interaction-optimization-20261018-01/focused-cpu-01.json"
+        ],
+        "startedAtUtc": "2026-10-18T18:14:50.2736814Z",
+        "finishedAtUtc": "2026-10-18T18:14:51.6646616Z",
+        "exitCode": 0,
+        "exception": null,
+        "log": {
+          "path": "test-results-coherent-startup-selection-interaction-focused-cpu-01.log",
+          "bytes": 348,
+          "sha256": "f0f49f93a7484dff7fef2f7e1d9f5799d76f6f96f8591ad3fa294bc858ea28d9"
+        },
+        "report": {
+          "path": ".build/selection-interaction-optimization-20261018-01/focused-cpu-01.json",
+          "bytes": 21660,
+          "sha256": "7bd94aaabec80bde741a17361ec499c9a05b4892552aa625282769c9765c8c7e"
+        },
+        "browserOutputDirectory": "",
+        "lastRun": null
+      },
+      "measurement-01": {
+        "receipt": {
+          "path": "test-results-coherent-startup-selection-interaction-measurement-01.command.json",
+          "bytes": 1337,
+          "sha256": "a56670cc92f601c9c46960463afa869444e93daf0f3e101b626878bdbebe3f1e"
+        },
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+        "arguments": [
+          ".build/selection-interaction-optimization-20261018-01/measure-interaction-01.mjs",
+          ".build/selection-interaction-optimization-20261018-01/interaction-01.json"
+        ],
+        "startedAtUtc": "2026-10-18T18:26:30.9066336Z",
+        "finishedAtUtc": "2026-10-18T18:26:32.8236262Z",
+        "exitCode": 0,
+        "exception": null,
+        "log": {
+          "path": "test-results-coherent-startup-selection-interaction-measurement-01.log",
+          "bytes": 252,
+          "sha256": "7fc5019264cdae820b7a3dee386b02b735db934209842f65b650b948efb1cede"
+        },
+        "report": {
+          "path": ".build/selection-interaction-optimization-20261018-01/interaction-01.json",
+          "bytes": 13553,
+          "sha256": "f76ec5b03a969dacaa22b6181362272aa951fbb969db3a0cae330c7b541f3439"
+        },
+        "browserOutputDirectory": "",
+        "lastRun": null
+      },
+      "optimized-01": {
+        "receipt": {
+          "path": "test-results-coherent-startup-selection-interaction-optimized-01.command.json",
+          "bytes": 1327,
+          "sha256": "f5a76ff66e94076c89b3b7dece3d303303d5519c1aeb16f4231589895652c03b"
+        },
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+        "arguments": [
+          ".build/selection-interaction-optimization-20261018-01/measure-surface-01.mjs",
+          ".build/selection-interaction-optimization-20261018-01/optimized-01.json"
+        ],
+        "startedAtUtc": "2026-10-18T18:26:21.7994614Z",
+        "finishedAtUtc": "2026-10-18T18:26:23.0771039Z",
+        "exitCode": 0,
+        "exception": null,
+        "log": {
+          "path": "test-results-coherent-startup-selection-interaction-optimized-01.log",
+          "bytes": 1920,
+          "sha256": "e0ffd3938bd5e17fba0ce6ce331db0827d70dc5aa1ba5af9ac0c6f59a49ef1a9"
+        },
+        "report": {
+          "path": ".build/selection-interaction-optimization-20261018-01/optimized-01.json",
+          "bytes": 7643,
+          "sha256": "437280f36fe6bd47bf8068a847dc63615db76444da95859f2d65221977ca816f"
+        },
+        "browserOutputDirectory": "",
+        "lastRun": null
+      },
+      "production-01": {
+        "receipt": {
+          "path": "test-results-coherent-startup-selection-interaction-production-01.command.json",
+          "bytes": 1705,
+          "sha256": "82479a79ac4cbf28d40dceb0ae93ab031cb815860fe64a4e70f9d1f240c61936"
+        },
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+        "arguments": [
+          "node_modules/playwright/cli.js",
+          "test",
+          "--config",
+          ".build/selection-interaction-optimization-20261018-01/production-01.config.ts"
+        ],
+        "startedAtUtc": "2026-10-18T18:26:47.0011472Z",
+        "finishedAtUtc": "2026-10-18T18:27:00.8937620Z",
+        "exitCode": 0,
+        "exception": null,
+        "log": {
+          "path": "test-results-coherent-startup-selection-interaction-production-01.log",
+          "bytes": 2736,
+          "sha256": "064fd606867168b8bfcecfe06d76f716f80a4214e1580b2438bf30ea2c1e3ca1"
+        },
+        "report": {
+          "path": ".build/selection-interaction-optimization-20261018-01/production-01.json",
+          "bytes": 14064,
+          "sha256": "bfd1e76a1f0e6364a057c7c90d8fb131e12fc7df4dddf271cb3b4dd4ec2be34c"
+        },
+        "browserOutputDirectory": ".build/selection-interaction-optimization-20261018-01/production-01-browser",
+        "lastRun": {
+          "path": ".build/selection-interaction-optimization-20261018-01/production-01-browser/.last-run.json",
+          "bytes": 45,
+          "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+        }
+      },
+      "smoke-01": {
+        "receipt": {
+          "path": "test-results-coherent-startup-selection-interaction-smoke-01.command.json",
+          "bytes": 1679,
+          "sha256": "1e170ad8f43c3664a4f04a5ddf2249f79e51e035feabf7637b1bf912e1643fac"
+        },
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+        "arguments": [
+          "node_modules/playwright/cli.js",
+          "test",
+          "--config",
+          ".build/selection-interaction-optimization-20261018-01/smoke-01.config.ts"
+        ],
+        "startedAtUtc": "2026-10-18T18:15:45.7940421Z",
+        "finishedAtUtc": "2026-10-18T18:15:47.4979740Z",
+        "exitCode": 0,
+        "exception": null,
+        "log": {
+          "path": "test-results-coherent-startup-selection-interaction-smoke-01.log",
+          "bytes": 1620,
+          "sha256": "e11e2d97bf01058710c2ff223b1684c7247f1c2c08f7453facd2f8176527ca0f"
+        },
+        "report": {
+          "path": ".build/selection-interaction-optimization-20261018-01/smoke-01.json",
+          "bytes": 7698,
+          "sha256": "05ca2dfcb7434b4ffda6d03fea652ef5c3fea3f3b69c3b457037df611e9a8b27"
+        },
+        "browserOutputDirectory": ".build/selection-interaction-optimization-20261018-01/smoke-01-browser",
+        "lastRun": {
+          "path": ".build/selection-interaction-optimization-20261018-01/smoke-01-browser/.last-run.json",
+          "bytes": 45,
+          "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+        }
+      },
+      "smoke-02": {
+        "receipt": {
+          "path": "test-results-coherent-startup-selection-interaction-smoke-02.command.json",
+          "bytes": 1680,
+          "sha256": "0b3728aabd7cc7326adcf0d943fccde2f8cbe4f0beb33b433a27bbefe5bc0089"
+        },
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+        "arguments": [
+          "node_modules/playwright/cli.js",
+          "test",
+          "--config",
+          ".build/selection-interaction-optimization-20261018-01/smoke-02.config.ts"
+        ],
+        "startedAtUtc": "2026-10-18T18:16:58.2878491Z",
+        "finishedAtUtc": "2026-10-18T18:17:00.6758602Z",
+        "exitCode": 1,
+        "exception": null,
+        "log": {
+          "path": "test-results-coherent-startup-selection-interaction-smoke-02.log",
+          "bytes": 6444,
+          "sha256": "c9b2878acf72e66b70c765adbefcc670c7bb31c8e3a20983c00de2a9113d43ed"
+        },
+        "report": {
+          "path": ".build/selection-interaction-optimization-20261018-01/smoke-02.json",
+          "bytes": 12805,
+          "sha256": "24291ecb458733728d31e26f21be821270846ca6df31ea2f433e7b8e81733b98"
+        },
+        "browserOutputDirectory": ".build/selection-interaction-optimization-20261018-01/smoke-02-browser",
+        "lastRun": {
+          "path": ".build/selection-interaction-optimization-20261018-01/smoke-02-browser/.last-run.json",
+          "bytes": 96,
+          "sha256": "b180da5df4a28d689d662189db6ac2e09ae09a8aba9bc8ef56004130f4810e32"
+        }
+      },
+      "smoke-03": {
+        "receipt": {
+          "path": "test-results-coherent-startup-selection-interaction-smoke-03.command.json",
+          "bytes": 1680,
+          "sha256": "fb2f0ff45f5d27257098ff4e36d473d730c1aca883a8ba0dcde2a0e4be338b11"
+        },
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+        "arguments": [
+          "node_modules/playwright/cli.js",
+          "test",
+          "--config",
+          ".build/selection-interaction-optimization-20261018-01/smoke-03.config.ts"
+        ],
+        "startedAtUtc": "2026-10-18T18:19:33.4153663Z",
+        "finishedAtUtc": "2026-10-18T18:19:36.8683273Z",
+        "exitCode": 0,
+        "exception": null,
+        "log": {
+          "path": "test-results-coherent-startup-selection-interaction-smoke-03.log",
+          "bytes": 2298,
+          "sha256": "73a4feb97688f4eead2dd8600812af7c8884dd813a34db40786689d4badb4aea"
+        },
+        "report": {
+          "path": ".build/selection-interaction-optimization-20261018-01/smoke-03.json",
+          "bytes": 16700,
+          "sha256": "547663743ad3c4b73c74b0a3134abd115c2caa66408d39a2c14db78ad2141249"
+        },
+        "browserOutputDirectory": ".build/selection-interaction-optimization-20261018-01/smoke-03-browser",
+        "lastRun": {
+          "path": ".build/selection-interaction-optimization-20261018-01/smoke-03-browser/.last-run.json",
+          "bytes": 45,
+          "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+        }
+      },
+      "tsc-02": {
+        "receipt": {
+          "path": "test-results-coherent-startup-selection-interaction-tsc-02.command.json",
+          "bytes": 728,
+          "sha256": "8328beb5a58a4fe129403c03995087107a763fbc6eabe7d0415de8e5ccd7386a"
+        },
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+        "arguments": [
+          "node_modules/typescript/bin/tsc",
+          "--noEmit"
+        ],
+        "startedAtUtc": "2026-10-18T18:19:26.5436739Z",
+        "finishedAtUtc": "2026-10-18T18:19:27.8582418Z",
+        "exitCode": 0,
+        "exception": null,
+        "log": null,
+        "report": null,
+        "browserOutputDirectory": "",
+        "lastRun": null
+      },
+      "typecheck-01": {
+        "receipt": {
+          "path": "test-results-coherent-startup-selection-interaction-typecheck-01.command.json",
+          "bytes": 965,
+          "sha256": "de48b59b807b23411370a4d92c1a3926f62bbcdec1ccb1834ea9ca3490c66b49"
+        },
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+        "arguments": [
+          "node_modules/typescript/bin/tsc",
+          "--noEmit"
+        ],
+        "startedAtUtc": "2026-10-18T18:14:50.1747609Z",
+        "finishedAtUtc": "2026-10-18T18:14:52.3124370Z",
+        "exitCode": 1,
+        "exception": null,
+        "log": {
+          "path": "test-results-coherent-startup-selection-interaction-typecheck-01.log",
+          "bytes": 246,
+          "sha256": "a7ddf6de58ea9be01276341c60f575a1e8677fd31ef4990aea40e52629a308c7"
+        },
+        "report": null,
+        "browserOutputDirectory": "",
+        "lastRun": null
+      },
+      "typecheck-final-01": {
+        "receipt": {
+          "path": "test-results-coherent-startup-selection-interaction-typecheck-final-01.command.json",
+          "bytes": 728,
+          "sha256": "9056e70addf3e3a4bd8f1b6118c53c4ea9bd321b52989cf877060a7202e8b055"
+        },
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+        "arguments": [
+          "node_modules/typescript/bin/tsc",
+          "--noEmit"
+        ],
+        "startedAtUtc": "2026-10-18T18:22:22.5154300Z",
+        "finishedAtUtc": "2026-10-18T18:22:24.8416903Z",
+        "exitCode": 0,
+        "exception": null,
+        "log": null,
+        "report": null,
+        "browserOutputDirectory": "",
+        "lastRun": null
+      }
+    }
+  },
+  "cpu": {
+    "report": {
+      "path": ".build/selection-interaction-optimization-20261018-01/cpu-full-02.json",
+      "bytes": 2427916,
+      "sha256": "fc72f6bdf47f3f9f1024dec34e22ce31d49d7b8b13be37c7e54c19b262e284c5"
+    },
+    "passed": 6255,
+    "files": 192
+  },
+  "browser": {
+    "development": {
+      "report": {
+        "path": ".build/selection-interaction-optimization-20261018-01/development-02.json",
+        "bytes": 238411,
+        "sha256": "22efe7f9088e550b03600155ed2eccbcfe5a1f52383380abe0fd8279823d957b"
+      },
+      "stats": {
+        "startTime": "2026-10-18T18:24:12.729Z",
+        "duration": 119590.246,
+        "expected": 126,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    "production": {
+      "report": {
+        "path": ".build/selection-interaction-optimization-20261018-01/production-01.json",
+        "bytes": 14064,
+        "sha256": "bfd1e76a1f0e6364a057c7c90d8fb131e12fc7df4dddf271cb3b4dd4ec2be34c"
+      },
+      "stats": {
+        "startTime": "2026-10-18T18:26:47.424Z",
+        "duration": 13449.697,
+        "expected": 4,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    }
+  },
+  "measurements": {
+    "baseline": {
+      "path": ".build/selection-interaction-optimization-20261018-01/baseline-01.json",
+      "bytes": 7638,
+      "sha256": "e640e51c0f236ded83f7049ea5bed6571e0eb3f6f978dae7e97d35302c7598a5"
+    },
+    "optimized": {
+      "path": ".build/selection-interaction-optimization-20261018-01/optimized-01.json",
+      "bytes": 7643,
+      "sha256": "437280f36fe6bd47bf8068a847dc63615db76444da95859f2d65221977ca816f"
+    },
+    "interaction": {
+      "path": ".build/selection-interaction-optimization-20261018-01/interaction-01.json",
+      "bytes": 13553,
+      "sha256": "f76ec5b03a969dacaa22b6181362272aa951fbb969db3a0cae330c7b541f3439"
+    },
+    "comparisons": [
+      {
+        "name": "sparse-and-one-dense-area",
+        "sourceCount": 2273,
+        "baselineWarmMedianMs": 15.200000047683716,
+        "optimizedWarmMedianMs": 11.599999964237213,
+        "baselineCandidateBytes": [
+          67264,
+          67264,
+          67264
+        ],
+        "optimizedCandidateBytes": [
+          67120,
+          67120,
+          67120
+        ],
+        "maximumSampleDelta": {
+          "depth": 0.0,
+          "opacity": 0.0
+        }
+      },
+      {
+        "name": "above-old-tile-capacity",
+        "sourceCount": 8193,
+        "baselineWarmMedianMs": 22.099999964237213,
+        "optimizedWarmMedianMs": 14.699999988079071,
+        "baselineCandidateBytes": [
+          262144,
+          262144,
+          262144
+        ],
+        "optimizedCandidateBytes": [
+          262144,
+          262144,
+          262144
+        ],
+        "maximumSampleDelta": {
+          "depth": 0,
+          "opacity": 0
+        }
+      }
+    ],
+    "environment": {
+      "browser": "156.0.8078.4",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "secureContext": true,
+      "gpu": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "device": "",
+        "description": "",
+        "isFallbackAdapter": false
+      }
+    }
+  },
+  "build": {
+    "manifest": {
+      "path": "dist/build-manifest.json",
+      "bytes": 20751,
+      "sha256": "730f0f760659c9b80b6f451ee91802ba365ef141b1794064770bef40f862f531"
+    },
+    "appInputId": "29a6cd27b3f1e8c280245657b106fdb3cac06789957b670b9310ed7b7e2d74f5",
+    "deploymentId": "9ac3d92e074467cf0f340870dd82b9ef07cb6b59c6f7faf6137f52a9becf0bb8",
+    "verifiedArtifacts": [
+      {
+        "path": "dist/assets/document.worker-DOjWIh6n.js",
+        "bytes": 218549,
+        "sha256": "eccebd10004777924e6f77b35d96a7b2827b7c30fb5e8ce03fbf14f14c368928"
+      },
+      {
+        "path": "dist/assets/index-DZ9WF5oE.js",
+        "bytes": 1732949,
+        "sha256": "c2d6bc7f4204cb6b49041f3a8767ec90a07f4d8c316f3463877b0c9ef9a50a72"
+      },
+      {
+        "path": "dist/assets/index-UcCgR2sw.css",
+        "bytes": 45112,
+        "sha256": "4f19f5013a784c7c9d296bcc9386a60c0ef473e74ef7828f7054a64226eca1d5"
+      },
+      {
+        "path": "dist/icons/LICENSE.txt",
+        "bytes": 3208,
+        "sha256": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57"
+      },
+      {
+        "path": "dist/icons/README.md",
+        "bytes": 3235,
+        "sha256": "2f0384ee7b606e191fec67f5baf4139ecfe273f9bdd199b4e350427d5fb7661d"
+      },
+      {
+        "path": "dist/icons/alignment-floor.svg",
+        "bytes": 246,
+        "sha256": "9d1283d7bd150a90724ef56a8e19cc0cd24031145a0039308f3934b37dacd224"
+      },
+      {
+        "path": "dist/icons/alignment-plane.svg",
+        "bytes": 330,
+        "sha256": "a08a450ac1072f7111b6edfa7695a09aa9104971f31cf672668c0055ec3b1f88"
+      },
+      {
+        "path": "dist/icons/alignment-scale.svg",
+        "bytes": 325,
+        "sha256": "ee24b9231a99960ec2757470aae771b2c25225e728666f756c29806dc027fdbb"
+      },
+      {
+        "path": "dist/icons/archive-restore.svg",
+        "bytes": 393,
+        "sha256": "7b589719d9c539dcb77844ea02b7c548f354a74b2931734f57b041d4e9de8ff8"
+      },
+      {
+        "path": "dist/icons/arrow-up-down.svg",
+        "bytes": 313,
+        "sha256": "d15411438095bac7cab0cf91f18cadfbde2ca752284c06b4b3642c4695b1774e"
+      },
+      {
+        "path": "dist/icons/axis-3d.svg",
+        "bytes": 342,
+        "sha256": "edea2bc3b4f6d3b896e444c946d034064273861edd5d1bcba51df16a49730959"
+      },
+      {
+        "path": "dist/icons/book-open.svg",
+        "bytes": 387,
+        "sha256": "9b9bed0ff057283d5c5c5a1c71f8d3e927db26a56639603a92fdf7b25961510e"
+      },
+      {
+        "path": "dist/icons/brush.svg",
+        "bytes": 398,
+        "sha256": "70a2174ebd2601367ba0e8ce6ddb3d6a844d5d17e24235197f04481a1bed27e9"
+      },
+      {
+        "path": "dist/icons/bug.svg",
+        "bytes": 615,
+        "sha256": "c4fddf0d43b4c4f0b8fc52eb8810173c8d8bd25618034a70f162d85e8189d69d"
+      },
+      {
+        "path": "dist/icons/camera.svg",
+        "bytes": 437,
+        "sha256": "ebbb3178dd80dfd942770a2237fe7bfc3515c55c7daa9d3666933a656d2790e3"
+      },
+      {
+        "path": "dist/icons/check.svg",
+        "bytes": 239,
+        "sha256": "7f33acc9a77a61659531044525fc008edebe215bf4dcf1c789c8674ad3277db0"
+      },
+      {
+        "path": "dist/icons/circle-question-mark.svg",
+        "bytes": 322,
+        "sha256": "975db087da041530dbf59ba1e61a7b99c3519fad43dae6375e42ccc74ba63924"
+      },
+      {
+        "path": "dist/icons/color-auto.svg",
+        "bytes": 256,
+        "sha256": "fae2734a293f0875d15f5513e13d2a508812ee4c9415354072c583af39553334"
+      },
+      {
+        "path": "dist/icons/color-contrast.svg",
+        "bytes": 270,
+        "sha256": "32524829634f0cec2cd1187f13b0077cbd3ea73510c74f473f21ad3ee92cb453"
+      },
+      {
+        "path": "dist/icons/color-exposure.svg",
+        "bytes": 262,
+        "sha256": "8ea322a788fc2bc4e5147167030971c63605844c12dc360028e040a9a9d66a85"
+      },
+      {
+        "path": "dist/icons/color-presets.svg",
+        "bytes": 434,
+        "sha256": "7f52ca4ad8fad4c9c82b59611c00676fff3d92d6d2be1dd6554615783f84c7f7"
+      },
+      {
+        "path": "dist/icons/color-white-balance.svg",
+        "bytes": 304,
+        "sha256": "9dc4f5e56a0e2e4fa0952ac6ae2ede7fdebd113836e2424f00cbf94df06d9473"
+      },
+      {
+        "path": "dist/icons/contrast.svg",
+        "bytes": 285,
+        "sha256": "a9f1a6166c479cd3e546625b09686a7e97322c850a9b146f270f912e886c395c"
+      },
+      {
+        "path": "dist/icons/copy.svg",
+        "bytes": 339,
+        "sha256": "ea80e566c7a12628a447cb53179b19aea4f60b9143e2becd0d0f20bf260e5718"
+      },
+      {
+        "path": "dist/icons/crop.svg",
+        "bytes": 288,
+        "sha256": "9229f7832445ee0caa15eecd6323397a3ebb5c9a124f923212605ad3529d64b8"
+      },
+      {
+        "path": "dist/icons/crosshair.svg",
+        "bytes": 412,
+        "sha256": "ae9ed8583286ea03bffae85bb69aee5227540e588b0370cf185f2141ebe25e8d"
+      },
+      {
+        "path": "dist/icons/download.svg",
+        "bytes": 318,
+        "sha256": "3daeee13ded5a3afa2198b1bb4e2262d163922f97d96ac6ff9953e8ed4fe039d"
+      },
+      {
+        "path": "dist/icons/flip-x.svg",
+        "bytes": 234,
+        "sha256": "07731ec50608c365e711f1e93d4c3f3304bdf395a41dd78850770df7fa0aca2e"
+      },
+      {
+        "path": "dist/icons/flip-y.svg",
+        "bytes": 235,
+        "sha256": "776a23697c5e8de2b25d0ca0f6148728e41bdf194d4ffdbd0aa71a4b98422803"
+      },
+      {
+        "path": "dist/icons/flip-z.svg",
+        "bytes": 229,
+        "sha256": "47473c0564a9b6c21d08a78f7a3915b05c3eff1f358cfb2cf25fc6c1c3881fa7"
+      },
+      {
+        "path": "dist/icons/focus.svg",
+        "bytes": 401,
+        "sha256": "d52fde05ccbd7bf629e05daeb8eadf824c85333aeca78e674db01493bc8b1f10"
+      },
+      {
+        "path": "dist/icons/folder-open.svg",
+        "bytes": 401,
+        "sha256": "ee57452b40e71df310214091dd9da1941a397c83197b8ff8d7ae66dd4242578b"
+      },
+      {
+        "path": "dist/icons/fullscreen-exit.svg",
+        "bytes": 152,
+        "sha256": "314727ed0b19b57fc2239e3fcc6a957cd190d1758b7785cdfe07cba89fa0447d"
+      },
+      {
+        "path": "dist/icons/fullscreen.svg",
+        "bytes": 153,
+        "sha256": "2111b2c743a2601b4cef92bb23a32f4c8e7e1425a7358c7be2e1277eff61b6a4"
+      },
+      {
+        "path": "dist/icons/image-copy.svg",
+        "bytes": 411,
+        "sha256": "1215e5f021683fa903f06d59775ca196edfcde213acb842864776a179174e8fb"
+      },
+      {
+        "path": "dist/icons/image-thumbnail.svg",
+        "bytes": 376,
+        "sha256": "8b20a2f0a28e045dd23de7d3c18e374fef296dc59b099294d61c71cba184a773"
+      },
+      {
+        "path": "dist/icons/image.svg",
+        "bytes": 358,
+        "sha256": "619c9db58c879dce6250376ba67d9c9102ca6dbb3b1efb9294c9f180e22273a5"
+      },
+      {
+        "path": "dist/icons/magnet.svg",
+        "bytes": 297,
+        "sha256": "cbcb0f6d8d486f75bcbe8057ec122a8f1ff0413001715de3d1b65a6e078a810e"
+      },
+      {
+        "path": "dist/icons/minus.svg",
+        "bytes": 232,
+        "sha256": "a0c743ab6dbf545d8a6e19ef3874f48ede686ce68d25e231bd81f540d97b1f19"
+      },
+      {
+        "path": "dist/icons/mouse-pointer-2.svg",
+        "bytes": 356,
+        "sha256": "a87128b1d33024c22ab598d1ce313081ce8942efd1a70274215bcc53421b7c7e"
+      },
+      {
+        "path": "dist/icons/move-3d.svg",
+        "bytes": 317,
+        "sha256": "1c76c067c9ef6922af206ca42fc275e82cb5c4413422ce284c7015d3682f55eb"
+      },
+      {
+        "path": "dist/icons/move.svg",
+        "bytes": 371,
+        "sha256": "915074a1292f72d59165339b8b93f8d440c8d55b7116b52fca240b9ded5af74d"
+      },
+      {
+        "path": "dist/icons/navigation.svg",
+        "bytes": 258,
+        "sha256": "3c1adf655f06c733013ddf00848c3efe905ed70d7b3eba7a6be5e60e65880503"
+      },
+      {
+        "path": "dist/icons/orbit.svg",
+        "bytes": 418,
+        "sha256": "e2b8b7d7f82044181860cbc2dab9b7e8d3c4778fbbce9a62f5c4038175f4faf4"
+      },
+      {
+        "path": "dist/icons/pentagon.svg",
+        "bytes": 362,
+        "sha256": "e27daa75dc936fbbd84d517393cc2c3cecd00a65b9ea8e4b95d5c3298408597a"
+      },
+      {
+        "path": "dist/icons/pivot-center.svg",
+        "bytes": 260,
+        "sha256": "371619a63f9a803ed520beb9319639e36963d7c4f5c8034790774bd29c500142"
+      },
+      {
+        "path": "dist/icons/pivot-origin.svg",
+        "bytes": 312,
+        "sha256": "d5357c49ada218878f065839a7098b6199048104bf61d5e62a4168bfbf891957"
+      },
+      {
+        "path": "dist/icons/pivot-selection.svg",
+        "bytes": 324,
+        "sha256": "f85caf6effc4aa768ee08734ca0c5106081d30983dd6e14dc9bc17c51e78fcf7"
+      },
+      {
+        "path": "dist/icons/plus.svg",
+        "bytes": 256,
+        "sha256": "7f6af73bf1ff6c4bca3f18351c8d1bdec6749c0c2530c4de5da85d520c21df17"
+      },
+      {
+        "path": "dist/icons/redo-2.svg",
+        "bytes": 308,
+        "sha256": "4cbd2cdebc70b6b7979c681ed3f313d9cbb102465dcf7d0d2d6a72c937b344bc"
+      },
+      {
+        "path": "dist/icons/replace.svg",
+        "bytes": 468,
+        "sha256": "abaaab3d3f74242f09968e4bbbf6450281c0dea23989d9e13cfc0aba22b6fca7"
+      },
+      {
+        "path": "dist/icons/rotate-3d.svg",
+        "bytes": 371,
+        "sha256": "ce65f2ca79f71638ff69f382c27cefba4b72be10f708927695e63a55b4dd5b6f"
+      },
+      {
+        "path": "dist/icons/rotate-ccw.svg",
+        "bytes": 297,
+        "sha256": "622685386ab4017eabfde01cd74550a20b1924df233b353f73b6b155371f2afd"
+      },
+      {
+        "path": "dist/icons/ruler.svg",
+        "bytes": 461,
+        "sha256": "af9710f70510217ef33773d502d0be2425c3a9cb1e3294ace27da9f0b4c8850b"
+      },
+      {
+        "path": "dist/icons/save.svg",
+        "bytes": 417,
+        "sha256": "ee9d56a7fec4b20dd6689546d41f68219ea8cbd67f99bd17a1bdaff5be6edb53"
+      },
+      {
+        "path": "dist/icons/scaling.svg",
+        "bytes": 360,
+        "sha256": "587b5758bfbf2df54bc4701819a58fc63278682760bfb05213f093840ff1cfd5"
+      },
+      {
+        "path": "dist/icons/scan.svg",
+        "bytes": 366,
+        "sha256": "c77f0e634b2451a14a262a59b61d75bbcea3994b16eeba1f5753e86b33282a4d"
+      },
+      {
+        "path": "dist/icons/selection-angle.svg",
+        "bytes": 243,
+        "sha256": "f4c9d831ac1ae76fb3b49a7f91707e0835e6f4e339ab36855e6da19d324ebdc0"
+      },
+      {
+        "path": "dist/icons/selection-box.svg",
+        "bytes": 262,
+        "sha256": "97a3b8c22f70e929b215f6ce9c7d3054ab03e52545cb91fc4ad56d4bb833dce2"
+      },
+      {
+        "path": "dist/icons/selection-connected.svg",
+        "bytes": 368,
+        "sha256": "bbbb6b9b7b00c1476e217cb285df32860fcb845dac4d7a0b36ddd7fd62488d5e"
+      },
+      {
+        "path": "dist/icons/selection-ellipsoid.svg",
+        "bytes": 303,
+        "sha256": "2fd41f11aa47b638b8aeb05fa0ca817161eb09d3ad1ac6799a4f1e5ee5eb2e93"
+      },
+      {
+        "path": "dist/icons/selection-eyedropper.svg",
+        "bytes": 276,
+        "sha256": "4dae2daf78d9529d81a5489c0723ef2c0af07675a341ae3361414aaced7232fd"
+      },
+      {
+        "path": "dist/icons/selection-fill.svg",
+        "bytes": 328,
+        "sha256": "8ab6af02bafea2346a1aa49a6ccb495ac749176a1878343d71107908d8fb6800"
+      },
+      {
+        "path": "dist/icons/selection-frustum.svg",
+        "bytes": 283,
+        "sha256": "2a67c19021bd3129335483a091db8e0a7fb633fe700ac155b668fc0c0aed541d"
+      },
+      {
+        "path": "dist/icons/selection-intersect.svg",
+        "bytes": 346,
+        "sha256": "ddb0881059e44b9d947da79749f4e6340ba83d3b5675dd79a455b16421b5419e"
+      },
+      {
+        "path": "dist/icons/selection-invert.svg",
+        "bytes": 382,
+        "sha256": "e0bdd24e80b123458b55a45ae1b4108c54645d4f5b3ca726d5074d2694b65735"
+      },
+      {
+        "path": "dist/icons/selection-live.svg",
+        "bytes": 264,
+        "sha256": "c1c49735e3a1cf2e460dea158c2f329b690dc36660814ab9b1ab6cea44542fc9"
+      },
+      {
+        "path": "dist/icons/selection-opacity.svg",
+        "bytes": 337,
+        "sha256": "3d4bbab7772a4b7595c3a9638155184b97c829f612b57457f6d2c9c21a07e21e"
+      },
+      {
+        "path": "dist/icons/selection-outline.svg",
+        "bytes": 285,
+        "sha256": "676a6d637bbbb3042cb1011682631fe1e73ab7503028d1431dc05dac10c14c36"
+      },
+      {
+        "path": "dist/icons/selection-overlap.svg",
+        "bytes": 353,
+        "sha256": "03320f8414d5b2db7d7235d66b367502253ba5d9952d4272c05ce7455e2e667c"
+      },
+      {
+        "path": "dist/icons/selection-polygon.svg",
+        "bytes": 424,
+        "sha256": "546dd02517acd8cf2c456c25c9d10517601644a75245c266ccaa4845d51a6447"
+      },
+      {
+        "path": "dist/icons/selection-rectangle.svg",
+        "bytes": 266,
+        "sha256": "be8fc3eb6ddbbf7a6bfbaab15159f75c75a19fa0423576483455e9a46e8045b6"
+      },
+      {
+        "path": "dist/icons/selection-scale.svg",
+        "bytes": 322,
+        "sha256": "912e0873fe366be064a00f0fe11a6581398085d6bdf7b1d50f8fbb28a6c0d575"
+      },
+      {
+        "path": "dist/icons/selection-sphere.svg",
+        "bytes": 289,
+        "sha256": "f9dfcb63a4f6c4d8f3c7362ce8368d656b70e31a99e964f356c58c341bd57bc6"
+      },
+      {
+        "path": "dist/icons/selection-visible.svg",
+        "bytes": 286,
+        "sha256": "2f9310ebf311e5ac447fe0fc1fc51edf02e4e9ec95305427b512bf1102b02c1f"
+      },
+      {
+        "path": "dist/icons/settings.svg",
+        "bytes": 727,
+        "sha256": "de614b1ed9676819bcc9fdcde4ebfa019f7ddf9f1ccceb7b9b2045d553b836b4"
+      },
+      {
+        "path": "dist/icons/shield-check.svg",
+        "bytes": 415,
+        "sha256": "8d4fcdbde5bba4abb1a2f6fe53e37ceb6343a1d5449a9d88f6f97c1971d26c4e"
+      },
+      {
+        "path": "dist/icons/sliders-horizontal.svg",
+        "bytes": 422,
+        "sha256": "e43a00e5eb684e6cbb61083bed2528d7a3fa5f265693eb2b5f314cd432aa65f4"
+      },
+      {
+        "path": "dist/icons/square-check-big.svg",
+        "bytes": 320,
+        "sha256": "3329bc2e10145074994ffe4cc21e99103c22ccbdb9f651588cf4aed0238fd9d7"
+      },
+      {
+        "path": "dist/icons/square-x.svg",
+        "bytes": 317,
+        "sha256": "fbc62d7310eb57f6a3233d65a4d12a895e9a014cf56f0b62349855f523498cb9"
+      },
+      {
+        "path": "dist/icons/trash.svg",
+        "bytes": 389,
+        "sha256": "27299f69ad7c6272be64b1b8e2d48cbd6dcf0ef0d4f92827a1affa945c91700e"
+      },
+      {
+        "path": "dist/icons/triangle-right.svg",
+        "bytes": 296,
+        "sha256": "037574bb1c862bc4b626f58f49ea168858619770f60475b2e78315dfeb9a1f1e"
+      },
+      {
+        "path": "dist/icons/undo-2.svg",
+        "bytes": 309,
+        "sha256": "efad2edbbd2be6038cc23fd64df2d012fad5cc6460dfbf227cfa3d990e9e897f"
+      },
+      {
+        "path": "dist/icons/view-auto-orbit.svg",
+        "bytes": 299,
+        "sha256": "296bce315561c161d2e93b2df5534833369702b82ea3c8c9e3c3ecf05be92245"
+      },
+      {
+        "path": "dist/icons/volume-brush.svg",
+        "bytes": 378,
+        "sha256": "aef3e24916646aa016748e7f920b345cbd57e447c9b1651cf20047bc937066e5"
+      },
+      {
+        "path": "dist/icons/x.svg",
+        "bytes": 260,
+        "sha256": "4a9cdab38fbb96162e7dace28e33f4ca0e49d8963a6162abc3d4691b7d675117"
+      },
+      {
+        "path": "dist/icons/zoom-in.svg",
+        "bytes": 376,
+        "sha256": "91206ae20013e2c84f2f5d09db5a7200f11698a84fc4e857b06fab2ce7c933f1"
+      },
+      {
+        "path": "dist/icons/zoom-out.svg",
+        "bytes": 334,
+        "sha256": "28e7849b55bb9b34cb24be83b4e8ef58f2ae164fc451fbd60e026bfb507d2921"
+      },
+      {
+        "path": "dist/index.html",
+        "bytes": 773,
+        "sha256": "178d73c14082d293f1a238349a7e9487c2331c1a7e55a688608ee90c704391f2"
+      },
+      {
+        "path": "dist/licenses/ImGui-MIT.txt",
+        "bytes": 1104,
+        "sha256": "55e058cc5899e6077a819ad1005d6d1f4528f65ae100795c9692f9fa6525a8ce"
+      },
+      {
+        "path": "dist/licenses/ImGuizmo-MIT.txt",
+        "bytes": 1083,
+        "sha256": "b957968be18bbc4fde7705cfcbda10bea1a71614e62361ace0473bb97dd0b700"
+      },
+      {
+        "path": "dist/licenses/SplatView-translations.txt",
+        "bytes": 1265,
+        "sha256": "ff39f450fd56ce98a7da38c5981e2f4661c55cdd404b6294eace5e805f9fc132"
+      },
+      {
+        "path": "dist/licenses/libwebp-BSD3.txt",
+        "bytes": 1496,
+        "sha256": "5aec868f669e384a22372a4e8a1a6cd7d44c64cd451f960ca69cc170d1e13acf"
+      },
+      {
+        "path": "dist/opsiclear.png",
+        "bytes": 32220,
+        "sha256": "af85ab51e850d02db093a0502a3551e20ce2f058c71d913d6c36e324c43160a6"
+      },
+      {
+        "path": "dist/service-worker.js",
+        "bytes": 28133,
+        "sha256": "f756dc7fbef71a682aaa25d2c7401b99540f5fe0c2f1472a2ebae6f046e88b18"
+      },
+      {
+        "path": "dist/wasm/build-provenance.json",
+        "bytes": 11603,
+        "sha256": "a3d7fc81894a6bdd6006c752c7e626ecd07163a25b6bffe9c8b0e4cd7fd7ee70"
+      },
+      {
+        "path": "dist/wasm/splatview-camera.mjs",
+        "bytes": 16479,
+        "sha256": "25f49d0b2983bad9b938a61198d89071d1a6db884b196d81826e4fefb9e75711"
+      },
+      {
+        "path": "dist/wasm/splatview-camera.wasm",
+        "bytes": 84407,
+        "sha256": "7189addf497dbc3c8180b09d7f6ddbbce57bcd40b3f83ca470f97edf7e34652a"
+      },
+      {
+        "path": "dist/wasm/splatview-core.mjs",
+        "bytes": 85553,
+        "sha256": "56f17094ccd8b9ded2d0fe8c7f5797a93cb5397c83b7c6ce39484c134be65a21"
+      },
+      {
+        "path": "dist/wasm/splatview-core.wasm",
+        "bytes": 2370662,
+        "sha256": "2f0e9b58778894a4299c1b6e3f71faf4a88bb509c4f81abab4581685193398f8"
+      }
+    ],
+    "namespaceEnumerationPerformed": false
+  },
+  "cleanup": {
+    "path": ".build/selection-interaction-optimization-20261018-01/cache-cleanup-01.json",
+    "bytes": 5493,
+    "sha256": "370c76b2dcaa5f88827ded9accddbb6aaa3349314abddd50b348fbc74b9cc4b7"
+  },
+  "product": {
+    "manifest": {
+      "path": "contracts/product/manifest.json",
+      "bytes": 2773,
+      "sha256": "fff64dad4589c07b26821cb23a866aaec6f824e7786d719ca6e3122b3750895a"
+    },
+    "adapter": {
+      "path": "contracts/product-adapter.json",
+      "bytes": 42891,
+      "sha256": "ae56c2c123981e76d591d04f07c26ee5e96eb6248eb0b4cf94b7274890b0c14a"
+    },
+    "contractVersion": "2.0.0",
+    "bindings": 128
+  },
+  "native": {
+    "unchanged": true,
+    "files": [
+      {
+        "path": "public/wasm/splatview-core.mjs",
+        "bytes": 85553,
+        "sha256": "56f17094ccd8b9ded2d0fe8c7f5797a93cb5397c83b7c6ce39484c134be65a21"
+      },
+      {
+        "path": "public/wasm/splatview-core.wasm",
+        "bytes": 2370662,
+        "sha256": "2f0e9b58778894a4299c1b6e3f71faf4a88bb509c4f81abab4581685193398f8"
+      },
+      {
+        "path": "public/wasm/splatview-camera.mjs",
+        "bytes": 16479,
+        "sha256": "25f49d0b2983bad9b938a61198d89071d1a6db884b196d81826e4fefb9e75711"
+      },
+      {
+        "path": "public/wasm/splatview-camera.wasm",
+        "bytes": 84407,
+        "sha256": "7189addf497dbc3c8180b09d7f6ddbbce57bcd40b3f83ca470f97edf7e34652a"
+      },
+      {
+        "path": "public/wasm/build-provenance.json",
+        "bytes": 11603,
+        "sha256": "a3d7fc81894a6bdd6006c752c7e626ecd07163a25b6bffe9c8b0e4cd7fd7ee70"
+      }
+    ],
+    "comparedWith": {
+      "path": "docs/validation/runs/selection-surface-optimization-20261018-01/validation.json",
+      "bytes": 63680,
+      "sha256": "f0a59258e2f9de401f7363ae403ff908ad9a66739d49db85d012ebf66cb7535e"
+    },
+    "newRuntimeQualification": false
+  },
+  "limitations": [
+    "Local Windows Chromium/WebGPU observations; no physical Mac/native-host qualification.",
+    "CPU wall stages include scheduling/waits, not isolated GPU timestamps; no universal speed or file-size guarantee.",
+    "ROI still retains full CPU/native arrays and GPU output dimensions; only eligible depth work and readback are restricted.",
+    "No remote deployment or source staging/commit/push performed."
+  ],
+  "stagingPerformed": false,
+  "committed": false,
+  "pushed": false,
+  "deployed": false
+}

@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "kind": "local-colmapview-bounded-input-design-review",
+  "observedAtUtc": "2026-10-12T20:11:39.371280+00:00",
+  "referenceDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\colmapview.github.io",
+  "gitHeadObserved": "0a1d01c3c8c65f9c0a244f4608c50558c221c5fd",
+  "selectedPathStatus": "",
+  "files": [
+    {
+      "path": "src/hooks/urlLoaderPolicy.ts",
+      "bytes": 28366,
+      "sha256": "f1d6011c7421d5a1330b04d669c03ed78ca06d6550aff9c463c18404ded9da33"
+    },
+    {
+      "path": "src/components/modals/splatPickerViewModel.ts",
+      "bytes": 5918,
+      "sha256": "bdec0e80d50cb532b6cae8155cc56c3fce3955728f407e2cea50fa9b4f130b59"
+    },
+    {
+      "path": "src/utils/zipValidation.ts",
+      "bytes": 3024,
+      "sha256": "e6102b4883fa73c88ef031fd12a0e27ff04e4e602c6e66ee139e0980f34c3f34"
+    },
+    {
+      "path": "src/utils/zipDownload.ts",
+      "bytes": 4223,
+      "sha256": "76b891907b1cc023ba9eaca93717d8d56092c8941de7f7f39230360def8fcff9"
+    },
+    {
+      "path": "src/splat/sogBundle.ts",
+      "bytes": 21429,
+      "sha256": "3fcbd016e59aa326ad9dd9932b9d926ec6bb313eff7521a8bce26fead0c12000"
+    },
+    {
+      "path": "src/splat/webgpu/webGpuSplatLimits.ts",
+      "bytes": 7706,
+      "sha256": "8d1aa48bba7db2c6c2f0ed0bff601746ada24f10712db48f028a91c8ae845424"
+    },
+    {
+      "path": "src/splat/gaussianCloudLoader.ts",
+      "bytes": 10750,
+      "sha256": "22cab233e8f594ee658c5a30a4adb1dfdad3c1eaf27585ab103a4900ab2c82d5"
+    },
+    {
+      "path": "src/hooks/urlLoaderSplatSource.ts",
+      "bytes": 3699,
+      "sha256": "47f258aa012d97204a109e3d7e1566c8f427480bf0e7ded504cfcd7889cb6ec9"
+    },
+    {
+      "path": "src/utils/zipLoader.ts",
+      "bytes": 11379,
+      "sha256": "5cc823ae3c7e053493f7239d2cab1b3cf59db246a4a8a2e03b0cb80b77f2d381"
+    }
+  ],
+  "qualification": "Selected local worktree files reviewed and fingerprinted; not a complete repository closure or proof of the current deployed website bytes.",
+  "policies": [
+    {
+      "source": "src/hooks/urlLoaderPolicy.ts",
+      "line": 483,
+      "policy": "Desktop remote splat automatic-download threshold",
+      "bytes": 150000000,
+      "hardFileCap": false
+    },
+    {
+      "source": "src/hooks/urlLoaderPolicy.ts",
+      "line": 491,
+      "policy": "Touch remote automatic-download threshold",
+      "bytes": 50000000,
+      "hardFileCap": false
+    },
+    {
+      "source": "src/hooks/urlLoaderPolicy.ts",
+      "line": 692,
+      "policy": "Desktop splat picker",
+      "generalFileByteRefusal": false
+    },
+    {
+      "source": "src/utils/zipValidation.ts",
+      "line": 3,
+      "policy": "General archive input inclusive hard limit",
+      "bytes": 2147483648
+    },
+    {
+      "source": "src/utils/zipDownload.ts",
+      "line": 51,
+      "policy": "Remote archive length checked at headers, streamed total and final Blob; reader cancelled on refusal"
+    },
+    {
+      "source": "src/splat/sogBundle.ts",
+      "line": 30,
+      "policy": "SOG structural validation",
+      "maxMetadataBytes": 1048576,
+      "maxDirectoryBytes": 1048576,
+      "maxEntries": 64,
+      "maxSplats": 50000000,
+      "maxTextureSide": 16384
+    },
+    {
+      "source": "src/splat/webgpu/webGpuSplatLimits.ts",
+      "line": 8,
+      "policy": "Count and SH footprint checked against actual adapter/device buffer capabilities; fallback capabilities are not source file caps"
+    }
+  ],
+  "adoptedForSplatView": {
+    "maxSingleFileBytes": 268435456,
+    "maxLoadedPreviewSplats": 1000000,
+    "numericPolicyOrigin": "Existing SplatView web limits retained; these numbers are not attributed to COLMAPView.",
+    "logicDesign": [
+      "Central policy helpers used by UI, source acquisition and worker",
+      "Intrinsic source size checked before reads or candidate work",
+      "Format expansion, texture dimensions, decoded scene and GPU limits remain separate",
+      "Bounded Blob range acquisition and preservation of the edited document on refusal",
+      "One bounded unpacked SOG is planned with unique-original aggregate resource size checked before body reads"
+    ],
+    "uiAuthority": "Desktop SplatView",
+    "groupedInputsImplemented": false,
+    "generalAllocatorQuotas": "Deferred from the active feature critical path; existing admission remains in force"
+  }
+}

@@ -1,0 +1,437 @@
+{
+  "kind": "bounded-pro-duplicate-native-foundation-validation",
+  "status": "passed",
+  "goalStatus": "active",
+  "observedAtUtc": "2026-10-16T15:35:16.470674+00:00",
+  "scope": "Native cooperative append/history foundation and unchanged application wire capabilities. Functional browser Duplicate remains open.",
+  "source": {
+    "path": ".build/pro-duplicate-tests/source-candidate-01.json",
+    "bytes": 2743,
+    "sha256": "a008e47d1588182483bfeb2b1ec424c001a63d05866fba206a22b95e2e6af759"
+  },
+  "sourceFiles": [
+    {
+      "path": "native/wasm/browser_duplicate.hpp",
+      "bytes": 2699,
+      "sha256": "bc4df1ea96ea3b6da131715beeae2e35f1508d0588e012815ee88c7628ff78ef",
+      "copy": ".build/pro-duplicate-tests/source-candidate-01/native/wasm/browser_duplicate.hpp"
+    },
+    {
+      "path": "native/wasm/browser_duplicate.cpp",
+      "bytes": 6271,
+      "sha256": "c0d2bcbdfa8bbc28ee1bcdba56aa6015e4c75823adc110ba036b303102d33201",
+      "copy": ".build/pro-duplicate-tests/source-candidate-01/native/wasm/browser_duplicate.cpp"
+    },
+    {
+      "path": "native/wasm/duplicate_contracts.cpp",
+      "bytes": 23141,
+      "sha256": "fc01a12ab151b8f16536ad0b3036f22d78799a6ab77dfd5289b4997015be1fb9",
+      "copy": ".build/pro-duplicate-tests/source-candidate-01/native/wasm/duplicate_contracts.cpp"
+    },
+    {
+      "path": "native/wasm/selection_checkpoint.hpp",
+      "bytes": 15102,
+      "sha256": "58c18da61bd724528d6e3c5e0b3f53360190f958d5eb4084f0796622bf211c6c",
+      "copy": ".build/pro-duplicate-tests/source-candidate-01/native/wasm/selection_checkpoint.hpp"
+    },
+    {
+      "path": "native/wasm/CMakeLists.txt",
+      "bytes": 30284,
+      "sha256": "413099c051c1a99492bd3e98e693b675f9b0abfffd5dca70e03d3f023d3947cf",
+      "copy": ".build/pro-duplicate-tests/source-candidate-01/native/wasm/CMakeLists.txt"
+    },
+    {
+      "path": "vite.config.ts",
+      "bytes": 1518,
+      "sha256": "ad734e965c1d1887946f5b807ad433f9498f328269fbea49a4fa9ffb55a896e6",
+      "copy": ".build/pro-duplicate-tests/source-candidate-01/vite.config.ts"
+    },
+    {
+      "path": "docs/third-party/DUPLICATE_REFERENCES.md",
+      "bytes": 2282,
+      "sha256": "392c4efee8c2c13cf38909aec9fb1cf7556a2d6adc0db1a9ffeb1ff0e926a4bc",
+      "copy": ".build/pro-duplicate-tests/source-candidate-01/docs/third-party/DUPLICATE_REFERENCES.md"
+    }
+  ],
+  "generatedBuildIdentity": {
+    "path": "src/generated/buildIdentity.ts",
+    "bytes": 1895,
+    "sha256": "81130b96235599b63da14eafc99872cd31796e54ed074fa435a7d9d932eb28a7"
+  },
+  "nativeBuild": {
+    "path": ".build/pro-duplicate-tests/native-provenance-01.json",
+    "bytes": 11486,
+    "sha256": "3e9c8c2187616a5a9aa7464a915dabdeca482c2e5c8d6a220b00e38ecffa8a30"
+  },
+  "nativeContracts": {
+    "report": {
+      "path": ".build/pro-duplicate-tests/native-contracts-02.json",
+      "bytes": 1931,
+      "sha256": "2af8d45ceb633536fd8627a8236bde82916486b6c692e387598b62bf36da4c68"
+    },
+    "groups": 6,
+    "admissionRefusals": 24,
+    "interceptedCppNewRefusals": 80,
+    "jobBytes": 184,
+    "lineageBytes": 1024,
+    "recordBytes": 144,
+    "degrees": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "maximumLoadedSplats": 1000000,
+    "exactMaximumSuccess": true,
+    "maximumPlusOneRefusalBeforePayload": true,
+    "scope": "Exact records/masks/order, source/identity limits, captured current-view scope, marker/history lifetime, cancellation/stale/history failure and allocation refusals. Raw malloc, exception ABI storage and host allocators excluded."
+  },
+  "cpu": {
+    "passed": 5601,
+    "files": 165,
+    "report": {
+      "path": ".build/pro-duplicate-tests/cpu-01.json",
+      "bytes": 2173554,
+      "sha256": "0d420ba16b6b0e9cc34fe128ca54e78e634b907c92901cde15d3e9bf12698538"
+    }
+  },
+  "production": {
+    "passed": 60,
+    "files": 2,
+    "completeSingleRun": true,
+    "retries": 0,
+    "report": {
+      "path": ".build/pro-duplicate-tests/production-01.json",
+      "bytes": 979696,
+      "sha256": "a978b66cd8fbddbd84725028b583dd18f587e16b0b24a38773519f5c02fa3ec1"
+    }
+  },
+  "build": {
+    "audit": {
+      "path": ".build/pro-duplicate-tests/build-audit-01.json",
+      "bytes": 61620,
+      "sha256": "f9c2a7497c146c03c6ee417b9d33156975c41be6d1fe41a73229c15410426d0f"
+    },
+    "appInputId": "7139ab52076f52d011562dd666a5c1916a5a5bc36e68947e08d57e75c0b6b688",
+    "deploymentId": "28d438ad7940c25a2f2f17ae46f62d5c9f55a6bbc952deb3bc0e6a46077b0705",
+    "runtimeFiles": 98,
+    "distributionFiles": 102,
+    "sourceMaps": 3,
+    "staleFiles": 0,
+    "removedPreviousAssets": [
+      "dist/assets/document.worker-BXFhDJtK.js",
+      "dist/assets/document.worker-BXFhDJtK.js.map",
+      "dist/assets/index-BABF662t.js",
+      "dist/assets/index-BABF662t.js.map"
+    ],
+    "nativeInputId": "b57d9f1c521165f89c6cad4140af63cedba4867fb4d86a6d5a342b6f96ada9fc",
+    "unchangedWireCapabilities": true
+  },
+  "cleanup": {
+    "cache": {
+      "path": ".build/pro-duplicate-tests/cleanup-01.json",
+      "bytes": 2452,
+      "sha256": "d63f1667c123a9ab60a57075442521d10410bbf5e276fc0d8dfa644a0f3801cd"
+    },
+    "cacheFiles": 1,
+    "cacheBytes": 13361,
+    "compilerObjects": {
+      "path": ".build/pro-duplicate-tests/objects-cleanup-01.json",
+      "bytes": 2137,
+      "sha256": "43217c5ed77c5c7edd24ecc7b198d61df6898a5dbdd90d3868dd26a2e7025fa9"
+    },
+    "objectFiles": 215,
+    "objectBytes": 36661075,
+    "previousNativeCleanupRepeated": false
+  },
+  "preview": {
+    "path": ".build/pro-duplicate-tests/preview-joined-01.json",
+    "bytes": 369,
+    "sha256": "b3c5aa8ff0e516b773513812909ce2d2edcd1a939de17bb81dbf45548547f626"
+  },
+  "quiescence": {
+    "path": ".build/pro-duplicate-tests/process-final-01.json",
+    "bytes": 632,
+    "sha256": "bc8295e757a238bf851cb4f0420fa6280fdfe8888335964998fe0e29aeab3939"
+  },
+  "checkpointDraft": {
+    "packet": {
+      "path": ".build/pro-duplicate-tests/checkpoint-draft-01/packet.json",
+      "bytes": 9605,
+      "sha256": "e9f587d95311e0b5567aec8c67228ac9792060fa6705da148c08dd7b95a8b993"
+    },
+    "applied": false,
+    "compiled": false,
+    "executed": false
+  },
+  "diagnostics": {
+    "nonInstantiatingModuleInvocation": {
+      "path": "test-results-coherent-startup-pro-duplicate-native-contracts-01.command.json",
+      "bytes": 717,
+      "sha256": "c7014dceb0b5b81e895fe8f1ab87a839f0d5349b604e6df51a7d68c9907aaec2"
+    },
+    "acceptedNativeCasesFromThatInvocation": 0
+  },
+  "commands": {
+    "native-build-01": {
+      "receipt": {
+        "path": "test-results-coherent-startup-pro-duplicate-native-build-01.command.json",
+        "bytes": 901,
+        "sha256": "f1b620c2bac687bef42e5b15b60e526e99e1760316f3ff585e38212d50a3fbf8"
+      },
+      "arguments": [
+        "-B",
+        "tools/build-core.py"
+      ],
+      "report": null,
+      "log": {
+        "path": "test-results-coherent-startup-pro-duplicate-native-build-01.log",
+        "bytes": 250524,
+        "sha256": "fe5709a37ed412facfa849d00161a5cb98ccb4d9e3b0c69839c3def5be8467bf"
+      }
+    },
+    "native-contracts-02": {
+      "receipt": {
+        "path": "test-results-coherent-startup-pro-duplicate-native-contracts-02.command.json",
+        "bytes": 1186,
+        "sha256": "d4f6161d1877ad9d8dff0a7822844a9f0680061e8296424be926cbab3295ead4"
+      },
+      "arguments": [
+        ".build/pro-duplicate-tests/run-native-contracts-01.mjs"
+      ],
+      "report": {
+        "path": ".build/pro-duplicate-tests/native-contracts-02.json",
+        "bytes": 1931,
+        "sha256": "2af8d45ceb633536fd8627a8236bde82916486b6c692e387598b62bf36da4c68"
+      },
+      "log": {
+        "path": "test-results-coherent-startup-pro-duplicate-native-contracts-02.log",
+        "bytes": 1296,
+        "sha256": "c8fe4c61fd7c1e654f6dc835fe4373fb9861b3391fc41ed6e0f428c77f04e2f5"
+      }
+    },
+    "web-build-01": {
+      "receipt": {
+        "path": "test-results-coherent-startup-pro-duplicate-web-build-01.command.json",
+        "bytes": 1014,
+        "sha256": "a311acb264a105dea8f3bd2efc9056f671b3a929ff7fadb633ec1c7cbf5fe176"
+      },
+      "arguments": [
+        ".tools/node-v24.21.0-win-x64/node_modules/npm/bin/npm-cli.js",
+        "run",
+        "build"
+      ],
+      "report": null,
+      "log": {
+        "path": "test-results-coherent-startup-pro-duplicate-web-build-01.log",
+        "bytes": 6250,
+        "sha256": "d9e97af756f200f911f58b549a60ad9a0363ce2d0b4d3d51f4ea6c538b437f8a"
+      }
+    },
+    "build-audit-01": {
+      "receipt": {
+        "path": "test-results-coherent-startup-pro-duplicate-build-audit-01.command.json",
+        "bytes": 1161,
+        "sha256": "ee5ba62468383850c243ed8548db81bd67dd54c86472da9c4d79974bbdbdd07d"
+      },
+      "arguments": [
+        ".build/pro-duplicate-tests/audit-01.mjs"
+      ],
+      "report": {
+        "path": ".build/pro-duplicate-tests/build-audit-01.json",
+        "bytes": 61620,
+        "sha256": "f9c2a7497c146c03c6ee417b9d33156975c41be6d1fe41a73229c15410426d0f"
+      },
+      "log": {
+        "path": "test-results-coherent-startup-pro-duplicate-build-audit-01.log",
+        "bytes": 532,
+        "sha256": "b793d80ce327c80042aebce4b2ccd14fc2cddecbe66579881500ebe28b0a80a6"
+      }
+    },
+    "cpu-01": {
+      "receipt": {
+        "path": "test-results-coherent-startup-pro-duplicate-cpu-01.command.json",
+        "bytes": 1376,
+        "sha256": "3fc49710750179fe536bc097846b1bee672079fdef319bfbabe1a6e76ef427c2"
+      },
+      "arguments": [
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "--maxWorkers=2",
+        "--reporter=default",
+        "--reporter=json",
+        "--outputFile=.build/pro-duplicate-tests/cpu-01.json"
+      ],
+      "report": {
+        "path": ".build/pro-duplicate-tests/cpu-01.json",
+        "bytes": 2173554,
+        "sha256": "0d420ba16b6b0e9cc34fe128ca54e78e634b907c92901cde15d3e9bf12698538"
+      },
+      "log": {
+        "path": "test-results-coherent-startup-pro-duplicate-cpu-01.log",
+        "bytes": 54346,
+        "sha256": "a05dcc18cac6089371a967623a9cd569c9f66cabd4fb39b36099c34222be8248"
+      }
+    },
+    "production-01": {
+      "receipt": {
+        "path": "test-results-coherent-startup-pro-duplicate-production-01.command.json",
+        "bytes": 1702,
+        "sha256": "136228cb573bf63a4547d6edd3fb374adb6c63cf392a913e1e0024883c028dee"
+      },
+      "arguments": [
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "--config",
+        ".build/pro-duplicate-tests/playwright-production-01.config.ts",
+        "build-compat.spec.ts",
+        "interactions.spec.ts"
+      ],
+      "report": {
+        "path": ".build/pro-duplicate-tests/production-01.json",
+        "bytes": 979696,
+        "sha256": "a978b66cd8fbddbd84725028b583dd18f587e16b0b24a38773519f5c02fa3ec1"
+      },
+      "log": {
+        "path": "test-results-coherent-startup-pro-duplicate-production-01.log",
+        "bytes": 17220,
+        "sha256": "0393277740debab73954b6594a0a5d6d1b41c7066d33b022f7f4f85f758bac81"
+      }
+    },
+    "preview-01": {
+      "receipt": {
+        "path": "test-results-coherent-startup-pro-duplicate-preview-01.command.json",
+        "bytes": 1255,
+        "sha256": "0b226ea436df6354c32db7b56ac4a2e675a3e32c3b760b842ae6f8e1acdb7436"
+      },
+      "arguments": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        ".build/pro-duplicate-tests/serve-production-01.ps1"
+      ],
+      "report": {
+        "path": ".build/pro-duplicate-tests/preview-joined-01.json",
+        "bytes": 369,
+        "sha256": "b3c5aa8ff0e516b773513812909ce2d2edcd1a939de17bb81dbf45548547f626"
+      },
+      "log": {
+        "path": "test-results-coherent-startup-pro-duplicate-preview-01.log",
+        "bytes": 690,
+        "sha256": "cc1c2108f88d46883ccc383e68a0f464b45d597972c4dbb0333926e978be76e5"
+      }
+    },
+    "preview-ready-01": {
+      "receipt": {
+        "path": "test-results-coherent-startup-pro-duplicate-preview-ready-01.command.json",
+        "bytes": 1103,
+        "sha256": "deefe9fc18bda48a395b0e19859689ed37ba95552997b133856ce4dda462611e"
+      },
+      "arguments": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        ".build/pro-duplicate-tests/ready-01.ps1",
+        "-Origin",
+        "http://127.0.0.1:4173/"
+      ],
+      "report": null,
+      "log": {
+        "path": "test-results-coherent-startup-pro-duplicate-preview-ready-01.log",
+        "bytes": 198,
+        "sha256": "3a2c97c446b8d704b5bae93c1a839f35926b7faf4b2182ef2bd668131c39f64a"
+      }
+    },
+    "stop-preview-01": {
+      "receipt": {
+        "path": "test-results-coherent-startup-pro-duplicate-stop-preview-01.command.json",
+        "bytes": 1265,
+        "sha256": "7b841c74567b6e3800aa43dc87fefe40f4effda73c18f8c7a81b718db2f00296"
+      },
+      "arguments": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        ".build/pro-duplicate-tests/stop-production-01.ps1"
+      ],
+      "report": {
+        "path": ".build/pro-duplicate-tests/preview-stop-request-01.json",
+        "bytes": 331,
+        "sha256": "19eac585e3a20563f5a69651a9f8bb34ad4810b29b4af3e38a2e92e1e9d0a4e1"
+      },
+      "log": {
+        "path": "test-results-coherent-startup-pro-duplicate-stop-preview-01.log",
+        "bytes": 154,
+        "sha256": "77b9235bc8667f530ffb3cc3acd3936fc0ef41a4ae5d1285b6437ab1fdccda38"
+      }
+    },
+    "cleanup-01": {
+      "receipt": {
+        "path": "test-results-coherent-startup-pro-duplicate-cleanup-01.command.json",
+        "bytes": 1241,
+        "sha256": "8ac7af208089cc1edd58c824374c460907e5ea91665597b434e77c00ab3cec76"
+      },
+      "arguments": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        ".build/pro-duplicate-tests/cleanup-01.ps1"
+      ],
+      "report": {
+        "path": ".build/pro-duplicate-tests/cleanup-01.json",
+        "bytes": 2452,
+        "sha256": "d63f1667c123a9ab60a57075442521d10410bbf5e276fc0d8dfa644a0f3801cd"
+      },
+      "log": {
+        "path": "test-results-coherent-startup-pro-duplicate-cleanup-01.log",
+        "bytes": 2988,
+        "sha256": "12f35ebcfdffd7e522c3be59b019b943a348b54e1c1f78fecd9a055ae8eb0128"
+      }
+    },
+    "objects-cleanup-01": {
+      "receipt": {
+        "path": "test-results-coherent-startup-pro-duplicate-objects-cleanup-01.command.json",
+        "bytes": 1161,
+        "sha256": "946462678111ddbfa034c07ce68ee0a4b6fc769fd20e2f9f4693243dcfffec49"
+      },
+      "arguments": [
+        "-B",
+        ".build/pro-duplicate-tests/remove-objects-01.py"
+      ],
+      "report": {
+        "path": ".build/pro-duplicate-tests/objects-cleanup-01.json",
+        "bytes": 2137,
+        "sha256": "43217c5ed77c5c7edd24ecc7b198d61df6898a5dbdd90d3868dd26a2e7025fa9"
+      },
+      "log": {
+        "path": "test-results-coherent-startup-pro-duplicate-objects-cleanup-01.log",
+        "bytes": 190,
+        "sha256": "ec13aa7b7be91919e8327e798f489266e5dfa04f2307a1a6200382a1ee395d5b"
+      }
+    }
+  },
+  "helper": {
+    "path": ".build/pro-duplicate-tests/qualify-01.py",
+    "bytes": 10065,
+    "sha256": "75d0811542943496baf5890de96fd536e1afd01678f78bac46a3bc51ddfe1689"
+  },
+  "remaining": [
+    "Duplicate native command/transaction/summary and topology-aware operation receipt integration",
+    "Typed grown-graph recovery integration with unchanged immutable import authentication",
+    "Native/GPU candidate publication, memory overlap and green latest-copy feedback",
+    "Functional Pro Duplicate action and real failure/rollback/history/recovery browser coverage",
+    "Desktop pivot cycle, Color/Fill Range/Radius, floating Check/Undo/X and revised tutorial/locales",
+    "Remaining visual/assistive, formats/recovery, HTTPS and measured limited-size operating budgets"
+  ],
+  "functionalDuplicateAccepted": false,
+  "fullAppearanceAccepted": false,
+  "releaseAccepted": false,
+  "macSafariPhysicalDeviceQualificationRequired": false,
+  "committed": false,
+  "pushed": false,
+  "deployed": false
+}

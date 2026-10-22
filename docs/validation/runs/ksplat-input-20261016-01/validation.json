@@ -1,0 +1,761 @@
+{
+  "kind": "ksplat-independent-input-qualification",
+  "status": "passed",
+  "goalStatus": "active",
+  "observedAtUtc": "2026-10-16T10:15:48.224131+00:00",
+  "sourceSeal": {
+    "path": ".build/ksplat-input-tests/source-final.json",
+    "bytes": 860751,
+    "sha256": "382fe69399b9df53379261c10d0477b00ef99e631f8ecd2229d7aa3c648bd9ec"
+  },
+  "executionSourceSeal": {
+    "path": ".build/ksplat-input-tests/source-checks-01.json",
+    "bytes": 860753,
+    "sha256": "8a9bc5a45119b9a059d0f5d4d64bcd49d64ee83895cbd5a0ecabb8753bfd282d"
+  },
+  "authoredSourceSeal": {
+    "path": ".build/ksplat-input-tests/source-authored-01.json",
+    "bytes": 856168,
+    "sha256": "b6eb35643b06b2af366361848230fe9131693044faf229e69c55ad3061a46d1d"
+  },
+  "helper": {
+    "path": ".build/ksplat-input-tests/evidence-01.py",
+    "bytes": 18764,
+    "sha256": "7eee41f132ab8215026cccbc4614311ca2966d4366c25663f344c57e10a44a61"
+  },
+  "inputs": {
+    "path": ".build/ksplat-input-tests/inputs-01.json",
+    "bytes": 1684,
+    "sha256": "d5118550e471cfde04a8af10f11d380834be5b6f67bf9e70f4c6388a425b3837"
+  },
+  "buildAudit": {
+    "path": ".build/ksplat-input-tests/build-audit-01.json",
+    "bytes": 60780,
+    "sha256": "7a10759f729900dc235a6c8aa2499abe96af32c19e6f698a6e6d18181a3c8fbb"
+  },
+  "previousQualification": {
+    "path": "docs/validation/runs/delivery-readiness-20261016-01/validation.json",
+    "bytes": 32195,
+    "sha256": "f5722537e5af98890cdfee25117218e5112f2a9a8d064b351b4195407deb287a"
+  },
+  "appInputId": "b156459b7f95be99b265d7a650e3c5a7524e66d9a7be309f448961c0de9172cc",
+  "deploymentId": "d78bc190d256590cec30325a52c66c1f322c99df35f756fb2ff2b52c056d0931",
+  "unit": {
+    "passed": 5586,
+    "files": 165,
+    "report": {
+      "path": ".build/ksplat-input-tests/unit-report-01.json",
+      "bytes": 2167658,
+      "sha256": "99dc4f71d3e5fddea5f8eefdfc24b4d7d5f4c26970baac86e3786f0b778c8a40"
+    }
+  },
+  "focus": {
+    "passed": 117,
+    "report": {
+      "path": ".build/ksplat-input-tests/focus-report-01.json",
+      "bytes": 44398,
+      "sha256": "bdb3f55b543a0c7538a4bfab27901e42b7c9cc3ef782e67f53fd8e756045aebc"
+    }
+  },
+  "calibration": {
+    "policyId": "ksplat-numeric-v1",
+    "coreAbi": 23,
+    "fixtureCases": 13,
+    "decoderCases": 52,
+    "scopeCases": 13,
+    "refusalCases": 42,
+    "acceptedEdgeCases": 11,
+    "measurements": {
+      "positions": {
+        "maxAbsolute": 1.1269347055531398e-07,
+        "maxNormalized": 0.011269347055531396,
+        "worst": "default-position-range/default-position-range/26/position2"
+      },
+      "opacity": {
+        "maxAbsolute": 2.9685450542160652e-08,
+        "maxNormalized": 0.2968545054216065,
+        "worst": "mode0-sh0.ksplat/cap1000/mode0-sh0.ksplat/cap1000/2/opacity"
+      },
+      "covariance": {
+        "maxAbsolute": 6.690317255753087e-08,
+        "maxNormalized": 0.011302806705945256,
+        "worst": "mode0-sh0.ksplat/cap1000/mode0-sh0.ksplat/cap1000/1/cov5"
+      },
+      "dcHalf": {
+        "maxAbsolute": 0.00046653425574683105,
+        "maxNormalized": 0.9515645473834273,
+        "worst": "mode0-sh0.ksplat/cap1000/mode0-sh0.ksplat/cap1000/2/dc0"
+      },
+      "exactSh": {
+        "maxAbsolute": 0,
+        "maxNormalized": 0,
+        "worst": "mode0-sh0.ksplat/cap1000/mode0-sh0.ksplat/cap1000/0/sh3"
+      },
+      "exportPositions": {
+        "maxAbsolute": 1.1269347055531398e-07,
+        "maxNormalized": 0.011269347055531396,
+        "worst": "default-position-range/PLY/26/z"
+      },
+      "exportCovariance": {
+        "maxAbsolute": 6.72518541411371e-08,
+        "maxNormalized": 0.0029279718809746766,
+        "worst": "mode0-sh0.ksplat/cap1000/PLY/55/cov0"
+      },
+      "exportOpacity": {
+        "maxAbsolute": 2.8713873057029105e-08,
+        "maxNormalized": 0.09571291019009702,
+        "worst": "mode0-sh0.ksplat/cap1000/PLY/2/opacity"
+      },
+      "mode2ShHalf": {
+        "maxAbsolute": 0.0004863664215686292,
+        "maxNormalized": 0.9920151373698854,
+        "worst": "mode2-sh1.ksplat/cap1000/mode2-sh1.ksplat/cap1000/23/sh10"
+      }
+    }
+  },
+  "focusedCalibration": {
+    "policyId": "ksplat-numeric-v1",
+    "coreAbi": 23,
+    "fixtureCases": 13,
+    "decoderCases": 52,
+    "scopeCases": 13,
+    "refusalCases": 42,
+    "acceptedEdgeCases": 11,
+    "measurements": {
+      "positions": {
+        "maxAbsolute": 1.1269347055531398e-07,
+        "maxNormalized": 0.011269347055531396,
+        "worst": "default-position-range/default-position-range/26/position2"
+      },
+      "opacity": {
+        "maxAbsolute": 2.9685450542160652e-08,
+        "maxNormalized": 0.2968545054216065,
+        "worst": "mode0-sh0.ksplat/cap1000/mode0-sh0.ksplat/cap1000/2/opacity"
+      },
+      "covariance": {
+        "maxAbsolute": 6.690317255753087e-08,
+        "maxNormalized": 0.011302806705945256,
+        "worst": "mode0-sh0.ksplat/cap1000/mode0-sh0.ksplat/cap1000/1/cov5"
+      },
+      "dcHalf": {
+        "maxAbsolute": 0.00046653425574683105,
+        "maxNormalized": 0.9515645473834273,
+        "worst": "mode0-sh0.ksplat/cap1000/mode0-sh0.ksplat/cap1000/2/dc0"
+      },
+      "exactSh": {
+        "maxAbsolute": 0,
+        "maxNormalized": 0,
+        "worst": "mode0-sh0.ksplat/cap1000/mode0-sh0.ksplat/cap1000/0/sh3"
+      },
+      "exportPositions": {
+        "maxAbsolute": 1.1269347055531398e-07,
+        "maxNormalized": 0.011269347055531396,
+        "worst": "default-position-range/PLY/26/z"
+      },
+      "exportCovariance": {
+        "maxAbsolute": 6.72518541411371e-08,
+        "maxNormalized": 0.0029279718809746766,
+        "worst": "mode0-sh0.ksplat/cap1000/PLY/55/cov0"
+      },
+      "exportOpacity": {
+        "maxAbsolute": 2.8713873057029105e-08,
+        "maxNormalized": 0.09571291019009702,
+        "worst": "mode0-sh0.ksplat/cap1000/PLY/2/opacity"
+      },
+      "mode2ShHalf": {
+        "maxAbsolute": 0.0004863664215686292,
+        "maxNormalized": 0.9920151373698854,
+        "worst": "mode2-sh1.ksplat/cap1000/mode2-sh1.ksplat/cap1000/23/sh10"
+      }
+    }
+  },
+  "fixtures": [
+    {
+      "path": "tests/fixtures/formats/ksplat-v1/mode0-sh0.ksplat",
+      "bytes": 20812,
+      "sha256": "4621bdda6331308223d8f792b0ec6791f464817cf5edd56fbfe182095be866bb"
+    },
+    {
+      "path": "tests/fixtures/formats/ksplat-v1/mode0-sh1.ksplat",
+      "bytes": 30496,
+      "sha256": "19503a7212823b06452cbe9cc7573bbb32623a761c9d4df394d208664a48d321"
+    },
+    {
+      "path": "tests/fixtures/formats/ksplat-v1/mode0-sh2.ksplat",
+      "bytes": 46636,
+      "sha256": "238a16ef13506bf51fde86cc893c8ecf27911a75a9f53f53bb791f4fd2b7908a"
+    },
+    {
+      "path": "tests/fixtures/formats/ksplat-v1/mode0-sh3.ksplat",
+      "bytes": 69232,
+      "sha256": "af5a0f20fd1e0d8e0138b39c855ef6c7f0e9c0d64a1e15a81dc1b036b80afea9"
+    },
+    {
+      "path": "tests/fixtures/formats/ksplat-v1/mode1-sh0.ksplat",
+      "bytes": 15102,
+      "sha256": "fa0b99f6c4860ce2fd9470b0d68b891902123f22861dd5224813ef08908ea7bf"
+    },
+    {
+      "path": "tests/fixtures/formats/ksplat-v1/mode1-sh1.ksplat",
+      "bytes": 19944,
+      "sha256": "08805b813ccfbadb2a56a3ff6a3f3c37b2b1a1cc99c8453795be2d8c8fbe3859"
+    },
+    {
+      "path": "tests/fixtures/formats/ksplat-v1/mode1-sh2.ksplat",
+      "bytes": 28014,
+      "sha256": "cb126897e6ea545d7aed7dff8cfdce16a6cecd93037cee26b065a2e46e4f4821"
+    },
+    {
+      "path": "tests/fixtures/formats/ksplat-v1/mode1-sh3.ksplat",
+      "bytes": 39312,
+      "sha256": "9f7ffe4cfe4d07d24a71d36efc9c59e4f18991d8a043e3f2238beaeabb5f4722"
+    },
+    {
+      "path": "tests/fixtures/formats/ksplat-v1/mode2-sh0.ksplat",
+      "bytes": 14967,
+      "sha256": "db7ec635881ee4f3f7694a535de0a24dbec6483daf4fce8908a50dd69c2ed4f1"
+    },
+    {
+      "path": "tests/fixtures/formats/ksplat-v1/mode2-sh1.ksplat",
+      "bytes": 17388,
+      "sha256": "e1bd0c1212a086f3870cdaa328d2b3f6deadeae838e2f60ef3ee269cf86241bf"
+    },
+    {
+      "path": "tests/fixtures/formats/ksplat-v1/mode2-sh2.ksplat",
+      "bytes": 21423,
+      "sha256": "ed442ec28ce18b584355c0906ec938a4b8070ee78d3e96882ce6b4587d121f61"
+    },
+    {
+      "path": "tests/fixtures/formats/ksplat-v1/mode2-sh3.ksplat",
+      "bytes": 27072,
+      "sha256": "b7d9ef4dd04a2da8826d00e8a8bcf4caa2b3d78f5c822c7e170bdaaf7fb10afa"
+    },
+    {
+      "path": "tests/fixtures/formats/ksplat-v1/mode2-mixed.ksplat",
+      "bytes": 25395,
+      "sha256": "42469bbdb56c0224bb9654bba6c9ac789c22d9720a16df2e27e2c5f487107fae"
+    },
+    {
+      "path": "tests/fixtures/formats/ksplat-v1/manifest.json",
+      "bytes": 48184,
+      "sha256": "c94058141dd8c5552ae0fe5e2a5087b435af3922456cc45a9da6c2ef615d664e"
+    },
+    {
+      "path": "tests/fixtures/formats/ksplat-v1/README.md",
+      "bytes": 7357,
+      "sha256": "810ac9747dbea3b55fcfad980154dba21df845227c064fdda916035d67d0dc4b"
+    }
+  ],
+  "browser": {
+    "passed": 9,
+    "report": {
+      "path": ".build/ksplat-input-tests/browser-report-01.json",
+      "bytes": 219242,
+      "sha256": "ea29a33ee70fde856a66ffbc05ca5d88893cc977177d62ff1f280d3342030ff8"
+    },
+    "discovery": {
+      "path": ".build/ksplat-input-tests/discovery-02.json",
+      "bytes": 194522,
+      "sha256": "794747c328ee02516db173e09017343c2651ff452a2b7e425f2c8a54131065b2"
+    },
+    "identitiesMatched": true,
+    "attachments": [
+      {
+        "caseId": "b41f2a21b1dadf5f8f1a-01eadefb8291410eda75",
+        "path": ".build/ksplat-input-tests/browser-production-01/ksplat-input-independent-m-325f8-opens-through-production-UI-spec-ksplat-input-spec-ts/attachments/original-decoded-ply-5dde6f3acfa90af76a86ae22aea5c3ef6f86bb9b.ply",
+        "bytes": 66854,
+        "sha256": "46dc7aa87a79c0970ff1709f6f88534e01f3d0afa6a60067a9f716512c97eb33"
+      },
+      {
+        "caseId": "b41f2a21b1dadf5f8f1a-01eadefb8291410eda75",
+        "path": ".build/ksplat-input-tests/browser-production-01/ksplat-input-independent-m-325f8-opens-through-production-UI-spec-ksplat-input-spec-ts/attachments/after-refusal-redo-undo-ply-a039e57bd51a92a30ee35312a04f9b8e2f23adac.ply",
+        "bytes": 66854,
+        "sha256": "46dc7aa87a79c0970ff1709f6f88534e01f3d0afa6a60067a9f716512c97eb33"
+      },
+      {
+        "caseId": "b41f2a21b1dadf5f8f1a-01eadefb8291410eda75",
+        "path": ".build/ksplat-input-tests/browser-production-01/ksplat-input-independent-m-325f8-opens-through-production-UI-spec-ksplat-input-spec-ts/attachments/reopened-decoded-ply-403693760c8fdc97e9cd3221fdfc213f47230a92.ply",
+        "bytes": 66854,
+        "sha256": "b87e4a071a8ee8fff2f5bc3c84a3a798e771149b6c59b9462a157faf98059063"
+      },
+      {
+        "caseId": "b41f2a21b1dadf5f8f1a-a686ef75302e78913bb7",
+        "path": ".build/ksplat-input-tests/browser-production-01/ksplat-input-independent-m-ab5e6-opens-through-production-UI-spec-ksplat-input-spec-ts/attachments/original-decoded-ply-ec9019d01142ade1a814725b9ff5b55617e0db03.ply",
+        "bytes": 66854,
+        "sha256": "033b60ff298c13fcfba5af1345d3439ee2d655352ddcc46835649b4110056ec8"
+      },
+      {
+        "caseId": "b41f2a21b1dadf5f8f1a-a686ef75302e78913bb7",
+        "path": ".build/ksplat-input-tests/browser-production-01/ksplat-input-independent-m-ab5e6-opens-through-production-UI-spec-ksplat-input-spec-ts/attachments/after-refusal-redo-undo-ply-5b39abaa88854ce95f0fc14271bb49e5573c1c5e.ply",
+        "bytes": 66854,
+        "sha256": "033b60ff298c13fcfba5af1345d3439ee2d655352ddcc46835649b4110056ec8"
+      },
+      {
+        "caseId": "b41f2a21b1dadf5f8f1a-a686ef75302e78913bb7",
+        "path": ".build/ksplat-input-tests/browser-production-01/ksplat-input-independent-m-ab5e6-opens-through-production-UI-spec-ksplat-input-spec-ts/attachments/reopened-decoded-ply-b07b11cd0e36721f3a10b3a86f252bd752b321b8.ply",
+        "bytes": 66854,
+        "sha256": "ce131acdd7810e6c14abf3d644e1fb3f9110566c220b068d566d434232f17d41"
+      },
+      {
+        "caseId": "b41f2a21b1dadf5f8f1a-452be2578e708a2b30f1",
+        "path": ".build/ksplat-input-tests/browser-production-01/ksplat-input-independent-m-b5c2c-opens-through-production-UI-spec-ksplat-input-spec-ts/attachments/original-decoded-ply-1694fa8c91296a30271da598e63c853e967e75c0.ply",
+        "bytes": 66854,
+        "sha256": "15d6772cf03ab95a81a76015bc204aba401656dbeea6de288266fc87375ff881"
+      },
+      {
+        "caseId": "b41f2a21b1dadf5f8f1a-452be2578e708a2b30f1",
+        "path": ".build/ksplat-input-tests/browser-production-01/ksplat-input-independent-m-b5c2c-opens-through-production-UI-spec-ksplat-input-spec-ts/attachments/after-refusal-redo-undo-ply-b44157389e4b5eb7b1b8816eb514734c84c25eee.ply",
+        "bytes": 66854,
+        "sha256": "15d6772cf03ab95a81a76015bc204aba401656dbeea6de288266fc87375ff881"
+      },
+      {
+        "caseId": "b41f2a21b1dadf5f8f1a-452be2578e708a2b30f1",
+        "path": ".build/ksplat-input-tests/browser-production-01/ksplat-input-independent-m-b5c2c-opens-through-production-UI-spec-ksplat-input-spec-ts/attachments/reopened-decoded-ply-e9799c21ae6495f385c5c374897482fff6ac438f.ply",
+        "bytes": 66854,
+        "sha256": "d2d8acf7d8951010d17b7125930ad8f0abc6e41eda514e93436895fba5306c24"
+      }
+    ],
+    "workflows": [
+      {
+        "caseId": "b41f2a21b1dadf5f8f1a-01eadefb8291410eda75",
+        "source": {
+          "file": "mode1-sh3.ksplat",
+          "mode": 1,
+          "degree": 3
+        },
+        "attachmentSha256": "b855af55a7ea46207b0d594f449737850d290f48d57f0021325a5e0c8effa505",
+        "input": {
+          "bytes": 39312,
+          "sha256": "9f7ffe4cfe4d07d24a71d36efc9c59e4f18991d8a043e3f2238beaeabb5f4722"
+        }
+      },
+      {
+        "caseId": "b41f2a21b1dadf5f8f1a-a686ef75302e78913bb7",
+        "source": {
+          "file": "mode2-sh3.ksplat",
+          "mode": 2,
+          "degree": 3
+        },
+        "attachmentSha256": "a4d2d2ca3b5121f5748fb863a18a64da5070f495805f154683f53f64a01a3d12",
+        "input": {
+          "bytes": 27072,
+          "sha256": "b7d9ef4dd04a2da8826d00e8a8bcf4caa2b3d78f5c822c7e170bdaaf7fb10afa"
+        }
+      },
+      {
+        "caseId": "b41f2a21b1dadf5f8f1a-452be2578e708a2b30f1",
+        "source": {
+          "file": "mode2-mixed.ksplat",
+          "mode": 2,
+          "degree": 3,
+          "mixed": true
+        },
+        "attachmentSha256": "43ebc9cda78ad7923ddbba48467f48ad019e9269ab9d95123217e8bfd1ed963f",
+        "input": {
+          "bytes": 25395,
+          "sha256": "42469bbdb56c0224bb9654bba6c9ac789c22d9720a16df2e27e2c5f487107fae"
+        }
+      }
+    ]
+  },
+  "gates": {
+    "fixtures": {
+      "terminal": {
+        "path": "test-results-coherent-startup-ksplat-input-fixtures-01.command.json",
+        "bytes": 956,
+        "sha256": "59c8af9e9cbf6c14350db29a25fe91be9440899925f89293ba8ffdd9b3cd7ccb"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+      "arguments": [
+        "tools/formats/build-ksplat-v1.mjs",
+        "--write"
+      ],
+      "startedAtUtc": "2026-10-16T10:10:02.0422695Z",
+      "finishedAtUtc": "2026-10-16T10:10:02.1343248Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-ksplat-input-fixtures-01.log",
+        "bytes": 168,
+        "sha256": "e1c7439203ca189ab9630ea8b276296e5102794174c89ecf76f486abbd849d44"
+      },
+      "report": null,
+      "browserOutputDirectory": "",
+      "lastRun": null
+    },
+    "fixtureCheck": {
+      "terminal": {
+        "path": "test-results-coherent-startup-ksplat-input-fixture-check-01.command.json",
+        "bytes": 927,
+        "sha256": "ad7e4c1ed926c0717274b174e07fed61b00388fa4a4616bfa32b2d0ab968a571"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+      "arguments": [
+        "tools/formats/build-ksplat-v1.mjs"
+      ],
+      "startedAtUtc": "2026-10-16T10:10:12.2399092Z",
+      "finishedAtUtc": "2026-10-16T10:10:12.3408788Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-ksplat-input-fixture-check-01.log",
+        "bytes": 174,
+        "sha256": "17494512aaf86a8408aca6f65f1b63bc0501f8983e66687481fb40c4eb3625cb"
+      },
+      "report": null,
+      "browserOutputDirectory": "",
+      "lastRun": null
+    },
+    "typecheck": {
+      "terminal": {
+        "path": "test-results-coherent-startup-ksplat-input-typecheck-02.command.json",
+        "bytes": 728,
+        "sha256": "f5c67cece2067f90b080bbe27de6f197a746671c480b6da5176ba915a2b80103"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+      "arguments": [
+        "node_modules/typescript/bin/tsc",
+        "--noEmit"
+      ],
+      "startedAtUtc": "2026-10-16T10:11:29.3706527Z",
+      "finishedAtUtc": "2026-10-16T10:11:30.4427701Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": null,
+      "report": null,
+      "browserOutputDirectory": "",
+      "lastRun": null
+    },
+    "benchTypecheck": {
+      "terminal": {
+        "path": "test-results-coherent-startup-ksplat-input-bench-typecheck-01.command.json",
+        "bytes": 816,
+        "sha256": "2ee62d7481a403d5318f2c679d0cea36112f16c0912f780d5b7800d4e5a08c71"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+      "arguments": [
+        "node_modules/typescript/bin/tsc",
+        "--project",
+        "tools/bench/tsconfig.json",
+        "--noEmit"
+      ],
+      "startedAtUtc": "2026-10-16T10:10:12.2399092Z",
+      "finishedAtUtc": "2026-10-16T10:10:12.5117437Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": null,
+      "report": null,
+      "browserOutputDirectory": "",
+      "lastRun": null
+    },
+    "focus": {
+      "terminal": {
+        "path": "test-results-coherent-startup-ksplat-input-focus-01.command.json",
+        "bytes": 1399,
+        "sha256": "8f918905e7c744d4e3a0c7861f459dd2c66b6432e7d67a3a25d778cac08ed2de"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+      "arguments": [
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "tests/format-ksplat.test.ts",
+        "--maxWorkers=1",
+        "--reporter=json",
+        "--outputFile=.build/ksplat-input-tests/focus-report-01.json"
+      ],
+      "startedAtUtc": "2026-10-16T10:12:22.3334270Z",
+      "finishedAtUtc": "2026-10-16T10:12:49.6858906Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-ksplat-input-focus-01.log",
+        "bytes": 3252,
+        "sha256": "924cd9ebc115ff7d6e358f27111a4d7f09b97bdf9a189480735c245db6126aa2"
+      },
+      "report": {
+        "path": ".build/ksplat-input-tests/focus-report-01.json",
+        "bytes": 44398,
+        "sha256": "bdb3f55b543a0c7538a4bfab27901e42b7c9cc3ef782e67f53fd8e756045aebc"
+      },
+      "browserOutputDirectory": "",
+      "lastRun": null
+    },
+    "unit": {
+      "terminal": {
+        "path": "test-results-coherent-startup-ksplat-input-unit-01.command.json",
+        "bytes": 1345,
+        "sha256": "77fad5efcf4b70da0b594be245b8bd5b728b041434d2d04441dff14797dce41c"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+      "arguments": [
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "--maxWorkers=4",
+        "--reporter=json",
+        "--outputFile=.build/ksplat-input-tests/unit-report-01.json"
+      ],
+      "startedAtUtc": "2026-10-16T10:13:03.4290343Z",
+      "finishedAtUtc": "2026-10-16T10:13:50.7721504Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-ksplat-input-unit-01.log",
+        "bytes": 16642,
+        "sha256": "df8ba99e717791c99926b4d0553789ddd7da16c54a8c830483d5dc81ed9bbcff"
+      },
+      "report": {
+        "path": ".build/ksplat-input-tests/unit-report-01.json",
+        "bytes": 2167658,
+        "sha256": "99dc4f71d3e5fddea5f8eefdfc24b4d7d5f4c26970baac86e3786f0b778c8a40"
+      },
+      "browserOutputDirectory": "",
+      "lastRun": null
+    },
+    "audit": {
+      "terminal": {
+        "path": "test-results-coherent-startup-ksplat-input-audit-01.command.json",
+        "bytes": 1152,
+        "sha256": "b48dd819867fa5cb7536dcdffc93bf37a10692c54bd87a89348f55d3dbd009b2"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+      "arguments": [
+        ".build/ksplat-input-tests/audit-01.mjs"
+      ],
+      "startedAtUtc": "2026-10-16T10:10:12.2503703Z",
+      "finishedAtUtc": "2026-10-16T10:10:12.3973348Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-ksplat-input-audit-01.log",
+        "bytes": 196,
+        "sha256": "397540b08a22cfbd9424312faf0e2122a6d2dc0c8ff505e9f0e8a9eddeb667d7"
+      },
+      "report": {
+        "path": ".build/ksplat-input-tests/build-audit-01.json",
+        "bytes": 60780,
+        "sha256": "7a10759f729900dc235a6c8aa2499abe96af32c19e6f698a6e6d18181a3c8fbb"
+      },
+      "browserOutputDirectory": "",
+      "lastRun": null
+    },
+    "discovery": {
+      "terminal": {
+        "path": "test-results-coherent-startup-ksplat-input-discovery-02.command.json",
+        "bytes": 1402,
+        "sha256": "830af51a2b4f668f3f60308a309f82daab1c44eccd1efe64004e7e9b39673581"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+      "arguments": [
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "--config=.build/ksplat-input-tests/playwright-owned-01.config.ts",
+        "e2e/ksplat-input.spec.ts",
+        "e2e/app.spec.ts",
+        "--list"
+      ],
+      "startedAtUtc": "2026-10-16T10:11:29.3706527Z",
+      "finishedAtUtc": "2026-10-16T10:11:29.8960565Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-ksplat-input-discovery-02.log",
+        "bytes": 2570,
+        "sha256": "e786ab971cfd5fc66420441467554db905d827769c3f22cc4947a87db3e0141e"
+      },
+      "report": {
+        "path": ".build/ksplat-input-tests/discovery-02.json",
+        "bytes": 194522,
+        "sha256": "794747c328ee02516db173e09017343c2651ff452a2b7e425f2c8a54131065b2"
+      },
+      "browserOutputDirectory": "",
+      "lastRun": null
+    },
+    "ready": {
+      "terminal": {
+        "path": "test-results-coherent-startup-ksplat-input-ready-01.command.json",
+        "bytes": 1093,
+        "sha256": "8a6f524f2b2f77e1061c9c00dde113e50049aa76d063cf77aa6348394625d1f9"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "arguments": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        ".build/ksplat-input-tests/ready-01.ps1",
+        "-Origin",
+        "http://127.0.0.1:4173/"
+      ],
+      "startedAtUtc": "2026-10-16T10:14:19.5207022Z",
+      "finishedAtUtc": "2026-10-16T10:14:19.8132385Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-ksplat-input-ready-01.log",
+        "bytes": 198,
+        "sha256": "3a2c97c446b8d704b5bae93c1a839f35926b7faf4b2182ef2bd668131c39f64a"
+      },
+      "report": null,
+      "browserOutputDirectory": "",
+      "lastRun": null
+    },
+    "browser": {
+      "terminal": {
+        "path": "test-results-coherent-startup-ksplat-input-browser-01.command.json",
+        "bytes": 1665,
+        "sha256": "4bfd5ac8bda59acd80ceb68c893fc1745c5726835c27f53c0c153e47c5fbb86e"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+      "arguments": [
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "--config=.build/ksplat-input-tests/playwright-owned-01.config.ts",
+        "e2e/ksplat-input.spec.ts",
+        "e2e/app.spec.ts"
+      ],
+      "startedAtUtc": "2026-10-16T10:14:25.0785317Z",
+      "finishedAtUtc": "2026-10-16T10:14:51.6361656Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-ksplat-input-browser-01.log",
+        "bytes": 4274,
+        "sha256": "c63e803611328d6c2f36b5b357f0f45222eb17ec915f1f3cad2ef79e9dbcf8e3"
+      },
+      "report": {
+        "path": ".build/ksplat-input-tests/browser-report-01.json",
+        "bytes": 219242,
+        "sha256": "ea29a33ee70fde856a66ffbc05ca5d88893cc977177d62ff1f280d3342030ff8"
+      },
+      "browserOutputDirectory": ".build/ksplat-input-tests/browser-production-01",
+      "lastRun": {
+        "path": ".build/ksplat-input-tests/browser-production-01/.last-run.json",
+        "bytes": 45,
+        "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+      }
+    },
+    "cleanup": {
+      "terminal": {
+        "path": "test-results-coherent-startup-ksplat-input-cleanup-01.command.json",
+        "bytes": 1237,
+        "sha256": "cfa664223d5d972bd8e4fb5d638fb3c0d8c76ef3b84f9d9a9ebe3d3455d558c7"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "arguments": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        ".build/ksplat-input-tests/cleanup-01.ps1"
+      ],
+      "startedAtUtc": "2026-10-16T10:15:15.6303655Z",
+      "finishedAtUtc": "2026-10-16T10:15:18.4069502Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-ksplat-input-cleanup-01.log",
+        "bytes": 238,
+        "sha256": "43c54a6b670b9b0129dfd62a625db6b5f866f3d4634941b1e18eb57216456e8e"
+      },
+      "report": {
+        "path": ".build/ksplat-input-tests/cleanup-01.json",
+        "bytes": 1568,
+        "sha256": "e5528d8685508fe9b5a8d44b744496e496e63a5e5a9068dd678f08f1dd280384"
+      },
+      "browserOutputDirectory": "",
+      "lastRun": null
+    }
+  },
+  "cleanup": {
+    "kind": "lifecycle-cleanup",
+    "status": "passed",
+    "observedAtUtc": "2026-10-16T10:15:18.3748953Z",
+    "before": {
+      "path": ".build/ksplat-input-tests/cleanup-before-01.json",
+      "bytes": 111770,
+      "sha256": "18ebc828c7bb4902460ab6c3b3b8e1abdb5a581df7bff53ea6f807c2e6b10c9d"
+    },
+    "helper": {
+      "path": ".build/ksplat-input-tests/cleanup-01.ps1",
+      "bytes": 9274,
+      "sha256": "1e39669a0ce35c63058db769f88abbd01f6c2b739a67f499ebd06b063b17ec9d"
+    },
+    "shippingAudit": {
+      "path": ".build/ksplat-input-tests/build-audit-01.json",
+      "bytes": 60780,
+      "sha256": "7a10759f729900dc235a6c8aa2499abe96af32c19e6f698a6e6d18181a3c8fbb"
+    },
+    "removedFiles": 1,
+    "removedBytes": 13319,
+    "removedDirectories": 4,
+    "absentScopes": [
+      "node_modules/.vite",
+      "node_modules/.vite-temp"
+    ],
+    "absentSingleFiles": [],
+    "closedPorts": [
+      4173,
+      5173,
+      5273,
+      5373
+    ],
+    "remainingOwnedRunners": [],
+    "shippingAndNativeAndReferenceLibrariesUnchanged": true,
+    "preservedSourceFixturesReportsCapturesAndExecutables": true
+  },
+  "diagnostics": [],
+  "repairSourceSeals": [
+    {
+      "path": ".build/ksplat-input-tests/source-pre-repair-01.json",
+      "bytes": 855876,
+      "sha256": "c5512484ea7811b6ec0f9f11b51a06655170001a7a982a955386925e0e56ac23"
+    }
+  ],
+  "joinedService": {
+    "path": ".build/ksplat-input-tests/preview-joined-01.json",
+    "bytes": 369,
+    "sha256": "c082bab6dedd1313eb6ff472f4d68371fd6da3c5c021e02d58c44ee4d92c97e4"
+  },
+  "applicationAndNativeAndDistributionUnchanged": true,
+  "thresholdsFrozenBeforeExecution": true,
+  "fullReleaseAccepted": false,
+  "performanceAccepted": false,
+  "capacityQualified": false,
+  "scope": "Independent KSPLAT0.1 compression0/1/2, SH0-3, section/capacity/bucket, sampled input and scoped-output/refusal checks through shipping WASM; three genuine ordinary production UI workflows.",
+  "commit": false,
+  "push": false,
+  "deployment": false
+}

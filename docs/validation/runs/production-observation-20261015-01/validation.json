@@ -1,0 +1,1133 @@
+{
+  "schemaVersion": 1,
+  "kind": "production-observation-local-qualification",
+  "status": "passed",
+  "goalStatus": "active",
+  "scope": "bounded-production-open-export-close-observations-only",
+  "observedAtUtc": "2026-10-15T23:28:27.344306+00:00",
+  "helper": {
+    "path": ".build/production-observation-tests/qualify-01.py",
+    "bytes": 32992,
+    "sha256": "99d3ae03ddc02c426c5c8070850c009162a331cac7abc9d6f73ddb64264f7c54"
+  },
+  "baseline": {
+    "path": ".build/production-observation-tests/baseline-01/manifest.json",
+    "bytes": 673411,
+    "sha256": "59586a7996ff97f5fb67e3cc7e445680445692d26693c7b9ce494846b01d2dcc"
+  },
+  "predecessor": {
+    "path": "docs/validation/runs/benchmark-fixture-20261015-01/validation.json",
+    "bytes": 24608,
+    "sha256": "b89c258f219ef15ec6757fb169aa269e13d98b2e8818bf5a0f8ce6438159951f"
+  },
+  "sourceSeal": {
+    "path": ".build/production-observation-tests/seal-07/manifest.json",
+    "bytes": 680486,
+    "sha256": "b4d0a57e01b2f07953d558dc8a49ff492ac622b24eb95f9df5e6708469e276b8"
+  },
+  "executedSourceSeal": {
+    "path": ".build/production-observation-tests/seal-06/manifest.json",
+    "bytes": 680486,
+    "sha256": "b0d63d558a42551407978ef92c76cafffc48ec8d568fd93b7f235e58ac6e2c0b"
+  },
+  "gates": {
+    "types": {
+      "receipt": {
+        "path": "test-results-coherent-startup-production-observation-types-05.command.json",
+        "bytes": 728,
+        "sha256": "4adf4d50226068fa16969417540484eb77567d14cb39ade3c40f60f7aa1c4b64"
+      },
+      "observed": {
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+        "arguments": [
+          "node_modules/typescript/bin/tsc",
+          "--noEmit"
+        ],
+        "startedAtUtc": "2026-10-15T23:25:50.2159952Z",
+        "finishedAtUtc": "2026-10-15T23:25:51.3104434Z",
+        "exitCode": 0,
+        "exception": null,
+        "log": null,
+        "report": null,
+        "browserOutputDirectory": "",
+        "lastRun": null
+      }
+    },
+    "benchTypes": {
+      "receipt": {
+        "path": "test-results-coherent-startup-production-observation-bench-types-05.command.json",
+        "bytes": 781,
+        "sha256": "0413c35894a61dda5a3ec70c2c9a0565769a05e2a08baa4f3b9570cd0c3889dd"
+      },
+      "observed": {
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+        "arguments": [
+          "node_modules/typescript/bin/tsc",
+          "--project",
+          "tools/bench/tsconfig.json"
+        ],
+        "startedAtUtc": "2026-10-15T23:25:50.2159952Z",
+        "finishedAtUtc": "2026-10-15T23:25:50.4310626Z",
+        "exitCode": 0,
+        "exception": null,
+        "log": null,
+        "report": null,
+        "browserOutputDirectory": "",
+        "lastRun": null
+      }
+    },
+    "focused": {
+      "receipt": {
+        "path": "test-results-coherent-startup-production-observation-focused-04.command.json",
+        "bytes": 1591,
+        "sha256": "cee876022299dce1436ab48a284e1cf0765f23eeb6e3ca203904a8d61f04d813"
+      },
+      "observed": {
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+        "arguments": [
+          "node_modules/vitest/vitest.mjs",
+          "run",
+          "tests/benchmark-probe.test.ts",
+          "tests/benchmark-observation.test.ts",
+          "tests/benchmark-bridge.test.ts",
+          "tests/renderer-diagnostics.test.ts",
+          "--reporter=./tools/release-vitest-reporter.ts",
+          "--outputFile=.build/production-observation-tests/focused-04.json"
+        ],
+        "startedAtUtc": "2026-10-15T23:25:50.2159952Z",
+        "finishedAtUtc": "2026-10-15T23:25:51.1430717Z",
+        "exitCode": 0,
+        "exception": null,
+        "log": {
+          "path": "test-results-coherent-startup-production-observation-focused-04.log",
+          "bytes": 174,
+          "sha256": "d026efbe097b1018af1898c046f25ab28d66bfbefab292ac47a78b53ab9fd888"
+        },
+        "report": {
+          "path": ".build/production-observation-tests/focused-04.json",
+          "bytes": 55276,
+          "sha256": "9f6c6df73cb14df5163c88946b0df22529db2e28dab03a93863339dd2476a7c8"
+        },
+        "browserOutputDirectory": "",
+        "lastRun": null
+      }
+    },
+    "collection": {
+      "receipt": {
+        "path": "test-results-coherent-startup-production-observation-collection-03.command.json",
+        "bytes": 1295,
+        "sha256": "26b1451edfca368201687a5f928698acd0998ecc606c84efda5d8f5e39978dfd"
+      },
+      "observed": {
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+        "arguments": [
+          "tools/release/collect-vitest.ts",
+          "--output",
+          ".build/production-observation-tests/cpu-collection-03.json"
+        ],
+        "startedAtUtc": "2026-10-15T23:26:52.5025807Z",
+        "finishedAtUtc": "2026-10-15T23:27:18.0945617Z",
+        "exitCode": 0,
+        "exception": null,
+        "log": {
+          "path": "test-results-coherent-startup-production-observation-collection-03.log",
+          "bytes": 198,
+          "sha256": "af21c3766fe91eb00d93adde706ec29fe68dc48bfcc8bc639194b538e2dfb7d8"
+        },
+        "report": {
+          "path": ".build/production-observation-tests/cpu-collection-03.json",
+          "bytes": 1495246,
+          "sha256": "80b39e2a422139dc00aca4606580847ca5a0169108f4c2631c0d1e4a051dc716"
+        },
+        "browserOutputDirectory": "",
+        "lastRun": null
+      }
+    },
+    "cpu": {
+      "receipt": {
+        "path": "test-results-coherent-startup-production-observation-cpu-03.command.json",
+        "bytes": 1360,
+        "sha256": "48e9cd3dfad5b6971091d70974da4440aa1cca95bce1a33bd41b526af1d350e1"
+      },
+      "observed": {
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+        "arguments": [
+          "node_modules/vitest/vitest.mjs",
+          "run",
+          "--reporter=./tools/release-vitest-reporter.ts",
+          "--outputFile=.build/production-observation-tests/cpu-report-03.json"
+        ],
+        "startedAtUtc": "2026-10-15T23:26:52.5025807Z",
+        "finishedAtUtc": "2026-10-15T23:27:25.4855411Z",
+        "exitCode": 0,
+        "exception": null,
+        "log": {
+          "path": "test-results-coherent-startup-production-observation-cpu-03.log",
+          "bytes": 9506,
+          "sha256": "99f3c52c8244f8217a40f24eed6c8509b4fea429ad53f09ae1a9a5584c4b24b0"
+        },
+        "report": {
+          "path": ".build/production-observation-tests/cpu-report-03.json",
+          "bytes": 2923348,
+          "sha256": "c3d30a127fbed91826cc809b5daaf458643ba7ffe671a44908a3c96ae2799044"
+        },
+        "browserOutputDirectory": "",
+        "lastRun": null
+      }
+    },
+    "build": {
+      "receipt": {
+        "path": "test-results-coherent-startup-production-observation-build-01.command.json",
+        "bytes": 1019,
+        "sha256": "0f1a41d9326d724471cc1441218e675033bf9a9ed69c47337489bf38e7ac78c5"
+      },
+      "observed": {
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+        "arguments": [
+          ".tools/node-v24.21.0-win-x64/node_modules/npm/bin/npm-cli.js",
+          "run",
+          "build"
+        ],
+        "startedAtUtc": "2026-10-15T23:06:38.8377272Z",
+        "finishedAtUtc": "2026-10-15T23:06:43.3731223Z",
+        "exitCode": 0,
+        "exception": null,
+        "log": {
+          "path": "test-results-coherent-startup-production-observation-build-01.log",
+          "bytes": 6250,
+          "sha256": "66f9350d6bd7e872fece1a0527b9c40ba0f37a629d7ed9c386cf2d9160623b8d"
+        },
+        "report": null,
+        "browserOutputDirectory": "",
+        "lastRun": null
+      }
+    },
+    "audit": {
+      "receipt": {
+        "path": "test-results-coherent-startup-production-observation-audit-02.command.json",
+        "bytes": 1189,
+        "sha256": "de779125247197e0641a271c158a616f17b8ea0df4d3a7ca4041e7e1698a3b2b"
+      },
+      "observed": {
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+        "arguments": [
+          ".build/production-observation-tests/audit-build-02.mjs"
+        ],
+        "startedAtUtc": "2026-10-15T23:21:16.3368145Z",
+        "finishedAtUtc": "2026-10-15T23:21:16.5165068Z",
+        "exitCode": 0,
+        "exception": null,
+        "log": {
+          "path": "test-results-coherent-startup-production-observation-audit-02.log",
+          "bytes": 1254,
+          "sha256": "6e6b15d78dfeb1d70a3c5456a17238be4059096cf378c1dc7b23fc4a8a7b9ccc"
+        },
+        "report": {
+          "path": ".build/production-observation-tests/build-audit-02.json",
+          "bytes": 60656,
+          "sha256": "f8416c7c19ce52958d7c02ef95aa21099aa5999f702804828cdae6829cde7dc2"
+        },
+        "browserOutputDirectory": "",
+        "lastRun": null
+      }
+    },
+    "appList": {
+      "receipt": {
+        "path": "test-results-coherent-startup-production-observation-app-list-01.command.json",
+        "bytes": 1123,
+        "sha256": "6f3cf2cd780d36c25e18e23b48ca35130c3b331cd93d0caa513dd17c3cb7d06d"
+      },
+      "observed": {
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+        "arguments": [
+          "node_modules/@playwright/test/cli.js",
+          "test",
+          "--config",
+          ".build/production-observation-tests/playwright-list.config.ts",
+          "--list"
+        ],
+        "startedAtUtc": "2026-10-15T23:09:07.0543735Z",
+        "finishedAtUtc": "2026-10-15T23:09:07.4580351Z",
+        "exitCode": 0,
+        "exception": null,
+        "log": {
+          "path": "test-results-coherent-startup-production-observation-app-list-01.log",
+          "bytes": 1424,
+          "sha256": "411acdb82c55d31f0d7043024e89644dbf50488f129281eff2f0367d0d5937b2"
+        },
+        "report": null,
+        "browserOutputDirectory": "",
+        "lastRun": null
+      }
+    },
+    "app": {
+      "receipt": {
+        "path": "test-results-coherent-startup-production-observation-app-02.command.json",
+        "bytes": 1502,
+        "sha256": "94593a31d34b421e40056edf9c18a2a85c28ef2477b9e5faef35ecb371ff0877"
+      },
+      "observed": {
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+        "arguments": [
+          "node_modules/@playwright/test/cli.js",
+          "test",
+          "--config",
+          ".build/production-observation-tests/playwright-production-02.config.ts",
+          "--output",
+          ".build/production-observation-tests/app-output-02"
+        ],
+        "startedAtUtc": "2026-10-15T23:16:23.2727038Z",
+        "finishedAtUtc": "2026-10-15T23:16:41.9149318Z",
+        "exitCode": 0,
+        "exception": null,
+        "log": {
+          "path": "test-results-coherent-startup-production-observation-app-02.log",
+          "bytes": 2742,
+          "sha256": "340d862a225eb28062c4ed09146348350b9e0e79dde24dc1f8d8c487aedd927c"
+        },
+        "report": null,
+        "browserOutputDirectory": ".build/production-observation-tests/app-output-02",
+        "lastRun": {
+          "path": ".build/production-observation-tests/app-output-02/.last-run.json",
+          "bytes": 45,
+          "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+        }
+      }
+    },
+    "probe": {
+      "receipt": {
+        "path": "test-results-coherent-startup-production-observation-probe-03.command.json",
+        "bytes": 1523,
+        "sha256": "9bb3c2915032bc14e519c8cead067f53695756b0c6e63e6c0afc16f85d78721f"
+      },
+      "observed": {
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+        "arguments": [
+          "tools/bench/run.ts",
+          "--base-url",
+          "http://127.0.0.1:4173/",
+          "--fixture",
+          ".build/bench-fixtures/pinned-20261015-01/fixture.splat",
+          "--out",
+          ".build/bench-runs/production-20261015-03",
+          "--attempts",
+          "3"
+        ],
+        "startedAtUtc": "2026-10-15T23:25:55.3872584Z",
+        "finishedAtUtc": "2026-10-15T23:26:02.6092579Z",
+        "exitCode": 0,
+        "exception": null,
+        "log": {
+          "path": "test-results-coherent-startup-production-observation-probe-03.log",
+          "bytes": 212,
+          "sha256": "6b198662737f25525f093e2487f7774bacd00747a7e9c72761848216d9efc04c"
+        },
+        "report": {
+          "path": ".build/bench-runs/production-20261015-03/observation.json",
+          "bytes": 1508190,
+          "sha256": "9c5eab28dbb4a1c6c8a111f10f8b654076e79db7c335d453c8cae755d578a80f"
+        },
+        "browserOutputDirectory": "",
+        "lastRun": null
+      }
+    },
+    "closure": {
+      "receipt": {
+        "path": "test-results-coherent-startup-production-observation-runtime-closure-01.command.json",
+        "bytes": 1215,
+        "sha256": "77d4920135232b117c641aa8286904e30677207f22f49de2a11f22c29132e883"
+      },
+      "observed": {
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "arguments": [
+          "-NoProfile",
+          "-File",
+          ".build/production-observation-tests/runtime-closure-01.ps1"
+        ],
+        "startedAtUtc": "2026-10-15T23:27:56.7666603Z",
+        "finishedAtUtc": "2026-10-15T23:27:57.7981444Z",
+        "exitCode": 0,
+        "exception": null,
+        "log": {
+          "path": "test-results-coherent-startup-production-observation-runtime-closure-01.log",
+          "bytes": 502,
+          "sha256": "aaf4c95ea6796f1e4ded31105f124203e7c61692463e41967e8bb11e545789ed"
+        },
+        "report": {
+          "path": ".build/production-observation-tests/runtime-closure-01.json",
+          "bytes": 6987,
+          "sha256": "13f64f52296d4154a1053148c700030374b1758faff999c00755079d0d06bdb1"
+        },
+        "browserOutputDirectory": "",
+        "lastRun": null
+      }
+    },
+    "cleanup": {
+      "receipt": {
+        "path": "test-results-coherent-startup-production-observation-cache-cleanup-01.command.json",
+        "bytes": 1336,
+        "sha256": "f620868638a2d28f810fc724fde086492be8675c6f017ae03c76ee0f2288fb6d"
+      },
+      "observed": {
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "arguments": [
+          "-NoProfile",
+          "-File",
+          ".build/production-observation-tests/cache-cleanup-01.ps1",
+          "-ClosureRecord",
+          ".build/production-observation-tests/runtime-closure-01.json"
+        ],
+        "startedAtUtc": "2026-10-15T23:28:02.4088430Z",
+        "finishedAtUtc": "2026-10-15T23:28:05.1638216Z",
+        "exitCode": 0,
+        "exception": null,
+        "log": {
+          "path": "test-results-coherent-startup-production-observation-cache-cleanup-01.log",
+          "bytes": 566,
+          "sha256": "a9081f1aaca07098020447209d57ae9a168a98fbd8ce805a875189ca84d453a3"
+        },
+        "report": {
+          "path": ".build/production-observation-tests/cache-cleanup-01.json",
+          "bytes": 3041,
+          "sha256": "66cd328581ea4019b965214828832431dc95ab8ec8f1c5c971edc47bbba8722a"
+        },
+        "browserOutputDirectory": "",
+        "lastRun": null
+      }
+    }
+  },
+  "buildAudit": {
+    "path": ".build/production-observation-tests/build-audit-02.json",
+    "bytes": 60656,
+    "sha256": "f8416c7c19ce52958d7c02ef95aa21099aa5999f702804828cdae6829cde7dc2"
+  },
+  "fixtureManifest": {
+    "path": "tests/fixtures/bench/manifest-v1.json",
+    "bytes": 12297,
+    "sha256": "99e346e3899a5e11db0a4501fb9b2ed3723dc67906e16b63dd2891348ebd543d"
+  },
+  "identity": {
+    "inputSha256": "ff27349c204f5ddb7d5cec55775193f601fe28bdd88727362edc44a3f3145244",
+    "sourceOrderSha256": "3859865469dd7c3f3f10c2d30346aa45554f17a1d3f8c42f352bf73027aa5789",
+    "distributionSha256": "f6e02536d97111e5c8c21db437f72989e98037f592e2c17e877b95db0aa478ce",
+    "expectedSceneSha256": "22397e5ed6975483e5cc7a125df52fedf6b647862757b3744e7173b3db27543d",
+    "fullMembershipSha256": "3859865469dd7c3f3f10c2d30346aa45554f17a1d3f8c42f352bf73027aa5789",
+    "traceSha256": "9231ac689d96c5d130325ed9081bdb80ac626ca70694bffbe043fe4b0862db25",
+    "projectionSha256": "e8185ba1360c3a7c84b321695a674a12ace9f57bf4a9501d6efd4d4db475b1ad"
+  },
+  "app": {
+    "independentInventory": {
+      "path": ".build/production-observation-tests/.build/production-observation-tests/app-list-01.json",
+      "bytes": 7609,
+      "sha256": "cedb17bc0da35412f6e7a877988abd476b3e20d7c5e51ff5c5ac35a052579372"
+    },
+    "report": {
+      "path": ".build/production-observation-tests/.build/production-observation-tests/app-report-02.json",
+      "bytes": 10621,
+      "sha256": "3b9c7f11f2816f0b1097a2226499e082cc789cc575c9b48b7367eb65cf616ce3"
+    },
+    "reportResolution": {
+      "path": ".build/production-observation-tests/reporter-resolution-01.json",
+      "bytes": 4293,
+      "sha256": "eb002971ea7ff17e7b9fac3ce4de6312e0247e153f5a26751a998dab1e8a2c2d"
+    },
+    "terminalReportPreserved": null,
+    "resolutionReason": "Playwright JSON reporter outputFile resolves relative to configDir. Actual nested files are bound separately; observed terminal report:null is unchanged.",
+    "cases": [
+      {
+        "id": "c31ff144dc4fee3acd0a-29f8f527383c3c79f9b7",
+        "title": "real worker/WASM/GPU editor: open, select, grade, undo and export",
+        "project": "spec:app.spec.ts",
+        "file": "e2e/app.spec.ts",
+        "line": 9,
+        "column": 1
+      },
+      {
+        "id": "c31ff144dc4fee3acd0a-3a201b77a2855bfe915d",
+        "title": "live polygon supports Backspace, Enter, Escape and one history entry",
+        "project": "spec:app.spec.ts",
+        "file": "e2e/app.spec.ts",
+        "line": 98,
+        "column": 1
+      },
+      {
+        "id": "c31ff144dc4fee3acd0a-41bc8a1b1edf9b1e0164",
+        "title": "deferred brush retains the complete stroke and commits one Undo",
+        "project": "spec:app.spec.ts",
+        "file": "e2e/app.spec.ts",
+        "line": 134,
+        "column": 35
+      },
+      {
+        "id": "c31ff144dc4fee3acd0a-4b814043dc475a09a588",
+        "title": "live brush retains the complete stroke and commits one Undo",
+        "project": "spec:app.spec.ts",
+        "file": "e2e/app.spec.ts",
+        "line": 134,
+        "column": 35
+      },
+      {
+        "id": "c31ff144dc4fee3acd0a-59f4e60195cdcda26560",
+        "title": "native toolbar geometry and a scheduler that sleeps when idle",
+        "project": "spec:app.spec.ts",
+        "file": "e2e/app.spec.ts",
+        "line": 36,
+        "column": 1
+      },
+      {
+        "id": "c31ff144dc4fee3acd0a-72b90d3fa3024cba7d32",
+        "title": "live rectangle shrinks, commits once and cancels on Escape, blur, lost capture or Undo",
+        "project": "spec:app.spec.ts",
+        "file": "e2e/app.spec.ts",
+        "line": 65,
+        "column": 1
+      }
+    ],
+    "attachments": [],
+    "outputDirectory": ".build/production-observation-tests/app-output-02",
+    "outputFiles": [
+      {
+        "path": ".build/production-observation-tests/app-output-02/.last-run.json",
+        "bytes": 45,
+        "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+      },
+      {
+        "path": ".build/production-observation-tests/app-output-02/app-native-toolbar-geometr-04902-duler-that-sleeps-when-idle-spec-app-spec-ts/desktop-toolbar.png",
+        "bytes": 19932,
+        "sha256": "0fd81e739f73b4442022d09afd2157452389bdd6335337b8a6e4bfa19a0005fc"
+      }
+    ]
+  },
+  "probe": {
+    "report": {
+      "path": ".build/bench-runs/production-20261015-03/observation.json",
+      "bytes": 1508190,
+      "sha256": "9c5eab28dbb4a1c6c8a111f10f8b654076e79db7c335d453c8cae755d578a80f"
+    },
+    "attempts": [
+      {
+        "path": ".build/bench-runs/production-20261015-03/attempt-01.json",
+        "bytes": 455566,
+        "sha256": "7e746089160cb94ee400d76dadd4decade566876814f1fd086672c22480fca7b"
+      },
+      {
+        "path": ".build/bench-runs/production-20261015-03/attempt-02.json",
+        "bytes": 455001,
+        "sha256": "e3fc8d4b2144d9f6a265b59bae25fef6665ceb1fadc397c95e8ef573abd728e7"
+      },
+      {
+        "path": ".build/bench-runs/production-20261015-03/attempt-03.json",
+        "bytes": 455910,
+        "sha256": "7386bebada30bd504feeba80e60f3a7d482f6214ebb295c2c79276b0db69600d"
+      }
+    ],
+    "exports": [
+      {
+        "path": ".build/bench-runs/production-20261015-03/attempt-01.splat",
+        "bytes": 8192000,
+        "sha256": "ff27349c204f5ddb7d5cec55775193f601fe28bdd88727362edc44a3f3145244"
+      },
+      {
+        "path": ".build/bench-runs/production-20261015-03/attempt-02.splat",
+        "bytes": 8192000,
+        "sha256": "ff27349c204f5ddb7d5cec55775193f601fe28bdd88727362edc44a3f3145244"
+      },
+      {
+        "path": ".build/bench-runs/production-20261015-03/attempt-03.splat",
+        "bytes": 8192000,
+        "sha256": "ff27349c204f5ddb7d5cec55775193f601fe28bdd88727362edc44a3f3145244"
+      }
+    ],
+    "outputFiles": [
+      {
+        "path": ".build/bench-runs/production-20261015-03/attempt-01.json",
+        "bytes": 455566,
+        "sha256": "7e746089160cb94ee400d76dadd4decade566876814f1fd086672c22480fca7b"
+      },
+      {
+        "path": ".build/bench-runs/production-20261015-03/attempt-01.splat",
+        "bytes": 8192000,
+        "sha256": "ff27349c204f5ddb7d5cec55775193f601fe28bdd88727362edc44a3f3145244"
+      },
+      {
+        "path": ".build/bench-runs/production-20261015-03/attempt-02.json",
+        "bytes": 455001,
+        "sha256": "e3fc8d4b2144d9f6a265b59bae25fef6665ceb1fadc397c95e8ef573abd728e7"
+      },
+      {
+        "path": ".build/bench-runs/production-20261015-03/attempt-02.splat",
+        "bytes": 8192000,
+        "sha256": "ff27349c204f5ddb7d5cec55775193f601fe28bdd88727362edc44a3f3145244"
+      },
+      {
+        "path": ".build/bench-runs/production-20261015-03/attempt-03.json",
+        "bytes": 455910,
+        "sha256": "7386bebada30bd504feeba80e60f3a7d482f6214ebb295c2c79276b0db69600d"
+      },
+      {
+        "path": ".build/bench-runs/production-20261015-03/attempt-03.splat",
+        "bytes": 8192000,
+        "sha256": "ff27349c204f5ddb7d5cec55775193f601fe28bdd88727362edc44a3f3145244"
+      },
+      {
+        "path": ".build/bench-runs/production-20261015-03/observation.json",
+        "bytes": 1508190,
+        "sha256": "9c5eab28dbb4a1c6c8a111f10f8b654076e79db7c335d453c8cae755d578a80f"
+      }
+    ],
+    "host": {
+      "os": "win32",
+      "osRelease": "10.0.26100",
+      "cpuModel": "AMD Ryzen 9 9950X 16-Core Processor            ",
+      "ramBytes": 203636297728,
+      "browserVersion": "156.0.8078.4",
+      "browserHost": "automation",
+      "browserChannel": "chromium",
+      "headless": true,
+      "launchArguments": [
+        "--enable-unsafe-webgpu"
+      ],
+      "systemModel": {
+        "value": null,
+        "unavailableReason": "System model is not measured by this collector."
+      }
+    },
+    "normalUi": {
+      "bridgePresent": false,
+      "url": "http://127.0.0.1:4173/",
+      "browserContextJoined": true,
+      "cleanupError": null
+    },
+    "browserJoined": true
+  },
+  "counts": {
+    "cpuCases": 4735,
+    "cpuFiles": 147,
+    "focusedCases": 90,
+    "focusedFiles": 4,
+    "appCases": 6,
+    "appFiles": 1,
+    "observedBrowserRuns": 3,
+    "exportBytes": 24576000
+  },
+  "shipping": {
+    "appInputId": "7340866c341ec574fa0268cda029f5f3f61ecc835ff15eb9fdef2ac33fb653e7",
+    "deploymentId": "64de308954e3c1e8289fc7e4a4af89963a23fed7ca4b110c075675cbba15458f",
+    "applicationInputs": 250,
+    "nativeFiles": 5,
+    "runtimeFiles": 97,
+    "maps": 3,
+    "distributionFiles": 101,
+    "staleDistributionFiles": 0
+  },
+  "hygiene": {
+    "path": ".build/production-observation-tests/cache-cleanup-01.json",
+    "bytes": 3041,
+    "sha256": "66cd328581ea4019b965214828832431dc95ab8ec8f1c5c971edc47bbba8722a"
+  },
+  "runtimeClosure": {
+    "path": ".build/production-observation-tests/runtime-closure-01.json",
+    "bytes": 6987,
+    "sha256": "13f64f52296d4154a1053148c700030374b1758faff999c00755079d0d06bdb1"
+  },
+  "diagnostics": {
+    "types": {
+      "receipt": {
+        "path": "test-results-coherent-startup-production-observation-types-01.command.json",
+        "bytes": 963,
+        "sha256": "2fc93dc6624b73c428f03e487e09d2cf29df18a98213724ff4dd6b294eb16ef1"
+      },
+      "observed": {
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+        "arguments": [
+          "node_modules/typescript/bin/tsc",
+          "--noEmit"
+        ],
+        "startedAtUtc": "2026-10-15T23:05:58.2406310Z",
+        "finishedAtUtc": "2026-10-15T23:05:59.3156487Z",
+        "exitCode": 1,
+        "exception": null,
+        "log": {
+          "path": "test-results-coherent-startup-production-observation-types-01.log",
+          "bytes": 1116,
+          "sha256": "3a27b1f5f53d674381e4b0eb4b8a18cf3d6f7d4ee090ac2527066cde85ca34d1"
+        },
+        "report": null,
+        "browserOutputDirectory": "",
+        "lastRun": null
+      }
+    },
+    "app": {
+      "receipt": {
+        "path": "test-results-coherent-startup-production-observation-app-01.command.json",
+        "bytes": 1501,
+        "sha256": "e74cf2a4347f0a219e9e749b38c0e1d95d7ad2680ec9bc259150cb9c2c7d7bb2"
+      },
+      "observed": {
+        "schemaVersion": 1,
+        "kind": "observed-local-command-terminal",
+        "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+        "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+        "arguments": [
+          "node_modules/@playwright/test/cli.js",
+          "test",
+          "--config",
+          ".build/production-observation-tests/playwright-production.config.ts",
+          "--output",
+          ".build/production-observation-tests/app-output-01"
+        ],
+        "startedAtUtc": "2026-10-15T23:14:12.6753155Z",
+        "finishedAtUtc": "2026-10-15T23:15:55.8028513Z",
+        "exitCode": 1,
+        "exception": null,
+        "log": {
+          "path": "test-results-coherent-startup-production-observation-app-01.log",
+          "bytes": 29024,
+          "sha256": "70d7eed51e7a0d1b23d31b104cd50401c04e31285f6edcd21d7204f879e8c47d"
+        },
+        "report": null,
+        "browserOutputDirectory": ".build/production-observation-tests/app-output-01",
+        "lastRun": {
+          "path": ".build/production-observation-tests/app-output-01/.last-run.json",
+          "bytes": 341,
+          "sha256": "78e974a7a733622cdc381399d02f25d05c2d4cf2cbd721f6330c14657ef2aecb"
+        }
+      }
+    },
+    "appReport": {
+      "path": ".build/production-observation-tests/.build/production-observation-tests/app-report-01.json",
+      "bytes": 40776,
+      "sha256": "afbb7946e0cdb8a6f2793323fb3aca31d573ff42b2feb32b125422fa29300df7"
+    },
+    "typesExecutedSourceSeal": {
+      "path": ".build/production-observation-tests/seal-01/manifest.json",
+      "bytes": 676276,
+      "sha256": "cb8797f026d35f2f0edd2425ad3af5a2a7f0eb82a11ffb9540aff8ef3befc03a"
+    },
+    "appExecutedSourceSeal": {
+      "path": ".build/production-observation-tests/seal-03/manifest.json",
+      "bytes": 678701,
+      "sha256": "d70f0ed41d4c2f30df1689173f6e8a83e76a14c9c6804fb06d725ff50ccb79a2"
+    },
+    "reason": "Initial types failure and initial six-case production regression failed before the origin-specific onboarding state was supplied; preserve exact reports, terminal null report fields and immutable executed sources.",
+    "appOutputFiles": [
+      {
+        "path": ".build/production-observation-tests/app-output-01/.last-run.json",
+        "bytes": 341,
+        "sha256": "78e974a7a733622cdc381399d02f25d05c2d4cf2cbd721f6330c14657ef2aecb"
+      },
+      {
+        "path": ".build/production-observation-tests/app-output-01/app-deferred-brush-retains-0b2a5-stroke-and-commits-one-Undo-spec-app-spec-ts/error-context.md",
+        "bytes": 13173,
+        "sha256": "0b47132c8fe99631f0b1b0a7a8879d6c2aa16099a40e7b29df7fc9461bb41b51"
+      },
+      {
+        "path": ".build/production-observation-tests/app-output-01/app-deferred-brush-retains-0b2a5-stroke-and-commits-one-Undo-spec-app-spec-ts/trace.zip",
+        "bytes": 1468953,
+        "sha256": "959ea92a633516635d74938eaa0504fccef3f0c4105d1b49d5ac8fa00bc1dccf"
+      },
+      {
+        "path": ".build/production-observation-tests/app-output-01/app-live-brush-retains-the-8508c-stroke-and-commits-one-Undo-spec-app-spec-ts/error-context.md",
+        "bytes": 13169,
+        "sha256": "aeb8d993848cc8637e7e2e224f72752dee52527508feb06bc1f0b3a5f0795c20"
+      },
+      {
+        "path": ".build/production-observation-tests/app-output-01/app-live-brush-retains-the-8508c-stroke-and-commits-one-Undo-spec-app-spec-ts/trace.zip",
+        "bytes": 1469296,
+        "sha256": "4d066a5cc27ee2b5c953c57fef22526c851906d6568e900670ca3f4d993465d5"
+      },
+      {
+        "path": ".build/production-observation-tests/app-output-01/app-live-polygon-supports--adca7-scape-and-one-history-entry-spec-app-spec-ts/error-context.md",
+        "bytes": 16083,
+        "sha256": "a6d06564064dc1575ac7688816242b17b6c2ea658f2412d41c707aa8a4d3334f"
+      },
+      {
+        "path": ".build/production-observation-tests/app-output-01/app-live-polygon-supports--adca7-scape-and-one-history-entry-spec-app-spec-ts/trace.zip",
+        "bytes": 1469519,
+        "sha256": "ac5d00abbe98c5cc2411407235a93a2377a01466b5f354084195c07460d4eff3"
+      },
+      {
+        "path": ".build/production-observation-tests/app-output-01/app-live-rectangle-shrinks-9ce85-e-blur-lost-capture-or-Undo-spec-app-spec-ts/error-context.md",
+        "bytes": 16098,
+        "sha256": "610e6a855b59c1720e05dcad17b7401f5ec2ff091916ec3373ff2f41bf9109e9"
+      },
+      {
+        "path": ".build/production-observation-tests/app-output-01/app-live-rectangle-shrinks-9ce85-e-blur-lost-capture-or-Undo-spec-app-spec-ts/trace.zip",
+        "bytes": 1469573,
+        "sha256": "998b935beaa050154db6e913f8edb716308bba9bf1a5a03baf9814f2b96a413f"
+      },
+      {
+        "path": ".build/production-observation-tests/app-output-01/app-native-toolbar-geometr-04902-duler-that-sleeps-when-idle-spec-app-spec-ts/desktop-toolbar.png",
+        "bytes": 24888,
+        "sha256": "b58f16487b982ae854efcf5d83150bc90146af851b7e0ea65946acb33bc46638"
+      },
+      {
+        "path": ".build/production-observation-tests/app-output-01/app-native-toolbar-geometr-04902-duler-that-sleeps-when-idle-spec-app-spec-ts/error-context.md",
+        "bytes": 16077,
+        "sha256": "9b79353631e6f81a22abb42037bb3cc6957db75ce31c61467426af0cbebdd2e4"
+      },
+      {
+        "path": ".build/production-observation-tests/app-output-01/app-native-toolbar-geometr-04902-duler-that-sleeps-when-idle-spec-app-spec-ts/trace.zip",
+        "bytes": 1485479,
+        "sha256": "59b347c23bdc34d9d98a66c0f789138a13e136e4bd1277b71b5d29af8aab7ead"
+      },
+      {
+        "path": ".build/production-observation-tests/app-output-01/app-real-worker-WASM-GPU-e-43392-elect-grade-undo-and-export-spec-app-spec-ts/error-context.md",
+        "bytes": 12479,
+        "sha256": "a1767073cfbd859b0d9b26a99d1aa06691369e64203100f54789710e1545bd7a"
+      },
+      {
+        "path": ".build/production-observation-tests/app-output-01/app-real-worker-WASM-GPU-e-43392-elect-grade-undo-and-export-spec-app-spec-ts/trace.zip",
+        "bytes": 1469269,
+        "sha256": "87fd98e37cc4f60974406373c805b35ff012125efebaf81158da1e7b7f41bb52"
+      }
+    ],
+    "appAttachments": [
+      {
+        "caseId": "c31ff144dc4fee3acd0a-29f8f527383c3c79f9b7",
+        "project": "spec:app.spec.ts",
+        "name": "error-context",
+        "contentType": "text/markdown",
+        "artifact": {
+          "path": ".build/production-observation-tests/app-output-01/app-real-worker-WASM-GPU-e-43392-elect-grade-undo-and-export-spec-app-spec-ts/error-context.md",
+          "bytes": 12479,
+          "sha256": "a1767073cfbd859b0d9b26a99d1aa06691369e64203100f54789710e1545bd7a"
+        }
+      },
+      {
+        "caseId": "c31ff144dc4fee3acd0a-29f8f527383c3c79f9b7",
+        "project": "spec:app.spec.ts",
+        "name": "trace",
+        "contentType": "application/zip",
+        "artifact": {
+          "path": ".build/production-observation-tests/app-output-01/app-real-worker-WASM-GPU-e-43392-elect-grade-undo-and-export-spec-app-spec-ts/trace.zip",
+          "bytes": 1469269,
+          "sha256": "87fd98e37cc4f60974406373c805b35ff012125efebaf81158da1e7b7f41bb52"
+        }
+      },
+      {
+        "caseId": "c31ff144dc4fee3acd0a-59f4e60195cdcda26560",
+        "project": "spec:app.spec.ts",
+        "name": "error-context",
+        "contentType": "text/markdown",
+        "artifact": {
+          "path": ".build/production-observation-tests/app-output-01/app-native-toolbar-geometr-04902-duler-that-sleeps-when-idle-spec-app-spec-ts/error-context.md",
+          "bytes": 16077,
+          "sha256": "9b79353631e6f81a22abb42037bb3cc6957db75ce31c61467426af0cbebdd2e4"
+        }
+      },
+      {
+        "caseId": "c31ff144dc4fee3acd0a-59f4e60195cdcda26560",
+        "project": "spec:app.spec.ts",
+        "name": "trace",
+        "contentType": "application/zip",
+        "artifact": {
+          "path": ".build/production-observation-tests/app-output-01/app-native-toolbar-geometr-04902-duler-that-sleeps-when-idle-spec-app-spec-ts/trace.zip",
+          "bytes": 1485479,
+          "sha256": "59b347c23bdc34d9d98a66c0f789138a13e136e4bd1277b71b5d29af8aab7ead"
+        }
+      },
+      {
+        "caseId": "c31ff144dc4fee3acd0a-72b90d3fa3024cba7d32",
+        "project": "spec:app.spec.ts",
+        "name": "error-context",
+        "contentType": "text/markdown",
+        "artifact": {
+          "path": ".build/production-observation-tests/app-output-01/app-live-rectangle-shrinks-9ce85-e-blur-lost-capture-or-Undo-spec-app-spec-ts/error-context.md",
+          "bytes": 16098,
+          "sha256": "610e6a855b59c1720e05dcad17b7401f5ec2ff091916ec3373ff2f41bf9109e9"
+        }
+      },
+      {
+        "caseId": "c31ff144dc4fee3acd0a-72b90d3fa3024cba7d32",
+        "project": "spec:app.spec.ts",
+        "name": "trace",
+        "contentType": "application/zip",
+        "artifact": {
+          "path": ".build/production-observation-tests/app-output-01/app-live-rectangle-shrinks-9ce85-e-blur-lost-capture-or-Undo-spec-app-spec-ts/trace.zip",
+          "bytes": 1469573,
+          "sha256": "998b935beaa050154db6e913f8edb716308bba9bf1a5a03baf9814f2b96a413f"
+        }
+      },
+      {
+        "caseId": "c31ff144dc4fee3acd0a-3a201b77a2855bfe915d",
+        "project": "spec:app.spec.ts",
+        "name": "error-context",
+        "contentType": "text/markdown",
+        "artifact": {
+          "path": ".build/production-observation-tests/app-output-01/app-live-polygon-supports--adca7-scape-and-one-history-entry-spec-app-spec-ts/error-context.md",
+          "bytes": 16083,
+          "sha256": "a6d06564064dc1575ac7688816242b17b6c2ea658f2412d41c707aa8a4d3334f"
+        }
+      },
+      {
+        "caseId": "c31ff144dc4fee3acd0a-3a201b77a2855bfe915d",
+        "project": "spec:app.spec.ts",
+        "name": "trace",
+        "contentType": "application/zip",
+        "artifact": {
+          "path": ".build/production-observation-tests/app-output-01/app-live-polygon-supports--adca7-scape-and-one-history-entry-spec-app-spec-ts/trace.zip",
+          "bytes": 1469519,
+          "sha256": "ac5d00abbe98c5cc2411407235a93a2377a01466b5f354084195c07460d4eff3"
+        }
+      },
+      {
+        "caseId": "c31ff144dc4fee3acd0a-41bc8a1b1edf9b1e0164",
+        "project": "spec:app.spec.ts",
+        "name": "error-context",
+        "contentType": "text/markdown",
+        "artifact": {
+          "path": ".build/production-observation-tests/app-output-01/app-deferred-brush-retains-0b2a5-stroke-and-commits-one-Undo-spec-app-spec-ts/error-context.md",
+          "bytes": 13173,
+          "sha256": "0b47132c8fe99631f0b1b0a7a8879d6c2aa16099a40e7b29df7fc9461bb41b51"
+        }
+      },
+      {
+        "caseId": "c31ff144dc4fee3acd0a-41bc8a1b1edf9b1e0164",
+        "project": "spec:app.spec.ts",
+        "name": "trace",
+        "contentType": "application/zip",
+        "artifact": {
+          "path": ".build/production-observation-tests/app-output-01/app-deferred-brush-retains-0b2a5-stroke-and-commits-one-Undo-spec-app-spec-ts/trace.zip",
+          "bytes": 1468953,
+          "sha256": "959ea92a633516635d74938eaa0504fccef3f0c4105d1b49d5ac8fa00bc1dccf"
+        }
+      },
+      {
+        "caseId": "c31ff144dc4fee3acd0a-4b814043dc475a09a588",
+        "project": "spec:app.spec.ts",
+        "name": "error-context",
+        "contentType": "text/markdown",
+        "artifact": {
+          "path": ".build/production-observation-tests/app-output-01/app-live-brush-retains-the-8508c-stroke-and-commits-one-Undo-spec-app-spec-ts/error-context.md",
+          "bytes": 13169,
+          "sha256": "aeb8d993848cc8637e7e2e224f72752dee52527508feb06bc1f0b3a5f0795c20"
+        }
+      },
+      {
+        "caseId": "c31ff144dc4fee3acd0a-4b814043dc475a09a588",
+        "project": "spec:app.spec.ts",
+        "name": "trace",
+        "contentType": "application/zip",
+        "artifact": {
+          "path": ".build/production-observation-tests/app-output-01/app-live-brush-retains-the-8508c-stroke-and-commits-one-Undo-spec-app-spec-ts/trace.zip",
+          "bytes": 1469296,
+          "sha256": "4d066a5cc27ee2b5c953c57fef22526c851906d6568e900670ca3f4d993465d5"
+        }
+      }
+    ],
+    "probe": {
+      "terminal": {
+        "receipt": {
+          "path": "test-results-coherent-startup-production-observation-probe-01.command.json",
+          "bytes": 1520,
+          "sha256": "2542b57a3776b758e503517e585e53d24a4708cc3274d7ddeda4c8e4218d7896"
+        },
+        "observed": {
+          "schemaVersion": 1,
+          "kind": "observed-local-command-terminal",
+          "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+          "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+          "arguments": [
+            "tools/bench/run.ts",
+            "--base-url",
+            "http://127.0.0.1:4173/",
+            "--fixture",
+            ".build/bench-fixtures/pinned-20261015-01/fixture.splat",
+            "--out",
+            ".build/bench-runs/production-20261015-01",
+            "--attempts",
+            "3"
+          ],
+          "startedAtUtc": "2026-10-15T23:21:40.3604251Z",
+          "finishedAtUtc": "2026-10-15T23:21:41.7997055Z",
+          "exitCode": 2,
+          "exception": null,
+          "log": {
+            "path": "test-results-coherent-startup-production-observation-probe-01.log",
+            "bytes": 208,
+            "sha256": "c94587bc0e9d07034e95258d27eee71eeee1cb23a34efbe5d6f33610a5893125"
+          },
+          "report": {
+            "path": ".build/bench-runs/production-20261015-01/observation.json",
+            "bytes": 5555,
+            "sha256": "26d58ffcfa641b4a77e00bb132348ed70b3638f7261591606e6680e768cf5e98"
+          },
+          "browserOutputDirectory": "",
+          "lastRun": null
+        }
+      },
+      "report": {
+        "path": ".build/bench-runs/production-20261015-01/observation.json",
+        "bytes": 5555,
+        "sha256": "26d58ffcfa641b4a77e00bb132348ed70b3638f7261591606e6680e768cf5e98"
+      },
+      "executedSourceSeal": {
+        "path": ".build/production-observation-tests/seal-04/manifest.json",
+        "bytes": 680486,
+        "sha256": "c08a16fbdc5951f901d15798d350fc49523c8faec30ebae31dea02a992edfe12"
+      },
+      "outputFiles": [
+        {
+          "path": ".build/bench-runs/production-20261015-01/attempt-01.json",
+          "bytes": 770,
+          "sha256": "9a1ad3b839c572858eaa21df5e2e0a2ba9f86360f3aa486d4f1daf5422bf442f"
+        },
+        {
+          "path": ".build/bench-runs/production-20261015-01/attempt-02.json",
+          "bytes": 770,
+          "sha256": "9deeadb672898899f9de5c1e947fb01d09eeb05602c8f6df053fb01c1aeb5ab7"
+        },
+        {
+          "path": ".build/bench-runs/production-20261015-01/attempt-03.json",
+          "bytes": 770,
+          "sha256": "6c8e6d1b4329f9b6f113742e69c1cf49ceeccda450b1da7d257cfa23847a6c17"
+        },
+        {
+          "path": ".build/bench-runs/production-20261015-01/observation.json",
+          "bytes": 5555,
+          "sha256": "26d58ffcfa641b4a77e00bb132348ed70b3638f7261591606e6680e768cf5e98"
+        }
+      ],
+      "reason": "The initial collector passed an async predicate to Playwright waitForFunction; the returned Promise was truthy before actual controller readiness. Its three failed attempts and original sources remain preserved."
+    },
+    "probe02": {
+      "terminal": {
+        "receipt": {
+          "path": "test-results-coherent-startup-production-observation-probe-02.command.json",
+          "bytes": 1520,
+          "sha256": "1f28c88549ac80266257a81f387558609af7f046a1b5eae2e21c8b2fa86d1857"
+        },
+        "observed": {
+          "schemaVersion": 1,
+          "kind": "observed-local-command-terminal",
+          "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+          "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+          "arguments": [
+            "tools/bench/run.ts",
+            "--base-url",
+            "http://127.0.0.1:4173/",
+            "--fixture",
+            ".build/bench-fixtures/pinned-20261015-01/fixture.splat",
+            "--out",
+            ".build/bench-runs/production-20261015-02",
+            "--attempts",
+            "3"
+          ],
+          "startedAtUtc": "2026-10-15T23:24:21.4076487Z",
+          "finishedAtUtc": "2026-10-15T23:24:23.0901384Z",
+          "exitCode": 2,
+          "exception": null,
+          "log": {
+            "path": "test-results-coherent-startup-production-observation-probe-02.log",
+            "bytes": 208,
+            "sha256": "d4076cf693e1b742856bf7ebd4c30175404219a10f1a44edd1c14ba142495c38"
+          },
+          "report": {
+            "path": ".build/bench-runs/production-20261015-02/observation.json",
+            "bytes": 5378,
+            "sha256": "3b4d03a3103e7aa675f4a1417bce21d71a03d222afef8863b8592a63209bb6e6"
+          },
+          "browserOutputDirectory": "",
+          "lastRun": null
+        }
+      },
+      "report": {
+        "path": ".build/bench-runs/production-20261015-02/observation.json",
+        "bytes": 5378,
+        "sha256": "3b4d03a3103e7aa675f4a1417bce21d71a03d222afef8863b8592a63209bb6e6"
+      },
+      "executedSourceSeal": {
+        "path": ".build/production-observation-tests/seal-05/manifest.json",
+        "bytes": 680486,
+        "sha256": "43ab98358a184a9f5d9b5d5a6ee399bf240ff31db242244746c1be9457305875"
+      },
+      "outputFiles": [
+        {
+          "path": ".build/bench-runs/production-20261015-02/attempt-01.json",
+          "bytes": 711,
+          "sha256": "ca66cd7e5cb22d98a9126d31d20697323c76d95293b753e99b53e48862f5964a"
+        },
+        {
+          "path": ".build/bench-runs/production-20261015-02/attempt-02.json",
+          "bytes": 711,
+          "sha256": "9ebebe48c209366c9d93b8444b3a3384affe82611698bd854ac2ec5fb7af3bdc"
+        },
+        {
+          "path": ".build/bench-runs/production-20261015-02/attempt-03.json",
+          "bytes": 711,
+          "sha256": "83cc2f1469cef3681c8e8c52a1a34d6655d9383575361a2d442023ec8574dd69"
+        },
+        {
+          "path": ".build/bench-runs/production-20261015-02/observation.json",
+          "bytes": 5378,
+          "sha256": "3b4d03a3103e7aa675f4a1417bce21d71a03d222afef8863b8592a63209bb6e6"
+        }
+      ],
+      "reason": "The second collector used the default Chromium headless shell and did not reach a compatible renderer. Its actual failure output contains no retained negotiation snapshot; none is inferred or fabricated."
+    }
+  },
+  "fullReleaseAccepted": false,
+  "performanceAccepted": false,
+  "capacityQualified": false,
+  "sustainedQualified": false,
+  "limitations": [
+    "This probe does not fulfill the complete 214-attempt initial benchmark protocol.",
+    "Snapshot polling and browser automation are present; these observations are not an approved latency budget.",
+    "Raw operation boundaries and queue completion use the actual page performance.now domain; queue completion is not presentation or GPU timestamps.",
+    "The declared orbit, contributor/query/amendment masks, overdraw, individual pipeline stage times, sustained history/retention and physical memory remain pending.",
+    "Fresh browser contexts do not prove cold GPU-driver caches.",
+    "No operating thresholds or memory ceilings are approved.",
+    "The six ordinary production regression cases and three probe attempts are separate observed scopes; neither qualifies the full editor or complete benchmark protocol.",
+    "Logical ledger and named owner observations do not establish physical process/GPU memory or complete private retirement queues.",
+    "Existing release acceptance cells retain their original application/build applicability; this qualification adds no release cells.",
+    "Dedicated Mac hardware remains optional."
+  ],
+  "remaining": [
+    "Complete the 214-attempt initial benchmark protocol with independently qualified selection parameters/masks, actual orbit/hidden transitions and overdraw checkpoints.",
+    "Observe detailed operation/cache/retirement stages, sustained history/retention and physical memory where available; review target thresholds and memory ceilings.",
+    "Complete remaining native/format/visual/thumbnail, browser/host recovery, assistive and deployed-HTTPS acceptance."
+  ],
+  "committed": false,
+  "pushed": false,
+  "deployed": false
+}

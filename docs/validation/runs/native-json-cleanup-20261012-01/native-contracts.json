@@ -1,0 +1,339 @@
+{
+  "schemaVersion": 1,
+  "kind": "linked-native-contract-main-execution",
+  "status": "passed",
+  "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+  "startedAtUtc": "2026-10-12T19:29:18.588Z",
+  "finishedAtUtc": "2026-10-12T19:29:19.296Z",
+  "nativeInputId": "d10f9d7f72adf377da2a14827a3b175ce31ba444b043acaf31d6fa088a41e7a5",
+  "before": [
+    {
+      "path": ".build/wasm/contracts/splatview-source-hash-contracts.mjs",
+      "bytes": 67369,
+      "sha256": "16a8b6f702f7b4bc94499841ad3c7dad8d70c1d8db92fb9ce35f4c32b2c96f83"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-source-hash-contracts.wasm",
+      "bytes": 215995,
+      "sha256": "40ae15efe365196fab2ac093df076db333bfb97663e7b94d159b9dd7f19150ef"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-geometry-contracts.mjs",
+      "bytes": 78368,
+      "sha256": "dd886865a5e14082dee149a6d33e8439041e2e5adeca53cee4a0b04e7c86c8c7"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-geometry-contracts.wasm",
+      "bytes": 1556152,
+      "sha256": "42425b9a470ea6db48a0fae79939960c8710816b377e6853dd7f98e3eea90622"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-live-selection-contracts.mjs",
+      "bytes": 69339,
+      "sha256": "8bfd8f3bd942db5f86c50d20fe2c7f651c055de8ad3bb2cb4ca5c69f8795d69e"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-live-selection-contracts.wasm",
+      "bytes": 389347,
+      "sha256": "1e9f8f3f8b67c38d13f11ee5cb3b69a634ba9ee758c7d81ddbb5cd8b2f5bf74d"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-response-contracts.mjs",
+      "bytes": 77761,
+      "sha256": "71174b84b96ca57daad043be66a33c15b820b42759c937696f77fda78be47796"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-response-contracts.wasm",
+      "bytes": 1575067,
+      "sha256": "61edb3ed4a617f93d7744605b4c4ef840468d2c0e77e749d6f31f59c794e04ee"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-allocation-census-contracts.mjs",
+      "bytes": 77986,
+      "sha256": "8d0662569a38e0d78bcfef19b85679ec38c22d899dffeb52c7ae2ada761e0d80"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-allocation-census-contracts.wasm",
+      "bytes": 1543215,
+      "sha256": "6e00bef18b16df860884e6e2f6c059ec8bf6263395757d27abc9c88af21ecf2f"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-spz-cleanup-contracts.mjs",
+      "bytes": 22366,
+      "sha256": "03782121673e50e3795ad00680ad20eeb28075a19b14f80297f4440f862aa6de"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-spz-cleanup-contracts.wasm",
+      "bytes": 792687,
+      "sha256": "23b45946b3d3748295eb80e41050907fb6c3ac608920996ea459c0b3128eff7a"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-export-cleanup-contracts.mjs",
+      "bytes": 81564,
+      "sha256": "afcccaa6c6974e6439918625d05b9b0cec208418cb1bd72763346f771e0f8a16"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-export-cleanup-contracts.wasm",
+      "bytes": 1495808,
+      "sha256": "da2e2a77d7eefcde92fa14132cc5d0fa7b4cb8f49501c31f56720301351a3a90"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-json-cleanup-contracts.mjs",
+      "bytes": 78161,
+      "sha256": "f04c8c6abc0516f2dd7f105f1e535eba36a1441a5243db09d1b2adb8e5df19e2"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-json-cleanup-contracts.wasm",
+      "bytes": 1585968,
+      "sha256": "3570374bae28ebaa18735532a4e4b658e156398d56b3f61faec391852b0c23b8"
+    },
+    {
+      "path": "public/wasm/splatview-core.mjs",
+      "bytes": 79908,
+      "sha256": "515a0f3d3b4df67f2841dd70fb8eba3e0dda33ebe0dd5eed980395f45c4ae2df"
+    },
+    {
+      "path": "public/wasm/splatview-core.wasm",
+      "bytes": 1481228,
+      "sha256": "1cce8c430d96576e295d205dfb37f44425f483b9dab2fbe2a3acd8633b1f59fb"
+    },
+    {
+      "path": "public/wasm/splatview-camera.mjs",
+      "bytes": 12043,
+      "sha256": "82616e5b11115f6331364df2a29124736065edbf658e803fa9861ac8931c2f11"
+    },
+    {
+      "path": "public/wasm/splatview-camera.wasm",
+      "bytes": 26871,
+      "sha256": "c79f28405ed815484054d795430ac8ad662205b4279e28ea7ba1ddb07858f4dc"
+    },
+    {
+      "path": "public/wasm/build-provenance.json",
+      "bytes": 9960,
+      "sha256": "1336f092f5fb6dee47822255fb366c3d5174664072e9a85b2d7a6152d4e14fcd"
+    },
+    {
+      "path": "tools/run-native-contracts.mjs",
+      "bytes": 5865,
+      "sha256": "96a60b26252a3e1467e2b6adc9a14e8bde8bcf0c1ccef86f126c1b1ceee92693"
+    }
+  ],
+  "after": [
+    {
+      "path": ".build/wasm/contracts/splatview-source-hash-contracts.mjs",
+      "bytes": 67369,
+      "sha256": "16a8b6f702f7b4bc94499841ad3c7dad8d70c1d8db92fb9ce35f4c32b2c96f83"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-source-hash-contracts.wasm",
+      "bytes": 215995,
+      "sha256": "40ae15efe365196fab2ac093df076db333bfb97663e7b94d159b9dd7f19150ef"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-geometry-contracts.mjs",
+      "bytes": 78368,
+      "sha256": "dd886865a5e14082dee149a6d33e8439041e2e5adeca53cee4a0b04e7c86c8c7"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-geometry-contracts.wasm",
+      "bytes": 1556152,
+      "sha256": "42425b9a470ea6db48a0fae79939960c8710816b377e6853dd7f98e3eea90622"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-live-selection-contracts.mjs",
+      "bytes": 69339,
+      "sha256": "8bfd8f3bd942db5f86c50d20fe2c7f651c055de8ad3bb2cb4ca5c69f8795d69e"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-live-selection-contracts.wasm",
+      "bytes": 389347,
+      "sha256": "1e9f8f3f8b67c38d13f11ee5cb3b69a634ba9ee758c7d81ddbb5cd8b2f5bf74d"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-response-contracts.mjs",
+      "bytes": 77761,
+      "sha256": "71174b84b96ca57daad043be66a33c15b820b42759c937696f77fda78be47796"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-response-contracts.wasm",
+      "bytes": 1575067,
+      "sha256": "61edb3ed4a617f93d7744605b4c4ef840468d2c0e77e749d6f31f59c794e04ee"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-allocation-census-contracts.mjs",
+      "bytes": 77986,
+      "sha256": "8d0662569a38e0d78bcfef19b85679ec38c22d899dffeb52c7ae2ada761e0d80"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-allocation-census-contracts.wasm",
+      "bytes": 1543215,
+      "sha256": "6e00bef18b16df860884e6e2f6c059ec8bf6263395757d27abc9c88af21ecf2f"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-spz-cleanup-contracts.mjs",
+      "bytes": 22366,
+      "sha256": "03782121673e50e3795ad00680ad20eeb28075a19b14f80297f4440f862aa6de"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-spz-cleanup-contracts.wasm",
+      "bytes": 792687,
+      "sha256": "23b45946b3d3748295eb80e41050907fb6c3ac608920996ea459c0b3128eff7a"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-export-cleanup-contracts.mjs",
+      "bytes": 81564,
+      "sha256": "afcccaa6c6974e6439918625d05b9b0cec208418cb1bd72763346f771e0f8a16"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-export-cleanup-contracts.wasm",
+      "bytes": 1495808,
+      "sha256": "da2e2a77d7eefcde92fa14132cc5d0fa7b4cb8f49501c31f56720301351a3a90"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-json-cleanup-contracts.mjs",
+      "bytes": 78161,
+      "sha256": "f04c8c6abc0516f2dd7f105f1e535eba36a1441a5243db09d1b2adb8e5df19e2"
+    },
+    {
+      "path": ".build/wasm/contracts/splatview-json-cleanup-contracts.wasm",
+      "bytes": 1585968,
+      "sha256": "3570374bae28ebaa18735532a4e4b658e156398d56b3f61faec391852b0c23b8"
+    },
+    {
+      "path": "public/wasm/splatview-core.mjs",
+      "bytes": 79908,
+      "sha256": "515a0f3d3b4df67f2841dd70fb8eba3e0dda33ebe0dd5eed980395f45c4ae2df"
+    },
+    {
+      "path": "public/wasm/splatview-core.wasm",
+      "bytes": 1481228,
+      "sha256": "1cce8c430d96576e295d205dfb37f44425f483b9dab2fbe2a3acd8633b1f59fb"
+    },
+    {
+      "path": "public/wasm/splatview-camera.mjs",
+      "bytes": 12043,
+      "sha256": "82616e5b11115f6331364df2a29124736065edbf658e803fa9861ac8931c2f11"
+    },
+    {
+      "path": "public/wasm/splatview-camera.wasm",
+      "bytes": 26871,
+      "sha256": "c79f28405ed815484054d795430ac8ad662205b4279e28ea7ba1ddb07858f4dc"
+    },
+    {
+      "path": "public/wasm/build-provenance.json",
+      "bytes": 9960,
+      "sha256": "1336f092f5fb6dee47822255fb366c3d5174664072e9a85b2d7a6152d4e14fcd"
+    },
+    {
+      "path": "tools/run-native-contracts.mjs",
+      "bytes": 5865,
+      "sha256": "96a60b26252a3e1467e2b6adc9a14e8bde8bcf0c1ccef86f126c1b1ceee92693"
+    }
+  ],
+  "invocations": [
+    {
+      "name": "source-hash",
+      "modulePath": ".build/wasm/contracts/splatview-source-hash-contracts.mjs",
+      "actualFactoryMainInvoked": true,
+      "startedAtUtc": "2026-10-12T19:29:18.602Z",
+      "finishedAtUtc": "2026-10-12T19:29:18.710Z",
+      "stdout": [
+        "SPLATVIEW_SOURCE_HASH_CONTRACTS_PASS assertions=1374314 hashCases=106 ownerBytes=152 slotBytes=160 wordBytes=4 pointerBytes=4 sizeBytes=4 compressionScheduleBytes=256"
+      ],
+      "stderr": []
+    },
+    {
+      "name": "geometry",
+      "modulePath": ".build/wasm/contracts/splatview-geometry-contracts.mjs",
+      "actualFactoryMainInvoked": true,
+      "startedAtUtc": "2026-10-12T19:29:18.712Z",
+      "finishedAtUtc": "2026-10-12T19:29:18.755Z",
+      "stdout": [
+        "SPLATVIEW_GEOMETRY_CONTRACTS_PASS assertions=257"
+      ],
+      "stderr": []
+    },
+    {
+      "name": "live-selection",
+      "modulePath": ".build/wasm/contracts/splatview-live-selection-contracts.mjs",
+      "actualFactoryMainInvoked": true,
+      "startedAtUtc": "2026-10-12T19:29:18.758Z",
+      "finishedAtUtc": "2026-10-12T19:29:18.781Z",
+      "stdout": [
+        "Live selection contracts passed: real Rectangle/Polygon/analytic Brush/map Brush/Volume, typed candidate discard, unchanged/degenerate publication, exact catch scope, admission/publication errors, baseline/Redo/revisions and admitted-storage release."
+      ],
+      "stderr": []
+    },
+    {
+      "name": "response",
+      "modulePath": ".build/wasm/contracts/splatview-response-contracts.mjs",
+      "actualFactoryMainInvoked": true,
+      "startedAtUtc": "2026-10-12T19:29:18.783Z",
+      "finishedAtUtc": "2026-10-12T19:29:18.810Z",
+      "stdout": [
+        "SPLATVIEW_RESPONSE_CONTRACTS_PASS cases=13 assertions=435 noNewObservations=136 observedNewCalls=0 staticBytes=16549 repeatedRefusals=16"
+      ],
+      "stderr": []
+    },
+    {
+      "name": "allocation-census",
+      "modulePath": ".build/wasm/contracts/splatview-allocation-census-contracts.mjs",
+      "actualFactoryMainInvoked": true,
+      "startedAtUtc": "2026-10-12T19:29:18.812Z",
+      "finishedAtUtc": "2026-10-12T19:29:18.872Z",
+      "stdout": [
+        "SPLATVIEW_ALLOCATION_CENSUS_CONTRACTS_PASS cases=15 assertions=2351 noAllocationObservations=371 bindingQueries=106 repeatedRefusals=20 observedNewAttempts=18867 observedBlocks=18864 observedContexts=67 observedBackendFailures=5 finalUnionBytes=845"
+      ],
+      "stderr": []
+    },
+    {
+      "name": "spz-cleanup",
+      "modulePath": ".build/wasm/contracts/splatview-spz-cleanup-contracts.mjs",
+      "actualFactoryMainInvoked": true,
+      "startedAtUtc": "2026-10-12T19:29:18.873Z",
+      "finishedAtUtc": "2026-10-12T19:29:18.889Z",
+      "stdout": [
+        "[SPZ] deserializePackedGaussians: version=2, numPoints=2, shDegree=0, fractionalBits=12, antialiased=0, hasExtensions=0",
+        "[SPZ] deserializePackedGaussians: version=2, numPoints=2, shDegree=0, fractionalBits=12, antialiased=0, hasExtensions=0",
+        "[SPZ] deserializePackedGaussians: version=3, numPoints=2, shDegree=0, fractionalBits=12, antialiased=0, hasExtensions=0",
+        "[SPZ] deserializePackedGaussians: version=3, numPoints=2, shDegree=0, fractionalBits=12, antialiased=0, hasExtensions=0",
+        "[SPZ] deserializePackedGaussians: version=3, numPoints=2048, shDegree=0, fractionalBits=12, antialiased=0, hasExtensions=0",
+        "[SPZ] deserializePackedGaussians: version=3, numPoints=2048, shDegree=0, fractionalBits=12, antialiased=0, hasExtensions=0",
+        "[SPZ] deserializePackedGaussians: version=3, numPoints=2048, shDegree=0, fractionalBits=12, antialiased=0, hasExtensions=0",
+        "[SPZ] deserializePackedGaussians: version=3, numPoints=2048, shDegree=0, fractionalBits=12, antialiased=0, hasExtensions=0",
+        "[SPZ] deserializePackedGaussians: version=3, numPoints=2048, shDegree=0, fractionalBits=12, antialiased=0, hasExtensions=0",
+        "[SPZ] deserializePackedGaussians: version=3, numPoints=2048, shDegree=0, fractionalBits=12, antialiased=0, hasExtensions=0",
+        "[SPZ] deserializePackedGaussians: version=3, numPoints=2048, shDegree=0, fractionalBits=12, antialiased=0, hasExtensions=0",
+        "[SPZ] deserializePackedGaussians: version=3, numPoints=2048, shDegree=0, fractionalBits=12, antialiased=0, hasExtensions=0",
+        "[SPZ] deserializePackedGaussians: version=3, numPoints=2048, shDegree=0, fractionalBits=12, antialiased=0, hasExtensions=0",
+        "[SPZ] deserializePackedGaussians: version=3, numPoints=2048, shDegree=0, fractionalBits=12, antialiased=0, hasExtensions=0",
+        "[SPZ] deserializePackedGaussians: version=3, numPoints=2048, shDegree=0, fractionalBits=12, antialiased=0, hasExtensions=0",
+        "SPLATVIEW_SPZ_CLEANUP_CONTRACTS_PASS cases=18 assertions=2898 reserveRefusals=2 insertRefusals=2 beforeInitRefusals=2 ordinaryCodecRefusals=3 initRefusals=2 initialized=37 ended=37 rawAllocations=103 rawFrees=103 rawFailures=2 initCleanupEnds=1"
+      ],
+      "stderr": []
+    },
+    {
+      "name": "export-cleanup",
+      "modulePath": ".build/wasm/contracts/splatview-export-cleanup-contracts.mjs",
+      "actualFactoryMainInvoked": true,
+      "startedAtUtc": "2026-10-12T19:29:18.891Z",
+      "finishedAtUtc": "2026-10-12T19:29:18.965Z",
+      "stdout": [
+        "SPLATVIEW_EXPORT_CLEANUP_CONTRACTS_PASS cases=14 assertions=1345 filesystemRefusals=130 ordinaryRefusals=2 candidateAllocationRefusals=1 successfulExports=24"
+      ],
+      "stderr": []
+    },
+    {
+      "name": "json-cleanup",
+      "modulePath": ".build/wasm/contracts/splatview-json-cleanup-contracts.mjs",
+      "actualFactoryMainInvoked": true,
+      "startedAtUtc": "2026-10-12T19:29:18.967Z",
+      "finishedAtUtc": "2026-10-12T19:29:19.286Z",
+      "stdout": [
+        "SPLATVIEW_JSON_CLEANUP_CONTRACTS_PASS cases=13 assertions=3838 scans=68 qualificationRefusals=46 qualifiedDestructions=6 parseAllocationRefusals=98 candidateAllocationRefusals=247 ordinaryRefusals=6 fallbackSuccesses=5 largeCommandPoints=65536 observedDestroyStackBytes=1056 postRefusalNewAttempts=0 postRefusalBackendEvents=0 independentArchiveHashChecks=4"
+      ],
+      "stderr": []
+    }
+  ],
+  "scope": "Actual linked source-hash, geometry, live-selection, response, allocation-census, SPZ cleanup, export cleanup and JSON cleanup mains. Not browser, whole-operation quota, visual or performance acceptance."
+}

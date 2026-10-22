@@ -1,0 +1,42 @@
+﻿{
+    "schemaVersion":  1,
+    "kind":  "observed-local-command-terminal",
+    "workingDirectory":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+    "executable":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+    "arguments":  [
+                      "node_modules/@playwright/test/cli.js",
+                      "test",
+                      "e2e/app.spec.ts",
+                      "e2e/fill-shortcut.spec.ts",
+                      "e2e/geometry-viewer.spec.ts",
+                      "e2e/live-preview-failure.spec.ts",
+                      "e2e/native-memory.spec.ts",
+                      "e2e/portable-saved-view.spec.ts",
+                      "e2e/saved-view.spec.ts",
+                      "e2e/ui-size-native.spec.ts",
+                      "--workers=1",
+                      "--max-failures=5",
+                      "--reporter=json",
+                      "--output=.build/json-cleanup-tests/affected-01"
+                  ],
+    "startedAtUtc":  "2026-10-12T19:29:41.1358222Z",
+    "finishedAtUtc":  "2026-10-12T19:32:57.9220670Z",
+    "exitCode":  0,
+    "exception":  null,
+    "log":  {
+                "path":  "test-results-coherent-startup-json-cleanup-affected-browser-01.log",
+                "bytes":  44460,
+                "sha256":  "81af0a0f65a407137d9b573168e29e9f06f74bef4f279fc202c2b43535e648f0"
+            },
+    "report":  {
+                   "path":  "test-results-json-cleanup-affected-browser-01.json",
+                   "bytes":  815859,
+                   "sha256":  "bb03d09713bc8402250de7b641ec2406fe6f0d6b2b57e02c2db3eb965fd4f6b8"
+               },
+    "browserOutputDirectory":  ".build/json-cleanup-tests/affected-01",
+    "lastRun":  {
+                    "path":  ".build/json-cleanup-tests/affected-01/.last-run.json",
+                    "bytes":  45,
+                    "sha256":  "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+                }
+}

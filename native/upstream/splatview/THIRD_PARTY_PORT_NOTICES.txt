@@ -1,0 +1,39 @@
+Additional dependencies of the SplatView macOS port. Original component notices
+remain in THIRD-PARTY-NOTICES.txt. Header sources and hashes are recorded in
+third_party/HEADER_DEPENDENCIES.json.
+
+Microsoft DirectXMath (MIT), 5bbe2ceeec3236c27ad44c877715e1e0f3b9817a
+https://github.com/microsoft/DirectXMath
+CPU math and half conversion, including ARM64 implementations.
+Full license: third_party/DirectXMath/LICENSE
+
+.NET runtime SAL header (MIT), 8630d8988107478d249e2fdb8162f8c7dcbd3dbb
+https://github.com/dotnet/runtime
+Non-Windows annotations required by upstream DirectXMath.
+Full license: third_party/DirectXMath/SAL-LICENSE.txt
+
+stb_image / stb_image_write (MIT or public domain, used under MIT),
+2c980bb59875b0d32144a71867fbdebb2f77cd20
+https://github.com/nothings/stb
+Portable image decoding and PNG/JPEG95 encoding. macOS reference decoding uses
+ImageIO to retain TIFF support and orientation handling.
+Full license: third_party/stb/LICENSE
+
+PicoSHA2 (MIT), 161cb3fc4170fa7a3eca9e582cebd27cc4d1fe29
+https://github.com/okdshin/PicoSHA2
+Content fingerprints. Full license: third_party/picosha2/LICENSE
+
+Niantic/Adobe SPZ (MIT), affd0ecea7fbb4c265ee119475af7ee5b2997482
+https://github.com/nianticlabs/spz
+Local caller-owned NGSP decoding and borrowed packed-view changes are described
+in third_party/spz/LOCAL_CHANGES.md. Original/current file hashes and the exact
+changed-file list are recorded in third_party/spz/LOCAL_PATCHES.json.
+Full license: third_party/spz/LICENSE
+
+Dear ImGui's unmodified macOS and Metal backends are included under its MIT
+license. ImGuizmo is included under MIT; its source revision and full notices
+are preserved from the source baseline.
+
+System package versions used for portable Linux verification may differ from
+the vcpkg baseline. macOS release packaging must include the copyright notices
+and required runtime libraries for the dependencies actually linked.

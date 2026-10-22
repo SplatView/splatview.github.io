@@ -1,0 +1,1610 @@
+{
+  "schemaVersion": 1,
+  "features": [
+    {
+      "id": "document.open",
+      "title": "Open local datasets",
+      "surfaces": [
+        "ui",
+        "api",
+        "cli"
+      ],
+      "basic": false,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "required",
+          "reason": "Viewing and lightweight editing profile.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor",
+        "windows-explorer-preview",
+        "macos-quicklook-preview",
+        "ubuntu-gnome-preview",
+        "ubuntu-kde-preview"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "view.navigate",
+      "title": "Orbit, pan, zoom and camera controls",
+      "surfaces": [
+        "ui",
+        "api"
+      ],
+      "basic": false,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "required",
+          "reason": "Viewing and lightweight editing profile.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor",
+        "windows-explorer-preview",
+        "macos-quicklook-preview",
+        "ubuntu-gnome-preview",
+        "ubuntu-kde-preview"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "view.render",
+      "title": "Render supported admitted scene content",
+      "surfaces": [
+        "ui",
+        "api",
+        "cli"
+      ],
+      "basic": false,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "required",
+          "reason": "Viewing and lightweight editing profile.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor",
+        "windows-explorer-preview",
+        "macos-quicklook-preview",
+        "ubuntu-gnome-preview",
+        "ubuntu-kde-preview",
+        "thumbnail-provider"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "view.fullscreen",
+      "title": "Fullscreen",
+      "surfaces": [
+        "ui"
+      ],
+      "basic": false,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "conditional",
+          "reason": "Viewing and lightweight editing profile.",
+          "requires": [
+            "fullscreen"
+          ],
+          "fallback": "Keep the ordinary viewer canvas."
+        }
+      },
+      "hosts": [
+        "editor",
+        "windows-explorer-preview",
+        "macos-quicklook-preview",
+        "ubuntu-gnome-preview",
+        "ubuntu-kde-preview"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "view.capture",
+      "title": "Capture the rendered image",
+      "surfaces": [
+        "ui",
+        "api",
+        "cli"
+      ],
+      "basic": false,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "required",
+          "reason": "Viewing and lightweight editing profile.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor",
+        "windows-explorer-preview",
+        "macos-quicklook-preview",
+        "ubuntu-gnome-preview",
+        "ubuntu-kde-preview"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "view.clipboard",
+      "title": "Copy the rendered image",
+      "surfaces": [
+        "ui"
+      ],
+      "basic": false,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "conditional",
+          "reason": "Viewing and lightweight editing profile.",
+          "requires": [
+            "clipboard"
+          ],
+          "fallback": "Offer image download."
+        }
+      },
+      "hosts": [
+        "editor",
+        "windows-explorer-preview",
+        "macos-quicklook-preview",
+        "ubuntu-gnome-preview",
+        "ubuntu-kde-preview"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "view.remember",
+      "title": "Remember the default view locally",
+      "surfaces": [
+        "ui",
+        "api"
+      ],
+      "basic": false,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "conditional",
+          "reason": "Viewing and lightweight editing profile.",
+          "requires": [
+            "local_storage"
+          ],
+          "fallback": "Export a portable view bundle; disclose unavailable retention."
+        }
+      },
+      "hosts": [
+        "editor",
+        "windows-explorer-preview",
+        "macos-quicklook-preview",
+        "ubuntu-gnome-preview",
+        "ubuntu-kde-preview"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "view.thumbnail",
+      "title": "Update the file-manager thumbnail",
+      "surfaces": [
+        "ui"
+      ],
+      "basic": false,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "excluded",
+          "reason": "Outside the reviewed initial browser product scope; retain existing algorithms.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor",
+        "windows-explorer-preview",
+        "macos-quicklook-preview",
+        "ubuntu-gnome-preview",
+        "ubuntu-kde-preview"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "shell.integration",
+      "title": "Native shell integration",
+      "surfaces": [
+        "ui",
+        "cli"
+      ],
+      "basic": false,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "excluded",
+          "reason": "Outside the reviewed initial browser product scope; retain existing algorithms.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "save.copy",
+      "title": "Export a new scene copy",
+      "surfaces": [
+        "ui",
+        "api",
+        "cli"
+      ],
+      "basic": false,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "required",
+          "reason": "Viewing and lightweight editing profile.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor",
+        "windows-explorer-preview",
+        "macos-quicklook-preview",
+        "ubuntu-gnome-preview",
+        "ubuntu-kde-preview"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "save.overwrite",
+      "title": "Human overwrite with warning",
+      "surfaces": [
+        "ui"
+      ],
+      "basic": false,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "excluded",
+          "reason": "Outside the reviewed initial browser product scope; retain existing algorithms.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "agent.access",
+      "title": "Enable per-launch agent access",
+      "surfaces": [
+        "ui"
+      ],
+      "basic": false,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "excluded",
+          "reason": "Outside the reviewed initial browser product scope; retain existing algorithms.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "agent.protocol",
+      "title": "Authenticated agent discovery and proposal lifecycle",
+      "surfaces": [
+        "api"
+      ],
+      "basic": false,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "excluded",
+          "reason": "Outside the reviewed initial browser product scope; retain existing algorithms.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "measurement.agent",
+      "title": "Read-only agent distance and angle",
+      "surfaces": [
+        "api"
+      ],
+      "basic": false,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "excluded",
+          "reason": "Outside the reviewed initial browser product scope; retain existing algorithms.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "measurement.compatibility",
+      "title": "Internal measurement and legacy export compatibility",
+      "surfaces": [
+        "internal",
+        "cli"
+      ],
+      "basic": false,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "excluded",
+          "reason": "Outside the reviewed initial browser product scope; retain existing algorithms.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "selection.manual",
+      "title": "Point, brush, volume brush, rectangle and polygon selection",
+      "surfaces": [
+        "ui",
+        "api"
+      ],
+      "basic": true,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "required",
+          "reason": "Viewing and lightweight editing profile.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "selection.color",
+      "title": "Color picker, connected color and fill",
+      "surfaces": [
+        "ui",
+        "api"
+      ],
+      "basic": true,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "required",
+          "reason": "Viewing and lightweight editing profile.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "selection.volume",
+      "title": "One active spatial/property selection",
+      "surfaces": [
+        "ui",
+        "api"
+      ],
+      "basic": false,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "excluded",
+          "reason": "Outside the reviewed initial browser product scope; retain existing algorithms.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "selection.advanced",
+      "title": "Grow, shrink, ranges and advanced selection scope",
+      "surfaces": [
+        "ui",
+        "api"
+      ],
+      "basic": false,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "excluded",
+          "reason": "Outside the reviewed initial browser product scope; retain existing algorithms.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "cleanup.edit",
+      "title": "Delete, Keep and reset cleanup",
+      "surfaces": [
+        "ui",
+        "api"
+      ],
+      "basic": true,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "required",
+          "reason": "Viewing and lightweight editing profile.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "history.edit",
+      "title": "Undo and Redo",
+      "surfaces": [
+        "ui",
+        "api"
+      ],
+      "basic": true,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "required",
+          "reason": "Viewing and lightweight editing profile.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "transform.manual",
+      "title": "Move, rotate, scale, snap and flips in Basic",
+      "surfaces": [
+        "ui",
+        "api"
+      ],
+      "basic": true,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "required",
+          "reason": "Viewing and lightweight editing profile.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "transform.numeric",
+      "title": "Advanced numeric transforms and custom pivot",
+      "surfaces": [
+        "ui",
+        "api"
+      ],
+      "basic": false,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "excluded",
+          "reason": "Outside the reviewed initial browser product scope; retain existing algorithms.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "alignment.manual",
+      "title": "Whole-scene point center, scale and plane alignment",
+      "surfaces": [
+        "ui",
+        "api"
+      ],
+      "basic": true,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "required",
+          "reason": "Viewing and lightweight editing profile.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "alignment.auto",
+      "title": "Automatic floor alignment",
+      "surfaces": [
+        "ui",
+        "api"
+      ],
+      "basic": false,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "excluded",
+          "reason": "Outside the reviewed initial browser product scope; retain existing algorithms.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "color.basic",
+      "title": "Brightness, contrast, saturation, relative temperature and presets",
+      "surfaces": [
+        "ui",
+        "api"
+      ],
+      "basic": true,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "required",
+          "reason": "Viewing and lightweight editing profile.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "color.auto",
+      "title": "Auto color and histogram",
+      "surfaces": [
+        "ui",
+        "api"
+      ],
+      "basic": true,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "required",
+          "reason": "Viewing and lightweight editing profile.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "color.advanced",
+      "title": "Advanced color controls",
+      "surfaces": [
+        "ui",
+        "api"
+      ],
+      "basic": false,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "excluded",
+          "reason": "Outside the reviewed initial browser product scope; retain existing algorithms.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "processing.advanced",
+      "title": "Merge, deduplication, learned color and batch recipes",
+      "surfaces": [
+        "ui",
+        "api",
+        "cli"
+      ],
+      "basic": false,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "excluded",
+          "reason": "Outside the reviewed initial browser product scope; retain existing algorithms.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "project.edit",
+      "title": "Native editor project persistence",
+      "surfaces": [
+        "ui",
+        "api"
+      ],
+      "basic": false,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "excluded",
+          "reason": "Outside the reviewed initial browser product scope; retain existing algorithms.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "groups.edit",
+      "title": "Stable editor groups",
+      "surfaces": [
+        "ui",
+        "api"
+      ],
+      "basic": false,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "excluded",
+          "reason": "Outside the reviewed initial browser product scope; retain existing algorithms.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "weights.edit",
+      "title": "Weighted attribute editing and saved masks",
+      "surfaces": [
+        "ui",
+        "api"
+      ],
+      "basic": false,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "excluded",
+          "reason": "Outside the reviewed initial browser product scope; retain existing algorithms.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "painting.edit",
+      "title": "Gaussian creation and attribute painting",
+      "surfaces": [
+        "ui",
+        "api"
+      ],
+      "basic": false,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "excluded",
+          "reason": "Outside the reviewed initial browser product scope; retain existing algorithms.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "relighting.adjust",
+      "title": "Covariance-based appearance relighting",
+      "surfaces": [
+        "ui",
+        "api"
+      ],
+      "basic": false,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "excluded",
+          "reason": "Outside the reviewed initial browser product scope; retain existing algorithms.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "settings.general",
+      "title": "Themes, localization, consent and help",
+      "surfaces": [
+        "ui"
+      ],
+      "basic": false,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "required",
+          "reason": "Viewing and lightweight editing profile.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor",
+        "windows-explorer-preview",
+        "macos-quicklook-preview",
+        "ubuntu-gnome-preview",
+        "ubuntu-kde-preview"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "tutorial.play",
+      "title": "Capability-projected tutorial",
+      "surfaces": [
+        "ui"
+      ],
+      "basic": false,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "required",
+          "reason": "Viewing and lightweight editing profile.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "internal.lifecycle",
+      "title": "Existing worker/controller lifecycle",
+      "surfaces": [
+        "internal",
+        "ui",
+        "api"
+      ],
+      "basic": false,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "required",
+          "reason": "Viewing and lightweight editing profile.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "host.open_editor",
+      "title": "Explicit handoff or promotion to the native editor",
+      "surfaces": [
+        "ui"
+      ],
+      "basic": false,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "excluded",
+          "reason": "A browser cannot grant native editor handoff without a separately reviewed host integration.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor",
+        "windows-explorer-preview",
+        "macos-quicklook-preview",
+        "ubuntu-gnome-preview",
+        "ubuntu-kde-preview"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "painting.clone",
+      "title": "Procedural Gaussian cloning",
+      "surfaces": [
+        "api"
+      ],
+      "basic": false,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "excluded",
+          "reason": "Outside the reviewed initial browser product scope; retain existing algorithms.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor"
+      ],
+      "review": "review.md"
+    },
+    {
+      "id": "painting.manual",
+      "title": "Manual Paint task, shape and target controls",
+      "surfaces": [
+        "ui"
+      ],
+      "basic": false,
+      "platforms": {
+        "windows": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "macos": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "ubuntu": {
+          "policy": "required",
+          "reason": "Shared native editor capability; implementation and native qualification are tracked separately.",
+          "requires": [],
+          "fallback": ""
+        },
+        "web": {
+          "policy": "excluded",
+          "reason": "Outside the reviewed initial browser product scope; retain existing algorithms.",
+          "requires": [],
+          "fallback": ""
+        }
+      },
+      "hosts": [
+        "editor"
+      ],
+      "review": "review.md"
+    }
+  ]
+}

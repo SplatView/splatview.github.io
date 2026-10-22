@@ -1,0 +1,21 @@
+﻿{
+    "schemaVersion":  1,
+    "kind":  "observed-local-command-terminal",
+    "workingDirectory":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+    "executable":  "C:\\Users\\opsiclear\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+    "arguments":  [
+                      "tools/build-core.py"
+                  ],
+    "startedAtUtc":  "2026-10-12T19:27:21.6888746Z",
+    "finishedAtUtc":  "2026-10-12T19:29:02.5575035Z",
+    "exitCode":  0,
+    "exception":  null,
+    "log":  {
+                "path":  "test-results-coherent-startup-json-cleanup-native-build-02.log",
+                "bytes":  47508,
+                "sha256":  "6b3703c883cba7c3396d992bff36f5b6e7ff52ecc41d545b633b6a72ddc66349"
+            },
+    "report":  null,
+    "browserOutputDirectory":  "",
+    "lastRun":  null
+}

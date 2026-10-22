@@ -1,0 +1,575 @@
+{
+  "schemaVersion": 1,
+  "packet": "compressed-ply-v1",
+  "scope": "Sixteen small constructed decoder inputs; construction/reproduction is not native, browser, renderer, host or capacity acceptance",
+  "construction": "tools/formats/build-compressed-ply-v1.mjs",
+  "constructionSha256": "edc75e89c3e51a13fdc378e0daca75e8aabf94d7d495c82f2e22c9f9ff8ed5da",
+  "oracle": "tests/format-compressed-ply.test.ts (independent binary reader, literal inputs, matrix and half math; never imports constructor)",
+  "policyId": "compressed-ply-numeric-v1",
+  "policies": {
+    "positionsAbsolute": 0.00006,
+    "opacityAbsolute": 1e-7,
+    "covarianceRelativeToMaxAxisVariance": 0.000008,
+    "dcBeforeHalfAbsolute": 0.000002,
+    "exportCovarianceRelativeToMaxAxisVariance": 0.00003,
+    "exportOpacityAbsolute": 3e-7,
+    "sourceMembership": "Exact source/loaded counts and full/cap3/cap2/cap1 source identity/order; no numeric tolerance excuses membership",
+    "decodedPosition": "Independent-validator bound: absolute 6e-5 for these fixed bounds (maximum source magnitude120)",
+    "decodedCovariance": "Independent-validator bound: per component 8e-6 * maximum independently reconstructed axis variance; no absolute floor",
+    "decodedOpacity": "Independent-validator absolute bound 1e-7",
+    "exportedPlyCovariance": "Independent-validator bound: per component 3e-5 * maximum independently reconstructed axis variance",
+    "exportedPlyOpacity": "Independent-validator sigmoid absolute bound 3e-7",
+    "sh": "All retained rest midpoint and absent signed-zero half bits exact; DC admissible bits independently quantize analyticDC +/- 2e-6 with IEEE ties-to-even, without native-adaptive bounds"
+  },
+  "origin": {
+    "generated": "Original analytic integer fields and dyadic bounds authored for this project; no third-party fixture, encoder or generated output copied",
+    "formatAuthority": "Frozen native compressed-PLY reader and coordinate/packing branches recorded below",
+    "formatContext": "docs/third-party/PLAYCANVAS_REFERENCES.md; reference context only, not a copied implementation or interoperability result"
+  },
+  "sourceLock": {
+    "path": "native/SOURCE_LOCK.json",
+    "sha256": "d6515ebbc1f22ca1498b37d6369420f87cf48a39aba2d0ec952fcc9dbae9c747",
+    "package": "splatview",
+    "treeSha256": "f0b272ebe75f0c8380610e4c242faab76e3922f7494cf675d679c9d8dad37e61"
+  },
+  "nativeBranches": [
+    {
+      "path": "native/upstream/splatview/src/core/model.cpp",
+      "sha256": "ddfe812e09467afc3113b32fff7c777aa6421413d76686c2676643878b26e523",
+      "branch": "loadCompressedPly: 12/18 bounds, endian/scalar layout, packed attributes and byte SH",
+      "bytes": 50433
+    },
+    {
+      "path": "native/upstream/splatview/src/core/format_utils.hpp",
+      "sha256": "8f73a8514b3120ed7e6fe01d548dc9b20904ccfc9c39863a04be075c04a276ef",
+      "branch": "sampledIndex, positive exp scale and RDF-to-RUB conversion",
+      "bytes": 2734
+    },
+    {
+      "path": "native/upstream/splatview/src/core/scene_math.cpp",
+      "sha256": "0ddeb96721e8b3be50e22755f97660c256ab31a0cd55399003ccfc5d20baea31",
+      "branch": "packGaussian: normalized quaternion, covariance and 48 native half components",
+      "bytes": 8781
+    },
+    {
+      "path": "native/upstream/splatview/src/core/ply_preview.cpp",
+      "sha256": "c0781f056b00c0976c37a9e60dc32c249d98eef951b56451c053bcf7ebc9b844",
+      "branch": "PLY header dispatch before the compressed Gaussian branch",
+      "bytes": 18904
+    }
+  ],
+  "inputs": [
+    {
+      "file": "layout12-le-sh0.ply",
+      "bytes": 5070,
+      "sha256": "13e489439ffaa66691bf410968e81d9a88421612747bc21f99168dca95c707cd",
+      "layoutBoundCount": 12,
+      "encoding": "binary_little_endian",
+      "sourceCount": 257,
+      "chunkCount": 2,
+      "retainedDegree": 0,
+      "shPropertyCount": 0,
+      "headerBytes": 605,
+      "chunkStride": 48,
+      "vertexStride": 17,
+      "shStride": 0,
+      "payloadOffsets": {
+        "chunk": 605,
+        "vertex": 701,
+        "sh": null
+      },
+      "cap3SourceIds": [
+        85,
+        171,
+        256
+      ],
+      "cap2SourceIds": [
+        128,
+        256
+      ],
+      "cap1SourceIds": [
+        256
+      ]
+    },
+    {
+      "file": "layout12-le-sh1.ply",
+      "bytes": 7611,
+      "sha256": "225ff720283d9c1c17ac809335067c98eabdac3130699b5ae521ed9c58e01392",
+      "layoutBoundCount": 12,
+      "encoding": "binary_little_endian",
+      "sourceCount": 257,
+      "chunkCount": 2,
+      "retainedDegree": 1,
+      "shPropertyCount": 9,
+      "headerBytes": 833,
+      "chunkStride": 48,
+      "vertexStride": 17,
+      "shStride": 9,
+      "payloadOffsets": {
+        "chunk": 833,
+        "vertex": 929,
+        "sh": 5298
+      },
+      "cap3SourceIds": [
+        85,
+        171,
+        256
+      ],
+      "cap2SourceIds": [
+        128,
+        256
+      ],
+      "cap1SourceIds": [
+        256
+      ]
+    },
+    {
+      "file": "layout12-le-sh2.ply",
+      "bytes": 11842,
+      "sha256": "4b7eddfa6495932e521d36a226b63bf52cc6725d680deaeae5d20c1eb7da6eff",
+      "layoutBoundCount": 12,
+      "encoding": "binary_little_endian",
+      "sourceCount": 257,
+      "chunkCount": 2,
+      "retainedDegree": 2,
+      "shPropertyCount": 24,
+      "headerBytes": 1209,
+      "chunkStride": 48,
+      "vertexStride": 17,
+      "shStride": 24,
+      "payloadOffsets": {
+        "chunk": 1209,
+        "vertex": 1305,
+        "sh": 5674
+      },
+      "cap3SourceIds": [
+        85,
+        171,
+        256
+      ],
+      "cap2SourceIds": [
+        128,
+        256
+      ],
+      "cap1SourceIds": [
+        256
+      ]
+    },
+    {
+      "file": "layout12-le-sh3.ply",
+      "bytes": 17763,
+      "sha256": "2a6c325b16d1bdc3a131a8c12b06a96290903ea46a27cff256e9ec110c42e474",
+      "layoutBoundCount": 12,
+      "encoding": "binary_little_endian",
+      "sourceCount": 257,
+      "chunkCount": 2,
+      "retainedDegree": 3,
+      "shPropertyCount": 45,
+      "headerBytes": 1733,
+      "chunkStride": 48,
+      "vertexStride": 17,
+      "shStride": 45,
+      "payloadOffsets": {
+        "chunk": 1733,
+        "vertex": 1829,
+        "sh": 6198
+      },
+      "cap3SourceIds": [
+        85,
+        171,
+        256
+      ],
+      "cap2SourceIds": [
+        128,
+        256
+      ],
+      "cap1SourceIds": [
+        256
+      ]
+    },
+    {
+      "file": "layout12-be-sh0.ply",
+      "bytes": 5066,
+      "sha256": "8cb397ecf68e263ee9ca01cdc9620d205277080baa29a936a7335a1e3c63c63d",
+      "layoutBoundCount": 12,
+      "encoding": "binary_big_endian",
+      "sourceCount": 257,
+      "chunkCount": 2,
+      "retainedDegree": 0,
+      "shPropertyCount": 0,
+      "headerBytes": 601,
+      "chunkStride": 48,
+      "vertexStride": 17,
+      "shStride": 0,
+      "payloadOffsets": {
+        "chunk": 601,
+        "vertex": 697,
+        "sh": null
+      },
+      "cap3SourceIds": [
+        85,
+        171,
+        256
+      ],
+      "cap2SourceIds": [
+        128,
+        256
+      ],
+      "cap1SourceIds": [
+        256
+      ]
+    },
+    {
+      "file": "layout12-be-sh1.ply",
+      "bytes": 7611,
+      "sha256": "a198b1dc1ebe2a60fa04f13476714f0adb2080793207791e714a271c6f0acef7",
+      "layoutBoundCount": 12,
+      "encoding": "binary_big_endian",
+      "sourceCount": 257,
+      "chunkCount": 2,
+      "retainedDegree": 1,
+      "shPropertyCount": 9,
+      "headerBytes": 833,
+      "chunkStride": 48,
+      "vertexStride": 17,
+      "shStride": 9,
+      "payloadOffsets": {
+        "chunk": 833,
+        "vertex": 929,
+        "sh": 5298
+      },
+      "cap3SourceIds": [
+        85,
+        171,
+        256
+      ],
+      "cap2SourceIds": [
+        128,
+        256
+      ],
+      "cap1SourceIds": [
+        256
+      ]
+    },
+    {
+      "file": "layout12-be-sh2.ply",
+      "bytes": 11838,
+      "sha256": "8b56f554f1dc0e72a709d7d79ddddca0e9442dedfdb88e2733470577bdbf2a58",
+      "layoutBoundCount": 12,
+      "encoding": "binary_big_endian",
+      "sourceCount": 257,
+      "chunkCount": 2,
+      "retainedDegree": 2,
+      "shPropertyCount": 24,
+      "headerBytes": 1205,
+      "chunkStride": 48,
+      "vertexStride": 17,
+      "shStride": 24,
+      "payloadOffsets": {
+        "chunk": 1205,
+        "vertex": 1301,
+        "sh": 5670
+      },
+      "cap3SourceIds": [
+        85,
+        171,
+        256
+      ],
+      "cap2SourceIds": [
+        128,
+        256
+      ],
+      "cap1SourceIds": [
+        256
+      ]
+    },
+    {
+      "file": "layout12-be-sh3.ply",
+      "bytes": 17759,
+      "sha256": "66570ed1b64446b383ed6fa8314cea06711034bad4c71f5eba832a59ad2ac4c6",
+      "layoutBoundCount": 12,
+      "encoding": "binary_big_endian",
+      "sourceCount": 257,
+      "chunkCount": 2,
+      "retainedDegree": 3,
+      "shPropertyCount": 45,
+      "headerBytes": 1729,
+      "chunkStride": 48,
+      "vertexStride": 17,
+      "shStride": 45,
+      "payloadOffsets": {
+        "chunk": 1729,
+        "vertex": 1825,
+        "sh": 6194
+      },
+      "cap3SourceIds": [
+        85,
+        171,
+        256
+      ],
+      "cap2SourceIds": [
+        128,
+        256
+      ],
+      "cap1SourceIds": [
+        256
+      ]
+    },
+    {
+      "file": "layout18-le-sh0.ply",
+      "bytes": 5250,
+      "sha256": "4dcc1b4dcc9d0d048c1475eb06ad57ca1321b4d94e83f23f37ca9dee03f20cc6",
+      "layoutBoundCount": 18,
+      "encoding": "binary_little_endian",
+      "sourceCount": 257,
+      "chunkCount": 2,
+      "retainedDegree": 0,
+      "shPropertyCount": 0,
+      "headerBytes": 737,
+      "chunkStride": 72,
+      "vertexStride": 17,
+      "shStride": 0,
+      "payloadOffsets": {
+        "chunk": 737,
+        "vertex": 881,
+        "sh": null
+      },
+      "cap3SourceIds": [
+        85,
+        171,
+        256
+      ],
+      "cap2SourceIds": [
+        128,
+        256
+      ],
+      "cap1SourceIds": [
+        256
+      ]
+    },
+    {
+      "file": "layout18-le-sh1.ply",
+      "bytes": 7791,
+      "sha256": "35373c0b92f91925bdb9ff35b8609e40eb2de0de1f55232d3a8be1de6db43d30",
+      "layoutBoundCount": 18,
+      "encoding": "binary_little_endian",
+      "sourceCount": 257,
+      "chunkCount": 2,
+      "retainedDegree": 1,
+      "shPropertyCount": 9,
+      "headerBytes": 965,
+      "chunkStride": 72,
+      "vertexStride": 17,
+      "shStride": 9,
+      "payloadOffsets": {
+        "chunk": 965,
+        "vertex": 1109,
+        "sh": 5478
+      },
+      "cap3SourceIds": [
+        85,
+        171,
+        256
+      ],
+      "cap2SourceIds": [
+        128,
+        256
+      ],
+      "cap1SourceIds": [
+        256
+      ]
+    },
+    {
+      "file": "layout18-le-sh2.ply",
+      "bytes": 12022,
+      "sha256": "b3b202d3060b8d5f1f910832fcd558d0200180cc80cea3f9417f15eff83e2293",
+      "layoutBoundCount": 18,
+      "encoding": "binary_little_endian",
+      "sourceCount": 257,
+      "chunkCount": 2,
+      "retainedDegree": 2,
+      "shPropertyCount": 24,
+      "headerBytes": 1341,
+      "chunkStride": 72,
+      "vertexStride": 17,
+      "shStride": 24,
+      "payloadOffsets": {
+        "chunk": 1341,
+        "vertex": 1485,
+        "sh": 5854
+      },
+      "cap3SourceIds": [
+        85,
+        171,
+        256
+      ],
+      "cap2SourceIds": [
+        128,
+        256
+      ],
+      "cap1SourceIds": [
+        256
+      ]
+    },
+    {
+      "file": "layout18-le-sh3.ply",
+      "bytes": 17943,
+      "sha256": "cd4333b00076fbd07dda4fc90dc4946ee388ca56b356f7eec411e2ea94196deb",
+      "layoutBoundCount": 18,
+      "encoding": "binary_little_endian",
+      "sourceCount": 257,
+      "chunkCount": 2,
+      "retainedDegree": 3,
+      "shPropertyCount": 45,
+      "headerBytes": 1865,
+      "chunkStride": 72,
+      "vertexStride": 17,
+      "shStride": 45,
+      "payloadOffsets": {
+        "chunk": 1865,
+        "vertex": 2009,
+        "sh": 6378
+      },
+      "cap3SourceIds": [
+        85,
+        171,
+        256
+      ],
+      "cap2SourceIds": [
+        128,
+        256
+      ],
+      "cap1SourceIds": [
+        256
+      ]
+    },
+    {
+      "file": "layout18-be-sh0.ply",
+      "bytes": 5246,
+      "sha256": "f0da4ebc9f6feff93c01902b8f949597c7ca47bfa379a20596cdf237b25a5933",
+      "layoutBoundCount": 18,
+      "encoding": "binary_big_endian",
+      "sourceCount": 257,
+      "chunkCount": 2,
+      "retainedDegree": 0,
+      "shPropertyCount": 0,
+      "headerBytes": 733,
+      "chunkStride": 72,
+      "vertexStride": 17,
+      "shStride": 0,
+      "payloadOffsets": {
+        "chunk": 733,
+        "vertex": 877,
+        "sh": null
+      },
+      "cap3SourceIds": [
+        85,
+        171,
+        256
+      ],
+      "cap2SourceIds": [
+        128,
+        256
+      ],
+      "cap1SourceIds": [
+        256
+      ]
+    },
+    {
+      "file": "layout18-be-sh1.ply",
+      "bytes": 7791,
+      "sha256": "c20ad89ccf84d4de01b70015d3fde12f1c84a434d2206a27a1a468bc6035a173",
+      "layoutBoundCount": 18,
+      "encoding": "binary_big_endian",
+      "sourceCount": 257,
+      "chunkCount": 2,
+      "retainedDegree": 1,
+      "shPropertyCount": 9,
+      "headerBytes": 965,
+      "chunkStride": 72,
+      "vertexStride": 17,
+      "shStride": 9,
+      "payloadOffsets": {
+        "chunk": 965,
+        "vertex": 1109,
+        "sh": 5478
+      },
+      "cap3SourceIds": [
+        85,
+        171,
+        256
+      ],
+      "cap2SourceIds": [
+        128,
+        256
+      ],
+      "cap1SourceIds": [
+        256
+      ]
+    },
+    {
+      "file": "layout18-be-sh2.ply",
+      "bytes": 12018,
+      "sha256": "0f376c4b51b75b37e07fe675fb0742c537be877127b64b661d46c0c37b436d71",
+      "layoutBoundCount": 18,
+      "encoding": "binary_big_endian",
+      "sourceCount": 257,
+      "chunkCount": 2,
+      "retainedDegree": 2,
+      "shPropertyCount": 24,
+      "headerBytes": 1337,
+      "chunkStride": 72,
+      "vertexStride": 17,
+      "shStride": 24,
+      "payloadOffsets": {
+        "chunk": 1337,
+        "vertex": 1481,
+        "sh": 5850
+      },
+      "cap3SourceIds": [
+        85,
+        171,
+        256
+      ],
+      "cap2SourceIds": [
+        128,
+        256
+      ],
+      "cap1SourceIds": [
+        256
+      ]
+    },
+    {
+      "file": "layout18-be-sh3.ply",
+      "bytes": 17939,
+      "sha256": "85bc6dd2621a358abbe65bbb2922e84a0875648fde2ca71be4bde39b3fb27d8b",
+      "layoutBoundCount": 18,
+      "encoding": "binary_big_endian",
+      "sourceCount": 257,
+      "chunkCount": 2,
+      "retainedDegree": 3,
+      "shPropertyCount": 45,
+      "headerBytes": 1861,
+      "chunkStride": 72,
+      "vertexStride": 17,
+      "shStride": 45,
+      "payloadOffsets": {
+        "chunk": 1861,
+        "vertex": 2005,
+        "sh": 6374
+      },
+      "cap3SourceIds": [
+        85,
+        171,
+        256
+      ],
+      "cap2SourceIds": [
+        128,
+        256
+      ],
+      "cap1SourceIds": [
+        256
+      ]
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 1,
+  "packet": "ply-splat-v1",
+  "scope": "Ten small native-decoder/export interoperability inputs; no renderer/Mac/large-scene acceptance",
+  "construction": "tools/formats/build-ply-splat-v1.mjs",
+  "oracle": "tests/format-ply-splat.test.ts (independent literal records, matrix math, byte parsers; never imports builder)",
+  "policyId": "ply-splat-numeric-v1",
+  "policies": {
+    "position": "Exact float32 literal coordinates and exact source membership/order",
+    "decodedCovariance": "Per-component error <= 4e-6 * max(source axis variance); no absolute floor, including tiny scales",
+    "exportedPlyCovariance": "Per-component error <= 1e-5 * max(source axis variance); recompute from independently parsed axes",
+    "exportedSplatCovariance": "Per-component error <= 0.09 * max(source axis variance); at most one +1 endpoint clamp (1/128), other quaternion components <=1/256; normalized quaternion/rotation perturbation plus float32 scale roundoff",
+    "opacity": "Decode absolute <=2e-7; PLY export <=3e-7 after independent sigmoid and endpoint clamp; SPLAT export <=0.5/255+2e-7",
+    "sh": "Generated coefficients are exactly representable binary16. All48 packed values exact including zero absent bands; SPLAT DC half error <=0.0005 and color byte export <=1byte"
+  },
+  "origin": {
+    "generated": "Analytic fixtures authored for this browser project; no third-party generated inputs",
+    "frozen": {
+      "source": "native/upstream/splatview/tests/fixtures/minimal.splat",
+      "sha256": "43410dad38d82e7e3b8992750ba891641b86f3bb10011d6f0e3419836dcfd38f",
+      "revision": "PlayCanvas splat-transform3.9.0 commit435b972a97a278c655d8f7015b1355215cba0d71",
+      "license": "native/upstream/splatview/third_party/format-reference-licenses/playcanvas.txt"
+    }
+  },
+  "frozenPackageTreeSha256": "f0b272ebe75f0c8380610e4c242faab76e3922f7494cf675d679c9d8dad37e61",
+  "nativeBranches": [
+    {
+      "path": "native/upstream/splatview/src/core/model.cpp",
+      "branch": "Gaussian header, SH prefix, scalar/endian decode and deterministic sampling",
+      "sha256": "ddfe812e09467afc3113b32fff7c777aa6421413d76686c2676643878b26e523"
+    },
+    {
+      "path": "native/upstream/splatview/src/core/ply_preview.cpp",
+      "branch": "Shared strict header and Gaussian classification",
+      "sha256": "c0781f056b00c0976c37a9e60dc32c249d98eef951b56451c053bcf7ebc9b844"
+    },
+    {
+      "path": "native/upstream/splatview/src/core/extra_formats.cpp",
+      "branch": "Raw 32-byte SPLAT",
+      "sha256": "75b8873d60ffb36658e30ef859a7ec99351e8e41a795540590ac63b7bd9dbed0"
+    },
+    {
+      "path": "native/upstream/splatview/src/core/format_utils.hpp",
+      "branch": "RDF to RUB and source membership",
+      "sha256": "8f73a8514b3120ed7e6fe01d548dc9b20904ccfc9c39863a04be075c04a276ef"
+    },
+    {
+      "path": "native/upstream/splatview/src/core/scene_math.cpp",
+      "branch": "Packed covariance and half SH",
+      "sha256": "0ddeb96721e8b3be50e22755f97660c256ab31a0cd55399003ccfc5d20baea31"
+    },
+    {
+      "path": "native/upstream/splatview/src/core/ply_export.cpp",
+      "branch": "Independent exported PLY checks",
+      "sha256": "6c8d9f90fc5a2e037aa1f1ab220b9245c5947db45dfd60d08bb62ff68cfcdbd2"
+    },
+    {
+      "path": "native/upstream/splatview/src/core/scene_exports.cpp",
+      "branch": "Independent exported SPLAT checks",
+      "sha256": "d51ef405807e22c10358d7f0034abce9ae1ba0d4e94eeb2795127530bfdd5bf8"
+    }
+  ],
+  "inputs": [
+    {
+      "file": "sh3-ascii.ply",
+      "bytes": 5768,
+      "sha256": "afb102dd3a3b27dc73664161cb23b9cbb93553eeb243e5ad083819afec3f8d72",
+      "sourceCount": 10,
+      "retainedDegree": 3,
+      "cap3SourceIds": [
+        3,
+        6,
+        9
+      ]
+    },
+    {
+      "file": "sh3-le-unaligned.ply",
+      "bytes": 3901,
+      "sha256": "02416a04368ade772cb123603403da5eeaed9fa19ba6ee8dc74eea9a1c24dc6b",
+      "sourceCount": 10,
+      "retainedDegree": 3,
+      "cap3SourceIds": [
+        3,
+        6,
+        9
+      ]
+    },
+    {
+      "file": "sh3-be.ply",
+      "bytes": 3879,
+      "sha256": "67b4fe722a2f79850d5bf061b93c0ad234136537c3c309814383697de4f3a59b",
+      "sourceCount": 10,
+      "retainedDegree": 3,
+      "cap3SourceIds": [
+        3,
+        6,
+        9
+      ]
+    },
+    {
+      "file": "sh3-le-mixed.ply",
+      "bytes": 4119,
+      "sha256": "e446ff6316be52f29df029572fae83c4bc892e5bee77f7295d74d758568232e9",
+      "sourceCount": 10,
+      "retainedDegree": 3,
+      "cap3SourceIds": [
+        3,
+        6,
+        9
+      ]
+    },
+    {
+      "file": "sh0-ascii.ply",
+      "bytes": 1014,
+      "sha256": "6736c56d7ce3905fc0712d124d22cac7ad03b6b905a34465898743a312487027",
+      "sourceCount": 10,
+      "retainedDegree": 0,
+      "cap3SourceIds": [
+        3,
+        6,
+        9
+      ]
+    },
+    {
+      "file": "sh1-ascii.ply",
+      "bytes": 1985,
+      "sha256": "09d8877bf60c830666376c6e0e0efbbfca5d7bbe4835036681abaa33d3f5dbb2",
+      "sourceCount": 10,
+      "retainedDegree": 1,
+      "cap3SourceIds": [
+        3,
+        6,
+        9
+      ]
+    },
+    {
+      "file": "sh2-ascii.ply",
+      "bytes": 3538,
+      "sha256": "8ebba2187310fca918e819621a7f9a4fdae64d187d857099221765e7af910074",
+      "sourceCount": 10,
+      "retainedDegree": 2,
+      "cap3SourceIds": [
+        3,
+        6,
+        9
+      ]
+    },
+    {
+      "file": "sh4-ascii.ply",
+      "bytes": 8577,
+      "sha256": "0bddb3294519234a9fdd6ad64a80f00ad4a2b7433c7729b3e6eca4be8541babd",
+      "sourceCount": 10,
+      "retainedDegree": 3,
+      "cap3SourceIds": [
+        3,
+        6,
+        9
+      ]
+    },
+    {
+      "file": "playcanvas-minimal.splat",
+      "bytes": 128,
+      "sha256": "43410dad38d82e7e3b8992750ba891641b86f3bb10011d6f0e3419836dcfd38f",
+      "sourceCount": 4,
+      "retainedDegree": 0,
+      "cap3SourceIds": null
+    },
+    {
+      "file": "anisotropic.splat",
+      "bytes": 320,
+      "sha256": "2ea777f8b10be1b3c54f416c9dc763d3979e32eb74f32a5572d644d66158c005",
+      "sourceCount": 10,
+      "retainedDegree": 0,
+      "cap3SourceIds": [
+        3,
+        6,
+        9
+      ]
+    }
+  ]
+}

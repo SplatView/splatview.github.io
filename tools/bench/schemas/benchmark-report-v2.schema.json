@@ -1,0 +1,1880 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "benchmark-report-v2",
+  "description": "Structural schema only. validateBenchmark also enforces cross-field identities, repeat procedures, metrics, raw summaries and qualification gates. No collected performance evidence.",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "enum": [
+        2
+      ]
+    },
+    "runId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+    },
+    "startedAtUtc": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2048
+    },
+    "endedAtUtc": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2048
+    },
+    "evidenceClass": {
+      "enum": [
+        "synthetic-tooling",
+        "local-chromium",
+        "actual-mac",
+        "observed-browser"
+      ]
+    },
+    "purpose": {
+      "enum": [
+        "observed-browser-initial-baseline"
+      ]
+    },
+    "target": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$",
+          "minLength": 64,
+          "maxLength": 64
+        }
+      },
+      "required": [
+        "id",
+        "sha256"
+      ],
+      "additionalProperties": false
+    },
+    "build": {
+      "type": "object",
+      "properties": {
+        "appSha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$",
+          "minLength": 64,
+          "maxLength": 64
+        },
+        "coreSha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$",
+          "minLength": 64,
+          "maxLength": 64
+        },
+        "cameraSha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$",
+          "minLength": 64,
+          "maxLength": 64
+        },
+        "deploymentSha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$",
+          "minLength": 64,
+          "maxLength": 64
+        },
+        "protocol": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "uiWorker": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "appSha256",
+        "coreSha256",
+        "cameraSha256",
+        "deploymentSha256",
+        "protocol",
+        "uiWorker"
+      ],
+      "additionalProperties": false
+    },
+    "cells": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "identity": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+              },
+              "machineId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+              },
+              "browserId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+              },
+              "fixtureId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+              },
+              "traceId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+              },
+              "framebufferId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+              }
+            },
+            "required": [
+              "id",
+              "machineId",
+              "browserId",
+              "fixtureId",
+              "traceId",
+              "framebufferId"
+            ],
+            "additionalProperties": false
+          },
+          "fixture": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+              },
+              "inputSha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$",
+                "minLength": 64,
+                "maxLength": 64
+              },
+              "manifestSha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$",
+                "minLength": 64,
+                "maxLength": 64
+              },
+              "sourceOrderSha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$",
+                "minLength": 64,
+                "maxLength": 64
+              },
+              "distributionSha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$",
+                "minLength": 64,
+                "maxLength": 64
+              },
+              "expectedSceneSha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$",
+                "minLength": 64,
+                "maxLength": 64
+              },
+              "sourceCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "loadedCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "shDegree": {
+                "enum": [
+                  0,
+                  3
+                ]
+              },
+              "overdraw": {
+                "enum": [
+                  "low",
+                  "high"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "inputSha256",
+              "manifestSha256",
+              "sourceOrderSha256",
+              "distributionSha256",
+              "expectedSceneSha256",
+              "sourceCount",
+              "loadedCount",
+              "shDegree",
+              "overdraw"
+            ],
+            "additionalProperties": false
+          },
+          "trace": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$",
+                "minLength": 64,
+                "maxLength": 64
+              },
+              "projectionSha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$",
+                "minLength": 64,
+                "maxLength": 64
+              },
+              "warmupMs": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "durationMs": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "idleHiddenMs": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              }
+            },
+            "required": [
+              "id",
+              "sha256",
+              "projectionSha256",
+              "warmupMs",
+              "durationMs",
+              "idleHiddenMs"
+            ],
+            "additionalProperties": false
+          },
+          "environment": {
+            "type": "object",
+            "properties": {
+              "machineId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+              },
+              "browserId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+              },
+              "osFamily": {
+                "enum": [
+                  "macOS",
+                  "Windows",
+                  "Linux"
+                ]
+              },
+              "osVersion": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048
+              },
+              "machineModel": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048
+              },
+              "ramBytes": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 9007199254740991
+              },
+              "browserFamily": {
+                "enum": [
+                  "Safari",
+                  "Chrome"
+                ]
+              },
+              "browserVersion": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048
+              },
+              "adapterName": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048
+              },
+              "adapterFeatures": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128,
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+                },
+                "minItems": 0,
+                "maxItems": 256
+              },
+              "enabledFeatures": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128,
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+                },
+                "minItems": 0,
+                "maxItems": 256
+              },
+              "deviceLimits": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                }
+              },
+              "powerMode": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048
+              },
+              "cachePolicy": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048
+              },
+              "resolutionPolicy": {
+                "enum": [
+                  "fixed"
+                ]
+              },
+              "crossOriginIsolated": {
+                "type": "boolean"
+              },
+              "sharedArrayBufferAvailable": {
+                "type": "boolean"
+              },
+              "framebuffer": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 128,
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+                  },
+                  "kind": {
+                    "enum": [
+                      "standard",
+                      "retina"
+                    ]
+                  },
+                  "cssWidth": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 9007199254740991
+                  },
+                  "cssHeight": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 9007199254740991
+                  },
+                  "width": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 9007199254740991
+                  },
+                  "height": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 9007199254740991
+                  },
+                  "dpr": {
+                    "type": "number",
+                    "minimum": 1,
+                    "maximum": 9007199254740991
+                  }
+                },
+                "required": [
+                  "id",
+                  "kind",
+                  "cssWidth",
+                  "cssHeight",
+                  "width",
+                  "height",
+                  "dpr"
+                ],
+                "additionalProperties": false
+              },
+              "browserHost": {
+                "enum": [
+                  "automation",
+                  "normal-launch"
+                ]
+              }
+            },
+            "required": [
+              "machineId",
+              "browserId",
+              "osFamily",
+              "osVersion",
+              "machineModel",
+              "ramBytes",
+              "browserFamily",
+              "browserVersion",
+              "adapterName",
+              "adapterFeatures",
+              "enabledFeatures",
+              "deviceLimits",
+              "powerMode",
+              "cachePolicy",
+              "resolutionPolicy",
+              "crossOriginIsolated",
+              "sharedArrayBufferAvailable",
+              "framebuffer",
+              "browserHost"
+            ],
+            "additionalProperties": false
+          },
+          "overdrawCheckpoints": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "traceTimeMs": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                },
+                "visibleProjectedSplats": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                },
+                "footprintAreaRatio": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                },
+                "coveredPixelFraction": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "overlapP50": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                },
+                "overlapP95": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                }
+              },
+              "required": [
+                "traceTimeMs",
+                "visibleProjectedSplats",
+                "footprintAreaRatio",
+                "coveredPixelFraction",
+                "overlapP50",
+                "overlapP95"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 10000
+          },
+          "scenarios": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128,
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+                },
+                "kind": {
+                  "enum": [
+                    "open-cold",
+                    "open-warm",
+                    "orbit",
+                    "selection-cold",
+                    "selection-warm",
+                    "export",
+                    "retention"
+                  ]
+                },
+                "caseId": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 128,
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "parametersSha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$",
+                  "minLength": 64,
+                  "maxLength": 64
+                },
+                "attempts": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 128,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+                      },
+                      "status": {
+                        "enum": [
+                          "completed",
+                          "failed",
+                          "refused",
+                          "cancelled"
+                        ]
+                      },
+                      "reason": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2048
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "retryOf": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 128,
+                            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "clock": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 128,
+                            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+                          },
+                          "method": {
+                            "enum": [
+                              "performance.now"
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "ms"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "method",
+                          "unit"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "startedAtMs": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 9007199254740991
+                      },
+                      "operationSettledAtMs": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 9007199254740991
+                      },
+                      "resourcesRetiredAtMs": {
+                        "anyOf": [
+                          {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 9007199254740991
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "retirementUnavailableReason": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2048
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "retirementMeaning": {
+                        "enum": [
+                          "application-owner-joined"
+                        ]
+                      },
+                      "warmupMs": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 9007199254740991
+                      },
+                      "idleHiddenMs": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 9007199254740991
+                      },
+                      "measurements": {
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "object",
+                          "properties": {
+                            "unit": {
+                              "enum": [
+                                "ms",
+                                "bytes",
+                                "count"
+                              ]
+                            },
+                            "method": {
+                              "enum": [
+                                "monotonic-cpu",
+                                "raf-interval",
+                                "queue-wall",
+                                "gpu-timestamp",
+                                "application-counter"
+                              ]
+                            },
+                            "clockId": {
+                              "anyOf": [
+                                {
+                                  "type": "string",
+                                  "minLength": 1,
+                                  "maxLength": 128,
+                                  "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "samples": {
+                              "anyOf": [
+                                {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 9007199254740991
+                                  },
+                                  "minItems": 1,
+                                  "maxItems": 250000
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "sampleCount": {
+                              "type": "integer",
+                              "minimum": 0,
+                              "maximum": 9007199254740991
+                            },
+                            "unavailableReason": {
+                              "anyOf": [
+                                {
+                                  "type": "string",
+                                  "minLength": 1,
+                                  "maxLength": 2048
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "unit",
+                            "method",
+                            "clockId",
+                            "samples",
+                            "sampleCount",
+                            "unavailableReason"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "correctness": {
+                        "anyOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "oracle": {
+                                "enum": [
+                                  "scene",
+                                  "source-mask",
+                                  "export",
+                                  "cycle"
+                                ]
+                              },
+                              "expectedSha256": {
+                                "anyOf": [
+                                  {
+                                    "type": "string",
+                                    "pattern": "^[0-9a-f]{64}$",
+                                    "minLength": 64,
+                                    "maxLength": 64
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              },
+                              "actualSha256": {
+                                "type": "string",
+                                "pattern": "^[0-9a-f]{64}$",
+                                "minLength": 64,
+                                "maxLength": 64
+                              },
+                              "expectedCount": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "maximum": 9007199254740991
+                              },
+                              "actualCount": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "maximum": 9007199254740991
+                              },
+                              "capturedRevision": {
+                                "anyOf": [
+                                  {
+                                    "type": "integer",
+                                    "minimum": 0,
+                                    "maximum": 9007199254740991
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              },
+                              "absoluteError": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 9007199254740991
+                              },
+                              "membershipSha256": {
+                                "anyOf": [
+                                  {
+                                    "type": "string",
+                                    "pattern": "^[0-9a-f]{64}$",
+                                    "minLength": 64,
+                                    "maxLength": 64
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              },
+                              "numericOracle": {
+                                "anyOf": [
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "oracleSha256": {
+                                        "type": "string",
+                                        "pattern": "^[0-9a-f]{64}$",
+                                        "minLength": 64,
+                                        "maxLength": 64
+                                      },
+                                      "values": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "string",
+                                              "minLength": 1,
+                                              "maxLength": 128,
+                                              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+                                            },
+                                            "actual": {
+                                              "type": "number",
+                                              "minimum": -9007199254740991,
+                                              "maximum": 9007199254740991
+                                            }
+                                          },
+                                          "required": [
+                                            "id",
+                                            "actual"
+                                          ],
+                                          "additionalProperties": false
+                                        },
+                                        "minItems": 1,
+                                        "maxItems": 10000
+                                      }
+                                    },
+                                    "required": [
+                                      "oracleSha256",
+                                      "values"
+                                    ],
+                                    "additionalProperties": false
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              }
+                            },
+                            "required": [
+                              "oracle",
+                              "expectedSha256",
+                              "actualSha256",
+                              "expectedCount",
+                              "actualCount",
+                              "capturedRevision",
+                              "absoluteError",
+                              "membershipSha256",
+                              "numericOracle"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "memory": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "point": {
+                              "enum": [
+                                "baseline",
+                                "load-peak",
+                                "edit-peak",
+                                "export-peak",
+                                "capture-peak",
+                                "post-close",
+                                "final-cycle"
+                              ]
+                            },
+                            "observations": {
+                              "type": "object",
+                              "properties": {
+                                "ledgerLive": {
+                                  "type": "object",
+                                  "properties": {
+                                    "bytes": {
+                                      "anyOf": [
+                                        {
+                                          "type": "integer",
+                                          "minimum": 0,
+                                          "maximum": 9007199254740991
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    },
+                                    "unavailableReason": {
+                                      "anyOf": [
+                                        {
+                                          "type": "string",
+                                          "minLength": 1,
+                                          "maxLength": 2048
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    },
+                                    "method": {
+                                      "enum": [
+                                        "logical-ledger",
+                                        "native-summary",
+                                        "wasm-memory-buffer",
+                                        "js-heap-estimate",
+                                        "os-process-sample",
+                                        "driver-observation"
+                                      ]
+                                    },
+                                    "processIds": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "integer",
+                                        "minimum": 1,
+                                        "maximum": 9007199254740991
+                                      },
+                                      "minItems": 0,
+                                      "maxItems": 256
+                                    },
+                                    "samplingIntervalMs": {
+                                      "anyOf": [
+                                        {
+                                          "type": "number",
+                                          "minimum": 5e-324,
+                                          "maximum": 9007199254740991
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    },
+                                    "attachmentSha256": {
+                                      "anyOf": [
+                                        {
+                                          "type": "string",
+                                          "pattern": "^[0-9a-f]{64}$",
+                                          "minLength": 64,
+                                          "maxLength": 64
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "bytes",
+                                    "unavailableReason",
+                                    "method",
+                                    "processIds",
+                                    "samplingIntervalMs",
+                                    "attachmentSha256"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "ledgerPeak": {
+                                  "type": "object",
+                                  "properties": {
+                                    "bytes": {
+                                      "anyOf": [
+                                        {
+                                          "type": "integer",
+                                          "minimum": 0,
+                                          "maximum": 9007199254740991
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    },
+                                    "unavailableReason": {
+                                      "anyOf": [
+                                        {
+                                          "type": "string",
+                                          "minLength": 1,
+                                          "maxLength": 2048
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    },
+                                    "method": {
+                                      "enum": [
+                                        "logical-ledger",
+                                        "native-summary",
+                                        "wasm-memory-buffer",
+                                        "js-heap-estimate",
+                                        "os-process-sample",
+                                        "driver-observation"
+                                      ]
+                                    },
+                                    "processIds": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "integer",
+                                        "minimum": 1,
+                                        "maximum": 9007199254740991
+                                      },
+                                      "minItems": 0,
+                                      "maxItems": 256
+                                    },
+                                    "samplingIntervalMs": {
+                                      "anyOf": [
+                                        {
+                                          "type": "number",
+                                          "minimum": 5e-324,
+                                          "maximum": 9007199254740991
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    },
+                                    "attachmentSha256": {
+                                      "anyOf": [
+                                        {
+                                          "type": "string",
+                                          "pattern": "^[0-9a-f]{64}$",
+                                          "minLength": 64,
+                                          "maxLength": 64
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "bytes",
+                                    "unavailableReason",
+                                    "method",
+                                    "processIds",
+                                    "samplingIntervalMs",
+                                    "attachmentSha256"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "nativeLivePayload": {
+                                  "type": "object",
+                                  "properties": {
+                                    "bytes": {
+                                      "anyOf": [
+                                        {
+                                          "type": "integer",
+                                          "minimum": 0,
+                                          "maximum": 9007199254740991
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    },
+                                    "unavailableReason": {
+                                      "anyOf": [
+                                        {
+                                          "type": "string",
+                                          "minLength": 1,
+                                          "maxLength": 2048
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    },
+                                    "method": {
+                                      "enum": [
+                                        "logical-ledger",
+                                        "native-summary",
+                                        "wasm-memory-buffer",
+                                        "js-heap-estimate",
+                                        "os-process-sample",
+                                        "driver-observation"
+                                      ]
+                                    },
+                                    "processIds": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "integer",
+                                        "minimum": 1,
+                                        "maximum": 9007199254740991
+                                      },
+                                      "minItems": 0,
+                                      "maxItems": 256
+                                    },
+                                    "samplingIntervalMs": {
+                                      "anyOf": [
+                                        {
+                                          "type": "number",
+                                          "minimum": 5e-324,
+                                          "maximum": 9007199254740991
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    },
+                                    "attachmentSha256": {
+                                      "anyOf": [
+                                        {
+                                          "type": "string",
+                                          "pattern": "^[0-9a-f]{64}$",
+                                          "minLength": 64,
+                                          "maxLength": 64
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "bytes",
+                                    "unavailableReason",
+                                    "method",
+                                    "processIds",
+                                    "samplingIntervalMs",
+                                    "attachmentSha256"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "wasmLinearCapacity": {
+                                  "type": "object",
+                                  "properties": {
+                                    "bytes": {
+                                      "anyOf": [
+                                        {
+                                          "type": "integer",
+                                          "minimum": 0,
+                                          "maximum": 9007199254740991
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    },
+                                    "unavailableReason": {
+                                      "anyOf": [
+                                        {
+                                          "type": "string",
+                                          "minLength": 1,
+                                          "maxLength": 2048
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    },
+                                    "method": {
+                                      "enum": [
+                                        "logical-ledger",
+                                        "native-summary",
+                                        "wasm-memory-buffer",
+                                        "js-heap-estimate",
+                                        "os-process-sample",
+                                        "driver-observation"
+                                      ]
+                                    },
+                                    "processIds": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "integer",
+                                        "minimum": 1,
+                                        "maximum": 9007199254740991
+                                      },
+                                      "minItems": 0,
+                                      "maxItems": 256
+                                    },
+                                    "samplingIntervalMs": {
+                                      "anyOf": [
+                                        {
+                                          "type": "number",
+                                          "minimum": 5e-324,
+                                          "maximum": 9007199254740991
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    },
+                                    "attachmentSha256": {
+                                      "anyOf": [
+                                        {
+                                          "type": "string",
+                                          "pattern": "^[0-9a-f]{64}$",
+                                          "minLength": 64,
+                                          "maxLength": 64
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "bytes",
+                                    "unavailableReason",
+                                    "method",
+                                    "processIds",
+                                    "samplingIntervalMs",
+                                    "attachmentSha256"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "wasmLinearHighWater": {
+                                  "type": "object",
+                                  "properties": {
+                                    "bytes": {
+                                      "anyOf": [
+                                        {
+                                          "type": "integer",
+                                          "minimum": 0,
+                                          "maximum": 9007199254740991
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    },
+                                    "unavailableReason": {
+                                      "anyOf": [
+                                        {
+                                          "type": "string",
+                                          "minLength": 1,
+                                          "maxLength": 2048
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    },
+                                    "method": {
+                                      "enum": [
+                                        "logical-ledger",
+                                        "native-summary",
+                                        "wasm-memory-buffer",
+                                        "js-heap-estimate",
+                                        "os-process-sample",
+                                        "driver-observation"
+                                      ]
+                                    },
+                                    "processIds": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "integer",
+                                        "minimum": 1,
+                                        "maximum": 9007199254740991
+                                      },
+                                      "minItems": 0,
+                                      "maxItems": 256
+                                    },
+                                    "samplingIntervalMs": {
+                                      "anyOf": [
+                                        {
+                                          "type": "number",
+                                          "minimum": 5e-324,
+                                          "maximum": 9007199254740991
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    },
+                                    "attachmentSha256": {
+                                      "anyOf": [
+                                        {
+                                          "type": "string",
+                                          "pattern": "^[0-9a-f]{64}$",
+                                          "minLength": 64,
+                                          "maxLength": 64
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "bytes",
+                                    "unavailableReason",
+                                    "method",
+                                    "processIds",
+                                    "samplingIntervalMs",
+                                    "attachmentSha256"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "jsHeapEstimate": {
+                                  "type": "object",
+                                  "properties": {
+                                    "bytes": {
+                                      "anyOf": [
+                                        {
+                                          "type": "integer",
+                                          "minimum": 0,
+                                          "maximum": 9007199254740991
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    },
+                                    "unavailableReason": {
+                                      "anyOf": [
+                                        {
+                                          "type": "string",
+                                          "minLength": 1,
+                                          "maxLength": 2048
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    },
+                                    "method": {
+                                      "enum": [
+                                        "logical-ledger",
+                                        "native-summary",
+                                        "wasm-memory-buffer",
+                                        "js-heap-estimate",
+                                        "os-process-sample",
+                                        "driver-observation"
+                                      ]
+                                    },
+                                    "processIds": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "integer",
+                                        "minimum": 1,
+                                        "maximum": 9007199254740991
+                                      },
+                                      "minItems": 0,
+                                      "maxItems": 256
+                                    },
+                                    "samplingIntervalMs": {
+                                      "anyOf": [
+                                        {
+                                          "type": "number",
+                                          "minimum": 5e-324,
+                                          "maximum": 9007199254740991
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    },
+                                    "attachmentSha256": {
+                                      "anyOf": [
+                                        {
+                                          "type": "string",
+                                          "pattern": "^[0-9a-f]{64}$",
+                                          "minLength": 64,
+                                          "maxLength": 64
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "bytes",
+                                    "unavailableReason",
+                                    "method",
+                                    "processIds",
+                                    "samplingIntervalMs",
+                                    "attachmentSha256"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "browserProcess": {
+                                  "type": "object",
+                                  "properties": {
+                                    "bytes": {
+                                      "anyOf": [
+                                        {
+                                          "type": "integer",
+                                          "minimum": 0,
+                                          "maximum": 9007199254740991
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    },
+                                    "unavailableReason": {
+                                      "anyOf": [
+                                        {
+                                          "type": "string",
+                                          "minLength": 1,
+                                          "maxLength": 2048
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    },
+                                    "method": {
+                                      "enum": [
+                                        "logical-ledger",
+                                        "native-summary",
+                                        "wasm-memory-buffer",
+                                        "js-heap-estimate",
+                                        "os-process-sample",
+                                        "driver-observation"
+                                      ]
+                                    },
+                                    "processIds": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "integer",
+                                        "minimum": 1,
+                                        "maximum": 9007199254740991
+                                      },
+                                      "minItems": 0,
+                                      "maxItems": 256
+                                    },
+                                    "samplingIntervalMs": {
+                                      "anyOf": [
+                                        {
+                                          "type": "number",
+                                          "minimum": 5e-324,
+                                          "maximum": 9007199254740991
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    },
+                                    "attachmentSha256": {
+                                      "anyOf": [
+                                        {
+                                          "type": "string",
+                                          "pattern": "^[0-9a-f]{64}$",
+                                          "minLength": 64,
+                                          "maxLength": 64
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "bytes",
+                                    "unavailableReason",
+                                    "method",
+                                    "processIds",
+                                    "samplingIntervalMs",
+                                    "attachmentSha256"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "workerProcess": {
+                                  "type": "object",
+                                  "properties": {
+                                    "bytes": {
+                                      "anyOf": [
+                                        {
+                                          "type": "integer",
+                                          "minimum": 0,
+                                          "maximum": 9007199254740991
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    },
+                                    "unavailableReason": {
+                                      "anyOf": [
+                                        {
+                                          "type": "string",
+                                          "minLength": 1,
+                                          "maxLength": 2048
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    },
+                                    "method": {
+                                      "enum": [
+                                        "logical-ledger",
+                                        "native-summary",
+                                        "wasm-memory-buffer",
+                                        "js-heap-estimate",
+                                        "os-process-sample",
+                                        "driver-observation"
+                                      ]
+                                    },
+                                    "processIds": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "integer",
+                                        "minimum": 1,
+                                        "maximum": 9007199254740991
+                                      },
+                                      "minItems": 0,
+                                      "maxItems": 256
+                                    },
+                                    "samplingIntervalMs": {
+                                      "anyOf": [
+                                        {
+                                          "type": "number",
+                                          "minimum": 5e-324,
+                                          "maximum": 9007199254740991
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    },
+                                    "attachmentSha256": {
+                                      "anyOf": [
+                                        {
+                                          "type": "string",
+                                          "pattern": "^[0-9a-f]{64}$",
+                                          "minLength": 64,
+                                          "maxLength": 64
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "bytes",
+                                    "unavailableReason",
+                                    "method",
+                                    "processIds",
+                                    "samplingIntervalMs",
+                                    "attachmentSha256"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "gpuDriver": {
+                                  "type": "object",
+                                  "properties": {
+                                    "bytes": {
+                                      "anyOf": [
+                                        {
+                                          "type": "integer",
+                                          "minimum": 0,
+                                          "maximum": 9007199254740991
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    },
+                                    "unavailableReason": {
+                                      "anyOf": [
+                                        {
+                                          "type": "string",
+                                          "minLength": 1,
+                                          "maxLength": 2048
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    },
+                                    "method": {
+                                      "enum": [
+                                        "logical-ledger",
+                                        "native-summary",
+                                        "wasm-memory-buffer",
+                                        "js-heap-estimate",
+                                        "os-process-sample",
+                                        "driver-observation"
+                                      ]
+                                    },
+                                    "processIds": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "integer",
+                                        "minimum": 1,
+                                        "maximum": 9007199254740991
+                                      },
+                                      "minItems": 0,
+                                      "maxItems": 256
+                                    },
+                                    "samplingIntervalMs": {
+                                      "anyOf": [
+                                        {
+                                          "type": "number",
+                                          "minimum": 5e-324,
+                                          "maximum": 9007199254740991
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    },
+                                    "attachmentSha256": {
+                                      "anyOf": [
+                                        {
+                                          "type": "string",
+                                          "pattern": "^[0-9a-f]{64}$",
+                                          "minLength": 64,
+                                          "maxLength": 64
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "bytes",
+                                    "unavailableReason",
+                                    "method",
+                                    "processIds",
+                                    "samplingIntervalMs",
+                                    "attachmentSha256"
+                                  ],
+                                  "additionalProperties": false
+                                }
+                              },
+                              "required": [
+                                "ledgerLive",
+                                "ledgerPeak",
+                                "nativeLivePayload",
+                                "wasmLinearCapacity",
+                                "wasmLinearHighWater",
+                                "jsHeapEstimate",
+                                "browserProcess",
+                                "workerProcess",
+                                "gpuDriver"
+                              ],
+                              "additionalProperties": false
+                            },
+                            "pendingRetirement": {
+                              "type": "object",
+                              "properties": {
+                                "gpuOwners": {
+                                  "type": "integer",
+                                  "minimum": 0,
+                                  "maximum": 9007199254740991
+                                },
+                                "blobOwners": {
+                                  "type": "integer",
+                                  "minimum": 0,
+                                  "maximum": 9007199254740991
+                                },
+                                "readOwners": {
+                                  "type": "integer",
+                                  "minimum": 0,
+                                  "maximum": 9007199254740991
+                                }
+                              },
+                              "required": [
+                                "gpuOwners",
+                                "blobOwners",
+                                "readOwners"
+                              ],
+                              "additionalProperties": false
+                            }
+                          },
+                          "required": [
+                            "point",
+                            "observations",
+                            "pendingRetirement"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "minItems": 0,
+                        "maxItems": 7
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "status",
+                      "reason",
+                      "retryOf",
+                      "clock",
+                      "startedAtMs",
+                      "operationSettledAtMs",
+                      "resourcesRetiredAtMs",
+                      "retirementUnavailableReason",
+                      "retirementMeaning",
+                      "warmupMs",
+                      "idleHiddenMs",
+                      "measurements",
+                      "correctness",
+                      "memory"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1,
+                  "maxItems": 10000
+                },
+                "counts": {
+                  "type": "object",
+                  "properties": {
+                    "total": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "completed": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "failed": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "refused": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "cancelled": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    }
+                  },
+                  "required": [
+                    "total",
+                    "completed",
+                    "failed",
+                    "refused",
+                    "cancelled"
+                  ],
+                  "additionalProperties": false
+                },
+                "summaries": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object",
+                    "properties": {
+                      "sampleCount": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 9007199254740991
+                      },
+                      "unavailableAttempts": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 9007199254740991
+                      },
+                      "percentileMethod": {
+                        "enum": [
+                          "linear-r7"
+                        ]
+                      },
+                      "p50": {
+                        "anyOf": [
+                          {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 9007199254740991
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "p95": {
+                        "anyOf": [
+                          {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 9007199254740991
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "sampleCount",
+                      "unavailableAttempts",
+                      "percentileMethod",
+                      "p50",
+                      "p95"
+                    ],
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "required": [
+                "id",
+                "kind",
+                "caseId",
+                "parametersSha256",
+                "attempts",
+                "counts",
+                "summaries"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 1000
+          }
+        },
+        "required": [
+          "identity",
+          "fixture",
+          "trace",
+          "environment",
+          "overdrawCheckpoints",
+          "scenarios"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "maxItems": 1024
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "runId",
+    "startedAtUtc",
+    "endedAtUtc",
+    "evidenceClass",
+    "purpose",
+    "target",
+    "build",
+    "cells"
+  ],
+  "additionalProperties": false
+}

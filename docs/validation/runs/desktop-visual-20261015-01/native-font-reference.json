@@ -1,0 +1,849 @@
+{
+  "actualWindowDpi": 96,
+  "appFocusLost": false,
+  "camera": {
+    "background": 0,
+    "eye": [
+      2.1114611625671387,
+      1.1205135583877563,
+      5.784373760223389
+    ],
+    "fieldNames": [
+      "targetX",
+      "targetY",
+      "targetZ",
+      "yaw",
+      "pitch",
+      "distance",
+      "radius",
+      "fov",
+      "yUp",
+      "roll",
+      "aspect"
+    ],
+    "projection": [
+      1.5088833570480347,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      2.4142134189605713,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -1.0000001192092896,
+      -1.0,
+      0.0,
+      0.0,
+      -0.00019959549535997212,
+      0.0
+    ],
+    "state": [
+      0.0,
+      0.0,
+      -1.1920928955078125e-07,
+      0.3499999940395355,
+      0.18000000715255737,
+      6.258817672729492,
+      1.9959547519683838,
+      45.0,
+      1.0,
+      0.0,
+      1.600000023841858
+    ],
+    "view": [
+      0.9393727779388428,
+      -0.061388853937387466,
+      0.3373578190803528,
+      0.0,
+      3.725290742551124e-09,
+      0.9838438034057617,
+      0.17902958393096924,
+      0.0,
+      -0.34289780259132385,
+      -0.16817551851272583,
+      0.9241959452629089,
+      0.0,
+      0.0,
+      -5.960464477539063e-08,
+      -6.258817672729492,
+      1.0
+    ]
+  },
+  "capture": "production-AppUi-draw-data-private-DX11-texture",
+  "capturedSource": "reference/targets/windows-r0-20261012-02/source",
+  "displayFramebufferScale": [
+    1.0,
+    1.0
+  ],
+  "displaySize": [
+    1280.0,
+    800.0
+  ],
+  "document": {
+    "canRedo": false,
+    "canUndo": false,
+    "contentRevision": 0,
+    "dirty": false,
+    "revision": 0,
+    "scenePresent": true,
+    "sourceGeneration": 1,
+    "stateBytes": 1728,
+    "stateSha256": "7636c9f8da9a82f9a9fcd804a25795a9c900e1c7e19f7442a7b113c8ccd64eb2"
+  },
+  "dpiPolicy": "isolated-thread-DPI-unaware-logical-pixels",
+  "editable": true,
+  "editingAvailable": true,
+  "fonts": [
+    {
+      "ascent": 13.0,
+      "debugName": "segoeui.ttf, 15px",
+      "descent": -3.0,
+      "fontScale": 1.0,
+      "fontSize": 15.0,
+      "primaryLoadedSource": {
+        "binding": "ImFont.Sources[0].FontData/FontDataSize",
+        "bytes": 960076,
+        "collection": false,
+        "emToPixelHeightRatio": 0.7518355359765051,
+        "fontNo": 0,
+        "hheaAscender": 2210,
+        "hheaDescender": -514,
+        "metricFormula": "stbtt_ScaleForPixelHeight = SizePixels / (hheaAscender - hheaDescender); equivalent em pixels = SizePixels * unitsPerEm / denominator",
+        "nominalEquivalentEmPixels": 11.277533039647576,
+        "os2": {
+          "available": true,
+          "sCapHeight": 1434,
+          "sxHeight": 1024,
+          "version": 3
+        },
+        "pixelHeightDenominator": 2724,
+        "rasterizerDensity": 1.0,
+        "sfntOffset": 0,
+        "sha256": "704eada12961a27fd271f7d3b09e2066520e758390c1776744eff430fee30f6e",
+        "sourceName": "segoeui.ttf, 15px",
+        "sourceSizePixels": 15.0,
+        "unitsPerEm": 2048
+      },
+      "sourcesCount": 4
+    },
+    {
+      "ascent": 13.0,
+      "debugName": "segoeuib.ttf, 15px",
+      "descent": -3.0,
+      "fontScale": 1.0,
+      "fontSize": 15.0,
+      "primaryLoadedSource": {
+        "binding": "ImFont.Sources[0].FontData/FontDataSize",
+        "bytes": 947364,
+        "collection": false,
+        "emToPixelHeightRatio": 0.7518355359765051,
+        "fontNo": 0,
+        "hheaAscender": 2210,
+        "hheaDescender": -514,
+        "metricFormula": "stbtt_ScaleForPixelHeight = SizePixels / (hheaAscender - hheaDescender); equivalent em pixels = SizePixels * unitsPerEm / denominator",
+        "nominalEquivalentEmPixels": 11.277533039647576,
+        "os2": {
+          "available": true,
+          "sCapHeight": 1434,
+          "sxHeight": 1024,
+          "version": 3
+        },
+        "pixelHeightDenominator": 2724,
+        "rasterizerDensity": 1.0,
+        "sfntOffset": 0,
+        "sha256": "b169e636719880976a97e94e3b1cb3dbe5f4a38eabc037bf9f2a9165154c3ad2",
+        "sourceName": "segoeuib.ttf, 15px",
+        "sourceSizePixels": 15.0,
+        "unitsPerEm": 2048
+      },
+      "sourcesCount": 4
+    },
+    {
+      "ascent": 17.0,
+      "debugName": "",
+      "descent": -4.0,
+      "fontScale": 1.0,
+      "fontSize": 20.0,
+      "primaryLoadedSource": {
+        "binding": "ImFont.Sources[0].FontData/FontDataSize",
+        "bytes": 947364,
+        "collection": false,
+        "emToPixelHeightRatio": 0.7518355359765051,
+        "fontNo": 0,
+        "hheaAscender": 2210,
+        "hheaDescender": -514,
+        "metricFormula": "stbtt_ScaleForPixelHeight = SizePixels / (hheaAscender - hheaDescender); equivalent em pixels = SizePixels * unitsPerEm / denominator",
+        "nominalEquivalentEmPixels": 15.036710719530102,
+        "os2": {
+          "available": true,
+          "sCapHeight": 1434,
+          "sxHeight": 1024,
+          "version": 3
+        },
+        "pixelHeightDenominator": 2724,
+        "rasterizerDensity": 1.0,
+        "sfntOffset": 0,
+        "sha256": "b169e636719880976a97e94e3b1cb3dbe5f4a38eabc037bf9f2a9165154c3ad2",
+        "sourceName": "",
+        "sourceSizePixels": 20.0,
+        "unitsPerEm": 2048
+      },
+      "sourcesCount": 4
+    },
+    {
+      "ascent": 23.0,
+      "debugName": "",
+      "descent": -6.0,
+      "fontScale": 1.0,
+      "fontSize": 28.0,
+      "primaryLoadedSource": {
+        "binding": "ImFont.Sources[0].FontData/FontDataSize",
+        "bytes": 947364,
+        "collection": false,
+        "emToPixelHeightRatio": 0.7518355359765051,
+        "fontNo": 0,
+        "hheaAscender": 2210,
+        "hheaDescender": -514,
+        "metricFormula": "stbtt_ScaleForPixelHeight = SizePixels / (hheaAscender - hheaDescender); equivalent em pixels = SizePixels * unitsPerEm / denominator",
+        "nominalEquivalentEmPixels": 21.051395007342144,
+        "os2": {
+          "available": true,
+          "sCapHeight": 1434,
+          "sxHeight": 1024,
+          "version": 3
+        },
+        "pixelHeightDenominator": 2724,
+        "rasterizerDensity": 1.0,
+        "sfntOffset": 0,
+        "sha256": "b169e636719880976a97e94e3b1cb3dbe5f4a38eabc037bf9f2a9165154c3ad2",
+        "sourceName": "",
+        "sourceSizePixels": 28.0,
+        "unitsPerEm": 2048
+      },
+      "sourcesCount": 4
+    },
+    {
+      "ascent": 10.0,
+      "debugName": "consola.ttf, 13px",
+      "descent": -4.0,
+      "fontScale": 1.0,
+      "fontSize": 13.0,
+      "primaryLoadedSource": {
+        "binding": "ImFont.Sources[0].FontData/FontDataSize",
+        "bytes": 453088,
+        "collection": false,
+        "emToPixelHeightRatio": 1.0,
+        "fontNo": 0,
+        "hheaAscender": 1521,
+        "hheaDescender": -527,
+        "metricFormula": "stbtt_ScaleForPixelHeight = SizePixels / (hheaAscender - hheaDescender); equivalent em pixels = SizePixels * unitsPerEm / denominator",
+        "nominalEquivalentEmPixels": 13.0,
+        "os2": {
+          "available": true,
+          "sCapHeight": 1307,
+          "sxHeight": 1004,
+          "version": 3
+        },
+        "pixelHeightDenominator": 2048,
+        "rasterizerDensity": 1.0,
+        "sfntOffset": 0,
+        "sha256": "cf00b507b3286870cc5064ebd0633c303f70b491a4af25eec2d32df413db0179",
+        "sourceName": "consola.ttf, 13px",
+        "sourceSizePixels": 13.0,
+        "unitsPerEm": 2048
+      },
+      "sourcesCount": 4
+    }
+  ],
+  "hidden": true,
+  "histogramDrawn": true,
+  "integration": {
+    "defaultApps": false,
+    "errorReporting": false,
+    "feedback": false,
+    "usageReporting": false
+  },
+  "kind": "splatview-native-ui-pair",
+  "language": "en",
+  "logicalSize": [
+    1280,
+    800
+  ],
+  "png": {
+    "bytes": 184926,
+    "lastWriteTimeTicks": 134365872334891064,
+    "path": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.build\\desktop-visual-tests\\native-run-02\\gaussian-basic.png",
+    "sha256": "49d585fb14472dd798b02b6a3eda44f1d20f2e1c4f16202ce90eebfa5d39bc24"
+  },
+  "popupBounds": null,
+  "ready": true,
+  "scenePresentationParity": "pending-browser-camera-and-raster-comparison",
+  "schemaVersion": 1,
+  "settingsOpen": false,
+  "settingsPage": 0,
+  "state": "gaussian-basic",
+  "style": {
+    "ChildRounding": 8.0,
+    "FrameBorderSize": 1.0,
+    "FramePadding": [
+      6.0,
+      3.0
+    ],
+    "GrabMinSize": 12.0,
+    "ItemInnerSpacing": [
+      6.0,
+      4.0
+    ],
+    "ItemSpacing": [
+      6.0,
+      4.0
+    ],
+    "PopupRounding": 6.0,
+    "ScrollbarSize": 10.0,
+    "WindowBorderSize": 1.0,
+    "WindowPadding": [
+      12.0,
+      6.0
+    ],
+    "WindowRounding": 8.0,
+    "colors": {
+      "Border": [
+        0.16500000655651093,
+        0.16500000655651093,
+        0.16500000655651093,
+        1.0
+      ],
+      "BorderShadow": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "Button": [
+        0.11800000071525574,
+        0.11800000071525574,
+        0.11800000071525574,
+        1.0
+      ],
+      "ButtonActive": [
+        0.18799999356269836,
+        0.18799999356269836,
+        0.18799999356269836,
+        1.0
+      ],
+      "ButtonHovered": [
+        0.14900000393390656,
+        0.14900000393390656,
+        0.14900000393390656,
+        1.0
+      ],
+      "CheckMark": [
+        0.7200000286102295,
+        0.7200000286102295,
+        0.7200000286102295,
+        1.0
+      ],
+      "ChildBg": [
+        0.0860000029206276,
+        0.0860000029206276,
+        0.0860000029206276,
+        1.0
+      ],
+      "DragDropTarget": [
+        0.7200000286102295,
+        0.7200000286102295,
+        0.7200000286102295,
+        1.0
+      ],
+      "FrameBg": [
+        0.10199999809265137,
+        0.10199999809265137,
+        0.10199999809265137,
+        1.0
+      ],
+      "FrameBgActive": [
+        0.18799999356269836,
+        0.18799999356269836,
+        0.18799999356269836,
+        1.0
+      ],
+      "FrameBgHovered": [
+        0.14900000393390656,
+        0.14900000393390656,
+        0.14900000393390656,
+        1.0
+      ],
+      "Header": [
+        0.18799999356269836,
+        0.18799999356269836,
+        0.18799999356269836,
+        1.0
+      ],
+      "HeaderActive": [
+        0.25,
+        0.25,
+        0.25,
+        1.0
+      ],
+      "HeaderHovered": [
+        0.2199999988079071,
+        0.2199999988079071,
+        0.2199999988079071,
+        1.0
+      ],
+      "MenuBarBg": [
+        0.0860000029206276,
+        0.0860000029206276,
+        0.0860000029206276,
+        1.0
+      ],
+      "ModalWindowDimBg": [
+        0.05900000035762787,
+        0.05900000035762787,
+        0.05900000035762787,
+        0.75
+      ],
+      "NavCursor": [
+        0.7200000286102295,
+        0.7200000286102295,
+        0.7200000286102295,
+        1.0
+      ],
+      "NavWindowingDimBg": [
+        0.05900000035762787,
+        0.05900000035762787,
+        0.05900000035762787,
+        0.75
+      ],
+      "NavWindowingHighlight": [
+        0.9100000262260437,
+        0.9100000262260437,
+        0.9100000262260437,
+        0.699999988079071
+      ],
+      "PlotHistogram": [
+        0.7200000286102295,
+        0.7200000286102295,
+        0.7200000286102295,
+        1.0
+      ],
+      "PlotHistogramHovered": [
+        0.8159999847412109,
+        0.8159999847412109,
+        0.8159999847412109,
+        1.0
+      ],
+      "PlotLines": [
+        0.5199999809265137,
+        0.5199999809265137,
+        0.5199999809265137,
+        1.0
+      ],
+      "PlotLinesHovered": [
+        0.8159999847412109,
+        0.8159999847412109,
+        0.8159999847412109,
+        1.0
+      ],
+      "PopupBg": [
+        0.0860000029206276,
+        0.0860000029206276,
+        0.0860000029206276,
+        1.0
+      ],
+      "ResizeGrip": [
+        0.7200000286102295,
+        0.7200000286102295,
+        0.7200000286102295,
+        0.25
+      ],
+      "ResizeGripActive": [
+        0.7200000286102295,
+        0.7200000286102295,
+        0.7200000286102295,
+        1.0
+      ],
+      "ResizeGripHovered": [
+        0.46700000762939453,
+        0.46700000762939453,
+        0.46700000762939453,
+        1.0
+      ],
+      "ScrollbarBg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "ScrollbarGrab": [
+        0.23000000417232513,
+        0.23000000417232513,
+        0.23000000417232513,
+        1.0
+      ],
+      "ScrollbarGrabActive": [
+        0.7200000286102295,
+        0.7200000286102295,
+        0.7200000286102295,
+        1.0
+      ],
+      "ScrollbarGrabHovered": [
+        0.46700000762939453,
+        0.46700000762939453,
+        0.46700000762939453,
+        1.0
+      ],
+      "Separator": [
+        0.13300000131130219,
+        0.13300000131130219,
+        0.13300000131130219,
+        1.0
+      ],
+      "SeparatorActive": [
+        0.7200000286102295,
+        0.7200000286102295,
+        0.7200000286102295,
+        1.0
+      ],
+      "SeparatorHovered": [
+        0.8159999847412109,
+        0.8159999847412109,
+        0.8159999847412109,
+        1.0
+      ],
+      "SliderGrab": [
+        0.7200000286102295,
+        0.7200000286102295,
+        0.7200000286102295,
+        1.0
+      ],
+      "SliderGrabActive": [
+        0.8159999847412109,
+        0.8159999847412109,
+        0.8159999847412109,
+        1.0
+      ],
+      "Tab": [
+        0.0860000029206276,
+        0.0860000029206276,
+        0.0860000029206276,
+        1.0
+      ],
+      "TabDimmed": [
+        0.0860000029206276,
+        0.0860000029206276,
+        0.0860000029206276,
+        1.0
+      ],
+      "TabDimmedSelected": [
+        0.18799999356269836,
+        0.18799999356269836,
+        0.18799999356269836,
+        1.0
+      ],
+      "TabDimmedSelectedOverline": [
+        0.7200000286102295,
+        0.7200000286102295,
+        0.7200000286102295,
+        1.0
+      ],
+      "TabHovered": [
+        0.14900000393390656,
+        0.14900000393390656,
+        0.14900000393390656,
+        1.0
+      ],
+      "TabSelected": [
+        0.18799999356269836,
+        0.18799999356269836,
+        0.18799999356269836,
+        1.0
+      ],
+      "TabSelectedOverline": [
+        0.7200000286102295,
+        0.7200000286102295,
+        0.7200000286102295,
+        1.0
+      ],
+      "TableBorderLight": [
+        0.13300000131130219,
+        0.13300000131130219,
+        0.13300000131130219,
+        1.0
+      ],
+      "TableBorderStrong": [
+        0.16500000655651093,
+        0.16500000655651093,
+        0.16500000655651093,
+        1.0
+      ],
+      "TableHeaderBg": [
+        0.18799999356269836,
+        0.18799999356269836,
+        0.18799999356269836,
+        1.0
+      ],
+      "TableRowBg": [
+        0.0860000029206276,
+        0.0860000029206276,
+        0.0860000029206276,
+        1.0
+      ],
+      "TableRowBgAlt": [
+        0.10199999809265137,
+        0.10199999809265137,
+        0.10199999809265137,
+        1.0
+      ],
+      "Text": [
+        0.9100000262260437,
+        0.9100000262260437,
+        0.9100000262260437,
+        1.0
+      ],
+      "TextDisabled": [
+        0.5199999809265137,
+        0.5199999809265137,
+        0.5199999809265137,
+        1.0
+      ],
+      "TextLink": [
+        0.8159999847412109,
+        0.8159999847412109,
+        0.8159999847412109,
+        1.0
+      ],
+      "TextSelectedBg": [
+        0.7200000286102295,
+        0.7200000286102295,
+        0.7200000286102295,
+        0.25
+      ],
+      "TitleBg": [
+        0.0860000029206276,
+        0.0860000029206276,
+        0.0860000029206276,
+        1.0
+      ],
+      "TitleBgActive": [
+        0.18799999356269836,
+        0.18799999356269836,
+        0.18799999356269836,
+        1.0
+      ],
+      "TitleBgCollapsed": [
+        0.05900000035762787,
+        0.05900000035762787,
+        0.05900000035762787,
+        1.0
+      ],
+      "WindowBg": [
+        0.05900000035762787,
+        0.05900000035762787,
+        0.05900000035762787,
+        1.0
+      ]
+    }
+  },
+  "theme": "dark",
+  "toolsBounds": {
+    "name": "Workspace/Tools_719A5973",
+    "position": [
+      968.0,
+      12.0
+    ],
+    "scroll": [
+      0.0,
+      0.0
+    ],
+    "scrollMax": [
+      0.0,
+      0.0
+    ],
+    "scrollbarY": false,
+    "size": [
+      300.0,
+      562.0
+    ],
+    "workMax": [
+      1256.0,
+      568.0
+    ],
+    "workMin": [
+      980.0,
+      18.0
+    ]
+  },
+  "toolsMode": "basic",
+  "toolsOpen": true,
+  "tutorialOpen": false,
+  "typography": {
+    "body": {
+      "fontScale": 1.0,
+      "method": "actual ImFont::CalcTextSizeA; [advance width, logical line height], unwrapped; not glyph ink bounds",
+      "nominalSize": 15.0,
+      "runtimeBaseSize": 15.0,
+      "texts": [
+        {
+          "nominal": [
+            45.26982116699219,
+            15.0
+          ],
+          "runtimeBase": [
+            45.26982116699219,
+            15.0
+          ],
+          "text": "Selection"
+        },
+        {
+          "nominal": [
+            26.850217819213867,
+            15.0
+          ],
+          "runtimeBase": [
+            26.850217819213867,
+            15.0
+          ],
+          "text": "Color"
+        },
+        {
+          "nominal": [
+            50.50660705566406,
+            15.0
+          ],
+          "runtimeBase": [
+            50.50660705566406,
+            15.0
+          ],
+          "text": "Transform"
+        },
+        {
+          "nominal": [
+            26.640968322753906,
+            15.0
+          ],
+          "runtimeBase": [
+            26.640968322753906,
+            15.0
+          ],
+          "text": "Tools"
+        },
+        {
+          "nominal": [
+            46.12334442138672,
+            15.0
+          ],
+          "runtimeBase": [
+            46.12334442138672,
+            15.0
+          ],
+          "text": "demo.ply"
+        },
+        {
+          "nominal": [
+            44.94493103027344,
+            15.0
+          ],
+          "runtimeBase": [
+            44.94493103027344,
+            15.0
+          ],
+          "text": "Combine"
+        }
+      ]
+    },
+    "captureBoundary": "Read-only after production draw; no PushFont/Begin/current-window changes",
+    "currentWindow": {
+      "available": false,
+      "reason": "No current ImGui window after production AppUi::draw/Render"
+    },
+    "fontAllowUserScaling": false,
+    "fontApi": "captured ImGui 1.91: FontGlobalScale, ImFont.Scale, per-window FontWindowScale/Parents",
+    "fontGlobalScale": 1.0,
+    "title": {
+      "fontScale": 1.0,
+      "method": "actual ImFont::CalcTextSizeA; [advance width, logical line height], unwrapped; not glyph ink bounds",
+      "nominalSize": 20.0,
+      "runtimeBaseSize": 20.0,
+      "texts": [
+        {
+          "nominal": [
+            64.60353088378906,
+            20.0
+          ],
+          "runtimeBase": [
+            64.60353088378906,
+            20.0
+          ],
+          "text": "Selection"
+        },
+        {
+          "nominal": [
+            38.02496337890625,
+            20.0
+          ],
+          "runtimeBase": [
+            38.02496337890625,
+            20.0
+          ],
+          "text": "Color"
+        },
+        {
+          "nominal": [
+            73.31130981445313,
+            20.0
+          ],
+          "runtimeBase": [
+            73.31130981445313,
+            20.0
+          ],
+          "text": "Transform"
+        },
+        {
+          "nominal": [
+            38.083702087402344,
+            20.0
+          ],
+          "runtimeBase": [
+            38.083702087402344,
+            20.0
+          ],
+          "text": "Tools"
+        },
+        {
+          "nominal": [
+            66.17474365234375,
+            20.0
+          ],
+          "runtimeBase": [
+            66.17474365234375,
+            20.0
+          ],
+          "text": "demo.ply"
+        },
+        {
+          "nominal": [
+            63.17914581298828,
+            20.0
+          ],
+          "runtimeBase": [
+            63.17914581298828,
+            20.0
+          ],
+          "text": "Combine"
+        }
+      ]
+    },
+    "toolsWindow": {
+      "fontRefSizeAtBegin": 15.0,
+      "fontWindowScale": 1.0,
+      "fontWindowScaleParents": 1.0,
+      "window": "Workspace/Tools_719A5973"
+    }
+  },
+  "uiAlpha": 1.0,
+  "uiScale": 1.0,
+  "uiSize": "small"
+}

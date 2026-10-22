@@ -1,0 +1,317 @@
+{
+  "schemaVersion": 1,
+  "kind": "splatview-original-benchmark-fixture",
+  "id": "dyadic-grid-256k-sh0-v1",
+  "status": "pinned",
+  "scope": "One original fixed 256k SH0 workload and intended orbit trace; construction is not observed performance or supported capacity",
+  "origin": {
+    "authorship": "Original analytic construction authored for SplatView Web",
+    "thirdPartyInputBytes": false,
+    "thirdPartyImplementationAdapted": false,
+    "formatReference": {
+      "name": "PlayCanvas splat-transform",
+      "version": "3.9.0",
+      "revision": "435b972a97a278c655d8f7015b1355215cba0d71",
+      "url": "https://github.com/playcanvas/splat-transform",
+      "license": "MIT",
+      "notice": "native/upstream/splatview/THIRD-PARTY-NOTICES.txt",
+      "licenseFile": "native/upstream/splatview/third_party/format-reference-licenses/playcanvas.txt",
+      "purpose": "32-byte .splat layout reference only; no copied generated fixture or implementation"
+    }
+  },
+  "generator": {
+    "path": "tools/bench/build-fixtures.ts",
+    "bytes": 16969,
+    "sha256": "7b26e9c841d8d0ce860f55cf6b71737e35d1ee477b5dd1a5d1aa9fbf326de9ac"
+  },
+  "referenceFiles": [
+    {
+      "path": "native/upstream/splatview/THIRD-PARTY-NOTICES.txt",
+      "bytes": 3799,
+      "sha256": "cd2322a8beaed3bcb9bd3d5536d3d0baec658ece1422ac08857821f878df4f7d"
+    },
+    {
+      "path": "native/upstream/splatview/third_party/format-reference-licenses/playcanvas.txt",
+      "bytes": 1083,
+      "sha256": "3e14258ac3a5468accc7baf7055ee5f1fad48631d47856840b124dc232f9414f"
+    }
+  ],
+  "identity": {
+    "inputSha256": "ff27349c204f5ddb7d5cec55775193f601fe28bdd88727362edc44a3f3145244",
+    "sourceOrderSha256": "3859865469dd7c3f3f10c2d30346aa45554f17a1d3f8c42f352bf73027aa5789",
+    "distributionSha256": "f6e02536d97111e5c8c21db437f72989e98037f592e2c17e877b95db0aa478ce",
+    "expectedSceneSha256": "22397e5ed6975483e5cc7a125df52fedf6b647862757b3744e7173b3db27543d",
+    "fullMembershipSha256": "3859865469dd7c3f3f10c2d30346aa45554f17a1d3f8c42f352bf73027aa5789",
+    "traceSha256": "9231ac689d96c5d130325ed9081bdb80ac626ca70694bffbe043fe4b0862db25",
+    "projectionSha256": "e8185ba1360c3a7c84b321695a674a12ace9f57bf4a9501d6efd4d4db475b1ad"
+  },
+  "workload": {
+    "sourceCount": 256000,
+    "loadedCount": 256000,
+    "shDegree": 0,
+    "inputBytes": 8192000,
+    "sizePolicy": "Fixed workload; no configurable count or supported capacity inference",
+    "spatialDistribution": "64 x 50 x 80 dyadic grid with records 0, 1 and 2 replaced by three isolated off-grid anchors",
+    "overdrawIntent": "Small nonzero Gaussian footprints; projected overlap is unmeasured and must be recorded at actual replay checkpoints",
+    "measuredOverdraw": null,
+    "units": {
+      "position": "arbitrary-scene-unit",
+      "scale": "scene-unit Gaussian standard deviation",
+      "covariance": "scene-unit squared",
+      "opacity": "linear unit interval",
+      "color": "unorm8 RGB before SH DC conversion",
+      "angles": "camera yaw/pitch/roll radians; vertical field of view degrees",
+      "time": "milliseconds",
+      "screen": "framebuffer pixels at DPR 1"
+    }
+  },
+  "wire": {
+    "format": "SPLAT",
+    "recordBytes": 32,
+    "byteOrder": "little-endian",
+    "coordinateSystem": "RDF-right-down-forward",
+    "sourceId": "Zero-based record ordinal; all 256000 records retained in source order",
+    "layout": [
+      {
+        "offset": 0,
+        "type": "float32[3]",
+        "meaning": "wire position x,y,z"
+      },
+      {
+        "offset": 12,
+        "type": "float32[3]",
+        "meaning": "linear scales x,y,z",
+        "value": [
+          0.0009765625,
+          0.001953125,
+          0.00390625
+        ]
+      },
+      {
+        "offset": 24,
+        "type": "uint8[4]",
+        "meaning": "RGBA; opaque primary R,G,B repeating by sourceId modulo 3"
+      },
+      {
+        "offset": 28,
+        "type": "uint8[4]",
+        "meaning": "quaternion w,x,y,z, normalized after (byte-128)/128",
+        "value": [
+          255,
+          128,
+          128,
+          128
+        ]
+      }
+    ],
+    "positionRule": {
+      "gridIndices": [
+        "x = sourceId % 64",
+        "y = floor(sourceId / 64) % 50",
+        "z = floor(sourceId / 3200)"
+      ],
+      "coordinates": [
+        "(2*x-63)/32",
+        "(2*y-49)/32",
+        "(2*z-79)/32"
+      ],
+      "anchorOverrides": [
+        {
+          "sourceId": 0,
+          "position": [
+            -8,
+            0,
+            0
+          ]
+        },
+        {
+          "sourceId": 1,
+          "position": [
+            8,
+            0,
+            0
+          ]
+        },
+        {
+          "sourceId": 2,
+          "position": [
+            0,
+            8,
+            0
+          ]
+        }
+      ],
+      "uniqueness": "Grid positions are unique; every anchor is outside the grid bounds"
+    }
+  },
+  "canonicalScene": {
+    "serialization": "splatview-gaussian144-canonical-zero-le-v1",
+    "coordinateSystem": "RUB-right-up-backward",
+    "positionConversion": [
+      "wireX",
+      "-wireY",
+      "-wireZ"
+    ],
+    "sourceOrder": "Ascending source ID 0 through 255999; no sorting or sampling",
+    "recordBytes": 144,
+    "byteOrder": "little-endian",
+    "signedZeroPolicy": "Normalize every float32 and binary16 numeric zero to positive zero for semantic identity hashes",
+    "layout": [
+      {
+        "offset": 0,
+        "type": "float32[4]",
+        "meaning": "RUB x,y,z and opacity",
+        "opacity": 1
+      },
+      {
+        "offset": 16,
+        "type": "float32[4]",
+        "meaning": "covariance xx,xy,xz,yy",
+        "value": [
+          9.5367431640625e-07,
+          0,
+          0,
+          3.814697265625e-06
+        ]
+      },
+      {
+        "offset": 32,
+        "type": "float32[4]",
+        "meaning": "covariance yz,zz and two reserved padding values",
+        "value": [
+          0,
+          1.52587890625e-05,
+          0,
+          0
+        ]
+      },
+      {
+        "offset": 48,
+        "type": "binary16[48]",
+        "meaning": "coefficient-major RGB SH; first three values DC; remaining 45 positive zero",
+        "dcPositiveBits": "0x3f17",
+        "dcNegativeBits": "0xbf17",
+        "positiveChannelRule": "sourceId modulo 3"
+      }
+    ],
+    "sourceOrderSerialization": "Concatenated uint32 little-endian source IDs 0 through 255999, no prefix or delimiter",
+    "fullMembershipSerialization": "Same uint32 little-endian sequence as source order; all original records, no selected or deleted records",
+    "hashRules": {
+      "algorithm": "SHA-256 lowercase hexadecimal",
+      "inputSha256": "Raw .splat file bytes",
+      "sourceOrderSha256": "Source-order serialization bytes",
+      "fullMembershipSha256": "Full-membership serialization bytes; explicitly aliases sourceOrderSha256 for this full workload",
+      "expectedSceneSha256": "Concatenated canonical 144-byte records in source order, no prefix",
+      "distributionSha256": "UTF-8 domain prefix followed by the same canonical record bytes",
+      "distributionDomainPrefix": "SplatViewBenchmarkDistribution\u0000v1\u0000dyadic-grid-256k-sh0-v1\u0000",
+      "traceSha256": "UTF-8 JSON.stringify(trace, null, 2) followed by one LF",
+      "projectionSha256": "UTF-8 JSON.stringify({ framebuffer: trace.framebuffer, projection: trace.projection }, null, 2) followed by one LF; object key order exactly as shown"
+    }
+  },
+  "trace": {
+    "id": "orbit-fixed-v1",
+    "file": "orbit-trace.json",
+    "status": "intended-actions-only",
+    "warmupMs": 5000,
+    "durationMs": 30000,
+    "idleHiddenMs": 1000,
+    "sampleIntervalMs": 250,
+    "cameraStateFields": [
+      "targetX",
+      "targetY",
+      "targetZ",
+      "yawRadians",
+      "pitchRadians",
+      "distance",
+      "speed",
+      "verticalFovDegrees",
+      "yUp",
+      "rollRadians",
+      "aspect"
+    ],
+    "fixedCamera": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      24,
+      1,
+      45,
+      1,
+      0,
+      1.6
+    ],
+    "framebuffer": {
+      "id": "standard-1280x800-dpr1",
+      "kind": "standard",
+      "cssWidth": 1280,
+      "cssHeight": 800,
+      "width": 1280,
+      "height": 800,
+      "dpr": 1
+    },
+    "replay": "Set each phase's first absolute camera state before starting its clock. Warmup and measured orbit each make one full positive-yaw revolution; sample yaw = 2 * Math.PI * (sampleIndex / intervalCount), using that operation order and JavaScript binary64. Interpolate yaw linearly between samples, hold all other camera components fixed. Hide viewport for final 1000 ms and perform no camera action there.",
+    "resetPolicy": "Fresh full fixture and fixed camera before each scenario; no inherited selection, deletion, edit history or view revision",
+    "cachePolicy": "Collector must separately observe cold cache invalidation and warm cache reuse; trace labels alone do not prove either",
+    "timings": null,
+    "overdrawCheckpoints": null
+  },
+  "selectionCases": null,
+  "selectionQualification": {
+    "status": "pending",
+    "reason": "Precise production contributor, query and amendment parameters and their independent masks are not yet qualified; the three anchor records do not establish GPU picking correctness",
+    "worklist": [
+      "Bind fixed camera, actual projection bytes, framebuffer, contributor options and baseline masks for each pick/query/amendment case",
+      "Independently establish source-membership masks and parameter identities before timing",
+      "Observe cold invalidation and warm cache reuse for 30 attempts per condition and operation; retain failed attempts",
+      "Collect actual projected-overdraw checkpoints throughout the declared orbit"
+    ]
+  },
+  "exportCase": {
+    "id": "full-original-splat-v1",
+    "format": "SPLAT",
+    "scope": "all",
+    "loadedCount": 256000,
+    "selectedCount": 0,
+    "deletedCount": 0,
+    "selectedDeletedCount": 0,
+    "capturedRevision": 0,
+    "membership": "All source IDs, source order; fullMembershipSha256",
+    "precisionPolicy": "ply-splat-numeric-v1; independent parsed attributes and membership/order, never count-only proof or byte-identical re-encoding assumption",
+    "fixtureSpecificInvariants": {
+      "positionAndSourceOrder": "Exact original positions and source IDs in original order",
+      "sortedLinearScale": "Each independently parsed sorted linear scale must differ from its sorted original scale by at most 4e-6 times that original scale",
+      "primaryRGBA": "Every source ID retains its exact opaque primary RGBA bytes, including alpha 255",
+      "basis": "Bounds supplement the frozen ply-splat-numeric-v1 covariance/quaternion policy for this fixture; they do not replace it or establish bounds for other inputs",
+      "linearScalePolicyId": "dyadic-grid-linear-scales-v1"
+    },
+    "expectedEncodedSha256": null,
+    "note": "Actual exported byte SHA must be retained with independently parsed numeric error maxima and worst record; original input SHA is not an export oracle"
+  },
+  "qualification": {
+    "independentOracle": "tools/bench/oracles.ts; must not import this generator or production parser/math",
+    "pinning": "Root independently verifies prepared fixture and canonical identities, then pins status and hashes before default construction",
+    "performanceThresholds": null,
+    "memoryCeilings": null,
+    "observedEnvironment": null,
+    "capacityQualified": false,
+    "sustainedQualified": false
+  },
+  "pinEvidence": {
+    "scope": "fixture-and-native-correctness-only",
+    "identity": "Codex automated byte/oracle consistency attribution; no human approval or performance acceptance",
+    "atUtc": "2026-10-15T22:45:48.423023+00:00",
+    "nativeObservation": {
+      "path": ".build/benchmark-fixture-tests/native-observation-01/observation.json",
+      "bytes": 8921,
+      "sha256": "468830c38d12930df9c66d7264fe85ef5b5780e6ee25b84a08380f3d41f49c2a"
+    },
+    "focusedCases": {
+      "path": ".build/benchmark-fixture-tests/focused-02.json",
+      "bytes": 33831,
+      "sha256": "6eddf6b02a55663969c087147f2e5f6bfbac45762cdaeea615ed2a9f6185dd65"
+    },
+    "traceReview": "All 142 absolute camera samples, phase clocks, framebuffer and hidden action reviewed independently against declared procedure. No browser actions were observed."
+  }
+}

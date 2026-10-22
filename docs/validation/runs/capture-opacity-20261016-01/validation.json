@@ -1,0 +1,761 @@
+{
+  "kind": "capture-opacity-qualification",
+  "status": "passed",
+  "goalStatus": "active",
+  "observedAtUtc": "2026-10-16T08:55:52.743681+00:00",
+  "sourceSeal": {
+    "path": ".build/capture-opacity-tests/source-checks.json",
+    "bytes": 835165,
+    "sha256": "8ee8f33ee94b5c49a93d8536516883ae2d31fa1625f6ebeab0651c56dd56941d"
+  },
+  "helper": {
+    "path": ".build/capture-opacity-tests/evidence-01.py",
+    "bytes": 17484,
+    "sha256": "b1ec4da255908b64e5a2736c0dc4eaafc22afcd95df9f6ba980593673998c8a6"
+  },
+  "inputs": {
+    "path": ".build/capture-opacity-tests/inputs-01.json",
+    "bytes": 715,
+    "sha256": "c20532c92b0ca92afceb50d4f75f71c1912c0aba6425a33c533f86f9351a0bca"
+  },
+  "previousValidation": {
+    "path": "docs/validation/runs/pro-morphology-20261016-01/validation.json",
+    "bytes": 39074,
+    "sha256": "3c282392d98ca104923721eb29e17798537854612b3cf37edd95435d2e7a7c32"
+  },
+  "shippingAudit": {
+    "path": ".build/pro-morphology-tests/build-audit-02.json",
+    "bytes": 61596,
+    "sha256": "09271bd6a61c285384dd587c4a4ee242989bee9b4649ee9b3edb520a32c79a36"
+  },
+  "applicationAndNativeAndDistributionUnchanged": true,
+  "appInputId": "feec83e84283393da63446e03b4a053986dfae568f5303475cb44a12b17397b4",
+  "deploymentId": "f19d2cc242dcaf2ad8f5985c16aa7e9cf6848fe309de622aba01324084d95f35",
+  "unit": {
+    "passed": 19,
+    "files": 1,
+    "report": {
+      "path": ".build/capture-opacity-tests/unit-report-01.json",
+      "bytes": 7651,
+      "sha256": "1ffb551be4c8d1c514219036c6d7ee32ec84977dd42b5cd36675627dc03f7121"
+    }
+  },
+  "browser": {
+    "passed": 15,
+    "report": {
+      "path": ".build/capture-opacity-tests/browser-report-01.json",
+      "bytes": 389014,
+      "sha256": "512913c01dd35ee0506c275e469484cd2ed70243331b6ddf92385b44bfb34ca6"
+    },
+    "discovery": {
+      "path": ".build/capture-opacity-tests/discovery-01.json",
+      "bytes": 191407,
+      "sha256": "d49ab2a1de2b04255088491ae08ce5e0b03ff8f873c72ae174c9a2466ea8ae6d"
+    },
+    "identitiesMatched": true,
+    "attachments": [],
+    "opaqueCaptures": [
+      {
+        "caseId": "c0942118f5e66e8bc1e1-29481d696b0297eccb69",
+        "kind": "gaussian",
+        "attachment": "image-opaque-capture-gaussian-evidence.json",
+        "bytes": 42101,
+        "sha256": "28839f4ec14f47703f073ee316869d28278c90eea5c96c585664e3e929962454",
+        "samples": [
+          {
+            "background": "black",
+            "raw": {
+              "count": 1052675,
+              "opaque": 1052675,
+              "nonOpaque": 0,
+              "minimum": 255,
+              "maximum": 255,
+              "foreground": 174308,
+              "background": 878367,
+              "corner": [
+                0,
+                0,
+                0,
+                255
+              ],
+              "width": 1027,
+              "height": 1025,
+              "hash": "a13875c91eaa20d851e74adea051da2262a3d0190d1976f8b06d267e262212d6",
+              "sceneKind": "gaussian",
+              "nativeKind": 0,
+              "currentScene": true,
+              "currentCamera": true
+            },
+            "image": {
+              "width": 1024,
+              "height": 1024,
+              "hash": "855ff502775f061973b954400a5dbfc1c0cefc2fc95b638dad6efa986645ef04",
+              "count": 1048576,
+              "opaque": 1048576,
+              "nonOpaque": 0,
+              "minimum": 255,
+              "maximum": 255,
+              "foreground": 173863,
+              "background": 874713,
+              "corner": [
+                0,
+                0,
+                0,
+                255
+              ]
+            },
+            "blobSize": 182382,
+            "blobHash": "2d57048834318cb40e2fba450b5403aba71ce9763709d67c1aac2685f60cabb0"
+          },
+          {
+            "background": "gray",
+            "raw": {
+              "count": 1052675,
+              "opaque": 1052675,
+              "nonOpaque": 0,
+              "minimum": 255,
+              "maximum": 255,
+              "foreground": 103844,
+              "background": 948831,
+              "corner": [
+                127,
+                127,
+                127,
+                255
+              ],
+              "width": 1027,
+              "height": 1025,
+              "hash": "d14b1cc0207a8b4ce1f75c839c275a2466f162ebd3838716807b109cf8e41145",
+              "sceneKind": "gaussian",
+              "nativeKind": 0,
+              "currentScene": true,
+              "currentCamera": true
+            },
+            "image": {
+              "width": 1024,
+              "height": 1024,
+              "hash": "d662d1801aaeb55b4890649b4008e94808b6585adcd5bec21e8e310b40c23a0e",
+              "count": 1048576,
+              "opaque": 1048576,
+              "nonOpaque": 0,
+              "minimum": 255,
+              "maximum": 255,
+              "foreground": 103693,
+              "background": 944883,
+              "corner": [
+                127,
+                127,
+                127,
+                255
+              ]
+            },
+            "blobSize": 202829,
+            "blobHash": "cd9b5c86c57530f3a36ce2f280794973530c2a5c0409bd8a6a3fa596ef9a5ab5"
+          },
+          {
+            "background": "white",
+            "raw": {
+              "count": 1052675,
+              "opaque": 1052675,
+              "nonOpaque": 0,
+              "minimum": 255,
+              "maximum": 255,
+              "foreground": 156126,
+              "background": 896549,
+              "corner": [
+                255,
+                255,
+                255,
+                255
+              ],
+              "width": 1027,
+              "height": 1025,
+              "hash": "1dfa34b5e2b26f65d8348f4f447c069e945d7b7f5d6d246e2404efa5f26f0bea",
+              "sceneKind": "gaussian",
+              "nativeKind": 0,
+              "currentScene": true,
+              "currentCamera": true
+            },
+            "image": {
+              "width": 1024,
+              "height": 1024,
+              "hash": "44100a1aaa603e1deb231eb941706dac86d48a99fc91ffb49b9ad0c9f7f8dcfd",
+              "count": 1048576,
+              "opaque": 1048576,
+              "nonOpaque": 0,
+              "minimum": 255,
+              "maximum": 255,
+              "foreground": 155811,
+              "background": 892765,
+              "corner": [
+                255,
+                255,
+                255,
+                255
+              ]
+            },
+            "blobSize": 216233,
+            "blobHash": "19d21f7b8f5a9da313d2ab4e06397008253ab029f7493b3ebbc2e8f83edf1ec3"
+          }
+        ]
+      },
+      {
+        "caseId": "c0942118f5e66e8bc1e1-2554822adcdff90ffc2f",
+        "kind": "points",
+        "attachment": "image-opaque-capture-points-evidence.json",
+        "bytes": 15551,
+        "sha256": "497a97a463dfe9f6e080c52c9c86b55a1e91e53c69f2c2337e222afba160c98a",
+        "samples": [
+          {
+            "background": "black",
+            "raw": {
+              "count": 1052675,
+              "opaque": 1052675,
+              "nonOpaque": 0,
+              "minimum": 255,
+              "maximum": 255,
+              "foreground": 86,
+              "background": 1052589,
+              "corner": [
+                0,
+                0,
+                0,
+                255
+              ],
+              "width": 1027,
+              "height": 1025,
+              "hash": "34924fb11c27932751d5e2d87bc76d2e755d71a96d06811a9f67c19bee74750e",
+              "sceneKind": "geometry",
+              "nativeKind": 1,
+              "currentScene": true,
+              "currentCamera": true
+            },
+            "image": {
+              "width": 1024,
+              "height": 1024,
+              "hash": "267c7b97707d1cf2b9947b6a899c954da81ae46c14308956818403c0ca972773",
+              "count": 1048576,
+              "opaque": 1048576,
+              "nonOpaque": 0,
+              "minimum": 255,
+              "maximum": 255,
+              "foreground": 122,
+              "background": 1048454,
+              "corner": [
+                0,
+                0,
+                0,
+                255
+              ]
+            },
+            "blobSize": 25074,
+            "blobHash": "a6224ce7ffccccfed1afb0e21e42ba0cf1149ee361259f5c6c1c3594917a9058"
+          },
+          {
+            "background": "gray",
+            "raw": {
+              "count": 1052675,
+              "opaque": 1052675,
+              "nonOpaque": 0,
+              "minimum": 255,
+              "maximum": 255,
+              "foreground": 86,
+              "background": 1052589,
+              "corner": [
+                127,
+                127,
+                127,
+                255
+              ],
+              "width": 1027,
+              "height": 1025,
+              "hash": "c55a4e1d1d1aee04f3ee64593b05115d30f0139294f5c79847c6f699dd810de9",
+              "sceneKind": "geometry",
+              "nativeKind": 1,
+              "currentScene": true,
+              "currentCamera": true
+            },
+            "image": {
+              "width": 1024,
+              "height": 1024,
+              "hash": "888b90d3adc9e8add267f1026276cca3aea07551b36e307ea357fcb8300bffe6",
+              "count": 1048576,
+              "opaque": 1048576,
+              "nonOpaque": 0,
+              "minimum": 255,
+              "maximum": 255,
+              "foreground": 118,
+              "background": 1048458,
+              "corner": [
+                127,
+                127,
+                127,
+                255
+              ]
+            },
+            "blobSize": 25195,
+            "blobHash": "65061b4f45d4b8b5918140761c0ead52b53fbf223bf1626415969ca833827f74"
+          },
+          {
+            "background": "white",
+            "raw": {
+              "count": 1052675,
+              "opaque": 1052675,
+              "nonOpaque": 0,
+              "minimum": 255,
+              "maximum": 255,
+              "foreground": 86,
+              "background": 1052589,
+              "corner": [
+                255,
+                255,
+                255,
+                255
+              ],
+              "width": 1027,
+              "height": 1025,
+              "hash": "bf0f186fd41cacf6e346fcf3139266e374ed9fdf44327949c22991b4f336ab7b",
+              "sceneKind": "geometry",
+              "nativeKind": 1,
+              "currentScene": true,
+              "currentCamera": true
+            },
+            "image": {
+              "width": 1024,
+              "height": 1024,
+              "hash": "8d6d20721c551abc0ab72d6538b970b3c4cd4e0d7fe3c36667f8313b4b96e30f",
+              "count": 1048576,
+              "opaque": 1048576,
+              "nonOpaque": 0,
+              "minimum": 255,
+              "maximum": 255,
+              "foreground": 122,
+              "background": 1048454,
+              "corner": [
+                255,
+                255,
+                255,
+                255
+              ]
+            },
+            "blobSize": 25136,
+            "blobHash": "4db972ea4b96b835d4cd4576d294b3dae7a0c22dab1498e7363a0f3c0508852e"
+          }
+        ]
+      },
+      {
+        "caseId": "c0942118f5e66e8bc1e1-8f81dbeec6f6b27a0653",
+        "kind": "mesh",
+        "attachment": "image-opaque-capture-mesh-evidence.json",
+        "bytes": 14826,
+        "sha256": "c762b3b59b1a2ed58e110c78f66891c005bf74a6e24c3bc2ad0d378fc13752b1",
+        "samples": [
+          {
+            "background": "black",
+            "raw": {
+              "count": 1052675,
+              "opaque": 1052675,
+              "nonOpaque": 0,
+              "minimum": 255,
+              "maximum": 255,
+              "foreground": 205455,
+              "background": 847220,
+              "corner": [
+                0,
+                0,
+                0,
+                255
+              ],
+              "width": 1027,
+              "height": 1025,
+              "hash": "00f5c3fd155f1c46b998a068b60523f7b83296a504c95e0b73f8e6578dd7b90c",
+              "sceneKind": "geometry",
+              "nativeKind": 2,
+              "currentScene": true,
+              "currentCamera": true
+            },
+            "image": {
+              "width": 1024,
+              "height": 1024,
+              "hash": "c97982dededa58dd7c056f2a37dbea23adbc6e27b7440a683adb4424e769f8f7",
+              "count": 1048576,
+              "opaque": 1048576,
+              "nonOpaque": 0,
+              "minimum": 255,
+              "maximum": 255,
+              "foreground": 206569,
+              "background": 842007,
+              "corner": [
+                0,
+                0,
+                0,
+                255
+              ]
+            },
+            "blobSize": 27583,
+            "blobHash": "b3ba9e66e8c4d1b26583ea6fcb44eb44cfe071c10b71999d4a04e7c56407c4c7"
+          },
+          {
+            "background": "gray",
+            "raw": {
+              "count": 1052675,
+              "opaque": 1052675,
+              "nonOpaque": 0,
+              "minimum": 255,
+              "maximum": 255,
+              "foreground": 205455,
+              "background": 847220,
+              "corner": [
+                127,
+                127,
+                127,
+                255
+              ],
+              "width": 1027,
+              "height": 1025,
+              "hash": "3aabb076ce5def0ea264c3b20f8f7660c2338a76d63831bdd84abacf6d7691d2",
+              "sceneKind": "geometry",
+              "nativeKind": 2,
+              "currentScene": true,
+              "currentCamera": true
+            },
+            "image": {
+              "width": 1024,
+              "height": 1024,
+              "hash": "dbb67aae7d9099fcb0d0e4b68d3c3989d723de0fedb255761f0e7fd7fa51039a",
+              "count": 1048576,
+              "opaque": 1048576,
+              "nonOpaque": 0,
+              "minimum": 255,
+              "maximum": 255,
+              "foreground": 206243,
+              "background": 842333,
+              "corner": [
+                127,
+                127,
+                127,
+                255
+              ]
+            },
+            "blobSize": 27180,
+            "blobHash": "ca22175042d000909db47c1ebc31cf6e7286416e8ec9d6ab895e427892ed70c6"
+          },
+          {
+            "background": "white",
+            "raw": {
+              "count": 1052675,
+              "opaque": 1052675,
+              "nonOpaque": 0,
+              "minimum": 255,
+              "maximum": 255,
+              "foreground": 205455,
+              "background": 847220,
+              "corner": [
+                255,
+                255,
+                255,
+                255
+              ],
+              "width": 1027,
+              "height": 1025,
+              "hash": "130eeade89fc0e4af2fea65fd7fa3fdeec1ef9a9adac54804277734720d7b39d",
+              "sceneKind": "geometry",
+              "nativeKind": 2,
+              "currentScene": true,
+              "currentCamera": true
+            },
+            "image": {
+              "width": 1024,
+              "height": 1024,
+              "hash": "e44e864016214e8298ea7ad00c8a5ab6792db613163e2a630e2f0c7bd37ba1fd",
+              "count": 1048576,
+              "opaque": 1048576,
+              "nonOpaque": 0,
+              "minimum": 255,
+              "maximum": 255,
+              "foreground": 206569,
+              "background": 842007,
+              "corner": [
+                255,
+                255,
+                255,
+                255
+              ]
+            },
+            "blobSize": 27713,
+            "blobHash": "4ee5c965964ffc50cdacc6d41e4224b9fe4e53b052f0bafb04b98784e5b1c93a"
+          }
+        ]
+      }
+    ]
+  },
+  "gates": {
+    "typecheck-01": {
+      "terminal": {
+        "path": "test-results-coherent-startup-capture-opacity-typecheck-01.command.json",
+        "bytes": 728,
+        "sha256": "e999319883beaeba9367e5cc8b98f63d7267849308306c13131a2faa79ceb937"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+      "arguments": [
+        "node_modules/typescript/bin/tsc",
+        "--noEmit"
+      ],
+      "startedAtUtc": "2026-10-16T08:53:57.6834364Z",
+      "finishedAtUtc": "2026-10-16T08:53:58.9959995Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": null,
+      "report": null,
+      "browserOutputDirectory": "",
+      "lastRun": null
+    },
+    "bench-typecheck-01": {
+      "terminal": {
+        "path": "test-results-coherent-startup-capture-opacity-bench-typecheck-01.command.json",
+        "bytes": 816,
+        "sha256": "e8711c5cb43b51c358d9ca923bfb31854f664604843e5ec01a5a9a76d53086ca"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+      "arguments": [
+        "node_modules/typescript/bin/tsc",
+        "--project",
+        "tools/bench/tsconfig.json",
+        "--noEmit"
+      ],
+      "startedAtUtc": "2026-10-16T08:53:57.6641343Z",
+      "finishedAtUtc": "2026-10-16T08:53:57.9183114Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": null,
+      "report": null,
+      "browserOutputDirectory": "",
+      "lastRun": null
+    },
+    "unit-01": {
+      "terminal": {
+        "path": "test-results-coherent-startup-capture-opacity-unit-01.command.json",
+        "bytes": 1401,
+        "sha256": "51a828e2b153858421728e5b1c8f197fe80f6cf71d67146836992fa99021184a"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+      "arguments": [
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "tests/owned-image.test.ts",
+        "--maxWorkers=1",
+        "--reporter=json",
+        "--outputFile=.build/capture-opacity-tests/unit-report-01.json"
+      ],
+      "startedAtUtc": "2026-10-16T08:53:57.6834364Z",
+      "finishedAtUtc": "2026-10-16T08:53:58.9486779Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-capture-opacity-unit-01.log",
+        "bytes": 298,
+        "sha256": "0de148504e15a8cecf232ee0f80295d279521314004f438d1a2048dd370d4f75"
+      },
+      "report": {
+        "path": ".build/capture-opacity-tests/unit-report-01.json",
+        "bytes": 7651,
+        "sha256": "1ffb551be4c8d1c514219036c6d7ee32ec84977dd42b5cd36675627dc03f7121"
+      },
+      "browserOutputDirectory": "",
+      "lastRun": null
+    },
+    "discovery-01": {
+      "terminal": {
+        "path": "test-results-coherent-startup-capture-opacity-discovery-01.command.json",
+        "bytes": 1370,
+        "sha256": "21f9d6bc86001731405319a6a5bb73f239841cfaba4cab6944e2fbf52a6a9b11"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+      "arguments": [
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "--list",
+        "--config=.build/capture-opacity-tests/playwright-owned-01.config.ts",
+        "e2e/image-capture.spec.ts"
+      ],
+      "startedAtUtc": "2026-10-16T08:54:07.2592491Z",
+      "finishedAtUtc": "2026-10-16T08:54:07.7729023Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-capture-opacity-discovery-01.log",
+        "bytes": 5308,
+        "sha256": "eb84e223299b5e5eefde52ade2d49b35542b627c40cd694d1a4695b82cede67a"
+      },
+      "report": {
+        "path": ".build/capture-opacity-tests/discovery-01.json",
+        "bytes": 191407,
+        "sha256": "d49ab2a1de2b04255088491ae08ce5e0b03ff8f873c72ae174c9a2466ea8ae6d"
+      },
+      "browserOutputDirectory": "",
+      "lastRun": null
+    },
+    "ready-01": {
+      "terminal": {
+        "path": "test-results-coherent-startup-capture-opacity-ready-01.command.json",
+        "bytes": 1023,
+        "sha256": "dbb73412c9dbc8639402e3a56d46706456cfdcf0b954167a253de57158425776"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        ".build/capture-opacity-tests/ready-01.ps1",
+        "-Origin",
+        "http://127.0.0.1:5173/"
+      ],
+      "startedAtUtc": "2026-10-16T08:54:24.9733554Z",
+      "finishedAtUtc": "2026-10-16T08:54:43.0021024Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-capture-opacity-ready-01.log",
+        "bytes": 204,
+        "sha256": "cbcdb478c2057a2681c7a9fedded61b94a76748e4bbfcbb693a1177aea61aac8"
+      },
+      "report": null,
+      "browserOutputDirectory": "",
+      "lastRun": null
+    },
+    "browser-01": {
+      "terminal": {
+        "path": "test-results-coherent-startup-capture-opacity-browser-01.command.json",
+        "bytes": 1617,
+        "sha256": "32b860f5691eef14156c44a261533bcbea1b0f21de55ed7bbce5fc2ef08e1b30"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+      "arguments": [
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "--config=.build/capture-opacity-tests/playwright-owned-01.config.ts",
+        "e2e/image-capture.spec.ts"
+      ],
+      "startedAtUtc": "2026-10-16T08:54:35.1303516Z",
+      "finishedAtUtc": "2026-10-16T08:55:25.5542462Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-capture-opacity-browser-01.log",
+        "bytes": 6814,
+        "sha256": "1c3423e803d95721c70d03c001fbe4eb462b49840457224db2d5f560eeeffc5c"
+      },
+      "report": {
+        "path": ".build/capture-opacity-tests/browser-report-01.json",
+        "bytes": 389014,
+        "sha256": "512913c01dd35ee0506c275e469484cd2ed70243331b6ddf92385b44bfb34ca6"
+      },
+      "browserOutputDirectory": ".build/capture-opacity-tests/browser-01",
+      "lastRun": {
+        "path": ".build/capture-opacity-tests/browser-01/.last-run.json",
+        "bytes": 45,
+        "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+      }
+    },
+    "cleanup-01": {
+      "terminal": {
+        "path": "test-results-coherent-startup-capture-opacity-cleanup-01.command.json",
+        "bytes": 1170,
+        "sha256": "96ca62b738ee6659091002ca7427b17ea2d19d27f3d0e847df92fffbaac8e560"
+      },
+      "schemaVersion": 1,
+      "kind": "observed-local-command-terminal",
+      "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+      "executable": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        ".build/capture-opacity-tests/cleanup-01.ps1"
+      ],
+      "startedAtUtc": "2026-10-16T08:55:46.2711605Z",
+      "finishedAtUtc": "2026-10-16T08:55:49.7622732Z",
+      "exitCode": 0,
+      "exception": null,
+      "log": {
+        "path": "test-results-coherent-startup-capture-opacity-cleanup-01.log",
+        "bytes": 244,
+        "sha256": "6b242b2d6647f40b7feaf9a92f0f2cc3f7140245631a1c916616697c23d2f1e9"
+      },
+      "report": {
+        "path": ".build/capture-opacity-tests/cleanup-01.json",
+        "bytes": 1579,
+        "sha256": "83966d0d5a0faf71b7abc636f28ac8dfc9ba1508b00d4468a919efc19a3d6291"
+      },
+      "browserOutputDirectory": "",
+      "lastRun": null
+    }
+  },
+  "cleanup": {
+    "kind": "lifecycle-cleanup",
+    "status": "passed",
+    "observedAtUtc": "2026-10-16T08:55:49.7160734Z",
+    "before": {
+      "path": ".build/capture-opacity-tests/cleanup-before-01.json",
+      "bytes": 115746,
+      "sha256": "ed42b01207b619188a92caa0f40cd4b5683c4c339e6a0ad8349c2ddc93854379"
+    },
+    "helper": {
+      "path": ".build/capture-opacity-tests/cleanup-01.ps1",
+      "bytes": 9166,
+      "sha256": "74d0d59cc6229145d476864fb5776672218a6e662b765d80fbf34fc0b51acfbe"
+    },
+    "shippingAudit": {
+      "path": ".build/pro-morphology-tests/build-audit-02.json",
+      "bytes": 61596,
+      "sha256": "09271bd6a61c285384dd587c4a4ee242989bee9b4649ee9b3edb520a32c79a36"
+    },
+    "removedFiles": 16,
+    "removedBytes": 2797890,
+    "removedDirectories": 5,
+    "absentScopes": [
+      "node_modules/.vite",
+      "node_modules/.vite-temp"
+    ],
+    "absentSingleFiles": [],
+    "closedPorts": [
+      4173,
+      5173,
+      5273,
+      5373
+    ],
+    "remainingOwnedRunners": [],
+    "shippingAndNativeAndReferenceLibrariesUnchanged": true,
+    "preservedSourceFixturesReportsCapturesAndExecutables": true
+  },
+  "joinedService": {
+    "path": ".build/capture-opacity-tests/development-joined-01.json",
+    "bytes": 373,
+    "sha256": "04e39d4ca5e2e9db141522564dafb40f142ee4f752edadfa574cfdb962d128d6"
+  },
+  "scope": "Observed full-plane opaque raw captures before actual saved-thumbnail resizing for three source kinds and three backgrounds; existing image lifecycle regression.",
+  "universalFantAccepted": false,
+  "encodedByteParityAccepted": false,
+  "fullReleaseAccepted": false,
+  "performanceAccepted": false,
+  "capacityQualified": false,
+  "commit": false,
+  "push": false,
+  "deployment": false
+}

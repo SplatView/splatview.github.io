@@ -1,0 +1,45 @@
+{
+  "name": "splatview-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build:core": "python -B tools/build-core.py",
+    "verify:sources": "python -B tools/capture-sources.py verify && python -B tools/generate-assets.py --check && python -B tools/generate-native-translations.py --check && npm run verify:product",
+    "verify:build": "python -B tools/verify-toolchain.py verify-build",
+    "prepare:web": "node tools/web-build.mjs prepare",
+    "test:web-build": "node --test tools/web-build.test.mjs",
+    "typecheck": "tsc --noEmit",
+    "typecheck:bench": "tsc --project tools/bench/tsconfig.json",
+    "bench:validate": "node tools/bench/cli.ts",
+    "bench:run": "node tools/bench/run.ts",
+    "test:bench": "vitest run tests/benchmark-validator.test.ts",
+    "test:selection": "vitest run tests/surface-query.test.ts tests/surface-buffers.test.ts tests/surface-layout.test.ts tests/surface-coverage.test.ts tests/surface-pipelines.test.ts tests/surface-scratch-pool.test.ts tests/selection-map-cache.test.ts tests/selection-map-snapshot.test.ts tests/opacity-selection-maps.test.ts",
+    "test:selection:e2e": "playwright test --config playwright.selection.config.ts",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "build": "npm run verify:sources && npm run verify:build && npm run prepare:web && npm run typecheck && npm run typecheck:bench && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "verify:product": "python -B contracts/product/tool.py verify --root ."
+  },
+  "dependencies": {
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "zustand": "5.0.14"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.0",
+    "@types/node": "26.6.5",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "@webgpu/types": "0.1.74",
+    "typescript": "7.0.2",
+    "vite": "8.3.4",
+    "vitest": "5.0.3"
+  }
+}

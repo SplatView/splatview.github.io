@@ -1,0 +1,69 @@
+{
+  "means": {
+    "shape": [
+      3,
+      3
+    ],
+    "mins": [
+      -1,
+      -0.5,
+      -0.25
+    ],
+    "maxs": [
+      1,
+      0.5,
+      0.75
+    ],
+    "files": [
+      "positions-low.webp",
+      "positions-high.webp",
+      "declared-extra.bin"
+    ]
+  },
+  "scales": {
+    "mins": [
+      -2,
+      -1,
+      0
+    ],
+    "maxs": [
+      0,
+      1,
+      2
+    ],
+    "files": [
+      "appearance.webp"
+    ]
+  },
+  "quats": {
+    "files": [
+      "rotations.webp"
+    ]
+  },
+  "sh0": {
+    "mins": [
+      -1,
+      -0.5,
+      -2,
+      -4
+    ],
+    "maxs": [
+      1,
+      1.5,
+      2,
+      4
+    ],
+    "files": [
+      "appearance.webp"
+    ]
+  },
+  "shN": {
+    "files": [
+      "centroids.webp",
+      "labels.webp",
+      "declared-extra.bin"
+    ],
+    "mins": -2,
+    "maxs": 4
+  }
+}

@@ -1,0 +1,26 @@
+# Text-tour refinement
+
+Review date: October 19, 2026. User explicitly chose refinement of the current text tour. Preserve the desktop-aligned design, spatial reading order, 20 Essentials/34 All topics, current Basic product and exact Bench sample. Animated demonstrations and isolated native tutorial sessions remain outside this packet.
+
+Source review found two instruction gaps. All topics inherits an opening instruction to open a scene without explaining that the tour blocks scene input until closed; Essentials alone explains practice. The snap/flips lesson claims Command on Mac temporarily snaps, while the actual gizmo input and tooltip require Ctrl on every platform. Correct active course copy and all seven non-English rows, preserving exact frozen native catalog/fixture provenance. Explain Topics and close/Escape to practice without changing course order or real editing behavior.
+
+The browser review also found a modal-admission gap: a sample with multiple remembered views publishes a saved-view chooser during tutorial preparation, but `openExample` can resolve ready and `useTutorial` starts the tour over that unresolved chooser. The overlay then masks the chooser. Keep the existing preparation version and pending flag; suspend tutorial presentation/input ownership while the real chooser is visible. Retain a scene/client/renderer currentness check with the prepared result and start the requested course only after chooser resolution and idle admission. A retired presentation, replaced/closed scene or failed renderer must not resume. The overlay must not restore stale focus over the real chooser. No new controller, document, history or saved-view owner is introduced.
+
+Additional copy corrections describe Auto color's immediate commit separately from presets/sliders and Apply color, identify Reset as a neutral preview, and remove the misleading selection-only gizmo title when an empty selection means the whole scene. Use active course overrides with all seven translated rows, preserving the frozen native source copy.
+
+| Target | Policy and implementation/qualification boundary |
+| --- | --- |
+| Windows editor | Tutorial required; current native catalog and UI are reference authority. Browser-specific Ctrl instruction follows actual web dispatch. No Windows edits/qualification. |
+| macOS editor | Tutorial required; retain native adapter and its own shortcuts/presentation. No native/Quick Look or physical-Mac qualification. |
+| Ubuntu editor | Tutorial required; retain its isolated document/session owner. No Linux edits or runtime qualification. |
+| Web-lite | Required text-tour accuracy and usable modal sequencing; preserve normal sample intake, remembered views, user scene/history, keyboard ownership and current modal owners. |
+
+Explorer, Quick Look, GNOME/KDE previews and thumbnail providers receive no tutorial, resource, background operation or permission change. No API/CLI/agent or advanced-editor surface changes, no format or memory-policy changes and no registration/tutorial-version bump. Shared product bundle 2.0.0/128 bindings, all 919 source pins, native/WASM identities and CC BY 4.0 data notices remain unchanged.
+
+Preimages: `.build/tutorial-text-refinement-20261019-01/preimages.json`. Validate accurate copy and translations, frozen provenance, saved-view chooser admission/focus and preparation retirement, all existing tutorial/sample/Basic/dirty-history workflows, relevant CPU checks, both TypeScript projects and production/source/product/native gates. Publish only after local qualification, preserve publisher/legal blobs and the root workspace index, then verify exact HTTPS assets and browser workflows. Earlier immutable evidence remains historical.
+
+The immutable prior-build regression ran against deployment `9973275c9323d0c39dc674975545dc1e68e55f1472b58581d5c7caf613f48b21`. Both choice/resume branches reproduced the masked chooser; the Skip/late-choice case already passed. Retain the exact previous manifest, report, traces and contexts. After the correction, all three cases pass, including one usable modal, physical Enter release, focus, no duplicate sample load, selected/initial background, and executable native Delete/Undo/Redo with unchanged stored view pairs.
+
+Final local qualification passed: 6,383 CPU tests across 198 files, 39 build-closure tests, all 32 production-browser journeys with zero retries, source/product/native gates, both typechecks and the production build. The course remains 20/34 steps, eight locales and the same spatial order. Inspected English wide (1280x800) and German narrow (390x620) captures confirm the revised introduction and Ctrl instructions fit their cards. Exact Bench sample/camera, CC BY data notices and native assets remain unchanged. Browser evidence is Windows Chromium 156/WebGPU on secure localhost; there is no new native or physical-Mac qualification.
+
+Deployment identity: `4ebb309cb98d0f36344b6b522941a7efd3f53854661002ea378c74e04c49908a`. Publish the exact 113-file build from the isolated checkout, remove four obsolete build leaves, preserve publisher/legal blobs and the root index, verify all 123 HTTPS files and repeat the 32-case cohort live. `docs/validation/runs/tutorial-text-refinement-20261019-01/validation.json` records the authoritative final publication/live outcome.

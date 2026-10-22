@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "measurement": {
+    "mutation": false,
+    "history": false,
+    "distanceUnit": "m",
+    "angleUnit": "deg",
+    "angleVertex": 1,
+    "zeroDistance": true,
+    "nonfinite": "reject",
+    "degenerateAngle": "reject",
+    "scale": "one coordinate unit assumed one meter; physical calibration unverified",
+    "sceneAuthority": "Host-issued document/revision/view; refuse stale or unresolved displayed centers."
+  },
+  "agent": {
+    "initiallyEnabled": false,
+    "enable": "Copy current connection prompt and tell the user to paste into their agent terminal.",
+    "perActionApproval": false,
+    "overwrite": false
+  },
+  "selection": {
+    "finish": "Retain selection and exit tool.",
+    "undo": "Undo latest selection action including unfinished gesture.",
+    "clear": "Clear selection.",
+    "rightClick": "Clear first; exit if already empty; drag pans."
+  },
+  "save": "Native human overwrite warns; API and web exports create a new copy. Failed admission preserves document/history.",
+  "paint": {
+    "manual": "Choose task, draw, release to preview, inspect, Apply or discard. One pending stroke; each changed Apply is one Standard history entry.",
+    "cancel": "X/Ctrl+Z discards pending stroke and stays armed. Idle Undo/Redo reaches history. Escape/plain right click discards first, exits from idle; a drag pans.",
+    "hiddenTools": "Retain released pending work and fixed review actions; suspend input. Resolve to navigation while hidden.",
+    "target": "Explicit Scene or Selection, remembered per document; empty Selection never broadens. Freeze target/protection and captured view per stroke.",
+    "placement": "Surface-following immutable render snapshot; stop at the first unsupported depth and preview only the valid prefix. Budget/worker/fit failure remains atomic.",
+    "colorEligibility": "Target and writable members intersect spherical center hits and significant rendered contributors inside the captured stroke footprint, never whole-frame visibility alone.",
+    "inspection": "Released camera inspection/resize never reprojects or widens a stroke.",
+    "appearance": "Clean preview and applied appearance; preserve stored DC/SH conventions and restore display preferences on exit.",
+    "ownership": "Existing controller/worker/admission/publication/history. Agent actions are direct/proposal operations without human Apply approval. Clone and technical generation parameters remain API-only."
+  }
+}

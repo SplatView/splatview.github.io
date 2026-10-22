@@ -1,0 +1,37 @@
+﻿{
+    "schemaVersion":  1,
+    "kind":  "observed-local-command-terminal",
+    "workingDirectory":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+    "executable":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+    "arguments":  [
+                      "node_modules/@playwright/test/cli.js",
+                      "test",
+                      "--config=playwright.compat.config.ts",
+                      "tests/production/build-compat.spec.ts",
+                      "tests/production/initialization-faults.spec.ts",
+                      "--workers=1",
+                      "--max-failures=5",
+                      "--reporter=json",
+                      "--output=.build/limited-input-tests/production-01"
+                  ],
+    "startedAtUtc":  "2026-10-12T20:14:45.2695552Z",
+    "finishedAtUtc":  "2026-10-12T20:16:54.7764756Z",
+    "exitCode":  0,
+    "exception":  null,
+    "log":  {
+                "path":  "test-results-coherent-startup-limited-input-production-01.log",
+                "bytes":  19610,
+                "sha256":  "c900f0550934237e4fd80affe0e58ec95d046005bf4c99f8c80cc4304ba9d4a2"
+            },
+    "report":  {
+                   "path":  "test-results-limited-input-production-01.json",
+                   "bytes":  74475,
+                   "sha256":  "2a7d6d521315468e3762aa3406e4d4081a908d2ef14f5cc2cfb4f43ce9554cdf"
+               },
+    "browserOutputDirectory":  ".build/limited-input-tests/production-01",
+    "lastRun":  {
+                    "path":  ".build/limited-input-tests/production-01/.last-run.json",
+                    "bytes":  45,
+                    "sha256":  "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+                }
+}

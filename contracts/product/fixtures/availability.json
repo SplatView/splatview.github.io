@@ -1,0 +1,236 @@
+[
+  {
+    "feature": "measurement.agent",
+    "platform": "windows",
+    "profile": "desktop-editor",
+    "surface": "api",
+    "host": "editor",
+    "capabilities": "",
+    "allowed": true
+  },
+  {
+    "feature": "measurement.agent",
+    "platform": "macos",
+    "profile": "desktop-editor",
+    "surface": "ui",
+    "host": "editor",
+    "capabilities": "",
+    "allowed": false
+  },
+  {
+    "feature": "agent.protocol",
+    "platform": "ubuntu",
+    "profile": "desktop-editor",
+    "surface": "api",
+    "host": "ubuntu-gnome-preview",
+    "capabilities": "",
+    "allowed": false
+  },
+  {
+    "feature": "agent.protocol",
+    "platform": "windows",
+    "profile": "desktop-editor",
+    "surface": "api",
+    "host": "windows-explorer-preview",
+    "capabilities": "",
+    "allowed": false
+  },
+  {
+    "feature": "view.render",
+    "platform": "macos",
+    "profile": "desktop-editor",
+    "surface": "cli",
+    "host": "thumbnail-provider",
+    "capabilities": "",
+    "allowed": true
+  },
+  {
+    "feature": "selection.manual",
+    "platform": "web",
+    "profile": "web-lite",
+    "surface": "ui",
+    "host": "editor",
+    "capabilities": "",
+    "allowed": true
+  },
+  {
+    "feature": "transform.manual",
+    "platform": "web",
+    "profile": "web-lite",
+    "surface": "ui",
+    "host": "editor",
+    "capabilities": "",
+    "allowed": true
+  },
+  {
+    "feature": "selection.volume",
+    "platform": "web",
+    "profile": "web-lite",
+    "surface": "ui",
+    "host": "editor",
+    "capabilities": "",
+    "allowed": false
+  },
+  {
+    "feature": "relighting.adjust",
+    "platform": "web",
+    "profile": "web-lite",
+    "surface": "ui",
+    "host": "editor",
+    "capabilities": "",
+    "allowed": false
+  },
+  {
+    "feature": "view.clipboard",
+    "platform": "web",
+    "profile": "web-lite",
+    "surface": "ui",
+    "host": "editor",
+    "capabilities": "",
+    "allowed": false
+  },
+  {
+    "feature": "view.clipboard",
+    "platform": "web",
+    "profile": "web-lite",
+    "surface": "ui",
+    "host": "editor",
+    "capabilities": "not_clipboard",
+    "allowed": false
+  },
+  {
+    "feature": "view.clipboard",
+    "platform": "web",
+    "profile": "web-lite",
+    "surface": "ui",
+    "host": "editor",
+    "capabilities": "clipboard",
+    "allowed": true
+  },
+  {
+    "feature": "future.unknown",
+    "platform": "windows",
+    "profile": "desktop-editor",
+    "surface": "api",
+    "host": "editor",
+    "capabilities": "",
+    "allowed": false
+  },
+  {
+    "platform": "ubuntu",
+    "profile": "desktop-editor",
+    "surface": "ui",
+    "host": "ubuntu-gnome-preview",
+    "binding": "UiActionKind.OpenFullApp",
+    "allowed": true,
+    "capabilities": ""
+  },
+  {
+    "platform": "ubuntu",
+    "profile": "desktop-editor",
+    "surface": "ui",
+    "host": "ubuntu-gnome-preview",
+    "binding": "UiActionKind.StartTutorial",
+    "allowed": true,
+    "capabilities": ""
+  },
+  {
+    "platform": "ubuntu",
+    "profile": "desktop-editor",
+    "surface": "ui",
+    "host": "ubuntu-gnome-preview",
+    "binding": "UiActionKind.DeleteSelected",
+    "allowed": false,
+    "capabilities": ""
+  },
+  {
+    "feature": "painting.clone",
+    "platform": "windows",
+    "profile": "desktop-editor",
+    "surface": "ui",
+    "host": "editor",
+    "capabilities": "",
+    "allowed": false
+  },
+  {
+    "feature": "painting.clone",
+    "platform": "windows",
+    "profile": "desktop-editor",
+    "surface": "api",
+    "host": "editor",
+    "capabilities": "",
+    "allowed": true
+  },
+  {
+    "feature": "painting.clone",
+    "platform": "windows",
+    "profile": "desktop-editor",
+    "surface": "api",
+    "host": "thumbnail-provider",
+    "capabilities": "",
+    "allowed": false
+  },
+  {
+    "feature": "painting.clone",
+    "platform": "macos",
+    "profile": "desktop-editor",
+    "surface": "ui",
+    "host": "editor",
+    "capabilities": "",
+    "allowed": false
+  },
+  {
+    "feature": "painting.clone",
+    "platform": "macos",
+    "profile": "desktop-editor",
+    "surface": "api",
+    "host": "editor",
+    "capabilities": "",
+    "allowed": true
+  },
+  {
+    "feature": "painting.clone",
+    "platform": "macos",
+    "profile": "desktop-editor",
+    "surface": "api",
+    "host": "thumbnail-provider",
+    "capabilities": "",
+    "allowed": false
+  },
+  {
+    "feature": "painting.clone",
+    "platform": "ubuntu",
+    "profile": "desktop-editor",
+    "surface": "ui",
+    "host": "editor",
+    "capabilities": "",
+    "allowed": false
+  },
+  {
+    "feature": "painting.clone",
+    "platform": "ubuntu",
+    "profile": "desktop-editor",
+    "surface": "api",
+    "host": "editor",
+    "capabilities": "",
+    "allowed": true
+  },
+  {
+    "feature": "painting.clone",
+    "platform": "ubuntu",
+    "profile": "desktop-editor",
+    "surface": "api",
+    "host": "thumbnail-provider",
+    "capabilities": "",
+    "allowed": false
+  },
+  {
+    "feature": "painting.clone",
+    "platform": "web",
+    "profile": "web-lite",
+    "surface": "api",
+    "host": "editor",
+    "capabilities": "",
+    "allowed": false
+  }
+]

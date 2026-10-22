@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "kind": "splatview-reviewed-offline-case-map",
+  "collection": {
+    "path": ".build/evidence-adapters-tests/offline-list-01.json",
+    "bytes": 16811,
+    "sha256": "701305d284c458be3776276eef2f69e20d48ecf1493ad6d5b5f58609490b92d6"
+  },
+  "cellId": "static-offline:offline-update",
+  "files": [
+    {
+      "path": "tests/offline/offline.spec.ts",
+      "leaves": [
+        {
+          "id": "586fc5283fd8ec7c7982-1e44d22a2e34520c7006",
+          "title": "root: installs only 98 verified application URLs and cold-starts offline with genuine native edits",
+          "project": ""
+        },
+        {
+          "id": "586fc5283fd8ec7c7982-65f1608c0a58d7f5dedb",
+          "title": "root: A and B tabs retain separate runtime pins and independent native Redo while the host changes",
+          "project": ""
+        },
+        {
+          "id": "586fc5283fd8ec7c7982-95faf1634dde6c9a88b6",
+          "title": "project: installs only 98 verified application URLs and cold-starts offline with genuine native edits",
+          "project": ""
+        },
+        {
+          "id": "586fc5283fd8ec7c7982-a2ec431c3d079b415d6c",
+          "title": "project: A and B tabs retain separate runtime pins and independent native Redo while the host changes",
+          "project": ""
+        },
+        {
+          "id": "586fc5283fd8ec7c7982-cbc676d29e3d7d93c7f1",
+          "title": "A first-visit uncontrolled tab rebinds to a naturally activated C router while its native document stays A until explicit update",
+          "project": ""
+        },
+        {
+          "id": "586fc5283fd8ec7c7982-1c5075aa00f7ac64dfc2",
+          "title": "Root A and project B scopes coexist with separate metadata, caches and native history",
+          "project": ""
+        },
+        {
+          "id": "586fc5283fd8ec7c7982-5d241f971f2588464f49",
+          "title": "Update and Stay retains A masks, exact exports and executable Redo without minting a reload ticket",
+          "project": ""
+        },
+        {
+          "id": "586fc5283fd8ec7c7982-d0f6761c7031e773d79c",
+          "title": "Update and Discard navigates to coherent B only after the explicit dirty decision",
+          "project": ""
+        },
+        {
+          "id": "586fc5283fd8ec7c7982-6c53549a16560f6447ab",
+          "title": "Update Save waits for a matching whole-scene download acknowledgement before preparing or navigating",
+          "project": ""
+        },
+        {
+          "id": "586fc5283fd8ec7c7982-d2137a5041e01157c955",
+          "title": "Acknowledging Selected output preserves dirty state and still requires an update decision",
+          "project": ""
+        },
+        {
+          "id": "586fc5283fd8ec7c7982-f5f5d8fd068c2387ee71",
+          "title": "A stays complete and editable after a truncate B application download",
+          "project": ""
+        },
+        {
+          "id": "586fc5283fd8ec7c7982-b04006cacdabecf9fa17",
+          "title": "A stays complete and editable after a disconnect B application download",
+          "project": ""
+        },
+        {
+          "id": "586fc5283fd8ec7c7982-c6c992a293c659304b60",
+          "title": "A stays complete and editable after a corrupt B application download",
+          "project": ""
+        },
+        {
+          "id": "586fc5283fd8ec7c7982-666597c70d57a8251dbd",
+          "title": "A real Chromium storage quota refusal does not publish B or damage A history",
+          "project": ""
+        },
+        {
+          "id": "586fc5283fd8ec7c7982-29690828c3f444f6f1cc",
+          "title": "An evicted native entry produces actionable offline 503 and an online retry repairs a coherent cohort",
+          "project": ""
+        },
+        {
+          "id": "586fc5283fd8ec7c7982-c2b653bcbdbc2c874560",
+          "title": "Stopping and restarting the actual router restores client pins and retires interrupted staging after reconciliation",
+          "project": ""
+        },
+        {
+          "id": "586fc5283fd8ec7c7982-c45dc4b5fd4864754824",
+          "title": "An unknown in-scope browser client defers every cache deletion until it closes",
+          "project": ""
+        },
+        {
+          "id": "586fc5283fd8ec7c7982-89c577e93893c9317858",
+          "title": "An explicit check repairs evicted metadata with the same live A owner and offers B without replacing its native document",
+          "project": ""
+        },
+        {
+          "id": "586fc5283fd8ec7c7982-93a34e5635e03a729ece",
+          "title": "Durable PREPARE acknowledgement survives a lost reply, duplicates, cancellation and one-use navigation",
+          "project": ""
+        },
+        {
+          "id": "586fc5283fd8ec7c7982-ef721083c921ccf9b476",
+          "title": "An actual lost UI PREPARE reply times out safely and explicit retry reuses the same logical request",
+          "project": ""
+        },
+        {
+          "id": "586fc5283fd8ec7c7982-d17fe9693aa4961d0437",
+          "title": "A cancels and retires its genuine candidate worker after B is offered without fetching foreign runtime bytes",
+          "project": ""
+        }
+      ]
+    }
+  ]
+}

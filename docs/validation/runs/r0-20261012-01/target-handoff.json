@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "kind": "bounded-desktop-target-source-reference-handoff",
+  "runId": "r0-20261012-01",
+  "assembledUtc": "2026-10-12T15:25:11.750653+00:00",
+  "status": "complete-within-stated-scope",
+  "scope": "Recoverable selected Windows source, baseline-label erratum, matching local Windows build, focused existing native checks and source-bound current-target fixture specifications. No browser feature, full product, paired UI, actual Mac, host or performance acceptance.",
+  "target": {
+    "product": {
+      "name": "SplatView",
+      "version": "0.12.116",
+      "versionSource": "CMakeLists.txt"
+    },
+    "captureId": "cc71f0df-8f38-4900-8aff-5c9ee0d6814c",
+    "files": 720,
+    "bytes": 54156025,
+    "treeSha256": "162c4bb2b129dc49169b3678e21b1b607a13bfd249f75cb1a2b3a5b7e8e9a2f4",
+    "atomicFilesystemSnapshot": false,
+    "manifest": {
+      "path": "reference/targets/windows-r0-20261012-02/CAPTURE_MANIFEST.json",
+      "bytes": 149390,
+      "sha256": "0156c58d345ecf633d57a0ff339c8c07a270efb0575e6158e49d7d0840678fe4"
+    },
+    "completion": {
+      "path": "reference/targets/windows-r0-20261012-02/CAPTURE_STATUS.json",
+      "bytes": 375,
+      "sha256": "9ad2412c57653baa2567c4f1a84aeb83199016903e377ee42bbfeb77c28a0a74"
+    }
+  },
+  "captureImplementation": {
+    "tool": {
+      "path": "tools/capture-target.py",
+      "bytes": 30961,
+      "sha256": "c622ca1298bd41e941a65a1729ed049ba17d4143ad3a5433837ba20b573d2794"
+    },
+    "tests": {
+      "path": "tools/test_capture_target.py",
+      "bytes": 21452,
+      "sha256": "0f65370cd1b0da8517afa2d4850e77d2a8684ebfc158b5155ef242be26048204"
+    },
+    "testTerminal": {
+      "path": "test-results-coherent-startup-r0-capture-tool-tests-02.command.json",
+      "bytes": 996,
+      "sha256": "f4bfa7c8857b3c80a4d034c580f8dc9068c4f712ae114779f0158a7161250e35"
+    },
+    "cases": 20,
+    "passed": 19,
+    "skipped": 1,
+    "skipReason": "Real symlink creation denied by Windows privilege WinError1314; real junction and reparse refusal passed.",
+    "captureTerminal": {
+      "path": "test-results-coherent-startup-r0-target-capture-02.command.json",
+      "bytes": 1329,
+      "sha256": "cad2c39dcebc7978c76ead8386ab6a61b8e5c1dd428c6ca62e671c45cdea73aa"
+    },
+    "prebuildVerifyTerminal": {
+      "path": "test-results-coherent-startup-r0-target-verify-prebuild-02.command.json",
+      "bytes": 1012,
+      "sha256": "7d210603677ab1879af2ec6c7389c9602b0eaca3a1ee27dc92df977ee064628a"
+    },
+    "postbuildVerifyTerminal": {
+      "path": "test-results-coherent-startup-r0-target-verify-postbuild-01.command.json",
+      "bytes": 1013,
+      "sha256": "fec7b89beb3b4b52ccc25fc217117a596bd5424571447889ad0f72db4b7893ac"
+    },
+    "retainedFailedCaptureStatus": {
+      "path": "reference/targets/windows-r0-20261012-01/CAPTURE_STATUS.json",
+      "bytes": 439,
+      "sha256": "0116745a41c2cf55a8b0f189e9275fae05d2a5cea3edc982ad109123836568f3"
+    }
+  },
+  "baselineErratum": {
+    "path": "docs/validation/runs/r0-20261012-01/baseline-erratum.json",
+    "bytes": 38674,
+    "sha256": "7476be8d50cdb7638cbdf0c2b50a8abaeb8f69690d9967ac628e52d9c6a23458"
+  },
+  "nativeReference": {
+    "receipt": {
+      "path": "docs/validation/runs/r0-20261012-01/native-reference-result.json",
+      "bytes": 173107,
+      "sha256": "ba6afe221f13a6ff2b82a4c7ecde6ff77b035122544609effcaf5d4b4cc4828c"
+    },
+    "tests": {
+      "contracts": 8,
+      "fixtureSetup": 1,
+      "passed": 9,
+      "failed": 0,
+      "skipped": 0
+    },
+    "executable": {
+      "target": "SplatView",
+      "path": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.build\\r0-native-02\\attempt05\\Release\\SplatView.exe",
+      "fileVersion": "0.12.116",
+      "productVersion": "",
+      "state": {
+        "path": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.build\\r0-native-02\\attempt05\\Release\\SplatView.exe",
+        "bytes": 4375552,
+        "sha256": "b66eee04cbe104f7254afbf83bab2f6c68c756b0f5a21ff7b6d15c42e6afd7ce"
+      }
+    },
+    "directReferencedFileHashAudit": {
+      "filesChecked": 77,
+      "errors": 0,
+      "method": "Hash explicit path/bytes/sha256 records recursively within the completed native receipt, without directory traversal."
+    }
+  },
+  "contracts": {
+    "csv": {
+      "path": "docs/parity/current-target-deltas-v1.csv",
+      "bytes": 65496,
+      "sha256": "0cae65c140e11a8bfe48e9713dd6addd6fc80182825094c58fc6f121134198bf"
+    },
+    "notes": {
+      "path": "docs/parity/current-target-deltas-v1.md",
+      "bytes": 6937,
+      "sha256": "d4e6a5351abf8b01bb6214d5c4b659e244bac8d9f2390fd9858dcde5c0ab50f5"
+    },
+    "audit": {
+      "path": "docs/validation/runs/r0-20261012-01/contracts-audit.json",
+      "bytes": 21592,
+      "sha256": "3ca882f2b93057408a52f9a0836e4af9dac674e7dba1f95e3875a686b0623440"
+    },
+    "auditHelper": {
+      "path": "docs/validation/runs/r0-20261012-01/verify-contracts.py",
+      "bytes": 16543,
+      "sha256": "872d342d03f7238cd508f671faa6423f008d48154c8500d9a4c0ffaf0ff7e9a3"
+    },
+    "auditTerminal": {
+      "path": "test-results-coherent-startup-r0-contracts-audit-01.command.json",
+      "bytes": 1284,
+      "sha256": "b87ba5d1baa2b4b03decddc2461869ac5fcff55bf275823c43c8c896c747e7d6"
+    },
+    "counts": {
+      "primary_anchors": 32,
+      "supporting_anchors": 130,
+      "historical_anchors": 40,
+      "valid_primary_anchors": 32,
+      "valid_supporting_anchors": 130,
+      "valid_historical_anchors": 40,
+      "rows": 32,
+      "fields": 28,
+      "supporting_and_historical_anchors": 170,
+      "current_anchor_files": 29,
+      "historical_anchor_files": 13,
+      "current_files_hashed": 29,
+      "current_manifest_hash_matches": 29,
+      "manifest_file_entries": 720,
+      "markdown_links": 8,
+      "valid_markdown_links": 8
+    },
+    "nativeAcceptance": "pending;not-run",
+    "browserAcceptance": "pending;not-run",
+    "macAcceptance": "pending;not-run"
+  },
+  "runtime": {
+    "browserCodeChanged": false,
+    "nativeWebDependencyRebased": false,
+    "wasmRebuilt": false,
+    "latestCompleteHistoricalRuntimeReceipt": {
+      "path": "docs/validation/portable-view-local.json",
+      "bytes": 99071,
+      "sha256": "8192e6cce7d6ac51fe5d90df6d69c13a630050e8b9497ed18b00fec9d718e9fb"
+    }
+  },
+  "remaining": [
+    "Reconcile portable-core adoption and refreshed desktop control/visual references.",
+    "Execute independent current-target fixtures as browser operation families are integrated.",
+    "Integrate native response/JSON/WebP quota gate before grouped SOG and collection browsing.",
+    "Complete retained viewer/Basic/Pro/presentation/recovery features.",
+    "Actual Mac Safari/Chrome, deployed-host, measured performance and operating-budget qualification."
+  ],
+  "macAvailability": {
+    "available": false,
+    "userDirection": "Continue implementation; actual Mac qualification remains pending."
+  }
+}

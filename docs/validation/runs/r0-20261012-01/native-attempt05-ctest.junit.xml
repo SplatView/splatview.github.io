@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Win32-MSBuild"
+	tests="9"
+	failures="0"
+	disabled="0"
+	skipped="0"
+	hostname="OpsiclearWinServer1"
+	time="91"
+	timestamp="2026-10-12T11:15:34"
+	>
+	<testcase name="SharedSceneFixtures" classname="SharedSceneFixtures" time="0.186022" status="run">
+		<properties>
+			<property name="cmake_labels" value="fixtures;setup"/>
+		</properties>
+		<system-out>Shared scene fixtures verified: "C:/Users/opsiclear/Desktop/projects/gaussian_splatting/splatview.github.io/.build/r0-native-02/attempt05/fixtures/Release"
+</system-out>
+	</testcase>
+	<testcase name="InputFormatContracts" classname="InputFormatContracts" time="0.078817" status="run">
+		<properties>
+			<property name="cmake_labels" value="contract;fast;release"/>
+		</properties>
+		<system-out>Input format contracts passed: stable hints, six extensions, metadata alias, thumbnail capabilities and five exact open-dialog filters.
+</system-out>
+	</testcase>
+	<testcase name="ExportFormatContracts" classname="ExportFormatContracts" time="0.0851337" status="run">
+		<properties>
+			<property name="cmake_labels" value="contract;fast;release"/>
+		</properties>
+		<system-out>ExportFormatContracts passed 62 checks
+</system-out>
+	</testcase>
+	<testcase name="ViewCommandPolicyContracts" classname="ViewCommandPolicyContracts" time="0.79618" status="run">
+		<properties>
+			<property name="cmake_labels" value="contract;fast;release"/>
+		</properties>
+		<system-out>Command policy contracts passed: 33 stable IDs, 3039 classification states, 7 manual modes, 3 polygon actions and contextual cleanup controls.
+</system-out>
+	</testcase>
+	<testcase name="SelectionMorphologyContracts" classname="SelectionMorphologyContracts" time="0.46784" status="run">
+		<properties>
+			<property name="cmake_labels" value="contract;fast;release"/>
+		</properties>
+		<system-out>102400 splats: build + grow 24.4798 ms; cached grow 0.2279 ms
+1000000 splats: build + grow 292.039 ms; median cached grow 2.1022 ms; cached shrink 4.0422 ms
+Selection morphology contracts passed
+</system-out>
+	</testcase>
+	<testcase name="CliOutputContracts" classname="CliOutputContracts" time="2.31526" status="run">
+		<properties>
+			<property name="cmake_labels" value="cli;contract;release;security"/>
+		</properties>
+		<system-out>PASS native CLI: 1728 splats, 88 ms including load/process/SPZ export; input aliases rejected, failed pipeline output and source hashes preserved.
+</system-out>
+	</testcase>
+	<testcase name="SettingsContracts" classname="SettingsContracts" time="75.8838" status="run">
+		<properties>
+			<property name="cmake_labels" value="contract;release;ui"/>
+		</properties>
+		<system-out>Native Settings, languages, independent reporting consent, failure observers and feedback availability passed
+</system-out>
+	</testcase>
+	<testcase name="ToolsModeContracts" classname="ToolsModeContracts" time="11.4497" status="run">
+		<properties>
+			<property name="cmake_labels" value="contract;release;rendering;ui"/>
+		</properties>
+		<system-out>Basic / Pro policy, preserved edits, draft cancellation, native layout, preferences and tutorial passed
+</system-out>
+	</testcase>
+	<testcase name="LanguageContracts" classname="LanguageContracts" time="0.0943774" status="run">
+		<properties>
+			<property name="cmake_labels" value="contract;fast;release"/>
+		</properties>
+		<system-out>System language, saved choices, safe fallbacks, UTF-8, format safety and stable widget IDs passed
+</system-out>
+	</testcase>
+</testsuite>

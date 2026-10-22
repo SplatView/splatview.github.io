@@ -1,0 +1,11 @@
+# Local SPZ decoding changes
+
+Upstream: Niantic/Adobe SPZ commit `affd0ecea7fbb4c265ee119475af7ee5b2997482`, as recorded in the immutable root `SOURCE_BASELINE.json`. The MIT license and original source notices remain in place. `LOCAL_PATCHES.json` records the complete original/current source closure and the exact changed-file list; changes are verified by `cmake/VerifySpz.cmake` during full-core configuration and static bundle checks.
+
+The local changes in `src/cc/load-spz.h` and `src/cc/load-spz.cc` add a synchronous caller-owned NGSP/SPZ4 decoding API. The caller provides six writable packed attribute ranges after complete structural/stream preflight. The decoder borrows those ranges, uses fixed stream tables and serial ZSTD decompression, and calls optional checkpoints between stages. It retains neither callbacks nor storage. Callback exceptions propagate; format/codec failures return false without publishing the output view. Callers own cleanup of partially written buffers.
+
+The borrowed packed view shares per-point unpacking with the existing owning API. SH0 avoids taking an element address from an empty SH vector; float16 reads use aligned-safe byte copies. The byte-input API rejects overflowing pointer ranges, and the byte-count helper takes vectors by const reference to avoid an implicit full copy. Existing owning load/save APIs remain available; their allocation behavior is separate from the new admitted route.
+
+NGSP extensions are read from borrowed bytes using fixed known prefixes. The adapter retains coordinate and safe-orbit metadata without copying the full extension area or large declared payloads. It preserves the existing tolerance for unknown, truncated, short and invalid records and the first-valid-known-record behavior. Legacy gzip loading in the port uses its existing caller-owned expanded-buffer path; legacy byte-pointer extensions remain ignored to preserve prior coordinate behavior.
+
+The port uses these APIs to admit packed Work bytes before allocation and retain them through sampled Scene conversion. Codec contexts, allocator overhead and unrelated vendor compatibility APIs are not made budget-aware by this patch. No codec-interruption, whole-process memory cap or Apple runtime qualification is implied.

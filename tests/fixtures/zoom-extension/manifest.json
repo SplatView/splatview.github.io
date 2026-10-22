@@ -1,0 +1,8 @@
+{
+  "manifest_version": 3,
+  "name": "SplatView loopback browser zoom test",
+  "version": "1.0.0",
+  "description": "Test-only browser zoom controller for a fresh Playwright profile.",
+  "background": { "service_worker": "background.js" },
+  "host_permissions": ["http://127.0.0.1/*", "https://127.0.0.1/*"]
+}

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "kind": "native-test-ui-reference-root-audit",
+  "observedUtc": "2026-10-12T15:30:48.432853+00:00",
+  "status": "pass",
+  "sourceReceipt": {
+    "path": "docs\\validation\\runs\\r0-20261012-01\\native-ui-reference-results.json",
+    "bytes": 56557,
+    "sha256": "d5c807ec43473d0f7cb3d6b56bad0dddef3c26ee23ab3b1e68bdaff985be352a"
+  },
+  "explicitOutputFilesHashed": 143,
+  "pngDimensionsChecked": 81,
+  "visuallyInspected": [
+    "store-assets/02-basic-tools.png",
+    "store-assets/03-pro-tools.png",
+    "settings/settings-panel.png",
+    "workflow/view-only-points.png",
+    "workflow/view-only-mesh.png"
+  ],
+  "observation": "Store Basic/Pro include visible colored torus scene and toolbar/panels. Settings includes empty Basic scene and general settings; view-only point/mesh outputs show corresponding geometry and disabled editing entry. These are offscreen native test-generated references, not paired browser or normal desktop-window captures.",
+  "scope": "Explicit file integrity and representative human visual inspection only; no new browser/native fixture or actual Mac acceptance."
+}

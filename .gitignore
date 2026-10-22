@@ -1,0 +1,18 @@
+node_modules/
+dist/
+.tools/
+.build/
+test-results*/
+playwright-report/
+*.log
+.DS_Store
+__pycache__/
+/public/wasm/
+/test-results-*
+*.tsbuildinfo
+
+# Captured desktop sources stay local: their own nested .gitattributes would
+# rewrite hash-locked bytes. Commit each capture's manifest/status instead.
+/reference/windows/
+/reference/targets/*/source/
+!/reference/targets/windows-pivot-20261016-01/source/

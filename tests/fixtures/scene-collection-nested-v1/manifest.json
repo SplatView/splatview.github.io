@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "kind": "independent-nested-collection-fixture-construction",
+  "constructionSource": {
+    "path": "tools/generate-scene-collection-fixtures.py",
+    "bytes": 5984,
+    "sha256": "cac2852e71121f79c20bfa034fc7429eb5eb68c1b1509236bf1bfd8642e924c7"
+  },
+  "originalInputs": [
+    {
+      "path": "tests/fixtures/sog-group-sh/packets/v2-sh3/collection/asset/meta.json",
+      "bytes": 1281,
+      "sha256": "e2bc59c5ad04fcefcf9114d8e6472276673cfc173adcfeadb91345a70d3dfaa5"
+    },
+    {
+      "path": "tests/fixtures/sog-group-sh/packets/v2-sh3/collection/asset/positions-low.webp",
+      "bytes": 48,
+      "sha256": "6503abb6f705b662ee8c000004a74536261f2f71c53ff9a5c884140c22bfb1dd"
+    },
+    {
+      "path": "tests/fixtures/sog-group-sh/packets/v2-sh3/collection/asset/positions-high.webp",
+      "bytes": 50,
+      "sha256": "fec47c8c33092f90ec525df5b82cb83846bb656c30ec32a4548ce442603b56d3"
+    },
+    {
+      "path": "tests/fixtures/sog-group-sh/packets/v2-sh3/collection/asset/rotations.webp",
+      "bytes": 58,
+      "sha256": "7108a24a5ddeef7b2dbb50ca4acd9078e3db9bddfdd84b59e955d41ed34e2d68"
+    },
+    {
+      "path": "tests/fixtures/sog-group-sh/packets/v2-sh3/collection/asset/appearance.webp",
+      "bytes": 56,
+      "sha256": "5fd3a41900844fc9eab819d0bc5dff97114c5f50d3f45c3cbf34335e581535c6"
+    },
+    {
+      "path": "tests/fixtures/sog-group-sh/packets/v2-sh3/collection/asset/declared-extra.bin",
+      "bytes": 40,
+      "sha256": "66551ca49ff652b17e9f0945d4ac7f57b1ce161a60fef5857aec5d80b5a35ac2"
+    },
+    {
+      "path": "tests/fixtures/sog-group-sh/packets/v2-sh3/collection/asset/centroids.webp",
+      "bytes": 126,
+      "sha256": "d4b5abd4bad4f7d96a4844363e6030687917124df605c6812ab9a721d7ffd846"
+    },
+    {
+      "path": "tests/fixtures/sog-group-sh/packets/v2-sh3/collection/asset/labels.webp",
+      "bytes": 50,
+      "sha256": "6166e18707c310b9a659f7a4fe8dc6f2bfb7ee376c9da6e5622569ac25ec7234"
+    }
+  ],
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 812,
+      "sha256": "5320bf4568ba28b613563bd932f8b722557b35d7c48855c7e583f02475f9b4bf"
+    },
+    {
+      "path": "collection/asset/META.JSON",
+      "bytes": 1387,
+      "sha256": "22922035de316a61e9140e40e7cc293f8fe40d71c5d9935e146a18ae76d3b3ad"
+    },
+    {
+      "path": "collection/asset/textures/labels.webp",
+      "bytes": 50,
+      "sha256": "6166e18707c310b9a659f7a4fe8dc6f2bfb7ee376c9da6e5622569ac25ec7234"
+    },
+    {
+      "path": "collection/asset/textures/positions-low.webp",
+      "bytes": 48,
+      "sha256": "6503abb6f705b662ee8c000004a74536261f2f71c53ff9a5c884140c22bfb1dd"
+    },
+    {
+      "path": "collection/asset/textures/transforms/rotations.webp",
+      "bytes": 58,
+      "sha256": "7108a24a5ddeef7b2dbb50ca4acd9078e3db9bddfdd84b59e955d41ed34e2d68"
+    },
+    {
+      "path": "collection/private/unrelated-neighbor.bin",
+      "bytes": 43,
+      "sha256": "902ec637b50ff544f18af8ba937e9b2e8511b7cca9d2ab2f29a3b2c480db7867"
+    },
+    {
+      "path": "collection/shared/appearance.webp",
+      "bytes": 56,
+      "sha256": "5fd3a41900844fc9eab819d0bc5dff97114c5f50d3f45c3cbf34335e581535c6"
+    },
+    {
+      "path": "collection/shared/declared-extra.bin",
+      "bytes": 40,
+      "sha256": "66551ca49ff652b17e9f0945d4ac7f57b1ce161a60fef5857aec5d80b5a35ac2"
+    },
+    {
+      "path": "collection/shared/palette/centroids.webp",
+      "bytes": 126,
+      "sha256": "d4b5abd4bad4f7d96a4844363e6030687917124df605c6812ab9a721d7ffd846"
+    },
+    {
+      "path": "collection/shared/positions-high.webp",
+      "bytes": 50,
+      "sha256": "fec47c8c33092f90ec525df5b82cb83846bb656c30ec32a4548ce442603b56d3"
+    },
+    {
+      "path": "expected-source-key.json",
+      "bytes": 3376,
+      "sha256": "2ce453e5f415144bc0d5da03bea671687337c6d9786bbae2af84a5bb04d1c17e"
+    }
+  ],
+  "qualification": "Construction and exact-byte verification only; native/browser calibration is separate."
+}

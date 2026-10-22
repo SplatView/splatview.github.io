@@ -1,0 +1,77 @@
+[
+  {
+    "path": "third_party/DirectXMath/Inc/DirectXMath.h",
+    "url": "https://raw.githubusercontent.com/microsoft/DirectXMath/5bbe2ceeec3236c27ad44c877715e1e0f3b9817a/Inc/DirectXMath.h",
+    "sha256": "d769fac9b5ed476cd0c1d01c52b0b41fe7c14ef4ec714e5445d8098618e2d676"
+  },
+  {
+    "path": "third_party/DirectXMath/Inc/DirectXMathConvert.inl",
+    "url": "https://raw.githubusercontent.com/microsoft/DirectXMath/5bbe2ceeec3236c27ad44c877715e1e0f3b9817a/Inc/DirectXMathConvert.inl",
+    "sha256": "8ee0fa911b4fe9cfdff5f3d3106d8bc4d7b32e7766d66f952fb4d40ebffb73af"
+  },
+  {
+    "path": "third_party/DirectXMath/Inc/DirectXMathVector.inl",
+    "url": "https://raw.githubusercontent.com/microsoft/DirectXMath/5bbe2ceeec3236c27ad44c877715e1e0f3b9817a/Inc/DirectXMathVector.inl",
+    "sha256": "e27b96e876a5ac7655263dcf1a2f56b679517c1e04c1cd3617d5667a59c2cbc6"
+  },
+  {
+    "path": "third_party/DirectXMath/Inc/DirectXMathMatrix.inl",
+    "url": "https://raw.githubusercontent.com/microsoft/DirectXMath/5bbe2ceeec3236c27ad44c877715e1e0f3b9817a/Inc/DirectXMathMatrix.inl",
+    "sha256": "9d8006443661647c5cbd2fd64aa665084896782d4ad559ce7d62e0711e013143"
+  },
+  {
+    "path": "third_party/DirectXMath/Inc/DirectXMathMisc.inl",
+    "url": "https://raw.githubusercontent.com/microsoft/DirectXMath/5bbe2ceeec3236c27ad44c877715e1e0f3b9817a/Inc/DirectXMathMisc.inl",
+    "sha256": "17a69c40487f5b8511c0e588240cd291acdfb600c8f9d8205ef0726590442794"
+  },
+  {
+    "path": "third_party/DirectXMath/Inc/DirectXPackedVector.h",
+    "url": "https://raw.githubusercontent.com/microsoft/DirectXMath/5bbe2ceeec3236c27ad44c877715e1e0f3b9817a/Inc/DirectXPackedVector.h",
+    "sha256": "6e3c393bd3f015c85ce26adf86dc0d40bb2c524622c08bea963730855c2c147f"
+  },
+  {
+    "path": "third_party/DirectXMath/Inc/DirectXPackedVector.inl",
+    "url": "https://raw.githubusercontent.com/microsoft/DirectXMath/5bbe2ceeec3236c27ad44c877715e1e0f3b9817a/Inc/DirectXPackedVector.inl",
+    "sha256": "5c5e86cd919cad65021b0f679e382953670f79afc9ea4f04ae63f0f5ac056b47"
+  },
+  {
+    "path": "third_party/DirectXMath/LICENSE",
+    "url": "https://raw.githubusercontent.com/microsoft/DirectXMath/5bbe2ceeec3236c27ad44c877715e1e0f3b9817a/LICENSE",
+    "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383"
+  },
+  {
+    "path": "third_party/DirectXMath/Inc/sal.h",
+    "url": "https://raw.githubusercontent.com/dotnet/runtime/8630d8988107478d249e2fdb8162f8c7dcbd3dbb/src/coreclr/pal/inc/rt/sal.h",
+    "sha256": "e26ee611231a859b5a800eb2e1606e7ca03b8e3981d7c98cf1ca20c89b658b68"
+  },
+  {
+    "path": "third_party/DirectXMath/SAL-LICENSE.txt",
+    "url": "https://raw.githubusercontent.com/dotnet/runtime/8630d8988107478d249e2fdb8162f8c7dcbd3dbb/LICENSE.TXT",
+    "sha256": "cfc21f5e8bd655ae997eec916138b707b1d290b83272c02a95c9f821b8c87310"
+  },
+  {
+    "path": "third_party/stb/stb_image.h",
+    "url": "https://raw.githubusercontent.com/nothings/stb/2c980bb59875b0d32144a71867fbdebb2f77cd20/stb_image.h",
+    "sha256": "594c2fe35d49488b4382dbfaec8f98366defca819d916ac95becf3e75f4200b3"
+  },
+  {
+    "path": "third_party/stb/stb_image_write.h",
+    "url": "https://raw.githubusercontent.com/nothings/stb/2c980bb59875b0d32144a71867fbdebb2f77cd20/stb_image_write.h",
+    "sha256": "cbd5f0ad7a9cf4468affb36354a1d2338034f2c12473cf1a8e32053cb6914a05"
+  },
+  {
+    "path": "third_party/stb/LICENSE",
+    "url": "https://raw.githubusercontent.com/nothings/stb/2c980bb59875b0d32144a71867fbdebb2f77cd20/LICENSE",
+    "sha256": "bebfe904b14301657e4e5d655c811d51fd31b97c455b9cc2d8600d6bac6cff63"
+  },
+  {
+    "path": "third_party/picosha2/picosha2.h",
+    "url": "https://raw.githubusercontent.com/okdshin/PicoSHA2/161cb3fc4170fa7a3eca9e582cebd27cc4d1fe29/picosha2.h",
+    "sha256": "b13c180161ffac8d0adc81e033e493c409457c4d1258ab9781ac80579ba3bdd8"
+  },
+  {
+    "path": "third_party/picosha2/LICENSE",
+    "url": "https://raw.githubusercontent.com/okdshin/PicoSHA2/161cb3fc4170fa7a3eca9e582cebd27cc4d1fe29/LICENSE",
+    "sha256": "6c30eb1f37554ec4199cb82a8c86d9e7a852da78a757832bebb03ac9ddc44ff1"
+  }
+]

@@ -1,0 +1,83 @@
+SplatView uses the following open-source components. Full notices are
+included in dist/licenses by Build.ps1; upstream source notices are retained.
+
+Dear ImGui (MIT), pinned v1.91.9b / f5befd2d29e66809cd1110a152e375a7f1981f06
+https://github.com/ocornut/imgui
+
+ImGuizmo (MIT), pinned 18cef5e031d8c6973d80284c67f60549fafd78c1
+https://github.com/CedricGuillemet/ImGuizmo
+Native move, rotate and scale handles. Full license: licenses/imguizmo.txt
+
+COLMAPView behavior reference (no source code is included or adapted):
+https://github.com/ColmapView/Colmapview.github.io
+Point centering, midpoint distance scaling, centroid-preserving plane alignment,
+and sampled RANSAC floor detection with a preview before leveling to Y=0.
+SplatView implements these geometric operations independently in native C++.
+
+Lucide icons (ISC; Feather-derived icons MIT), pinned a04f228cd01185e09c188b7227b9600c08c565ec
+https://github.com/lucide-icons/lucide
+License and icon provenance are packaged in dist/licenses.
+
+Niantic SPZ (MIT), pinned commit affd0ecea7fbb4c265ee119475af7ee5b2997482
+https://github.com/nianticlabs/spz
+
+libwebp (BSD-3-Clause)
+https://chromium.googlesource.com/webm/libwebp
+
+zlib (Zlib)
+https://zlib.net
+
+libdeflate (MIT), 1.25
+https://github.com/ebiggers/libdeflate
+Statically linked CPU-dispatched gzip/deflate decoding and CRC32.
+Full license: licenses/libdeflate.txt
+
+OpsiClear gsply (MIT), 0.4.6 / 363885c707d445ce5d925024e2ab536fc72c1b9d
+Copyright (c) 2024 OpsiClear
+https://github.com/OpsiClear/gsply
+Adapted direct PLY field access, fused parallel CPU conversion, SPZ packed
+section views and parallel single-member gzip logic. The native adaptation
+keeps SplatView's sampling, validation, memory limits and streamed saves.
+Full license: licenses/gsply.txt
+
+OpsiClear gsmod (MIT), 0.1.7 / fa6f54430fa61c3ab6a423f9584a6aae40aea3e5
+Copyright (c) 2025 OpsiClear
+https://github.com/OpsiClear/gsmod
+Native CPU adaptation of color/opacity values, presets, transforms, filters,
+automatic correction, histogram profiles, composition and reference fitting.
+Full license: licenses/gsmod.txt
+
+Zstandard (BSD-3-Clause / GPL-2.0 dual license; used under BSD-3-Clause)
+https://github.com/facebook/zstd
+
+nlohmann/json (MIT)
+https://github.com/nlohmann/json
+
+Format encoding/decoding references and upstream interoperability fixtures (MIT):
+PlayCanvas splat-transform 3.9.0, commit 435b972a97a278c655d8f7015b1355215cba0d71
+Copyright (c) 2011-2026 PlayCanvas Ltd.
+https://github.com/playcanvas/splat-transform
+Used by SuperSplat 3.5.2; packed PLY, SOG v1/v2, CSV and KSPLAT layouts.
+Native exporters are checked against its independent readers in development.
+The tests/fixtures/minimal.splat and minimal.ksplat files are from this revision.
+Full license: licenses/format-playcanvas.txt
+
+SuperSplat (MIT), commit f2a1b4975b4766e0ee0c95e63c2737dc2ecb6e5b
+Copyright (c) 2011-2026 PlayCanvas Ltd.
+https://github.com/playcanvas/supersplat
+Reference for screen-space sphere strokes, opacity-weighted depth,
+cursor-ray unprojection and avoiding connections across depth discontinuities.
+Native Direct3D 11 / CPU implementation; no TypeScript runtime is included.
+Full license: licenses/format-playcanvas.txt
+
+Spark, commit c57ebb936a5d364e021a66a118204d599f6fdaa8
+Copyright (c) 2025 WORLD LABS TECHNOLOGIES, INC.
+https://github.com/sparkjsdev/spark
+SPLAT and KSPLAT decoding conventions cross-checked against its Rust readers.
+Full license: licenses/format-spark.txt
+
+No source or binaries from LichtFeld Studio are linked into this application.
+
+Opsiclear logo (brand artwork), the asset used by COLMAPView
+https://github.com/ColmapView/Colmapview.github.io/blob/main/public/LOGO.png
+Embedded for the requested Opsiclear branding.

@@ -1,0 +1,3286 @@
+{
+  "kind": "qualified-floating-selection-actions-web",
+  "status": "passed",
+  "observedAtUtc": "2026-10-17T05:09:29.863204+00:00",
+  "helper": {
+    "path": ".build/floating-selection-actions-tests/qualify-01.py",
+    "bytes": 10089,
+    "sha256": "510ef11d2e832ae74f5a2075aff1f704702eead220adb675ff3f014fb568f697"
+  },
+  "selectionActionsAccepted": true,
+  "fullDesktopParityAccepted": false,
+  "performanceAndCapacityAccepted": false,
+  "predecessor": {
+    "path": "docs/validation/runs/color-fill-range-web-20261016-01/validation.json",
+    "bytes": 41965,
+    "sha256": "0c77dec918be88e68bc24234bc2b1f41214ed4e8e2c3b4f7dc7fb2f4e8f1fc68"
+  },
+  "source": {
+    "path": ".build/floating-selection-actions-tests/source-candidate-05.json",
+    "bytes": 16700,
+    "sha256": "def1a7cdf1d071580c2d104ea22ab68541237bec02ecdc4d795d971c3ebf18b3"
+  },
+  "descriptor": {
+    "schemaVersion": 1,
+    "protocolVersion": 28,
+    "uiWorkerContract": 23,
+    "native": {
+      "core": {
+        "schemaVersion": 1,
+        "kind": "core",
+        "abi": 24,
+        "variant": "scalar",
+        "mapLayoutVersion": 1,
+        "capabilities": {
+          "atomicCheckpoint": 1,
+          "transactionReceipt": 2,
+          "recoveryCheckpoint": 2,
+          "duplicate": 1,
+          "selectionMap": 1,
+          "volumeSelection": 1,
+          "fillSelection": 1,
+          "connectedColorSelection": 1,
+          "toleranceCheckpoint": 1,
+          "colorFillRange": 1,
+          "liveSelectionOutcome": 1,
+          "geometryPreview": 1,
+          "sourceHash": 1,
+          "allocationCensus": 1,
+          "selectionMorphology": 2,
+          "absoluteColorSession": 1,
+          "autoColor": 1,
+          "colorBaseStream": 1,
+          "alignment": 4,
+          "groupedSog": 3,
+          "exportSpz4": 1,
+          "boundedAttributeExport": 1,
+          "boundedSpz3Export": 1,
+          "boundedSogExport": 1,
+          "selectionFilter": 2,
+          "selectionActions": 1,
+          "proTransformSession": 1,
+          "transformPivot": 2,
+          "absoluteOpacitySession": 1,
+          "opacityBaseStream": 1,
+          "currentViewScope": 1
+        },
+        "nativeInputId": "7e031e8847f253cd9c9cac675b64f781b05471ffdac2befc3e7eb2adcf178919"
+      },
+      "camera": {
+        "schemaVersion": 1,
+        "kind": "camera",
+        "abi": 4,
+        "variant": "scalar",
+        "capabilities": {
+          "cameraInput": 1,
+          "cameraTransform": 1,
+          "cameraFrame": 1,
+          "cameraOrientation": 1,
+          "cameraFilterView": 1,
+          "cameraFilterGizmo": 1,
+          "cameraTransformGizmo": 1
+        },
+        "nativeInputId": "7e031e8847f253cd9c9cac675b64f781b05471ffdac2befc3e7eb2adcf178919"
+      }
+    },
+    "appInputId": "330c80e05b6ae18655b8260c3ce924fc8f39c0ed532994a79a61a3d9fcf53cb6"
+  },
+  "deploymentId": "fb021885ed2696ad5fb769c467410d72060c4c6f21ac3cda1e1e19440ab015bd",
+  "buildAudit": {
+    "path": ".build/floating-selection-actions-tests/build-audit-03.json",
+    "bytes": 64256,
+    "sha256": "1a531fe7b230953cc97ef6af1e48ec00893793fe98094944f8cd1652fa928f6d"
+  },
+  "commands": {
+    "native-build-01": {
+      "path": "test-results-coherent-startup-floating-actions-native-build-01.command.json",
+      "bytes": 904,
+      "sha256": "5f4b6c2451651d8abadd8f0869e1307763a445756dcaeb6659368a29f204aa4d"
+    },
+    "web-build-05": {
+      "path": "test-results-coherent-startup-floating-actions-web-build-05.command.json",
+      "bytes": 1017,
+      "sha256": "d96e759ca47ed0be435b3e31dddbfb1cc7f909641d99fa6f31af1b8bf6c8af73"
+    },
+    "native-contracts-04": {
+      "path": "test-results-coherent-startup-floating-actions-native-contracts-04.command.json",
+      "bytes": 1297,
+      "sha256": "21deae1f0bbb8e64224d6e90ecd2635bc41c68813b972b9b9f1e08f658e4a7b5"
+    },
+    "cpu-04": {
+      "path": "test-results-coherent-startup-floating-actions-cpu-04.command.json",
+      "bytes": 1405,
+      "sha256": "b84cc120d29602b97828051875825688789989adf905b8e9e922decddc5a353c"
+    },
+    "production-05": {
+      "path": "test-results-coherent-startup-floating-actions-production-05.command.json",
+      "bytes": 1638,
+      "sha256": "6da22209d2e93e5a1128a77293361bbbcf68d724513207960bf464fb19fbc02c"
+    },
+    "build-audit-03": {
+      "path": "test-results-coherent-startup-floating-actions-build-audit-03.command.json",
+      "bytes": 1241,
+      "sha256": "dabc9e643fb655f16ddec6449a50ac26edaa463dd67309dde34dcc18112d7dbb"
+    },
+    "python-01": {
+      "path": "test-results-coherent-startup-floating-actions-python-01.command.json",
+      "bytes": 1075,
+      "sha256": "4cd42c063a706851cc37b6baff6cba5c16ec032ed219f1f634b6d72779f9c61e"
+    },
+    "preview-stop-01": {
+      "path": "test-results-coherent-startup-floating-actions-preview-stop-01.command.json",
+      "bytes": 969,
+      "sha256": "945926beabccecf854849c3ca387766fe58a321ea4d37113180e95e0f012ed1f"
+    },
+    "preview-01": {
+      "path": "test-results-coherent-startup-floating-actions-preview-01.command.json",
+      "bytes": 965,
+      "sha256": "4b0a3ea02ee11d4a6cddf52f55b1fe14c3e177f97e7a8040c4bd324563cd2079"
+    },
+    "preview-stop-02": {
+      "path": "test-results-coherent-startup-floating-actions-preview-stop-02.command.json",
+      "bytes": 969,
+      "sha256": "3fcda78131f5370be7ef4261938934c6cc9b304db074cdc918bc837838d272e1"
+    },
+    "preview-02": {
+      "path": "test-results-coherent-startup-floating-actions-preview-02.command.json",
+      "bytes": 965,
+      "sha256": "d241057ef618928156d1f6d2a5fc5f15af96aa43bc4785100b9df04d1cf022fe"
+    },
+    "preview-stop-03": {
+      "path": "test-results-coherent-startup-floating-actions-preview-stop-03.command.json",
+      "bytes": 969,
+      "sha256": "26625a14f1c732fbee428e46a7e36e7a09a5bdc434278bd8e6659b68d5bee5da"
+    },
+    "preview-03": {
+      "path": "test-results-coherent-startup-floating-actions-preview-03.command.json",
+      "bytes": 965,
+      "sha256": "7cd18844c572ea9efb40475e1c2d2473afe223656293f6154260346eb84d3ee3"
+    },
+    "process-final-01": {
+      "path": "test-results-coherent-startup-floating-actions-process-final-01.command.json",
+      "bytes": 1214,
+      "sha256": "0026a659ad06045f1e1755ac14d0f70c904456ec8fa1a85dc4681c6d300464b9"
+    },
+    "cache-cleanup-01": {
+      "path": "test-results-coherent-startup-floating-actions-cache-cleanup-01.command.json",
+      "bytes": 1298,
+      "sha256": "af38d015bc6d92d709bdb740072198c4c926efc8a88db4f01162166da2473204"
+    },
+    "object-cleanup-01": {
+      "path": "test-results-coherent-startup-floating-actions-object-cleanup-01.command.json",
+      "bytes": 1278,
+      "sha256": "c887740ca1c359724e005cde3642fc56c0c9197a43c358a13bdd14a9a9c52421"
+    }
+  },
+  "generatedBuildIdentity": {
+    "path": "src/generated/buildIdentity.ts",
+    "bytes": 2008,
+    "sha256": "3088d3f4c8557748e21147b72ac62b33d8acb37fc25799238d4530b91903cf4d"
+  },
+  "nativeProvenance": {
+    "path": ".build/floating-selection-actions-tests/native-provenance-04.json",
+    "bytes": 11603,
+    "sha256": "5566d92a1f64f815191f7ee455693551f40696f8aea4f0fa1c32fe591b00db8f"
+  },
+  "cpu": {
+    "report": {
+      "path": ".build/floating-selection-actions-tests/cpu-04.json",
+      "bytes": 2347822,
+      "sha256": "425a0b5c47e6761299f8970bf3b9bc52c3f655a22ebcd00a033e056e0dbc80dc"
+    },
+    "tests": 6050,
+    "files": 182,
+    "maximumWorkers": 4
+  },
+  "browser": {
+    "report": {
+      "path": ".build/floating-selection-actions-tests/production-05.json",
+      "bytes": 2059556,
+      "sha256": "14535270c8f8f351d81b0671c8b0c53d3839969cdf7bd2da7a10a596cfe70aac"
+    },
+    "tests": 105,
+    "floatingTests": [
+      "shipped manual Clear keeps its tool, floating Undo restores highlights, and Check finishes in Orbit",
+      "shipped filter X clears its last acknowledged preview without evaluating invalid dirty Radius, then Undo restores it",
+      "shipped changed filter Undo cancels the draft before an older history Undo and keeps the enclosure paused"
+    ],
+    "configuration": {
+      "path": ".build/floating-selection-actions-tests/playwright-production-02.config.ts",
+      "bytes": 2472,
+      "sha256": "a891b43bedc75643ccfc03b2235fc58f70bb140de522f1ad80f8d76b3ccab203"
+    },
+    "caseInventory": {
+      "path": ".build/floating-selection-actions-tests/production-list-01.json",
+      "bytes": 69982,
+      "sha256": "7defd74f68431af1ce2f46cd2bbf18b3a58cb46d023ac764ad4a0fa712a9ba7f"
+    },
+    "scheduling": "One complete run, one worker, zero retries; browser retired after each at-most-eight-case project to bound host network resources",
+    "stats": {
+      "startTime": "2026-10-17T05:04:26.353Z",
+      "duration": 250153.01200000002,
+      "expected": 105,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "evidence": [
+      {
+        "title": "shipped manual Clear keeps its tool, floating Undo restores highlights, and Check finishes in Orbit",
+        "name": "manual-floating-native-gpu-history",
+        "bytes": 6501,
+        "sha256": "08fe93cd8a3f79b0aa9d62e17ce9cabc19e5dabbdf43b42314b023b28fc3ad74",
+        "value": {
+          "selected": {
+            "commands": [
+              {
+                "command": "morphologyRange"
+              },
+              {
+                "command": "selectAll"
+              },
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 1,
+                "contentRevision": 0,
+                "transformBase": null
+              }
+            ],
+            "summary": {
+              "ok": true,
+              "loaded": true,
+              "count": 5,
+              "sourceCount": 5,
+              "sourceFaces": 0,
+              "duplicateRange": null,
+              "sampledGeometry": false,
+              "geometry": null,
+              "shDegree": 0,
+              "format": "PLY",
+              "kind": 0,
+              "selected": 5,
+              "visible": 5,
+              "canUndo": true,
+              "canRedo": false,
+              "transaction": false,
+              "selectionDraft": false,
+              "toleranceSessionId": null,
+              "filter": null,
+              "transformSession": null,
+              "opacitySession": null,
+              "toleranceTool": null,
+              "toleranceConnected": null,
+              "toleranceMapId": null,
+              "toleranceRange": null,
+              "toleranceRecorded": null,
+              "selectionMapId": null,
+              "pendingSelectionMapId": null,
+              "selectionMapBytes": 0,
+              "selectionMapRetainedIds": [],
+              "sceneChanged": false,
+              "revision": 1,
+              "contentRevision": 0,
+              "selectionCommitRevision": 1,
+              "pending": false,
+              "progress": 1,
+              "center": [
+                0.04999998211860657,
+                -0.42500001192092896,
+                0
+              ],
+              "radius": 1.0766111612319946,
+              "yUp": true,
+              "camera": [
+                0.04999998211860657,
+                -0.42500001192092896,
+                0,
+                0.3499999940395355,
+                0.18000000715255737,
+                3.3759844303131104,
+                1.0766111612319946,
+                45,
+                1,
+                0,
+                1
+              ],
+              "memoryBytes": 7897,
+              "exportBytes": 0,
+              "exportOutputBytes": 0,
+              "colorSession": null,
+              "alignment": {
+                "version": 2,
+                "frame": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "branchId": 0,
+                "canReset": false,
+                "retainedBranchIds": [
+                  0
+                ]
+              },
+              "floor": null,
+              "morphologyRange": {
+                "version": 1,
+                "minimum": 0.09999999403953552,
+                "maximum": 1.8799999952316284,
+                "default": 0.4335896670818329
+              },
+              "point": [
+                0.050000011920928955,
+                -0.42500001192092896,
+                0
+              ]
+            },
+            "nativeMasks": [
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "gpuMasks": [
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "overflow": false
+          },
+          "cleared": {
+            "commands": [
+              {
+                "command": "morphologyRange"
+              },
+              {
+                "command": "selectAll"
+              },
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 1,
+                "contentRevision": 0,
+                "transformBase": null
+              },
+              {
+                "command": "selectNone"
+              }
+            ],
+            "summary": {
+              "ok": true,
+              "loaded": true,
+              "count": 5,
+              "sourceCount": 5,
+              "sourceFaces": 0,
+              "duplicateRange": null,
+              "sampledGeometry": false,
+              "geometry": null,
+              "shDegree": 0,
+              "format": "PLY",
+              "kind": 0,
+              "selected": 0,
+              "visible": 5,
+              "canUndo": true,
+              "canRedo": false,
+              "transaction": false,
+              "selectionDraft": false,
+              "toleranceSessionId": null,
+              "filter": null,
+              "transformSession": null,
+              "opacitySession": null,
+              "toleranceTool": null,
+              "toleranceConnected": null,
+              "toleranceMapId": null,
+              "toleranceRange": null,
+              "toleranceRecorded": null,
+              "selectionMapId": null,
+              "pendingSelectionMapId": null,
+              "selectionMapBytes": 0,
+              "selectionMapRetainedIds": [],
+              "sceneChanged": false,
+              "revision": 2,
+              "contentRevision": 0,
+              "selectionCommitRevision": 2,
+              "pending": false,
+              "progress": 1,
+              "center": [
+                0.04999998211860657,
+                -0.42500001192092896,
+                0
+              ],
+              "radius": 1.0766111612319946,
+              "yUp": true,
+              "camera": [
+                0.04999998211860657,
+                -0.42500001192092896,
+                0,
+                0.3499999940395355,
+                0.18000000715255737,
+                3.3759844303131104,
+                1.0766111612319946,
+                45,
+                1,
+                0,
+                1
+              ],
+              "memoryBytes": 7961,
+              "exportBytes": 0,
+              "exportOutputBytes": 0,
+              "colorSession": null,
+              "alignment": {
+                "version": 2,
+                "frame": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "branchId": 0,
+                "canReset": false,
+                "retainedBranchIds": [
+                  0
+                ]
+              },
+              "floor": null,
+              "morphologyRange": {
+                "version": 1,
+                "minimum": 0.09999999403953552,
+                "maximum": 1.8799999952316284,
+                "default": 0.4335896670818329
+              }
+            },
+            "nativeMasks": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "gpuMasks": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "overflow": false
+          },
+          "restored": {
+            "commands": [
+              {
+                "command": "morphologyRange"
+              },
+              {
+                "command": "selectAll"
+              },
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 1,
+                "contentRevision": 0,
+                "transformBase": null
+              },
+              {
+                "command": "selectNone"
+              },
+              {
+                "command": "undo"
+              },
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 3,
+                "contentRevision": 0,
+                "transformBase": null
+              }
+            ],
+            "summary": {
+              "ok": true,
+              "loaded": true,
+              "count": 5,
+              "sourceCount": 5,
+              "sourceFaces": 0,
+              "duplicateRange": null,
+              "sampledGeometry": false,
+              "geometry": null,
+              "shDegree": 0,
+              "format": "PLY",
+              "kind": 0,
+              "selected": 5,
+              "visible": 5,
+              "canUndo": true,
+              "canRedo": true,
+              "transaction": false,
+              "selectionDraft": false,
+              "toleranceSessionId": null,
+              "filter": null,
+              "transformSession": null,
+              "opacitySession": null,
+              "toleranceTool": null,
+              "toleranceConnected": null,
+              "toleranceMapId": null,
+              "toleranceRange": null,
+              "toleranceRecorded": null,
+              "selectionMapId": null,
+              "pendingSelectionMapId": null,
+              "selectionMapBytes": 0,
+              "selectionMapRetainedIds": [],
+              "sceneChanged": false,
+              "revision": 3,
+              "contentRevision": 0,
+              "selectionCommitRevision": 3,
+              "pending": false,
+              "progress": 1,
+              "center": [
+                0.04999998211860657,
+                -0.42500001192092896,
+                0
+              ],
+              "radius": 1.0766111612319946,
+              "yUp": true,
+              "camera": [
+                0.04999998211860657,
+                -0.42500001192092896,
+                0,
+                0.3499999940395355,
+                0.18000000715255737,
+                3.3759844303131104,
+                1.0766111612319946,
+                45,
+                1,
+                0,
+                1
+              ],
+              "memoryBytes": 11997,
+              "exportBytes": 0,
+              "exportOutputBytes": 0,
+              "colorSession": null,
+              "alignment": {
+                "version": 2,
+                "frame": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "branchId": 0,
+                "canReset": false,
+                "retainedBranchIds": [
+                  0
+                ]
+              },
+              "floor": null,
+              "morphologyRange": {
+                "version": 1,
+                "minimum": 0.09999999403953552,
+                "maximum": 1.8799999952316284,
+                "default": 0.4335896670818329
+              },
+              "point": [
+                0.050000011920928955,
+                -0.42500001192092896,
+                0
+              ]
+            },
+            "nativeMasks": [
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "gpuMasks": [
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "overflow": false
+          },
+          "finished": {
+            "commands": [
+              {
+                "command": "morphologyRange"
+              },
+              {
+                "command": "selectAll"
+              },
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 1,
+                "contentRevision": 0,
+                "transformBase": null
+              },
+              {
+                "command": "selectNone"
+              },
+              {
+                "command": "undo"
+              },
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 3,
+                "contentRevision": 0,
+                "transformBase": null
+              }
+            ],
+            "summary": {
+              "ok": true,
+              "loaded": true,
+              "count": 5,
+              "sourceCount": 5,
+              "sourceFaces": 0,
+              "duplicateRange": null,
+              "sampledGeometry": false,
+              "geometry": null,
+              "shDegree": 0,
+              "format": "PLY",
+              "kind": 0,
+              "selected": 5,
+              "visible": 5,
+              "canUndo": true,
+              "canRedo": true,
+              "transaction": false,
+              "selectionDraft": false,
+              "toleranceSessionId": null,
+              "filter": null,
+              "transformSession": null,
+              "opacitySession": null,
+              "toleranceTool": null,
+              "toleranceConnected": null,
+              "toleranceMapId": null,
+              "toleranceRange": null,
+              "toleranceRecorded": null,
+              "selectionMapId": null,
+              "pendingSelectionMapId": null,
+              "selectionMapBytes": 0,
+              "selectionMapRetainedIds": [],
+              "sceneChanged": false,
+              "revision": 3,
+              "contentRevision": 0,
+              "selectionCommitRevision": 3,
+              "pending": false,
+              "progress": 1,
+              "center": [
+                0.04999998211860657,
+                -0.42500001192092896,
+                0
+              ],
+              "radius": 1.0766111612319946,
+              "yUp": true,
+              "camera": [
+                0.04999998211860657,
+                -0.42500001192092896,
+                0,
+                0.3499999940395355,
+                0.18000000715255737,
+                3.3759844303131104,
+                1.0766111612319946,
+                45,
+                1,
+                0,
+                1
+              ],
+              "memoryBytes": 11997,
+              "exportBytes": 0,
+              "exportOutputBytes": 0,
+              "colorSession": null,
+              "alignment": {
+                "version": 2,
+                "frame": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "branchId": 0,
+                "canReset": false,
+                "retainedBranchIds": [
+                  0
+                ]
+              },
+              "floor": null,
+              "morphologyRange": {
+                "version": 1,
+                "minimum": 0.09999999403953552,
+                "maximum": 1.8799999952316284,
+                "default": 0.4335896670818329
+              },
+              "point": [
+                0.050000011920928955,
+                -0.42500001192092896,
+                0
+              ]
+            },
+            "nativeMasks": [
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "gpuMasks": [
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "overflow": false
+          }
+        }
+      },
+      {
+        "title": "shipped filter X clears its last acknowledged preview without evaluating invalid dirty Radius, then Undo restores it",
+        "name": "filter-visible-epoch-clear-and-undo",
+        "bytes": 7832,
+        "sha256": "a85d47389e52f12ae06aa026b1bbe2e0b6105ebd79a866b8ce11085d438da66e",
+        "value": {
+          "accepted": {
+            "commands": [
+              {
+                "command": "morphologyRange"
+              },
+              {
+                "command": "selectAll"
+              },
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 1,
+                "contentRevision": 0,
+                "transformBase": null
+              },
+              {
+                "command": "beginFilter",
+                "kind": "sphere"
+              },
+              {
+                "command": "previewFilter",
+                "id": 1,
+                "epoch": 1,
+                "kind": "sphere",
+                "parameters": {
+                  "center": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "radius": 1
+                },
+                "operation": 0
+              },
+              {
+                "command": "previewFilter",
+                "id": 1,
+                "epoch": 2,
+                "kind": "sphere",
+                "parameters": {
+                  "center": [
+                    -0.6000000238418579,
+                    0,
+                    0
+                  ],
+                  "radius": 0.25
+                },
+                "operation": 0
+              }
+            ],
+            "summary": {
+              "ok": true,
+              "loaded": true,
+              "count": 5,
+              "sourceCount": 5,
+              "sourceFaces": 0,
+              "duplicateRange": null,
+              "sampledGeometry": false,
+              "geometry": null,
+              "shDegree": 0,
+              "format": "PLY",
+              "kind": 0,
+              "selected": 2,
+              "visible": 5,
+              "canUndo": true,
+              "canRedo": false,
+              "transaction": false,
+              "selectionDraft": false,
+              "toleranceSessionId": null,
+              "filter": {
+                "id": 1,
+                "kind": "sphere",
+                "epoch": 2,
+                "previewEpoch": 2,
+                "changed": true
+              },
+              "transformSession": null,
+              "opacitySession": null,
+              "toleranceTool": null,
+              "toleranceConnected": null,
+              "toleranceMapId": null,
+              "toleranceRange": null,
+              "toleranceRecorded": null,
+              "selectionMapId": null,
+              "pendingSelectionMapId": null,
+              "selectionMapBytes": 0,
+              "selectionMapRetainedIds": [],
+              "sceneChanged": false,
+              "revision": 2,
+              "contentRevision": 0,
+              "selectionCommitRevision": 1,
+              "pending": false,
+              "progress": 1,
+              "center": [
+                0.04999998211860657,
+                -0.42500001192092896,
+                0
+              ],
+              "radius": 1.0766111612319946,
+              "yUp": true,
+              "camera": [
+                0.04999998211860657,
+                -0.42500001192092896,
+                0,
+                0.3499999940395355,
+                0.18000000715255737,
+                3.3759844303131104,
+                1.0766111612319946,
+                45,
+                1,
+                0,
+                1
+              ],
+              "memoryBytes": 7878,
+              "exportBytes": 0,
+              "exportOutputBytes": 0,
+              "colorSession": null,
+              "alignment": {
+                "version": 2,
+                "frame": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "branchId": 0,
+                "canReset": false,
+                "retainedBranchIds": [
+                  0
+                ]
+              },
+              "floor": null,
+              "morphologyRange": {
+                "version": 1,
+                "minimum": 0.09999999403953552,
+                "maximum": 1.8799999952316284,
+                "default": 0.4335896670818329
+              }
+            },
+            "nativeMasks": [
+              1,
+              1,
+              0,
+              0,
+              0
+            ],
+            "gpuMasks": [
+              1,
+              1,
+              0,
+              0,
+              0
+            ],
+            "overflow": false
+          },
+          "dirty": {
+            "commands": [
+              {
+                "command": "morphologyRange"
+              },
+              {
+                "command": "selectAll"
+              },
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 1,
+                "contentRevision": 0,
+                "transformBase": null
+              },
+              {
+                "command": "beginFilter",
+                "kind": "sphere"
+              },
+              {
+                "command": "previewFilter",
+                "id": 1,
+                "epoch": 1,
+                "kind": "sphere",
+                "parameters": {
+                  "center": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "radius": 1
+                },
+                "operation": 0
+              },
+              {
+                "command": "previewFilter",
+                "id": 1,
+                "epoch": 2,
+                "kind": "sphere",
+                "parameters": {
+                  "center": [
+                    -0.6000000238418579,
+                    0,
+                    0
+                  ],
+                  "radius": 0.25
+                },
+                "operation": 0
+              }
+            ],
+            "summary": {
+              "ok": true,
+              "loaded": true,
+              "count": 5,
+              "sourceCount": 5,
+              "sourceFaces": 0,
+              "duplicateRange": null,
+              "sampledGeometry": false,
+              "geometry": null,
+              "shDegree": 0,
+              "format": "PLY",
+              "kind": 0,
+              "selected": 2,
+              "visible": 5,
+              "canUndo": true,
+              "canRedo": false,
+              "transaction": false,
+              "selectionDraft": false,
+              "toleranceSessionId": null,
+              "filter": {
+                "id": 1,
+                "kind": "sphere",
+                "epoch": 2,
+                "previewEpoch": 2,
+                "changed": true
+              },
+              "transformSession": null,
+              "opacitySession": null,
+              "toleranceTool": null,
+              "toleranceConnected": null,
+              "toleranceMapId": null,
+              "toleranceRange": null,
+              "toleranceRecorded": null,
+              "selectionMapId": null,
+              "pendingSelectionMapId": null,
+              "selectionMapBytes": 0,
+              "selectionMapRetainedIds": [],
+              "sceneChanged": false,
+              "revision": 2,
+              "contentRevision": 0,
+              "selectionCommitRevision": 1,
+              "pending": false,
+              "progress": 1,
+              "center": [
+                0.04999998211860657,
+                -0.42500001192092896,
+                0
+              ],
+              "radius": 1.0766111612319946,
+              "yUp": true,
+              "camera": [
+                0.04999998211860657,
+                -0.42500001192092896,
+                0,
+                0.3499999940395355,
+                0.18000000715255737,
+                3.3759844303131104,
+                1.0766111612319946,
+                45,
+                1,
+                0,
+                1
+              ],
+              "memoryBytes": 7878,
+              "exportBytes": 0,
+              "exportOutputBytes": 0,
+              "colorSession": null,
+              "alignment": {
+                "version": 2,
+                "frame": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "branchId": 0,
+                "canReset": false,
+                "retainedBranchIds": [
+                  0
+                ]
+              },
+              "floor": null,
+              "morphologyRange": {
+                "version": 1,
+                "minimum": 0.09999999403953552,
+                "maximum": 1.8799999952316284,
+                "default": 0.4335896670818329
+              }
+            },
+            "nativeMasks": [
+              1,
+              1,
+              0,
+              0,
+              0
+            ],
+            "gpuMasks": [
+              1,
+              1,
+              0,
+              0,
+              0
+            ],
+            "overflow": false
+          },
+          "cleared": {
+            "commands": [
+              {
+                "command": "morphologyRange"
+              },
+              {
+                "command": "selectAll"
+              },
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 1,
+                "contentRevision": 0,
+                "transformBase": null
+              },
+              {
+                "command": "beginFilter",
+                "kind": "sphere"
+              },
+              {
+                "command": "previewFilter",
+                "id": 1,
+                "epoch": 1,
+                "kind": "sphere",
+                "parameters": {
+                  "center": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "radius": 1
+                },
+                "operation": 0
+              },
+              {
+                "command": "previewFilter",
+                "id": 1,
+                "epoch": 2,
+                "kind": "sphere",
+                "parameters": {
+                  "center": [
+                    -0.6000000238418579,
+                    0,
+                    0
+                  ],
+                  "radius": 0.25
+                },
+                "operation": 0
+              },
+              {
+                "command": "confirmFilter",
+                "id": 1,
+                "epoch": 2,
+                "visiblePreview": true
+              },
+              {
+                "command": "selectNone"
+              },
+              {
+                "command": "beginFilter",
+                "kind": "sphere"
+              }
+            ],
+            "summary": {
+              "ok": true,
+              "loaded": true,
+              "count": 5,
+              "sourceCount": 5,
+              "sourceFaces": 0,
+              "duplicateRange": null,
+              "sampledGeometry": false,
+              "geometry": null,
+              "shDegree": 0,
+              "format": "PLY",
+              "kind": 0,
+              "selected": 0,
+              "visible": 5,
+              "canUndo": true,
+              "canRedo": false,
+              "transaction": false,
+              "selectionDraft": false,
+              "toleranceSessionId": null,
+              "filter": {
+                "id": 2,
+                "kind": "sphere",
+                "epoch": 0,
+                "previewEpoch": null,
+                "changed": false
+              },
+              "transformSession": null,
+              "opacitySession": null,
+              "toleranceTool": null,
+              "toleranceConnected": null,
+              "toleranceMapId": null,
+              "toleranceRange": null,
+              "toleranceRecorded": null,
+              "selectionMapId": null,
+              "pendingSelectionMapId": null,
+              "selectionMapBytes": 0,
+              "selectionMapRetainedIds": [],
+              "sceneChanged": false,
+              "revision": 4,
+              "contentRevision": 0,
+              "selectionCommitRevision": 3,
+              "pending": false,
+              "progress": 1,
+              "center": [
+                0.04999998211860657,
+                -0.42500001192092896,
+                0
+              ],
+              "radius": 1.0766111612319946,
+              "yUp": true,
+              "camera": [
+                0.04999998211860657,
+                -0.42500001192092896,
+                0,
+                0.3499999940395355,
+                0.18000000715255737,
+                3.3759844303131104,
+                1.0766111612319946,
+                45,
+                1,
+                0,
+                1
+              ],
+              "memoryBytes": 7913,
+              "exportBytes": 0,
+              "exportOutputBytes": 0,
+              "colorSession": null,
+              "alignment": {
+                "version": 2,
+                "frame": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "branchId": 0,
+                "canReset": false,
+                "retainedBranchIds": [
+                  0
+                ]
+              },
+              "floor": null,
+              "morphologyRange": {
+                "version": 1,
+                "minimum": 0.09999999403953552,
+                "maximum": 1.8799999952316284,
+                "default": 0.4335896670818329
+              }
+            },
+            "nativeMasks": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "gpuMasks": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "overflow": false
+          },
+          "restored": {
+            "commands": [
+              {
+                "command": "morphologyRange"
+              },
+              {
+                "command": "selectAll"
+              },
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 1,
+                "contentRevision": 0,
+                "transformBase": null
+              },
+              {
+                "command": "beginFilter",
+                "kind": "sphere"
+              },
+              {
+                "command": "previewFilter",
+                "id": 1,
+                "epoch": 1,
+                "kind": "sphere",
+                "parameters": {
+                  "center": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "radius": 1
+                },
+                "operation": 0
+              },
+              {
+                "command": "previewFilter",
+                "id": 1,
+                "epoch": 2,
+                "kind": "sphere",
+                "parameters": {
+                  "center": [
+                    -0.6000000238418579,
+                    0,
+                    0
+                  ],
+                  "radius": 0.25
+                },
+                "operation": 0
+              },
+              {
+                "command": "confirmFilter",
+                "id": 1,
+                "epoch": 2,
+                "visiblePreview": true
+              },
+              {
+                "command": "selectNone"
+              },
+              {
+                "command": "beginFilter",
+                "kind": "sphere"
+              },
+              {
+                "command": "cancelFilter",
+                "id": 2
+              },
+              {
+                "command": "undo"
+              },
+              {
+                "command": "beginFilter",
+                "kind": "sphere"
+              }
+            ],
+            "summary": {
+              "ok": true,
+              "loaded": true,
+              "count": 5,
+              "sourceCount": 5,
+              "sourceFaces": 0,
+              "duplicateRange": null,
+              "sampledGeometry": false,
+              "geometry": null,
+              "shDegree": 0,
+              "format": "PLY",
+              "kind": 0,
+              "selected": 2,
+              "visible": 5,
+              "canUndo": true,
+              "canRedo": true,
+              "transaction": false,
+              "selectionDraft": false,
+              "toleranceSessionId": null,
+              "filter": {
+                "id": 3,
+                "kind": "sphere",
+                "epoch": 0,
+                "previewEpoch": null,
+                "changed": false
+              },
+              "transformSession": null,
+              "opacitySession": null,
+              "toleranceTool": null,
+              "toleranceConnected": null,
+              "toleranceMapId": null,
+              "toleranceRange": null,
+              "toleranceRecorded": null,
+              "selectionMapId": null,
+              "pendingSelectionMapId": null,
+              "selectionMapBytes": 0,
+              "selectionMapRetainedIds": [],
+              "sceneChanged": false,
+              "revision": 5,
+              "contentRevision": 0,
+              "selectionCommitRevision": 4,
+              "pending": false,
+              "progress": 1,
+              "center": [
+                0.04999998211860657,
+                -0.42500001192092896,
+                0
+              ],
+              "radius": 1.0766111612319946,
+              "yUp": true,
+              "camera": [
+                0.04999998211860657,
+                -0.42500001192092896,
+                0,
+                0.3499999940395355,
+                0.18000000715255737,
+                3.3759844303131104,
+                1.0766111612319946,
+                45,
+                1,
+                0,
+                1
+              ],
+              "memoryBytes": 11949,
+              "exportBytes": 0,
+              "exportOutputBytes": 0,
+              "colorSession": null,
+              "alignment": {
+                "version": 2,
+                "frame": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "branchId": 0,
+                "canReset": false,
+                "retainedBranchIds": [
+                  0
+                ]
+              },
+              "floor": null,
+              "morphologyRange": {
+                "version": 1,
+                "minimum": 0.09999999403953552,
+                "maximum": 1.8799999952316284,
+                "default": 0.4335896670818329
+              }
+            },
+            "nativeMasks": [
+              1,
+              1,
+              0,
+              0,
+              0
+            ],
+            "gpuMasks": [
+              1,
+              1,
+              0,
+              0,
+              0
+            ],
+            "overflow": false
+          }
+        }
+      },
+      {
+        "title": "shipped changed filter Undo cancels the draft before an older history Undo and keeps the enclosure paused",
+        "name": "filter-draft-priority-before-history",
+        "bytes": 7411,
+        "sha256": "9feaab8dfc37c44ab8cfc3d46f2517e650a8b465de64d59438cef7e9a84c4f88",
+        "value": {
+          "baseline": {
+            "commands": [
+              {
+                "command": "morphologyRange"
+              },
+              {
+                "command": "selectAll"
+              },
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 1,
+                "contentRevision": 0,
+                "transformBase": null
+              }
+            ],
+            "summary": {
+              "ok": true,
+              "loaded": true,
+              "count": 5,
+              "sourceCount": 5,
+              "sourceFaces": 0,
+              "duplicateRange": null,
+              "sampledGeometry": false,
+              "geometry": null,
+              "shDegree": 0,
+              "format": "PLY",
+              "kind": 0,
+              "selected": 5,
+              "visible": 5,
+              "canUndo": true,
+              "canRedo": false,
+              "transaction": false,
+              "selectionDraft": false,
+              "toleranceSessionId": null,
+              "filter": null,
+              "transformSession": null,
+              "opacitySession": null,
+              "toleranceTool": null,
+              "toleranceConnected": null,
+              "toleranceMapId": null,
+              "toleranceRange": null,
+              "toleranceRecorded": null,
+              "selectionMapId": null,
+              "pendingSelectionMapId": null,
+              "selectionMapBytes": 0,
+              "selectionMapRetainedIds": [],
+              "sceneChanged": false,
+              "revision": 1,
+              "contentRevision": 0,
+              "selectionCommitRevision": 1,
+              "pending": false,
+              "progress": 1,
+              "center": [
+                0.04999998211860657,
+                -0.42500001192092896,
+                0
+              ],
+              "radius": 1.0766111612319946,
+              "yUp": true,
+              "camera": [
+                0.04999998211860657,
+                -0.42500001192092896,
+                0,
+                0.3499999940395355,
+                0.18000000715255737,
+                3.3759844303131104,
+                1.0766111612319946,
+                45,
+                1,
+                0,
+                1
+              ],
+              "memoryBytes": 7897,
+              "exportBytes": 0,
+              "exportOutputBytes": 0,
+              "colorSession": null,
+              "alignment": {
+                "version": 2,
+                "frame": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "branchId": 0,
+                "canReset": false,
+                "retainedBranchIds": [
+                  0
+                ]
+              },
+              "floor": null,
+              "morphologyRange": {
+                "version": 1,
+                "minimum": 0.09999999403953552,
+                "maximum": 1.8799999952316284,
+                "default": 0.4335896670818329
+              },
+              "point": [
+                0.050000011920928955,
+                -0.42500001192092896,
+                0
+              ]
+            },
+            "nativeMasks": [
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "gpuMasks": [
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "overflow": false
+          },
+          "changed": {
+            "commands": [
+              {
+                "command": "morphologyRange"
+              },
+              {
+                "command": "selectAll"
+              },
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 1,
+                "contentRevision": 0,
+                "transformBase": null
+              },
+              {
+                "command": "beginFilter",
+                "kind": "sphere"
+              },
+              {
+                "command": "previewFilter",
+                "id": 1,
+                "epoch": 1,
+                "kind": "sphere",
+                "parameters": {
+                  "center": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "radius": 1
+                },
+                "operation": 0
+              },
+              {
+                "command": "previewFilter",
+                "id": 1,
+                "epoch": 2,
+                "kind": "sphere",
+                "parameters": {
+                  "center": [
+                    -0.6000000238418579,
+                    0,
+                    0
+                  ],
+                  "radius": 0.25
+                },
+                "operation": 0
+              }
+            ],
+            "summary": {
+              "ok": true,
+              "loaded": true,
+              "count": 5,
+              "sourceCount": 5,
+              "sourceFaces": 0,
+              "duplicateRange": null,
+              "sampledGeometry": false,
+              "geometry": null,
+              "shDegree": 0,
+              "format": "PLY",
+              "kind": 0,
+              "selected": 2,
+              "visible": 5,
+              "canUndo": true,
+              "canRedo": false,
+              "transaction": false,
+              "selectionDraft": false,
+              "toleranceSessionId": null,
+              "filter": {
+                "id": 1,
+                "kind": "sphere",
+                "epoch": 2,
+                "previewEpoch": 2,
+                "changed": true
+              },
+              "transformSession": null,
+              "opacitySession": null,
+              "toleranceTool": null,
+              "toleranceConnected": null,
+              "toleranceMapId": null,
+              "toleranceRange": null,
+              "toleranceRecorded": null,
+              "selectionMapId": null,
+              "pendingSelectionMapId": null,
+              "selectionMapBytes": 0,
+              "selectionMapRetainedIds": [],
+              "sceneChanged": false,
+              "revision": 2,
+              "contentRevision": 0,
+              "selectionCommitRevision": 1,
+              "pending": false,
+              "progress": 1,
+              "center": [
+                0.04999998211860657,
+                -0.42500001192092896,
+                0
+              ],
+              "radius": 1.0766111612319946,
+              "yUp": true,
+              "camera": [
+                0.04999998211860657,
+                -0.42500001192092896,
+                0,
+                0.3499999940395355,
+                0.18000000715255737,
+                3.3759844303131104,
+                1.0766111612319946,
+                45,
+                1,
+                0,
+                1
+              ],
+              "memoryBytes": 7878,
+              "exportBytes": 0,
+              "exportOutputBytes": 0,
+              "colorSession": null,
+              "alignment": {
+                "version": 2,
+                "frame": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "branchId": 0,
+                "canReset": false,
+                "retainedBranchIds": [
+                  0
+                ]
+              },
+              "floor": null,
+              "morphologyRange": {
+                "version": 1,
+                "minimum": 0.09999999403953552,
+                "maximum": 1.8799999952316284,
+                "default": 0.4335896670818329
+              }
+            },
+            "nativeMasks": [
+              1,
+              1,
+              0,
+              0,
+              0
+            ],
+            "gpuMasks": [
+              1,
+              1,
+              0,
+              0,
+              0
+            ],
+            "overflow": false
+          },
+          "cancelled": {
+            "commands": [
+              {
+                "command": "morphologyRange"
+              },
+              {
+                "command": "selectAll"
+              },
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 1,
+                "contentRevision": 0,
+                "transformBase": null
+              },
+              {
+                "command": "beginFilter",
+                "kind": "sphere"
+              },
+              {
+                "command": "previewFilter",
+                "id": 1,
+                "epoch": 1,
+                "kind": "sphere",
+                "parameters": {
+                  "center": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "radius": 1
+                },
+                "operation": 0
+              },
+              {
+                "command": "previewFilter",
+                "id": 1,
+                "epoch": 2,
+                "kind": "sphere",
+                "parameters": {
+                  "center": [
+                    -0.6000000238418579,
+                    0,
+                    0
+                  ],
+                  "radius": 0.25
+                },
+                "operation": 0
+              },
+              {
+                "command": "cancelFilter",
+                "id": 1
+              },
+              {
+                "command": "beginFilter",
+                "kind": "sphere"
+              }
+            ],
+            "summary": {
+              "ok": true,
+              "loaded": true,
+              "count": 5,
+              "sourceCount": 5,
+              "sourceFaces": 0,
+              "duplicateRange": null,
+              "sampledGeometry": false,
+              "geometry": null,
+              "shDegree": 0,
+              "format": "PLY",
+              "kind": 0,
+              "selected": 5,
+              "visible": 5,
+              "canUndo": true,
+              "canRedo": false,
+              "transaction": false,
+              "selectionDraft": false,
+              "toleranceSessionId": null,
+              "filter": {
+                "id": 2,
+                "kind": "sphere",
+                "epoch": 0,
+                "previewEpoch": null,
+                "changed": false
+              },
+              "transformSession": null,
+              "opacitySession": null,
+              "toleranceTool": null,
+              "toleranceConnected": null,
+              "toleranceMapId": null,
+              "toleranceRange": null,
+              "toleranceRecorded": null,
+              "selectionMapId": null,
+              "pendingSelectionMapId": null,
+              "selectionMapBytes": 0,
+              "selectionMapRetainedIds": [],
+              "sceneChanged": false,
+              "revision": 3,
+              "contentRevision": 0,
+              "selectionCommitRevision": 1,
+              "pending": false,
+              "progress": 1,
+              "center": [
+                0.04999998211860657,
+                -0.42500001192092896,
+                0
+              ],
+              "radius": 1.0766111612319946,
+              "yUp": true,
+              "camera": [
+                0.04999998211860657,
+                -0.42500001192092896,
+                0,
+                0.3499999940395355,
+                0.18000000715255737,
+                3.3759844303131104,
+                1.0766111612319946,
+                45,
+                1,
+                0,
+                1
+              ],
+              "memoryBytes": 7873,
+              "exportBytes": 0,
+              "exportOutputBytes": 0,
+              "colorSession": null,
+              "alignment": {
+                "version": 2,
+                "frame": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "branchId": 0,
+                "canReset": false,
+                "retainedBranchIds": [
+                  0
+                ]
+              },
+              "floor": null,
+              "morphologyRange": {
+                "version": 1,
+                "minimum": 0.09999999403953552,
+                "maximum": 1.8799999952316284,
+                "default": 0.4335896670818329
+              }
+            },
+            "nativeMasks": [
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "gpuMasks": [
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "overflow": false
+          },
+          "undone": {
+            "commands": [
+              {
+                "command": "morphologyRange"
+              },
+              {
+                "command": "selectAll"
+              },
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 1,
+                "contentRevision": 0,
+                "transformBase": null
+              },
+              {
+                "command": "beginFilter",
+                "kind": "sphere"
+              },
+              {
+                "command": "previewFilter",
+                "id": 1,
+                "epoch": 1,
+                "kind": "sphere",
+                "parameters": {
+                  "center": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "radius": 1
+                },
+                "operation": 0
+              },
+              {
+                "command": "previewFilter",
+                "id": 1,
+                "epoch": 2,
+                "kind": "sphere",
+                "parameters": {
+                  "center": [
+                    -0.6000000238418579,
+                    0,
+                    0
+                  ],
+                  "radius": 0.25
+                },
+                "operation": 0
+              },
+              {
+                "command": "cancelFilter",
+                "id": 1
+              },
+              {
+                "command": "beginFilter",
+                "kind": "sphere"
+              },
+              {
+                "command": "cancelFilter",
+                "id": 2
+              },
+              {
+                "command": "undo"
+              },
+              {
+                "command": "beginFilter",
+                "kind": "sphere"
+              }
+            ],
+            "summary": {
+              "ok": true,
+              "loaded": true,
+              "count": 5,
+              "sourceCount": 5,
+              "sourceFaces": 0,
+              "duplicateRange": null,
+              "sampledGeometry": false,
+              "geometry": null,
+              "shDegree": 0,
+              "format": "PLY",
+              "kind": 0,
+              "selected": 0,
+              "visible": 5,
+              "canUndo": false,
+              "canRedo": true,
+              "transaction": false,
+              "selectionDraft": false,
+              "toleranceSessionId": null,
+              "filter": {
+                "id": 3,
+                "kind": "sphere",
+                "epoch": 0,
+                "previewEpoch": null,
+                "changed": false
+              },
+              "transformSession": null,
+              "opacitySession": null,
+              "toleranceTool": null,
+              "toleranceConnected": null,
+              "toleranceMapId": null,
+              "toleranceRange": null,
+              "toleranceRecorded": null,
+              "selectionMapId": null,
+              "pendingSelectionMapId": null,
+              "selectionMapBytes": 0,
+              "selectionMapRetainedIds": [],
+              "sceneChanged": false,
+              "revision": 4,
+              "contentRevision": 0,
+              "selectionCommitRevision": 2,
+              "pending": false,
+              "progress": 1,
+              "center": [
+                0.04999998211860657,
+                -0.42500001192092896,
+                0
+              ],
+              "radius": 1.0766111612319946,
+              "yUp": true,
+              "camera": [
+                0.04999998211860657,
+                -0.42500001192092896,
+                0,
+                0.3499999940395355,
+                0.18000000715255737,
+                3.3759844303131104,
+                1.0766111612319946,
+                45,
+                1,
+                0,
+                1
+              ],
+              "memoryBytes": 7873,
+              "exportBytes": 0,
+              "exportOutputBytes": 0,
+              "colorSession": null,
+              "alignment": {
+                "version": 2,
+                "frame": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "branchId": 0,
+                "canReset": false,
+                "retainedBranchIds": [
+                  0
+                ]
+              },
+              "floor": null,
+              "morphologyRange": {
+                "version": 1,
+                "minimum": 0.09999999403953552,
+                "maximum": 1.8799999952316284,
+                "default": 0.4335896670818329
+              }
+            },
+            "nativeMasks": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "gpuMasks": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "overflow": false
+          }
+        }
+      },
+      {
+        "title": "shipped Color Range amends the frozen pick in one Undo and preserves a tools-only sphere",
+        "name": "range-frozen-center-history",
+        "bytes": 3320,
+        "sha256": "cffdb9dd979f8a232613b7f1f87cb1e89a0c7b720a4b399069e48a8e4ac85cd4",
+        "value": {
+          "before": {
+            "commands": [
+              {
+                "command": "morphologyRange"
+              },
+              {
+                "command": "colorPick",
+                "sessionId": 1,
+                "index": 0,
+                "camera": [
+                  0.04999998211860657,
+                  -0.42500001192092896,
+                  0,
+                  0.3499999940395355,
+                  0.18000000715255737,
+                  3.3759844303131104,
+                  1.0766111612319946,
+                  45,
+                  1,
+                  0,
+                  1.600000023841858
+                ],
+                "operation": 0,
+                "tolerance": 1,
+                "width": 1280,
+                "height": 800,
+                "seed": [
+                  472,
+                  274
+                ],
+                "connected": false,
+                "rangeEnabled": false,
+                "rangeRadius": 0.30659419298171997
+              },
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 1,
+                "contentRevision": 0,
+                "transformBase": null
+              }
+            ],
+            "summary": {
+              "selected": 5,
+              "revision": 1,
+              "contentRevision": 0,
+              "toleranceSessionId": 1,
+              "toleranceRange": {
+                "enabled": false,
+                "radius": 0.30659419298171997,
+                "center": [
+                  -0.6000000238418579,
+                  0,
+                  0
+                ]
+              }
+            }
+          },
+          "small": {
+            "commands": [
+              {
+                "command": "morphologyRange"
+              },
+              {
+                "command": "colorPick",
+                "sessionId": 1,
+                "index": 0,
+                "camera": [
+                  0.04999998211860657,
+                  -0.42500001192092896,
+                  0,
+                  0.3499999940395355,
+                  0.18000000715255737,
+                  3.3759844303131104,
+                  1.0766111612319946,
+                  45,
+                  1,
+                  0,
+                  1.600000023841858
+                ],
+                "operation": 0,
+                "tolerance": 1,
+                "width": 1280,
+                "height": 800,
+                "seed": [
+                  472,
+                  274
+                ],
+                "connected": false,
+                "rangeEnabled": false,
+                "rangeRadius": 0.30659419298171997
+              },
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 1,
+                "contentRevision": 0,
+                "transformBase": null
+              },
+              {
+                "command": "colorTolerance",
+                "sessionId": 1,
+                "tolerance": 1,
+                "rangeEnabled": true,
+                "rangeRadius": 0.30659419298171997,
+                "connected": false
+              },
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 2,
+                "contentRevision": 0,
+                "transformBase": null
+              },
+              {
+                "command": "colorTolerance",
+                "sessionId": 1,
+                "tolerance": 1,
+                "rangeEnabled": true,
+                "rangeRadius": 0.09999999403953552,
+                "connected": false
+              },
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 3,
+                "contentRevision": 0,
+                "transformBase": null
+              }
+            ],
+            "summary": {
+              "selected": 1,
+              "revision": 3,
+              "contentRevision": 0,
+              "toleranceSessionId": 1,
+              "toleranceRange": {
+                "enabled": true,
+                "radius": 0.09999999403953552,
+                "center": [
+                  -0.6000000238418579,
+                  0,
+                  0
+                ]
+              }
+            }
+          },
+          "after": {
+            "commands": [
+              {
+                "command": "morphologyRange"
+              },
+              {
+                "command": "colorPick",
+                "sessionId": 1,
+                "index": 0,
+                "camera": [
+                  0.04999998211860657,
+                  -0.42500001192092896,
+                  0,
+                  0.3499999940395355,
+                  0.18000000715255737,
+                  3.3759844303131104,
+                  1.0766111612319946,
+                  45,
+                  1,
+                  0,
+                  1.600000023841858
+                ],
+                "operation": 0,
+                "tolerance": 1,
+                "width": 1280,
+                "height": 800,
+                "seed": [
+                  472,
+                  274
+                ],
+                "connected": false,
+                "rangeEnabled": false,
+                "rangeRadius": 0.30659419298171997
+              },
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 1,
+                "contentRevision": 0,
+                "transformBase": null
+              },
+              {
+                "command": "colorTolerance",
+                "sessionId": 1,
+                "tolerance": 1,
+                "rangeEnabled": true,
+                "rangeRadius": 0.30659419298171997,
+                "connected": false
+              },
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 2,
+                "contentRevision": 0,
+                "transformBase": null
+              },
+              {
+                "command": "colorTolerance",
+                "sessionId": 1,
+                "tolerance": 1,
+                "rangeEnabled": true,
+                "rangeRadius": 0.09999999403953552,
+                "connected": false
+              },
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 3,
+                "contentRevision": 0,
+                "transformBase": null
+              },
+              {
+                "command": "colorTolerance",
+                "sessionId": 1,
+                "tolerance": 1,
+                "rangeEnabled": true,
+                "rangeRadius": 0.4000000059604645,
+                "connected": false
+              },
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 4,
+                "contentRevision": 0,
+                "transformBase": null
+              },
+              {
+                "command": "endTolerance",
+                "sessionId": 1
+              },
+              {
+                "command": "undo"
+              },
+              {
+                "command": "redo"
+              },
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 6,
+                "contentRevision": 0,
+                "transformBase": null
+              }
+            ],
+            "summary": {
+              "selected": 3,
+              "revision": 6,
+              "contentRevision": 0,
+              "toleranceSessionId": null,
+              "toleranceRange": null
+            }
+          }
+        }
+      },
+      {
+        "title": "shipped Range Add preserves selected centers outside its sphere",
+        "name": "range-combine-baseline",
+        "bytes": 1079,
+        "sha256": "e6f45e9f58d1ba6c36e959f0fec6ac7da767f2150baf4308c3896a5c5487fdc4",
+        "value": {
+          "operation": "Add",
+          "after": {
+            "commands": [
+              {
+                "command": "morphologyRange"
+              },
+              {
+                "command": "single",
+                "index": 3,
+                "operation": 0
+              },
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 1,
+                "contentRevision": 0,
+                "transformBase": null
+              },
+              {
+                "command": "colorPick",
+                "sessionId": 1,
+                "index": 0,
+                "camera": [
+                  0.04999998211860657,
+                  -0.42500001192092896,
+                  0,
+                  0.3499999940395355,
+                  0.18000000715255737,
+                  3.3759844303131104,
+                  1.0766111612319946,
+                  45,
+                  1,
+                  0,
+                  1.600000023841858
+                ],
+                "operation": 1,
+                "tolerance": 1,
+                "width": 1280,
+                "height": 800,
+                "seed": [
+                  472,
+                  274
+                ],
+                "connected": false,
+                "rangeEnabled": true,
+                "rangeRadius": 0.09999999403953552
+              },
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 2,
+                "contentRevision": 0,
+                "transformBase": null
+              },
+              {
+                "command": "colorTolerance",
+                "sessionId": 1,
+                "tolerance": 1,
+                "rangeEnabled": true,
+                "rangeRadius": 0.4000000059604645,
+                "connected": false
+              },
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 3,
+                "contentRevision": 0,
+                "transformBase": null
+              }
+            ],
+            "summary": {
+              "selected": 4,
+              "revision": 3,
+              "contentRevision": 0,
+              "toleranceSessionId": 1,
+              "toleranceRange": {
+                "enabled": true,
+                "radius": 0.4000000059604645,
+                "center": [
+                  -0.6000000238418579,
+                  0,
+                  0
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "title": "shipped Range Subtract preserves selected centers outside its sphere",
+        "name": "range-combine-baseline",
+        "bytes": 1063,
+        "sha256": "cbdece0810bb14ccc7638459f3d062501ab534a913a6bf35713232807b608b2c",
+        "value": {
+          "operation": "Subtract",
+          "after": {
+            "commands": [
+              {
+                "command": "morphologyRange"
+              },
+              {
+                "command": "selectAll"
+              },
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 1,
+                "contentRevision": 0,
+                "transformBase": null
+              },
+              {
+                "command": "colorPick",
+                "sessionId": 1,
+                "index": 0,
+                "camera": [
+                  0.04999998211860657,
+                  -0.42500001192092896,
+                  0,
+                  0.3499999940395355,
+                  0.18000000715255737,
+                  3.3759844303131104,
+                  1.0766111612319946,
+                  45,
+                  1,
+                  0,
+                  1.600000023841858
+                ],
+                "operation": 2,
+                "tolerance": 1,
+                "width": 1280,
+                "height": 800,
+                "seed": [
+                  472,
+                  274
+                ],
+                "connected": false,
+                "rangeEnabled": true,
+                "rangeRadius": 0.09999999403953552
+              },
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 2,
+                "contentRevision": 0,
+                "transformBase": null
+              },
+              {
+                "command": "colorTolerance",
+                "sessionId": 1,
+                "tolerance": 1,
+                "rangeEnabled": true,
+                "rangeRadius": 0.4000000059604645,
+                "connected": false
+              },
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 3,
+                "contentRevision": 0,
+                "transformBase": null
+              }
+            ],
+            "summary": {
+              "selected": 2,
+              "revision": 3,
+              "contentRevision": 0,
+              "toleranceSessionId": 1,
+              "toleranceRange": {
+                "enabled": true,
+                "radius": 0.4000000059604645,
+                "center": [
+                  -0.6000000238418579,
+                  0,
+                  0
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "title": "shipped Fill freezes its depth center, keeps independent Radius, and joins one settled slider amendment",
+        "name": "range-fill-center-settled-input",
+        "bytes": 2066,
+        "sha256": "8fed3bffc1f127a94c3b44e7513623e5b51f22426858a6bc6136c63803ce70d6",
+        "value": {
+          "before": {
+            "commands": [
+              {
+                "command": "morphologyRange"
+              },
+              {
+                "command": "fillPick",
+                "sessionId": 1,
+                "mapId": 1,
+                "camera": [
+                  0.04999998211860657,
+                  -0.42500001192092896,
+                  0,
+                  0.3499999940395355,
+                  0.18000000715255737,
+                  3.3759844303131104,
+                  1.0766111612319946,
+                  45,
+                  1,
+                  0,
+                  1.600000023841858
+                ],
+                "width": 1280,
+                "height": 800,
+                "seed": [
+                  472,
+                  274
+                ],
+                "operation": 0,
+                "tolerance": 1,
+                "overlap": false,
+                "visibleOnly": false,
+                "sampleRadiusPixels": 24,
+                "rangeEnabled": false,
+                "rangeRadius": 0.30659419298171997
+              },
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 1,
+                "contentRevision": 0,
+                "transformBase": null
+              }
+            ],
+            "summary": {
+              "selected": 3,
+              "revision": 1,
+              "contentRevision": 0,
+              "toleranceSessionId": 1,
+              "toleranceRange": {
+                "enabled": false,
+                "radius": 0.30659419298171997,
+                "center": [
+                  -0.5946234464645386,
+                  -0.00015481851005461067,
+                  0.009056075476109982
+                ]
+              }
+            }
+          },
+          "after": {
+            "commands": [
+              {
+                "command": "morphologyRange"
+              },
+              {
+                "command": "fillPick",
+                "sessionId": 1,
+                "mapId": 1,
+                "camera": [
+                  0.04999998211860657,
+                  -0.42500001192092896,
+                  0,
+                  0.3499999940395355,
+                  0.18000000715255737,
+                  3.3759844303131104,
+                  1.0766111612319946,
+                  45,
+                  1,
+                  0,
+                  1.600000023841858
+                ],
+                "width": 1280,
+                "height": 800,
+                "seed": [
+                  472,
+                  274
+                ],
+                "operation": 0,
+                "tolerance": 1,
+                "overlap": false,
+                "visibleOnly": false,
+                "sampleRadiusPixels": 24,
+                "rangeEnabled": false,
+                "rangeRadius": 0.30659419298171997
+              },
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 1,
+                "contentRevision": 0,
+                "transformBase": null
+              },
+              {
+                "command": "fillTolerance",
+                "sessionId": 1,
+                "tolerance": 1,
+                "rangeEnabled": true,
+                "rangeRadius": 0.30659419298171997
+              },
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 2,
+                "contentRevision": 0,
+                "transformBase": null
+              },
+              {
+                "command": "fillTolerance",
+                "sessionId": 1,
+                "tolerance": 1,
+                "rangeEnabled": true,
+                "rangeRadius": 0.4000000059604645
+              },
+              {
+                "command": "transformFocus",
+                "scope": "selection",
+                "revision": 3,
+                "contentRevision": 0,
+                "transformBase": null
+              },
+              {
+                "command": "fillTolerance",
+                "sessionId": 1,
+                "tolerance": 1,
+                "rangeEnabled": true,
+                "rangeRadius": 0.8085837364196777
+              }
+            ],
+            "summary": {
+              "selected": 3,
+              "revision": 3,
+              "contentRevision": 0,
+              "toleranceSessionId": 1,
+              "toleranceRange": {
+                "enabled": true,
+                "radius": 0.8085837364196777,
+                "center": [
+                  -0.5946234464645386,
+                  -0.00015481851005461067,
+                  0.009056075476109982
+                ]
+              }
+            }
+          }
+        }
+      }
+    ],
+    "environment": "Chromium on current Windows host"
+  },
+  "nativeContracts": {
+    "report": {
+      "path": ".build/floating-selection-actions-tests/native-contracts-04.json",
+      "bytes": 15273,
+      "sha256": "3c0ef9902b98f61040ec17ba96ece949377070116ea4967a7910e9e0a7aa22e4"
+    },
+    "executedModuleFactories": 14,
+    "results": [
+      {
+        "name": "filter",
+        "executable": {
+          "path": ".build/wasm/contracts/splatview-filter-contracts.mjs",
+          "bytes": 82567,
+          "sha256": "d88aaa38d096c131f10f786e9abd3f10aa4f2006f487f4897d769c3d6dd78c2e"
+        },
+        "wasm": {
+          "path": ".build/wasm/contracts/splatview-filter-contracts.wasm",
+          "bytes": 2675133,
+          "sha256": "b8d914fe3c4d54f78432c020e1440c0c4ed8ca6ed3af49fad0f4b2dae86bd837"
+        },
+        "lines": [
+          "FILTER_CHANGED_GROUP_PASS original-baseline-equal-count-pending-noop",
+          "FILTER_CHANGED_GROUP_PASS explicit-visible-preview-confirm-cancelled-newer-work",
+          "FILTER_CHANGED_GROUP_PASS deleted-current-view-readonly",
+          "FILTER_CHANGED_GROUP_PASS transaction-copy-commit-rollback",
+          "FILTER_CHANGED_GROUP_PASS reply-and-allocation-publication-refusals",
+          "FILTER_CHANGED_GROUP_PASS transient-recovery-and-source-replacement",
+          "SPLATVIEW_FILTER_CHANGED_CONTRACTS_PASS groups=6 checks=1667",
+          "Filter contracts passed: 26 cases, 1667 checks, 6 ABI predicates, 66 refusals, 12 publication refusals, 63 backend refusals, 5 cancellation phases; ownerBytes=432."
+        ],
+        "observedCounters": [
+          26,
+          1667,
+          6,
+          66,
+          12,
+          63,
+          5,
+          432
+        ]
+      },
+      {
+        "name": "selection-range-predicate",
+        "executable": {
+          "path": ".build/wasm/contracts/splatview-selection-range-predicate-contracts.mjs",
+          "bytes": 14901,
+          "sha256": "19d7e3370e7cb9013ffea5d64c36b098ebc45d39ad8ce640611aef34d8cafa2a"
+        },
+        "wasm": {
+          "path": ".build/wasm/contracts/splatview-selection-range-predicate-contracts.wasm",
+          "bytes": 29807,
+          "sha256": "d21d700d8e7f26e6f35ac73fe980e7ee89a5da1e407d42a7e3ec92a16d99786d"
+        },
+        "lines": [
+          "SELECTION_RANGE_PREDICATE_GROUP_PASS configured-positive-radius-frozen-center",
+          "SELECTION_RANGE_PREDICATE_GROUP_PASS rounded-boundaries-finite-center-only",
+          "SELECTION_RANGE_PREDICATE_GROUP_PASS region-range-combine-deleted-view",
+          "SELECTION_RANGE_PREDICATE_GROUP_PASS frozen-amendment-fixed-owner",
+          "SPLATVIEW_SELECTION_RANGE_PREDICATE_CONTRACTS_PASS groups=4 checks=128 configBytes=28"
+        ],
+        "observedCounters": [
+          4,
+          128,
+          28
+        ]
+      },
+      {
+        "name": "selection-range",
+        "executable": {
+          "path": ".build/wasm/contracts/splatview-selection-range-contracts.mjs",
+          "bytes": 81633,
+          "sha256": "4f8bf6fa49a3448f2762f4a37c40e45facc558b6a9915debe14ccf124e9379ce"
+        },
+        "wasm": {
+          "path": ".build/wasm/contracts/splatview-selection-range-contracts.wasm",
+          "bytes": 2512846,
+          "sha256": "35ccec776285bd60d2720c89f09c5db8d6293663ef663016d16a990ab3cec887"
+        },
+        "lines": [
+          "SELECTION_RANGE_GROUP_PASS literal-color-combine-deleted-view",
+          "SELECTION_RANGE_GROUP_PASS absolute-color-metadata-one-undo-redo",
+          "SELECTION_RANGE_GROUP_PASS fill-hit-range-combine-frozen-surface",
+          "SELECTION_RANGE_GROUP_PASS centerless-fill-connected-color",
+          "SELECTION_RANGE_GROUP_PASS fill-frozen-input-refusals-legacy-view",
+          "SELECTION_RANGE_GROUP_PASS transaction-shapes-publication-atomicity",
+          "SELECTION_RANGE_GROUP_PASS legacy-ignored-inputs-explicit-range-refusals",
+          "SELECTION_RANGE_GROUP_PASS allocation-refusal-retry",
+          "SELECTION_RANGE_GROUP_PASS tolerance-recorded-actions-history-refusal",
+          "SELECTION_RANGE_GROUP_PASS readonly-statistics-focus-transient-recovery",
+          "SPLATVIEW_TOLERANCE_RECORDED_CONTRACTS_PASS tools=2 checks=1034",
+          "SPLATVIEW_SELECTION_RANGE_CONTRACTS_PASS groups=10 checks=1034 refusals=51 backendRefusals=28"
+        ],
+        "observedCounters": [
+          10,
+          1034,
+          51,
+          28
+        ]
+      },
+      {
+        "name": "selection-commit",
+        "executable": {
+          "path": ".build/wasm/contracts/splatview-selection-commit-contracts.mjs",
+          "bytes": 81236,
+          "sha256": "45af3924f6396baba60c50ce74299045b4c4c9eca752ac58ffb78c202f941111"
+        },
+        "wasm": {
+          "path": ".build/wasm/contracts/splatview-selection-commit-contracts.wasm",
+          "bytes": 2451701,
+          "sha256": "7134600fc7513d67c167a96ef739faf0bdff0fbce5898993869163937aab236c"
+        },
+        "lines": [
+          "SELECTION_COMMIT_GROUP_PASS sparse-draft-implicit-cleanup",
+          "SELECTION_COMMIT_GROUP_PASS dense-domain-history-candidates",
+          "SELECTION_COMMIT_GROUP_PASS tolerance-single-undo-duplicate",
+          "SELECTION_COMMIT_GROUP_PASS overflow-history-atomicity",
+          "SELECTION_COMMIT_GROUP_PASS actual-selection-clip-content-rollback",
+          "SELECTION_COMMIT_GROUP_PASS actual-effective-target-canonical-publication",
+          "SELECTION_COMMIT_GROUP_PASS actual-tolerance-recovery-lifetime",
+          "SELECTION_COMMIT_GROUP_PASS actual-malformed-publication-allocation",
+          "SPLATVIEW_SELECTION_COMMIT_CONTRACTS_PASS groups=8 checks=744 refusals=15 historyRefusals=4 backendRefusals=38 counterBytes=8"
+        ],
+        "observedCounters": [
+          8,
+          744,
+          15,
+          4,
+          38,
+          8
+        ]
+      },
+      {
+        "name": "focus-bounds",
+        "executable": {
+          "path": ".build/wasm/contracts/splatview-focus-bounds-contracts.mjs",
+          "bytes": 80803,
+          "sha256": "35400b62489d8de29ab4123f709b292e9c89c4c98eed71277fbdb84487995888"
+        },
+        "wasm": {
+          "path": ".build/wasm/contracts/splatview-focus-bounds-contracts.wasm",
+          "bytes": 2415379,
+          "sha256": "07fd857530a94450e8ac7674f864360c1928e6521633979bc466c1beb494a266"
+        },
+        "lines": [
+          "FOCUS_BOUNDS_GROUP_PASS literal-covariance-empty-bounded",
+          "FOCUS_BOUNDS_GROUP_PASS identity-late-admission",
+          "FOCUS_BOUNDS_GROUP_PASS actual-readonly-strict-fields",
+          "FOCUS_BOUNDS_GROUP_PASS retained-canonical-base-cancel",
+          "FOCUS_BOUNDS_GROUP_PASS settled-color-opacity-tolerance-fill-readonly",
+          "FOCUS_BOUNDS_GROUP_PASS active-owner-refusals",
+          "FOCUS_BOUNDS_GROUP_PASS response-backend-source-retirement",
+          "SPLATVIEW_FOCUS_BOUNDS_CONTRACTS_PASS cases=7 checks=2680 refusals=44 publication=1 backend=25 jobBytes=144"
+        ],
+        "observedCounters": [
+          7,
+          2680,
+          44,
+          1,
+          25,
+          144
+        ]
+      },
+      {
+        "name": "transform-session",
+        "executable": {
+          "path": ".build/wasm/contracts/splatview-transform-session-contracts.mjs",
+          "bytes": 81055,
+          "sha256": "2061899bc6df6296e4a2b926e45bf8ceaf817ae8f8b3036e6f2682cdb1e4bbd3"
+        },
+        "wasm": {
+          "path": ".build/wasm/contracts/splatview-transform-session-contracts.wasm",
+          "bytes": 2398340,
+          "sha256": "267cee6a519a3cb3495bd220f49f3185c1078b7bf74412adf3aec5bfa4bc622a"
+        },
+        "lines": [
+          "SPLATVIEW_TRANSFORM_SESSION_CONTRACTS_PASS cases=11 checks=48342 bakes=9 refusals=34 publication=7 backend=68 cancelPhases=10 ownerBytes=744 jobBytes=1504"
+        ],
+        "observedCounters": [
+          11,
+          48342,
+          9,
+          34,
+          7,
+          68,
+          10,
+          744,
+          1504
+        ]
+      },
+      {
+        "name": "transform-gizmo",
+        "executable": {
+          "path": ".build/wasm/contracts/splatview-transform-gizmo-contracts.mjs",
+          "bytes": 16526,
+          "sha256": "9bafbb373498a31c39a7a8652a1c3899dcd0a8d2741aa60b2379d21b16e476e6"
+        },
+        "wasm": {
+          "path": ".build/wasm/contracts/splatview-transform-gizmo-contracts.wasm",
+          "bytes": 137169,
+          "sha256": "11f460da1bfed2d5081bb62caa177798d215d2f488763f892c344ee27a5e022e"
+        },
+        "lines": [
+          "SPLATVIEW_TRANSFORM_GIZMO_CONTRACTS_PASS cases=7 checks=4489 handles=36 frames=36 updates=71 compositions=4 refusals=16 aliases=7 inputBytes=244 stateBytes=512 frameBytes=24592 resultBytes=192"
+        ],
+        "observedCounters": [
+          7,
+          4489,
+          36,
+          36,
+          71,
+          4,
+          16,
+          7
+        ]
+      },
+      {
+        "name": "current-view",
+        "executable": {
+          "path": ".build/wasm/contracts/splatview-current-view-contracts.mjs",
+          "bytes": 80795,
+          "sha256": "6b3f9deccd07a83cab437d28dbd6f079deb5559b23b7487c173f5addb4edd9ef"
+        },
+        "wasm": {
+          "path": ".build/wasm/contracts/splatview-current-view-contracts.wasm",
+          "bytes": 2416644,
+          "sha256": "35bb185d3bc8b40801d847abc6a28cc4bc2a5c159df9646ff2dea03ac85487af"
+        },
+        "lines": [
+          "SPLATVIEW_CURRENT_VIEW_CONTRACTS_PASS cases=24 checks=1476 boundaries=17 refusals=13 sessions=3 history=6 backend=100 backendControlAttempts=100 morphologyOwnerBytes=6256"
+        ],
+        "observedCounters": [
+          24,
+          1476,
+          17,
+          13,
+          3,
+          6,
+          100,
+          100,
+          6256
+        ]
+      },
+      {
+        "name": "camera-transform",
+        "executable": {
+          "path": ".build/wasm/contracts/splatview-camera-transform-contracts.mjs",
+          "bytes": 15289,
+          "sha256": "a06f25cd4c9378f4299d5b95de66ab1f59326e455c79cb2b062035b2fcd7adc6"
+        },
+        "wasm": {
+          "path": ".build/wasm/contracts/splatview-camera-transform-contracts.wasm",
+          "bytes": 84965,
+          "sha256": "c2657c1f90bae736f83311d89abd935fb5ffd06eb59b0ee8884d532da7db0830"
+        },
+        "lines": [
+          "SPLATVIEW_CAMERA_TRANSFORM_CONTRACTS_PASS cases=9 checks=426 successes=21 refusals=68 aliasCases=3 frameCases=2 frameSuccesses=5 frameRefusals=45 frameAliases=12 orientationCases=2 orientationSuccesses=2 orientationRefusals=48 orientationAliases=6"
+        ],
+        "observedCounters": [
+          9,
+          426,
+          21,
+          68,
+          3
+        ]
+      },
+      {
+        "name": "duplicate",
+        "executable": {
+          "path": ".build/wasm/contracts/splatview-duplicate-contracts.mjs",
+          "bytes": 68757,
+          "sha256": "c3d3ac1ebef45a8beaf2ef390594c7efc7b29287f697a1dd31f7f18661ec0138"
+        },
+        "wasm": {
+          "path": ".build/wasm/contracts/splatview-duplicate-contracts.wasm",
+          "bytes": 307678,
+          "sha256": "6ba8065d329235e3862bfc299576ed2d12e37b6d5b36dcd0679c32a6b719360e"
+        },
+        "lines": [
+          "PASS SH0-SH3 exact bytes, masks, one history entry and repeated-copy guard",
+          "PASS suffix ownership, null/expired/full lineage and attribute edit lifetime",
+          "PASS captured camera center-only scope and empty-view refusal",
+          "PASS uint32 source, shared identity and exact 1M boundaries",
+          "PASS cancellation, stale publication, draft and history refusal atomicity",
+          "PASS admission and intercepted C++ new allocation ordinal sweeps",
+          "Duplicate contracts passed: groups=6 admission-refusals=24 backend-refusals=80 sizeof(Job)=184 sizeof(Lineage)=1024"
+        ],
+        "observedCounters": [
+          24,
+          80,
+          184,
+          1024
+        ]
+      },
+      {
+        "name": "duplicate-binding",
+        "executable": {
+          "path": ".build/wasm/contracts/splatview-duplicate-binding-contracts.mjs",
+          "bytes": 81644,
+          "sha256": "883b5e5558c7241593e970eb0e15652c714c31ab27d768363d78056480da45ce"
+        },
+        "wasm": {
+          "path": ".build/wasm/contracts/splatview-duplicate-binding-contracts.wasm",
+          "bytes": 2452950,
+          "sha256": "36043e2f605510296bec6c9ac1b082eccb414be0f651add58866cf2b2ce8036e"
+        },
+        "lines": [
+          "PASS actual SH3 append/current-view/history and topology receipts",
+          "PASS transaction rollback, cancellation and response refusal",
+          "PASS alignment Reset boundary and grown baseline",
+          "PASS retained tool/draft/shape ownership refusals",
+          "PASS actual publication intercepted-allocation sweep",
+          "PASS typed grown-graph restore, UndoRedo and marker ownership",
+          "SPLATVIEW_DUPLICATE_BINDING_CONTRACTS_PASS cases=6 checks=1709 allocationRefusals=30"
+        ],
+        "observedCounters": [
+          1709,
+          30
+        ]
+      },
+      {
+        "name": "document-checkpoint",
+        "executable": {
+          "path": ".build/wasm/contracts/splatview-document-checkpoint-contracts.mjs",
+          "bytes": 64531,
+          "sha256": "98be3696971b71c6fae54aca94fc304794b7e193a227d06fb65aedafa16a2148"
+        },
+        "wasm": {
+          "path": ".build/wasm/contracts/splatview-document-checkpoint-contracts.wasm",
+          "bytes": 252377,
+          "sha256": "a32d8fc453e03f66fa9361d5b404982044559e350ea492f5dd803d4c7fb0ee72"
+        },
+        "lines": [
+          "SPLATVIEW_DOCUMENT_CHECKPOINT_CONTRACTS_PASS cases=28 checks=992 scopedResumes=3 legacyReads=9 refusals=25"
+        ],
+        "observedCounters": [
+          28,
+          992,
+          3,
+          9,
+          25
+        ]
+      },
+      {
+        "name": "operation-receipt",
+        "executable": {
+          "path": ".build/wasm/contracts/splatview-operation-receipt-contracts.mjs",
+          "bytes": 81012,
+          "sha256": "6649948cc4839291e314f32f2f0ba614f06b162c00a67cfabb417b959ff10119"
+        },
+        "wasm": {
+          "path": ".build/wasm/contracts/splatview-operation-receipt-contracts.wasm",
+          "bytes": 2369640,
+          "sha256": "d67001078dce575a953b34a9235d4904f4244729899496909f9261e91ca2fe26"
+        },
+        "lines": [
+          "SPLATVIEW_OPERATION_RECEIPT_CONTRACTS_PASS cases=21 checks=189 terminalReplyRefusals=2 preparationRefusals=2 receiptBytes=464 ledgerBytes=568"
+        ],
+        "observedCounters": [
+          21,
+          189,
+          2,
+          2,
+          464,
+          568
+        ]
+      },
+      {
+        "name": "response",
+        "executable": {
+          "path": ".build/wasm/contracts/splatview-response-contracts.mjs",
+          "bytes": 80697,
+          "sha256": "878711d28201c25eb95b653c0265a07cb89ea93613260770a3a50b2a7d632a64"
+        },
+        "wasm": {
+          "path": ".build/wasm/contracts/splatview-response-contracts.wasm",
+          "bytes": 2515464,
+          "sha256": "e06d4ababa2b44c793c7adb7a7446aa144aac766d7864f26c90336e515a33a71"
+        },
+        "lines": [
+          "SPLATVIEW_RESPONSE_CONTRACTS_PASS cases=53 assertions=1747 noNewObservations=766 observedNewCalls=0 staticBytes=32933 repeatedRefusals=16"
+        ],
+        "observedCounters": [
+          53,
+          1747,
+          766,
+          0,
+          32933,
+          16
+        ]
+      }
+    ]
+  },
+  "earlierAttempts": [
+    {
+      "command": {
+        "path": "test-results-coherent-startup-floating-actions-web-build-01.command.json",
+        "bytes": 1017,
+        "sha256": "c43fcfcd61c2be0cd1d27b668f5cdadc2a5a805561a96839cae958b8eb173073"
+      },
+      "reason": "Test fixture typing errors, repaired before final build"
+    },
+    {
+      "command": {
+        "path": "test-results-coherent-startup-floating-actions-cpu-01.command.json",
+        "bytes": 1405,
+        "sha256": "52ddb01f445da8304efa935b47c1836199dfb6347f9ff7e9605e345f7d794e04"
+      },
+      "reason": "Four fixture/oracle failures, repaired before final CPU run"
+    },
+    {
+      "command": {
+        "path": "test-results-coherent-startup-floating-actions-production-01.command.json",
+        "bytes": 1640,
+        "sha256": "7e8fa8263a3e5d30cc6e7a5726923ca946cf7afa244499d6d3c96238b5670908"
+      },
+      "reason": "Duplicate React sibling keys created repeated floating DOM; repaired before final build"
+    },
+    {
+      "command": {
+        "path": "test-results-coherent-startup-floating-actions-production-02.command.json",
+        "bytes": 1639,
+        "sha256": "903f1fbe93d62c04d1a90e515cd5124852d41ce3a6968867394415d7fd9f5c43"
+      },
+      "reason": "Trace records Chromium net::ERR_NO_BUFFER_SPACE on icons/LICENSE.txt"
+    },
+    {
+      "command": {
+        "path": "test-results-coherent-startup-floating-actions-production-03.command.json",
+        "bytes": 1639,
+        "sha256": "00c4370a46d81388b1a7340d08d3ec9412e3033831f8a93881b2a81f14afcd9c"
+      },
+      "reason": "Same host network-buffer exhaustion after 40 cases; replaced whole-suite browser reuse with bounded project retirement"
+    },
+    {
+      "command": {
+        "path": "test-results-coherent-startup-floating-actions-production-04.command.json",
+        "bytes": 1639,
+        "sha256": "90ef67e1bab4a9f832683ae72782453c8bdf2f950d0de7f40599b09efddb343a"
+      },
+      "reason": "Final Fill Radius release sent duplicate identical effective requests; added acknowledged-request deduplication with refusal retry coverage"
+    }
+  ],
+  "pythonVerification": {
+    "discovered": 91,
+    "passed": 90,
+    "skipped": 1
+  },
+  "desktopInputs": [
+    {
+      "path": ".build/current-desktop-chrome-tests/desktop-source/src/selection_ui.cpp",
+      "bytes": 51604,
+      "sha256": "4ca42d85710ed6d216236b37636be3c80d65bb9c0d36661174daa0ee434fddc1"
+    },
+    {
+      "path": ".build/current-desktop-chrome-tests/desktop-source/src/viewer.cpp",
+      "bytes": 50881,
+      "sha256": "bfda494deb74fa0bf770f85eab2634a9970ddf956f275f0124bdcdba72fc70f1"
+    },
+    {
+      "path": ".build/current-desktop-chrome-tests/desktop-source/src/viewer_selection.cpp",
+      "bytes": 93810,
+      "sha256": "66196cd6bf505aae0ea2229f66b73eecd6527264a57f65f57817d30a4b9ec1fa"
+    },
+    {
+      "path": ".build/current-desktop-chrome-tests/desktop-source/src/viewport_tools.cpp",
+      "bytes": 45727,
+      "sha256": "9e158605dd842b9fa1b5ac9b62863a7670b1db0cc1c66f5900ae473911cb0ca9"
+    },
+    {
+      "path": ".build/current-desktop-chrome-tests/desktop-source/src/viewer_processing.cpp",
+      "bytes": 37398,
+      "sha256": "27a29c251b29509b35404ea7d2276925443cb7a134c9ae5efbcfe92517eb358f"
+    },
+    {
+      "path": ".build/current-desktop-chrome-tests/desktop-source/src/ui_widgets.hpp",
+      "bytes": 21262,
+      "sha256": "5a8d2b2f0e9402f7aafdc8cee62a5e7e04225c1834e3530d787498efce24d2af"
+    }
+  ],
+  "accepted": [
+    "Joined manual Check, latest released-stroke Undo, Clear retaining tool, and source guards",
+    "Filter Undo distinguishes changed/inflight preview from no-op preview using native membership authority",
+    "Filter X commits the acknowledged visible preview before clearing and reopens its enclosure paused",
+    "Exact filter/tolerance owner metadata is validated beyond receipt2 across commands, transactions and recovery",
+    "Shared event-driven 90x28 release-safe controls and admitted C/Ctrl+Z actions"
+  ],
+  "adaptations": [
+    "Floating Undo has a distinct accessible name while retaining the desktop icon/title",
+    "Manual zero-selection visibility covers active work, retained recorded Color/Fill and this floating Clear; generic per-tool historical stamps remain deferred",
+    "Numeric transform/opacity retain explicit Apply/Cancel; gizmo session controls require separate native history work"
+  ],
+  "remaining": [
+    "Gizmo drag-session Check/Undo/X history and exact generic manual per-tool history visibility",
+    "Updated tutorial coverage and complete current-source visual/assistive acceptance",
+    "Remaining retained-format/recovery/deployed HTTPS checks and measured limited-scene capacity; physical Mac testing not required"
+  ],
+  "committed": false,
+  "pushed": false,
+  "deployed": false
+}

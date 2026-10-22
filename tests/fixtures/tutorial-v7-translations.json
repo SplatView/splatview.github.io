@@ -1,0 +1,1261 @@
+{
+    "schemaVersion":  1,
+    "authority":  {
+                      "product":  "SplatView",
+                      "desktopVersion":  "1.0.2",
+                      "desktopCommit":  "4e1be155511fb49f08fd8c863d785ac008a4c43a",
+                      "tutorialVersion":  7,
+                      "tutorialHeader":  {
+                                             "path":  ".build/current-desktop-chrome-tests/desktop-source/src/tutorial.hpp",
+                                             "bytes":  10582,
+                                             "sha256":  "1e0fe1551a5d9f475c43635892146e03b09430e666180de52cf88072a2f05055"
+                                         },
+                      "translations":  {
+                                           "path":  ".build/current-desktop-chrome-tests/desktop-source/src/translations.inc",
+                                           "bytes":  254928,
+                                           "sha256":  "ac3f88336d930a838f3180e1fe74a018137902bf1f2c2afd9e491ac76f90a4c2"
+                                       },
+                      "license":  {
+                                      "path":  ".build/current-desktop-chrome-tests/desktop-source/LICENSE",
+                                      "bytes":  1240,
+                                      "sha256":  "a4e250aeb90355f40a09587cfaad8a5a6d1c79d0a3a539fc6cc1ab0537384010"
+                                  },
+                      "copyright":  "Copyright (c) 2026 OpsiClear LLC. All rights reserved.",
+                      "licenseIdentifier":  "LicenseRef-OpsiClear-Proprietary",
+                      "notice":  "Exact referenced native tutorial translation rows. Attribution does not grant additional redistribution permission."
+                  },
+    "locales":  [
+                    "en",
+                    "es",
+                    "fr",
+                    "de",
+                    "pt",
+                    "zh-Hans",
+                    "ja",
+                    "ko"
+                ],
+    "rows":  [
+                 {
+                     "sourceLine":  3,
+                     "values":  [
+                                    "Basic has selection, alignment, gizmos and color. Pro adds filters and precise controls. This tour shows Pro without changing your mode.",
+                                    "Básico incluye selección, alineación, gizmos y color. Pro añade filtros y controles precisos. El tutorial muestra Pro sin cambiar tu modo.",
+                                    "Basique inclut sélection, alignement, gizmos et couleur. Pro ajoute filtres et réglages précis. La visite affiche Pro sans changer votre mode.",
+                                    "Basic bietet Auswahl, Ausrichtung, Gizmos und Farbe. Pro ergänzt Filter und präzise Steuerung. Die Tour zeigt Pro, ohne Ihren Modus zu ändern.",
+                                    "Básico tem seleção, alinhamento, gizmos e cor. Pro adiciona filtros e controles precisos. O tutorial mostra Pro sem mudar seu modo.",
+                                    "基础版包含选择、对齐、操纵器和颜色。专业版增加筛选器和精确控制。本教程展示专业版，但不会更改您的模式。",
+                                    "Basicは選択、位置合わせ、ギズモ、色を備えます。Proはフィルターと精密設定を追加します。このツアーはモードを変更せずProを表示します。",
+                                    "Basic에는 선택, 정렬, 기즈모, 색상이 있습니다. Pro는 필터와 정밀 제어를 추가합니다. 이 안내는 모드를 바꾸지 않고 Pro를 보여줍니다."
+                                ]
+                 },
+                 {
+                     "sourceLine":  4,
+                     "values":  [
+                                    "All selects every splat. None clears. Invert swaps selected splats.",
+                                    "Todo selecciona todos los splats. Ninguno borra la selección. Invertir intercambia la selección.",
+                                    "Tout sélectionne tous les splats. Aucun efface la sélection. Inverser échange les splats sélectionnés.",
+                                    "Alle wählt alle Splats. Keine leert die Auswahl. Umkehren kehrt die Auswahl um.",
+                                    "Tudo seleciona todos os splats. Nenhum limpa a seleção. Inverter troca a seleção.",
+                                    "全选选中所有点。清空取消选择。反选切换选中与未选中的点。",
+                                    "すべてで全スプラットを選択、なしで解除、反転で選択を入れ替えます。",
+                                    "모두는 전체 스플랫을 선택합니다. 없음은 해제합니다. 반전은 선택을 뒤집습니다."
+                                ]
+                 },
+                 {
+                     "sourceLine":  5,
+                     "values":  [
+                                    "Delete and keep",
+                                    "Eliminar y conservar",
+                                    "Supprimer et garder",
+                                    "Löschen und behalten",
+                                    "Excluir e manter",
+                                    "删除与保留",
+                                    "削除と保持",
+                                    "삭제와 유지"
+                                ]
+                 },
+                 {
+                     "sourceLine":  6,
+                     "values":  [
+                                    "Delete hides selected splats. Keep hides everything else. Ctrl+Z: undo.",
+                                    "Eliminar oculta los splats seleccionados. Conservar oculta el resto. Ctrl+Z: deshacer.",
+                                    "Supprimer masque la sélection. Garder masque tout le reste. Ctrl+Z : annuler.",
+                                    "Löschen blendet ausgewählte Splats aus. Behalten blendet den Rest aus. Strg+Z: rückgängig.",
+                                    "Excluir oculta os splats selecionados. Manter oculta o restante. Ctrl+Z: desfazer.",
+                                    "删除隐藏选中的点。保留隐藏其余点。Ctrl+Z：撤销。",
+                                    "削除は選択部分を非表示に、保持はそれ以外を非表示にします。Ctrl+Z：元に戻す。",
+                                    "삭제는 선택한 스플랫을 숨깁니다. 유지는 나머지를 숨깁니다. Ctrl+Z: 실행 취소."
+                                ]
+                 },
+                 {
+                     "sourceLine":  7,
+                     "values":  [
+                                    "Rotation format",
+                                    "Formato de rotación",
+                                    "Format de rotation",
+                                    "Rotationsformat",
+                                    "Formato de rotação",
+                                    "旋转格式",
+                                    "回転形式",
+                                    "회전 형식"
+                                ]
+                 },
+                 {
+                     "sourceLine":  8,
+                     "values":  [
+                                    "Pro: choose Euler angles, quaternion, axis-angle or matrix entry.",
+                                    "Pro: elige ángulos de Euler, cuaternión, eje-ángulo o matriz.",
+                                    "Pro : choisissez angles d’Euler, quaternion, axe-angle ou matrice.",
+                                    "Pro: Eulerwinkel, Quaternion, Achse-Winkel oder Matrix wählen.",
+                                    "Pro: escolha ângulos de Euler, quaternion, eixo-ângulo ou matriz.",
+                                    "专业版：选择欧拉角、四元数、轴角或矩阵输入。",
+                                    "Pro：オイラー角、クォータニオン、軸・角度、行列入力を選択。",
+                                    "Pro: 오일러 각도, 쿼터니언, 축-각도 또는 행렬 입력을 선택하세요."
+                                ]
+                 },
+                 {
+                     "sourceLine":  9,
+                     "values":  [
+                                    "Transform axes",
+                                    "Ejes de transformación",
+                                    "Axes de transformation",
+                                    "Transformationsachsen",
+                                    "Eixos de transformação",
+                                    "变换坐标轴",
+                                    "変換軸",
+                                    "변환 축"
+                                ]
+                 },
+                 {
+                     "sourceLine":  10,
+                     "values":  [
+                                    "Pro: switch between world and local axes. Basic uses world axes.",
+                                    "Pro: cambia entre ejes globales y locales. Básico usa ejes globales.",
+                                    "Pro : basculez entre axes globaux et locaux. Basique utilise les axes globaux.",
+                                    "Pro: zwischen Welt- und lokalen Achsen wechseln. Basic verwendet Weltachsen.",
+                                    "Pro: alterne entre eixos globais e locais. Básico usa eixos globais.",
+                                    "专业版：切换世界与局部坐标轴。基础版使用世界坐标轴。",
+                                    "Pro：ワールド軸とローカル軸を切り替えます。Basicはワールド軸を使用。",
+                                    "Pro: 월드 축과 로컬 축을 전환하세요. Basic은 월드 축을 사용합니다."
+                                ]
+                 },
+                 {
+                     "sourceLine":  11,
+                     "values":  [
+                                    "Use the magnet or hold Ctrl to snap. Flip X/Y/Z changes orientation. Available in Basic and Pro.",
+                                    "Usa el imán o mantén Ctrl para ajustar. Invertir X/Y/Z cambia la orientación. En Básico y Pro.",
+                                    "Utilisez l’aimant ou Ctrl pour l’accrochage. Retourner X/Y/Z change l’orientation. En Basique et Pro.",
+                                    "Magnet oder Strg zum Einrasten. X/Y/Z spiegeln ändert die Ausrichtung. In Basic und Pro.",
+                                    "Use o ímã ou segure Ctrl para ajustar. Inverter X/Y/Z muda a orientação. Em Básico e Pro.",
+                                    "点击磁铁或按住 Ctrl 吸附。翻转 X/Y/Z 更改方向。基础版和专业版均可使用。",
+                                    "磁石またはCtrlでスナップ。X/Y/Z反転で向きを変更。BasicとProで利用できます。",
+                                    "자석이나 Ctrl로 스냅하세요. X/Y/Z 뒤집기는 방향을 바꿉니다. Basic과 Pro에서 사용할 수 있습니다."
+                                ]
+                 },
+                 {
+                     "sourceLine":  12,
+                     "values":  [
+                                    "Transform pivot",
+                                    "Pivote de transformación",
+                                    "Pivot de transformation",
+                                    "Transformationsdrehpunkt",
+                                    "Pivô de transformação",
+                                    "变换枢轴",
+                                    "変換ピボット",
+                                    "변환 피벗"
+                                ]
+                 },
+                 {
+                     "sourceLine":  13,
+                     "values":  [
+                                    "Pro: cycle the pivot through scene center, selection center and origin.",
+                                    "Pro: alterna el pivote entre centro de escena, centro de selección y origen.",
+                                    "Pro : faites défiler le pivot entre centre de scène, centre de sélection et origine.",
+                                    "Pro: Drehpunkt zwischen Szenenmitte, Auswahlmitte und Ursprung wechseln.",
+                                    "Pro: alterne o pivô entre centro da cena, centro da seleção e origem.",
+                                    "专业版：在场景中心、选区中心和原点之间切换枢轴。",
+                                    "Pro：ピボットをシーン中心、選択中心、原点の順に切り替えます。",
+                                    "Pro: 피벗을 장면 중심, 선택 중심, 원점으로 전환하세요."
+                                ]
+                 },
+                 {
+                     "sourceLine":  14,
+                     "values":  [
+                                    "Pro: type translation, scale, pivot and rotation values. Distances are in meters.",
+                                    "Pro: introduce traslación, escala, pivote y rotación. Las distancias están en metros.",
+                                    "Pro : saisissez translation, échelle, pivot et rotation. Distances en mètres.",
+                                    "Pro: Verschiebung, Skalierung, Drehpunkt und Rotation eingeben. Abstände in Metern.",
+                                    "Pro: digite translação, escala, pivô e rotação. Distâncias em metros.",
+                                    "专业版：输入平移、缩放、枢轴和旋转值。距离单位为米。",
+                                    "Pro：移動、スケール、ピボット、回転値を入力。距離はメートルです。",
+                                    "Pro: 이동, 배율, 피벗, 회전 값을 입력하세요. 거리는 미터입니다."
+                                ]
+                 },
+                 {
+                     "sourceLine":  15,
+                     "values":  [
+                                    "Duplicate selection",
+                                    "Duplicar selección",
+                                    "Dupliquer la sélection",
+                                    "Auswahl duplizieren",
+                                    "Duplicar seleção",
+                                    "复制选区",
+                                    "選択を複製",
+                                    "선택 복제"
+                                ]
+                 },
+                 {
+                     "sourceLine":  16,
+                     "values":  [
+                                    "O: auto orbit. F: flip the camera\u0027s up direction.",
+                                    "O: órbita automática. F: invertir la dirección vertical de la cámara.",
+                                    "O : orbite automatique. F : inverser le haut de la caméra.",
+                                    "O: automatischer Orbit. F: Oben-Richtung der Kamera umkehren.",
+                                    "O: órbita automática. F: inverter a direção vertical da câmera.",
+                                    "O：自动环绕。F：翻转相机向上方向。",
+                                    "O：自動周回。F：カメラの上方向を反転。",
+                                    "O: 자동 궤도. F: 카메라의 위 방향 뒤집기."
+                                ]
+                 },
+                 {
+                     "sourceLine":  17,
+                     "values":  [
+                                    "Save edits and the current view. Choose a file and format; use a new name to keep the original. Overwriting asks first.",
+                                    "Guarda cambios y vista actual. Elige archivo y formato; usa otro nombre para conservar el original. Sobrescribir pide confirmación.",
+                                    "Enregistrez les modifications et la vue. Choisissez fichier et format ; un nouveau nom garde l’original. Écraser demande confirmation.",
+                                    "Änderungen und Ansicht speichern. Datei und Format wählen; ein neuer Name behält das Original. Überschreiben erfordert Bestätigung.",
+                                    "Salve edições e a vista atual. Escolha arquivo e formato; use outro nome para manter o original. Sobrescrever pede confirmação.",
+                                    "保存编辑和当前视角。选择文件及格式；使用新名称以保留原文件。覆盖前会请求确认。",
+                                    "編集と現在のビューを保存。ファイルと形式を選び、別名で元を保持します。上書きには確認が必要です。",
+                                    "편집과 현재 뷰를 저장합니다. 파일과 형식을 선택하고 새 이름으로 원본을 유지하세요. 덮어쓰기는 먼저 확인합니다."
+                                ]
+                 },
+                 {
+                     "sourceLine":  18,
+                     "values":  [
+                                    "Frame the view, then click Set thumbnail (T). Saves the Explorer thumbnail, default view and background.",
+                                    "Encuadra la vista y pulsa Establecer miniatura (T). Guarda miniatura del Explorador, vista predeterminada y fondo.",
+                                    "Cadrez la vue, puis cliquez sur Définir la miniature (T). Enregistre miniature de l’Explorateur, vue par défaut et fond.",
+                                    "Ansicht ausrichten und Miniatur festlegen (T) anklicken. Speichert Explorer-Miniatur, Standardansicht und Hintergrund.",
+                                    "Enquadre a vista e clique em Definir miniatura (T). Salva miniatura do Explorador, vista padrão e fundo.",
+                                    "调整取景，然后点击设置缩略图（T）。保存资源管理器缩略图、默认视角和背景。",
+                                    "構図を決め、サムネイル設定（T）をクリック。エクスプローラーのサムネイル・既定ビュー・背景を保存します。",
+                                    "구도를 잡고 썸네일 설정(T)을 클릭하세요. 탐색기 썸네일, 기본 뷰, 배경을 저장합니다."
+                                ]
+                 },
+                 {
+                     "sourceLine":  19,
+                     "values":  [
+                                    "Click the rendered surface to select its strongest splat. Middle-drag to orbit.",
+                                    "Pulsa la superficie renderizada para seleccionar el splat dominante. Arrastra con el botón central para orbitar.",
+                                    "Cliquez sur la surface rendue pour sélectionner son splat dominant. Glissez avec le bouton central pour orbiter.",
+                                    "Gerenderte Oberfläche anklicken, um den stärksten Splat zu wählen. Mit der mittleren Taste zum Umkreisen ziehen.",
+                                    "Clique na superfície renderizada para selecionar o splat dominante. Arraste com o botão do meio para orbitar.",
+                                    "点击渲染表面以选择贡献最大的高斯点。按住中键拖动环绕。",
+                                    "描画された表面をクリックし、最も強いスプラットを選択。中ボタンのドラッグで周回します。",
+                                    "렌더링 표면을 클릭해 가장 강한 스플랫을 선택하세요. 가운데 버튼 드래그로 궤도를 돌립니다."
+                                ]
+                 },
+                 {
+                     "sourceLine":  20,
+                     "values":  [
+                                    "Click a connected patch in the current view (Ctrl+G). Lower tolerance keeps the selection tighter.",
+                                    "Pulsa una zona conectada en la vista actual (Ctrl+G). Menor tolerancia limita la selección.",
+                                    "Cliquez sur une zone connectée dans la vue actuelle (Ctrl+G). Réduisez la tolérance pour limiter la sélection.",
+                                    "Zusammenhängenden Bereich der aktuellen Ansicht anklicken (Strg+G). Kleinere Toleranz begrenzt die Auswahl.",
+                                    "Clique em uma área conectada na vista atual (Ctrl+G). Menor tolerância limita a seleção.",
+                                    "点击当前视图中的连通区域（Ctrl+G）。较低的容差使选区更紧密。",
+                                    "現在のビューのつながった領域をクリック（Ctrl+G）。許容値を下げると選択範囲を絞れます。",
+                                    "현재 뷰의 연결된 영역을 클릭하세요(Ctrl+G). 허용 오차를 낮추면 선택이 좁아집니다."
+                                ]
+                 },
+                 {
+                     "sourceLine":  21,
+                     "values":  [
+                                    "Pro: duplicate selected splats, then move the green copy. Editing it turns it yellow.",
+                                    "Pro: duplica los splats seleccionados y mueve la copia verde. Al editarla se vuelve amarilla.",
+                                    "Pro : dupliquez les splats sélectionnés, puis déplacez la copie verte. La retoucher la rend jaune.",
+                                    "Pro: ausgewählte Splats duplizieren und die grüne Kopie bewegen. Bearbeiten färbt sie gelb.",
+                                    "Pro: duplique os splats selecionados e mova a cópia verde. Editar a torna amarela.",
+                                    "专业模式：复制选中的高斯点，然后移动绿色副本。编辑后副本变为黄色。",
+                                    "Pro：選択を複製し、緑色のコピーを移動。編集すると黄色になります。",
+                                    "Pro: 선택한 스플랫을 복제하고 초록색 사본을 이동하세요. 편집하면 노란색으로 바뀝니다."
+                                ]
+                 },
+                 {
+                     "sourceLine":  22,
+                     "values":  [
+                                    "Check keeps the selection and exits. Undo reverses the last action. X clears. Right-click clears, then exits when empty.",
+                                    "La marca conserva la selección y sale. Deshacer revierte la última acción. X limpia. Clic derecho limpia y sale si no hay selección.",
+                                    "La coche garde la sélection et quitte. Annuler retire la dernière action. X efface. Clic droit efface, puis quitte si la sélection est vide.",
+                                    "Haken behält die Auswahl und beendet. Rückgängig entfernt die letzte Aktion. X leert. Rechtsklick leert und beendet bei leerer Auswahl.",
+                                    "A marca mantém a seleção e sai. Desfazer reverte a última ação. X limpa. Clique direito limpa e sai sem seleção.",
+                                    "勾号保留选择并退出。撤销回退上一步操作。X 清空。右键先清空，选区为空时退出。",
+                                    "チェックは選択を保持して終了。元に戻すは直前の操作を取り消し、Xは解除。右クリックは解除し、選択が空なら終了します。",
+                                    "체크는 선택을 유지하고 종료합니다. 실행 취소는 마지막 동작을 되돌리고 X는 해제합니다. 우클릭은 해제하고, 선택이 없으면 종료합니다."
+                                ]
+                 },
+                 {
+                     "sourceLine":  23,
+                     "values":  [
+                                    "Adjust limits or a volume. Volume filters have a target icon to pick the center. Check confirms; Esc restores the starting selection.",
+                                    "Ajusta límites o volumen. Los filtros de volumen tienen un objetivo para elegir el centro. La marca confirma; Esc restaura la selección inicial.",
+                                    "Réglez les limites ou le volume. Les filtres de volume ont une cible pour choisir le centre. La coche confirme ; Échap restaure la sélection initiale.",
+                                    "Grenzen oder Volumen anpassen. Volumenfilter haben ein Zielsymbol für die Mitte. Haken bestätigt; Esc stellt die ursprüngliche Auswahl wieder her.",
+                                    "Ajuste limites ou volume. Filtros de volume têm um alvo para escolher o centro. A marca confirma; Esc restaura a seleção inicial.",
+                                    "调整范围或体积。体积筛选器提供靶心图标来拾取中心。勾号确认；Esc 恢复初始选区。",
+                                    "範囲や体積を調整。体積フィルターのターゲットで中心を指定。チェックで確定、Escで開始時の選択に戻ります。",
+                                    "범위나 부피를 조정하세요. 부피 필터의 타깃 아이콘으로 중심을 선택합니다. 체크는 확정, Esc는 시작 선택을 복원합니다."
+                                ]
+                 },
+                 {
+                     "sourceLine":  24,
+                     "values":  [
+                                    "Pro adds gamma, vibrance, tint, shadows, highlights, hue and Fade / boost. They stay active in Basic.",
+                                    "Pro añade gamma, intensidad, matiz, sombras, luces, tono y Atenuar / reforzar. Siguen activos en Básico.",
+                                    "Pro ajoute gamma, vibrance, teinte, ombres, hautes lumières, tonalité et Atténuer / renforcer. Ils restent actifs en Basique.",
+                                    "Pro ergänzt Gamma, Dynamik, Tönung, Schatten, Lichter, Farbton und Abschwächen / Verstärken. Sie bleiben in Basic aktiv.",
+                                    "Pro adiciona gama, vibração, matiz, sombras, realces, tom e Atenuar / realçar. Continuam ativos no Básico.",
+                                    "专业模式增加伽马、自然饱和度、色调、阴影、高光、色相和淡化/增强。返回基础模式后仍生效。",
+                                    "Proはガンマ・自然な彩度・色かぶり・シャドウ・ハイライト・色相・フェード/強調を追加。Basicでも有効です。",
+                                    "Pro는 감마, 생동감, 틴트, 그림자, 하이라이트, 색조, 페이드/강화를 추가합니다. 기본 모드에서도 유지됩니다."
+                                ]
+                 },
+                 {
+                     "sourceLine":  25,
+                     "values":  [
+                                    "Color and manual transforms use the selection, or the whole scene when empty. Alignment always moves the whole scene.",
+                                    "Color y transformaciones manuales afectan la selección, o toda la escena si no hay selección. La alineación siempre mueve toda la escena.",
+                                    "Couleur et transformations manuelles ciblent la sélection, ou toute la scène si elle est vide. L’alignement déplace toujours toute la scène.",
+                                    "Farbe und manuelle Transformationen betreffen die Auswahl, ohne Auswahl die ganze Szene. Ausrichtung bewegt immer die ganze Szene.",
+                                    "Cor e transformações manuais afetam a seleção, ou toda a cena sem seleção. O alinhamento sempre move toda a cena.",
+                                    "颜色和手动变换作用于选区；未选择时作用于整个场景。对齐始终移动整个场景。",
+                                    "色と手動変形は選択部分に適用。選択がなければシーン全体に適用します。位置合わせは常に全体を動かします。",
+                                    "색상과 수동 변환은 선택 영역에 적용되며, 선택이 없으면 전체 장면에 적용됩니다. 정렬은 항상 전체 장면을 이동합니다."
+                                ]
+                 },
+                 {
+                     "sourceLine":  26,
+                     "values":  [
+                                    "Grow adds neighbors; Shrink removes boundary splats. Choose Volume or Sigma. Hover the slider: blue adds, red removes.",
+                                    "Expandir añade vecinos; Contraer quita splats del borde. Elige Volumen o Sigma. Sobre el deslizador: azul añade, rojo quita.",
+                                    "Agrandir ajoute les voisins ; Réduire retire les splats du bord. Choisissez Volume ou Sigma. Survolez le curseur : bleu ajoute, rouge retire.",
+                                    "Erweitern fügt Nachbarn hinzu; Verkleinern entfernt Rand-Splats. Wählen Sie Volumen oder Sigma. Regler-Vorschau: Blau ergänzt, Rot entfernt.",
+                                    "Expandir adiciona vizinhos; Contrair remove splats da borda. Escolha Volume ou Sigma. Passe sobre o controle: azul adiciona, vermelho remove.",
+                                    "扩展加入邻点，收缩移除边界高斯点。选择体积或 Sigma。悬停滑块：蓝色为加入，红色为移除。",
+                                    "拡張は隣接点を追加、縮小は境界の点を解除。体積かSigmaを選びます。スライダーにホバーすると、青は追加、赤は解除です。",
+                                    "확장은 이웃을 추가하고 축소는 경계 스플랫을 해제합니다. 부피 또는 Sigma를 선택하세요. 슬라이더 미리 보기: 파랑은 추가, 빨강은 해제입니다."
+                                ]
+                 },
+                 {
+                     "sourceLine":  27,
+                     "values":  [
+                                    "Options follows the tool: size, tolerance, visibility or live selection. Highlighted icons are on.",
+                                    "Opciones cambia con la herramienta: tamaño, tolerancia, visibilidad o selección en vivo. Los iconos resaltados están activos.",
+                                    "Options suit l’outil : taille, tolérance, visibilité ou sélection en direct. Les icônes surlignées sont actives.",
+                                    "Optionen folgen dem Werkzeug: Größe, Toleranz, Sichtbarkeit oder Live-Auswahl. Hervorgehobene Symbole sind aktiv.",
+                                    "Opções segue a ferramenta: tamanho, tolerância, visibilidade ou seleção ao vivo. Ícones destacados estão ativos.",
+                                    "选项随工具变化：大小、容差、可见性或实时选择。高亮图标表示开启。",
+                                    "オプションはツールに応じてサイズ・許容値・可視性・ライブ選択を表示。強調されたアイコンはオンです。",
+                                    "옵션은 도구에 따라 크기, 허용 오차, 가시성, 실시간 선택을 표시합니다. 강조된 아이콘은 켜져 있습니다."
+                                ]
+                 },
+                 {
+                     "sourceLine":  28,
+                     "values":  [
+                                    "Finish, undo or clear",
+                                    "Finalizar, deshacer o limpiar",
+                                    "Terminer, annuler ou effacer",
+                                    "Abschließen, rückgängig oder leeren",
+                                    "Concluir, desfazer ou limpar",
+                                    "完成、撤销或清空",
+                                    "確定・取り消し・解除",
+                                    "완료, 실행 취소, 해제"
+                                ]
+                 },
+                 {
+                     "sourceLine":  30,
+                     "values":  [
+                                    "Move, rotate and scale",
+                                    "Mover, girar y escalar",
+                                    "Déplacer, pivoter et redimensionner",
+                                    "Verschieben, drehen und skalieren",
+                                    "Mover, girar e escalar",
+                                    "移动、旋转和缩放",
+                                    "移動・回転・スケール",
+                                    "이동, 회전, 크기 조절"
+                                ]
+                 },
+                 {
+                     "sourceLine":  31,
+                     "values":  [
+                                    "Choose a gizmo, then drag a handle. Check keeps edits; Undo reverses a drag; X cancels the session.",
+                                    "Elige un gizmo y arrastra una manija. La marca conserva los cambios; Deshacer revierte un arrastre; X cancela la sesión.",
+                                    "Choisissez un gizmo et tirez une poignée. La coche garde les modifications ; Annuler retire un geste ; X annule la session.",
+                                    "Gizmo wählen und Griff ziehen. Haken behält Änderungen; Rückgängig entfernt einen Zug; X verwirft die Sitzung.",
+                                    "Escolha um gizmo e arraste uma alça. A marca mantém edições; Desfazer reverte um arrasto; X cancela a sessão.",
+                                    "选择操纵器并拖动手柄。勾号保留编辑，撤销回退一次拖动，X 取消本次操作。",
+                                    "ギズモを選び、ハンドルをドラッグ。チェックは編集を保持、元に戻すはドラッグを取り消し、Xはセッションをキャンセルします。",
+                                    "기즈모를 선택하고 핸들을 드래그하세요. 체크는 편집 유지, 실행 취소는 드래그 되돌리기, X는 세션 취소입니다."
+                                ]
+                 },
+                 {
+                     "sourceLine":  32,
+                     "values":  [
+                                    "Snap and axis flips",
+                                    "Ajuste y volteos de ejes",
+                                    "Magnétisme et retournements",
+                                    "Einrasten und Achsen-Flips",
+                                    "Encaixe e inversões de eixos",
+                                    "吸附和轴翻转",
+                                    "スナップと軸反転",
+                                    "스냅과 축 뒤집기"
+                                ]
+                 },
+                 {
+                     "sourceLine":  33,
+                     "values":  [
+                                    "Hover to preview the image and histogram. Click to apply and update the sliders.",
+                                    "Pasa el cursor para ver la imagen y el histograma. Haz clic para aplicar y actualizar los deslizadores.",
+                                    "Survolez pour prévisualiser l’image et l’histogramme. Cliquez pour appliquer et mettre à jour les curseurs.",
+                                    "Hover zeigt Bild- und Histogramm-Vorschau. Klicken wendet sie an und aktualisiert die Regler.",
+                                    "Passe o cursor para ver a imagem e o histograma. Clique para aplicar e atualizar os controles.",
+                                    "悬停预览图像和直方图。点击应用并更新滑块。",
+                                    "ホバーで画像とヒストグラムをプレビュー。クリックで適用し、スライダーを更新します。",
+                                    "호버하면 이미지와 히스토그램을 미리 봅니다. 클릭하면 적용하고 슬라이더를 갱신합니다."
+                                ]
+                 },
+                 {
+                     "sourceLine":  123,
+                     "values":  [
+                                    "Color picker",
+                                    "Selector de color",
+                                    "Pipette",
+                                    "Farbpipette",
+                                    "Seletor de cor",
+                                    "颜色吸管",
+                                    "スポイト",
+                                    "색상 스포이트"
+                                ]
+                 },
+                 {
+                     "sourceLine":  124,
+                     "values":  [
+                                    "Fill select",
+                                    "Selección por relleno",
+                                    "Sélection par remplissage",
+                                    "Füllauswahl",
+                                    "Seleção por preenchimento",
+                                    "填充选择",
+                                    "塗りつぶし選択",
+                                    "채우기 선택"
+                                ]
+                 },
+                 {
+                     "sourceLine":  136,
+                     "values":  [
+                                    "Set Explorer thumbnail",
+                                    "Definir miniatura del Explorador",
+                                    "Définir la miniature de l’Explorateur",
+                                    "Explorer-Vorschaubild festlegen",
+                                    "Definir miniatura do Explorador",
+                                    "设置资源管理器缩略图",
+                                    "エクスプローラーのサムネイルを設定",
+                                    "탐색기 썸네일 설정"
+                                ]
+                 },
+                 {
+                     "sourceLine":  146,
+                     "values":  [
+                                    "Reset color",
+                                    "Restablecer color",
+                                    "Réinitialiser les couleurs",
+                                    "Farbe zurücksetzen",
+                                    "Redefinir cor",
+                                    "重置颜色",
+                                    "色をリセット",
+                                    "색상 초기화"
+                                ]
+                 },
+                 {
+                     "sourceLine":  147,
+                     "values":  [
+                                    "Reset transform",
+                                    "Restablecer transformación",
+                                    "Réinitialiser la transformation",
+                                    "Transformation zurücksetzen",
+                                    "Redefinir transformação",
+                                    "重置变换",
+                                    "変形をリセット",
+                                    "변환 초기화"
+                                ]
+                 },
+                 {
+                     "sourceLine":  178,
+                     "values":  [
+                                    "Navigate",
+                                    "Navegar",
+                                    "Naviguer",
+                                    "Navigieren",
+                                    "Navegar",
+                                    "导航",
+                                    "移動",
+                                    "탐색"
+                                ]
+                 },
+                 {
+                     "sourceLine":  179,
+                     "values":  [
+                                    "Single splat",
+                                    "Un splat",
+                                    "Un splat",
+                                    "Einzelner Splat",
+                                    "Um splat",
+                                    "单个高斯点",
+                                    "単一スプラット",
+                                    "단일 스플랫"
+                                ]
+                 },
+                 {
+                     "sourceLine":  185,
+                     "values":  [
+                                    "Selection actions",
+                                    "Acciones de selección",
+                                    "Actions de sélection",
+                                    "Auswahlaktionen",
+                                    "Ações de seleção",
+                                    "选择操作",
+                                    "選択アクション",
+                                    "선택 작업"
+                                ]
+                 },
+                 {
+                     "sourceLine":  206,
+                     "values":  [
+                                    "Settings",
+                                    "Configuración",
+                                    "Paramètres",
+                                    "Einstellungen",
+                                    "Configurações",
+                                    "设置",
+                                    "設定",
+                                    "설정"
+                                ]
+                 },
+                 {
+                     "sourceLine":  212,
+                     "values":  [
+                                    "Tools",
+                                    "Herramientas",
+                                    "Outils",
+                                    "Werkzeuge",
+                                    "Ferramentas",
+                                    "工具",
+                                    "ツール",
+                                    "도구"
+                                ]
+                 },
+                 {
+                     "sourceLine":  218,
+                     "values":  [
+                                    "Save scene",
+                                    "Guardar escena",
+                                    "Enregistrer la scène",
+                                    "Szene speichern",
+                                    "Salvar cena",
+                                    "保存场景",
+                                    "シーンを保存",
+                                    "장면 저장"
+                                ]
+                 },
+                 {
+                     "sourceLine":  374,
+                     "values":  [
+                                    "1-point center",
+                                    "Centro (1 punto)",
+                                    "Centre (1 point)",
+                                    "1-Punkt-Zentrum",
+                                    "Centrar com 1 ponto",
+                                    "单点居中",
+                                    "1 点で中心設定",
+                                    "1점 중심 설정"
+                                ]
+                 },
+                 {
+                     "sourceLine":  375,
+                     "values":  [
+                                    "2-point scale",
+                                    "Escala (2 puntos)",
+                                    "Échelle (2 points)",
+                                    "2-Punkt-Skala",
+                                    "Escalar com 2 pontos",
+                                    "两点缩放",
+                                    "2 点で尺度設定",
+                                    "2점 크기 설정"
+                                ]
+                 },
+                 {
+                     "sourceLine":  376,
+                     "values":  [
+                                    "3-point align",
+                                    "Alinear (3 puntos)",
+                                    "Aligner (3 points)",
+                                    "3-Punkt-Ausrichtung",
+                                    "Alinhar com 3 pontos",
+                                    "三点对齐",
+                                    "3 点で位置合わせ",
+                                    "3점 정렬"
+                                ]
+                 },
+                 {
+                     "sourceLine":  386,
+                     "values":  [
+                                    "Level floor",
+                                    "Nivelar suelo",
+                                    "Mettre le sol à niveau",
+                                    "Boden ausrichten",
+                                    "Nivelar piso",
+                                    "调平地面",
+                                    "床を水平にする",
+                                    "바닥 수평 맞추기"
+                                ]
+                 },
+                 {
+                     "sourceLine":  521,
+                     "values":  [
+                                    "Auto color",
+                                    "Color automático",
+                                    "Couleur auto",
+                                    "Automatische Farbe",
+                                    "Cor automática",
+                                    "自动调色",
+                                    "自動カラー",
+                                    "자동 색상"
+                                ]
+                 },
+                 {
+                     "sourceLine":  541,
+                     "values":  [
+                                    "Basic and Pro",
+                                    "Básico y Pro",
+                                    "Basique et Pro",
+                                    "Basis und Pro",
+                                    "Básico e Pro",
+                                    "基础与专业",
+                                    "基本とプロ",
+                                    "기본 및 프로"
+                                ]
+                 },
+                 {
+                     "sourceLine":  587,
+                     "values":  [
+                                    "Open a scene",
+                                    "Abrir escena",
+                                    "Ouvrir une scène",
+                                    "Szene öffnen",
+                                    "Abrir cena",
+                                    "打开场景",
+                                    "シーンを開く",
+                                    "장면 열기"
+                                ]
+                 },
+                 {
+                     "sourceLine":  591,
+                     "values":  [
+                                    "Color sliders",
+                                    "Controles de color",
+                                    "Curseurs de couleur",
+                                    "Farbregler",
+                                    "Controles de cor",
+                                    "调色滑块",
+                                    "カラースライダー",
+                                    "색상 슬라이더"
+                                ]
+                 },
+                 {
+                     "sourceLine":  592,
+                     "values":  [
+                                    "Edit scope",
+                                    "Ámbito de edición",
+                                    "Portée des modifications",
+                                    "Bearbeitungsbereich",
+                                    "Escopo de edição",
+                                    "编辑范围",
+                                    "編集対象",
+                                    "편집 범위"
+                                ]
+                 },
+                 {
+                     "sourceLine":  595,
+                     "values":  [
+                                    "Undo and redo",
+                                    "Deshacer y rehacer",
+                                    "Annuler et rétablir",
+                                    "Rückgängig und Wiederholen",
+                                    "Desfazer e refazer",
+                                    "撤销与重做",
+                                    "元に戻す／やり直す",
+                                    "실행 취소 및 다시 실행"
+                                ]
+                 },
+                 {
+                     "sourceLine":  620,
+                     "values":  [
+                                    "Reset cleanup",
+                                    "Restablecer limpieza",
+                                    "Réinitialiser le nettoyage",
+                                    "Bereinigung zurücksetzen",
+                                    "Redefinir limpeza",
+                                    "重置清理",
+                                    "クリーンアップをリセット",
+                                    "정리 초기화"
+                                ]
+                 },
+                 {
+                     "sourceLine":  638,
+                     "values":  [
+                                    "Open a splat to edit, or another PLY to view.",
+                                    "Abre un splat para editar u otro PLY para visualizar.",
+                                    "Ouvrez un splat à retoucher ou un autre PLY à afficher.",
+                                    "Öffnen Sie einen Splat zum Bearbeiten oder eine andere PLY-Datei zum Ansehen.",
+                                    "Abra um splat para editar ou outro PLY para visualizar.",
+                                    "打开泼溅文件进行编辑，或查看其他 PLY 文件。",
+                                    "スプラットは編集、その他のPLYは表示できます。",
+                                    "스플랫은 편집하고, 다른 PLY 파일은 볼 수 있습니다."
+                                ]
+                 },
+                 {
+                     "sourceLine":  641,
+                     "values":  [
+                                    "Capture and copy",
+                                    "Capturar y copiar",
+                                    "Capturer et copier",
+                                    "Aufnehmen und kopieren",
+                                    "Capturar e copiar",
+                                    "截图与复制",
+                                    "撮影とコピー",
+                                    "캡처 및 복사"
+                                ]
+                 },
+                 {
+                     "sourceLine":  642,
+                     "values":  [
+                                    "Capture saves an image. Copy sends it to the clipboard (Ctrl+C).",
+                                    "Capturar guarda una imagen. Copiar la envía al portapapeles (Ctrl+C).",
+                                    "Capture enregistre une image. Copier l\u0027envoie au presse-papiers (Ctrl+C).",
+                                    "Aufnahme speichert ein Bild. Kopieren legt es in die Zwischenablage (Strg+C).",
+                                    "Capturar salva uma imagem. Copiar envia à área de transferência (Ctrl+C).",
+                                    "拍摄可保存图像，复制可将其放入剪贴板（Ctrl+C）。",
+                                    "撮影で画像を保存、コピーでクリップボードへ送ります（Ctrl+C）。",
+                                    "캡처는 이미지를 저장하고, 복사는 클립보드로 보냅니다(Ctrl+C)."
+                                ]
+                 },
+                 {
+                     "sourceLine":  643,
+                     "values":  [
+                                    "Drag to orbit, right-drag to pan, scroll to zoom. V: Orbit/Look. R: reset view.",
+                                    "Arrastra para orbitar, arrastra con botón derecho para desplazar, rueda para zoom. V: Orbitar/Mirar. R: restablecer vista.",
+                                    "Glissez pour orbiter, glissez avec le bouton droit pour déplacer, molette pour zoomer. V : Orbite/Regard. R : réinitialiser.",
+                                    "Ziehen: umkreisen. Rechts ziehen: verschieben. Mausrad: zoomen. V: Orbit/Blick. R: Ansicht zurücksetzen.",
+                                    "Arraste para orbitar, arraste com botão direito para mover, role para zoom. V: Orbitar/Olhar. R: redefinir vista.",
+                                    "拖动环绕，右键拖动平移，滚轮缩放。V：环绕/视角。R：重置视图。",
+                                    "ドラッグで周回、右ドラッグで平行移動、スクロールでズーム。V：周回/視点。R：ビューをリセット。",
+                                    "드래그: 궤도 회전. 오른쪽 드래그: 이동. 스크롤: 확대·축소. V: 궤도/시점. R: 보기 초기화."
+                                ]
+                 },
+                 {
+                     "sourceLine":  644,
+                     "values":  [
+                                    "Orbit and flip",
+                                    "Orbitar y voltear",
+                                    "Orbite et retournement",
+                                    "Orbit und Umkehrung",
+                                    "Orbitar e inverter",
+                                    "环绕与翻转",
+                                    "自動周回と上下反転",
+                                    "자동 회전 및 뒤집기"
+                                ]
+                 },
+                 {
+                     "sourceLine":  646,
+                     "values":  [
+                                    "Guides and background",
+                                    "Guías y fondo",
+                                    "Repères et arrière-plan",
+                                    "Hilfslinien und Hintergrund",
+                                    "Guias e fundo",
+                                    "辅助线与背景",
+                                    "ガイドと背景",
+                                    "가이드 및 배경"
+                                ]
+                 },
+                 {
+                     "sourceLine":  647,
+                     "values":  [
+                                    "Cycle grid/axes and the black, gray or white background swatch. Guides stay out of saved images.",
+                                    "Alterna la cuadrícula/ejes y el fondo negro, gris o blanco. Las guías no salen en las imágenes guardadas.",
+                                    "Faites défiler grille/axes et fond noir, gris ou blanc. Les repères sont exclus des images enregistrées.",
+                                    "Raster/Achsen und schwarzen, grauen oder weißen Hintergrund wechseln. Hilfslinien werden nicht mitgespeichert.",
+                                    "Alterne grade/eixos e fundo preto, cinza ou branco. As guias não aparecem nas imagens salvas.",
+                                    "循环切换网格/坐标轴和黑、灰、白背景。参考线不会出现在保存的图像中。",
+                                    "グリッド／軸と黒・灰・白の背景を切り替えます。ガイドは保存画像に入りません。",
+                                    "격자/축과 검정, 회색, 흰색 배경을 전환하세요. 안내선은 저장한 이미지에 포함되지 않습니다."
+                                ]
+                 },
+                 {
+                     "sourceLine":  648,
+                     "values":  [
+                                    "Lens and fullscreen",
+                                    "Lente y pantalla completa",
+                                    "Objectif et plein écran",
+                                    "Objektiv und Vollbild",
+                                    "Lente e tela cheia",
+                                    "视野与全屏",
+                                    "画角と全画面",
+                                    "화각 및 전체 화면"
+                                ]
+                 },
+                 {
+                     "sourceLine":  649,
+                     "values":  [
+                                    "Adjust field of view. F11: fullscreen. Esc: exit. Page Up/Down: browse files.",
+                                    "Ajusta el campo de visión. F11: pantalla completa. Esc: salir. Page Up/Down: recorrer archivos.",
+                                    "Réglez le champ de vision. F11 : plein écran. Échap : quitter. Page Up/Down : parcourir les fichiers.",
+                                    "Passen Sie das Sichtfeld an. F11: Vollbild. Esc: verlassen. Bild auf/ab: Dateien wechseln.",
+                                    "Ajuste o campo de visão. F11: tela cheia. Esc: sair. Page Up/Down: navegar pelos arquivos.",
+                                    "调整视野。F11：全屏。Esc：退出。Page Up/Down：浏览文件。",
+                                    "視野角を調整。F11：全画面。Esc：終了。Page Up/Down：ファイル切替。",
+                                    "시야각을 조절하세요. F11: 전체 화면. Esc: 나가기. Page Up/Down: 파일 탐색."
+                                ]
+                 },
+                 {
+                     "sourceLine":  650,
+                     "values":  [
+                                    "Selection, Transform and Color tools.",
+                                    "Herramientas de Selección, Transformación y Color.",
+                                    "Outils de sélection, transformation et couleur.",
+                                    "Werkzeuge für Auswahl, Transformation und Farbe.",
+                                    "Ferramentas de Seleção, Transformação e Cor.",
+                                    "选择、变换和颜色工具。",
+                                    "選択・変換・カラーのツール。",
+                                    "선택, 변환 및 색상 도구."
+                                ]
+                 },
+                 {
+                     "sourceLine":  651,
+                     "values":  [
+                                    "Ctrl+Z: undo. Ctrl+Y: redo.",
+                                    "Ctrl+Z: deshacer. Ctrl+Y: rehacer.",
+                                    "Ctrl+Z : annuler. Ctrl+Y : rétablir.",
+                                    "Strg+Z: rückgängig. Strg+Y: wiederholen.",
+                                    "Ctrl+Z: desfazer. Ctrl+Y: refazer.",
+                                    "Ctrl+Z：撤销。Ctrl+Y：重做。",
+                                    "Ctrl+Z：元に戻す。Ctrl+Y：やり直し。",
+                                    "Ctrl+Z: 실행 취소. Ctrl+Y: 다시 실행."
+                                ]
+                 },
+                 {
+                     "sourceLine":  652,
+                     "values":  [
+                                    "Choose language, theme, text size and privacy. Replay the tour in Help.",
+                                    "Elige idioma, tema, tamaño de texto y privacidad. Repite el tutorial en Ayuda.",
+                                    "Choisissez langue, thème, taille du texte et confidentialité. Relancez le tutoriel dans Aide.",
+                                    "Wählen Sie Sprache, Design, Textgröße und Datenschutz. Starten Sie die Tour unter Hilfe erneut.",
+                                    "Escolha idioma, tema, tamanho do texto e privacidade. Repita o tutorial em Ajuda.",
+                                    "设置语言、主题、字号和隐私。在帮助中重看教程。",
+                                    "言語・テーマ・文字サイズ・プライバシーを設定。ヘルプからツアーを再開できます。",
+                                    "언어, 테마, 글자 크기, 개인정보를 설정하세요. 도움말에서 둘러보기를 다시 시작할 수 있습니다."
+                                ]
+                 },
+                 {
+                     "sourceLine":  655,
+                     "values":  [
+                                    "Histogram",
+                                    "Histograma",
+                                    "Histogramme",
+                                    "Histogramm",
+                                    "Histograma",
+                                    "直方图",
+                                    "ヒストグラム",
+                                    "히스토그램"
+                                ]
+                 },
+                 {
+                     "sourceLine":  656,
+                     "values":  [
+                                    "RGB distribution of the current view: shadows left, highlights right.",
+                                    "Distribución RGB de la vista: sombras a la izquierda, luces a la derecha.",
+                                    "Répartition RVB de la vue : ombres à gauche, hautes lumières à droite.",
+                                    "RGB-Verteilung der Ansicht: Schatten links, Lichter rechts.",
+                                    "Distribuição RGB da vista: sombras à esquerda, realces à direita.",
+                                    "当前视图的 RGB 分布：左侧为暗部，右侧为亮部。",
+                                    "現在のビューのRGB分布。左が暗部、右が明部です。",
+                                    "현재 보기의 RGB 분포: 왼쪽은 어두운 부분, 오른쪽은 밝은 부분입니다."
+                                ]
+                 },
+                 {
+                     "sourceLine":  658,
+                     "values":  [
+                                    "Brushes",
+                                    "Pinceles",
+                                    "Pinceaux",
+                                    "Pinsel",
+                                    "Pincéis",
+                                    "笔刷",
+                                    "ブラシ",
+                                    "브러시"
+                                ]
+                 },
+                 {
+                     "sourceLine":  659,
+                     "values":  [
+                                    "B: screen brush. Shift+B: 3D brush. Alt+scroll: brush size.",
+                                    "B: pincel de pantalla. Shift+B: pincel 3D. Alt+rueda: tamaño.",
+                                    "B : pinceau écran. Maj+B : pinceau 3D. Alt+molette : taille.",
+                                    "B: Bildschirmpinsel. Umschalt+B: 3D-Pinsel. Alt+Mausrad: Größe.",
+                                    "B: pincel de tela. Shift+B: pincel 3D. Alt+rolagem: tamanho.",
+                                    "B：屏幕笔刷。Shift+B：3D 笔刷。Alt+滚轮：调整大小。",
+                                    "B：画面ブラシ。Shift+B：3Dブラシ。Alt+スクロール：サイズ。",
+                                    "B: 화면 브러시. Shift+B: 3D 브러시. Alt+스크롤: 크기."
+                                ]
+                 },
+                 {
+                     "sourceLine":  660,
+                     "values":  [
+                                    "Rectangle and polygon",
+                                    "Rectángulo y polígono",
+                                    "Rectangle et polygone",
+                                    "Rechteck und Polygon",
+                                    "Retângulo e polígono",
+                                    "矩形与多边形",
+                                    "矩形とポリゴン",
+                                    "사각형 및 다각형"
+                                ]
+                 },
+                 {
+                     "sourceLine":  661,
+                     "values":  [
+                                    "X: drag a rectangle. P: click or draw a polygon. Enter: close. Backspace: undo point.",
+                                    "X: arrastra un rectángulo. P: haz clic o dibuja un polígono. Enter: cerrar. Retroceso: quitar punto.",
+                                    "X : tracez un rectangle. P : cliquez ou dessinez un polygone. Entrée : fermer. Retour arrière : retirer un point.",
+                                    "X: Rechteck ziehen. P: Polygon klicken oder zeichnen. Enter: schließen. Rücktaste: Punkt entfernen.",
+                                    "X: arraste um retângulo. P: clique ou desenhe um polígono. Enter: fechar. Backspace: remover ponto.",
+                                    "X：拖出矩形。P：点击或绘制多边形。Enter：闭合。Backspace：撤回点。",
+                                    "X：矩形をドラッグ。P：クリックまたは自由描画で多角形。Enter：閉じる。Backspace：点を戻す。",
+                                    "X: 사각형 드래그. P: 다각형을 클릭하거나 그리기. Enter: 닫기. Backspace: 점 취소."
+                                ]
+                 },
+                 {
+                     "sourceLine":  662,
+                     "values":  [
+                                    "Pick matching colors (Ctrl+E). Connected colors stays in one region. Tolerance updates live.",
+                                    "Elige colores similares (Ctrl+E). Colores conectados limita a una región. La tolerancia se actualiza en vivo.",
+                                    "Sélectionnez les couleurs proches (Ctrl+E). Couleurs connectées limite à une région. La tolérance s\u0027actualise en direct.",
+                                    "Wählen Sie ähnliche Farben (Strg+E). Verbundene Farben bleiben in einer Region. Toleranz wirkt sofort.",
+                                    "Selecione cores semelhantes (Ctrl+E). Cores conectadas limita a uma região. A tolerância atualiza ao vivo.",
+                                    "拾取相近颜色（Ctrl+E）。连通颜色仅限同一区域，容差实时更新。",
+                                    "近い色を選択（Ctrl+E）。連結色は同じ領域に限定。許容値は即時反映。",
+                                    "비슷한 색을 선택하세요(Ctrl+E). 연결된 색상은 한 영역으로 제한하며, 허용치는 즉시 반영됩니다."
+                                ]
+                 },
+                 {
+                     "sourceLine":  664,
+                     "values":  [
+                                    "Combine selections",
+                                    "Combinar selecciones",
+                                    "Combiner les sélections",
+                                    "Auswahlen kombinieren",
+                                    "Combinar seleções",
+                                    "合并选区",
+                                    "選択の結合",
+                                    "선택 결합"
+                                ]
+                 },
+                 {
+                     "sourceLine":  665,
+                     "values":  [
+                                    "1-4: Replace, Add, Subtract, Intersect. Shift adds, Ctrl subtracts; both intersect.",
+                                    "1-4: Reemplazar, Añadir, Restar, Intersecar. Shift añade, Ctrl resta; ambos intersecan.",
+                                    "1-4 : Remplacer, Ajouter, Soustraire, Intersection. Maj ajoute, Ctrl soustrait ; ensemble, intersection.",
+                                    "1-4: Ersetzen, Hinzufügen, Abziehen, Schnittmenge. Umschalt fügt hinzu, Strg zieht ab; beide bilden die Schnittmenge.",
+                                    "1-4: Substituir, Adicionar, Subtrair, Interseção. Shift adiciona, Ctrl subtrai; ambos fazem interseção.",
+                                    "1–4：替换、添加、减去、交集。Shift 添加，Ctrl 减去，同时按下取交集。",
+                                    "1–4：置換・追加・削除・交差。Shiftで追加、Ctrlで削除、両方で交差。",
+                                    "1–4: 대체, 추가, 빼기, 교집합. Shift는 추가, Ctrl은 빼기, 둘 다 누르면 교집합."
+                                ]
+                 },
+                 {
+                     "sourceLine":  666,
+                     "values":  [
+                                    "Grow and shrink",
+                                    "Ampliar y reducir",
+                                    "Étendre et réduire",
+                                    "Erweitern und verkleinern",
+                                    "Expandir e reduzir",
+                                    "扩展与收缩",
+                                    "拡張と縮小",
+                                    "확장 및 축소"
+                                ]
+                 },
+                 {
+                     "sourceLine":  669,
+                     "values":  [
+                                    "Restore hidden splats and clear selection.",
+                                    "Restaura los splats ocultos y borra la selección.",
+                                    "Restaurez les splats masqués et effacez la sélection.",
+                                    "Blenden Sie versteckte Splats ein und leeren Sie die Auswahl.",
+                                    "Restaure os splats ocultos e limpe a seleção.",
+                                    "恢复隐藏泼溅并清空选择。",
+                                    "非表示スプラットを復元し、選択を解除します。",
+                                    "숨긴 스플랫을 복원하고 선택을 지우세요."
+                                ]
+                 },
+                 {
+                     "sourceLine":  670,
+                     "values":  [
+                                    "Filters in Pro",
+                                    "Filtros en Pro",
+                                    "Filtres dans Pro",
+                                    "Filter in Pro",
+                                    "Filtros no Pro",
+                                    "专业模式筛选器",
+                                    "Proのフィルター",
+                                    "Pro 필터"
+                                ]
+                 },
+                 {
+                     "sourceLine":  671,
+                     "values":  [
+                                    "Choose one filter at a time. A new filter replaces the draft.",
+                                    "Elige un filtro a la vez. Un filtro nuevo reemplaza el borrador.",
+                                    "Utilisez un filtre à la fois. Un nouveau filtre remplace l\u0027aperçu en cours.",
+                                    "Nutzen Sie einen Filter gleichzeitig. Ein neuer Filter ersetzt den Entwurf.",
+                                    "Use um filtro por vez. Um novo filtro substitui o rascunho.",
+                                    "一次使用一个筛选器，新筛选器替换当前草稿。",
+                                    "フィルターは1つずつ使用。新しいフィルターは下書きを置き換えます。",
+                                    "필터는 한 번에 하나씩 사용하세요. 새 필터는 미리보기를 대체합니다."
+                                ]
+                 },
+                 {
+                     "sourceLine":  672,
+                     "values":  [
+                                    "Confirm a filter",
+                                    "Confirmar un filtro",
+                                    "Confirmer un filtre",
+                                    "Filter bestätigen",
+                                    "Confirmar um filtro",
+                                    "确认筛选器",
+                                    "フィルターの確定",
+                                    "필터 확정"
+                                ]
+                 },
+                 {
+                     "sourceLine":  675,
+                     "values":  [
+                                    "Color presets",
+                                    "Ajustes de color",
+                                    "Préréglages de couleur",
+                                    "Farbvorgaben",
+                                    "Predefinições de cor",
+                                    "颜色预设",
+                                    "カラープリセット",
+                                    "색상 프리셋"
+                                ]
+                 },
+                 {
+                     "sourceLine":  676,
+                     "values":  [
+                                    "Hover to preview; click to apply. A dot marks the active preset. Pro offers more.",
+                                    "Pasa el cursor para previsualizar y haz clic para aplicar. Un punto marca el preajuste activo. Pro ofrece más.",
+                                    "Survolez pour prévisualiser, cliquez pour appliquer. Un point marque le préréglage actif. Pro en propose plus.",
+                                    "Für Vorschau darüberfahren, zum Anwenden klicken. Ein Punkt markiert das aktive Preset. Pro bietet mehr.",
+                                    "Passe o cursor para prévia; clique para aplicar. Um ponto marca o preset ativo. Pro oferece mais.",
+                                    "悬停预览，点击应用。圆点标记当前预设。Pro 提供更多选项。",
+                                    "ホバーでプレビュー、クリックで適用します。有効なプリセットは点で示されます。Pro は種類が増えます。",
+                                    "가리키면 미리 보고, 클릭하면 적용합니다. 점은 활성 프리셋을 나타냅니다. Pro에는 더 많은 프리셋이 있습니다."
+                                ]
+                 },
+                 {
+                     "sourceLine":  677,
+                     "values":  [
+                                    "Right-click a slider to type a value. Temperature: -100 cool, 0 neutral, +100 warm.",
+                                    "Clic derecho en un deslizador para escribir un valor. Temperatura: -100 fría, 0 neutra, +100 cálida.",
+                                    "Clic droit sur un curseur pour saisir une valeur. Température : -100 froide, 0 neutre, +100 chaude.",
+                                    "Rechtsklick auf einen Regler zur Werteingabe. Temperatur: -100 kühl, 0 neutral, +100 warm.",
+                                    "Clique direito no controle para digitar um valor. Temperatura: -100 fria, 0 neutra, +100 quente.",
+                                    "右键点击滑块输入数值。色温：-100 偏冷，0 中性，+100 偏暖。",
+                                    "スライダーを右クリックして数値入力。色温度：-100は寒色、0は中立、+100は暖色。",
+                                    "슬라이더를 오른쪽 클릭해 값을 입력하세요. 색온도: -100 차갑게, 0 중립, +100 따뜻하게."
+                                ]
+                 },
+                 {
+                     "sourceLine":  678,
+                     "values":  [
+                                    "Reset color and opacity. Ctrl+Z restores the previous values.",
+                                    "Restablece color y opacidad. Ctrl+Z recupera los valores anteriores.",
+                                    "Réinitialisez couleur et opacité. Ctrl+Z restaure les valeurs précédentes.",
+                                    "Setzen Sie Farbe und Deckkraft zurück. Strg+Z stellt die vorigen Werte wieder her.",
+                                    "Redefina cor e opacidade. Ctrl+Z restaura os valores anteriores.",
+                                    "重置颜色和不透明度。Ctrl+Z 恢复原值。",
+                                    "色と不透明度をリセット。Ctrl+Zで前の値に戻します。",
+                                    "색상과 불투명도를 초기화하세요. Ctrl+Z로 이전 값을 복원합니다."
+                                ]
+                 },
+                 {
+                     "sourceLine":  679,
+                     "values":  [
+                                    "More color controls",
+                                    "Más controles de color",
+                                    "Réglages couleur avancés",
+                                    "Weitere Farbregler",
+                                    "Mais controles de cor",
+                                    "更多颜色控件",
+                                    "追加のカラー設定",
+                                    "추가 색상 설정"
+                                ]
+                 },
+                 {
+                     "sourceLine":  681,
+                     "values":  [
+                                    "Pick a point, then confirm. The whole scene moves; the view stays framed.",
+                                    "Elige un punto y confirma. Toda la escena se mueve, manteniendo el encuadre.",
+                                    "Choisissez un point, puis confirmez. Toute la scène se déplace, le cadrage est conservé.",
+                                    "Wählen Sie einen Punkt und bestätigen Sie. Die ganze Szene bewegt sich, der Bildausschnitt bleibt.",
+                                    "Escolha um ponto e confirme. Toda a cena se move, mantendo o enquadramento.",
+                                    "拾取一点后确认，整个场景移动，取景保持不变。",
+                                    "1点を指定して確定。シーン全体が移動し、構図は維持されます。",
+                                    "점을 선택하고 확정하세요. 전체 장면이 이동하며 구도는 유지됩니다."
+                                ]
+                 },
+                 {
+                     "sourceLine":  682,
+                     "values":  [
+                                    "Pick two points, enter their target distance in meters, then confirm.",
+                                    "Elige dos puntos, introduce su distancia deseada en metros y confirma.",
+                                    "Choisissez deux points, saisissez leur distance cible en mètres, puis confirmez.",
+                                    "Wählen Sie zwei Punkte, geben Sie den Zielabstand in Metern ein und bestätigen Sie.",
+                                    "Escolha dois pontos, digite a distância desejada em metros e confirme.",
+                                    "拾取两点，输入目标距离（米），然后确认。",
+                                    "2点を指定し、目標距離をメートルで入力して確定します。",
+                                    "두 점을 선택하고 목표 거리를 미터로 입력한 뒤 확정하세요."
+                                ]
+                 },
+                 {
+                     "sourceLine":  683,
+                     "values":  [
+                                    "Pick three points. Check the normal arrow, flip if needed, then confirm.",
+                                    "Elige tres puntos. Revisa la flecha normal, inviértela si hace falta y confirma.",
+                                    "Choisissez trois points. Vérifiez la normale, inversez-la au besoin, puis confirmez.",
+                                    "Wählen Sie drei Punkte. Prüfen Sie den Normalenpfeil, kehren Sie ihn bei Bedarf um und bestätigen Sie.",
+                                    "Escolha três pontos. Verifique a normal, inverta se necessário e confirme.",
+                                    "拾取三点，检查法线箭头，必要时翻转后确认。",
+                                    "3点を指定。法線の矢印を確認し、必要なら反転して確定します。",
+                                    "세 점을 선택하세요. 법선 화살표를 확인하고 필요하면 뒤집은 뒤 확정하세요."
+                                ]
+                 },
+                 {
+                     "sourceLine":  684,
+                     "values":  [
+                                    "Detect the floor, check its normal, then confirm. Use 3-point align if needed.",
+                                    "Detecta el suelo, revisa la normal y confirma. Usa Alinear 3 puntos si hace falta.",
+                                    "Détectez le sol, vérifiez la normale, puis confirmez. Utilisez l\u0027alignement à 3 points au besoin.",
+                                    "Erkennen Sie den Boden, prüfen Sie die Normale und bestätigen Sie. Nutzen Sie bei Bedarf 3-Punkt-Ausrichtung.",
+                                    "Detecte o piso, verifique a normal e confirme. Use Alinhar 3 pontos se necessário.",
+                                    "检测地面，检查法线后确认。必要时使用三点对齐。",
+                                    "床を検出し、法線を確認して確定。必要なら3点位置合わせを使用します。",
+                                    "바닥을 감지하고 법선을 확인한 뒤 확정하세요. 필요하면 3점 정렬을 사용하세요."
+                                ]
+                 },
+                 {
+                     "sourceLine":  687,
+                     "values":  [
+                                    "Exact transforms",
+                                    "Transformaciones exactas",
+                                    "Transformations précises",
+                                    "Exakte Transformationen",
+                                    "Transformações exatas",
+                                    "精确变换",
+                                    "正確な変形",
+                                    "정밀 변환"
+                                ]
+                 },
+                 {
+                     "sourceLine":  689,
+                     "values":  [
+                                    "Reset alignment, axis flips and transforms. Ctrl+Z restores them. Save a copy when finished.",
+                                    "Restablece alineación, volteos y transformaciones. Ctrl+Z los recupera. Guarda una copia al terminar.",
+                                    "Réinitialisez alignement, retournements et transformations. Ctrl+Z les restaure. Enregistrez une copie une fois terminé.",
+                                    "Setzen Sie Ausrichtung, Achsen-Flips und Transformationen zurück. Strg+Z stellt sie wieder her. Speichern Sie zum Schluss eine Kopie.",
+                                    "Redefina alinhamento, inversões e transformações. Ctrl+Z restaura. Salve uma cópia ao terminar.",
+                                    "重置对齐、轴翻转和变换。Ctrl+Z 可恢复。完成后保存副本。",
+                                    "位置合わせ・軸反転・変形をリセット。Ctrl+Zで復元。完了したらコピーを保存します。",
+                                    "정렬, 축 뒤집기, 변환을 초기화하세요. Ctrl+Z로 복원할 수 있습니다. 완료 후 사본을 저장하세요."
+                                ]
+                 },
+                 {
+                     "sourceLine":  690,
+                     "values":  [
+                                    "Selection options",
+                                    "Opciones de selección",
+                                    "Options de sélection",
+                                    "Auswahloptionen",
+                                    "Opções de seleção",
+                                    "选择选项",
+                                    "選択オプション",
+                                    "선택 옵션"
+                                ]
+                 },
+                 {
+                     "sourceLine":  692,
+                     "values":  [
+                                    "Current view only",
+                                    "Solo vista actual",
+                                    "Vue actuelle uniquement",
+                                    "Nur aktuelle Ansicht",
+                                    "Somente vista atual",
+                                    "仅当前视图",
+                                    "現在のビューのみ",
+                                    "현재 뷰만"
+                                ]
+                 },
+                 {
+                     "sourceLine":  695,
+                     "values":  [
+                                    "Toggle the frustum beside Invert to limit selection and selected edits to the current view. Starts off.",
+                                    "Activa el frustum junto a Invertir para limitar la selección y sus cambios a la vista actual. Empieza desactivado.",
+                                    "Activez le frustum près d’Inverser pour limiter sélection et retouches à la vue actuelle. Désactivé au départ.",
+                                    "Frustum neben Umkehren aktivieren, um Auswahl und Auswahlbearbeitung auf die aktuelle Ansicht zu begrenzen. Anfangs aus.",
+                                    "Ative o frustum ao lado de Inverter para limitar seleção e suas edições à vista atual. Começa desligado.",
+                                    "切换反选旁的视锥图标，将选择及所选编辑限制在当前视图内。默认关闭。",
+                                    "反転の横の視錐台をオンにすると、選択と選択部分の編集を現在のビューに限定します。初期状態はオフです。",
+                                    "반전 옆 절두체를 켜면 선택과 선택 편집이 현재 보기에 한정됩니다. 처음에는 꺼져 있습니다."
+                                ]
+                 },
+                 {
+                     "sourceLine":  696,
+                     "values":  [
+                                    "Selection range",
+                                    "Rango de selección",
+                                    "Portée de sélection",
+                                    "Auswahlbereich",
+                                    "Alcance da seleção",
+                                    "选择范围",
+                                    "選択範囲",
+                                    "선택 범위"
+                                ]
+                 },
+                 {
+                     "sourceLine":  697,
+                     "values":  [
+                                    "Turn on the sphere in Options. Preview follows the cursor before clicking; Radius updates the same selection.",
+                                    "Activa la esfera en Opciones. La vista previa sigue el cursor antes de hacer clic; Radio actualiza la misma selección.",
+                                    "Activez la sphère dans Options. L’aperçu suit le curseur avant le clic ; Rayon met à jour la même sélection.",
+                                    "Kugel in Optionen aktivieren. Vorschau folgt dem Zeiger vor dem Klick; Radius aktualisiert dieselbe Auswahl.",
+                                    "Ative a esfera em Opções. A prévia segue o cursor antes do clique; Raio atualiza a mesma seleção.",
+                                    "开启选项中的球体图标。点击前预览随光标移动；半径更新同一次选择。",
+                                    "オプションの球体をオンにします。クリック前からカーソルを追ってプレビューし、半径で同じ選択を更新します。",
+                                    "옵션에서 구를 켜세요. 클릭 전부터 미리 보기가 커서를 따라가며, 반지름은 같은 선택을 갱신합니다."
+                                ]
+                 }
+             ]
+}

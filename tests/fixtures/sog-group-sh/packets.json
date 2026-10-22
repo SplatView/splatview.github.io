@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "packets": [
+    {
+      "name": "v1-sh1",
+      "version": 1,
+      "shDegree": 1,
+      "sourceCount": 3,
+      "paletteCount": 128,
+      "centroidWidth": 192,
+      "centroidHeight": 2,
+      "originalResources": 8,
+      "declaredReferences": 9,
+      "decodedCalls": 7,
+      "uniqueDecodedResources": 6,
+      "decodedRgbaBytes": 1632,
+      "assetDigest": "ad29652efb7dfdc9e9448dffc005e8e515584d6fe3909f9f15d3387e18b69803",
+      "originalTotalBytes": 1170,
+      "expectedRecords": {
+        "path": "packets/v1-sh1/expected-records.json",
+        "bytes": 11013,
+        "sha256": "1a1eca8a910aff8c3146ec3d7bfd199b2d1f4d22af511f64d49a44bbc2f13191"
+      }
+    },
+    {
+      "name": "v1-sh2",
+      "version": 1,
+      "shDegree": 2,
+      "sourceCount": 3,
+      "paletteCount": 128,
+      "centroidWidth": 512,
+      "centroidHeight": 2,
+      "originalResources": 8,
+      "declaredReferences": 9,
+      "decodedCalls": 7,
+      "uniqueDecodedResources": 6,
+      "decodedRgbaBytes": 4192,
+      "assetDigest": "a4c0023c15cc9c4f94fdf21a19fc438bcdad0a451c926a3d6dac638be29f74c9",
+      "originalTotalBytes": 1186,
+      "expectedRecords": {
+        "path": "packets/v1-sh2/expected-records.json",
+        "bytes": 12934,
+        "sha256": "8048a7cde06aee6eab964091508a574f616d67774bdb85d6e7ebf174641bbdf5"
+      }
+    },
+    {
+      "name": "v1-sh3",
+      "version": 1,
+      "shDegree": 3,
+      "sourceCount": 3,
+      "paletteCount": 128,
+      "centroidWidth": 960,
+      "centroidHeight": 2,
+      "originalResources": 8,
+      "declaredReferences": 9,
+      "decodedCalls": 7,
+      "uniqueDecodedResources": 6,
+      "decodedRgbaBytes": 7776,
+      "assetDigest": "f6bc588ce15401c292ba929ea7ef2276be28e7ac4e61d18752911163b748b919",
+      "originalTotalBytes": 1210,
+      "expectedRecords": {
+        "path": "packets/v1-sh3/expected-records.json",
+        "bytes": 15490,
+        "sha256": "cea9ca3ba55767e0829b4b82e9bafdab54a6300165f0d8d0df35544abe518302"
+      }
+    },
+    {
+      "name": "v2-sh1",
+      "version": 2,
+      "shDegree": 1,
+      "sourceCount": 3,
+      "paletteCount": 65,
+      "centroidWidth": 192,
+      "centroidHeight": 3,
+      "originalResources": 8,
+      "declaredReferences": 9,
+      "decodedCalls": 7,
+      "uniqueDecodedResources": 6,
+      "decodedRgbaBytes": 2400,
+      "assetDigest": "91df359a12f55a6d77815445cf2ca52cea249ab82f51d8c7728bce93309e1701",
+      "originalTotalBytes": 1661,
+      "expectedRecords": {
+        "path": "packets/v2-sh1/expected-records.json",
+        "bytes": 11556,
+        "sha256": "3605d504937efcfdfc6b70e92c1fafa3b9331eaf0d159af0b142b06c2b4b25a6"
+      }
+    },
+    {
+      "name": "v2-sh2",
+      "version": 2,
+      "shDegree": 2,
+      "sourceCount": 3,
+      "paletteCount": 65,
+      "centroidWidth": 512,
+      "centroidHeight": 3,
+      "originalResources": 8,
+      "declaredReferences": 9,
+      "decodedCalls": 7,
+      "uniqueDecodedResources": 6,
+      "decodedRgbaBytes": 6240,
+      "assetDigest": "d14cd6be41126eb43e0bf2ad8aa7502271ca24f4c0c4448237500612b6ef7155",
+      "originalTotalBytes": 1687,
+      "expectedRecords": {
+        "path": "packets/v2-sh2/expected-records.json",
+        "bytes": 13584,
+        "sha256": "ee77126ee9d9ae1cf776a57cf0b5b05bbd472fc344a6b3dc1285ca5aa50b8a54"
+      }
+    },
+    {
+      "name": "v2-sh3",
+      "version": 2,
+      "shDegree": 3,
+      "sourceCount": 3,
+      "paletteCount": 65,
+      "centroidWidth": 960,
+      "centroidHeight": 3,
+      "originalResources": 8,
+      "declaredReferences": 9,
+      "decodedCalls": 7,
+      "uniqueDecodedResources": 6,
+      "decodedRgbaBytes": 11616,
+      "assetDigest": "d2d91adec5613581b4fbbd2139342eb2651a166629b876ba12ebc1ccdce5a6b7",
+      "originalTotalBytes": 1709,
+      "expectedRecords": {
+        "path": "packets/v2-sh3/expected-records.json",
+        "bytes": 16292,
+        "sha256": "891fbc31358d23f74fb539102064e1011b3770a4edcb1884f27e4ad10af53916"
+      }
+    }
+  ]
+}

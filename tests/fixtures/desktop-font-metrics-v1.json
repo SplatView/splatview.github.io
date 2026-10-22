@@ -1,0 +1,184 @@
+{
+  "schemaVersion": 1,
+  "kind": "splatview-native-font-metrics",
+  "scope": "English-Segoe-UI-Small-advance-widths-only",
+  "reference": {
+    "path": "docs/validation/runs/desktop-visual-20261015-01/native-font-reference.json",
+    "bytes": 20073,
+    "sha256": "f77282e8081bef95e7e2560a89c725bb639d467e13c5cd9e6574050b10f7ac85"
+  },
+  "sourceCapture": {
+    "path": "reference/targets/windows-r0-20261012-02/CAPTURE_MANIFEST.json",
+    "bytes": 149390,
+    "sha256": "0156c58d345ecf633d57a0ff339c8c07a270efb0575e6158e49d7d0840678fe4"
+  },
+  "adapter": {
+    "path": ".build/desktop-visual-tests/native-ui-pairs-02.cpp",
+    "bytes": 29919,
+    "sha256": "eb3fd73a490f5eaba5860e45f55e605a035709945df3de0db72bf1f8eb45f45c"
+  },
+  "executable": {
+    "path": ".build/desktop-visual-tests/native-build-02/bin/SplatViewUiPairs.exe",
+    "bytes": 3546624,
+    "sha256": "3a073b8520d260b9e8fbd5e10ae30f639aa18f28d444bf5b80603f6843ac300b"
+  },
+  "terminal": {
+    "path": "test-results-coherent-startup-desktop-visual-native-capture-02.command.json",
+    "bytes": 1300,
+    "sha256": "cfcd221eb3cff1545382b3619a5c96654948d8461045883dd4266cac89bd2b09"
+  },
+  "fonts": {
+    "body": {
+      "binding": "ImFont.Sources[0].FontData/FontDataSize",
+      "bytes": 960076,
+      "collection": false,
+      "emToPixelHeightRatio": 0.7518355359765051,
+      "fontNo": 0,
+      "hheaAscender": 2210,
+      "hheaDescender": -514,
+      "metricFormula": "stbtt_ScaleForPixelHeight = SizePixels / (hheaAscender - hheaDescender); equivalent em pixels = SizePixels * unitsPerEm / denominator",
+      "nominalEquivalentEmPixels": 11.277533039647576,
+      "os2": {
+        "available": true,
+        "sCapHeight": 1434,
+        "sxHeight": 1024,
+        "version": 3
+      },
+      "pixelHeightDenominator": 2724,
+      "rasterizerDensity": 1.0,
+      "sfntOffset": 0,
+      "sha256": "704eada12961a27fd271f7d3b09e2066520e758390c1776744eff430fee30f6e",
+      "sourceName": "segoeui.ttf, 15px",
+      "sourceSizePixels": 15.0,
+      "unitsPerEm": 2048
+    },
+    "title": {
+      "binding": "ImFont.Sources[0].FontData/FontDataSize",
+      "bytes": 947364,
+      "collection": false,
+      "emToPixelHeightRatio": 0.7518355359765051,
+      "fontNo": 0,
+      "hheaAscender": 2210,
+      "hheaDescender": -514,
+      "metricFormula": "stbtt_ScaleForPixelHeight = SizePixels / (hheaAscender - hheaDescender); equivalent em pixels = SizePixels * unitsPerEm / denominator",
+      "nominalEquivalentEmPixels": 15.036710719530102,
+      "os2": {
+        "available": true,
+        "sCapHeight": 1434,
+        "sxHeight": 1024,
+        "version": 3
+      },
+      "pixelHeightDenominator": 2724,
+      "rasterizerDensity": 1.0,
+      "sfntOffset": 0,
+      "sha256": "b169e636719880976a97e94e3b1cb3dbe5f4a38eabc037bf9f2a9165154c3ad2",
+      "sourceName": "",
+      "sourceSizePixels": 20.0,
+      "unitsPerEm": 2048
+    }
+  },
+  "targetXHeightRatio": 0.37591776798825255,
+  "cases": [
+    {
+      "role": "body",
+      "nominalSize": 15.0,
+      "weight": 400,
+      "text": "Selection",
+      "width": 45.26982116699219,
+      "lineHeight": 15.0
+    },
+    {
+      "role": "body",
+      "nominalSize": 15.0,
+      "weight": 400,
+      "text": "Color",
+      "width": 26.850217819213867,
+      "lineHeight": 15.0
+    },
+    {
+      "role": "body",
+      "nominalSize": 15.0,
+      "weight": 400,
+      "text": "Transform",
+      "width": 50.50660705566406,
+      "lineHeight": 15.0
+    },
+    {
+      "role": "body",
+      "nominalSize": 15.0,
+      "weight": 400,
+      "text": "Tools",
+      "width": 26.640968322753906,
+      "lineHeight": 15.0
+    },
+    {
+      "role": "body",
+      "nominalSize": 15.0,
+      "weight": 400,
+      "text": "demo.ply",
+      "width": 46.12334442138672,
+      "lineHeight": 15.0
+    },
+    {
+      "role": "body",
+      "nominalSize": 15.0,
+      "weight": 400,
+      "text": "Combine",
+      "width": 44.94493103027344,
+      "lineHeight": 15.0
+    },
+    {
+      "role": "title",
+      "nominalSize": 20.0,
+      "weight": 700,
+      "text": "Selection",
+      "width": 64.60353088378906,
+      "lineHeight": 20.0
+    },
+    {
+      "role": "title",
+      "nominalSize": 20.0,
+      "weight": 700,
+      "text": "Color",
+      "width": 38.02496337890625,
+      "lineHeight": 20.0
+    },
+    {
+      "role": "title",
+      "nominalSize": 20.0,
+      "weight": 700,
+      "text": "Transform",
+      "width": 73.31130981445312,
+      "lineHeight": 20.0
+    },
+    {
+      "role": "title",
+      "nominalSize": 20.0,
+      "weight": 700,
+      "text": "Tools",
+      "width": 38.083702087402344,
+      "lineHeight": 20.0
+    },
+    {
+      "role": "title",
+      "nominalSize": 20.0,
+      "weight": 700,
+      "text": "demo.ply",
+      "width": 66.17474365234375,
+      "lineHeight": 20.0
+    },
+    {
+      "role": "title",
+      "nominalSize": 20.0,
+      "weight": 700,
+      "text": "Combine",
+      "width": 63.17914581298828,
+      "lineHeight": 20.0
+    }
+  ],
+  "fontFilesRedistributed": false,
+  "limitations": [
+    "Advance widths and logical line heights are not glyph ink or screenshot identity.",
+    "Medium/Large, fallback fonts, CJK and other browsers do not acquire native metric acceptance from this fixture."
+  ]
+}

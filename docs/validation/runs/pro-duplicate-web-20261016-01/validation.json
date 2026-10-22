@@ -1,0 +1,801 @@
+{
+  "schemaVersion": 1,
+  "kind": "qualified-duplicate-web-integration",
+  "status": "passed",
+  "goalStatus": "active",
+  "observedAtUtc": "2026-10-16T19:30:23.732268+00:00",
+  "functionalDuplicateAccepted": true,
+  "helper": {
+    "path": ".build/pro-duplicate-integration-tests/qualify-01.py",
+    "bytes": 7965,
+    "sha256": "9f9e54ccb847981b0918fe7652e9a9cf983640ab611bf71fb417ba6aabe95672"
+  },
+  "fullDesktopParityAccepted": false,
+  "fullAppearanceAccepted": false,
+  "performanceAndCapacityAccepted": false,
+  "source": {
+    "path": ".build/pro-duplicate-integration-tests/source-candidate-05.json",
+    "bytes": 30548,
+    "sha256": "f9915a6dfda0eb383c0f419a84a061781614e51e8e959630cd28491904123ea2"
+  },
+  "predecessor": {
+    "path": "docs/validation/runs/pro-duplicate-core-20261016-01/validation.json",
+    "bytes": 16010,
+    "sha256": "770f6b2b44a036afcb8cd39df216e4d40ac259c3fa24fa34674a3ec1e20f275b"
+  },
+  "descriptor": {
+    "schemaVersion": 1,
+    "protocolVersion": 28,
+    "uiWorkerContract": 23,
+    "native": {
+      "core": {
+        "schemaVersion": 1,
+        "kind": "core",
+        "abi": 24,
+        "variant": "scalar",
+        "mapLayoutVersion": 1,
+        "capabilities": {
+          "atomicCheckpoint": 1,
+          "transactionReceipt": 2,
+          "recoveryCheckpoint": 2,
+          "duplicate": 1,
+          "selectionMap": 1,
+          "volumeSelection": 1,
+          "fillSelection": 1,
+          "connectedColorSelection": 1,
+          "toleranceCheckpoint": 1,
+          "liveSelectionOutcome": 1,
+          "geometryPreview": 1,
+          "sourceHash": 1,
+          "allocationCensus": 1,
+          "selectionMorphology": 2,
+          "absoluteColorSession": 1,
+          "autoColor": 1,
+          "colorBaseStream": 1,
+          "alignment": 4,
+          "groupedSog": 3,
+          "exportSpz4": 1,
+          "boundedAttributeExport": 1,
+          "boundedSpz3Export": 1,
+          "boundedSogExport": 1,
+          "selectionFilter": 1,
+          "proTransformSession": 1,
+          "absoluteOpacitySession": 1,
+          "opacityBaseStream": 1,
+          "currentViewScope": 1
+        },
+        "nativeInputId": "fd9d553aaeaff645cf3bbb412bb246568ecaa344fe560482a57c5a44319f7a64"
+      },
+      "camera": {
+        "schemaVersion": 1,
+        "kind": "camera",
+        "abi": 4,
+        "variant": "scalar",
+        "capabilities": {
+          "cameraInput": 1,
+          "cameraTransform": 1,
+          "cameraFrame": 1,
+          "cameraOrientation": 1,
+          "cameraFilterView": 1,
+          "cameraFilterGizmo": 1,
+          "cameraTransformGizmo": 1
+        },
+        "nativeInputId": "fd9d553aaeaff645cf3bbb412bb246568ecaa344fe560482a57c5a44319f7a64"
+      }
+    },
+    "appInputId": "01a9d18c936fa900bfb4de8d220ffb86d80c09515fc4db60342275c1235e540b"
+  },
+  "deploymentId": "21c4550b76077a09d782d3ea46272bae119a1b807f058f1b2482f3ce0d620f07",
+  "buildAudit": {
+    "path": ".build/pro-duplicate-integration-tests/build-audit-01.json",
+    "bytes": 62481,
+    "sha256": "6fe4c80ca82ea5af2c76f99148d37eccc9a3f1883838ebb85eb5d25fb14c08ac"
+  },
+  "generatedBuildIdentity": {
+    "path": "src/generated/buildIdentity.ts",
+    "bytes": 1919,
+    "sha256": "623fc2b55e8b409dd320163e58870b7b8e128b2388cf34e191839e51a17b1cad"
+  },
+  "nativeProvenance": {
+    "path": ".build/pro-duplicate-integration-tests/native-provenance-01.json",
+    "bytes": 11511,
+    "sha256": "213c09c2099b80e467ee8f6a74d0cab9b14a813405db1e0388c96bd0a7287c49"
+  },
+  "commands": {
+    "native-build-02": {
+      "path": "test-results-coherent-startup-duplicate-int-native-build-02.command.json",
+      "bytes": 901,
+      "sha256": "0d76d066fd978751b853159011dd04eab4f8f577ccdccf1f025b48be4cbdd359"
+    },
+    "native-contracts-02": {
+      "path": "test-results-coherent-startup-duplicate-int-native-contracts-02.command.json",
+      "bytes": 1210,
+      "sha256": "71d4491a04737002a3e6fa01707de995ea48e21475e067ac0098110b53fdd19e"
+    },
+    "web-build-02": {
+      "path": "test-results-coherent-startup-duplicate-int-web-build-02.command.json",
+      "bytes": 1014,
+      "sha256": "49e02c8a37dafcd4e26b0a6103666da3b86903b66959dce9fc753bb99ac9d927"
+    },
+    "toolchain-tests-01": {
+      "path": "test-results-coherent-startup-duplicate-int-toolchain-tests-01.command.json",
+      "bytes": 913,
+      "sha256": "3f53d6f12b2bfe5a74124f5e8b7806aa059ebb3b2ec72e2b2d77ccbde90db688"
+    },
+    "cpu-03": {
+      "path": "test-results-coherent-startup-duplicate-int-cpu-03.command.json",
+      "bytes": 1355,
+      "sha256": "a6141b497276e344942edad5a873bcaff4e6da51f9b2b8e5f8341f61f4c30990"
+    },
+    "production-02": {
+      "path": "test-results-coherent-startup-duplicate-int-production-02.command.json",
+      "bytes": 1657,
+      "sha256": "18e34c40d27aab0c0590840ff394499fba9704c1f3d26f5f089bd8417eff9e55"
+    },
+    "build-audit-01": {
+      "path": "test-results-coherent-startup-duplicate-int-build-audit-01.command.json",
+      "bytes": 1236,
+      "sha256": "49dded0d2e47e9694362b774e10b04240dbec60fedc77b3a0085d088f244d4eb"
+    },
+    "preview-stop-02": {
+      "path": "test-results-coherent-startup-duplicate-int-preview-stop-02.command.json",
+      "bytes": 1041,
+      "sha256": "f9d95a5b1f069e9f711ca7be9f1dc4c0fd6810e05ca99669a112cfbc61e1c554"
+    },
+    "preview-02": {
+      "path": "test-results-coherent-startup-duplicate-int-preview-02.command.json",
+      "bytes": 1037,
+      "sha256": "1b67f87332756e8aad9a620bc99528c1c36e2bbdb36e14f1f5e43105aaaf66a0"
+    },
+    "cache-cleanup-02": {
+      "path": "test-results-coherent-startup-duplicate-int-cache-cleanup-02.command.json",
+      "bytes": 1369,
+      "sha256": "499cf90bc956569d6931e0604cad89f6db0e0e06f724aa59a1a5a231ede9cbac"
+    },
+    "object-cleanup-01": {
+      "path": "test-results-coherent-startup-duplicate-int-object-cleanup-01.command.json",
+      "bytes": 1273,
+      "sha256": "c9ffc3014cac144c108d5bd471c71b4fb6a976047c6ffe99f5269a87e3943690"
+    },
+    "process-final-02": {
+      "path": "test-results-coherent-startup-duplicate-int-process-final-02.command.json",
+      "bytes": 1285,
+      "sha256": "a4c8c3804ae5dfdd336a0068339fa0630b6a3addda8987fa79abb61075ce8ff9"
+    }
+  },
+  "cpu": {
+    "report": {
+      "path": ".build/pro-duplicate-integration-tests/cpu-03.json",
+      "bytes": 2203537,
+      "sha256": "fa7f1346f8b854b63a62e13123016072be7060251d0c56d52d7d10398936f43d"
+    },
+    "tests": 5681,
+    "files": 169,
+    "maximumWorkers": 4
+  },
+  "browser": {
+    "report": {
+      "path": ".build/pro-duplicate-integration-tests/production-02.json",
+      "bytes": 1742508,
+      "sha256": "6c25774e329ae24c75ecefc77ea9413eda2e5e21ad66945b629b0b69c228f849"
+    },
+    "tests": 94,
+    "specFiles": [
+      "build-compat.spec.ts",
+      "coherent-builds.spec.ts",
+      "duplicate.spec.ts",
+      "initialization-faults.spec.ts",
+      "interactions.spec.ts",
+      "worker-recovery.spec.ts"
+    ],
+    "duplicateTests": [
+      "shipped Pro Duplicate preserves raw records, displays green copies, and swaps count on Undo/Redo",
+      "shipped Duplicate worker recovery restores grown scene and copy guard without source reread",
+      "shipped Duplicate worker recovery restores smaller current scene with grown Redo without source reread"
+    ],
+    "evidence": [
+      {
+        "test": "shipped Pro Duplicate preserves raw records, displays green copies, and swaps count on Undo/Redo",
+        "name": "duplicate-display",
+        "value": {
+          "yellowGreenPixels": 220,
+          "copyGreenPixels": 1006,
+          "originalRecordBytes": 340,
+          "firstCopyRecordBytes": 680
+        }
+      },
+      {
+        "test": "shipped Duplicate worker recovery restores grown scene and copy guard without source reread",
+        "name": "duplicate-worker-recovery",
+        "value": {
+          "workers": 2,
+          "imports": 1,
+          "commands": [
+            "morphologyRange",
+            "selectAll",
+            "export",
+            "duplicate",
+            "morphologyRange",
+            "export",
+            "morphologyRange",
+            "export"
+          ],
+          "summary": {
+            "ok": true,
+            "loaded": true,
+            "count": 10,
+            "sourceCount": 10,
+            "sourceFaces": 0,
+            "duplicateRange": {
+              "first": 5,
+              "count": 5
+            },
+            "sampledGeometry": false,
+            "geometry": null,
+            "shDegree": 0,
+            "format": "PLY",
+            "kind": 0,
+            "selected": 5,
+            "visible": 10,
+            "canUndo": true,
+            "canRedo": false,
+            "transaction": false,
+            "selectionDraft": false,
+            "toleranceSessionId": null,
+            "filter": null,
+            "transformSession": null,
+            "opacitySession": null,
+            "toleranceTool": null,
+            "toleranceConnected": null,
+            "toleranceMapId": null,
+            "selectionMapId": null,
+            "pendingSelectionMapId": null,
+            "selectionMapBytes": 0,
+            "selectionMapRetainedIds": [],
+            "sceneChanged": false,
+            "revision": 2,
+            "contentRevision": 1,
+            "pending": false,
+            "progress": 1,
+            "center": [
+              0.04999998211860657,
+              -0.42500001192092896,
+              0
+            ],
+            "radius": 1.0766111612319946,
+            "yUp": true,
+            "camera": [
+              0.04999998211860657,
+              -0.42500001192092896,
+              0,
+              0.3499999940395355,
+              0.18000000715255737,
+              3.3759844303131104,
+              1.0766111612319946,
+              45,
+              1,
+              0,
+              1
+            ],
+            "memoryBytes": 15299,
+            "exportBytes": 4796,
+            "exportOutputBytes": 4796,
+            "colorSession": null,
+            "alignment": {
+              "version": 2,
+              "frame": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1
+              ],
+              "branchId": 0,
+              "canReset": false,
+              "retainedBranchIds": [
+                0
+              ]
+            },
+            "floor": null,
+            "morphologyRange": {
+              "version": 1,
+              "minimum": 0.09999999403953552,
+              "maximum": 1.8799999952316284,
+              "default": 0.4335896670818329
+            }
+          },
+          "restore": {
+            "binding": {
+              "version": 1,
+              "core": {
+                "schemaVersion": 1,
+                "kind": "core",
+                "abi": 24,
+                "variant": "scalar",
+                "mapLayoutVersion": 1,
+                "capabilities": {
+                  "atomicCheckpoint": 1,
+                  "transactionReceipt": 2,
+                  "recoveryCheckpoint": 2,
+                  "duplicate": 1,
+                  "selectionMap": 1,
+                  "volumeSelection": 1,
+                  "fillSelection": 1,
+                  "connectedColorSelection": 1,
+                  "toleranceCheckpoint": 1,
+                  "liveSelectionOutcome": 1,
+                  "geometryPreview": 1,
+                  "sourceHash": 1,
+                  "allocationCensus": 1,
+                  "selectionMorphology": 2,
+                  "absoluteColorSession": 1,
+                  "autoColor": 1,
+                  "colorBaseStream": 1,
+                  "alignment": 4,
+                  "groupedSog": 3,
+                  "exportSpz4": 1,
+                  "boundedAttributeExport": 1,
+                  "boundedSpz3Export": 1,
+                  "boundedSogExport": 1,
+                  "selectionFilter": 1,
+                  "proTransformSession": 1,
+                  "absoluteOpacitySession": 1,
+                  "opacityBaseStream": 1,
+                  "currentViewScope": 1
+                },
+                "nativeInputId": "fd9d553aaeaff645cf3bbb412bb246568ecaa344fe560482a57c5a44319f7a64"
+              },
+              "source": {
+                "scheme": "splatview-source-v1",
+                "assetDigest": "b53cd374dd8811afd7383950fa0978d4813e957a189fd8979276e0aefa8bd96e",
+                "resourceCount": 1,
+                "totalBytes": 1095,
+                "sourceKindHint": "PLY"
+              },
+              "subset": {
+                "sourceCount": 5,
+                "loadedCount": 5,
+                "maxSplats": 1000000
+              },
+              "revision": {
+                "documentId": "ea6abb1e-ede6-421a-8188-f4a1f9a2e3ae",
+                "sourceGeneration": 1,
+                "contentRevision": 2,
+                "selectionRevision": 3,
+                "draftRevision": 0
+              }
+            },
+            "plan": {
+              "ok": true,
+              "version": 2,
+              "byteLength": 3008,
+              "workspaceBytes": 8256,
+              "maximumChunkBytes": 1048576,
+              "sceneCount": 2,
+              "maskCount": 2,
+              "normalizationFlags": 0,
+              "currentLoadedCount": 10,
+              "currentSourceCount": 10,
+              "currentDuplicateRange": {
+                "first": 5,
+                "count": 5
+              },
+              "maximumGraphSplats": 10,
+              "revision": 2,
+              "actualRevision": 2,
+              "contentRevision": 1,
+              "nextContentRevision": 1,
+              "sha256": "f3e42a32c9e1ac0d9230932d5e66a4b3bfc33cd36d6196db406fa4df4a05e8db",
+              "headerSha256": "af04189e88e1e6a64e95277f0ad501ee4d40d26df178983b0b23472803de6377",
+              "memoryBytes": 26415
+            }
+          }
+        }
+      },
+      {
+        "test": "shipped Duplicate worker recovery restores smaller current scene with grown Redo without source reread",
+        "name": "duplicate-worker-recovery",
+        "value": {
+          "workers": 2,
+          "imports": 1,
+          "commands": [
+            "morphologyRange",
+            "selectAll",
+            "export",
+            "duplicate",
+            "morphologyRange",
+            "export",
+            "undo",
+            "morphologyRange",
+            "morphologyRange",
+            "export"
+          ],
+          "summary": {
+            "ok": true,
+            "loaded": true,
+            "count": 5,
+            "sourceCount": 5,
+            "sourceFaces": 0,
+            "duplicateRange": null,
+            "sampledGeometry": false,
+            "geometry": null,
+            "shDegree": 0,
+            "format": "PLY",
+            "kind": 0,
+            "selected": 5,
+            "visible": 5,
+            "canUndo": true,
+            "canRedo": true,
+            "transaction": false,
+            "selectionDraft": false,
+            "toleranceSessionId": null,
+            "filter": null,
+            "transformSession": null,
+            "opacitySession": null,
+            "toleranceTool": null,
+            "toleranceConnected": null,
+            "toleranceMapId": null,
+            "selectionMapId": null,
+            "pendingSelectionMapId": null,
+            "selectionMapBytes": 0,
+            "selectionMapRetainedIds": [],
+            "sceneChanged": false,
+            "revision": 3,
+            "contentRevision": 0,
+            "pending": false,
+            "progress": 1,
+            "center": [
+              0.04999998211860657,
+              -0.42500001192092896,
+              0
+            ],
+            "radius": 1.0766111612319946,
+            "yUp": true,
+            "camera": [
+              0.04999998211860657,
+              -0.42500001192092896,
+              0,
+              0.3499999940395355,
+              0.18000000715255737,
+              3.3759844303131104,
+              1.0766111612319946,
+              45,
+              1,
+              0,
+              1
+            ],
+            "memoryBytes": 18995,
+            "exportBytes": 4456,
+            "exportOutputBytes": 4456,
+            "colorSession": null,
+            "alignment": {
+              "version": 2,
+              "frame": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1
+              ],
+              "branchId": 0,
+              "canReset": false,
+              "retainedBranchIds": [
+                0
+              ]
+            },
+            "floor": null,
+            "morphologyRange": {
+              "version": 1,
+              "minimum": 0.09999999403953552,
+              "maximum": 1.8799999952316284,
+              "default": 0.4335896670818329
+            }
+          },
+          "restore": {
+            "binding": {
+              "version": 1,
+              "core": {
+                "schemaVersion": 1,
+                "kind": "core",
+                "abi": 24,
+                "variant": "scalar",
+                "mapLayoutVersion": 1,
+                "capabilities": {
+                  "atomicCheckpoint": 1,
+                  "transactionReceipt": 2,
+                  "recoveryCheckpoint": 2,
+                  "duplicate": 1,
+                  "selectionMap": 1,
+                  "volumeSelection": 1,
+                  "fillSelection": 1,
+                  "connectedColorSelection": 1,
+                  "toleranceCheckpoint": 1,
+                  "liveSelectionOutcome": 1,
+                  "geometryPreview": 1,
+                  "sourceHash": 1,
+                  "allocationCensus": 1,
+                  "selectionMorphology": 2,
+                  "absoluteColorSession": 1,
+                  "autoColor": 1,
+                  "colorBaseStream": 1,
+                  "alignment": 4,
+                  "groupedSog": 3,
+                  "exportSpz4": 1,
+                  "boundedAttributeExport": 1,
+                  "boundedSpz3Export": 1,
+                  "boundedSogExport": 1,
+                  "selectionFilter": 1,
+                  "proTransformSession": 1,
+                  "absoluteOpacitySession": 1,
+                  "opacityBaseStream": 1,
+                  "currentViewScope": 1
+                },
+                "nativeInputId": "fd9d553aaeaff645cf3bbb412bb246568ecaa344fe560482a57c5a44319f7a64"
+              },
+              "source": {
+                "scheme": "splatview-source-v1",
+                "assetDigest": "b53cd374dd8811afd7383950fa0978d4813e957a189fd8979276e0aefa8bd96e",
+                "resourceCount": 1,
+                "totalBytes": 1095,
+                "sourceKindHint": "PLY"
+              },
+              "subset": {
+                "sourceCount": 5,
+                "loadedCount": 5,
+                "maxSplats": 1000000
+              },
+              "revision": {
+                "documentId": "26a102d5-7bf9-4cb6-8ffe-fda7bd622b48",
+                "sourceGeneration": 1,
+                "contentRevision": 3,
+                "selectionRevision": 4,
+                "draftRevision": 0
+              }
+            },
+            "plan": {
+              "ok": true,
+              "version": 2,
+              "byteLength": 3008,
+              "workspaceBytes": 8256,
+              "maximumChunkBytes": 1048576,
+              "sceneCount": 2,
+              "maskCount": 2,
+              "normalizationFlags": 0,
+              "currentLoadedCount": 5,
+              "currentSourceCount": 5,
+              "currentDuplicateRange": null,
+              "maximumGraphSplats": 10,
+              "revision": 3,
+              "actualRevision": 3,
+              "contentRevision": 0,
+              "nextContentRevision": 1,
+              "sha256": "9918191959a8aef76900ab92035f2e74d8f635fcc387020f6fa012ee7824e43e",
+              "headerSha256": "1ffc46cc378392e56a63617438ef34c18d4a5a0e208b28925da05a459bfcc327",
+              "memoryBytes": 30791
+            }
+          }
+        }
+      }
+    ],
+    "environment": "Chromium on the current Windows host"
+  },
+  "nativeContracts": {
+    "report": {
+      "path": ".build/pro-duplicate-integration-tests/native-contracts-02.json",
+      "bytes": 5454,
+      "sha256": "275c679b2dfda6729722643da3b171cd492a3aa6330c0b05bc23cda99b704268"
+    },
+    "executedModuleFactories": 5,
+    "results": [
+      {
+        "name": "duplicate",
+        "executable": {
+          "path": ".build/wasm/contracts/splatview-duplicate-contracts.mjs",
+          "bytes": 68757,
+          "sha256": "c3d3ac1ebef45a8beaf2ef390594c7efc7b29287f697a1dd31f7f18661ec0138"
+        },
+        "wasm": {
+          "path": ".build/wasm/contracts/splatview-duplicate-contracts.wasm",
+          "bytes": 305893,
+          "sha256": "e9d9ee5e6e2c018f50e9901d37e265ffe157f14907f49d5c595c55efb8bd9b7e"
+        },
+        "lines": [
+          "PASS SH0-SH3 exact bytes, masks, one history entry and repeated-copy guard",
+          "PASS suffix ownership, null/expired/full lineage and attribute edit lifetime",
+          "PASS captured camera center-only scope and empty-view refusal",
+          "PASS uint32 source, shared identity and exact 1M boundaries",
+          "PASS cancellation, stale publication, draft and history refusal atomicity",
+          "PASS admission and intercepted C++ new allocation ordinal sweeps",
+          "Duplicate contracts passed: groups=6 admission-refusals=24 backend-refusals=80 sizeof(Job)=184 sizeof(Lineage)=1024"
+        ],
+        "observedCounters": [
+          24,
+          80,
+          184,
+          1024
+        ]
+      },
+      {
+        "name": "duplicate-binding",
+        "executable": {
+          "path": ".build/wasm/contracts/splatview-duplicate-binding-contracts.mjs",
+          "bytes": 81442,
+          "sha256": "33878dadd16c0a5e1793f734a4ed86cd042a7755480f496357762152adf67315"
+        },
+        "wasm": {
+          "path": ".build/wasm/contracts/splatview-duplicate-binding-contracts.wasm",
+          "bytes": 2420361,
+          "sha256": "87de7a09a7e283f9deee342037b818fa69ce440b77a217236381eea17696f914"
+        },
+        "lines": [
+          "PASS actual SH3 append/current-view/history and topology receipts",
+          "PASS transaction rollback, cancellation and response refusal",
+          "PASS alignment Reset boundary and grown baseline",
+          "PASS retained tool/draft/shape ownership refusals",
+          "PASS actual publication intercepted-allocation sweep",
+          "PASS typed grown-graph restore, UndoRedo and marker ownership",
+          "SPLATVIEW_DUPLICATE_BINDING_CONTRACTS_PASS cases=6 checks=1709 allocationRefusals=30"
+        ],
+        "observedCounters": [
+          1709,
+          30
+        ]
+      },
+      {
+        "name": "document-checkpoint",
+        "executable": {
+          "path": ".build/wasm/contracts/splatview-document-checkpoint-contracts.mjs",
+          "bytes": 64531,
+          "sha256": "98be3696971b71c6fae54aca94fc304794b7e193a227d06fb65aedafa16a2148"
+        },
+        "wasm": {
+          "path": ".build/wasm/contracts/splatview-document-checkpoint-contracts.wasm",
+          "bytes": 250681,
+          "sha256": "dbdac5e7adfe725ccafae469a6e7220dd5eb6c75f58c3dc8f04af3c668505b34"
+        },
+        "lines": [
+          "SPLATVIEW_DOCUMENT_CHECKPOINT_CONTRACTS_PASS cases=28 checks=992 scopedResumes=3 legacyReads=9 refusals=25"
+        ],
+        "observedCounters": [
+          28,
+          992,
+          3,
+          9,
+          25
+        ]
+      },
+      {
+        "name": "operation-receipt",
+        "executable": {
+          "path": ".build/wasm/contracts/splatview-operation-receipt-contracts.mjs",
+          "bytes": 80810,
+          "sha256": "3098a8c6668faaf48264f623b39d8078f0899999b985eb1e24c6df43e8b7c45c"
+        },
+        "wasm": {
+          "path": ".build/wasm/contracts/splatview-operation-receipt-contracts.wasm",
+          "bytes": 2337042,
+          "sha256": "791a133e84f15e5b389df10d7b3fe5179d52d2a58c7c3b91f4e60bc3c6dec17d"
+        },
+        "lines": [
+          "SPLATVIEW_OPERATION_RECEIPT_CONTRACTS_PASS cases=21 checks=189 terminalReplyRefusals=2 preparationRefusals=2 receiptBytes=464 ledgerBytes=568"
+        ],
+        "observedCounters": [
+          21,
+          189,
+          2,
+          2,
+          464,
+          568
+        ]
+      },
+      {
+        "name": "response",
+        "executable": {
+          "path": ".build/wasm/contracts/splatview-response-contracts.mjs",
+          "bytes": 80495,
+          "sha256": "e74aaba703858b31e95faf9d29e485c0510cd2093de71c1f0e057161af2a1f8b"
+        },
+        "wasm": {
+          "path": ".build/wasm/contracts/splatview-response-contracts.wasm",
+          "bytes": 2424531,
+          "sha256": "e341079e1a83a46c4367d60905b12c3b00490f54395dde152545f208dd574a0d"
+        },
+        "lines": [
+          "SPLATVIEW_RESPONSE_CONTRACTS_PASS cases=50 assertions=1280 noNewObservations=544 observedNewCalls=0 staticBytes=32933 repeatedRefusals=16"
+        ],
+        "observedCounters": [
+          50,
+          1280,
+          544,
+          0,
+          32933,
+          16
+        ]
+      }
+    ]
+  },
+  "buildProvenanceToolTests": 30,
+  "checkpointCodecVersion": 3,
+  "maximumDuplicateLoadedSplats": 1000000,
+  "accepted": [
+    "Pro-only desktop Duplicate action; original copy.svg reused; exact desktop green tint and seven translated locale columns",
+    "Cooperative center-in-captured-view append; all 144 source bytes preserved; original records deselected and copies selected",
+    "Count/source/suffix-bound receipts and summaries; strict retained-error validation",
+    "Full-scene Undo/Redo and attribute-edit lineage; original import fingerprint/subset stays immutable",
+    "Codec3/plan2/metadata2 grown graph recovery including a smaller current scene with a larger Redo",
+    "Native/GPU candidate admission, once-only old-mirror retirement, and retained credit after proven commits lose acknowledgements"
+  ],
+  "cleanup": {
+    "caches": {
+      "path": ".build/pro-duplicate-integration-tests/cleanup-02.json",
+      "bytes": 4383,
+      "sha256": "6a14b7ef862586498f0223dbc20e41e6b821bfad1ba7d307ef5268a206a311e3"
+    },
+    "compilerObjects": {
+      "path": ".build/pro-duplicate-integration-tests/objects-cleanup-01.json",
+      "bytes": 2392,
+      "sha256": "4f7cd70fd75a68ed6ac97bf133ed5046014eda0813e2769f4323fa2592fb8835"
+    },
+    "processObservation": {
+      "path": ".build/pro-duplicate-integration-tests/process-final-02.json",
+      "bytes": 365,
+      "sha256": "ae5575db550898ca4874fc3d591649f13b61f8324664e9f38293a8085f3ba69f"
+    },
+    "staleDistributionFiles": 0,
+    "removedCompilerFiles": 220,
+    "removedCompilerBytes": 39383240
+  },
+  "diagnostics": {
+    "priorCpuRuns": [
+      {
+        "path": ".build/pro-duplicate-integration-tests/cpu-01.json",
+        "bytes": 2214687,
+        "sha256": "88096d44b6f626e1f767c4baf39c1daa9f766371af00c1b47906ecd573dddc28"
+      },
+      {
+        "path": ".build/pro-duplicate-integration-tests/cpu-02.json",
+        "bytes": 2203699,
+        "sha256": "d2f2a4ebb9e1a64238be89d1e6a1ea7c00d36b14cbcda8bbf22e7a5b7687aecb"
+      }
+    ],
+    "isolatedRecoveryTransport": {
+      "path": ".build/pro-duplicate-integration-tests/recovery-worker-check-01.json",
+      "bytes": 10958,
+      "sha256": "7abe761258b1987358b594e6ba8b77c0347f1ae123062e8dca755d58aa06556a"
+    },
+    "note": "The unchanged recovery worker file passed all 28 isolated cases; a fresh complete suite passed with four workers and unchanged timeouts. No application performance result is inferred."
+  },
+  "macTestingRequired": false,
+  "macOrSafariHardwareVerified": false,
+  "remaining": [
+    "Desktop Scene/Selection/Origin pivot cycle and focus bounds",
+    "Color/Fill Range controls and bounded selection predicates",
+    "Floating confirmation controls and current tutorial alignment",
+    "Full current-desktop visual/assistive audit and measured limited-size browser operating budget"
+  ],
+  "committed": false,
+  "pushed": false,
+  "deployed": false
+}

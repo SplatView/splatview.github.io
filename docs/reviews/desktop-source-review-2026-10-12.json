@@ -1,0 +1,1313 @@
+{
+    "schemaVersion":  1,
+    "reviewType":  "bounded-current-desktop-source-observation",
+    "capturedStartedUtc":  "2026-10-12T13:46:05.2588372Z",
+    "capturedCompletedUtc":  "2026-10-12T13:46:06.9487697Z",
+    "scope":  {
+                  "desktopRoot":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\SplatPreview",
+                  "webRoot":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+                  "readOnlyDesktop":  true,
+                  "buildPerformed":  false,
+                  "desktopExecutionPerformed":  false,
+                  "fullRecoverableSnapshot":  false,
+                  "frozenLockMutated":  false,
+                  "excludedTraversal":  [
+                                            "public/wasm"
+                                        ],
+                  "note":  "Sequential observations from a live desktop worktree changing during review. Selected before/after hashes document only observed file states. No simultaneous or stable-tree capture is claimed. This is a bounded review record, not a build source lock or recoverable source snapshot.",
+                  "atomicCapture":  false,
+                  "stableTreeClaim":  false
+              },
+    "frozen":  {
+                   "sourceLockPath":  "native/SOURCE_LOCK.json",
+                   "sourceLockSha256":  "d6515ebbc1f22ca1498b37d6369420f87cf48a39aba2d0ec952fcc9dbae9c747",
+                   "lockCapturedUtc":  "2026-10-11T04:07:32.642539+00:00",
+                   "declaredWindowsBehaviorVersion":  "0.12.82",
+                   "observedFrozenCmakeVersion":  "0.12.86",
+                   "package":  "windows-reference",
+                   "origin":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatpreview",
+                   "files":  616,
+                   "treeSha256":  "f57d33182ace6183bad32ddee673b08182f7f8fe42fc95967afcaecbfa7f23e0",
+                   "versionLabelMismatch":  true
+               },
+    "current":  {
+                    "workingTreeCmakeVersion":  "0.12.115",
+                    "headCmakeVersion":  "0.12.110",
+                    "head":  "54b9ac7c053f58800932d94acb931c57c3b3c840",
+                    "headCommit":  "2026-10-11T22:51:22-04:00 Simplify loading ownership and strengthen parser release checks",
+                    "trackedDirtyCount":  47,
+                    "untrackedEntryCount":  11,
+                    "statusPorcelain":  [
+                                            " M .gitattributes",
+                                            " M .github/workflows/windows.yml",
+                                            " M CMakeLists.txt",
+                                            " M CONTRIBUTING.md",
+                                            " M README.md",
+                                            " M cmake/Tests.cmake",
+                                            " M docs/development.md",
+                                            " M docs/testing.md",
+                                            " M docs/tutorial.md",
+                                            " M packaging/AppxManifest.xml.in",
+                                            " M packaging/Binary-release.md",
+                                            " M packaging/Certification-notes.txt",
+                                            " M packaging/Privacy-publishing-notes.txt",
+                                            " M scripts/check-format.ps1",
+                                            " M scripts/check-repository.ps1",
+                                            " M src/app_ui.cpp",
+                                            " M src/app_ui.hpp",
+                                            " M src/app_ui_default_apps.cpp",
+                                            " M src/app_ui_settings.cpp",
+                                            " M src/app_ui_tutorial.cpp",
+                                            " M src/color_ui.cpp",
+                                            " M src/language.cpp",
+                                            " M src/language.hpp",
+                                            " M src/package.cpp",
+                                            " M src/package.hpp",
+                                            " M src/processing_ui.cpp",
+                                            " M src/save_service.cpp",
+                                            " M src/save_transport.cpp",
+                                            " M src/selection_ui.cpp",
+                                            " M src/store_updates.cpp",
+                                            " M src/store_updates.hpp",
+                                            " M src/store_updates_flow.hpp",
+                                            " M src/tools_preferences.cpp",
+                                            " M src/tools_preferences.hpp",
+                                            " M src/translations.inc",
+                                            " M src/tutorial.hpp",
+                                            " M src/ui_design.hpp",
+                                            " M src/ui_widgets.hpp",
+                                            " M src/viewport_tools.cpp",
+                                            " M src/viewport_tools.hpp",
+                                            " M tests/language_contracts.cpp",
+                                            " M tests/save-ui-smoke.ps1",
+                                            " M tests/tools_mode_contracts.cpp",
+                                            " M tests/tools_settings_contracts.cpp",
+                                            " M tests/tools_ui_contracts.hpp",
+                                            " M tests/tools_ui_support.cpp",
+                                            " M tests/tools_workflow_contracts.cpp",
+                                            "?? .githooks/",
+                                            "?? CHANGELOG.md",
+                                            "?? scripts/FormatSupport.psm1",
+                                            "?? scripts/GitIndex.psm1",
+                                            "?? scripts/check-changelog.ps1",
+                                            "?? scripts/check-staged.ps1",
+                                            "?? scripts/install-git-hooks.ps1",
+                                            "?? src/app_ui_about.cpp",
+                                            "?? src/ui_size.hpp",
+                                            "?? tests/git_hook_contracts.ps1",
+                                            "?? tests/tools_onboarding_contracts.cpp"
+                                        ]
+                },
+    "comparison":  {
+                       "lockedEntries":  616,
+                       "identicalCount":  505,
+                       "changedCount":  109,
+                       "missingCount":  2,
+                       "frozenIntegrityErrorCount":  0,
+                       "changed":  [
+                                       {
+                                           "originPath":  "assets/icons/README.md",
+                                           "frozenPath":  "reference/windows/assets/icons/README.md",
+                                           "frozenSha256":  "2f0384ee7b606e191fec67f5baf4139ecfe273f9bdd199b4e350427d5fb7661d",
+                                           "currentSha256":  "d7e93d94447a6f92946c1c559780e573caa2e1d20e624a38bf9dafc4e00936ba",
+                                           "currentBytes":  3761
+                                       },
+                                       {
+                                           "originPath":  "cmake/Benchmarks.cmake",
+                                           "frozenPath":  "reference/windows/cmake/Benchmarks.cmake",
+                                           "frozenSha256":  "80a2c76145caaf02ab92985c6fa66a517c861ce092623e4fc617c9a8967540bd",
+                                           "currentSha256":  "faa6c9d171b6d0f96d23a4542e676c48414e4e9e62a65d2c195bf36b4d75a4ed",
+                                           "currentBytes":  853
+                                       },
+                                       {
+                                           "originPath":  "cmake/BuildGraph.cmake",
+                                           "frozenPath":  "reference/windows/cmake/BuildGraph.cmake",
+                                           "frozenSha256":  "da19b5d7f673649554f6606eea635f0c237b8da4e80160d0ace4a09c1783a2c5",
+                                           "currentSha256":  "62f3c247a3b699bfb9253d5af673e4ee1f65bffa6a46fa88ba3d4c17cf3b4046",
+                                           "currentBytes":  2571
+                                       },
+                                       {
+                                           "originPath":  "cmake/LicenseAgreement.cmake",
+                                           "frozenPath":  "reference/windows/cmake/LicenseAgreement.cmake",
+                                           "frozenSha256":  "d16a574dba3121dced720a21b1b03698456969a424a743e4c351ca457cfd53b5",
+                                           "currentSha256":  "9e5b45df0baa7b357af6a357ff2c0b314ac1705ca8ce8fbeda8ce47539cec3e3",
+                                           "currentBytes":  1559
+                                       },
+                                       {
+                                           "originPath":  "cmake/PostHog.cmake",
+                                           "frozenPath":  "reference/windows/cmake/PostHog.cmake",
+                                           "frozenSha256":  "3801a5b7b901185a17732514d2c7b1eb58536a3888f0e40d55f3236af9bf948c",
+                                           "currentSha256":  "db4f32940c31ea74eaf3b16cc925a6194a44b44a5e7f606c22193d5bc12b5251",
+                                           "currentBytes":  1660
+                                       },
+                                       {
+                                           "originPath":  "cmake/Tests.cmake",
+                                           "frozenPath":  "reference/windows/cmake/Tests.cmake",
+                                           "frozenSha256":  "b805762581a8b9cafe5e0b70db540d8d267025196046d83e2da25b842566911e",
+                                           "currentSha256":  "af3f8f25f2162625c8efd87daadb52303e76eac84b572326fed21c702c25a285",
+                                           "currentBytes":  15894
+                                       },
+                                       {
+                                           "originPath":  "CMakeLists.txt",
+                                           "frozenPath":  "reference/windows/CMakeLists.txt",
+                                           "frozenSha256":  "b5169eabc6c41fcc7b2fd407db8cfccd53f54669dcf7aba6943001ac9615f312",
+                                           "currentSha256":  "fbf667248e783045dc0c2cae02429611f99ea70ffa349083faa862cc7dd0779f",
+                                           "currentBytes":  13652
+                                       },
+                                       {
+                                           "originPath":  "design/basic-pro-tools-plan.md",
+                                           "frozenPath":  "reference/windows/design/basic-pro-tools-plan.md",
+                                           "frozenSha256":  "fee2149c3e1e602f1df624eda0d95191c3d9f3ff6606b9acfcd6b514f927fe8b",
+                                           "currentSha256":  "f6658eee1c312a8c18baa5fc518fe8362a0bae8dc3c96dfb9cbf89f2b1560bbb",
+                                           "currentBytes":  26760
+                                       },
+                                       {
+                                           "originPath":  "design/basic-pro-tools.html",
+                                           "frozenPath":  "reference/windows/design/basic-pro-tools.html",
+                                           "frozenSha256":  "8901669052d5bd330c02d5ba5465875f59f50de0762af76255501e2ae028a263",
+                                           "currentSha256":  "7034097744c7ec8c584ac5a7770e461f2866159b9d304f94cdb43879e2f4a488",
+                                           "currentBytes":  38545
+                                       },
+                                       {
+                                           "originPath":  "design/first-run-preview.html",
+                                           "frozenPath":  "reference/windows/design/first-run-preview.html",
+                                           "frozenSha256":  "445e93976d1a128245691bb392b0e5cfaa2d19651782bbb70a311bc2162d66b0",
+                                           "currentSha256":  "764f598825bf2ba4b3ce533dfe5669c8e64989527849152ec79e12e2e3573dae",
+                                           "currentBytes":  88314
+                                       },
+                                       {
+                                           "originPath":  "design/icon-catalog.html",
+                                           "frozenPath":  "reference/windows/design/icon-catalog.html",
+                                           "frozenSha256":  "60ce3bc74ad629483b7d6d8bb9c964bd5eeb6bfce07e400c2eca732ab85d8fb5",
+                                           "currentSha256":  "b8f0a223ee9fec75744008f8f6af162b5feade0542bc9b91acb0afd6fd2c1bb6",
+                                           "currentBytes":  80049
+                                       },
+                                       {
+                                           "originPath":  "design/ui-design-system.md",
+                                           "frozenPath":  "reference/windows/design/ui-design-system.md",
+                                           "frozenSha256":  "56ae61e79cc04f433c2b7b8831cc98c2aebc70dbf1894abaa28e7971e9b9c2b3",
+                                           "currentSha256":  "cfd2d4bac96194b82d27340a40f872ad1457e8302ac93e9df285a0be2007fe38",
+                                           "currentBytes":  19124
+                                       },
+                                       {
+                                           "originPath":  "README.md",
+                                           "frozenPath":  "reference/windows/README.md",
+                                           "frozenSha256":  "bdddb20ca7fb12577c18b17daaa2d09045b3420f727e352927e9dda1028b0726",
+                                           "currentSha256":  "2eae5db1ef685ebfb83b2382477a0da299a187f17c7a47e041b37aeafa71a051",
+                                           "currentBytes":  111121
+                                       },
+                                       {
+                                           "originPath":  "src/alignment_ui.cpp",
+                                           "frozenPath":  "reference/windows/src/alignment_ui.cpp",
+                                           "frozenSha256":  "69ed5e1b033aa69ef2ad077ae214945db9b9c58e9c863c866b14265a916fe684",
+                                           "currentSha256":  "ed35cd64691da095c1bc982903e84c09aa56d3a9db30df8e7f2bd194fae30e62",
+                                           "currentBytes":  2677
+                                       },
+                                       {
+                                           "originPath":  "src/analytics.cpp",
+                                           "frozenPath":  "reference/windows/src/analytics.cpp",
+                                           "frozenSha256":  "14d4321057a17151a63043435f0b08cb745fc965e4fb859424b82bd5c2a08b18",
+                                           "currentSha256":  "7f4e73cb51ef4ed0a0ebaed26a2191fe218fe022e671e31e832227906d447789",
+                                           "currentBytes":  18168
+                                       },
+                                       {
+                                           "originPath":  "src/analytics.hpp",
+                                           "frozenPath":  "reference/windows/src/analytics.hpp",
+                                           "frozenSha256":  "c39de1f3d7b1eb756ca2f51ef8c178058df5149b31463083c9d2ba8e5d578c51",
+                                           "currentSha256":  "a4f32de17e38dd75465f85fdad32a9198c25f29cc4c49c3a2dab739a1f27115e",
+                                           "currentBytes":  2001
+                                       },
+                                       {
+                                           "originPath":  "src/analytics_privacy.cpp",
+                                           "frozenPath":  "reference/windows/src/analytics_privacy.cpp",
+                                           "frozenSha256":  "3fb79fb6c6389aff2532d867cfe3b39c0c33b31741a31a38383bb69f2d136273",
+                                           "currentSha256":  "ad7a8adab1be9c2150796ee101f20ca9399572cebf4fd263ebac4b2c4fa3dd59",
+                                           "currentBytes":  2308
+                                       },
+                                       {
+                                           "originPath":  "src/app_ui.cpp",
+                                           "frozenPath":  "reference/windows/src/app_ui.cpp",
+                                           "frozenSha256":  "0200cc4368e5986e50e93b5130231f2560f967c15bcf1f21261498d30916a223",
+                                           "currentSha256":  "03d2db6c254adde26540ad7a8307e0e9d92fe9ffd3dc708672fa5ac1eb464a61",
+                                           "currentBytes":  67857
+                                       },
+                                       {
+                                           "originPath":  "src/app_ui.hpp",
+                                           "frozenPath":  "reference/windows/src/app_ui.hpp",
+                                           "frozenSha256":  "61974067f0f0959fb48945d77a72843e7016fb73fb0c148ecc36e92028b6dcaa",
+                                           "currentSha256":  "587dde5144dc3c2f9f4686be2f4d5bec585bf7a178c6229064ad14e9b34ff690",
+                                           "currentBytes":  11485
+                                       },
+                                       {
+                                           "originPath":  "src/app_ui_settings.cpp",
+                                           "frozenPath":  "reference/windows/src/app_ui_settings.cpp",
+                                           "frozenSha256":  "033b267cdd3e03c92ef63a692b615ddabbac5b398bb1c60532ccf1ee79f45493",
+                                           "currentSha256":  "df5cb79ad36896c20ebb85526865dde11818788f925eb2b9574fdf537497b747",
+                                           "currentBytes":  12876
+                                       },
+                                       {
+                                           "originPath":  "src/app_ui_tutorial.cpp",
+                                           "frozenPath":  "reference/windows/src/app_ui_tutorial.cpp",
+                                           "frozenSha256":  "be68b96b1f0672457360958a8ee898084398b7ef25345266b050b2b1c3fbf7b0",
+                                           "currentSha256":  "14012e10fc73b97177ff7bc71e7dd49bab2cd49e0324353450c5fd8f68977d26",
+                                           "currentBytes":  14579
+                                       },
+                                       {
+                                           "originPath":  "src/camera.cpp",
+                                           "frozenPath":  "reference/windows/src/camera.cpp",
+                                           "frozenSha256":  "55ab01db6699d723737ceafc4306df2f0c7922b0c61b886fa98593c0aad7e86b",
+                                           "currentSha256":  "62559afd1906dc7aa9d2705b3a11adc9c0afb3d45ab400933dc2530b0f55a8c4",
+                                           "currentBytes":  10539
+                                       },
+                                       {
+                                           "originPath":  "src/camera.hpp",
+                                           "frozenPath":  "reference/windows/src/camera.hpp",
+                                           "frozenSha256":  "0580e731026152b51e31a85986b043c20296dcdcc6282938f5718ac01be2062f",
+                                           "currentSha256":  "f5ee450c50f6d6159f86002647a9c53cdfce21e40f59ddf07ea62ea1d83cd213",
+                                           "currentBytes":  1272
+                                       },
+                                       {
+                                           "originPath":  "src/color_previews.cpp",
+                                           "frozenPath":  "reference/windows/src/color_previews.cpp",
+                                           "frozenSha256":  "4e6ec20431f192b28c79d26b97989be811d3e3e6ff15dc3dfb6f8f0fbd3f99c2",
+                                           "currentSha256":  "37780adad1a59ea8409462556c75b56f590a90d5b9ee3b381a7fddeb7539699f",
+                                           "currentBytes":  11215
+                                       },
+                                       {
+                                           "originPath":  "src/color_previews.hpp",
+                                           "frozenPath":  "reference/windows/src/color_previews.hpp",
+                                           "frozenSha256":  "114b1898908dfc4c00d98f44e1df29f0f3660fc8cd4a5150c075a7bc95be7ea1",
+                                           "currentSha256":  "3254dd492ed214e6383ff240254aea0531aa4f841a43a9ef74d8d4b20b88b203",
+                                           "currentBytes":  2344
+                                       },
+                                       {
+                                           "originPath":  "src/color_ui.cpp",
+                                           "frozenPath":  "reference/windows/src/color_ui.cpp",
+                                           "frozenSha256":  "c8d2ddc8fd1efdd52f8d34e966c62a68560f7ef7dd78bb536ed58d83b6de9d1d",
+                                           "currentSha256":  "3a6574a1ccf3565e5a669ac03b42092e84a4060b6ba6c688e806b01b45d64469",
+                                           "currentBytes":  4267
+                                       },
+                                       {
+                                           "originPath":  "src/commands.hpp",
+                                           "frozenPath":  "reference/windows/src/commands.hpp",
+                                           "frozenSha256":  "3e5a3826eb8c405e414aa31a0f025b77a6d9a212ac15beb0cfd03b00afeded48",
+                                           "currentSha256":  "d83ad576051811ede121cd6b3f7ba5c2abbf59a1e5f346e74e0d60c0cb2f5717",
+                                           "currentBytes":  716
+                                       },
+                                       {
+                                           "originPath":  "src/editing.cpp",
+                                           "frozenPath":  "reference/windows/src/editing.cpp",
+                                           "frozenSha256":  "b16f484d048f4c7b262ba0c0c1f4a075c3efc4410cb6b8d22bb840044f073bf9",
+                                           "currentSha256":  "8f986a35b64860d1948680e7746f06ba307364237a60c0b7f0f99856ffb3fd8a",
+                                           "currentBytes":  36662
+                                       },
+                                       {
+                                           "originPath":  "src/editing.hpp",
+                                           "frozenPath":  "reference/windows/src/editing.hpp",
+                                           "frozenSha256":  "896b55ceb5a34bcdbe1823153d95fb686ce68fac43cde7d0d700186c21c2d015",
+                                           "currentSha256":  "14d0fc2bda39c3f3f725e642addd07c02c2640db552e338ab89eba4d02ba8eb4",
+                                           "currentBytes":  9238
+                                       },
+                                       {
+                                           "originPath":  "src/feedback.cpp",
+                                           "frozenPath":  "reference/windows/src/feedback.cpp",
+                                           "frozenSha256":  "4d444a9393ee66e0a69305c8cffb54f48b989557969ac4a8f37d0decb843a4fe",
+                                           "currentSha256":  "878bb12f5d44e503d27635ce5e0a590d4364d88937f8a6aac5631f5c387c1c79",
+                                           "currentBytes":  943
+                                       },
+                                       {
+                                           "originPath":  "src/feedback.hpp",
+                                           "frozenPath":  "reference/windows/src/feedback.hpp",
+                                           "frozenSha256":  "744dc53a697a71ecd0a7feb3c33fc854f62775097f40f6a378870029a607c395",
+                                           "currentSha256":  "218d43d488f0722e44529ebcc070a01fc9643a08f7e59318c94711d46ecc1750",
+                                           "currentBytes":  464
+                                       },
+                                       {
+                                           "originPath":  "src/format_utils.hpp",
+                                           "frozenPath":  "reference/windows/src/format_utils.hpp",
+                                           "frozenSha256":  "8f73a8514b3120ed7e6fe01d548dc9b20904ccfc9c39863a04be075c04a276ef",
+                                           "currentSha256":  "98c5d24a3cab66951f8d8752f4f5e2be2312410824fa45827453e397678671a3",
+                                           "currentBytes":  2810
+                                       },
+                                       {
+                                           "originPath":  "src/geometry_tools.cpp",
+                                           "frozenPath":  "reference/windows/src/geometry_tools.cpp",
+                                           "frozenSha256":  "38ca8dea5d1ca518194baccd286ead4423598da7cd732dfab1d4cbc131dd2eb2",
+                                           "currentSha256":  "317d9ef29c74cbfca9ad9cf620c06c83794cd5452ac3d006125d024326588923",
+                                           "currentBytes":  11813
+                                       },
+                                       {
+                                           "originPath":  "src/geometry_tools.hpp",
+                                           "frozenPath":  "reference/windows/src/geometry_tools.hpp",
+                                           "frozenSha256":  "1cf6be1b9ba73d185d004cedd443531beac536425eba9aeacde4c6bf24f34b24",
+                                           "currentSha256":  "9f8fd1805aaf86869dc3510dff4c9346f4fa9c767f4f6dceac93716bf67c2e54",
+                                           "currentBytes":  981
+                                       },
+                                       {
+                                           "originPath":  "src/gpu_pipeline.cpp",
+                                           "frozenPath":  "reference/windows/src/gpu_pipeline.cpp",
+                                           "frozenSha256":  "8c7e11988a1c38e727f85c0274edaa5bcdf88af865f4adaf9ffadc144d86725b",
+                                           "currentSha256":  "daffde077b49eaf17cb22b7e6a0b64dc7de64b37d8aa08ef3e934af2b9f37414",
+                                           "currentBytes":  18576
+                                       },
+                                       {
+                                           "originPath":  "src/gpu_pipeline.hpp",
+                                           "frozenPath":  "reference/windows/src/gpu_pipeline.hpp",
+                                           "frozenSha256":  "2dffaf64492779aa341c470949123ce1e164c912f25db223b5d29be95ad0b730",
+                                           "currentSha256":  "62f339fb4bdd809578e12ff07d4c166517088480dfe2c8acdefa4fa06cace657",
+                                           "currentBytes":  4165
+                                       },
+                                       {
+                                           "originPath":  "src/icons.def",
+                                           "frozenPath":  "reference/windows/src/icons.def",
+                                           "frozenSha256":  "08dfc677fc99b06f8e49ac75b10850c98f14c305eb2ff7f132114309d936eda9",
+                                           "currentSha256":  "19da533f1f72f70ba86f4782d435a25257ad4db4a77afaf7cbea3c748cf23d72",
+                                           "currentBytes":  2692
+                                       },
+                                       {
+                                           "originPath":  "src/image_capture.cpp",
+                                           "frozenPath":  "reference/windows/src/image_capture.cpp",
+                                           "frozenSha256":  "aa4fb8a6eb35bf0d931b981b27fcd464ab8864d1d436807ba4e686bb18ce6c76",
+                                           "currentSha256":  "62d917cc81168ca692374dfad10a0fbd82e608588407497512ce3a69186ec2f7",
+                                           "currentBytes":  7016
+                                       },
+                                       {
+                                           "originPath":  "src/language.cpp",
+                                           "frozenPath":  "reference/windows/src/language.cpp",
+                                           "frozenSha256":  "7cc6ed6a73d7960a0a519feaf5bb52a1e401cde870b8ce1be207f44c7cee5d50",
+                                           "currentSha256":  "19080c18f43393d66100e9a6294c238ddced911975f85a9b2d43d1e54c8c3d2f",
+                                           "currentBytes":  8284
+                                       },
+                                       {
+                                           "originPath":  "src/language.hpp",
+                                           "frozenPath":  "reference/windows/src/language.hpp",
+                                           "frozenSha256":  "3bec16e0139b129f774e1a5994f364638683895ae4fe1b76bb36750c0ba30347",
+                                           "currentSha256":  "968dafa3bf92dfe3cc7f8e793154ba453c41ae84ba664be0822b50b587f02018",
+                                           "currentBytes":  2233
+                                       },
+                                       {
+                                           "originPath":  "src/license_dialog.cpp",
+                                           "frozenPath":  "reference/windows/src/license_dialog.cpp",
+                                           "frozenSha256":  "a73e9c788c7c9458c5c6b9900afb1d66fc8201061f1b0b4ee6e937f8ee953042",
+                                           "currentSha256":  "d0c229b1fdd41ec08cef2219745b9c8e5e551efc86c1bfb0ffa4ad7f3a805971",
+                                           "currentBytes":  13994
+                                       },
+                                       {
+                                           "originPath":  "src/main.cpp",
+                                           "frozenPath":  "reference/windows/src/main.cpp",
+                                           "frozenSha256":  "e76946daa78068a0132c02228b3439a09390d34e3c61b91bc7f7c98273c293e5",
+                                           "currentSha256":  "be5dc3b2bcd9ad9e8f237c8c6dfbb068cf8ceda1b3b447ccda4267e768e044ec",
+                                           "currentBytes":  46393
+                                       },
+                                       {
+                                           "originPath":  "src/model.cpp",
+                                           "frozenPath":  "reference/windows/src/model.cpp",
+                                           "frozenSha256":  "ee1b34805310912cfd5b206ee5f0c8240b59b8ec61d2096d86e23214e0317175",
+                                           "currentSha256":  "38acf438e553d44a0b463286a88a255c19970c5946dde04e0dda908f1dc03f12",
+                                           "currentBytes":  47818
+                                       },
+                                       {
+                                           "originPath":  "src/model.hpp",
+                                           "frozenPath":  "reference/windows/src/model.hpp",
+                                           "frozenSha256":  "c44d7fa72e504168a8a3726e8af2c70b7e65c54fc7afca01e967f35a011785c2",
+                                           "currentSha256":  "18838531278c6a4fc4c8dae8f3a10e4e4abe004a679640d65c2419a9409dd458",
+                                           "currentBytes":  4106
+                                       },
+                                       {
+                                           "originPath":  "src/package.cpp",
+                                           "frozenPath":  "reference/windows/src/package.cpp",
+                                           "frozenSha256":  "40e52eded145ae4505b22714e5d29333f9d6b0f441e94395325d6cb04ea90c32",
+                                           "currentSha256":  "177c2ca09f8b2705870fc26358fb432dcbcc677089f1115937de8af340c49321",
+                                           "currentBytes":  2015
+                                       },
+                                       {
+                                           "originPath":  "src/package.hpp",
+                                           "frozenPath":  "reference/windows/src/package.hpp",
+                                           "frozenSha256":  "ba662fc06c70f5bdd4ad039215ab36d147d28160a97c4941c841c095fb6d36cd",
+                                           "currentSha256":  "f7c3a7b6cb619f1e2c4bd0bd6ed0ad1d4aec1f840ca167d56185be3269b5242f",
+                                           "currentBytes":  446
+                                       },
+                                       {
+                                           "originPath":  "src/preview_pane.cpp",
+                                           "frozenPath":  "reference/windows/src/preview_pane.cpp",
+                                           "frozenSha256":  "05be3a31d7b8c44a339d96a7e14ea8e5dfa385ffaac18ac17bb89ca0967f7cfb",
+                                           "currentSha256":  "a4e1f546b9be47f9046e7473deb253fa861658345709750d810e056f0710efeb",
+                                           "currentBytes":  11959
+                                       },
+                                       {
+                                           "originPath":  "src/processing.cpp",
+                                           "frozenPath":  "reference/windows/src/processing.cpp",
+                                           "frozenSha256":  "e5d85b9584111b4e0ddbb62f69acfa291a557b848bf96903539b045636a82140",
+                                           "currentSha256":  "49b7da99a10436d385e34ff205cbc99d0a633fb0ff7f8497f339b2289930462f",
+                                           "currentBytes":  57616
+                                       },
+                                       {
+                                           "originPath":  "src/processing.hpp",
+                                           "frozenPath":  "reference/windows/src/processing.hpp",
+                                           "frozenSha256":  "c51e8f959458d7169180934d67a90bbc35cfe6ab5e2e040d88b012f3ade9ec7f",
+                                           "currentSha256":  "86664f06a715dd13084bc7c288f0fe3bc34928baf0ed704475cb8916fded8734",
+                                           "currentBytes":  1747
+                                       },
+                                       {
+                                           "originPath":  "src/processing_ui.cpp",
+                                           "frozenPath":  "reference/windows/src/processing_ui.cpp",
+                                           "frozenSha256":  "6bd0fdf3fbbd1fff4eba2cf95a41bedf47778c39cfa5be6d1e8132e5b21dbc81",
+                                           "currentSha256":  "48ac70e1211eb6e61b1e5efe5fe4dd2b855f422e34c0054e181c524126404b15",
+                                           "currentBytes":  26538
+                                       },
+                                       {
+                                           "originPath":  "src/processing_ui.hpp",
+                                           "frozenPath":  "reference/windows/src/processing_ui.hpp",
+                                           "frozenSha256":  "c459a0231c359ec4e6b21202aecaa4078585077378f42ea893b299aa3c4b9bb8",
+                                           "currentSha256":  "75f15678a44d96c86f3f00109e808f934ab81f15771baf630b253db5ce56519e",
+                                           "currentBytes":  4112
+                                       },
+                                       {
+                                           "originPath":  "src/renderer.cpp",
+                                           "frozenPath":  "reference/windows/src/renderer.cpp",
+                                           "frozenSha256":  "92945208f56a03702fbc226ba24a962d0af47f88c1dd61c2def69e1dd641dc0b",
+                                           "currentSha256":  "6617e5e2cd282a41790d64747b4c64f4980638284de62cdab3e4758fac97ad61",
+                                           "currentBytes":  99866
+                                       },
+                                       {
+                                           "originPath":  "src/renderer.hpp",
+                                           "frozenPath":  "reference/windows/src/renderer.hpp",
+                                           "frozenSha256":  "cb01a15c778f924e142757c7b70c86f5b7bb555a3e3223f8a90b74a8fce70c47",
+                                           "currentSha256":  "d2d6a4e36bef245f886cb824519f5d111de5b05cc54e2354d96ffb741c050316",
+                                           "currentBytes":  9273
+                                       },
+                                       {
+                                           "originPath":  "src/save_dialog.cpp",
+                                           "frozenPath":  "reference/windows/src/save_dialog.cpp",
+                                           "frozenSha256":  "f18a960b47ff8815bac89602eed2edf81186d22fac5f83f5fa602e7c76186a22",
+                                           "currentSha256":  "35e9da28d7eb3436e33c7a3f5a8f7b083c061d79febe14969bb8839d85b54548",
+                                           "currentBytes":  8237
+                                       },
+                                       {
+                                           "originPath":  "src/save_dialog.hpp",
+                                           "frozenPath":  "reference/windows/src/save_dialog.hpp",
+                                           "frozenSha256":  "7b31255995d14933a19858275e01c77975fb09d908d65d2f9a3fc1365fdfa6b0",
+                                           "currentSha256":  "8471bbc77802921d3055a7ee7364e731d2522948afb4aec7cc4fa1c9154354b1",
+                                           "currentBytes":  827
+                                       },
+                                       {
+                                           "originPath":  "src/save_service.cpp",
+                                           "frozenPath":  "reference/windows/src/save_service.cpp",
+                                           "frozenSha256":  "67374f3cfe0967236b36d1b0756d5c27f3d85de6bdc8ae0e5b7e5fda9f884f30",
+                                           "currentSha256":  "40d9999802a8141505df54db78a891ad7eff555ed1206403a2fc9dcd4e69f692",
+                                           "currentBytes":  25921
+                                       },
+                                       {
+                                           "originPath":  "src/save_transport.cpp",
+                                           "frozenPath":  "reference/windows/src/save_transport.cpp",
+                                           "frozenSha256":  "00eaab0746d22b955a899c92c1669215d0782c4d2d8830922a039c2951429212",
+                                           "currentSha256":  "585d035b20c0bdb2d7ea600897c3aa3bff0443798ad037beec01e82dd32d4b4a",
+                                           "currentBytes":  10028
+                                       },
+                                       {
+                                           "originPath":  "src/scene_export_formats.hpp",
+                                           "frozenPath":  "reference/windows/src/scene_export_formats.hpp",
+                                           "frozenSha256":  "e79a17d0f5129b033b99c5f058881cf0e7ad70b06c5552b1694dc54744932262",
+                                           "currentSha256":  "8013bd283eb7eeb933482873faad72211be75098ff67c08011fe4c92229ac574",
+                                           "currentBytes":  3518
+                                       },
+                                       {
+                                           "originPath":  "src/scene_exports.cpp",
+                                           "frozenPath":  "reference/windows/src/scene_exports.cpp",
+                                           "frozenSha256":  "639155046e64f4d8cb26d9cc752326bea0bd6fca90056b5aea692806bf17bb49",
+                                           "currentSha256":  "46e040e3c46da5025c01c9f0e66ce68301888c3226c3ddd1d1168e20724f288f",
+                                           "currentBytes":  17583
+                                       },
+                                       {
+                                           "originPath":  "src/scene_exports.hpp",
+                                           "frozenPath":  "reference/windows/src/scene_exports.hpp",
+                                           "frozenSha256":  "0dca5352d8dd3537f19393c841d5f4361fd5a92e3ca0ff5b69f6e5e5e0c11087",
+                                           "currentSha256":  "3272707f2a8ffa8a374a3657e7e181e2a9e24bf62254d92798cd19c385e000ae",
+                                           "currentBytes":  1120
+                                       },
+                                       {
+                                           "originPath":  "src/selection.cpp",
+                                           "frozenPath":  "reference/windows/src/selection.cpp",
+                                           "frozenSha256":  "ddbe6a73a40ff28cc0c43c91e6353528f456ac9956a34905bf0dc58e88cd9262",
+                                           "currentSha256":  "7697676884a738dd7783ebbd4abadd9c318e2bc85bd57a50d47cd6e159149e73",
+                                           "currentBytes":  26048
+                                       },
+                                       {
+                                           "originPath":  "src/selection_ui.cpp",
+                                           "frozenPath":  "reference/windows/src/selection_ui.cpp",
+                                           "frozenSha256":  "9c1d8d7925778348e5ad69abbd6928bfa17f142bfd03ff9a5b7da25cf1b173ce",
+                                           "currentSha256":  "6880ed61e5f7aaa31594c1cd0b52ebad36a1a1633ecf5e5cf498201ec595862c",
+                                           "currentBytes":  46403
+                                       },
+                                       {
+                                           "originPath":  "src/shaders/sort.hlsl",
+                                           "frozenPath":  "reference/windows/src/shaders/sort.hlsl",
+                                           "frozenSha256":  "04a2f1d36220c4e97eb2ebbdad94303aafb50ed15d1c0060f2b0ca40a70219a7",
+                                           "currentSha256":  "21f04bf924b23c7092613b7dbc73a2709d05c097c8be2853d01c96b7cae7a610",
+                                           "currentBytes":  3614
+                                       },
+                                       {
+                                           "originPath":  "src/shell.cpp",
+                                           "frozenPath":  "reference/windows/src/shell.cpp",
+                                           "frozenSha256":  "dbf9c1c692185a6da3570e6b9b934c25e13da5a3dd4daf5559cb4fc3b4babbff",
+                                           "currentSha256":  "98d341a7246455e2c53a2f1b6b4902987f45e7dd9e2db8ef426ab5bda24776dd",
+                                           "currentBytes":  14920
+                                       },
+                                       {
+                                           "originPath":  "src/store_updates.cpp",
+                                           "frozenPath":  "reference/windows/src/store_updates.cpp",
+                                           "frozenSha256":  "5b99c06553e913edd542fb699078d58d85f7baae3babb69661def6d368bdb867",
+                                           "currentSha256":  "0953e78ccdaee03af887f0082e9af25d9343e439a505cd52329072c5c5a6e143",
+                                           "currentBytes":  7818
+                                       },
+                                       {
+                                           "originPath":  "src/store_updates.hpp",
+                                           "frozenPath":  "reference/windows/src/store_updates.hpp",
+                                           "frozenSha256":  "ae13c1faa1ee2a5ff709a34d5bf4a208b14e63237f2e27d59180f26cb530f623",
+                                           "currentSha256":  "9f44edb87aac9766e7bb2e45e990cf55b2eb485e1b2eb7284a2f92f21e3d385c",
+                                           "currentBytes":  1052
+                                       },
+                                       {
+                                           "originPath":  "src/store_updates_flow.hpp",
+                                           "frozenPath":  "reference/windows/src/store_updates_flow.hpp",
+                                           "frozenSha256":  "e03ff4571df9fbe3a837e28e13e97c9b2d136ca8cc4b71e71ad6f080ae632458",
+                                           "currentSha256":  "dd45fbec596c1c8e0fee7da9b899452b40a7e22d379b4a77ebd235a54ea5c34a",
+                                           "currentBytes":  3674
+                                       },
+                                       {
+                                           "originPath":  "src/thumbnails.cpp",
+                                           "frozenPath":  "reference/windows/src/thumbnails.cpp",
+                                           "frozenSha256":  "d88b6e198306be17ee840a7c0c762c7eaf40df22687846f8096c932a28a1c490",
+                                           "currentSha256":  "8e1c8574be7ec53e98a6f324f31ef66229fafa20251e51631a12faac4d29c126",
+                                           "currentBytes":  16848
+                                       },
+                                       {
+                                           "originPath":  "src/thumbnails.hpp",
+                                           "frozenPath":  "reference/windows/src/thumbnails.hpp",
+                                           "frozenSha256":  "2bf947eddf8a3efd417c603ad25d9c0e63a2595cef361178d5f7bcab9c668fca",
+                                           "currentSha256":  "79cab916d506cd45f5462fb2b57baf1247377611ccd47ada6b42a85f7190cb73",
+                                           "currentBytes":  2052
+                                       },
+                                       {
+                                           "originPath":  "src/tools_preferences.cpp",
+                                           "frozenPath":  "reference/windows/src/tools_preferences.cpp",
+                                           "frozenSha256":  "a10070f704b67140784f4d69b8d550373a85bc2b90b08e331811a8bb115a7666",
+                                           "currentSha256":  "7dcb03c6228aaf6c7383af4170cb6b5335f5b47da80a53439528ca5489617a3b",
+                                           "currentBytes":  5303
+                                       },
+                                       {
+                                           "originPath":  "src/tools_preferences.hpp",
+                                           "frozenPath":  "reference/windows/src/tools_preferences.hpp",
+                                           "frozenSha256":  "d26b059fb7c741209ff2d765366a3ed7d01f313ecb971ee8e4a07e48c094c086",
+                                           "currentSha256":  "03ab2f2d3057d024e68003b3711dec45392b443036649a23068e48a47e64baf7",
+                                           "currentBytes":  1004
+                                       },
+                                       {
+                                           "originPath":  "src/translations.inc",
+                                           "frozenPath":  "reference/windows/src/translations.inc",
+                                           "frozenSha256":  "cef716502b8baa6f9c9eff33980afb7fee2c10e29c62a51764b51afe9bf7b0e9",
+                                           "currentSha256":  "d4f81afa995fcba1cfc1e3c8e79be166f03fcfa2541496f451c2e6de35d2b670",
+                                           "currentBytes":  203320
+                                       },
+                                       {
+                                           "originPath":  "src/tutorial.hpp",
+                                           "frozenPath":  "reference/windows/src/tutorial.hpp",
+                                           "frozenSha256":  "cbfebe67482b685efad29dd362d5766980986ca4e0188af13346814c05be1cce",
+                                           "currentSha256":  "55ae1852b963ea98066ba7333eda69a386576a97370684105f368323bbca5639",
+                                           "currentBytes":  10132
+                                       },
+                                       {
+                                           "originPath":  "src/ui_design.hpp",
+                                           "frozenPath":  "reference/windows/src/ui_design.hpp",
+                                           "frozenSha256":  "0733adfae768b54c1c967e145c3c5d26db30c01d673ad0c8c27f435ab86ee0cf",
+                                           "currentSha256":  "d99d4f475156cc33f94e55e70f2c47bb160bf7cd5aa636c9e43e87dd08e52022",
+                                           "currentBytes":  14896
+                                       },
+                                       {
+                                           "originPath":  "src/ui_widgets.hpp",
+                                           "frozenPath":  "reference/windows/src/ui_widgets.hpp",
+                                           "frozenSha256":  "618720ed930dfacc9e8806b0bc1e8fe2c3a94bca7824d7e137e814b695a5f01c",
+                                           "currentSha256":  "541ad2d26c436076a620c8a2cd43ccd7368219348dc50eb40cf60b7771708aa2",
+                                           "currentBytes":  18326
+                                       },
+                                       {
+                                           "originPath":  "src/view_commands.hpp",
+                                           "frozenPath":  "reference/windows/src/view_commands.hpp",
+                                           "frozenSha256":  "a521e6e269c8482dbf079ce2aa74898209064cc1637c64578cb5164fb1beeb34",
+                                           "currentSha256":  "c84f57e1dec2561c1cdb8b95b15a6d7571e03f6db115ffa4262f10dea50df7af",
+                                           "currentBytes":  2906
+                                       },
+                                       {
+                                           "originPath":  "src/viewer.cpp",
+                                           "frozenPath":  "reference/windows/src/viewer.cpp",
+                                           "frozenSha256":  "0c7d10d767542d1e651f8c98f94e0fabf2c40797b8afbda1ceb89db4a363bdf7",
+                                           "currentSha256":  "9644da5fdb7a97d0c3fcc6dcd4e80ecab614f67ba04fffc6ca96121a4679086e",
+                                           "currentBytes":  45885
+                                       },
+                                       {
+                                           "originPath":  "src/viewer.hpp",
+                                           "frozenPath":  "reference/windows/src/viewer.hpp",
+                                           "frozenSha256":  "ad516d413b34c108f865284fc4b85fc92aba712de07329053ce8eeeffc8c0c02",
+                                           "currentSha256":  "037ee7b9cfe13d4c13266f9394b6126a846741a744a6c4d1bc45c5a22770e444",
+                                           "currentBytes":  22071
+                                       },
+                                       {
+                                           "originPath":  "src/viewer_selection.cpp",
+                                           "frozenPath":  "reference/windows/src/viewer_selection.cpp",
+                                           "frozenSha256":  "0b894fda044f9a62a8dd0ef1fd6aafe0a9dae3ced5274c1a0834eb67679f1680",
+                                           "currentSha256":  "ee3a4abf3b42222de6a9149663e9ee3a8e5634b614a702cb58dfb39115de7fcc",
+                                           "currentBytes":  59776
+                                       },
+                                       {
+                                           "originPath":  "src/viewport_tools.cpp",
+                                           "frozenPath":  "reference/windows/src/viewport_tools.cpp",
+                                           "frozenSha256":  "c1e5380ed24ab3a7045ef9474b8d61c5b559c99ff7c28baec58c005bc1fe4f0e",
+                                           "currentSha256":  "88750c02e90319cec5ec103cd5502920f8e0d1de0740e1ac09193518407eb80d",
+                                           "currentBytes":  41127
+                                       },
+                                       {
+                                           "originPath":  "src/viewport_tools.hpp",
+                                           "frozenPath":  "reference/windows/src/viewport_tools.hpp",
+                                           "frozenSha256":  "9468622519739e5d3f991b9c3730b8f8f1cc96fb3d48fadc13e6677563280b4b",
+                                           "currentSha256":  "c2c055f677a715048f6d0cf86be70e9bac3376aaed700d498df3e912608004dd",
+                                           "currentBytes":  4282
+                                       },
+                                       {
+                                           "originPath":  "tests/analytics_contracts.cpp",
+                                           "frozenPath":  "reference/windows/tests/analytics_contracts.cpp",
+                                           "frozenSha256":  "81540fde90f279155fe5567a7632fc9c0f191f10c8aad14df23b7e2a2072c702",
+                                           "currentSha256":  "c5250ad583a36e75bd636fcb215f0b63baec55a18fd27845cd86db58d2e07a52",
+                                           "currentBytes":  19656
+                                       },
+                                       {
+                                           "originPath":  "tests/build_graph_contracts.cmake",
+                                           "frozenPath":  "reference/windows/tests/build_graph_contracts.cmake",
+                                           "frozenSha256":  "74f6704ab0efe4bcc7fe75fef8ffb954df588c97864133a297bc2a58235d34d7",
+                                           "currentSha256":  "f11f8631a239dc9111e31512666faa239aa1a64048327a6d82ef4e49ee40ae6a",
+                                           "currentBytes":  7143
+                                       },
+                                       {
+                                           "originPath":  "tests/color_selection_contracts.cpp",
+                                           "frozenPath":  "reference/windows/tests/color_selection_contracts.cpp",
+                                           "frozenSha256":  "aac9193eaf2ae17113a93b6da19f3a3f1adeee2f8632f20a5bd5c2bc694c54c2",
+                                           "currentSha256":  "28ae7d185704eb28dba2cc3f6261024d1a8cb2634c3beef68407d341edf7a535",
+                                           "currentBytes":  47245
+                                       },
+                                       {
+                                           "originPath":  "tests/contracts.cpp",
+                                           "frozenPath":  "reference/windows/tests/contracts.cpp",
+                                           "frozenSha256":  "b49bf631ed48f8e9a8acbb4e756d7581dc80ecbde069859ce56479c1189de75a",
+                                           "currentSha256":  "ac40a1976cb215a17665d2d566f97dbb703f7cf377b91ea22f57d695dd073fd0",
+                                           "currentBytes":  119177
+                                       },
+                                       {
+                                           "originPath":  "tests/export_contracts.cpp",
+                                           "frozenPath":  "reference/windows/tests/export_contracts.cpp",
+                                           "frozenSha256":  "b97044be408cfb00571de6d500fb42ef071b6e01756af94bdc1d613a9b5dc762",
+                                           "currentSha256":  "33f3a78077d3d03a01b4bbe1097b60e2d9378dd625d4016142220edab9e36a2b",
+                                           "currentBytes":  41890
+                                       },
+                                       {
+                                           "originPath":  "tests/export_contracts.hpp",
+                                           "frozenPath":  "reference/windows/tests/export_contracts.hpp",
+                                           "frozenSha256":  "bbb620386ef6c6dd1f99e56b78eb1520760fd602575a0b655ac2595fca18376b",
+                                           "currentSha256":  "3672e21e9934f3513d15e79a5d30ce48125c8df294ad8f320b473c5bf39d47ce",
+                                           "currentBytes":  457
+                                       },
+                                       {
+                                           "originPath":  "tests/export_format_contracts.cpp",
+                                           "frozenPath":  "reference/windows/tests/export_format_contracts.cpp",
+                                           "frozenSha256":  "5435ac50e9065bde3824cd8544cb81549fa4105e04815e532b158c17b516c18a",
+                                           "currentSha256":  "0efa24d8d7d295205b7786ef63570db209dc104ad63f17f62ea52587eb6f0c73",
+                                           "currentBytes":  5111
+                                       },
+                                       {
+                                           "originPath":  "tests/file_metadata_contracts.cpp",
+                                           "frozenPath":  "reference/windows/tests/file_metadata_contracts.cpp",
+                                           "frozenSha256":  "95f12f9d69470d232742fdee720039c5bcbcd27cbbe8d094bdaf717d5ef91df1",
+                                           "currentSha256":  "20b473ddd572baaaa6fbebb505928c8ecd6409c77b3b3c3b16d3abf23e789712",
+                                           "currentBytes":  51038
+                                       },
+                                       {
+                                           "originPath":  "tests/geometry_contracts.cpp",
+                                           "frozenPath":  "reference/windows/tests/geometry_contracts.cpp",
+                                           "frozenSha256":  "f11bfc3395bb4d455875c2c9e27e31a50f14f0cfe5e0278ed798d232f986cd9f",
+                                           "currentSha256":  "a12150c875cf75a12daab29179575736d1e762d2bb38d4d8a5151920ba10a8ef",
+                                           "currentBytes":  22686
+                                       },
+                                       {
+                                           "originPath":  "tests/io_contracts.cpp",
+                                           "frozenPath":  "reference/windows/tests/io_contracts.cpp",
+                                           "frozenSha256":  "8803c5a801e62e3bee1ed5e22d02c2002339a718e17770024ebdbf786d86750d",
+                                           "currentSha256":  "73e18b259a09a4709a950b139f65b644f2aad777be3610d1103a07de7dc66018",
+                                           "currentBytes":  15975
+                                       },
+                                       {
+                                           "originPath":  "tests/language_contracts.cpp",
+                                           "frozenPath":  "reference/windows/tests/language_contracts.cpp",
+                                           "frozenSha256":  "fa3e83aaf0a0cbf70e41eea78a90ca2c74f58596774c72339bca8e5227843ce9",
+                                           "currentSha256":  "80bc88e4e85650ddfd8bd3c623188c43834e886c8ae14dc2e22872fb59a25728",
+                                           "currentBytes":  8393
+                                       },
+                                       {
+                                           "originPath":  "tests/license_agreement_contracts.cpp",
+                                           "frozenPath":  "reference/windows/tests/license_agreement_contracts.cpp",
+                                           "frozenSha256":  "f987b100c6fb718adbdb46c4ac63f27b15f4af1b0b0fcba8ee6e961c5d86eaab",
+                                           "currentSha256":  "b0c04e3c116f6251e1b2394786287e9b162bb37820c7ff16f1b20101e2aff539",
+                                           "currentBytes":  27463
+                                       },
+                                       {
+                                           "originPath":  "tests/ply_preview_contracts.cpp",
+                                           "frozenPath":  "reference/windows/tests/ply_preview_contracts.cpp",
+                                           "frozenSha256":  "910a50b79b9f8d32291a76bb64457b3b397f55ee307aaac0997abdb5be5d259f",
+                                           "currentSha256":  "fb72aaf39b209d589dc1d5aa9d2f1ee55dd52bdf631c4c0baf04fe95aa09546a",
+                                           "currentBytes":  11152
+                                       },
+                                       {
+                                           "originPath":  "tests/processing-cli-smoke.ps1",
+                                           "frozenPath":  "reference/windows/tests/processing-cli-smoke.ps1",
+                                           "frozenSha256":  "4c12356f39cd534566ce6eef934312259c7ff2841722ef780b13bb9b196b9167",
+                                           "currentSha256":  "a3bb002efb6bcd326ad919a911971d8c6888f2ea24492cfa1cabaed8a2700c8f",
+                                           "currentBytes":  11295
+                                       },
+                                       {
+                                           "originPath":  "tests/processing_contracts.cpp",
+                                           "frozenPath":  "reference/windows/tests/processing_contracts.cpp",
+                                           "frozenSha256":  "1baefc9ceb5acedfc5d0db956ed3a0c89daa614615562c1c7a9f074c4a8f266c",
+                                           "currentSha256":  "c5cdb035d9574904910ea5efbcb0379a503249fee13ebdf8a020ae4a2b8c4622",
+                                           "currentBytes":  122973
+                                       },
+                                       {
+                                           "originPath":  "tests/processing_ui_contracts.cpp",
+                                           "frozenPath":  "reference/windows/tests/processing_ui_contracts.cpp",
+                                           "frozenSha256":  "34d62576aa989e14b37fd9e84b995b1ec93dcb7117734391d6e062ecd726e7ba",
+                                           "currentSha256":  "209855b0d650fa4e143f63cfcf7049b1a7f5c8759a4a8f31a871f2e3a2c2753f",
+                                           "currentBytes":  143967
+                                       },
+                                       {
+                                           "originPath":  "tests/render_benchmark.cpp",
+                                           "frozenPath":  "reference/windows/tests/render_benchmark.cpp",
+                                           "frozenSha256":  "1734e6b8463d47d935f38d563a0677f810521301ec8c633c26b8575f62e17816",
+                                           "currentSha256":  "4d79e36d7943d528559b0f4de46c22e92c9acd8ee9cfd0033547f1a32ed3899e",
+                                           "currentBytes":  12883
+                                       },
+                                       {
+                                           "originPath":  "tests/render_contracts.cpp",
+                                           "frozenPath":  "reference/windows/tests/render_contracts.cpp",
+                                           "frozenSha256":  "b46bc817181912ba6c86a529ef73691abb4bd1f4765a0e8ae0d590163850c2fe",
+                                           "currentSha256":  "6ef7bdbab9fe978524aec4ec7e96f4a25cde0b688e9dbbb60b9eca0083c4087e",
+                                           "currentBytes":  66503
+                                       },
+                                       {
+                                           "originPath":  "tests/save-ui-smoke.ps1",
+                                           "frozenPath":  "reference/windows/tests/save-ui-smoke.ps1",
+                                           "frozenSha256":  "56ef1a426d05e60e0ecbbf6d0163a64966bb431057a299ec00a40cf582202fa9",
+                                           "currentSha256":  "edafdadc285cfc4b2754500b48381f14fc0b11a8a620617a828c42e577f406d6",
+                                           "currentBytes":  74104
+                                       },
+                                       {
+                                           "originPath":  "tests/selection_contracts.cpp",
+                                           "frozenPath":  "reference/windows/tests/selection_contracts.cpp",
+                                           "frozenSha256":  "8586b59533a015c1bcc21b80ead80568dec7b4b7587710032984cdd39243a9e7",
+                                           "currentSha256":  "b9371156d668667016cadd6807514156122f907902c41e3ab5c6ee9114fd224e",
+                                           "currentBytes":  95381
+                                       },
+                                       {
+                                           "originPath":  "tests/tools_mode_contracts.cpp",
+                                           "frozenPath":  "reference/windows/tests/tools_mode_contracts.cpp",
+                                           "frozenSha256":  "d3aad9e1d2c941cdd4aaabc0b3319feee3028ec78f84044c3af32677dce9881c",
+                                           "currentSha256":  "2b13d11378083b86e209e43129c0f6fb5b3bd3d18f483c40a2b3cf6538a4cbdd",
+                                           "currentBytes":  63910
+                                       },
+                                       {
+                                           "originPath":  "tests/tools_settings_contracts.cpp",
+                                           "frozenPath":  "reference/windows/tests/tools_settings_contracts.cpp",
+                                           "frozenSha256":  "2df246c8a55996561bd1e3cb838d6bee600e3286d797f38ad4fab6d685d23e9c",
+                                           "currentSha256":  "b9f64f5778af3285ccd918b1c872f51e158efe8a0a58111a586e5bda130377fa",
+                                           "currentBytes":  83470
+                                       },
+                                       {
+                                           "originPath":  "tests/tools_ui_contracts.hpp",
+                                           "frozenPath":  "reference/windows/tests/tools_ui_contracts.hpp",
+                                           "frozenSha256":  "d96ae4c175c0fd61d35e237f94f53a2f6b5056fe4e48b4b194010100f97ecfbf",
+                                           "currentSha256":  "518d10c6122bb152996cba0d9e409bf44b277f3e417a172213a32abaddb0386d",
+                                           "currentBytes":  2311
+                                       },
+                                       {
+                                           "originPath":  "tests/tools_ui_support.cpp",
+                                           "frozenPath":  "reference/windows/tests/tools_ui_support.cpp",
+                                           "frozenSha256":  "564360b62b5a1594a58726bacefeab4bf937f46a98a7d0a630ea349ff601e8fa",
+                                           "currentSha256":  "30c32632f6054715e8923af94535ea8669b9aa082037a8248bcc1ce9197c4612",
+                                           "currentBytes":  48917
+                                       },
+                                       {
+                                           "originPath":  "tests/tools_workflow_contracts.cpp",
+                                           "frozenPath":  "reference/windows/tests/tools_workflow_contracts.cpp",
+                                           "frozenSha256":  "dc9b48fd5efc4777d0b88c568590be5ae8007a8e23df67ea649b71c20926eb78",
+                                           "currentSha256":  "fa83a55b652967c1a903a78d747285621d31bcd262510738851978adc51836f1",
+                                           "currentBytes":  53407
+                                       },
+                                       {
+                                           "originPath":  "tests/view_command_policy_contracts.cpp",
+                                           "frozenPath":  "reference/windows/tests/view_command_policy_contracts.cpp",
+                                           "frozenSha256":  "ee31953179ba2e193fc3c3be9e03c5d38278faf3de7901acd20584e84aeef691",
+                                           "currentSha256":  "9c607d34c222ea767628d954e34322575d64caa0acd935b61380971301fec423",
+                                           "currentBytes":  8494
+                                       },
+                                       {
+                                           "originPath":  "third_party/spz/src/cc/load-spz.cc",
+                                           "frozenPath":  "reference/windows/third_party/spz/src/cc/load-spz.cc",
+                                           "frozenSha256":  "e3789dd111f2758392ba6f793311b3077abfdc88b00ace67814b97fd26b2c200",
+                                           "currentSha256":  "e39c1ac8906363a3b45db04c28942f988cda0115399c256d42128c38647f4138",
+                                           "currentBytes":  57198
+                                       },
+                                       {
+                                           "originPath":  "third_party/spz/src/cc/load-spz.h",
+                                           "frozenPath":  "reference/windows/third_party/spz/src/cc/load-spz.h",
+                                           "frozenSha256":  "81a934112a6bac804a166a2bd97cd6ef9ca413e6f4e557b2ad005da5de082a05",
+                                           "currentSha256":  "0a123ecb99abb70f2d34efc62203d055aa268db965d8ee90946be87d6d009a1f",
+                                           "currentBytes":  7900
+                                       }
+                                   ],
+                       "missing":  [
+                                       {
+                                           "originPath":  "assets/icons/ruler.svg",
+                                           "frozenPath":  "reference/windows/assets/icons/ruler.svg",
+                                           "frozenSha256":  "af9710f70510217ef33773d502d0be2425c3a9cb1e3294ace27da9f0b4c8850b"
+                                       },
+                                       {
+                                           "originPath":  "assets/icons/selection-angle.svg",
+                                           "frozenPath":  "reference/windows/assets/icons/selection-angle.svg",
+                                           "frozenSha256":  "f4c9d831ac1ae76fb3b49a7f91707e0835e6f4e339ab36855e6da19d324ebdc0"
+                                       }
+                                   ],
+                       "frozenIntegrityErrors":  [
+
+                                                 ]
+                   },
+    "selectedCurrentFiles":  [
+                                 {
+                                     "path":  "CMakeLists.txt",
+                                     "bytes":  13652,
+                                     "sha256":  "fbf667248e783045dc0c2cae02429611f99ea70ffa349083faa862cc7dd0779f"
+                                 },
+                                 {
+                                     "path":  "CHANGELOG.md",
+                                     "bytes":  2664,
+                                     "sha256":  "b766623edc3d3c86c9b1b5e3b20f0311dd7f8ee1e3583bf07c8fb12c51117aac"
+                                 },
+                                 {
+                                     "path":  "docs/architecture.md",
+                                     "bytes":  20759,
+                                     "sha256":  "be5194017eacc142ec43a58d64a5a627aefcd294cf64c553f3a81960eadf898f"
+                                 },
+                                 {
+                                     "path":  "docs/tutorial.md",
+                                     "bytes":  21255,
+                                     "sha256":  "8a1ca0c57811a8fa4a731865adaaec0db278d511d35a9dde12c958306293439f"
+                                 },
+                                 {
+                                     "path":  "src/app_ui.cpp",
+                                     "bytes":  67857,
+                                     "sha256":  "03d2db6c254adde26540ad7a8307e0e9d92fe9ffd3dc708672fa5ac1eb464a61"
+                                 },
+                                 {
+                                     "path":  "src/app_ui.hpp",
+                                     "bytes":  11485,
+                                     "sha256":  "587dde5144dc3c2f9f4686be2f4d5bec585bf7a178c6229064ad14e9b34ff690"
+                                 },
+                                 {
+                                     "path":  "src/app_ui_about.cpp",
+                                     "bytes":  2765,
+                                     "sha256":  "8de293fd17ec688daa382c6a0a4bfb666bd42442c26603e8b8f8acb4793116db"
+                                 },
+                                 {
+                                     "path":  "src/app_ui_default_apps.cpp",
+                                     "bytes":  9572,
+                                     "sha256":  "c563ec5733ca639949865a76b1b504516ccc5ebece0f6aee92ded4ffac8c7a66"
+                                 },
+                                 {
+                                     "path":  "src/app_ui_settings.cpp",
+                                     "bytes":  12876,
+                                     "sha256":  "df5cb79ad36896c20ebb85526865dde11818788f925eb2b9574fdf537497b747"
+                                 },
+                                 {
+                                     "path":  "src/app_ui_tutorial.cpp",
+                                     "bytes":  14579,
+                                     "sha256":  "14012e10fc73b97177ff7bc71e7dd49bab2cd49e0324353450c5fd8f68977d26"
+                                 },
+                                 {
+                                     "path":  "src/ui_design.hpp",
+                                     "bytes":  14896,
+                                     "sha256":  "d99d4f475156cc33f94e55e70f2c47bb160bf7cd5aa636c9e43e87dd08e52022"
+                                 },
+                                 {
+                                     "path":  "src/ui_theme.hpp",
+                                     "bytes":  575,
+                                     "sha256":  "28a42f1c3ad408b21f477a236fbd98ae6f0f3b13ae5207a3e0b0618b25758564"
+                                 },
+                                 {
+                                     "path":  "src/ui_size.hpp",
+                                     "bytes":  903,
+                                     "sha256":  "9b4c1ab5c22db4125a6caf057d5cc2268ae1f5edcee79c45aa2b0741aa7cde72"
+                                 },
+                                 {
+                                     "path":  "src/ui_widgets.hpp",
+                                     "bytes":  18326,
+                                     "sha256":  "541ad2d26c436076a620c8a2cd43ccd7368219348dc50eb40cf60b7771708aa2"
+                                 },
+                                 {
+                                     "path":  "src/tools_preferences.cpp",
+                                     "bytes":  5303,
+                                     "sha256":  "7dcb03c6228aaf6c7383af4170cb6b5335f5b47da80a53439528ca5489617a3b"
+                                 },
+                                 {
+                                     "path":  "src/tools_preferences.hpp",
+                                     "bytes":  1004,
+                                     "sha256":  "03ab2f2d3057d024e68003b3711dec45392b443036649a23068e48a47e64baf7"
+                                 },
+                                 {
+                                     "path":  "src/tutorial.hpp",
+                                     "bytes":  10132,
+                                     "sha256":  "55ae1852b963ea98066ba7333eda69a386576a97370684105f368323bbca5639"
+                                 },
+                                 {
+                                     "path":  "src/color_ui.cpp",
+                                     "bytes":  4267,
+                                     "sha256":  "3a6574a1ccf3565e5a669ac03b42092e84a4060b6ba6c688e806b01b45d64469"
+                                 },
+                                 {
+                                     "path":  "src/selection_ui.cpp",
+                                     "bytes":  46403,
+                                     "sha256":  "6880ed61e5f7aaa31594c1cd0b52ebad36a1a1633ecf5e5cf498201ec595862c"
+                                 },
+                                 {
+                                     "path":  "src/selection_morphology.cpp",
+                                     "bytes":  13520,
+                                     "sha256":  "96e5b83b9d34c52204e0283ac07b527683a281c0f5997c59a06559278a2a7dbe"
+                                 },
+                                 {
+                                     "path":  "src/selection_morphology.hpp",
+                                     "bytes":  741,
+                                     "sha256":  "a26ac168f0d135cc969782aa2a3e28a8260c2b4b91ac5d891f99fdc1b6834a86"
+                                 },
+                                 {
+                                     "path":  "src/processing_ui.cpp",
+                                     "bytes":  26538,
+                                     "sha256":  "48ac70e1211eb6e61b1e5efe5fe4dd2b855f422e34c0054e181c524126404b15"
+                                 },
+                                 {
+                                     "path":  "src/alignment_ui.cpp",
+                                     "bytes":  2677,
+                                     "sha256":  "ed35cd64691da095c1bc982903e84c09aa56d3a9db30df8e7f2bd194fae30e62"
+                                 },
+                                 {
+                                     "path":  "src/viewport_tools.cpp",
+                                     "bytes":  41127,
+                                     "sha256":  "88750c02e90319cec5ec103cd5502920f8e0d1de0740e1ac09193518407eb80d"
+                                 },
+                                 {
+                                     "path":  "src/viewport_guides.cpp",
+                                     "bytes":  5077,
+                                     "sha256":  "f89c7220e3de1900143a9b0716f34af3590a72b18420ffb2be2efe2e80342091"
+                                 },
+                                 {
+                                     "path":  "src/camera.cpp",
+                                     "bytes":  10539,
+                                     "sha256":  "62559afd1906dc7aa9d2705b3a11adc9c0afb3d45ab400933dc2530b0f55a8c4"
+                                 },
+                                 {
+                                     "path":  "src/model.cpp",
+                                     "bytes":  47818,
+                                     "sha256":  "38acf438e553d44a0b463286a88a255c19970c5946dde04e0dda908f1dc03f12"
+                                 },
+                                 {
+                                     "path":  "src/renderer.cpp",
+                                     "bytes":  99866,
+                                     "sha256":  "6617e5e2cd282a41790d64747b4c64f4980638284de62cdab3e4758fac97ad61"
+                                 },
+                                 {
+                                     "path":  "src/gpu_pipeline.cpp",
+                                     "bytes":  18576,
+                                     "sha256":  "daffde077b49eaf17cb22b7e6a0b64dc7de64b37d8aa08ef3e934af2b9f37414"
+                                 },
+                                 {
+                                     "path":  "src/scene_loading.cpp",
+                                     "bytes":  3410,
+                                     "sha256":  "f1175a57ddd70dfb1850b4bd106ed9af1fbd05cb24430d85df14fa4c88090258"
+                                 },
+                                 {
+                                     "path":  "src/scene_input_formats.hpp",
+                                     "bytes":  4354,
+                                     "sha256":  "984175503e44cf66d0e53307bb6f77cff98b3132b4b3a581fa19afcc3e888119"
+                                 },
+                                 {
+                                     "path":  "src/scene_export_formats.hpp",
+                                     "bytes":  3518,
+                                     "sha256":  "8013bd283eb7eeb933482873faad72211be75098ff67c08011fe4c92229ac574"
+                                 },
+                                 {
+                                     "path":  "src/save_dialog.cpp",
+                                     "bytes":  8237,
+                                     "sha256":  "35e9da28d7eb3436e33c7a3f5a8f7b083c061d79febe14969bb8839d85b54548"
+                                 },
+                                 {
+                                     "path":  "src/image_capture.cpp",
+                                     "bytes":  7016,
+                                     "sha256":  "62d917cc81168ca692374dfad10a0fbd82e608588407497512ce3a69186ec2f7"
+                                 },
+                                 {
+                                     "path":  "src/file_metadata.cpp",
+                                     "bytes":  19961,
+                                     "sha256":  "76439fcf5f1f2fc80466a9c5497d370e30e98084aa3f354aa7fbce6dd642e56f"
+                                 },
+                                 {
+                                     "path":  "src/folder_assets.cpp",
+                                     "bytes":  4147,
+                                     "sha256":  "f6aa407c0aee0e63e30e89c8353f0a8539556c5025984c3d1f5aa7d838a2b3ff"
+                                 },
+                                 {
+                                     "path":  "src/thumbnails.cpp",
+                                     "bytes":  16848,
+                                     "sha256":  "8e1c8574be7ec53e98a6f324f31ef66229fafa20251e51631a12faac4d29c126"
+                                 },
+                                 {
+                                     "path":  "src/preview_pane.cpp",
+                                     "bytes":  11959,
+                                     "sha256":  "a4e1f546b9be47f9046e7473deb253fa861658345709750d810e056f0710efeb"
+                                 },
+                                 {
+                                     "path":  "src/icons.def",
+                                     "bytes":  2692,
+                                     "sha256":  "19da533f1f72f70ba86f4782d435a25257ad4db4a77afaf7cbea3c748cf23d72"
+                                 },
+                                 {
+                                     "path":  "assets/icons/selection-grow.svg",
+                                     "bytes":  325,
+                                     "sha256":  "6ef8dce31dcd358cc4f7bb665c9fbbae402c2c3f97f274ff1f9e480d46ed67b5"
+                                 },
+                                 {
+                                     "path":  "assets/icons/selection-shrink.svg",
+                                     "bytes":  346,
+                                     "sha256":  "398ac533fbfc7e693d1bc51aa9bda1716b40b014cd3713eb5344482df0e6eb35"
+                                 },
+                                 {
+                                     "path":  "assets/icons/pivot-center.svg",
+                                     "bytes":  260,
+                                     "sha256":  "371619a63f9a803ed520beb9319639e36963d7c4f5c8034790774bd29c500142"
+                                 }
+                             ],
+    "observedExecutables":  [
+                                {
+                                    "path":  "dist/SplatView.exe",
+                                    "bytes":  4371968,
+                                    "modifiedUtc":  "2026-10-12T13:20:56.9999434Z",
+                                    "fileVersion":  "0.12.115",
+                                    "productVersion":  "",
+                                    "sha256":  "4a405a04a77b6ef0ab775cccc38c56aa0b14c1e7dc313d7bcae449738786ae46",
+                                    "launched":  false
+                                },
+                                {
+                                    "path":  "build/Release/SplatView.exe",
+                                    "bytes":  3660288,
+                                    "modifiedUtc":  "2026-10-10T17:08:52.6542999Z",
+                                    "fileVersion":  "0.12.42",
+                                    "productVersion":  "",
+                                    "sha256":  "3e0c39e96892606c7ceb2a0902ea20c5e9fadde8ad4480a25d84212e9484862c",
+                                    "launched":  false
+                                }
+                            ],
+    "closingObservation":  {
+                               "capturedUtc":  "2026-10-12T13:49:16.9402039Z",
+                               "selectedCurrentFileHashesAfter":  [
+                                                                      {
+                                                                          "path":  "CMakeLists.txt",
+                                                                          "sha256":  "fbf667248e783045dc0c2cae02429611f99ea70ffa349083faa862cc7dd0779f"
+                                                                      },
+                                                                      {
+                                                                          "path":  "CHANGELOG.md",
+                                                                          "sha256":  "cf7a6cf1fe2969a1c21a3d88bd0d7fef2f14dc3bfbb60f399facaf9d815a42d5"
+                                                                      },
+                                                                      {
+                                                                          "path":  "docs/architecture.md",
+                                                                          "sha256":  "be5194017eacc142ec43a58d64a5a627aefcd294cf64c553f3a81960eadf898f"
+                                                                      },
+                                                                      {
+                                                                          "path":  "docs/tutorial.md",
+                                                                          "sha256":  "8a1ca0c57811a8fa4a731865adaaec0db278d511d35a9dde12c958306293439f"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/app_ui.cpp",
+                                                                          "sha256":  "03d2db6c254adde26540ad7a8307e0e9d92fe9ffd3dc708672fa5ac1eb464a61"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/app_ui.hpp",
+                                                                          "sha256":  "ff5a7e4782ec453bc52bddfc5d1596db87d83da7f351994a0b551c0e9c9919ca"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/app_ui_about.cpp",
+                                                                          "sha256":  "543acb49fc009a1310a563e689194c470fb34030f8f0267952224ea1fd8c66c8"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/app_ui_default_apps.cpp",
+                                                                          "sha256":  "c563ec5733ca639949865a76b1b504516ccc5ebece0f6aee92ded4ffac8c7a66"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/app_ui_settings.cpp",
+                                                                          "sha256":  "df5cb79ad36896c20ebb85526865dde11818788f925eb2b9574fdf537497b747"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/app_ui_tutorial.cpp",
+                                                                          "sha256":  "14012e10fc73b97177ff7bc71e7dd49bab2cd49e0324353450c5fd8f68977d26"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/ui_design.hpp",
+                                                                          "sha256":  "d99d4f475156cc33f94e55e70f2c47bb160bf7cd5aa636c9e43e87dd08e52022"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/ui_theme.hpp",
+                                                                          "sha256":  "28a42f1c3ad408b21f477a236fbd98ae6f0f3b13ae5207a3e0b0618b25758564"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/ui_size.hpp",
+                                                                          "sha256":  "9b4c1ab5c22db4125a6caf057d5cc2268ae1f5edcee79c45aa2b0741aa7cde72"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/ui_widgets.hpp",
+                                                                          "sha256":  "541ad2d26c436076a620c8a2cd43ccd7368219348dc50eb40cf60b7771708aa2"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/tools_preferences.cpp",
+                                                                          "sha256":  "7dcb03c6228aaf6c7383af4170cb6b5335f5b47da80a53439528ca5489617a3b"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/tools_preferences.hpp",
+                                                                          "sha256":  "03ab2f2d3057d024e68003b3711dec45392b443036649a23068e48a47e64baf7"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/tutorial.hpp",
+                                                                          "sha256":  "55ae1852b963ea98066ba7333eda69a386576a97370684105f368323bbca5639"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/color_ui.cpp",
+                                                                          "sha256":  "3a6574a1ccf3565e5a669ac03b42092e84a4060b6ba6c688e806b01b45d64469"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/selection_ui.cpp",
+                                                                          "sha256":  "6880ed61e5f7aaa31594c1cd0b52ebad36a1a1633ecf5e5cf498201ec595862c"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/selection_morphology.cpp",
+                                                                          "sha256":  "96e5b83b9d34c52204e0283ac07b527683a281c0f5997c59a06559278a2a7dbe"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/selection_morphology.hpp",
+                                                                          "sha256":  "a26ac168f0d135cc969782aa2a3e28a8260c2b4b91ac5d891f99fdc1b6834a86"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/processing_ui.cpp",
+                                                                          "sha256":  "48ac70e1211eb6e61b1e5efe5fe4dd2b855f422e34c0054e181c524126404b15"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/alignment_ui.cpp",
+                                                                          "sha256":  "ed35cd64691da095c1bc982903e84c09aa56d3a9db30df8e7f2bd194fae30e62"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/viewport_tools.cpp",
+                                                                          "sha256":  "88750c02e90319cec5ec103cd5502920f8e0d1de0740e1ac09193518407eb80d"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/viewport_guides.cpp",
+                                                                          "sha256":  "f89c7220e3de1900143a9b0716f34af3590a72b18420ffb2be2efe2e80342091"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/camera.cpp",
+                                                                          "sha256":  "62559afd1906dc7aa9d2705b3a11adc9c0afb3d45ab400933dc2530b0f55a8c4"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/model.cpp",
+                                                                          "sha256":  "38acf438e553d44a0b463286a88a255c19970c5946dde04e0dda908f1dc03f12"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/renderer.cpp",
+                                                                          "sha256":  "6617e5e2cd282a41790d64747b4c64f4980638284de62cdab3e4758fac97ad61"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/gpu_pipeline.cpp",
+                                                                          "sha256":  "daffde077b49eaf17cb22b7e6a0b64dc7de64b37d8aa08ef3e934af2b9f37414"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/scene_loading.cpp",
+                                                                          "sha256":  "f1175a57ddd70dfb1850b4bd106ed9af1fbd05cb24430d85df14fa4c88090258"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/scene_input_formats.hpp",
+                                                                          "sha256":  "984175503e44cf66d0e53307bb6f77cff98b3132b4b3a581fa19afcc3e888119"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/scene_export_formats.hpp",
+                                                                          "sha256":  "8013bd283eb7eeb933482873faad72211be75098ff67c08011fe4c92229ac574"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/save_dialog.cpp",
+                                                                          "sha256":  "35e9da28d7eb3436e33c7a3f5a8f7b083c061d79febe14969bb8839d85b54548"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/image_capture.cpp",
+                                                                          "sha256":  "62d917cc81168ca692374dfad10a0fbd82e608588407497512ce3a69186ec2f7"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/file_metadata.cpp",
+                                                                          "sha256":  "76439fcf5f1f2fc80466a9c5497d370e30e98084aa3f354aa7fbce6dd642e56f"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/folder_assets.cpp",
+                                                                          "sha256":  "f6aa407c0aee0e63e30e89c8353f0a8539556c5025984c3d1f5aa7d838a2b3ff"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/thumbnails.cpp",
+                                                                          "sha256":  "8e1c8574be7ec53e98a6f324f31ef66229fafa20251e51631a12faac4d29c126"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/preview_pane.cpp",
+                                                                          "sha256":  "a4e1f546b9be47f9046e7473deb253fa861658345709750d810e056f0710efeb"
+                                                                      },
+                                                                      {
+                                                                          "path":  "src/icons.def",
+                                                                          "sha256":  "19da533f1f72f70ba86f4782d435a25257ad4db4a77afaf7cbea3c748cf23d72"
+                                                                      },
+                                                                      {
+                                                                          "path":  "assets/icons/selection-grow.svg",
+                                                                          "sha256":  "6ef8dce31dcd358cc4f7bb665c9fbbae402c2c3f97f274ff1f9e480d46ed67b5"
+                                                                      },
+                                                                      {
+                                                                          "path":  "assets/icons/selection-shrink.svg",
+                                                                          "sha256":  "398ac533fbfc7e693d1bc51aa9bda1716b40b014cd3713eb5344482df0e6eb35"
+                                                                      },
+                                                                      {
+                                                                          "path":  "assets/icons/pivot-center.svg",
+                                                                          "sha256":  "371619a63f9a803ed520beb9319639e36963d7c4f5c8034790774bd29c500142"
+                                                                      }
+                                                                  ],
+                               "selectedFilesChangedDuringReview":  [
+                                                                        {
+                                                                            "path":  "CHANGELOG.md",
+                                                                            "beforeSha256":  "b766623edc3d3c86c9b1b5e3b20f0311dd7f8ee1e3583bf07c8fb12c51117aac",
+                                                                            "afterSha256":  "cf7a6cf1fe2969a1c21a3d88bd0d7fef2f14dc3bfbb60f399facaf9d815a42d5"
+                                                                        },
+                                                                        {
+                                                                            "path":  "src/app_ui.hpp",
+                                                                            "beforeSha256":  "587dde5144dc3c2f9f4686be2f4d5bec585bf7a178c6229064ad14e9b34ff690",
+                                                                            "afterSha256":  "ff5a7e4782ec453bc52bddfc5d1596db87d83da7f351994a0b551c0e9c9919ca"
+                                                                        },
+                                                                        {
+                                                                            "path":  "src/app_ui_about.cpp",
+                                                                            "beforeSha256":  "8de293fd17ec688daa382c6a0a4bfb666bd42442c26603e8b8f8acb4793116db",
+                                                                            "afterSha256":  "543acb49fc009a1310a563e689194c470fb34030f8f0267952224ea1fd8c66c8"
+                                                                        }
+                                                                    ],
+                               "trackedDirtyCount":  51,
+                               "untrackedEntryCount":  12,
+                               "frozenSourceLockSha256After":  "d6515ebbc1f22ca1498b37d6369420f87cf48a39aba2d0ec952fcc9dbae9c747"
+                           }
+}

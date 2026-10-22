@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "kind": "independent-exact-leaf-floor-successor-audit",
+  "status": "passed",
+  "startedAtUtc": "2026-10-14T00:57:58.236Z",
+  "finishedAtUtc": "2026-10-14T00:57:58.451Z",
+  "executable": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+  "receipt": {
+    "path": "docs/validation/runs/floor-20261013-01/validation.json",
+    "bytes": 340903,
+    "sha256": "b9e9b9289f203425af5d010cf1009637b80c1559ca8db6c069684eede25ac45e"
+  },
+  "verifiedPhysicalBindings": 832,
+  "verifiedArchiveManifests": 8,
+  "currentCohorts": [
+    {
+      "id": "floor-units-03",
+      "tests": 2492,
+      "files": 62,
+      "passed": 2492,
+      "skipped": 0,
+      "errors": 0
+    },
+    {
+      "id": "floor-focus-03",
+      "tests": 11,
+      "files": 2,
+      "passed": 11,
+      "skipped": 0,
+      "flaky": 0,
+      "retries": 0,
+      "errors": 0,
+      "workers": 1
+    },
+    {
+      "id": "floor-full-01",
+      "tests": 782,
+      "files": 39,
+      "passed": 782,
+      "skipped": 0,
+      "flaky": 0,
+      "retries": 0,
+      "errors": 0,
+      "workers": 1
+    },
+    {
+      "id": "floor-production-01",
+      "tests": 83,
+      "files": 3,
+      "passed": 83,
+      "skipped": 0,
+      "flaky": 0,
+      "retries": 0,
+      "errors": 0,
+      "workers": 1
+    }
+  ],
+  "nativeMains": 14,
+  "nativeCounters": {
+    "checks": 68932,
+    "referenceRuns": 96,
+    "referenceCandidates": 56,
+    "referenceNone": 40,
+    "rngRanges": 14,
+    "matrixCameraCases": 56,
+    "cancellationCases": 18,
+    "abiCases": 4,
+    "refusals": 20,
+    "publicationRefusals": 11,
+    "rollbackCases": 17
+  },
+  "checks": [
+    {
+      "label": "exact physical receipt and every named regular leaf",
+      "status": "passed"
+    },
+    {
+      "label": "current product identities, counts and native/deployment pairs",
+      "status": "passed"
+    },
+    {
+      "label": "frozen before/after sources and206 exact test files",
+      "status": "passed"
+    },
+    {
+      "label": "strict final terminals, actual cohort cases and zero retries/skips/errors",
+      "status": "passed"
+    },
+    {
+      "label": "all14 actual native mains and unchanged old13 stdout",
+      "status": "passed"
+    },
+    {
+      "label": "preflight34/0 and source-oracle/compact fixture bindings",
+      "status": "passed"
+    },
+    {
+      "label": "actual local UI observation and three exact source PNG attachments",
+      "status": "passed"
+    },
+    {
+      "label": "diagnostics remain non-accepting; eight archive manifests only",
+      "status": "passed"
+    }
+  ],
+  "issues": [],
+  "scope": "Exact receipt bindings and structured acceptance claims only. No archive-member/old-Plane closure, test/browser/native execution, host/compiler closure or broader parity acceptance."
+}

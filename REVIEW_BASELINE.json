@@ -1,0 +1,244 @@
+{
+    "schema_version":  1,
+    "captured_utc":  "2026-10-11T01:51:45.8597306Z",
+    "reviewed_date":  "2026-10-10",
+    "reviewed_timezone":  "America/New_York",
+    "scope":  "Selected inputs used for the web migration review. This manifest is not a complete frozen source snapshot or new build/test evidence.",
+    "windows":  {
+                    "source_version":  "0.12.79",
+                    "git_head":  null,
+                    "note":  "No initial source commit; local dist executable also reports 0.12.79."
+                },
+    "macos":  {
+                  "historical_import_version":  "0.12.58",
+                  "reconciliation_reference_version":  "0.12.74",
+                  "native_validation":  "Not verified on macOS in reviewed FEATURE_PARITY.md."
+              },
+    "ubuntu":  {
+                   "frozen_windows_reference_version":  "0.12.73",
+                   "note":  "Implementation and native qualification remain partial; consult its current status report."
+               },
+    "colmapview":  {
+                       "repository":  "https://github.com/ColmapView/Colmapview.github.io",
+                       "local_directory":  "../colmapview.github.io",
+                       "version":  "0.15.4",
+                       "commit":  "0a1d01c3c8c65f9c0a244f4608c50558c221c5fd"
+                   },
+    "files":  [
+                  {
+                      "path":  "../splatpreview/CMakeLists.txt",
+                      "bytes":  10543,
+                      "sha256":  "4e24f49b27d75052018263af3f9770d119c7208b9423e504bc049ffa8b555a02"
+                  },
+                  {
+                      "path":  "../splatpreview/README.md",
+                      "bytes":  108233,
+                      "sha256":  "f00bd841b23436e48c581d1759fd5eb5319a835c9c67a9919ca7075042e20506"
+                  },
+                  {
+                      "path":  "../splatpreview/LICENSE",
+                      "bytes":  1100,
+                      "sha256":  "936c6332822765323169aa4da02b80b760fc64a3777ceca0c68833957636b67d"
+                  },
+                  {
+                      "path":  "../splatpreview/docs/architecture.md",
+                      "bytes":  5597,
+                      "sha256":  "be2a714fdc609e7019b901e79e32cec3721ea98ae913632e127449760da7578d"
+                  },
+                  {
+                      "path":  "../splatpreview/design/ui-design-system.md",
+                      "bytes":  4319,
+                      "sha256":  "419674f643daaedd1d114181d9a2821eac9a57580b60c28ec85a1ddeb059fba8"
+                  },
+                  {
+                      "path":  "../splatpreview/src/model.hpp",
+                      "bytes":  3368,
+                      "sha256":  "980d8ea428917580fb9aed273db60515201b78d39efb54d2cfbf5e64221a51e5"
+                  },
+                  {
+                      "path":  "../splatpreview/src/renderer.hpp",
+                      "bytes":  9197,
+                      "sha256":  "bd8dc9256996c14c560a1a1bf7865d4c2ff014874e15c09416a1128ab6497dfc"
+                  },
+                  {
+                      "path":  "../splatpreview/src/processing.hpp",
+                      "bytes":  1062,
+                      "sha256":  "c51e8f959458d7169180934d67a90bbc35cfe6ab5e2e040d88b012f3ade9ec7f"
+                  },
+                  {
+                      "path":  "../splatpreview/src/parallel_for.hpp",
+                      "bytes":  1984,
+                      "sha256":  "c3faeb3ad2f225c69db6e09ea4ab916f6eb270eb62a1abce9f55653d2643cc18"
+                  },
+                  {
+                      "path":  "../splatpreview/src/ui_design.hpp",
+                      "bytes":  2591,
+                      "sha256":  "0733adfae768b54c1c967e145c3c5d26db30c01d673ad0c8c27f435ab86ee0cf"
+                  },
+                  {
+                      "path":  "../splatpreview/src/color.hpp",
+                      "bytes":  1297,
+                      "sha256":  "f6b059eca10cf4492dfc3519460c05f4b82d0804bbe57cb6842a468e7895dbd9"
+                  },
+                  {
+                      "path":  "../splatpreview/src/alignment_ui.cpp",
+                      "bytes":  1850,
+                      "sha256":  "69ed5e1b033aa69ef2ad077ae214945db9b9c58e9c863c866b14265a916fe684"
+                  },
+                  {
+                      "path":  "../splatpreview/src/selection_ui.cpp",
+                      "bytes":  37076,
+                      "sha256":  "dc1fc219513b010cc952abc07364bf86874d7c31ce0cbf48244404e30e10010c"
+                  },
+                  {
+                      "path":  "../splatpreview/src/app_ui.cpp",
+                      "bytes":  53897,
+                      "sha256":  "1701fe5dba311604bfcc5066f0a815379f4322adf53f581cd379655753a42794"
+                  },
+                  {
+                      "path":  "../splatpreview/src/app_ui_settings.cpp",
+                      "bytes":  8381,
+                      "sha256":  "5b8427839de4b5aecd5dd695b9d5cd29b5c711510b9b20e96975696129ba5e8a"
+                  },
+                  {
+                      "path":  "../splatpreview/src/processing_ui.cpp",
+                      "bytes":  24987,
+                      "sha256":  "6bd0fdf3fbbd1fff4eba2cf95a41bedf47778c39cfa5be6d1e8132e5b21dbc81"
+                  },
+                  {
+                      "path":  "../splatpreview/src/shaders/splat.hlsl",
+                      "bytes":  16002,
+                      "sha256":  "109c187248e0fdf6d7892e8c0db10350b687fba4ed316a5f5f5da69992813cd2"
+                  },
+                  {
+                      "path":  "../splatview_macos/FEATURE_PARITY.md",
+                      "bytes":  12303,
+                      "sha256":  "7531a4564e815ca9dcd87592f69ef97fbe85914ed6badbe0392c44bd11c1058d"
+                  },
+                  {
+                      "path":  "../splatview_macos/SOURCE_REFERENCE.json",
+                      "bytes":  1284,
+                      "sha256":  "3a3cf466d3fc1203bffe2229beb3ea6466ae7f135bc274fcb602de4d5ed87bbc"
+                  },
+                  {
+                      "path":  "../splatview_macos/shared/README.md",
+                      "bytes":  5416,
+                      "sha256":  "20602375e8b4e5f02fde2337d73ab4a933b719279da5f05909da15f7cc264ee5"
+                  },
+                  {
+                      "path":  "../splatview_macos/shared/CMakeLists.txt",
+                      "bytes":  5823,
+                      "sha256":  "34ded7179a5fa9789a2e31dc8d42857d02a0c2c681e86df3382e7510e9c11703"
+                  },
+                  {
+                      "path":  "../splatview_macos/src/core/model.hpp",
+                      "bytes":  1299,
+                      "sha256":  "9c00f73ae8603d56e3b28c480ee3e49cc422372e8dec52eea4d92e45eb9cea60"
+                  },
+                  {
+                      "path":  "../splatview_macos/src/core/document.hpp",
+                      "bytes":  10110,
+                      "sha256":  "a5640f7d771bc89fb4ec5479951a38a1648707ee371ff0d8b77c0bfb284a0857"
+                  },
+                  {
+                      "path":  "../splatview_macos/src/core/scene_exports.hpp",
+                      "bytes":  825,
+                      "sha256":  "e280f134bf4e6ad2c613e76f2e1f61aab2f8dbc320d495817e2466e5f07592be"
+                  },
+                  {
+                      "path":  "../splatview_ubuntu/CROSS_PLATFORM_SHARING_REVIEW.md",
+                      "bytes":  31854,
+                      "sha256":  "47f2238892c4b5e9a34b6d0c83b21e3fee3592af52df15a0cd61bdd2ccb23142"
+                  },
+                  {
+                      "path":  "../splatview_ubuntu/IMPLEMENTATION_STATUS.md",
+                      "bytes":  14363,
+                      "sha256":  "f9ea8eceb471e28eb70c3ebae547ab991eb1931e4595f61d98432679b1e65257"
+                  },
+                  {
+                      "path":  "../colmapview.github.io/package.json",
+                      "bytes":  2960,
+                      "sha256":  "7f2b318079c2944decf8623f02cd43251fd8b66dcc097e4328fe5dbc55dcf4d5"
+                  },
+                  {
+                      "path":  "../colmapview.github.io/LICENSE",
+                      "bytes":  35184,
+                      "sha256":  "e0eedba615d5cd1b986afb6c5b3a4b1ae33713e7e9dc74d19daec5e3221f9d2e"
+                  },
+                  {
+                      "path":  "../colmapview.github.io/vendor/gs-toolbox/package.json",
+                      "bytes":  442,
+                      "sha256":  "1088dc9de6b8c03e65874ea22c5e5bda3f164f33a5eab16fd540c2d15002b533"
+                  },
+                  {
+                      "path":  "../colmapview.github.io/vite.config.ts",
+                      "bytes":  4330,
+                      "sha256":  "fd982f01600abc66b0b668f6f5929d72c867a588bbb0586f708f74827c50dd71"
+                  },
+                  {
+                      "path":  "../colmapview.github.io/src/splat/gaussianCloudLoader.worker.ts",
+                      "bytes":  3160,
+                      "sha256":  "98dd2b6da899ad22055856d526b4d93979e64c33e9f5c181db4c18a984dabde1"
+                  },
+                  {
+                      "path":  "../colmapview.github.io/src/splat/gaussianCloudDecode.ts",
+                      "bytes":  596,
+                      "sha256":  "2c02aef1063cc3f4be4ed8217bb5e24018c7393c1c1f1525445746497ecee982"
+                  },
+                  {
+                      "path":  "../colmapview.github.io/src/splat/sogBundle.ts",
+                      "bytes":  21429,
+                      "sha256":  "3fcbd016e59aa326ad9dd9932b9d926ec6bb313eff7521a8bce26fead0c12000"
+                  },
+                  {
+                      "path":  "../colmapview.github.io/src/splat/webgpu/gaussianCloudPacking.ts",
+                      "bytes":  8641,
+                      "sha256":  "64fea3daf0a0762563fa2f303f8e80e4942edd3caf056ce12411a78ccc53c4b4"
+                  },
+                  {
+                      "path":  "../colmapview.github.io/src/splat/webgpu/webGpuSplatLimits.ts",
+                      "bytes":  7706,
+                      "sha256":  "8d1aa48bba7db2c6c2f0ed0bff601746ada24f10712db48f028a91c8ae845424"
+                  },
+                  {
+                      "path":  "../colmapview.github.io/src/splat/webgpu/gaussianRenderer.ts",
+                      "bytes":  23429,
+                      "sha256":  "270809659c1f46277a98c58238954963149f2167d7c503f5c402f7bc07989fad"
+                  },
+                  {
+                      "path":  "../colmapview.github.io/src/splat/webgpu/visibleSplatRendererAdapter.ts",
+                      "bytes":  17257,
+                      "sha256":  "c5685460f2270ce37bc1fed2bf6f076570e05a0a4d61a4e5fadef1602fd8bd7a"
+                  },
+                  {
+                      "path":  "../colmapview.github.io/src/utils/splatBackendPolicy.ts",
+                      "bytes":  21558,
+                      "sha256":  "5b54918b3da3402328c17b091c710f980b4804e6a3b0e110a6a7d9da0cc78aa9"
+                  },
+                  {
+                      "path":  "../splatpreview/src/selection.cpp",
+                      "bytes":  20442,
+                      "sha256":  "5463f282346c5ff75f5ffd10da2635d920b1125778de5c0e18f206055b731128"
+                  },
+                  {
+                      "path":  "../splatpreview/src/editing.hpp",
+                      "bytes":  5282,
+                      "sha256":  "af17d659c2ec4b5b8dfc87c7d407d5ef1ed6314f440ef9310e8c9a8b7c781b08"
+                  },
+                  {
+                      "path":  "../splatpreview/src/viewer.hpp",
+                      "bytes":  14321,
+                      "sha256":  "c0f36e65eec45ba0c1ef333ebbc6425505aa9257f528abb4d17343d1d678ae83"
+                  },
+                  {
+                      "path":  "../splatpreview/src/viewer_selection.cpp",
+                      "bytes":  35332,
+                      "sha256":  "69587d8981bd9f2fe9bcfce183505488e15a671ec273d712f970800a6af56cd6"
+                  },
+                  {
+                      "path":  "../splatpreview/src/language.cpp",
+                      "bytes":  8111,
+                      "sha256":  "7cc6ed6a73d7960a0a519feaf5bb52a1e401cde870b8ce1be207f44c7cee5d50"
+                  }
+              ]
+}

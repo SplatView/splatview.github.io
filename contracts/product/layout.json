@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "toolbarOrder": [
+    "file",
+    "navigation-background",
+    "lens-fullscreen",
+    "agent-access",
+    "tools"
+  ],
+  "toolsOrder": [
+    "histogram",
+    "selection",
+    "paint",
+    "transform",
+    "color"
+  ],
+  "readingOrder": "top-to-bottom then left-to-right using actual resolved host bounds",
+  "panelBottomInset": "panelBottomPadding, counted once; body scrolls, dismissal/navigation remains reachable",
+  "basic": "Manual brushes, gizmos, snap and flips remain available. Coordinate frame chooser is Pro.",
+  "fileGroup": [
+    "open",
+    "save",
+    "thumbnail",
+    "capture",
+    "copy"
+  ],
+  "toolsHeader": [
+    "undo",
+    "redo",
+    "settings",
+    "mode"
+  ],
+  "selectionGroups": [
+    "tool",
+    "combine",
+    "actions",
+    "options"
+  ],
+  "cleanupReset": "Selection header; separate from clear selection.",
+  "refinement": "Right of Combine when supported.",
+  "basicSections": "Flat sections; no collapsible folders.",
+  "paint": "Pro only: named Paint color/Add splats chooser, contextual shape/values, explicit recolor target. Hide Selection body while armed; retain its fold preference. One fixed viewport review strip."
+}

@@ -1,0 +1,383 @@
+{
+  "schemaVersion": 1,
+  "packet": "sog-group-v2",
+  "scope": "One three-source flat v2 SH0 independent construction/key/numeric packet; no native/App/runtime parity acceptance",
+  "provenance": "Literal project RGBA pixels/codebooks; independent Decimal80 expected records; no production decoder/export results",
+  "encoder": {
+    "library": "Pillow",
+    "version": "12.1.0",
+    "webpVersion": "1.6.0",
+    "parameters": {
+      "lossless": true,
+      "quality": 100,
+      "method": 6,
+      "exact": true
+    },
+    "verification": "Pillow2x2 RGBA roundtrip byte-equal, including transparent RGB; no SplatView codec"
+  },
+  "constructionSource": {
+    "path": "tools/generate-sog-v2-fixtures.py",
+    "bytes": 29237,
+    "sha256": "891196bcc5b948b847241f38586973e5942d5934b4cfec860164a12d91a4a8d5"
+  },
+  "nativeReferences": [
+    {
+      "path": "native/upstream/splatview/src/core/model.cpp",
+      "bytes": 50433,
+      "sha256": "ddfe812e09467afc3113b32fff7c777aa6421413d76686c2676643878b26e523"
+    },
+    {
+      "path": "native/upstream/splatview/src/core/format_utils.hpp",
+      "bytes": 2734,
+      "sha256": "8f73a8514b3120ed7e6fe01d548dc9b20904ccfc9c39863a04be075c04a276ef"
+    },
+    {
+      "path": "native/upstream/splatview/src/core/scene_math.cpp",
+      "bytes": 8781,
+      "sha256": "0ddeb96721e8b3be50e22755f97660c256ab31a0cd55399003ccfc5d20baea31"
+    },
+    {
+      "path": "reference/windows/src/model.cpp",
+      "bytes": 56140,
+      "sha256": "ee1b34805310912cfd5b206ee5f0c8240b59b8ec61d2096d86e23214e0317175"
+    },
+    {
+      "path": "reference/windows/src/format_utils.hpp",
+      "bytes": 2734,
+      "sha256": "8f73a8514b3120ed7e6fe01d548dc9b20904ccfc9c39863a04be075c04a276ef"
+    }
+  ],
+  "frozenPackageTreeSha256": "f0b272ebe75f0c8380610e4c242faab76e3922f7494cf675d679c9d8dad37e61",
+  "windowsReferenceTreeSha256": "f57d33182ace6183bad32ddee673b08182f7f8fe42fc95967afcaecbfa7f23e0",
+  "sourceCount": 3,
+  "shDegree": 0,
+  "version": 2,
+  "kind": "group",
+  "format": "SOG v2",
+  "uniqueResourceCountIncludingMetadata": 6,
+  "declaredReferenceCount": 6,
+  "decodedTextureCalls": 5,
+  "uniqueDecodedTextures": 4,
+  "rgbaBytesPerDecode": 16,
+  "decodedRgbaBytesAcrossCalls": 80,
+  "declaredExtraCount": 1,
+  "repeatedAliasCount": 1,
+  "unrelatedNeighborCount": 1,
+  "completeAssetDigest": "8e5f13ed1f1168dfb9304b0f7335b844fea932a56694ea3a98353de8637f095f",
+  "originalTotalBytes": 937,
+  "unusedFiniteJson64Float32OverflowEntriesPermitted": true,
+  "onlySampledIndicesValidated": true,
+  "generatedContractData": {
+    "path": "native/wasm/sog_group_v2_contract_data.hpp",
+    "bytes": 90642,
+    "sha256": "bc8a10294f6d6b9b8e376879d3ea8fa3677e7a12f20f473a502e1bb44f00ddce"
+  },
+  "bundle": {
+    "file": "bundled-v2-sh0.sog",
+    "bytes": 1601,
+    "sha256": "521fceb5692e6b7a1716c57b018bc07cf454520e921cce04245eb798ba1c17b1",
+    "singleFileAssetDigest": "ec87490a2e6d4f6f59c0414f00c1c440130e7fbb7317caaabf2fe43e7798a5f0",
+    "entries": [
+      "appearance.webp",
+      "declared-extra.bin",
+      "meta.json",
+      "positions-high.webp",
+      "positions-low.webp",
+      "rotations.webp"
+    ],
+    "compression": "ZIP_STORED",
+    "timestamp": "1980-01-01T00:00:00",
+    "originalEntryBytesUnchanged": true
+  },
+  "caseCounts": {
+    "total": 37,
+    "accepted": 5,
+    "refused": 32
+  },
+  "inputs": [
+    {
+      "file": "collection/asset/meta.json",
+      "bytes": 685,
+      "sha256": "77bb96bb9e1cb2133d897e8360552cb6568965813e9c37f9dda4b99636ad8c61",
+      "role": "primary"
+    },
+    {
+      "file": "collection/asset/positions-low.webp",
+      "bytes": 48,
+      "sha256": "6503abb6f705b662ee8c000004a74536261f2f71c53ff9a5c884140c22bfb1dd",
+      "role": "declared-resource"
+    },
+    {
+      "file": "collection/asset/positions-high.webp",
+      "bytes": 50,
+      "sha256": "fec47c8c33092f90ec525df5b82cb83846bb656c30ec32a4548ce442603b56d3",
+      "role": "declared-resource"
+    },
+    {
+      "file": "collection/asset/appearance.webp",
+      "bytes": 56,
+      "sha256": "5fd3a41900844fc9eab819d0bc5dff97114c5f50d3f45c3cbf34335e581535c6",
+      "role": "declared-resource"
+    },
+    {
+      "file": "collection/asset/rotations.webp",
+      "bytes": 58,
+      "sha256": "7108a24a5ddeef7b2dbb50ca4acd9078e3db9bddfdd84b59e955d41ed34e2d68",
+      "role": "declared-resource"
+    },
+    {
+      "file": "collection/asset/declared-extra.bin",
+      "bytes": 40,
+      "sha256": "66551ca49ff652b17e9f0945d4ac7f57b1ce161a60fef5857aec5d80b5a35ac2",
+      "role": "declared-resource"
+    },
+    {
+      "file": "collection/unrelated-neighbor.bin",
+      "bytes": 45,
+      "sha256": "851447a4c38facbb55e156ef2bce400e7dcec4b00f5a7f70f64b5bc7a9d582c7",
+      "role": "excluded-neighbor"
+    }
+  ],
+  "artifacts": [
+    {
+      "file": "bundled-v2-sh0.sog",
+      "bytes": 1601,
+      "sha256": "521fceb5692e6b7a1716c57b018bc07cf454520e921cce04245eb798ba1c17b1"
+    },
+    {
+      "file": "cases/count-true.sog",
+      "bytes": 1604,
+      "sha256": "8698bc2c48fa4f8f5c23e8ebf2e3e8aa59e332b3d25daf85a55bce4b27ffdb78"
+    },
+    {
+      "file": "cases/count-zero.sog",
+      "bytes": 1601,
+      "sha256": "3541c470e546d33f7d6fb5542c6880823d4eb0b45c31319eec730f96bddb34ff"
+    },
+    {
+      "file": "cases/count-fractional-zero.sog",
+      "bytes": 1603,
+      "sha256": "b72c2178373299bcdbbf39065627d1a4fbe826ad8618c8693488f079accaf012"
+    },
+    {
+      "file": "cases/count-negative.sog",
+      "bytes": 1602,
+      "sha256": "9d52e7f21ea25d1dcee1a616679f2ec14a15754f24398dadf5d9688ea05af606"
+    },
+    {
+      "file": "cases/count-too-large.sog",
+      "bytes": 1608,
+      "sha256": "93b4cbf02aba8951af1336688bb961a3375650e1a31997ce683ad00f0cd2a24b"
+    },
+    {
+      "file": "cases/count-image-overflow.sog",
+      "bytes": 1601,
+      "sha256": "7e6754cbce6afc8b92a3ed6f45034dcdf37977d9231eb8fffe87aebf841a096e"
+    },
+    {
+      "file": "cases/count-string.sog",
+      "bytes": 1603,
+      "sha256": "2254f39959f1b82fb0aac1f9f0bf2fc0c60bafa73e64d04c6dca4a145054c86b"
+    },
+    {
+      "file": "cases/count-fractional-three.sog",
+      "bytes": 1603,
+      "sha256": "a284d6fffd5acde68ff22a94d1164fded63a42c7786e4bc44820f9b672e74d2b"
+    },
+    {
+      "file": "cases/version-fractional-two.sog",
+      "bytes": 1603,
+      "sha256": "75639e7ffff9f242a9ca97b0af63948efa22fc87a35ee9d2a4d3ceced84b29e6"
+    },
+    {
+      "file": "cases/version-count-fractional.sog",
+      "bytes": 1605,
+      "sha256": "d2c7f5dbdf28e84e0379f251c4798ed037837cc6491212417515eab30ee42d32"
+    },
+    {
+      "file": "cases/scales-empty-codebook.sog",
+      "bytes": 1509,
+      "sha256": "ae91042c9b428761d8563cf8746c07d6761077950a3a4311e6cc3c79d6ffa188"
+    },
+    {
+      "file": "cases/scales-oversized-codebook.sog",
+      "bytes": 3826,
+      "sha256": "8c618b349418a61b0222e6eb948d979574d94d214ec240a8bba79d291389acaa"
+    },
+    {
+      "file": "cases/scales-nonnumeric-codebook.sog",
+      "bytes": 1601,
+      "sha256": "263a626c1c70c93996c562c8266693329822ddbfbfa014d32132b9437484108a"
+    },
+    {
+      "file": "cases/scales-referenced-f32-overflow.sog",
+      "bytes": 1602,
+      "sha256": "e2f9773e39a099c80d707af45bc63df49f435bd64044a8ee50315f737fb09189"
+    },
+    {
+      "file": "cases/scales-unused-f32-overflow-changed.sog",
+      "bytes": 1602,
+      "sha256": "baf84346fde459880b586c18ce6a0c9f038279433c3e4601cf249a2918bf9610"
+    },
+    {
+      "file": "cases/sh0-empty-codebook.sog",
+      "bytes": 1513,
+      "sha256": "9d5e5e1f3fb76c7924cd292b2f5b8b4c530251ecb423b4c4229bfd96ab4719a8"
+    },
+    {
+      "file": "cases/sh0-oversized-codebook.sog",
+      "bytes": 3830,
+      "sha256": "0004099951f6b1fceab2e564cf693d87aa5344ce967826b56a6076c5f4bddac2"
+    },
+    {
+      "file": "cases/sh0-nonnumeric-codebook.sog",
+      "bytes": 1602,
+      "sha256": "a139e96e561b981c4a39dfb98ea6dab5beb9d9690a6919e03ab7d1146bf29478"
+    },
+    {
+      "file": "cases/sh0-referenced-f32-overflow.sog",
+      "bytes": 1603,
+      "sha256": "5c3abda461ea1746d524bee9dc3cc21aa9dd191bdbc8c50f4cd46cd6d8079d45"
+    },
+    {
+      "file": "cases/sh0-unused-f32-overflow-changed.sog",
+      "bytes": 1602,
+      "sha256": "bd524e8a8ee6fcb7ff5c98b6c8c3385ef87cb49bdb7f4e76d81a9c63e4b9a459"
+    },
+    {
+      "file": "cases/scales-exp-overflow.sog",
+      "bytes": 1599,
+      "sha256": "71aab097c8522caa9654c21eb48e0d5c5217951da572978f69884bfa976f68aa"
+    },
+    {
+      "file": "cases/scales-exp-underflow.sog",
+      "bytes": 1600,
+      "sha256": "5a7e3847358df9be2b6eccc1617bb14b179fefd8f42e7da31d933a78155efdd6"
+    },
+    {
+      "file": "cases/scales-covariance-overflow.sog",
+      "bytes": 1598,
+      "sha256": "d0a3d2faa77a0f68250987f7a2e82bb0a001089270f9760816783948535d0dd2"
+    },
+    {
+      "file": "cases/scales-covariance-underflow.sog",
+      "bytes": 1599,
+      "sha256": "2c1a71eab109f91e53bd40a3f7c96fd156e15f99d14bcaf791ec8a5a15ba3a7a"
+    },
+    {
+      "file": "cases/sh0-half-overflow.sog",
+      "bytes": 1602,
+      "sha256": "d936542c56717c3b1c9719b6ceb62f37f0eda3fc61207983c6cfbdf5148b8427"
+    },
+    {
+      "file": "cases/means-short-bounds.sog",
+      "bytes": 1588,
+      "sha256": "7fa93211d2a4273983c6e02648df19a0e73a41565ea0e49d0e4c13cbd8df42b8"
+    },
+    {
+      "file": "cases/means-range-overflow.sog",
+      "bytes": 1602,
+      "sha256": "b838def8af2bba95fe819ba520b6714cae8c14625bbd35b1e55af33624b8ea54"
+    },
+    {
+      "file": "cases/means-reversed-range.sog",
+      "bytes": 1602,
+      "sha256": "ef7544dd196fb8cea6ba0d0d66fb2f0564b3084943468ab9130c87acee5b287a"
+    },
+    {
+      "file": "cases/unsupported-version.sog",
+      "bytes": 1601,
+      "sha256": "149e77cec4691fc92f130ca56d73e69d005d96eef2e72afd99070d2d99dad6dc"
+    },
+    {
+      "file": "cases/nonzero-sh.sog",
+      "bytes": 1736,
+      "sha256": "8107fa58974b966f41038cc22ba469bd3b979a683e182ccaa1452aaa44ebc3af"
+    },
+    {
+      "file": "cases/referenced-scale-codebook-index.sog",
+      "bytes": 1603,
+      "sha256": "6603696402ebcdf5ac7d8f9818a271d2477374a0bf61f609643bb030c1dad022"
+    },
+    {
+      "file": "cases/referenced-dc-codebook-index.sog",
+      "bytes": 1783,
+      "sha256": "2545d86bd85d0e2dc0e3428215af85086f845a324ea08f3bfba02f9603cf9be2"
+    },
+    {
+      "file": "cases/referenced-overflow-codebook-index.sog",
+      "bytes": 1601,
+      "sha256": "0a94677f09b07f6a2b33d67b19b77d1a90de0af0ef26ac0a1b64f9ec5c991d67"
+    },
+    {
+      "file": "cases/referenced-quaternion-mode.sog",
+      "bytes": 1601,
+      "sha256": "4c7d2cc85c22bae9e1dda81fe2d5d2859cb687d0c126597d9ee613de83531afd"
+    },
+    {
+      "file": "cases/property-layout-mismatch.sog",
+      "bytes": 1601,
+      "sha256": "1c8dfbf1552add1f6f78043120d71b198c50e80cd8aec40ef79864fa038b3fcd"
+    },
+    {
+      "file": "cases/truncated-required-webp.sog",
+      "bytes": 1565,
+      "sha256": "ed33694c577fb18801a958bffb819d3c74c7c38f8d185415822d7e8941ae20b8"
+    },
+    {
+      "file": "cases/missing-shared-resource.sog",
+      "bytes": 1439,
+      "sha256": "67636c189644e8643bd5802e7792b144dccb4277c49d10f172b0a3efd9add8bd"
+    },
+    {
+      "file": "case-textures/scale-invalid-index.webp",
+      "bytes": 58,
+      "sha256": "5e3237f3ef66e48f57af99777e838b0eaee71335b0c7ff8cedce3bc5dfc43dfc"
+    },
+    {
+      "file": "case-textures/dc-invalid-index.webp",
+      "bytes": 58,
+      "sha256": "5e3237f3ef66e48f57af99777e838b0eaee71335b0c7ff8cedce3bc5dfc43dfc"
+    },
+    {
+      "file": "case-textures/appearance-used-overflow.webp",
+      "bytes": 56,
+      "sha256": "e351c712c76d39356580e3198bce59f406e852dd605a3cdde32ec437d129fdb3"
+    },
+    {
+      "file": "case-textures/rotation-invalid-mode.webp",
+      "bytes": 58,
+      "sha256": "95d0b6851744aabd0699af100bdbc678f3526aa6516b46e7a96cf69d06eea9cf"
+    },
+    {
+      "file": "case-textures/appearance-layout-1x4.webp",
+      "bytes": 56,
+      "sha256": "824a471868d1fecc2df37d54dfbec32975ac9b238f57c2dbaf800b4eee321b8a"
+    },
+    {
+      "file": "cases.json",
+      "bytes": 49424,
+      "sha256": "13d8aa0b1d55eb2da485ae2bd964e0cde1298555bba2c632534956c83c2680de"
+    },
+    {
+      "file": "rgba-literals.json",
+      "bytes": 1420,
+      "sha256": "5bd9f9339847f9e23b04f8971760d34d5f11fe2c74cae1be20d17ba994efe953"
+    },
+    {
+      "file": "expected-records.json",
+      "bytes": 7488,
+      "sha256": "fa7316db72e081c58d4637f2b3ccce4b2c8ee21ec1830cfb169425f0878da52b"
+    },
+    {
+      "file": "source-key-vectors.json",
+      "bytes": 21948,
+      "sha256": "73569e2db922807914f7820b404e5f6a264ba57e0684ef302e970a30641069a5"
+    },
+    {
+      "file": "README.md",
+      "bytes": 1258,
+      "sha256": "917fce9373bbb1097ea36ae4bdcdd27eb507b2e4f846adbc748c9364a54f18fd"
+    }
+  ]
+}

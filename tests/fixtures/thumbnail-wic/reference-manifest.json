@@ -1,0 +1,4980 @@
+{
+  "kind": "splatview-wic-fant-reference",
+  "schemaVersion": 1,
+  "status": "passed",
+  "fixtureCount": 17,
+  "analyticCheckCount": 9,
+  "provenance": {
+    "reference": {
+      "path": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\reference\\windows\\src\\thumbnails.cpp",
+      "byteLength": 16375,
+      "sha256": "d88b6e198306be17ee840a7c0c762c7eaf40df22687846f8096c932a28a1c490"
+    },
+    "referenceLines": [
+      78,
+      109,
+      236,
+      249
+    ],
+    "sdkHeader": {
+      "path": "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.26100.0\\um\\wincodec.h",
+      "byteLength": 389581,
+      "sha256": "407d800a8d598ac7e7a6193b66fd59ca52622e194ec459fae3caeab6b852e0f9"
+    },
+    "factoryClsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+    "factoryIid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+    "alternateFactoryClsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+    "factoryPolicy": "SDK WIN8-or-newer macro selects Factory2; both actual CLSIDs independently executed and required equal per fixture.",
+    "pixelFormatGuid": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+    "interpolation": {
+      "name": "WICBitmapInterpolationModeFant",
+      "value": 3
+    },
+    "windowsCodecs": {
+      "path": "C:\\Windows\\System32\\windowscodecs.dll",
+      "byteLength": 2352648,
+      "sha256": "fbd4409a98e8dae912a2a157d2f7d84883c4ad06f0541f1d878d0cf512ac12e9",
+      "fileVersion": "10.0.26100.9457"
+    },
+    "os": {
+      "platform": "Windows-10-10.0.26100-SP0",
+      "windowsVersion": [
+        10,
+        0,
+        26100,
+        2,
+        ""
+      ]
+    },
+    "python": {
+      "path": "C:\\Users\\opsiclear\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+      "byteLength": 103192,
+      "sha256": "5f7b89a612c9b8af1d6456cdfcd1dbe5ca630849e79aebced9bee9a6694952ec"
+    },
+    "generator": {
+      "path": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview-web-image-parity-draft-20261012\\generate_wic_goldens.py",
+      "byteLength": 22738,
+      "sha256": "8927d07ab3e895ec947b582786f4f17519c967722eeab8ee37cf04bd1dfc0b12"
+    },
+    "utc": "2026-10-12T12:17:03Z"
+  },
+  "scope": "Actual WIC raw-byte reference only. No browser resampler/render parity, PNG/JPEG encoding, ICC/color-management or macOS qualification.",
+  "fixtures": [
+    {
+      "id": "identity-primaries",
+      "input": {
+        "width": 4,
+        "height": 4,
+        "pixelFormat": "BGRA8",
+        "formula": "BGRA primaries[(x+y)%4]",
+        "path": "identity-primaries.input.bgra",
+        "byteLength": 64,
+        "sha256": "67f926a366b2e4b7621430b74e80d3dbd7014d48e3d7843111a31ba6d83a6f5c"
+      },
+      "plan": {
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 4,
+          "height": 4
+        },
+        "requestedSize": 1024,
+        "clampedSize": 1024,
+        "width": 4,
+        "height": 4,
+        "resampled": false
+      },
+      "output": {
+        "path": "identity-primaries.output.bgra",
+        "byteLength": 64,
+        "sha256": "67f926a366b2e4b7621430b74e80d3dbd7014d48e3d7843111a31ba6d83a6f5c"
+      },
+      "beforeForcedAlpha": {
+        "path": "identity-primaries.pre-opaque.bgra",
+        "byteLength": 64,
+        "sha256": "67f926a366b2e4b7621430b74e80d3dbd7014d48e3d7843111a31ba6d83a6f5c"
+      },
+      "independentAnalyticCheck": {
+        "kind": "identity",
+        "passed": true,
+        "expectedSha256": "67f926a366b2e4b7621430b74e80d3dbd7014d48e3d7843111a31ba6d83a6f5c",
+        "crop": [
+          0,
+          0,
+          4,
+          4
+        ],
+        "forcedAlpha": 255
+      },
+      "factory1Equality": {
+        "passed": true,
+        "outputSha256": "67f926a366b2e4b7621430b74e80d3dbd7014d48e3d7843111a31ba6d83a6f5c",
+        "preOpaqueSha256": "67f926a366b2e4b7621430b74e80d3dbd7014d48e3d7843111a31ba6d83a6f5c",
+        "trace": [
+          {
+            "api": "CoInitializeEx",
+            "parameters": {
+              "COINIT_MULTITHREADED": 0
+            },
+            "hresult": "0x00000001"
+          },
+          {
+            "api": "CoCreateInstance",
+            "parameters": {
+              "object": "image-factory",
+              "clsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+              "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+              "CLSCTX_INPROC_SERVER": 1
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICImagingFactory.CreateBitmapFromMemory",
+            "parameters": {
+              "width": 4,
+              "height": 4,
+              "pixelFormat": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+              "stride": 16,
+              "bufferBytes": 64
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapSource.GetSize",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "hresult": "0x00000000",
+            "result": [
+              4,
+              4
+            ]
+          },
+          {
+            "api": "CoCreateInstance",
+            "parameters": {
+              "object": "scale-factory",
+              "clsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+              "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+              "CLSCTX_INPROC_SERVER": 1
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapSource.GetSize",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "hresult": "0x00000000",
+            "result": [
+              4,
+              4
+            ]
+          },
+          {
+            "api": "IWICBitmapSource.GetPixelFormat",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "hresult": "0x00000000",
+            "result": "6fddc324-4e03-4bfe-b185-3d77768dc90f"
+          },
+          {
+            "api": "IWICBitmapSource.CopyPixels",
+            "parameters": {
+              "object": "bitmap",
+              "rect": null,
+              "stride": 16,
+              "bufferBytes": 64
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "scale-factory"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "image-factory"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "CoUninitialize",
+            "parameters": {}
+          }
+        ]
+      },
+      "trace": [
+        {
+          "api": "CoCreateInstance",
+          "parameters": {
+            "object": "image-factory",
+            "clsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+            "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+            "CLSCTX_INPROC_SERVER": 1
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICImagingFactory.CreateBitmapFromMemory",
+          "parameters": {
+            "width": 4,
+            "height": 4,
+            "pixelFormat": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+            "stride": 16,
+            "bufferBytes": 64
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapSource.GetSize",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "hresult": "0x00000000",
+          "result": [
+            4,
+            4
+          ]
+        },
+        {
+          "api": "CoCreateInstance",
+          "parameters": {
+            "object": "scale-factory",
+            "clsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+            "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+            "CLSCTX_INPROC_SERVER": 1
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapSource.GetSize",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "hresult": "0x00000000",
+          "result": [
+            4,
+            4
+          ]
+        },
+        {
+          "api": "IWICBitmapSource.GetPixelFormat",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "hresult": "0x00000000",
+          "result": "6fddc324-4e03-4bfe-b185-3d77768dc90f"
+        },
+        {
+          "api": "IWICBitmapSource.CopyPixels",
+          "parameters": {
+            "object": "bitmap",
+            "rect": null,
+            "stride": 16,
+            "bufferBytes": 64
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "scale-factory"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "image-factory"
+          },
+          "remainingReferences": 0
+        }
+      ]
+    },
+    {
+      "id": "identity-alpha",
+      "input": {
+        "width": 4,
+        "height": 4,
+        "pixelFormat": "BGRA8",
+        "formula": "same primaries; alpha=(x+4*y)*17",
+        "path": "identity-alpha.input.bgra",
+        "byteLength": 64,
+        "sha256": "9a9f7a1cd63cd8fa870fd5454d4ca9cab35e93085e3b2e6453a3fb2d28ae0db3"
+      },
+      "plan": {
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 4,
+          "height": 4
+        },
+        "requestedSize": 4,
+        "clampedSize": 4,
+        "width": 4,
+        "height": 4,
+        "resampled": false
+      },
+      "output": {
+        "path": "identity-alpha.output.bgra",
+        "byteLength": 64,
+        "sha256": "67f926a366b2e4b7621430b74e80d3dbd7014d48e3d7843111a31ba6d83a6f5c"
+      },
+      "beforeForcedAlpha": {
+        "path": "identity-alpha.pre-opaque.bgra",
+        "byteLength": 64,
+        "sha256": "9a9f7a1cd63cd8fa870fd5454d4ca9cab35e93085e3b2e6453a3fb2d28ae0db3"
+      },
+      "independentAnalyticCheck": {
+        "kind": "identity",
+        "passed": true,
+        "expectedSha256": "67f926a366b2e4b7621430b74e80d3dbd7014d48e3d7843111a31ba6d83a6f5c",
+        "crop": [
+          0,
+          0,
+          4,
+          4
+        ],
+        "forcedAlpha": 255
+      },
+      "factory1Equality": {
+        "passed": true,
+        "outputSha256": "67f926a366b2e4b7621430b74e80d3dbd7014d48e3d7843111a31ba6d83a6f5c",
+        "preOpaqueSha256": "9a9f7a1cd63cd8fa870fd5454d4ca9cab35e93085e3b2e6453a3fb2d28ae0db3",
+        "trace": [
+          {
+            "api": "CoInitializeEx",
+            "parameters": {
+              "COINIT_MULTITHREADED": 0
+            },
+            "hresult": "0x00000001"
+          },
+          {
+            "api": "CoCreateInstance",
+            "parameters": {
+              "object": "image-factory",
+              "clsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+              "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+              "CLSCTX_INPROC_SERVER": 1
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICImagingFactory.CreateBitmapFromMemory",
+            "parameters": {
+              "width": 4,
+              "height": 4,
+              "pixelFormat": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+              "stride": 16,
+              "bufferBytes": 64
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapSource.GetSize",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "hresult": "0x00000000",
+            "result": [
+              4,
+              4
+            ]
+          },
+          {
+            "api": "CoCreateInstance",
+            "parameters": {
+              "object": "scale-factory",
+              "clsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+              "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+              "CLSCTX_INPROC_SERVER": 1
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapSource.GetSize",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "hresult": "0x00000000",
+            "result": [
+              4,
+              4
+            ]
+          },
+          {
+            "api": "IWICBitmapSource.GetPixelFormat",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "hresult": "0x00000000",
+            "result": "6fddc324-4e03-4bfe-b185-3d77768dc90f"
+          },
+          {
+            "api": "IWICBitmapSource.CopyPixels",
+            "parameters": {
+              "object": "bitmap",
+              "rect": null,
+              "stride": 16,
+              "bufferBytes": 64
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "scale-factory"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "image-factory"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "CoUninitialize",
+            "parameters": {}
+          }
+        ]
+      },
+      "trace": [
+        {
+          "api": "CoCreateInstance",
+          "parameters": {
+            "object": "image-factory",
+            "clsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+            "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+            "CLSCTX_INPROC_SERVER": 1
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICImagingFactory.CreateBitmapFromMemory",
+          "parameters": {
+            "width": 4,
+            "height": 4,
+            "pixelFormat": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+            "stride": 16,
+            "bufferBytes": 64
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapSource.GetSize",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "hresult": "0x00000000",
+          "result": [
+            4,
+            4
+          ]
+        },
+        {
+          "api": "CoCreateInstance",
+          "parameters": {
+            "object": "scale-factory",
+            "clsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+            "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+            "CLSCTX_INPROC_SERVER": 1
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapSource.GetSize",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "hresult": "0x00000000",
+          "result": [
+            4,
+            4
+          ]
+        },
+        {
+          "api": "IWICBitmapSource.GetPixelFormat",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "hresult": "0x00000000",
+          "result": "6fddc324-4e03-4bfe-b185-3d77768dc90f"
+        },
+        {
+          "api": "IWICBitmapSource.CopyPixels",
+          "parameters": {
+            "object": "bitmap",
+            "rect": null,
+            "stride": 16,
+            "bufferBytes": 64
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "scale-factory"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "image-factory"
+          },
+          "remainingReferences": 0
+        }
+      ]
+    },
+    {
+      "id": "no-upscale-square",
+      "input": {
+        "width": 3,
+        "height": 3,
+        "pixelFormat": "BGRA8",
+        "formula": "B=(29*x+13*y)%256,G=(7*x+37*y)%256,R=(41*x+11*y)%256,A=255",
+        "path": "no-upscale-square.input.bgra",
+        "byteLength": 36,
+        "sha256": "bc3099691c34c3ef183758fc88de61624e40e14f371cc7f12a100200024d82f2"
+      },
+      "plan": {
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 3,
+          "height": 3
+        },
+        "requestedSize": 900,
+        "clampedSize": 900,
+        "width": 3,
+        "height": 3,
+        "resampled": false
+      },
+      "output": {
+        "path": "no-upscale-square.output.bgra",
+        "byteLength": 36,
+        "sha256": "bc3099691c34c3ef183758fc88de61624e40e14f371cc7f12a100200024d82f2"
+      },
+      "beforeForcedAlpha": {
+        "path": "no-upscale-square.pre-opaque.bgra",
+        "byteLength": 36,
+        "sha256": "bc3099691c34c3ef183758fc88de61624e40e14f371cc7f12a100200024d82f2"
+      },
+      "independentAnalyticCheck": {
+        "kind": "identity",
+        "passed": true,
+        "expectedSha256": "bc3099691c34c3ef183758fc88de61624e40e14f371cc7f12a100200024d82f2",
+        "crop": [
+          0,
+          0,
+          3,
+          3
+        ],
+        "forcedAlpha": 255
+      },
+      "factory1Equality": {
+        "passed": true,
+        "outputSha256": "bc3099691c34c3ef183758fc88de61624e40e14f371cc7f12a100200024d82f2",
+        "preOpaqueSha256": "bc3099691c34c3ef183758fc88de61624e40e14f371cc7f12a100200024d82f2",
+        "trace": [
+          {
+            "api": "CoInitializeEx",
+            "parameters": {
+              "COINIT_MULTITHREADED": 0
+            },
+            "hresult": "0x00000001"
+          },
+          {
+            "api": "CoCreateInstance",
+            "parameters": {
+              "object": "image-factory",
+              "clsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+              "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+              "CLSCTX_INPROC_SERVER": 1
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICImagingFactory.CreateBitmapFromMemory",
+            "parameters": {
+              "width": 3,
+              "height": 3,
+              "pixelFormat": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+              "stride": 12,
+              "bufferBytes": 36
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapSource.GetSize",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "hresult": "0x00000000",
+            "result": [
+              3,
+              3
+            ]
+          },
+          {
+            "api": "CoCreateInstance",
+            "parameters": {
+              "object": "scale-factory",
+              "clsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+              "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+              "CLSCTX_INPROC_SERVER": 1
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapSource.GetSize",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "hresult": "0x00000000",
+            "result": [
+              3,
+              3
+            ]
+          },
+          {
+            "api": "IWICBitmapSource.GetPixelFormat",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "hresult": "0x00000000",
+            "result": "6fddc324-4e03-4bfe-b185-3d77768dc90f"
+          },
+          {
+            "api": "IWICBitmapSource.CopyPixels",
+            "parameters": {
+              "object": "bitmap",
+              "rect": null,
+              "stride": 12,
+              "bufferBytes": 36
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "scale-factory"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "image-factory"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "CoUninitialize",
+            "parameters": {}
+          }
+        ]
+      },
+      "trace": [
+        {
+          "api": "CoCreateInstance",
+          "parameters": {
+            "object": "image-factory",
+            "clsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+            "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+            "CLSCTX_INPROC_SERVER": 1
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICImagingFactory.CreateBitmapFromMemory",
+          "parameters": {
+            "width": 3,
+            "height": 3,
+            "pixelFormat": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+            "stride": 12,
+            "bufferBytes": 36
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapSource.GetSize",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "hresult": "0x00000000",
+          "result": [
+            3,
+            3
+          ]
+        },
+        {
+          "api": "CoCreateInstance",
+          "parameters": {
+            "object": "scale-factory",
+            "clsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+            "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+            "CLSCTX_INPROC_SERVER": 1
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapSource.GetSize",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "hresult": "0x00000000",
+          "result": [
+            3,
+            3
+          ]
+        },
+        {
+          "api": "IWICBitmapSource.GetPixelFormat",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "hresult": "0x00000000",
+          "result": "6fddc324-4e03-4bfe-b185-3d77768dc90f"
+        },
+        {
+          "api": "IWICBitmapSource.CopyPixels",
+          "parameters": {
+            "object": "bitmap",
+            "rect": null,
+            "stride": 12,
+            "bufferBytes": 36
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "scale-factory"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "image-factory"
+          },
+          "remainingReferences": 0
+        }
+      ]
+    },
+    {
+      "id": "constant-noninteger",
+      "input": {
+        "width": 7,
+        "height": 7,
+        "pixelFormat": "BGRA8",
+        "formula": "all BGRA=(17,101,233,255)",
+        "path": "constant-noninteger.input.bgra",
+        "byteLength": 196,
+        "sha256": "0222176ec11bc2e0fe063d6f2ec8ffd39ba9249d3f87d900b55124c1ba0c7c35"
+      },
+      "plan": {
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 7,
+          "height": 7
+        },
+        "requestedSize": 3,
+        "clampedSize": 3,
+        "width": 3,
+        "height": 3,
+        "resampled": true
+      },
+      "output": {
+        "path": "constant-noninteger.output.bgra",
+        "byteLength": 36,
+        "sha256": "63e7f798ab42e45f295803a109903e243cf875e04243b55db8f35b643f3c162f"
+      },
+      "beforeForcedAlpha": {
+        "path": "constant-noninteger.pre-opaque.bgra",
+        "byteLength": 36,
+        "sha256": "63e7f798ab42e45f295803a109903e243cf875e04243b55db8f35b643f3c162f"
+      },
+      "independentAnalyticCheck": {
+        "kind": "constant",
+        "passed": true,
+        "pixel": [
+          17,
+          101,
+          233,
+          255
+        ],
+        "pixelCount": 9
+      },
+      "factory1Equality": {
+        "passed": true,
+        "outputSha256": "63e7f798ab42e45f295803a109903e243cf875e04243b55db8f35b643f3c162f",
+        "preOpaqueSha256": "63e7f798ab42e45f295803a109903e243cf875e04243b55db8f35b643f3c162f",
+        "trace": [
+          {
+            "api": "CoInitializeEx",
+            "parameters": {
+              "COINIT_MULTITHREADED": 0
+            },
+            "hresult": "0x00000001"
+          },
+          {
+            "api": "CoCreateInstance",
+            "parameters": {
+              "object": "image-factory",
+              "clsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+              "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+              "CLSCTX_INPROC_SERVER": 1
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICImagingFactory.CreateBitmapFromMemory",
+            "parameters": {
+              "width": 7,
+              "height": 7,
+              "pixelFormat": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+              "stride": 28,
+              "bufferBytes": 196
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapSource.GetSize",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "hresult": "0x00000000",
+            "result": [
+              7,
+              7
+            ]
+          },
+          {
+            "api": "CoCreateInstance",
+            "parameters": {
+              "object": "scale-factory",
+              "clsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+              "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+              "CLSCTX_INPROC_SERVER": 1
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICImagingFactory.CreateBitmapScaler",
+            "parameters": {},
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapScaler.Initialize",
+            "parameters": {
+              "source": "bitmap",
+              "width": 3,
+              "height": 3,
+              "interpolation": "WICBitmapInterpolationModeFant",
+              "interpolationValue": 3
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapSource.GetSize",
+            "parameters": {
+              "object": "scaler"
+            },
+            "hresult": "0x00000000",
+            "result": [
+              3,
+              3
+            ]
+          },
+          {
+            "api": "IWICBitmapSource.GetPixelFormat",
+            "parameters": {
+              "object": "scaler"
+            },
+            "hresult": "0x00000000",
+            "result": "6fddc324-4e03-4bfe-b185-3d77768dc90f"
+          },
+          {
+            "api": "IWICBitmapSource.CopyPixels",
+            "parameters": {
+              "object": "scaler",
+              "rect": null,
+              "stride": 12,
+              "bufferBytes": 36
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "scaler"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "scale-factory"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "image-factory"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "CoUninitialize",
+            "parameters": {}
+          }
+        ]
+      },
+      "trace": [
+        {
+          "api": "CoCreateInstance",
+          "parameters": {
+            "object": "image-factory",
+            "clsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+            "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+            "CLSCTX_INPROC_SERVER": 1
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICImagingFactory.CreateBitmapFromMemory",
+          "parameters": {
+            "width": 7,
+            "height": 7,
+            "pixelFormat": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+            "stride": 28,
+            "bufferBytes": 196
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapSource.GetSize",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "hresult": "0x00000000",
+          "result": [
+            7,
+            7
+          ]
+        },
+        {
+          "api": "CoCreateInstance",
+          "parameters": {
+            "object": "scale-factory",
+            "clsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+            "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+            "CLSCTX_INPROC_SERVER": 1
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICImagingFactory.CreateBitmapScaler",
+          "parameters": {},
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapScaler.Initialize",
+          "parameters": {
+            "source": "bitmap",
+            "width": 3,
+            "height": 3,
+            "interpolation": "WICBitmapInterpolationModeFant",
+            "interpolationValue": 3
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapSource.GetSize",
+          "parameters": {
+            "object": "scaler"
+          },
+          "hresult": "0x00000000",
+          "result": [
+            3,
+            3
+          ]
+        },
+        {
+          "api": "IWICBitmapSource.GetPixelFormat",
+          "parameters": {
+            "object": "scaler"
+          },
+          "hresult": "0x00000000",
+          "result": "6fddc324-4e03-4bfe-b185-3d77768dc90f"
+        },
+        {
+          "api": "IWICBitmapSource.CopyPixels",
+          "parameters": {
+            "object": "scaler",
+            "rect": null,
+            "stride": 12,
+            "bufferBytes": 36
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "scaler"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "scale-factory"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "image-factory"
+          },
+          "remainingReferences": 0
+        }
+      ]
+    },
+    {
+      "id": "constant-integer",
+      "input": {
+        "width": 8,
+        "height": 8,
+        "pixelFormat": "BGRA8",
+        "formula": "all BGRA=(91,202,37,255)",
+        "path": "constant-integer.input.bgra",
+        "byteLength": 256,
+        "sha256": "789163df5976fc59d2c26f74322a784298216ff1d5bee7453666b4e421276db1"
+      },
+      "plan": {
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 8,
+          "height": 8
+        },
+        "requestedSize": 2,
+        "clampedSize": 2,
+        "width": 2,
+        "height": 2,
+        "resampled": true
+      },
+      "output": {
+        "path": "constant-integer.output.bgra",
+        "byteLength": 16,
+        "sha256": "d6df38add669acaa47768ce107d2c5f2da1330b17633aaf3cde05c9e5ee06342"
+      },
+      "beforeForcedAlpha": {
+        "path": "constant-integer.pre-opaque.bgra",
+        "byteLength": 16,
+        "sha256": "d6df38add669acaa47768ce107d2c5f2da1330b17633aaf3cde05c9e5ee06342"
+      },
+      "independentAnalyticCheck": {
+        "kind": "constant",
+        "passed": true,
+        "pixel": [
+          91,
+          202,
+          37,
+          255
+        ],
+        "pixelCount": 4
+      },
+      "factory1Equality": {
+        "passed": true,
+        "outputSha256": "d6df38add669acaa47768ce107d2c5f2da1330b17633aaf3cde05c9e5ee06342",
+        "preOpaqueSha256": "d6df38add669acaa47768ce107d2c5f2da1330b17633aaf3cde05c9e5ee06342",
+        "trace": [
+          {
+            "api": "CoInitializeEx",
+            "parameters": {
+              "COINIT_MULTITHREADED": 0
+            },
+            "hresult": "0x00000001"
+          },
+          {
+            "api": "CoCreateInstance",
+            "parameters": {
+              "object": "image-factory",
+              "clsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+              "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+              "CLSCTX_INPROC_SERVER": 1
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICImagingFactory.CreateBitmapFromMemory",
+            "parameters": {
+              "width": 8,
+              "height": 8,
+              "pixelFormat": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+              "stride": 32,
+              "bufferBytes": 256
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapSource.GetSize",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "hresult": "0x00000000",
+            "result": [
+              8,
+              8
+            ]
+          },
+          {
+            "api": "CoCreateInstance",
+            "parameters": {
+              "object": "scale-factory",
+              "clsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+              "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+              "CLSCTX_INPROC_SERVER": 1
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICImagingFactory.CreateBitmapScaler",
+            "parameters": {},
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapScaler.Initialize",
+            "parameters": {
+              "source": "bitmap",
+              "width": 2,
+              "height": 2,
+              "interpolation": "WICBitmapInterpolationModeFant",
+              "interpolationValue": 3
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapSource.GetSize",
+            "parameters": {
+              "object": "scaler"
+            },
+            "hresult": "0x00000000",
+            "result": [
+              2,
+              2
+            ]
+          },
+          {
+            "api": "IWICBitmapSource.GetPixelFormat",
+            "parameters": {
+              "object": "scaler"
+            },
+            "hresult": "0x00000000",
+            "result": "6fddc324-4e03-4bfe-b185-3d77768dc90f"
+          },
+          {
+            "api": "IWICBitmapSource.CopyPixels",
+            "parameters": {
+              "object": "scaler",
+              "rect": null,
+              "stride": 8,
+              "bufferBytes": 16
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "scaler"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "scale-factory"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "image-factory"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "CoUninitialize",
+            "parameters": {}
+          }
+        ]
+      },
+      "trace": [
+        {
+          "api": "CoCreateInstance",
+          "parameters": {
+            "object": "image-factory",
+            "clsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+            "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+            "CLSCTX_INPROC_SERVER": 1
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICImagingFactory.CreateBitmapFromMemory",
+          "parameters": {
+            "width": 8,
+            "height": 8,
+            "pixelFormat": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+            "stride": 32,
+            "bufferBytes": 256
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapSource.GetSize",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "hresult": "0x00000000",
+          "result": [
+            8,
+            8
+          ]
+        },
+        {
+          "api": "CoCreateInstance",
+          "parameters": {
+            "object": "scale-factory",
+            "clsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+            "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+            "CLSCTX_INPROC_SERVER": 1
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICImagingFactory.CreateBitmapScaler",
+          "parameters": {},
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapScaler.Initialize",
+          "parameters": {
+            "source": "bitmap",
+            "width": 2,
+            "height": 2,
+            "interpolation": "WICBitmapInterpolationModeFant",
+            "interpolationValue": 3
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapSource.GetSize",
+          "parameters": {
+            "object": "scaler"
+          },
+          "hresult": "0x00000000",
+          "result": [
+            2,
+            2
+          ]
+        },
+        {
+          "api": "IWICBitmapSource.GetPixelFormat",
+          "parameters": {
+            "object": "scaler"
+          },
+          "hresult": "0x00000000",
+          "result": "6fddc324-4e03-4bfe-b185-3d77768dc90f"
+        },
+        {
+          "api": "IWICBitmapSource.CopyPixels",
+          "parameters": {
+            "object": "scaler",
+            "rect": null,
+            "stride": 8,
+            "bufferBytes": 16
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "scaler"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "scale-factory"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "image-factory"
+          },
+          "remainingReferences": 0
+        }
+      ]
+    },
+    {
+      "id": "impulse-center",
+      "input": {
+        "width": 7,
+        "height": 7,
+        "pixelFormat": "BGRA8",
+        "formula": "B=255 only at(3,3), G=R=0,A=255",
+        "path": "impulse-center.input.bgra",
+        "byteLength": 196,
+        "sha256": "ecbba9256e183539ec42889d7fe299e83758d319f7c438cb520445c047fe58a7"
+      },
+      "plan": {
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 7,
+          "height": 7
+        },
+        "requestedSize": 3,
+        "clampedSize": 3,
+        "width": 3,
+        "height": 3,
+        "resampled": true
+      },
+      "output": {
+        "path": "impulse-center.output.bgra",
+        "byteLength": 36,
+        "sha256": "e049d55f7eb9436f0e64becb3900aac2eacc4826dbc261892e47a5e433b62f5f"
+      },
+      "beforeForcedAlpha": {
+        "path": "impulse-center.pre-opaque.bgra",
+        "byteLength": 36,
+        "sha256": "e049d55f7eb9436f0e64becb3900aac2eacc4826dbc261892e47a5e433b62f5f"
+      },
+      "independentAnalyticCheck": null,
+      "factory1Equality": {
+        "passed": true,
+        "outputSha256": "e049d55f7eb9436f0e64becb3900aac2eacc4826dbc261892e47a5e433b62f5f",
+        "preOpaqueSha256": "e049d55f7eb9436f0e64becb3900aac2eacc4826dbc261892e47a5e433b62f5f",
+        "trace": [
+          {
+            "api": "CoInitializeEx",
+            "parameters": {
+              "COINIT_MULTITHREADED": 0
+            },
+            "hresult": "0x00000001"
+          },
+          {
+            "api": "CoCreateInstance",
+            "parameters": {
+              "object": "image-factory",
+              "clsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+              "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+              "CLSCTX_INPROC_SERVER": 1
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICImagingFactory.CreateBitmapFromMemory",
+            "parameters": {
+              "width": 7,
+              "height": 7,
+              "pixelFormat": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+              "stride": 28,
+              "bufferBytes": 196
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapSource.GetSize",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "hresult": "0x00000000",
+            "result": [
+              7,
+              7
+            ]
+          },
+          {
+            "api": "CoCreateInstance",
+            "parameters": {
+              "object": "scale-factory",
+              "clsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+              "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+              "CLSCTX_INPROC_SERVER": 1
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICImagingFactory.CreateBitmapScaler",
+            "parameters": {},
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapScaler.Initialize",
+            "parameters": {
+              "source": "bitmap",
+              "width": 3,
+              "height": 3,
+              "interpolation": "WICBitmapInterpolationModeFant",
+              "interpolationValue": 3
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapSource.GetSize",
+            "parameters": {
+              "object": "scaler"
+            },
+            "hresult": "0x00000000",
+            "result": [
+              3,
+              3
+            ]
+          },
+          {
+            "api": "IWICBitmapSource.GetPixelFormat",
+            "parameters": {
+              "object": "scaler"
+            },
+            "hresult": "0x00000000",
+            "result": "6fddc324-4e03-4bfe-b185-3d77768dc90f"
+          },
+          {
+            "api": "IWICBitmapSource.CopyPixels",
+            "parameters": {
+              "object": "scaler",
+              "rect": null,
+              "stride": 12,
+              "bufferBytes": 36
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "scaler"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "scale-factory"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "image-factory"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "CoUninitialize",
+            "parameters": {}
+          }
+        ]
+      },
+      "trace": [
+        {
+          "api": "CoCreateInstance",
+          "parameters": {
+            "object": "image-factory",
+            "clsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+            "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+            "CLSCTX_INPROC_SERVER": 1
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICImagingFactory.CreateBitmapFromMemory",
+          "parameters": {
+            "width": 7,
+            "height": 7,
+            "pixelFormat": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+            "stride": 28,
+            "bufferBytes": 196
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapSource.GetSize",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "hresult": "0x00000000",
+          "result": [
+            7,
+            7
+          ]
+        },
+        {
+          "api": "CoCreateInstance",
+          "parameters": {
+            "object": "scale-factory",
+            "clsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+            "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+            "CLSCTX_INPROC_SERVER": 1
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICImagingFactory.CreateBitmapScaler",
+          "parameters": {},
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapScaler.Initialize",
+          "parameters": {
+            "source": "bitmap",
+            "width": 3,
+            "height": 3,
+            "interpolation": "WICBitmapInterpolationModeFant",
+            "interpolationValue": 3
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapSource.GetSize",
+          "parameters": {
+            "object": "scaler"
+          },
+          "hresult": "0x00000000",
+          "result": [
+            3,
+            3
+          ]
+        },
+        {
+          "api": "IWICBitmapSource.GetPixelFormat",
+          "parameters": {
+            "object": "scaler"
+          },
+          "hresult": "0x00000000",
+          "result": "6fddc324-4e03-4bfe-b185-3d77768dc90f"
+        },
+        {
+          "api": "IWICBitmapSource.CopyPixels",
+          "parameters": {
+            "object": "scaler",
+            "rect": null,
+            "stride": 12,
+            "bufferBytes": 36
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "scaler"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "scale-factory"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "image-factory"
+          },
+          "remainingReferences": 0
+        }
+      ]
+    },
+    {
+      "id": "impulse-corner",
+      "input": {
+        "width": 7,
+        "height": 7,
+        "pixelFormat": "BGRA8",
+        "formula": "R=255 only at(0,0), B=G=0,A=255",
+        "path": "impulse-corner.input.bgra",
+        "byteLength": 196,
+        "sha256": "02c6f990260cfddb674d3ba0b3364836bceb6785e7b962d7bfd71a865f291c91"
+      },
+      "plan": {
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 7,
+          "height": 7
+        },
+        "requestedSize": 3,
+        "clampedSize": 3,
+        "width": 3,
+        "height": 3,
+        "resampled": true
+      },
+      "output": {
+        "path": "impulse-corner.output.bgra",
+        "byteLength": 36,
+        "sha256": "25e60f8b58aa4d6335547ac632c6d688e4c11d02d8ceecc605ab3d16d17a18c9"
+      },
+      "beforeForcedAlpha": {
+        "path": "impulse-corner.pre-opaque.bgra",
+        "byteLength": 36,
+        "sha256": "25e60f8b58aa4d6335547ac632c6d688e4c11d02d8ceecc605ab3d16d17a18c9"
+      },
+      "independentAnalyticCheck": null,
+      "factory1Equality": {
+        "passed": true,
+        "outputSha256": "25e60f8b58aa4d6335547ac632c6d688e4c11d02d8ceecc605ab3d16d17a18c9",
+        "preOpaqueSha256": "25e60f8b58aa4d6335547ac632c6d688e4c11d02d8ceecc605ab3d16d17a18c9",
+        "trace": [
+          {
+            "api": "CoInitializeEx",
+            "parameters": {
+              "COINIT_MULTITHREADED": 0
+            },
+            "hresult": "0x00000001"
+          },
+          {
+            "api": "CoCreateInstance",
+            "parameters": {
+              "object": "image-factory",
+              "clsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+              "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+              "CLSCTX_INPROC_SERVER": 1
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICImagingFactory.CreateBitmapFromMemory",
+            "parameters": {
+              "width": 7,
+              "height": 7,
+              "pixelFormat": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+              "stride": 28,
+              "bufferBytes": 196
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapSource.GetSize",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "hresult": "0x00000000",
+            "result": [
+              7,
+              7
+            ]
+          },
+          {
+            "api": "CoCreateInstance",
+            "parameters": {
+              "object": "scale-factory",
+              "clsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+              "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+              "CLSCTX_INPROC_SERVER": 1
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICImagingFactory.CreateBitmapScaler",
+            "parameters": {},
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapScaler.Initialize",
+            "parameters": {
+              "source": "bitmap",
+              "width": 3,
+              "height": 3,
+              "interpolation": "WICBitmapInterpolationModeFant",
+              "interpolationValue": 3
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapSource.GetSize",
+            "parameters": {
+              "object": "scaler"
+            },
+            "hresult": "0x00000000",
+            "result": [
+              3,
+              3
+            ]
+          },
+          {
+            "api": "IWICBitmapSource.GetPixelFormat",
+            "parameters": {
+              "object": "scaler"
+            },
+            "hresult": "0x00000000",
+            "result": "6fddc324-4e03-4bfe-b185-3d77768dc90f"
+          },
+          {
+            "api": "IWICBitmapSource.CopyPixels",
+            "parameters": {
+              "object": "scaler",
+              "rect": null,
+              "stride": 12,
+              "bufferBytes": 36
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "scaler"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "scale-factory"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "image-factory"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "CoUninitialize",
+            "parameters": {}
+          }
+        ]
+      },
+      "trace": [
+        {
+          "api": "CoCreateInstance",
+          "parameters": {
+            "object": "image-factory",
+            "clsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+            "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+            "CLSCTX_INPROC_SERVER": 1
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICImagingFactory.CreateBitmapFromMemory",
+          "parameters": {
+            "width": 7,
+            "height": 7,
+            "pixelFormat": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+            "stride": 28,
+            "bufferBytes": 196
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapSource.GetSize",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "hresult": "0x00000000",
+          "result": [
+            7,
+            7
+          ]
+        },
+        {
+          "api": "CoCreateInstance",
+          "parameters": {
+            "object": "scale-factory",
+            "clsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+            "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+            "CLSCTX_INPROC_SERVER": 1
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICImagingFactory.CreateBitmapScaler",
+          "parameters": {},
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapScaler.Initialize",
+          "parameters": {
+            "source": "bitmap",
+            "width": 3,
+            "height": 3,
+            "interpolation": "WICBitmapInterpolationModeFant",
+            "interpolationValue": 3
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapSource.GetSize",
+          "parameters": {
+            "object": "scaler"
+          },
+          "hresult": "0x00000000",
+          "result": [
+            3,
+            3
+          ]
+        },
+        {
+          "api": "IWICBitmapSource.GetPixelFormat",
+          "parameters": {
+            "object": "scaler"
+          },
+          "hresult": "0x00000000",
+          "result": "6fddc324-4e03-4bfe-b185-3d77768dc90f"
+        },
+        {
+          "api": "IWICBitmapSource.CopyPixels",
+          "parameters": {
+            "object": "scaler",
+            "rect": null,
+            "stride": 12,
+            "bufferBytes": 36
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "scaler"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "scale-factory"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "image-factory"
+          },
+          "remainingReferences": 0
+        }
+      ]
+    },
+    {
+      "id": "checker-even-noninteger",
+      "input": {
+        "width": 8,
+        "height": 8,
+        "pixelFormat": "BGRA8",
+        "formula": "RGB=255 if (x+y)%2 else0,A=255",
+        "path": "checker-even-noninteger.input.bgra",
+        "byteLength": 256,
+        "sha256": "3281c54ad8ad2f9305c8847637abbbf68ebfb479202e4399ca09f3ca3bc745da"
+      },
+      "plan": {
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 8,
+          "height": 8
+        },
+        "requestedSize": 3,
+        "clampedSize": 3,
+        "width": 3,
+        "height": 3,
+        "resampled": true
+      },
+      "output": {
+        "path": "checker-even-noninteger.output.bgra",
+        "byteLength": 36,
+        "sha256": "b39a2514e29a8d2b419dffd8f9a46233ec590a11d842eba331fb6cd342215bde"
+      },
+      "beforeForcedAlpha": {
+        "path": "checker-even-noninteger.pre-opaque.bgra",
+        "byteLength": 36,
+        "sha256": "b39a2514e29a8d2b419dffd8f9a46233ec590a11d842eba331fb6cd342215bde"
+      },
+      "independentAnalyticCheck": null,
+      "factory1Equality": {
+        "passed": true,
+        "outputSha256": "b39a2514e29a8d2b419dffd8f9a46233ec590a11d842eba331fb6cd342215bde",
+        "preOpaqueSha256": "b39a2514e29a8d2b419dffd8f9a46233ec590a11d842eba331fb6cd342215bde",
+        "trace": [
+          {
+            "api": "CoInitializeEx",
+            "parameters": {
+              "COINIT_MULTITHREADED": 0
+            },
+            "hresult": "0x00000001"
+          },
+          {
+            "api": "CoCreateInstance",
+            "parameters": {
+              "object": "image-factory",
+              "clsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+              "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+              "CLSCTX_INPROC_SERVER": 1
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICImagingFactory.CreateBitmapFromMemory",
+            "parameters": {
+              "width": 8,
+              "height": 8,
+              "pixelFormat": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+              "stride": 32,
+              "bufferBytes": 256
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapSource.GetSize",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "hresult": "0x00000000",
+            "result": [
+              8,
+              8
+            ]
+          },
+          {
+            "api": "CoCreateInstance",
+            "parameters": {
+              "object": "scale-factory",
+              "clsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+              "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+              "CLSCTX_INPROC_SERVER": 1
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICImagingFactory.CreateBitmapScaler",
+            "parameters": {},
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapScaler.Initialize",
+            "parameters": {
+              "source": "bitmap",
+              "width": 3,
+              "height": 3,
+              "interpolation": "WICBitmapInterpolationModeFant",
+              "interpolationValue": 3
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapSource.GetSize",
+            "parameters": {
+              "object": "scaler"
+            },
+            "hresult": "0x00000000",
+            "result": [
+              3,
+              3
+            ]
+          },
+          {
+            "api": "IWICBitmapSource.GetPixelFormat",
+            "parameters": {
+              "object": "scaler"
+            },
+            "hresult": "0x00000000",
+            "result": "6fddc324-4e03-4bfe-b185-3d77768dc90f"
+          },
+          {
+            "api": "IWICBitmapSource.CopyPixels",
+            "parameters": {
+              "object": "scaler",
+              "rect": null,
+              "stride": 12,
+              "bufferBytes": 36
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "scaler"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "scale-factory"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "image-factory"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "CoUninitialize",
+            "parameters": {}
+          }
+        ]
+      },
+      "trace": [
+        {
+          "api": "CoCreateInstance",
+          "parameters": {
+            "object": "image-factory",
+            "clsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+            "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+            "CLSCTX_INPROC_SERVER": 1
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICImagingFactory.CreateBitmapFromMemory",
+          "parameters": {
+            "width": 8,
+            "height": 8,
+            "pixelFormat": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+            "stride": 32,
+            "bufferBytes": 256
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapSource.GetSize",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "hresult": "0x00000000",
+          "result": [
+            8,
+            8
+          ]
+        },
+        {
+          "api": "CoCreateInstance",
+          "parameters": {
+            "object": "scale-factory",
+            "clsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+            "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+            "CLSCTX_INPROC_SERVER": 1
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICImagingFactory.CreateBitmapScaler",
+          "parameters": {},
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapScaler.Initialize",
+          "parameters": {
+            "source": "bitmap",
+            "width": 3,
+            "height": 3,
+            "interpolation": "WICBitmapInterpolationModeFant",
+            "interpolationValue": 3
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapSource.GetSize",
+          "parameters": {
+            "object": "scaler"
+          },
+          "hresult": "0x00000000",
+          "result": [
+            3,
+            3
+          ]
+        },
+        {
+          "api": "IWICBitmapSource.GetPixelFormat",
+          "parameters": {
+            "object": "scaler"
+          },
+          "hresult": "0x00000000",
+          "result": "6fddc324-4e03-4bfe-b185-3d77768dc90f"
+        },
+        {
+          "api": "IWICBitmapSource.CopyPixels",
+          "parameters": {
+            "object": "scaler",
+            "rect": null,
+            "stride": 12,
+            "bufferBytes": 36
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "scaler"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "scale-factory"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "image-factory"
+          },
+          "remainingReferences": 0
+        }
+      ]
+    },
+    {
+      "id": "checker-odd-noninteger",
+      "input": {
+        "width": 9,
+        "height": 9,
+        "pixelFormat": "BGRA8",
+        "formula": "RGB=255 if (x+y)%2 else0,A=255",
+        "path": "checker-odd-noninteger.input.bgra",
+        "byteLength": 324,
+        "sha256": "94b801370053488269827c8cc8c02209963a2dd66bef3757eb19445a4709151a"
+      },
+      "plan": {
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 9,
+          "height": 9
+        },
+        "requestedSize": 4,
+        "clampedSize": 4,
+        "width": 4,
+        "height": 4,
+        "resampled": true
+      },
+      "output": {
+        "path": "checker-odd-noninteger.output.bgra",
+        "byteLength": 64,
+        "sha256": "f41a6356a0d295df51d4d1c6c1c59a55a519ab6339f488c32e1d5a6b7726f43a"
+      },
+      "beforeForcedAlpha": {
+        "path": "checker-odd-noninteger.pre-opaque.bgra",
+        "byteLength": 64,
+        "sha256": "f41a6356a0d295df51d4d1c6c1c59a55a519ab6339f488c32e1d5a6b7726f43a"
+      },
+      "independentAnalyticCheck": null,
+      "factory1Equality": {
+        "passed": true,
+        "outputSha256": "f41a6356a0d295df51d4d1c6c1c59a55a519ab6339f488c32e1d5a6b7726f43a",
+        "preOpaqueSha256": "f41a6356a0d295df51d4d1c6c1c59a55a519ab6339f488c32e1d5a6b7726f43a",
+        "trace": [
+          {
+            "api": "CoInitializeEx",
+            "parameters": {
+              "COINIT_MULTITHREADED": 0
+            },
+            "hresult": "0x00000001"
+          },
+          {
+            "api": "CoCreateInstance",
+            "parameters": {
+              "object": "image-factory",
+              "clsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+              "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+              "CLSCTX_INPROC_SERVER": 1
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICImagingFactory.CreateBitmapFromMemory",
+            "parameters": {
+              "width": 9,
+              "height": 9,
+              "pixelFormat": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+              "stride": 36,
+              "bufferBytes": 324
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapSource.GetSize",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "hresult": "0x00000000",
+            "result": [
+              9,
+              9
+            ]
+          },
+          {
+            "api": "CoCreateInstance",
+            "parameters": {
+              "object": "scale-factory",
+              "clsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+              "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+              "CLSCTX_INPROC_SERVER": 1
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICImagingFactory.CreateBitmapScaler",
+            "parameters": {},
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapScaler.Initialize",
+            "parameters": {
+              "source": "bitmap",
+              "width": 4,
+              "height": 4,
+              "interpolation": "WICBitmapInterpolationModeFant",
+              "interpolationValue": 3
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapSource.GetSize",
+            "parameters": {
+              "object": "scaler"
+            },
+            "hresult": "0x00000000",
+            "result": [
+              4,
+              4
+            ]
+          },
+          {
+            "api": "IWICBitmapSource.GetPixelFormat",
+            "parameters": {
+              "object": "scaler"
+            },
+            "hresult": "0x00000000",
+            "result": "6fddc324-4e03-4bfe-b185-3d77768dc90f"
+          },
+          {
+            "api": "IWICBitmapSource.CopyPixels",
+            "parameters": {
+              "object": "scaler",
+              "rect": null,
+              "stride": 16,
+              "bufferBytes": 64
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "scaler"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "scale-factory"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "image-factory"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "CoUninitialize",
+            "parameters": {}
+          }
+        ]
+      },
+      "trace": [
+        {
+          "api": "CoCreateInstance",
+          "parameters": {
+            "object": "image-factory",
+            "clsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+            "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+            "CLSCTX_INPROC_SERVER": 1
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICImagingFactory.CreateBitmapFromMemory",
+          "parameters": {
+            "width": 9,
+            "height": 9,
+            "pixelFormat": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+            "stride": 36,
+            "bufferBytes": 324
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapSource.GetSize",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "hresult": "0x00000000",
+          "result": [
+            9,
+            9
+          ]
+        },
+        {
+          "api": "CoCreateInstance",
+          "parameters": {
+            "object": "scale-factory",
+            "clsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+            "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+            "CLSCTX_INPROC_SERVER": 1
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICImagingFactory.CreateBitmapScaler",
+          "parameters": {},
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapScaler.Initialize",
+          "parameters": {
+            "source": "bitmap",
+            "width": 4,
+            "height": 4,
+            "interpolation": "WICBitmapInterpolationModeFant",
+            "interpolationValue": 3
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapSource.GetSize",
+          "parameters": {
+            "object": "scaler"
+          },
+          "hresult": "0x00000000",
+          "result": [
+            4,
+            4
+          ]
+        },
+        {
+          "api": "IWICBitmapSource.GetPixelFormat",
+          "parameters": {
+            "object": "scaler"
+          },
+          "hresult": "0x00000000",
+          "result": "6fddc324-4e03-4bfe-b185-3d77768dc90f"
+        },
+        {
+          "api": "IWICBitmapSource.CopyPixels",
+          "parameters": {
+            "object": "scaler",
+            "rect": null,
+            "stride": 16,
+            "bufferBytes": 64
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "scaler"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "scale-factory"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "image-factory"
+          },
+          "remainingReferences": 0
+        }
+      ]
+    },
+    {
+      "id": "ramp-rgb",
+      "input": {
+        "width": 7,
+        "height": 7,
+        "pixelFormat": "BGRA8",
+        "formula": "BGRA=(31*x,27*y,17*x+11*y,255)",
+        "path": "ramp-rgb.input.bgra",
+        "byteLength": 196,
+        "sha256": "a8b5a03083a9871ee78b980a2191b2d541f91cd0dcfac759f7f36d8c2ea53008"
+      },
+      "plan": {
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 7,
+          "height": 7
+        },
+        "requestedSize": 3,
+        "clampedSize": 3,
+        "width": 3,
+        "height": 3,
+        "resampled": true
+      },
+      "output": {
+        "path": "ramp-rgb.output.bgra",
+        "byteLength": 36,
+        "sha256": "6d1c0b1e9902ec2b79a712742e83e4193f9038194c8360bfeb00039e44db82d3"
+      },
+      "beforeForcedAlpha": {
+        "path": "ramp-rgb.pre-opaque.bgra",
+        "byteLength": 36,
+        "sha256": "6d1c0b1e9902ec2b79a712742e83e4193f9038194c8360bfeb00039e44db82d3"
+      },
+      "independentAnalyticCheck": null,
+      "factory1Equality": {
+        "passed": true,
+        "outputSha256": "6d1c0b1e9902ec2b79a712742e83e4193f9038194c8360bfeb00039e44db82d3",
+        "preOpaqueSha256": "6d1c0b1e9902ec2b79a712742e83e4193f9038194c8360bfeb00039e44db82d3",
+        "trace": [
+          {
+            "api": "CoInitializeEx",
+            "parameters": {
+              "COINIT_MULTITHREADED": 0
+            },
+            "hresult": "0x00000001"
+          },
+          {
+            "api": "CoCreateInstance",
+            "parameters": {
+              "object": "image-factory",
+              "clsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+              "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+              "CLSCTX_INPROC_SERVER": 1
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICImagingFactory.CreateBitmapFromMemory",
+            "parameters": {
+              "width": 7,
+              "height": 7,
+              "pixelFormat": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+              "stride": 28,
+              "bufferBytes": 196
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapSource.GetSize",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "hresult": "0x00000000",
+            "result": [
+              7,
+              7
+            ]
+          },
+          {
+            "api": "CoCreateInstance",
+            "parameters": {
+              "object": "scale-factory",
+              "clsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+              "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+              "CLSCTX_INPROC_SERVER": 1
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICImagingFactory.CreateBitmapScaler",
+            "parameters": {},
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapScaler.Initialize",
+            "parameters": {
+              "source": "bitmap",
+              "width": 3,
+              "height": 3,
+              "interpolation": "WICBitmapInterpolationModeFant",
+              "interpolationValue": 3
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapSource.GetSize",
+            "parameters": {
+              "object": "scaler"
+            },
+            "hresult": "0x00000000",
+            "result": [
+              3,
+              3
+            ]
+          },
+          {
+            "api": "IWICBitmapSource.GetPixelFormat",
+            "parameters": {
+              "object": "scaler"
+            },
+            "hresult": "0x00000000",
+            "result": "6fddc324-4e03-4bfe-b185-3d77768dc90f"
+          },
+          {
+            "api": "IWICBitmapSource.CopyPixels",
+            "parameters": {
+              "object": "scaler",
+              "rect": null,
+              "stride": 12,
+              "bufferBytes": 36
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "scaler"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "scale-factory"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "image-factory"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "CoUninitialize",
+            "parameters": {}
+          }
+        ]
+      },
+      "trace": [
+        {
+          "api": "CoCreateInstance",
+          "parameters": {
+            "object": "image-factory",
+            "clsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+            "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+            "CLSCTX_INPROC_SERVER": 1
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICImagingFactory.CreateBitmapFromMemory",
+          "parameters": {
+            "width": 7,
+            "height": 7,
+            "pixelFormat": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+            "stride": 28,
+            "bufferBytes": 196
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapSource.GetSize",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "hresult": "0x00000000",
+          "result": [
+            7,
+            7
+          ]
+        },
+        {
+          "api": "CoCreateInstance",
+          "parameters": {
+            "object": "scale-factory",
+            "clsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+            "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+            "CLSCTX_INPROC_SERVER": 1
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICImagingFactory.CreateBitmapScaler",
+          "parameters": {},
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapScaler.Initialize",
+          "parameters": {
+            "source": "bitmap",
+            "width": 3,
+            "height": 3,
+            "interpolation": "WICBitmapInterpolationModeFant",
+            "interpolationValue": 3
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapSource.GetSize",
+          "parameters": {
+            "object": "scaler"
+          },
+          "hresult": "0x00000000",
+          "result": [
+            3,
+            3
+          ]
+        },
+        {
+          "api": "IWICBitmapSource.GetPixelFormat",
+          "parameters": {
+            "object": "scaler"
+          },
+          "hresult": "0x00000000",
+          "result": "6fddc324-4e03-4bfe-b185-3d77768dc90f"
+        },
+        {
+          "api": "IWICBitmapSource.CopyPixels",
+          "parameters": {
+            "object": "scaler",
+            "rect": null,
+            "stride": 12,
+            "bufferBytes": 36
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "scaler"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "scale-factory"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "image-factory"
+          },
+          "remainingReferences": 0
+        }
+      ]
+    },
+    {
+      "id": "ramp-alpha",
+      "input": {
+        "width": 5,
+        "height": 5,
+        "pixelFormat": "BGRA8",
+        "formula": "BGRA=(51*x,51*y,29*(x+y),10*(x+5*y))",
+        "path": "ramp-alpha.input.bgra",
+        "byteLength": 100,
+        "sha256": "56cc3437cb5eef6d739cdeeffee0f44fa23c773269ac0869b552bcc65879537d"
+      },
+      "plan": {
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 5,
+          "height": 5
+        },
+        "requestedSize": 2,
+        "clampedSize": 2,
+        "width": 2,
+        "height": 2,
+        "resampled": true
+      },
+      "output": {
+        "path": "ramp-alpha.output.bgra",
+        "byteLength": 16,
+        "sha256": "c693d0c3aa988a127ced45ab30892d2224079cde22e994c08ee4a33a9d0af6a5"
+      },
+      "beforeForcedAlpha": {
+        "path": "ramp-alpha.pre-opaque.bgra",
+        "byteLength": 16,
+        "sha256": "b7bc0ee32df3f1c92af8778825284fb24a2e975df291f4d837f1b451000c770b"
+      },
+      "independentAnalyticCheck": null,
+      "factory1Equality": {
+        "passed": true,
+        "outputSha256": "c693d0c3aa988a127ced45ab30892d2224079cde22e994c08ee4a33a9d0af6a5",
+        "preOpaqueSha256": "b7bc0ee32df3f1c92af8778825284fb24a2e975df291f4d837f1b451000c770b",
+        "trace": [
+          {
+            "api": "CoInitializeEx",
+            "parameters": {
+              "COINIT_MULTITHREADED": 0
+            },
+            "hresult": "0x00000001"
+          },
+          {
+            "api": "CoCreateInstance",
+            "parameters": {
+              "object": "image-factory",
+              "clsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+              "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+              "CLSCTX_INPROC_SERVER": 1
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICImagingFactory.CreateBitmapFromMemory",
+            "parameters": {
+              "width": 5,
+              "height": 5,
+              "pixelFormat": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+              "stride": 20,
+              "bufferBytes": 100
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapSource.GetSize",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "hresult": "0x00000000",
+            "result": [
+              5,
+              5
+            ]
+          },
+          {
+            "api": "CoCreateInstance",
+            "parameters": {
+              "object": "scale-factory",
+              "clsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+              "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+              "CLSCTX_INPROC_SERVER": 1
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICImagingFactory.CreateBitmapScaler",
+            "parameters": {},
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapScaler.Initialize",
+            "parameters": {
+              "source": "bitmap",
+              "width": 2,
+              "height": 2,
+              "interpolation": "WICBitmapInterpolationModeFant",
+              "interpolationValue": 3
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapSource.GetSize",
+            "parameters": {
+              "object": "scaler"
+            },
+            "hresult": "0x00000000",
+            "result": [
+              2,
+              2
+            ]
+          },
+          {
+            "api": "IWICBitmapSource.GetPixelFormat",
+            "parameters": {
+              "object": "scaler"
+            },
+            "hresult": "0x00000000",
+            "result": "6fddc324-4e03-4bfe-b185-3d77768dc90f"
+          },
+          {
+            "api": "IWICBitmapSource.CopyPixels",
+            "parameters": {
+              "object": "scaler",
+              "rect": null,
+              "stride": 8,
+              "bufferBytes": 16
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "scaler"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "scale-factory"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "image-factory"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "CoUninitialize",
+            "parameters": {}
+          }
+        ]
+      },
+      "trace": [
+        {
+          "api": "CoCreateInstance",
+          "parameters": {
+            "object": "image-factory",
+            "clsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+            "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+            "CLSCTX_INPROC_SERVER": 1
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICImagingFactory.CreateBitmapFromMemory",
+          "parameters": {
+            "width": 5,
+            "height": 5,
+            "pixelFormat": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+            "stride": 20,
+            "bufferBytes": 100
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapSource.GetSize",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "hresult": "0x00000000",
+          "result": [
+            5,
+            5
+          ]
+        },
+        {
+          "api": "CoCreateInstance",
+          "parameters": {
+            "object": "scale-factory",
+            "clsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+            "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+            "CLSCTX_INPROC_SERVER": 1
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICImagingFactory.CreateBitmapScaler",
+          "parameters": {},
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapScaler.Initialize",
+          "parameters": {
+            "source": "bitmap",
+            "width": 2,
+            "height": 2,
+            "interpolation": "WICBitmapInterpolationModeFant",
+            "interpolationValue": 3
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapSource.GetSize",
+          "parameters": {
+            "object": "scaler"
+          },
+          "hresult": "0x00000000",
+          "result": [
+            2,
+            2
+          ]
+        },
+        {
+          "api": "IWICBitmapSource.GetPixelFormat",
+          "parameters": {
+            "object": "scaler"
+          },
+          "hresult": "0x00000000",
+          "result": "6fddc324-4e03-4bfe-b185-3d77768dc90f"
+        },
+        {
+          "api": "IWICBitmapSource.CopyPixels",
+          "parameters": {
+            "object": "scaler",
+            "rect": null,
+            "stride": 8,
+            "bufferBytes": 16
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "scaler"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "scale-factory"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "image-factory"
+          },
+          "remainingReferences": 0
+        }
+      ]
+    },
+    {
+      "id": "portrait-odd-crop",
+      "input": {
+        "width": 5,
+        "height": 10,
+        "pixelFormat": "BGRA8",
+        "formula": "coordinate grid; 5x10 crop y=floor(5/2)=2,discard extra bottom row",
+        "path": "portrait-odd-crop.input.bgra",
+        "byteLength": 200,
+        "sha256": "ee3ed1f7659509ca3dbbad98b7283eb77f9a52c4df75ad85860834e398cb2d2c"
+      },
+      "plan": {
+        "crop": {
+          "x": 0,
+          "y": 2,
+          "width": 5,
+          "height": 5
+        },
+        "requestedSize": 1024,
+        "clampedSize": 1024,
+        "width": 5,
+        "height": 5,
+        "resampled": false
+      },
+      "output": {
+        "path": "portrait-odd-crop.output.bgra",
+        "byteLength": 100,
+        "sha256": "a73c8351e7f02d6aa2e6ade19213a3d4131343f515f1484e04d047a2c7efd041"
+      },
+      "beforeForcedAlpha": {
+        "path": "portrait-odd-crop.pre-opaque.bgra",
+        "byteLength": 100,
+        "sha256": "a73c8351e7f02d6aa2e6ade19213a3d4131343f515f1484e04d047a2c7efd041"
+      },
+      "independentAnalyticCheck": {
+        "kind": "crop",
+        "passed": true,
+        "expectedSha256": "a73c8351e7f02d6aa2e6ade19213a3d4131343f515f1484e04d047a2c7efd041",
+        "crop": [
+          0,
+          2,
+          5,
+          5
+        ],
+        "forcedAlpha": 255
+      },
+      "factory1Equality": {
+        "passed": true,
+        "outputSha256": "a73c8351e7f02d6aa2e6ade19213a3d4131343f515f1484e04d047a2c7efd041",
+        "preOpaqueSha256": "a73c8351e7f02d6aa2e6ade19213a3d4131343f515f1484e04d047a2c7efd041",
+        "trace": [
+          {
+            "api": "CoInitializeEx",
+            "parameters": {
+              "COINIT_MULTITHREADED": 0
+            },
+            "hresult": "0x00000001"
+          },
+          {
+            "api": "CoCreateInstance",
+            "parameters": {
+              "object": "image-factory",
+              "clsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+              "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+              "CLSCTX_INPROC_SERVER": 1
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICImagingFactory.CreateBitmapFromMemory",
+            "parameters": {
+              "width": 5,
+              "height": 10,
+              "pixelFormat": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+              "stride": 20,
+              "bufferBytes": 200
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapSource.GetSize",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "hresult": "0x00000000",
+            "result": [
+              5,
+              10
+            ]
+          },
+          {
+            "api": "CoCreateInstance",
+            "parameters": {
+              "object": "scale-factory",
+              "clsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+              "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+              "CLSCTX_INPROC_SERVER": 1
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICImagingFactory.CreateBitmapClipper",
+            "parameters": {},
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapClipper.Initialize",
+            "parameters": {
+              "x": 0,
+              "y": 2,
+              "width": 5,
+              "height": 5
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapSource.GetSize",
+            "parameters": {
+              "object": "clipper"
+            },
+            "hresult": "0x00000000",
+            "result": [
+              5,
+              5
+            ]
+          },
+          {
+            "api": "IWICBitmapSource.GetPixelFormat",
+            "parameters": {
+              "object": "clipper"
+            },
+            "hresult": "0x00000000",
+            "result": "6fddc324-4e03-4bfe-b185-3d77768dc90f"
+          },
+          {
+            "api": "IWICBitmapSource.CopyPixels",
+            "parameters": {
+              "object": "clipper",
+              "rect": null,
+              "stride": 20,
+              "bufferBytes": 100
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "clipper"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "scale-factory"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "image-factory"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "CoUninitialize",
+            "parameters": {}
+          }
+        ]
+      },
+      "trace": [
+        {
+          "api": "CoCreateInstance",
+          "parameters": {
+            "object": "image-factory",
+            "clsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+            "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+            "CLSCTX_INPROC_SERVER": 1
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICImagingFactory.CreateBitmapFromMemory",
+          "parameters": {
+            "width": 5,
+            "height": 10,
+            "pixelFormat": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+            "stride": 20,
+            "bufferBytes": 200
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapSource.GetSize",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "hresult": "0x00000000",
+          "result": [
+            5,
+            10
+          ]
+        },
+        {
+          "api": "CoCreateInstance",
+          "parameters": {
+            "object": "scale-factory",
+            "clsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+            "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+            "CLSCTX_INPROC_SERVER": 1
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICImagingFactory.CreateBitmapClipper",
+          "parameters": {},
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapClipper.Initialize",
+          "parameters": {
+            "x": 0,
+            "y": 2,
+            "width": 5,
+            "height": 5
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapSource.GetSize",
+          "parameters": {
+            "object": "clipper"
+          },
+          "hresult": "0x00000000",
+          "result": [
+            5,
+            5
+          ]
+        },
+        {
+          "api": "IWICBitmapSource.GetPixelFormat",
+          "parameters": {
+            "object": "clipper"
+          },
+          "hresult": "0x00000000",
+          "result": "6fddc324-4e03-4bfe-b185-3d77768dc90f"
+        },
+        {
+          "api": "IWICBitmapSource.CopyPixels",
+          "parameters": {
+            "object": "clipper",
+            "rect": null,
+            "stride": 20,
+            "bufferBytes": 100
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "clipper"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "scale-factory"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "image-factory"
+          },
+          "remainingReferences": 0
+        }
+      ]
+    },
+    {
+      "id": "landscape-odd-crop",
+      "input": {
+        "width": 10,
+        "height": 5,
+        "pixelFormat": "BGRA8",
+        "formula": "coordinate grid; 10x5 crop x=floor(5/2)=2,discard extra right column",
+        "path": "landscape-odd-crop.input.bgra",
+        "byteLength": 200,
+        "sha256": "b6447895aa1bf21b5ae2d8b881010e0e3a13c41acdc88444719eef4af31a42f9"
+      },
+      "plan": {
+        "crop": {
+          "x": 2,
+          "y": 0,
+          "width": 5,
+          "height": 5
+        },
+        "requestedSize": 1024,
+        "clampedSize": 1024,
+        "width": 5,
+        "height": 5,
+        "resampled": false
+      },
+      "output": {
+        "path": "landscape-odd-crop.output.bgra",
+        "byteLength": 100,
+        "sha256": "ad6f24dc674957f188cb7ef47f47ad1792b73fef923be213fea4d811868ade25"
+      },
+      "beforeForcedAlpha": {
+        "path": "landscape-odd-crop.pre-opaque.bgra",
+        "byteLength": 100,
+        "sha256": "ad6f24dc674957f188cb7ef47f47ad1792b73fef923be213fea4d811868ade25"
+      },
+      "independentAnalyticCheck": {
+        "kind": "crop",
+        "passed": true,
+        "expectedSha256": "ad6f24dc674957f188cb7ef47f47ad1792b73fef923be213fea4d811868ade25",
+        "crop": [
+          2,
+          0,
+          5,
+          5
+        ],
+        "forcedAlpha": 255
+      },
+      "factory1Equality": {
+        "passed": true,
+        "outputSha256": "ad6f24dc674957f188cb7ef47f47ad1792b73fef923be213fea4d811868ade25",
+        "preOpaqueSha256": "ad6f24dc674957f188cb7ef47f47ad1792b73fef923be213fea4d811868ade25",
+        "trace": [
+          {
+            "api": "CoInitializeEx",
+            "parameters": {
+              "COINIT_MULTITHREADED": 0
+            },
+            "hresult": "0x00000001"
+          },
+          {
+            "api": "CoCreateInstance",
+            "parameters": {
+              "object": "image-factory",
+              "clsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+              "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+              "CLSCTX_INPROC_SERVER": 1
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICImagingFactory.CreateBitmapFromMemory",
+            "parameters": {
+              "width": 10,
+              "height": 5,
+              "pixelFormat": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+              "stride": 40,
+              "bufferBytes": 200
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapSource.GetSize",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "hresult": "0x00000000",
+            "result": [
+              10,
+              5
+            ]
+          },
+          {
+            "api": "CoCreateInstance",
+            "parameters": {
+              "object": "scale-factory",
+              "clsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+              "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+              "CLSCTX_INPROC_SERVER": 1
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICImagingFactory.CreateBitmapClipper",
+            "parameters": {},
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapClipper.Initialize",
+            "parameters": {
+              "x": 2,
+              "y": 0,
+              "width": 5,
+              "height": 5
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapSource.GetSize",
+            "parameters": {
+              "object": "clipper"
+            },
+            "hresult": "0x00000000",
+            "result": [
+              5,
+              5
+            ]
+          },
+          {
+            "api": "IWICBitmapSource.GetPixelFormat",
+            "parameters": {
+              "object": "clipper"
+            },
+            "hresult": "0x00000000",
+            "result": "6fddc324-4e03-4bfe-b185-3d77768dc90f"
+          },
+          {
+            "api": "IWICBitmapSource.CopyPixels",
+            "parameters": {
+              "object": "clipper",
+              "rect": null,
+              "stride": 20,
+              "bufferBytes": 100
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "clipper"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "scale-factory"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "image-factory"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "CoUninitialize",
+            "parameters": {}
+          }
+        ]
+      },
+      "trace": [
+        {
+          "api": "CoCreateInstance",
+          "parameters": {
+            "object": "image-factory",
+            "clsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+            "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+            "CLSCTX_INPROC_SERVER": 1
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICImagingFactory.CreateBitmapFromMemory",
+          "parameters": {
+            "width": 10,
+            "height": 5,
+            "pixelFormat": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+            "stride": 40,
+            "bufferBytes": 200
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapSource.GetSize",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "hresult": "0x00000000",
+          "result": [
+            10,
+            5
+          ]
+        },
+        {
+          "api": "CoCreateInstance",
+          "parameters": {
+            "object": "scale-factory",
+            "clsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+            "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+            "CLSCTX_INPROC_SERVER": 1
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICImagingFactory.CreateBitmapClipper",
+          "parameters": {},
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapClipper.Initialize",
+          "parameters": {
+            "x": 2,
+            "y": 0,
+            "width": 5,
+            "height": 5
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapSource.GetSize",
+          "parameters": {
+            "object": "clipper"
+          },
+          "hresult": "0x00000000",
+          "result": [
+            5,
+            5
+          ]
+        },
+        {
+          "api": "IWICBitmapSource.GetPixelFormat",
+          "parameters": {
+            "object": "clipper"
+          },
+          "hresult": "0x00000000",
+          "result": "6fddc324-4e03-4bfe-b185-3d77768dc90f"
+        },
+        {
+          "api": "IWICBitmapSource.CopyPixels",
+          "parameters": {
+            "object": "clipper",
+            "rect": null,
+            "stride": 20,
+            "bufferBytes": 100
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "clipper"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "scale-factory"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "image-factory"
+          },
+          "remainingReferences": 0
+        }
+      ]
+    },
+    {
+      "id": "portrait-crop-shrink",
+      "input": {
+        "width": 7,
+        "height": 12,
+        "pixelFormat": "BGRA8",
+        "formula": "coordinate grid; crop(0,2,7,7) then7->3",
+        "path": "portrait-crop-shrink.input.bgra",
+        "byteLength": 336,
+        "sha256": "70db3c7dfc24414dd958f307c2497e8dd3e2497ed18c6cc8c66c73861ed87458"
+      },
+      "plan": {
+        "crop": {
+          "x": 0,
+          "y": 2,
+          "width": 7,
+          "height": 7
+        },
+        "requestedSize": 3,
+        "clampedSize": 3,
+        "width": 3,
+        "height": 3,
+        "resampled": true
+      },
+      "output": {
+        "path": "portrait-crop-shrink.output.bgra",
+        "byteLength": 36,
+        "sha256": "4fe5765cb8e8fe30388308a0fa70cc5f8c7633812a4bd7bb736481817d9ba97a"
+      },
+      "beforeForcedAlpha": {
+        "path": "portrait-crop-shrink.pre-opaque.bgra",
+        "byteLength": 36,
+        "sha256": "4fe5765cb8e8fe30388308a0fa70cc5f8c7633812a4bd7bb736481817d9ba97a"
+      },
+      "independentAnalyticCheck": null,
+      "factory1Equality": {
+        "passed": true,
+        "outputSha256": "4fe5765cb8e8fe30388308a0fa70cc5f8c7633812a4bd7bb736481817d9ba97a",
+        "preOpaqueSha256": "4fe5765cb8e8fe30388308a0fa70cc5f8c7633812a4bd7bb736481817d9ba97a",
+        "trace": [
+          {
+            "api": "CoInitializeEx",
+            "parameters": {
+              "COINIT_MULTITHREADED": 0
+            },
+            "hresult": "0x00000001"
+          },
+          {
+            "api": "CoCreateInstance",
+            "parameters": {
+              "object": "image-factory",
+              "clsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+              "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+              "CLSCTX_INPROC_SERVER": 1
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICImagingFactory.CreateBitmapFromMemory",
+            "parameters": {
+              "width": 7,
+              "height": 12,
+              "pixelFormat": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+              "stride": 28,
+              "bufferBytes": 336
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapSource.GetSize",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "hresult": "0x00000000",
+            "result": [
+              7,
+              12
+            ]
+          },
+          {
+            "api": "CoCreateInstance",
+            "parameters": {
+              "object": "scale-factory",
+              "clsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+              "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+              "CLSCTX_INPROC_SERVER": 1
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICImagingFactory.CreateBitmapClipper",
+            "parameters": {},
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapClipper.Initialize",
+            "parameters": {
+              "x": 0,
+              "y": 2,
+              "width": 7,
+              "height": 7
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICImagingFactory.CreateBitmapScaler",
+            "parameters": {},
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapScaler.Initialize",
+            "parameters": {
+              "source": "clipper",
+              "width": 3,
+              "height": 3,
+              "interpolation": "WICBitmapInterpolationModeFant",
+              "interpolationValue": 3
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapSource.GetSize",
+            "parameters": {
+              "object": "scaler"
+            },
+            "hresult": "0x00000000",
+            "result": [
+              3,
+              3
+            ]
+          },
+          {
+            "api": "IWICBitmapSource.GetPixelFormat",
+            "parameters": {
+              "object": "scaler"
+            },
+            "hresult": "0x00000000",
+            "result": "6fddc324-4e03-4bfe-b185-3d77768dc90f"
+          },
+          {
+            "api": "IWICBitmapSource.CopyPixels",
+            "parameters": {
+              "object": "scaler",
+              "rect": null,
+              "stride": 12,
+              "bufferBytes": 36
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "scaler"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "clipper"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "scale-factory"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "image-factory"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "CoUninitialize",
+            "parameters": {}
+          }
+        ]
+      },
+      "trace": [
+        {
+          "api": "CoCreateInstance",
+          "parameters": {
+            "object": "image-factory",
+            "clsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+            "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+            "CLSCTX_INPROC_SERVER": 1
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICImagingFactory.CreateBitmapFromMemory",
+          "parameters": {
+            "width": 7,
+            "height": 12,
+            "pixelFormat": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+            "stride": 28,
+            "bufferBytes": 336
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapSource.GetSize",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "hresult": "0x00000000",
+          "result": [
+            7,
+            12
+          ]
+        },
+        {
+          "api": "CoCreateInstance",
+          "parameters": {
+            "object": "scale-factory",
+            "clsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+            "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+            "CLSCTX_INPROC_SERVER": 1
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICImagingFactory.CreateBitmapClipper",
+          "parameters": {},
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapClipper.Initialize",
+          "parameters": {
+            "x": 0,
+            "y": 2,
+            "width": 7,
+            "height": 7
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICImagingFactory.CreateBitmapScaler",
+          "parameters": {},
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapScaler.Initialize",
+          "parameters": {
+            "source": "clipper",
+            "width": 3,
+            "height": 3,
+            "interpolation": "WICBitmapInterpolationModeFant",
+            "interpolationValue": 3
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapSource.GetSize",
+          "parameters": {
+            "object": "scaler"
+          },
+          "hresult": "0x00000000",
+          "result": [
+            3,
+            3
+          ]
+        },
+        {
+          "api": "IWICBitmapSource.GetPixelFormat",
+          "parameters": {
+            "object": "scaler"
+          },
+          "hresult": "0x00000000",
+          "result": "6fddc324-4e03-4bfe-b185-3d77768dc90f"
+        },
+        {
+          "api": "IWICBitmapSource.CopyPixels",
+          "parameters": {
+            "object": "scaler",
+            "rect": null,
+            "stride": 12,
+            "bufferBytes": 36
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "scaler"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "clipper"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "scale-factory"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "image-factory"
+          },
+          "remainingReferences": 0
+        }
+      ]
+    },
+    {
+      "id": "landscape-crop-shrink",
+      "input": {
+        "width": 12,
+        "height": 7,
+        "pixelFormat": "BGRA8",
+        "formula": "coordinate grid; crop(2,0,7,7) then7->3",
+        "path": "landscape-crop-shrink.input.bgra",
+        "byteLength": 336,
+        "sha256": "d263f7e2ce7ce392815a12000c53c2fc1949ce5ce473a0d1d32e2ed0bea054d4"
+      },
+      "plan": {
+        "crop": {
+          "x": 2,
+          "y": 0,
+          "width": 7,
+          "height": 7
+        },
+        "requestedSize": 3,
+        "clampedSize": 3,
+        "width": 3,
+        "height": 3,
+        "resampled": true
+      },
+      "output": {
+        "path": "landscape-crop-shrink.output.bgra",
+        "byteLength": 36,
+        "sha256": "1ebc257e0e79e9bca690734d39075f02baaf66e491a011b738ea6e5b2fbbbcbd"
+      },
+      "beforeForcedAlpha": {
+        "path": "landscape-crop-shrink.pre-opaque.bgra",
+        "byteLength": 36,
+        "sha256": "1ebc257e0e79e9bca690734d39075f02baaf66e491a011b738ea6e5b2fbbbcbd"
+      },
+      "independentAnalyticCheck": null,
+      "factory1Equality": {
+        "passed": true,
+        "outputSha256": "1ebc257e0e79e9bca690734d39075f02baaf66e491a011b738ea6e5b2fbbbcbd",
+        "preOpaqueSha256": "1ebc257e0e79e9bca690734d39075f02baaf66e491a011b738ea6e5b2fbbbcbd",
+        "trace": [
+          {
+            "api": "CoInitializeEx",
+            "parameters": {
+              "COINIT_MULTITHREADED": 0
+            },
+            "hresult": "0x00000001"
+          },
+          {
+            "api": "CoCreateInstance",
+            "parameters": {
+              "object": "image-factory",
+              "clsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+              "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+              "CLSCTX_INPROC_SERVER": 1
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICImagingFactory.CreateBitmapFromMemory",
+            "parameters": {
+              "width": 12,
+              "height": 7,
+              "pixelFormat": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+              "stride": 48,
+              "bufferBytes": 336
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapSource.GetSize",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "hresult": "0x00000000",
+            "result": [
+              12,
+              7
+            ]
+          },
+          {
+            "api": "CoCreateInstance",
+            "parameters": {
+              "object": "scale-factory",
+              "clsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+              "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+              "CLSCTX_INPROC_SERVER": 1
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICImagingFactory.CreateBitmapClipper",
+            "parameters": {},
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapClipper.Initialize",
+            "parameters": {
+              "x": 2,
+              "y": 0,
+              "width": 7,
+              "height": 7
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICImagingFactory.CreateBitmapScaler",
+            "parameters": {},
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapScaler.Initialize",
+            "parameters": {
+              "source": "clipper",
+              "width": 3,
+              "height": 3,
+              "interpolation": "WICBitmapInterpolationModeFant",
+              "interpolationValue": 3
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapSource.GetSize",
+            "parameters": {
+              "object": "scaler"
+            },
+            "hresult": "0x00000000",
+            "result": [
+              3,
+              3
+            ]
+          },
+          {
+            "api": "IWICBitmapSource.GetPixelFormat",
+            "parameters": {
+              "object": "scaler"
+            },
+            "hresult": "0x00000000",
+            "result": "6fddc324-4e03-4bfe-b185-3d77768dc90f"
+          },
+          {
+            "api": "IWICBitmapSource.CopyPixels",
+            "parameters": {
+              "object": "scaler",
+              "rect": null,
+              "stride": 12,
+              "bufferBytes": 36
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "scaler"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "clipper"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "scale-factory"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "image-factory"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "CoUninitialize",
+            "parameters": {}
+          }
+        ]
+      },
+      "trace": [
+        {
+          "api": "CoCreateInstance",
+          "parameters": {
+            "object": "image-factory",
+            "clsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+            "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+            "CLSCTX_INPROC_SERVER": 1
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICImagingFactory.CreateBitmapFromMemory",
+          "parameters": {
+            "width": 12,
+            "height": 7,
+            "pixelFormat": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+            "stride": 48,
+            "bufferBytes": 336
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapSource.GetSize",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "hresult": "0x00000000",
+          "result": [
+            12,
+            7
+          ]
+        },
+        {
+          "api": "CoCreateInstance",
+          "parameters": {
+            "object": "scale-factory",
+            "clsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+            "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+            "CLSCTX_INPROC_SERVER": 1
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICImagingFactory.CreateBitmapClipper",
+          "parameters": {},
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapClipper.Initialize",
+          "parameters": {
+            "x": 2,
+            "y": 0,
+            "width": 7,
+            "height": 7
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICImagingFactory.CreateBitmapScaler",
+          "parameters": {},
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapScaler.Initialize",
+          "parameters": {
+            "source": "clipper",
+            "width": 3,
+            "height": 3,
+            "interpolation": "WICBitmapInterpolationModeFant",
+            "interpolationValue": 3
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapSource.GetSize",
+          "parameters": {
+            "object": "scaler"
+          },
+          "hresult": "0x00000000",
+          "result": [
+            3,
+            3
+          ]
+        },
+        {
+          "api": "IWICBitmapSource.GetPixelFormat",
+          "parameters": {
+            "object": "scaler"
+          },
+          "hresult": "0x00000000",
+          "result": "6fddc324-4e03-4bfe-b185-3d77768dc90f"
+        },
+        {
+          "api": "IWICBitmapSource.CopyPixels",
+          "parameters": {
+            "object": "scaler",
+            "rect": null,
+            "stride": 12,
+            "bufferBytes": 36
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "scaler"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "clipper"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "scale-factory"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "image-factory"
+          },
+          "remainingReferences": 0
+        }
+      ]
+    },
+    {
+      "id": "zero-request-clamp",
+      "input": {
+        "width": 4,
+        "height": 4,
+        "pixelFormat": "BGRA8",
+        "formula": "all BGRA=(11,77,201,255), requested0 clamps1",
+        "path": "zero-request-clamp.input.bgra",
+        "byteLength": 64,
+        "sha256": "5d3aece4fb36eabd8be7ab9e4c02e841c5e21364d897824cff3c22c479dc30a9"
+      },
+      "plan": {
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 4,
+          "height": 4
+        },
+        "requestedSize": 0,
+        "clampedSize": 1,
+        "width": 1,
+        "height": 1,
+        "resampled": true
+      },
+      "output": {
+        "path": "zero-request-clamp.output.bgra",
+        "byteLength": 4,
+        "sha256": "c33e4b5fe9f41e6c26896b372a0c8533068039b9df5239b2071a1f2a62c96775"
+      },
+      "beforeForcedAlpha": {
+        "path": "zero-request-clamp.pre-opaque.bgra",
+        "byteLength": 4,
+        "sha256": "c33e4b5fe9f41e6c26896b372a0c8533068039b9df5239b2071a1f2a62c96775"
+      },
+      "independentAnalyticCheck": {
+        "kind": "constant",
+        "passed": true,
+        "pixel": [
+          11,
+          77,
+          201,
+          255
+        ],
+        "pixelCount": 1
+      },
+      "factory1Equality": {
+        "passed": true,
+        "outputSha256": "c33e4b5fe9f41e6c26896b372a0c8533068039b9df5239b2071a1f2a62c96775",
+        "preOpaqueSha256": "c33e4b5fe9f41e6c26896b372a0c8533068039b9df5239b2071a1f2a62c96775",
+        "trace": [
+          {
+            "api": "CoInitializeEx",
+            "parameters": {
+              "COINIT_MULTITHREADED": 0
+            },
+            "hresult": "0x00000001"
+          },
+          {
+            "api": "CoCreateInstance",
+            "parameters": {
+              "object": "image-factory",
+              "clsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+              "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+              "CLSCTX_INPROC_SERVER": 1
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICImagingFactory.CreateBitmapFromMemory",
+            "parameters": {
+              "width": 4,
+              "height": 4,
+              "pixelFormat": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+              "stride": 16,
+              "bufferBytes": 64
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapSource.GetSize",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "hresult": "0x00000000",
+            "result": [
+              4,
+              4
+            ]
+          },
+          {
+            "api": "CoCreateInstance",
+            "parameters": {
+              "object": "scale-factory",
+              "clsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+              "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+              "CLSCTX_INPROC_SERVER": 1
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICImagingFactory.CreateBitmapScaler",
+            "parameters": {},
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapScaler.Initialize",
+            "parameters": {
+              "source": "bitmap",
+              "width": 1,
+              "height": 1,
+              "interpolation": "WICBitmapInterpolationModeFant",
+              "interpolationValue": 3
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapSource.GetSize",
+            "parameters": {
+              "object": "scaler"
+            },
+            "hresult": "0x00000000",
+            "result": [
+              1,
+              1
+            ]
+          },
+          {
+            "api": "IWICBitmapSource.GetPixelFormat",
+            "parameters": {
+              "object": "scaler"
+            },
+            "hresult": "0x00000000",
+            "result": "6fddc324-4e03-4bfe-b185-3d77768dc90f"
+          },
+          {
+            "api": "IWICBitmapSource.CopyPixels",
+            "parameters": {
+              "object": "scaler",
+              "rect": null,
+              "stride": 4,
+              "bufferBytes": 4
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "scaler"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "scale-factory"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "image-factory"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "CoUninitialize",
+            "parameters": {}
+          }
+        ]
+      },
+      "trace": [
+        {
+          "api": "CoCreateInstance",
+          "parameters": {
+            "object": "image-factory",
+            "clsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+            "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+            "CLSCTX_INPROC_SERVER": 1
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICImagingFactory.CreateBitmapFromMemory",
+          "parameters": {
+            "width": 4,
+            "height": 4,
+            "pixelFormat": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+            "stride": 16,
+            "bufferBytes": 64
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapSource.GetSize",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "hresult": "0x00000000",
+          "result": [
+            4,
+            4
+          ]
+        },
+        {
+          "api": "CoCreateInstance",
+          "parameters": {
+            "object": "scale-factory",
+            "clsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+            "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+            "CLSCTX_INPROC_SERVER": 1
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICImagingFactory.CreateBitmapScaler",
+          "parameters": {},
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapScaler.Initialize",
+          "parameters": {
+            "source": "bitmap",
+            "width": 1,
+            "height": 1,
+            "interpolation": "WICBitmapInterpolationModeFant",
+            "interpolationValue": 3
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapSource.GetSize",
+          "parameters": {
+            "object": "scaler"
+          },
+          "hresult": "0x00000000",
+          "result": [
+            1,
+            1
+          ]
+        },
+        {
+          "api": "IWICBitmapSource.GetPixelFormat",
+          "parameters": {
+            "object": "scaler"
+          },
+          "hresult": "0x00000000",
+          "result": "6fddc324-4e03-4bfe-b185-3d77768dc90f"
+        },
+        {
+          "api": "IWICBitmapSource.CopyPixels",
+          "parameters": {
+            "object": "scaler",
+            "rect": null,
+            "stride": 4,
+            "bufferBytes": 4
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "scaler"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "scale-factory"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "image-factory"
+          },
+          "remainingReferences": 0
+        }
+      ]
+    },
+    {
+      "id": "maximum-request-clamp",
+      "input": {
+        "width": 1025,
+        "height": 1025,
+        "pixelFormat": "BGRA8",
+        "formula": "all BGRA=(19,83,173,255), requested2048 clamps1024",
+        "path": "maximum-request-clamp.input.bgra",
+        "byteLength": 4202500,
+        "sha256": "5f84a45e882811b82b75e159e68484bac542073b203fc70a15a8feb4470a0ddf"
+      },
+      "plan": {
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 1025,
+          "height": 1025
+        },
+        "requestedSize": 2048,
+        "clampedSize": 1024,
+        "width": 1024,
+        "height": 1024,
+        "resampled": true
+      },
+      "output": {
+        "path": "maximum-request-clamp.output.bgra",
+        "byteLength": 4194304,
+        "sha256": "021a9f405a9b4522fb1dee9d7683a40230d8b313911d30e1cdaddac0391cf4d0"
+      },
+      "beforeForcedAlpha": {
+        "path": "maximum-request-clamp.pre-opaque.bgra",
+        "byteLength": 4194304,
+        "sha256": "021a9f405a9b4522fb1dee9d7683a40230d8b313911d30e1cdaddac0391cf4d0"
+      },
+      "independentAnalyticCheck": {
+        "kind": "constant",
+        "passed": true,
+        "pixel": [
+          19,
+          83,
+          173,
+          255
+        ],
+        "pixelCount": 1048576
+      },
+      "factory1Equality": {
+        "passed": true,
+        "outputSha256": "021a9f405a9b4522fb1dee9d7683a40230d8b313911d30e1cdaddac0391cf4d0",
+        "preOpaqueSha256": "021a9f405a9b4522fb1dee9d7683a40230d8b313911d30e1cdaddac0391cf4d0",
+        "trace": [
+          {
+            "api": "CoInitializeEx",
+            "parameters": {
+              "COINIT_MULTITHREADED": 0
+            },
+            "hresult": "0x00000001"
+          },
+          {
+            "api": "CoCreateInstance",
+            "parameters": {
+              "object": "image-factory",
+              "clsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+              "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+              "CLSCTX_INPROC_SERVER": 1
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICImagingFactory.CreateBitmapFromMemory",
+            "parameters": {
+              "width": 1025,
+              "height": 1025,
+              "pixelFormat": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+              "stride": 4100,
+              "bufferBytes": 4202500
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapSource.GetSize",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "hresult": "0x00000000",
+            "result": [
+              1025,
+              1025
+            ]
+          },
+          {
+            "api": "CoCreateInstance",
+            "parameters": {
+              "object": "scale-factory",
+              "clsid": "cacaf262-9370-4615-a13b-9f5539da4c0a",
+              "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+              "CLSCTX_INPROC_SERVER": 1
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICImagingFactory.CreateBitmapScaler",
+            "parameters": {},
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapScaler.Initialize",
+            "parameters": {
+              "source": "bitmap",
+              "width": 1024,
+              "height": 1024,
+              "interpolation": "WICBitmapInterpolationModeFant",
+              "interpolationValue": 3
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IWICBitmapSource.GetSize",
+            "parameters": {
+              "object": "scaler"
+            },
+            "hresult": "0x00000000",
+            "result": [
+              1024,
+              1024
+            ]
+          },
+          {
+            "api": "IWICBitmapSource.GetPixelFormat",
+            "parameters": {
+              "object": "scaler"
+            },
+            "hresult": "0x00000000",
+            "result": "6fddc324-4e03-4bfe-b185-3d77768dc90f"
+          },
+          {
+            "api": "IWICBitmapSource.CopyPixels",
+            "parameters": {
+              "object": "scaler",
+              "rect": null,
+              "stride": 4096,
+              "bufferBytes": 4194304
+            },
+            "hresult": "0x00000000"
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "scaler"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "scale-factory"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "bitmap"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "IUnknown.Release",
+            "parameters": {
+              "object": "image-factory"
+            },
+            "remainingReferences": 0
+          },
+          {
+            "api": "CoUninitialize",
+            "parameters": {}
+          }
+        ]
+      },
+      "trace": [
+        {
+          "api": "CoCreateInstance",
+          "parameters": {
+            "object": "image-factory",
+            "clsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+            "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+            "CLSCTX_INPROC_SERVER": 1
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICImagingFactory.CreateBitmapFromMemory",
+          "parameters": {
+            "width": 1025,
+            "height": 1025,
+            "pixelFormat": "6fddc324-4e03-4bfe-b185-3d77768dc90f",
+            "stride": 4100,
+            "bufferBytes": 4202500
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapSource.GetSize",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "hresult": "0x00000000",
+          "result": [
+            1025,
+            1025
+          ]
+        },
+        {
+          "api": "CoCreateInstance",
+          "parameters": {
+            "object": "scale-factory",
+            "clsid": "317d06e8-5f24-433d-bdf7-79ce68d8abc2",
+            "iid": "ec5ec8a9-c395-4314-9c77-54d7a935ff70",
+            "CLSCTX_INPROC_SERVER": 1
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICImagingFactory.CreateBitmapScaler",
+          "parameters": {},
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapScaler.Initialize",
+          "parameters": {
+            "source": "bitmap",
+            "width": 1024,
+            "height": 1024,
+            "interpolation": "WICBitmapInterpolationModeFant",
+            "interpolationValue": 3
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IWICBitmapSource.GetSize",
+          "parameters": {
+            "object": "scaler"
+          },
+          "hresult": "0x00000000",
+          "result": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "api": "IWICBitmapSource.GetPixelFormat",
+          "parameters": {
+            "object": "scaler"
+          },
+          "hresult": "0x00000000",
+          "result": "6fddc324-4e03-4bfe-b185-3d77768dc90f"
+        },
+        {
+          "api": "IWICBitmapSource.CopyPixels",
+          "parameters": {
+            "object": "scaler",
+            "rect": null,
+            "stride": 4096,
+            "bufferBytes": 4194304
+          },
+          "hresult": "0x00000000"
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "scaler"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "scale-factory"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "bitmap"
+          },
+          "remainingReferences": 0
+        },
+        {
+          "api": "IUnknown.Release",
+          "parameters": {
+            "object": "image-factory"
+          },
+          "remainingReferences": 0
+        }
+      ]
+    }
+  ],
+  "comLifecycleTrace": [
+    {
+      "api": "CoInitializeEx",
+      "parameters": {
+        "COINIT_MULTITHREADED": 0
+      },
+      "hresult": "0x00000000"
+    },
+    {
+      "api": "CoUninitialize",
+      "parameters": {}
+    }
+  ]
+}

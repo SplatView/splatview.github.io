@@ -1,0 +1,461 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 25,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "portable-base",
+      "hidden": true,
+      "cacheVariables": {
+        "BUILD_TESTING": true,
+        "SPLATVIEW_BUILD_MACOS": false
+      }
+    },
+    {
+      "name": "windows-vcpkg",
+      "displayName": "Portable Windows core with pinned vcpkg",
+      "inherits": "portable-base",
+      "generator": "Visual Studio 17 2022",
+      "architecture": "x64",
+      "binaryDir": "${sourceDir}/build-windows-preset",
+      "condition": {
+        "type": "allOf",
+        "conditions": [
+          {
+            "type": "equals",
+            "lhs": "${hostSystemName}",
+            "rhs": "Windows"
+          },
+          {
+            "type": "notEquals",
+            "lhs": "$env{VCPKG_ROOT}",
+            "rhs": ""
+          }
+        ]
+      },
+      "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+      "cacheVariables": {
+        "VCPKG_TARGET_TRIPLET": "x64-windows-static",
+        "VCPKG_INSTALLED_DIR": "${sourceDir}/build-windows-preset/vcpkg_installed",
+        "CMAKE_VS_GLOBALS": "VcpkgEnabled=false"
+      }
+    },
+    {
+      "name": "windows-domain",
+      "displayName": "Windows domain and reference renderer only",
+      "inherits": "windows-vcpkg",
+      "binaryDir": "${sourceDir}/build-windows-domain-preset",
+      "cacheVariables": {
+        "SPLATVIEW_DOMAIN_ONLY": true,
+        "VCPKG_INSTALLED_DIR": "${sourceDir}/build-windows-domain-preset/vcpkg_installed"
+      }
+    },
+    {
+      "name": "linux-base",
+      "hidden": true,
+      "inherits": "portable-base",
+      "generator": "Ninja",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      },
+      "cacheVariables": {
+        "CMAKE_EXPORT_COMPILE_COMMANDS": true
+      }
+    },
+    {
+      "name": "linux-release",
+      "displayName": "Linux portable Release",
+      "inherits": "linux-base",
+      "binaryDir": "${sourceDir}/build-linux-preset",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "linux-sanitize",
+      "displayName": "Linux address and undefined behavior sanitizers",
+      "inherits": "linux-base",
+      "binaryDir": "${sourceDir}/build-linux-sanitize-preset",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+        "SPLATVIEW_ENABLE_SANITIZERS": true
+      }
+    },
+    {
+      "name": "linux-domain",
+      "displayName": "Linux standalone domain and CPU contracts",
+      "inherits": "linux-base",
+      "binaryDir": "${sourceDir}/build-linux-domain-preset",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "SPLATVIEW_DOMAIN_ONLY": true
+      }
+    },
+    {
+      "name": "linux-domain-no-cpu",
+      "displayName": "Linux standalone domain without CPU renderer",
+      "inherits": "linux-domain",
+      "binaryDir": "${sourceDir}/build-linux-domain-no-cpu-preset",
+      "cacheVariables": {
+        "SPLATVIEW_BUILD_CPU_RENDERER": false
+      }
+    },
+    {
+      "name": "macos-arm64",
+      "displayName": "Prepared native Apple Silicon Xcode build",
+      "inherits": "portable-base",
+      "generator": "Xcode",
+      "binaryDir": "${sourceDir}/build-macos-preset",
+      "condition": {
+        "type": "allOf",
+        "conditions": [
+          {
+            "type": "equals",
+            "lhs": "${hostSystemName}",
+            "rhs": "Darwin"
+          },
+          {
+            "type": "notEquals",
+            "lhs": "$env{VCPKG_ROOT}",
+            "rhs": ""
+          }
+        ]
+      },
+      "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+      "cacheVariables": {
+        "SPLATVIEW_BUILD_MACOS": true,
+        "CMAKE_OSX_ARCHITECTURES": "arm64",
+        "CMAKE_OSX_DEPLOYMENT_TARGET": "14.0",
+        "VCPKG_TARGET_TRIPLET": "arm64-osx",
+        "VCPKG_INSTALLED_DIR": "${sourceDir}/build-macos-preset/vcpkg_installed",
+        "SPLATVIEW_DEVELOPMENT_TEAM": "$env{SPLATVIEW_DEVELOPMENT_TEAM}",
+        "SPLATVIEW_APP_GROUP": "$env{SPLATVIEW_APP_GROUP}"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "windows-release",
+      "configurePreset": "windows-vcpkg",
+      "configuration": "Release",
+      "jobs": 4,
+      "condition": {
+        "type": "allOf",
+        "conditions": [
+          {
+            "type": "equals",
+            "lhs": "${hostSystemName}",
+            "rhs": "Windows"
+          },
+          {
+            "type": "notEquals",
+            "lhs": "$env{VCPKG_ROOT}",
+            "rhs": ""
+          }
+        ]
+      }
+    },
+    {
+      "name": "windows-debug",
+      "configurePreset": "windows-vcpkg",
+      "configuration": "Debug",
+      "jobs": 4,
+      "condition": {
+        "type": "allOf",
+        "conditions": [
+          {
+            "type": "equals",
+            "lhs": "${hostSystemName}",
+            "rhs": "Windows"
+          },
+          {
+            "type": "notEquals",
+            "lhs": "$env{VCPKG_ROOT}",
+            "rhs": ""
+          }
+        ]
+      }
+    },
+    {
+      "name": "windows-domain",
+      "configurePreset": "windows-domain",
+      "configuration": "Release",
+      "jobs": 4,
+      "condition": {
+        "type": "allOf",
+        "conditions": [
+          {
+            "type": "equals",
+            "lhs": "${hostSystemName}",
+            "rhs": "Windows"
+          },
+          {
+            "type": "notEquals",
+            "lhs": "$env{VCPKG_ROOT}",
+            "rhs": ""
+          }
+        ]
+      }
+    },
+    {
+      "name": "linux-release",
+      "configurePreset": "linux-release",
+      "jobs": 4,
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      }
+    },
+    {
+      "name": "linux-sanitize",
+      "configurePreset": "linux-sanitize",
+      "jobs": 2,
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      }
+    },
+    {
+      "name": "linux-domain",
+      "configurePreset": "linux-domain",
+      "jobs": 4,
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      }
+    },
+    {
+      "name": "linux-domain-no-cpu",
+      "configurePreset": "linux-domain-no-cpu",
+      "jobs": 4,
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      }
+    },
+    {
+      "name": "macos-arm64",
+      "configurePreset": "macos-arm64",
+      "configuration": "Release",
+      "jobs": 4,
+      "condition": {
+        "type": "allOf",
+        "conditions": [
+          {
+            "type": "equals",
+            "lhs": "${hostSystemName}",
+            "rhs": "Darwin"
+          },
+          {
+            "type": "notEquals",
+            "lhs": "$env{VCPKG_ROOT}",
+            "rhs": ""
+          }
+        ]
+      }
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "windows-release",
+      "configurePreset": "windows-vcpkg",
+      "configuration": "Release",
+      "output": {
+        "outputOnFailure": true,
+        "outputLogFile": "${sourceDir}/build-windows-preset/ctest-windows-release.log",
+        "outputJUnitFile": "${sourceDir}/build-windows-preset/ctest-windows-release.xml"
+      },
+      "execution": {
+        "noTestsAction": "error",
+        "jobs": 1
+      },
+      "condition": {
+        "type": "allOf",
+        "conditions": [
+          {
+            "type": "equals",
+            "lhs": "${hostSystemName}",
+            "rhs": "Windows"
+          },
+          {
+            "type": "notEquals",
+            "lhs": "$env{VCPKG_ROOT}",
+            "rhs": ""
+          }
+        ]
+      }
+    },
+    {
+      "name": "windows-debug",
+      "configurePreset": "windows-vcpkg",
+      "configuration": "Debug",
+      "output": {
+        "outputOnFailure": true,
+        "outputLogFile": "${sourceDir}/build-windows-preset/ctest-windows-debug.log",
+        "outputJUnitFile": "${sourceDir}/build-windows-preset/ctest-windows-debug.xml"
+      },
+      "execution": {
+        "noTestsAction": "error",
+        "jobs": 1
+      },
+      "condition": {
+        "type": "allOf",
+        "conditions": [
+          {
+            "type": "equals",
+            "lhs": "${hostSystemName}",
+            "rhs": "Windows"
+          },
+          {
+            "type": "notEquals",
+            "lhs": "$env{VCPKG_ROOT}",
+            "rhs": ""
+          }
+        ]
+      }
+    },
+    {
+      "name": "windows-domain",
+      "configurePreset": "windows-domain",
+      "configuration": "Release",
+      "output": {
+        "outputOnFailure": true,
+        "outputLogFile": "${sourceDir}/build-windows-domain-preset/ctest-windows-domain.log",
+        "outputJUnitFile": "${sourceDir}/build-windows-domain-preset/ctest-windows-domain.xml"
+      },
+      "execution": {
+        "noTestsAction": "error",
+        "jobs": 1
+      },
+      "condition": {
+        "type": "allOf",
+        "conditions": [
+          {
+            "type": "equals",
+            "lhs": "${hostSystemName}",
+            "rhs": "Windows"
+          },
+          {
+            "type": "notEquals",
+            "lhs": "$env{VCPKG_ROOT}",
+            "rhs": ""
+          }
+        ]
+      }
+    },
+    {
+      "name": "linux-release",
+      "configurePreset": "linux-release",
+      "output": {
+        "outputOnFailure": true,
+        "outputLogFile": "${sourceDir}/build-linux-preset/ctest-linux-release.log",
+        "outputJUnitFile": "${sourceDir}/build-linux-preset/ctest-linux-release.xml"
+      },
+      "execution": {
+        "noTestsAction": "error",
+        "jobs": 1
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      }
+    },
+    {
+      "name": "linux-sanitize",
+      "configurePreset": "linux-sanitize",
+      "output": {
+        "outputOnFailure": true,
+        "outputLogFile": "${sourceDir}/build-linux-sanitize-preset/ctest-linux-sanitize.log",
+        "outputJUnitFile": "${sourceDir}/build-linux-sanitize-preset/ctest-linux-sanitize.xml"
+      },
+      "execution": {
+        "noTestsAction": "error",
+        "jobs": 1
+      },
+      "environment": {
+        "ASAN_OPTIONS": "detect_leaks=1",
+        "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      }
+    },
+    {
+      "name": "linux-domain",
+      "configurePreset": "linux-domain",
+      "output": {
+        "outputOnFailure": true,
+        "outputLogFile": "${sourceDir}/build-linux-domain-preset/ctest-linux-domain.log",
+        "outputJUnitFile": "${sourceDir}/build-linux-domain-preset/ctest-linux-domain.xml"
+      },
+      "execution": {
+        "noTestsAction": "error",
+        "jobs": 1
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      }
+    },
+    {
+      "name": "linux-domain-no-cpu",
+      "configurePreset": "linux-domain-no-cpu",
+      "output": {
+        "outputOnFailure": true,
+        "outputLogFile": "${sourceDir}/build-linux-domain-no-cpu-preset/ctest-linux-domain-no-cpu.log",
+        "outputJUnitFile": "${sourceDir}/build-linux-domain-no-cpu-preset/ctest-linux-domain-no-cpu.xml"
+      },
+      "execution": {
+        "noTestsAction": "error",
+        "jobs": 1
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      }
+    },
+    {
+      "name": "macos-arm64",
+      "configurePreset": "macos-arm64",
+      "configuration": "Release",
+      "output": {
+        "outputOnFailure": true,
+        "outputLogFile": "${sourceDir}/build-macos-preset/ctest-macos-arm64.log",
+        "outputJUnitFile": "${sourceDir}/build-macos-preset/ctest-macos-arm64.xml"
+      },
+      "execution": {
+        "noTestsAction": "error",
+        "jobs": 1
+      },
+      "condition": {
+        "type": "allOf",
+        "conditions": [
+          {
+            "type": "equals",
+            "lhs": "${hostSystemName}",
+            "rhs": "Darwin"
+          },
+          {
+            "type": "notEquals",
+            "lhs": "$env{VCPKG_ROOT}",
+            "rhs": ""
+          }
+        ]
+      }
+    }
+  ]
+}

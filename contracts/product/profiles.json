@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "profiles": {
+    "desktop-editor": {
+      "platforms": [
+        "windows",
+        "macos",
+        "ubuntu"
+      ],
+      "description": "Native editor; access and resource conditions remain independently enforced."
+    },
+    "web-lite": {
+      "platforms": [
+        "web"
+      ],
+      "description": "Viewing and lightweight edits; create-copy export only."
+    }
+  }
+}

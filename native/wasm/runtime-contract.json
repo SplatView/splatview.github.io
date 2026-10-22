@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "protocolVersion": 28,
+  "uiWorkerContract": 23,
+  "core": {
+    "schemaVersion": 1,
+    "kind": "core",
+    "abi": 24,
+    "variant": "scalar",
+    "mapLayoutVersion": 1,
+    "capabilities": {
+      "atomicCheckpoint": 1,
+      "transactionReceipt": 2,
+      "recoveryCheckpoint": 2,
+      "duplicate": 1,
+      "selectionMap": 1,
+      "volumeSelection": 1,
+      "fillSelection": 1,
+      "connectedColorSelection": 1,
+      "toleranceCheckpoint": 1,
+      "colorFillRange": 1,
+      "liveSelectionOutcome": 1,
+      "geometryPreview": 1,
+      "sourceHash": 1,
+      "allocationCensus": 1,
+      "selectionMorphology": 2,
+      "absoluteColorSession": 1,
+      "autoColor": 1,
+      "colorBaseStream": 1,
+      "alignment": 4,
+      "groupedSog": 3,
+      "exportSpz4": 1,
+      "boundedAttributeExport": 1,
+      "boundedSpz3Export": 1,
+      "boundedSogExport": 1,
+      "selectionFilter": 2,
+      "selectionActions": 2,
+      "proTransformSession": 2,
+      "transformPivot": 2,
+      "absoluteOpacitySession": 1,
+      "opacityBaseStream": 1,
+      "currentViewScope": 1
+    }
+  },
+  "camera": {
+    "schemaVersion": 1,
+    "kind": "camera",
+    "abi": 4,
+    "variant": "scalar",
+    "capabilities": { "cameraInput": 1, "cameraTransform": 1, "cameraFrame": 1, "cameraOrientation": 1, "cameraFilterView": 1, "cameraFilterGizmo": 1, "cameraTransformGizmo": 1 }
+  }
+}

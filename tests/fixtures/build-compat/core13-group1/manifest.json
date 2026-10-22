@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "kind": "actual-core13-group1-production-compatibility-fixture",
+  "purpose": "Untouched locally compiled C++/WASM core for the cap-only and shipped full-identity refusal test; test assets only.",
+  "coreIdentity": {
+    "schemaVersion": 1,
+    "kind": "core",
+    "abi": 13,
+    "variant": "scalar",
+    "mapLayoutVersion": 1,
+    "capabilities": {
+      "atomicCheckpoint": 1,
+      "selectionMap": 1,
+      "volumeSelection": 1,
+      "fillSelection": 1,
+      "connectedColorSelection": 1,
+      "toleranceCheckpoint": 1,
+      "liveSelectionOutcome": 1,
+      "geometryPreview": 1,
+      "sourceHash": 1,
+      "allocationCensus": 1,
+      "selectionMorphology": 1,
+      "absoluteColorSession": 1,
+      "autoColor": 1,
+      "colorBaseStream": 1,
+      "alignment": 4,
+      "groupedSog": 1
+    },
+    "nativeInputId": "c20685f332ec961d586d149b07c59de86203b4de33b6106089d1ef267e704e18"
+  },
+  "artifacts": {
+    "splatview-core.mjs": {
+      "bytes": 81307,
+      "sha256": "30afe35a61592a34dd6bef2af311c2da1b78239879f1b81f99d24a1da149d5e7"
+    },
+    "splatview-core.wasm": {
+      "bytes": 1638750,
+      "sha256": "80635c7e502d83ed2b2353e1a6a869e9de1f78d7a9bac1629f0d3ad99e4a6516"
+    }
+  },
+  "provenance": {
+    "sealedV1Receipt": {
+      "path": "docs/validation/runs/sog-group-20261013-01/validation.json",
+      "bytes": 1198970,
+      "sha256": "6910b92da159f8b9675f8f45d78d18e89756e4c16c948eb7210ec7e28d82f486"
+    },
+    "sealedArchiveManifest": {
+      "path": ".build/sog-v2-tests/v1-sealed-archive-01/archive.json",
+      "bytes": 376446,
+      "sha256": "e1dcf30d71362221b66bf46ef79f57563890a709247b30aa0b8d67c9d14d48dd"
+    },
+    "copiedSources": {
+      "splatview-core.mjs": {
+        "original": {
+          "path": "public/wasm/splatview-core.mjs",
+          "bytes": 81307,
+          "sha256": "30afe35a61592a34dd6bef2af311c2da1b78239879f1b81f99d24a1da149d5e7"
+        },
+        "copy": {
+          "path": ".build/sog-v2-tests/v1-sealed-archive-01/files/public/wasm/splatview-core.mjs",
+          "bytes": 81307,
+          "sha256": "30afe35a61592a34dd6bef2af311c2da1b78239879f1b81f99d24a1da149d5e7"
+        }
+      },
+      "splatview-core.wasm": {
+        "original": {
+          "path": "public/wasm/splatview-core.wasm",
+          "bytes": 1638750,
+          "sha256": "80635c7e502d83ed2b2353e1a6a869e9de1f78d7a9bac1629f0d3ad99e4a6516"
+        },
+        "copy": {
+          "path": ".build/sog-v2-tests/v1-sealed-archive-01/files/public/wasm/splatview-core.wasm",
+          "bytes": 1638750,
+          "sha256": "80635c7e502d83ed2b2353e1a6a869e9de1f78d7a9bac1629f0d3ad99e4a6516"
+        }
+      }
+    },
+    "verification": "The pinned archive manifest, sealed receipt, unique original/copy tuples and both source artifacts were verified before copying; both destination artifacts were then reread and matched byte-for-byte."
+  }
+}

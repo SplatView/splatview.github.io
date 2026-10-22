@@ -1,0 +1,492 @@
+{
+  "schemaVersion": 1,
+  "cap": 3,
+  "scope": "Independent byte mutations and expected source/policy refusals; not runtime execution results",
+  "baseUnusedFloat32OverflowAccepted": true,
+  "sampledLookupOnly": true,
+  "cases": [
+    {
+      "name": "count-true",
+      "file": "cases/count-true.sog",
+      "accepted": false,
+      "cap": 3,
+      "reason": "Invalid bounded integral source count or count exceeds decoded image pixels",
+      "scope": "native-or-browser",
+      "sourceCount": null,
+      "originalMetadata": "{\n  \"version\": 2,\n  \"count\": true,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      -2.25,\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      -3.5,\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": []
+    },
+    {
+      "name": "count-zero",
+      "file": "cases/count-zero.sog",
+      "accepted": false,
+      "cap": 3,
+      "reason": "Invalid bounded integral source count or count exceeds decoded image pixels",
+      "scope": "native-or-browser",
+      "sourceCount": null,
+      "originalMetadata": "{\n  \"version\": 2,\n  \"count\": 0,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      -2.25,\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      -3.5,\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": []
+    },
+    {
+      "name": "count-fractional-zero",
+      "file": "cases/count-fractional-zero.sog",
+      "accepted": false,
+      "cap": 3,
+      "reason": "Invalid bounded integral source count or count exceeds decoded image pixels",
+      "scope": "native-or-browser",
+      "sourceCount": null,
+      "originalMetadata": "{\n  \"version\": 2,\n  \"count\": 0.9,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      -2.25,\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      -3.5,\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": []
+    },
+    {
+      "name": "count-negative",
+      "file": "cases/count-negative.sog",
+      "accepted": false,
+      "cap": 3,
+      "reason": "Invalid bounded integral source count or count exceeds decoded image pixels",
+      "scope": "native-or-browser",
+      "sourceCount": null,
+      "originalMetadata": "{\n  \"version\": 2,\n  \"count\": -1,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      -2.25,\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      -3.5,\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": []
+    },
+    {
+      "name": "count-too-large",
+      "file": "cases/count-too-large.sog",
+      "accepted": false,
+      "cap": 3,
+      "reason": "Invalid bounded integral source count or count exceeds decoded image pixels",
+      "scope": "native-or-browser",
+      "sourceCount": null,
+      "originalMetadata": "{\n  \"version\": 2,\n  \"count\": 10000001,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      -2.25,\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      -3.5,\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": []
+    },
+    {
+      "name": "count-image-overflow",
+      "file": "cases/count-image-overflow.sog",
+      "accepted": false,
+      "cap": 3,
+      "reason": "Invalid bounded integral source count or count exceeds decoded image pixels",
+      "scope": "native-or-browser",
+      "sourceCount": null,
+      "originalMetadata": "{\n  \"version\": 2,\n  \"count\": 5,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      -2.25,\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      -3.5,\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": []
+    },
+    {
+      "name": "count-string",
+      "file": "cases/count-string.sog",
+      "accepted": false,
+      "cap": 3,
+      "reason": "Invalid bounded integral source count or count exceeds decoded image pixels",
+      "scope": "native-or-browser",
+      "sourceCount": null,
+      "originalMetadata": "{\n  \"version\": 2,\n  \"count\": \"3\",\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      -2.25,\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      -3.5,\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": []
+    },
+    {
+      "name": "count-fractional-three",
+      "file": "cases/count-fractional-three.sog",
+      "accepted": true,
+      "cap": 3,
+      "reason": "Captured numeric uint64 conversion truncates3.9 to3; sampled records match canonical fixture",
+      "scope": "native-or-browser",
+      "sourceCount": 3,
+      "originalMetadata": "{\n  \"version\": 2,\n  \"count\": 3.9,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      -2.25,\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      -3.5,\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": []
+    },
+    {
+      "name": "version-fractional-two",
+      "file": "cases/version-fractional-two.sog",
+      "accepted": true,
+      "cap": 3,
+      "reason": "Captured numeric int conversion truncates2.9 to2; sampled records match canonical fixture",
+      "scope": "native-or-browser",
+      "sourceCount": 3,
+      "originalMetadata": "{\n  \"version\": 2.9,\n  \"count\": 3,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      -2.25,\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      -3.5,\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": []
+    },
+    {
+      "name": "version-count-fractional",
+      "file": "cases/version-count-fractional.sog",
+      "accepted": true,
+      "cap": 3,
+      "reason": "Both numeric fields truncate tocanonical v2/count3; original metadata bytes and source key remain distinct",
+      "scope": "native-or-browser",
+      "sourceCount": 3,
+      "originalMetadata": "{\n  \"version\": 2.9,\n  \"count\": 3.9,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      -2.25,\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      -3.5,\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": []
+    },
+    {
+      "name": "scales-empty-codebook",
+      "file": "cases/scales-empty-codebook.sog",
+      "accepted": false,
+      "cap": 3,
+      "reason": "Codebook length must be1..256",
+      "scope": "native-or-browser",
+      "sourceCount": null,
+      "originalMetadata": "{\n  \"version\": 2,\n  \"count\": 3,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      -3.5,\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": []
+    },
+    {
+      "name": "scales-oversized-codebook",
+      "file": "cases/scales-oversized-codebook.sog",
+      "accepted": false,
+      "cap": 3,
+      "reason": "Codebook length must be1..256",
+      "scope": "native-or-browser",
+      "sourceCount": null,
+      "originalMetadata": "{\n  \"version\": 2,\n  \"count\": 3,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      -3.5,\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": []
+    },
+    {
+      "name": "scales-nonnumeric-codebook",
+      "file": "cases/scales-nonnumeric-codebook.sog",
+      "accepted": false,
+      "cap": 3,
+      "reason": "Referenced codebook entry is not numeric",
+      "scope": "native-or-browser",
+      "sourceCount": null,
+      "originalMetadata": "{\n  \"version\": 2,\n  \"count\": 3,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      \"bad\",\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      -3.5,\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": []
+    },
+    {
+      "name": "scales-referenced-f32-overflow",
+      "file": "cases/scales-referenced-f32-overflow.sog",
+      "accepted": false,
+      "cap": 3,
+      "reason": "Referenced finite JSON number becomes nonfinite float32 and is refused",
+      "scope": "native-or-browser",
+      "sourceCount": null,
+      "originalMetadata": "{\n  \"version\": 2,\n  \"count\": 3,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      1e+100,\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      -3.5,\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": []
+    },
+    {
+      "name": "scales-unused-f32-overflow-changed",
+      "file": "cases/scales-unused-f32-overflow-changed.sog",
+      "accepted": true,
+      "cap": 3,
+      "reason": "Unused finite JSON64 overflow entry is permitted; all sampled attributes are unchanged",
+      "scope": "native-or-browser",
+      "sourceCount": 3,
+      "originalMetadata": "{\n  \"version\": 2,\n  \"count\": 3,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      -2.25,\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      -1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      -3.5,\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": []
+    },
+    {
+      "name": "sh0-empty-codebook",
+      "file": "cases/sh0-empty-codebook.sog",
+      "accepted": false,
+      "cap": 3,
+      "reason": "Codebook length must be1..256",
+      "scope": "native-or-browser",
+      "sourceCount": null,
+      "originalMetadata": "{\n  \"version\": 2,\n  \"count\": 3,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      -2.25,\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": []
+    },
+    {
+      "name": "sh0-oversized-codebook",
+      "file": "cases/sh0-oversized-codebook.sog",
+      "accepted": false,
+      "cap": 3,
+      "reason": "Codebook length must be1..256",
+      "scope": "native-or-browser",
+      "sourceCount": null,
+      "originalMetadata": "{\n  \"version\": 2,\n  \"count\": 3,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      -2.25,\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": []
+    },
+    {
+      "name": "sh0-nonnumeric-codebook",
+      "file": "cases/sh0-nonnumeric-codebook.sog",
+      "accepted": false,
+      "cap": 3,
+      "reason": "Referenced codebook entry is not numeric",
+      "scope": "native-or-browser",
+      "sourceCount": null,
+      "originalMetadata": "{\n  \"version\": 2,\n  \"count\": 3,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      -2.25,\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      \"bad\",\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": []
+    },
+    {
+      "name": "sh0-referenced-f32-overflow",
+      "file": "cases/sh0-referenced-f32-overflow.sog",
+      "accepted": false,
+      "cap": 3,
+      "reason": "Referenced finite JSON number becomes nonfinite float32 and is refused",
+      "scope": "native-or-browser",
+      "sourceCount": null,
+      "originalMetadata": "{\n  \"version\": 2,\n  \"count\": 3,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      -2.25,\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      1e+100,\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": []
+    },
+    {
+      "name": "sh0-unused-f32-overflow-changed",
+      "file": "cases/sh0-unused-f32-overflow-changed.sog",
+      "accepted": true,
+      "cap": 3,
+      "reason": "Unused finite JSON64 overflow entry is permitted; all sampled attributes are unchanged",
+      "scope": "native-or-browser",
+      "sourceCount": 3,
+      "originalMetadata": "{\n  \"version\": 2,\n  \"count\": 3,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      -2.25,\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      -3.5,\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      -1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": []
+    },
+    {
+      "name": "scales-exp-overflow",
+      "file": "cases/scales-exp-overflow.sog",
+      "accepted": false,
+      "cap": 3,
+      "reason": "Referenced log scale must yield finite positive float32 scale and positive representable squared variance",
+      "scope": "native-or-browser",
+      "sourceCount": null,
+      "originalMetadata": "{\n  \"version\": 2,\n  \"count\": 3,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      100,\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      -3.5,\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": []
+    },
+    {
+      "name": "scales-exp-underflow",
+      "file": "cases/scales-exp-underflow.sog",
+      "accepted": false,
+      "cap": 3,
+      "reason": "Referenced log scale must yield finite positive float32 scale and positive representable squared variance",
+      "scope": "native-or-browser",
+      "sourceCount": null,
+      "originalMetadata": "{\n  \"version\": 2,\n  \"count\": 3,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      -120,\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      -3.5,\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": []
+    },
+    {
+      "name": "scales-covariance-overflow",
+      "file": "cases/scales-covariance-overflow.sog",
+      "accepted": false,
+      "cap": 3,
+      "reason": "Referenced log scale must yield finite positive float32 scale and positive representable squared variance",
+      "scope": "native-or-browser",
+      "sourceCount": null,
+      "originalMetadata": "{\n  \"version\": 2,\n  \"count\": 3,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      60,\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      -3.5,\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": []
+    },
+    {
+      "name": "scales-covariance-underflow",
+      "file": "cases/scales-covariance-underflow.sog",
+      "accepted": false,
+      "cap": 3,
+      "reason": "Referenced log scale must yield finite positive float32 scale and positive representable squared variance",
+      "scope": "native-or-browser",
+      "sourceCount": null,
+      "originalMetadata": "{\n  \"version\": 2,\n  \"count\": 3,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      -60,\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      -3.5,\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": []
+    },
+    {
+      "name": "sh0-half-overflow",
+      "file": "cases/sh0-half-overflow.sog",
+      "accepted": false,
+      "cap": 3,
+      "reason": "Referenced DC exceeds finite binary16 coefficient limit",
+      "scope": "native-or-browser",
+      "sourceCount": null,
+      "originalMetadata": "{\n  \"version\": 2,\n  \"count\": 3,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      -2.25,\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      90000,\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": []
+    },
+    {
+      "name": "means-short-bounds",
+      "file": "cases/means-short-bounds.sog",
+      "accepted": false,
+      "cap": 3,
+      "reason": "Position bounds require exactly three components",
+      "scope": "native-or-browser",
+      "sourceCount": null,
+      "originalMetadata": "{\n  \"version\": 2,\n  \"count\": 3,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      -2.25,\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      -3.5,\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": []
+    },
+    {
+      "name": "means-range-overflow",
+      "file": "cases/means-range-overflow.sog",
+      "accepted": false,
+      "cap": 3,
+      "reason": "Captured encoded-coordinate bound is absolute40",
+      "scope": "native-or-browser",
+      "sourceCount": null,
+      "originalMetadata": "{\n  \"version\": 2,\n  \"count\": 3,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      41,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      -2.25,\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      -3.5,\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": []
+    },
+    {
+      "name": "means-reversed-range",
+      "file": "cases/means-reversed-range.sog",
+      "accepted": false,
+      "cap": 3,
+      "reason": "Encoded coordinate minimum exceeds maximum",
+      "scope": "native-or-browser",
+      "sourceCount": null,
+      "originalMetadata": "{\n  \"version\": 2,\n  \"count\": 3,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      -2,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      -2.25,\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      -3.5,\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": []
+    },
+    {
+      "name": "unsupported-version",
+      "file": "cases/unsupported-version.sog",
+      "accepted": false,
+      "cap": 3,
+      "reason": "Flat grouped packet supports exact v1 or v2",
+      "scope": "native-or-browser",
+      "sourceCount": null,
+      "originalMetadata": "{\n  \"version\": 3,\n  \"count\": 3,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      -2.25,\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      -3.5,\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": []
+    },
+    {
+      "name": "nonzero-sh",
+      "file": "cases/nonzero-sh.sog",
+      "accepted": false,
+      "cap": 3,
+      "reason": "This grouped browser increment explicitly supports SH0 only",
+      "scope": "bounded-group-browser-policy",
+      "sourceCount": null,
+      "originalMetadata": "{\n  \"version\": 2,\n  \"count\": 3,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      -2.25,\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      -3.5,\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": {\n    \"bands\": 1,\n    \"count\": 1,\n    \"codebook\": [\n      0\n    ],\n    \"files\": [\n      \"appearance.webp\",\n      \"rotations.webp\"\n    ]\n  }\n}\n",
+      "resourceChanges": []
+    },
+    {
+      "name": "referenced-scale-codebook-index",
+      "file": "cases/referenced-scale-codebook-index.sog",
+      "accepted": false,
+      "cap": 3,
+      "reason": "Sampled scale index255 is outside seven-entry codebook; cap1 source2 remains valid",
+      "scope": "native-or-browser",
+      "sourceCount": null,
+      "originalMetadata": "{\n  \"version\": 2,\n  \"count\": 3,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      -2.25,\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      -3.5,\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": [
+        {
+          "path": "appearance.webp",
+          "omitted": false,
+          "sha256": "5e3237f3ef66e48f57af99777e838b0eaee71335b0c7ff8cedce3bc5dfc43dfc",
+          "bytes": 58
+        }
+      ]
+    },
+    {
+      "name": "referenced-dc-codebook-index",
+      "file": "cases/referenced-dc-codebook-index.sog",
+      "accepted": false,
+      "cap": 3,
+      "reason": "Sampled DC index255 is outside seven-entry codebook; scale role retains canonical appearance and cap1 source2 remains valid",
+      "scope": "native-or-browser",
+      "sourceCount": null,
+      "originalMetadata": "{\n  \"version\": 2,\n  \"count\": 3,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      -2.25,\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      -3.5,\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      1e+100\n    ],\n    \"files\": [\n      \"dc-invalid-index.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": [
+        {
+          "path": "dc-invalid-index.webp",
+          "omitted": false,
+          "sha256": "5e3237f3ef66e48f57af99777e838b0eaee71335b0c7ff8cedce3bc5dfc43dfc",
+          "bytes": 58
+        }
+      ]
+    },
+    {
+      "name": "referenced-overflow-codebook-index",
+      "file": "cases/referenced-overflow-codebook-index.sog",
+      "accepted": false,
+      "cap": 3,
+      "reason": "Sampled source0 index6 addresses nonfinite float32 entry; unsampled bad source0 remains allowed atcap1",
+      "scope": "native-or-browser",
+      "sourceCount": null,
+      "originalMetadata": "{\n  \"version\": 2,\n  \"count\": 3,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      -2.25,\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      -3.5,\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": [
+        {
+          "path": "appearance.webp",
+          "omitted": false,
+          "sha256": "e351c712c76d39356580e3198bce59f406e852dd605a3cdde32ec437d129fdb3",
+          "bytes": 56
+        }
+      ]
+    },
+    {
+      "name": "referenced-quaternion-mode",
+      "file": "cases/referenced-quaternion-mode.sog",
+      "accepted": false,
+      "cap": 3,
+      "reason": "Sampled quaternion mode is below252",
+      "scope": "native-or-browser",
+      "sourceCount": null,
+      "originalMetadata": "{\n  \"version\": 2,\n  \"count\": 3,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      -2.25,\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      -3.5,\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": [
+        {
+          "path": "rotations.webp",
+          "omitted": false,
+          "sha256": "95d0b6851744aabd0699af100bdbc678f3526aa6516b46e7a96cf69d06eea9cf",
+          "bytes": 58
+        }
+      ]
+    },
+    {
+      "name": "property-layout-mismatch",
+      "file": "cases/property-layout-mismatch.sog",
+      "accepted": false,
+      "cap": 3,
+      "reason": "Equal pixel count cannot replace equal image width and height",
+      "scope": "native-or-browser",
+      "sourceCount": null,
+      "originalMetadata": "{\n  \"version\": 2,\n  \"count\": 3,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      -2.25,\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      -3.5,\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": [
+        {
+          "path": "appearance.webp",
+          "omitted": false,
+          "sha256": "824a471868d1fecc2df37d54dfbec32975ac9b238f57c2dbaf800b4eee321b8a",
+          "bytes": 56
+        }
+      ]
+    },
+    {
+      "name": "truncated-required-webp",
+      "file": "cases/truncated-required-webp.sog",
+      "accepted": false,
+      "cap": 3,
+      "reason": "RIFF/WEBP envelope alone has no decoded image",
+      "scope": "native-or-browser",
+      "sourceCount": null,
+      "originalMetadata": "{\n  \"version\": 2,\n  \"count\": 3,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      -2.25,\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      -3.5,\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": [
+        {
+          "path": "positions-low.webp",
+          "omitted": false,
+          "sha256": "affc07ffff461d2727df6692124efc4cf1a309d385b26370df0506ee1ce4fcbe",
+          "bytes": 12
+        }
+      ]
+    },
+    {
+      "name": "missing-shared-resource",
+      "file": "cases/missing-shared-resource.sog",
+      "accepted": false,
+      "cap": 3,
+      "reason": "Required aliased scale/DC original resource is absent",
+      "scope": "native-or-browser",
+      "sourceCount": null,
+      "originalMetadata": "{\n  \"version\": 2,\n  \"count\": 3,\n  \"means\": {\n    \"mins\": [\n      -1,\n      -0.5,\n      -0.25\n    ],\n    \"maxs\": [\n      1,\n      0.5,\n      0.75\n    ],\n    \"files\": [\n      \"positions-low.webp\",\n      \"positions-high.webp\",\n      \"declared-extra.bin\"\n    ]\n  },\n  \"scales\": {\n    \"codebook\": [\n      -2.25,\n      -1.125,\n      -0.25,\n      0.375,\n      1.25,\n      2,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"quats\": {\n    \"files\": [\n      \"rotations.webp\"\n    ]\n  },\n  \"sh0\": {\n    \"codebook\": [\n      -3.5,\n      -1.25,\n      0.125,\n      1.5,\n      4,\n      6.25,\n      1e+100\n    ],\n    \"files\": [\n      \"appearance.webp\"\n    ]\n  },\n  \"shN\": null\n}\n",
+      "resourceChanges": [
+        {
+          "path": "appearance.webp",
+          "omitted": true,
+          "sha256": null,
+          "bytes": null
+        }
+      ]
+    }
+  ],
+  "textureOverrides": [
+    {
+      "file": "case-textures/scale-invalid-index.webp",
+      "bytes": 58,
+      "sha256": "5e3237f3ef66e48f57af99777e838b0eaee71335b0c7ff8cedce3bc5dfc43dfc"
+    },
+    {
+      "file": "case-textures/dc-invalid-index.webp",
+      "bytes": 58,
+      "sha256": "5e3237f3ef66e48f57af99777e838b0eaee71335b0c7ff8cedce3bc5dfc43dfc"
+    },
+    {
+      "file": "case-textures/appearance-used-overflow.webp",
+      "bytes": 56,
+      "sha256": "e351c712c76d39356580e3198bce59f406e852dd605a3cdde32ec437d129fdb3"
+    },
+    {
+      "file": "case-textures/rotation-invalid-mode.webp",
+      "bytes": 58,
+      "sha256": "95d0b6851744aabd0699af100bdbc678f3526aa6516b46e7a96cf69d06eea9cf"
+    },
+    {
+      "file": "case-textures/appearance-layout-1x4.webp",
+      "bytes": 56,
+      "sha256": "824a471868d1fecc2df37d54dfbec32975ac9b238f57c2dbaf800b4eee321b8a"
+    }
+  ]
+}

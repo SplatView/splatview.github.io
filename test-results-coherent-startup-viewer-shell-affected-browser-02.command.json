@@ -1,0 +1,47 @@
+﻿{
+    "schemaVersion":  1,
+    "kind":  "observed-local-command-terminal",
+    "workingDirectory":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+    "executable":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+    "arguments":  [
+                      "node_modules/@playwright/test/cli.js",
+                      "test",
+                      "e2e/viewer-shell.spec.ts",
+                      "e2e/app.spec.ts",
+                      "e2e/background.spec.ts",
+                      "e2e/fill-shortcut.spec.ts",
+                      "e2e/geometry-viewer.spec.ts",
+                      "e2e/live-preview-failure.spec.ts",
+                      "e2e/native-memory.spec.ts",
+                      "e2e/portable-saved-view.spec.ts",
+                      "e2e/saved-view.spec.ts",
+                      "e2e/ui-size.spec.ts",
+                      "e2e/ui-size-native.spec.ts",
+                      "e2e/limited-input.spec.ts",
+                      "e2e/source-navigation.spec.ts",
+                      "--workers=1",
+                      "--max-failures=5",
+                      "--reporter=json",
+                      "--output=.build/viewer-shell-tests/affected-02"
+                  ],
+    "startedAtUtc":  "2026-10-12T20:38:29.4096201Z",
+    "finishedAtUtc":  "2026-10-12T20:42:55.4437569Z",
+    "exitCode":  0,
+    "exception":  null,
+    "log":  {
+                "path":  "test-results-coherent-startup-viewer-shell-affected-browser-02.log",
+                "bytes":  54056,
+                "sha256":  "105462f9424dc4d70131a228d1a9b4509d6ae8f74ea1a4ca6dfeb86132bc7dfc"
+            },
+    "report":  {
+                   "path":  "test-results-viewer-shell-affected-browser-02.json",
+                   "bytes":  919803,
+                   "sha256":  "1d5f4bdc7f4946421beadc16049905ad3ea3d27745530dd96d1e6b2d1eafc5ec"
+               },
+    "browserOutputDirectory":  ".build/viewer-shell-tests/affected-02",
+    "lastRun":  {
+                    "path":  ".build/viewer-shell-tests/affected-02/.last-run.json",
+                    "bytes":  45,
+                    "sha256":  "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+                }
+}

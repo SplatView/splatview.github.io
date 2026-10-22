@@ -1,0 +1,23 @@
+﻿{
+    "schemaVersion":  1,
+    "kind":  "observed-local-command-terminal",
+    "workingDirectory":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+    "executable":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+    "arguments":  [
+                      "tools/run-native-contracts.mjs",
+                      "--output",
+                      "docs/validation/runs/native-json-cleanup-20261012-01/native-contracts.json"
+                  ],
+    "startedAtUtc":  "2026-10-12T19:21:52.5422329Z",
+    "finishedAtUtc":  "2026-10-12T19:21:53.2450122Z",
+    "exitCode":  1,
+    "exception":  null,
+    "log":  {
+                "path":  "test-results-coherent-startup-json-cleanup-native-execution-01.log",
+                "bytes":  7998,
+                "sha256":  "5272cb7da4294f7255c0af86c0ed6ee3ae7fda01384125a4d5f1b3bcbebe3d38"
+            },
+    "report":  null,
+    "browserOutputDirectory":  "",
+    "lastRun":  null
+}

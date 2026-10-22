@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "purpose": "Accepted frozen original source for reconciliation and isolated adoption review; not the imported port baseline",
+  "source_version": "0.12.74",
+  "local_directory": "source-reference-0.12.74",
+  "manifest": "source-reference-0.12.74/SOURCE_SNAPSHOT.json",
+  "manifest_sha256": "3e0d4a16d1996a73f157be3f2d713824e5ffa35a71e990b31f80a9a610983f63",
+  "tree_sha256": "68c95408c10d0cb777f5b13072d06e96edb3aa0f604bd7ea7fd796d3ba1b77e4",
+  "file_count": 616,
+  "total_bytes": 52304301,
+  "captured_started_utc": "2026-10-11T00:28:08.669932+00:00",
+  "captured_completed_utc": "2026-10-11T00:28:10.102119+00:00",
+  "source_git_head": null,
+  "historical_import": {
+    "manifest": "SOURCE_BASELINE.json",
+    "source_version": "0.12.58",
+    "sha256": "bf692b3106e1219ef412c01df7a7e42965808686132f97e812e64422beedb77e"
+  },
+  "verify_command": "python scripts/capture_source.py verify source-reference-0.12.74",
+  "notes": [
+    "The archive is a local ignored artifact; this pointer alone cannot reproduce its bytes if the archive is unavailable.",
+    "An intentionally adapted Windows candidate has separate baseline, package and candidate manifests.",
+    "No files in the live sibling original project were changed to create this reference."
+  ]
+}

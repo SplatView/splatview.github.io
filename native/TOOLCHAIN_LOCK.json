@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "qualification": "Reviewed installed Windows x86_64 fingerprints, not upstream binary authentication or a complete host dependency closure.",
+  "exclusions": [
+    "Python bytecode and Git metadata",
+    "SDK documentation/tests/media",
+    "CMake documentation",
+    "Windows OS and dynamically loaded host DLLs outside these distributions",
+    "bootstrap Python standard library outside the SDK",
+    "Independent reproduction of cached sysroot archives from reviewed SDK/codec sources",
+    "native reference executable/toolchain provenance"
+  ],
+  "cachePolicy": "Installed compiled sysroot files are pinned as observed binary build inputs; their source-to-cache derivation is not independently reproduced. A legitimate cache extension or rebuild requires review and a new lock; builds never refresh this lock.",
+  "inputs": {
+    "host": "windows-x86_64",
+    "emscriptenVersion": "6.0.12",
+    "sdkRelease": "6e9f6885cb17a3d6c8fd488a5cff730f50aba61d",
+    "emscriptenRevision": "5488e0871d46d19a3209988190fa6a653126256f",
+    "files": {
+      "emsdkConfig": {
+        "bytes": 221,
+        "sha256": "142a4c27839e91a0671807fd9428e67700a4025cacb0a4ed2d865be4f26ec063"
+      },
+      "cmake": {
+        "bytes": 13465160,
+        "sha256": "3a329667300846abc8dffccbdcb1c8c2d4a6cebe342d499181825205ea8c766c"
+      },
+      "ninja": {
+        "bytes": 598528,
+        "sha256": "2df494116decdae84d74c02373119176bbfc4797a6f49a6c709d85d961d6a0d8"
+      }
+    },
+    "trees": {
+      "emscriptenCompilerSources": {
+        "files": 7941,
+        "bytes": 147455601,
+        "sha256": "26b2bead885289cd78209491d24e6a5424a66b84b023be228ba253cacd655fbf"
+      },
+      "llvmAndBinaryenExecutables": {
+        "files": 41,
+        "bytes": 1135943168,
+        "sha256": "73f1fabd67ce20d47764acfdd6a2c4c0247c4c3707a6081abeddb8a6a57f9039"
+      },
+      "clangBuiltinHeaders": {
+        "files": 292,
+        "bytes": 8199429,
+        "sha256": "464f8910bb6836e02c120c2edcfd3be1f3efb662527fc575b373ff84afa10287"
+      },
+      "sdkPythonRuntime": {
+        "files": 1945,
+        "bytes": 59788396,
+        "sha256": "1e70d9b1da58ef99fb08dd398d0a306872af47c69ff1e3987c48c35df850ce8d"
+      },
+      "sdkNodeRuntime": {
+        "files": 1990,
+        "bytes": 106112896,
+        "sha256": "bb0d835ad92d3e17e6d7e8598e175f260627ccb621ecc38c92fa5b751ce42cc0"
+      },
+      "cmakeDistribution": {
+        "files": 4145,
+        "bytes": 87942448,
+        "sha256": "3f9165cde1add88960b5e997cacff0003ecf9ccf6d4c2552cc548383f62613e9"
+      },
+      "compiledSysrootCache": {
+        "files": 2098,
+        "bytes": 629060889,
+        "sha256": "ae8b44533b23c3ed8271f35a999ae76f12e9a0c67753ac668a714ca25593f080"
+      }
+    }
+  }
+}

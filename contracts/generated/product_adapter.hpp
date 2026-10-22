@@ -1,0 +1,146 @@
+// Generated local binding projection. Do not edit.
+#pragma once
+#include <splatview_product/policy.hpp>
+namespace splatview::product {
+inline constexpr std::string_view localPlatform = "web";
+inline constexpr std::string_view bundleSha256 = "fff64dad4589c07b26821cb23a866aaec6f824e7786d719ca6e3122b3750895a";
+inline std::string_view registeredFeature(std::string_view binding) {
+    if (binding == "SelectionTool.brush") return "selection.manual";
+    if (binding == "SelectionTool.color") return "selection.color";
+    if (binding == "SelectionTool.fill") return "selection.color";
+    if (binding == "SelectionTool.polygon") return "selection.manual";
+    if (binding == "SelectionTool.rectangle") return "selection.manual";
+    if (binding == "SelectionTool.single") return "selection.manual";
+    if (binding == "SelectionTool.volume") return "selection.manual";
+    if (binding == "ToolbarAction.capture") return "view.capture";
+    if (binding == "ToolbarAction.save") return "save.copy";
+    if (binding == "ToolbarAction.thumbnail") return "view.remember";
+    if (binding == "ToolsMode.basic") return "settings.general";
+    if (binding == "ToolsMode.pro") return "processing.advanced";
+    if (binding == "TutorialTarget.actions") return "selection.manual";
+    if (binding == "TutorialTarget.area") return "selection.manual";
+    if (binding == "TutorialTarget.auto-color") return "color.auto";
+    if (binding == "TutorialTarget.auto-rotate") return "view.navigate";
+    if (binding == "TutorialTarget.brushes") return "selection.manual";
+    if (binding == "TutorialTarget.capture") return "view.capture";
+    if (binding == "TutorialTarget.cleanup-reset") return "cleanup.edit";
+    if (binding == "TutorialTarget.color-reset") return "color.basic";
+    if (binding == "TutorialTarget.color-select") return "selection.color";
+    if (binding == "TutorialTarget.color-slider") return "color.basic";
+    if (binding == "TutorialTarget.combine") return "selection.manual";
+    if (binding == "TutorialTarget.coordinates") return "transform.numeric";
+    if (binding == "TutorialTarget.current-view") return "selection.advanced";
+    if (binding == "TutorialTarget.duplicate") return "processing.advanced";
+    if (binding == "TutorialTarget.fill") return "selection.color";
+    if (binding == "TutorialTarget.filter") return "selection.volume";
+    if (binding == "TutorialTarget.floor") return "alignment.auto";
+    if (binding == "TutorialTarget.gizmo") return "transform.manual";
+    if (binding == "TutorialTarget.guides") return "view.navigate";
+    if (binding == "TutorialTarget.histogram") return "color.auto";
+    if (binding == "TutorialTarget.lens") return "view.navigate";
+    if (binding == "TutorialTarget.modes") return "processing.advanced";
+    if (binding == "TutorialTarget.navigation") return "view.navigate";
+    if (binding == "TutorialTarget.open") return "document.open";
+    if (binding == "TutorialTarget.options") return "selection.manual";
+    if (binding == "TutorialTarget.pick-center") return "alignment.manual";
+    if (binding == "TutorialTarget.pivot") return "transform.numeric";
+    if (binding == "TutorialTarget.plane-align") return "alignment.manual";
+    if (binding == "TutorialTarget.presets") return "color.basic";
+    if (binding == "TutorialTarget.pro-color") return "color.advanced";
+    if (binding == "TutorialTarget.range") return "selection.advanced";
+    if (binding == "TutorialTarget.refine") return "selection.advanced";
+    if (binding == "TutorialTarget.save") return "save.copy";
+    if (binding == "TutorialTarget.scale-align") return "alignment.manual";
+    if (binding == "TutorialTarget.scope") return "settings.general";
+    if (binding == "TutorialTarget.selection-edits") return "selection.manual";
+    if (binding == "TutorialTarget.selection-finish") return "selection.manual";
+    if (binding == "TutorialTarget.settings") return "settings.general";
+    if (binding == "TutorialTarget.single") return "selection.manual";
+    if (binding == "TutorialTarget.snap-flips") return "transform.manual";
+    if (binding == "TutorialTarget.thumbnail") return "view.remember";
+    if (binding == "TutorialTarget.tools") return "settings.general";
+    if (binding == "TutorialTarget.transform-mode") return "transform.numeric";
+    if (binding == "TutorialTarget.transform-reset") return "transform.manual";
+    if (binding == "TutorialTarget.transform-values") return "transform.numeric";
+    if (binding == "TutorialTarget.undo-redo") return "history.edit";
+    if (binding == "WorkerCommand.alignCenter") return "alignment.manual";
+    if (binding == "WorkerCommand.alignFloor") return "alignment.auto";
+    if (binding == "WorkerCommand.alignPlane") return "alignment.manual";
+    if (binding == "WorkerCommand.alignScale") return "alignment.manual";
+    if (binding == "WorkerCommand.applyOpacity") return "color.advanced";
+    if (binding == "WorkerCommand.applyTransform") return "transform.manual";
+    if (binding == "WorkerCommand.autoColor") return "color.auto";
+    if (binding == "WorkerCommand.beginColor") return "color.basic";
+    if (binding == "WorkerCommand.beginFilter") return "selection.volume";
+    if (binding == "WorkerCommand.beginOpacity") return "color.advanced";
+    if (binding == "WorkerCommand.beginSelection") return "selection.manual";
+    if (binding == "WorkerCommand.beginTransaction") return "internal.lifecycle";
+    if (binding == "WorkerCommand.beginTransform") return "transform.manual";
+    if (binding == "WorkerCommand.brush") return "selection.manual";
+    if (binding == "WorkerCommand.cancel") return "internal.lifecycle";
+    if (binding == "WorkerCommand.cancelFilter") return "selection.volume";
+    if (binding == "WorkerCommand.cancelFloor") return "alignment.auto";
+    if (binding == "WorkerCommand.cancelSelection") return "selection.manual";
+    if (binding == "WorkerCommand.cancelTransform") return "transform.manual";
+    if (binding == "WorkerCommand.clipSelection") return "selection.advanced";
+    if (binding == "WorkerCommand.color") return "color.basic";
+    if (binding == "WorkerCommand.colorPick") return "selection.color";
+    if (binding == "WorkerCommand.colorTolerance") return "selection.color";
+    if (binding == "WorkerCommand.commitTransaction") return "internal.lifecycle";
+    if (binding == "WorkerCommand.confirmFilter") return "selection.volume";
+    if (binding == "WorkerCommand.confirmSelection") return "selection.manual";
+    if (binding == "WorkerCommand.crop") return "cleanup.edit";
+    if (binding == "WorkerCommand.delete") return "cleanup.edit";
+    if (binding == "WorkerCommand.detectFloor") return "alignment.auto";
+    if (binding == "WorkerCommand.duplicate") return "processing.advanced";
+    if (binding == "WorkerCommand.endColor") return "color.basic";
+    if (binding == "WorkerCommand.endOpacity") return "color.advanced";
+    if (binding == "WorkerCommand.endTolerance") return "selection.color";
+    if (binding == "WorkerCommand.endTransform") return "transform.manual";
+    if (binding == "WorkerCommand.export") return "save.copy";
+    if (binding == "WorkerCommand.fillPick") return "selection.color";
+    if (binding == "WorkerCommand.fillTolerance") return "selection.color";
+    if (binding == "WorkerCommand.grade") return "color.basic";
+    if (binding == "WorkerCommand.invert") return "selection.manual";
+    if (binding == "WorkerCommand.morphology") return "selection.advanced";
+    if (binding == "WorkerCommand.morphologyRange") return "selection.advanced";
+    if (binding == "WorkerCommand.operationBind") return "internal.lifecycle";
+    if (binding == "WorkerCommand.operationRetire") return "internal.lifecycle";
+    if (binding == "WorkerCommand.operationStatus") return "internal.lifecycle";
+    if (binding == "WorkerCommand.planeNormal") return "alignment.manual";
+    if (binding == "WorkerCommand.point") return "alignment.manual";
+    if (binding == "WorkerCommand.polygon") return "selection.manual";
+    if (binding == "WorkerCommand.previewFilter") return "selection.volume";
+    if (binding == "WorkerCommand.rebaseTransform") return "transform.manual";
+    if (binding == "WorkerCommand.rectangle") return "selection.manual";
+    if (binding == "WorkerCommand.redo") return "history.edit";
+    if (binding == "WorkerCommand.redoTransform") return "transform.manual";
+    if (binding == "WorkerCommand.resetAlignment") return "alignment.manual";
+    if (binding == "WorkerCommand.resetCleanup") return "cleanup.edit";
+    if (binding == "WorkerCommand.resetOpacity") return "color.advanced";
+    if (binding == "WorkerCommand.resetTransform") return "transform.manual";
+    if (binding == "WorkerCommand.restore") return "cleanup.edit";
+    if (binding == "WorkerCommand.rollbackTransaction") return "internal.lifecycle";
+    if (binding == "WorkerCommand.selectAll") return "selection.manual";
+    if (binding == "WorkerCommand.selectNone") return "selection.manual";
+    if (binding == "WorkerCommand.selectionMapBegin") return "internal.lifecycle";
+    if (binding == "WorkerCommand.selectionMapCommit") return "internal.lifecycle";
+    if (binding == "WorkerCommand.selectionMapRelease") return "internal.lifecycle";
+    if (binding == "WorkerCommand.single") return "selection.manual";
+    if (binding == "WorkerCommand.summary") return "internal.lifecycle";
+    if (binding == "WorkerCommand.transform") return "transform.manual";
+    if (binding == "WorkerCommand.transformFocus") return "transform.manual";
+    if (binding == "WorkerCommand.undo") return "history.edit";
+    if (binding == "WorkerCommand.undoTransform") return "transform.manual";
+    if (binding == "WorkerCommand.volume") return "selection.manual";
+    return {};
+}
+inline bool registeredAllowed(std::string_view binding, std::string_view surface,
+    std::string_view host = "editor", std::string_view capabilities = {}) {
+    return allowed(registeredFeature(binding), "web", "web-lite", surface, host, capabilities);
+}
+inline bool registeredEnumAllowed(std::string_view group, std::size_t value, std::string_view surface,
+    std::string_view host = "editor", std::string_view capabilities = {}) {
+    return false;
+}
+} // namespace splatview::product

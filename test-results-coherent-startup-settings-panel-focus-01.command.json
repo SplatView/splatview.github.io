@@ -1,0 +1,37 @@
+﻿{
+    "schemaVersion":  1,
+    "kind":  "observed-local-command-terminal",
+    "workingDirectory":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+    "executable":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+    "arguments":  [
+                      "node_modules/@playwright/test/cli.js",
+                      "test",
+                      "e2e/settings-panel.spec.ts",
+                      "e2e/ui-size.spec.ts",
+                      "e2e/ui-size-native.spec.ts",
+                      "--workers=1",
+                      "--max-failures=5",
+                      "--reporter=json",
+                      "--output=.build/settings-panel-tests/focus-01"
+                  ],
+    "startedAtUtc":  "2026-10-12T21:32:34.9842002Z",
+    "finishedAtUtc":  "2026-10-12T21:33:29.0264202Z",
+    "exitCode":  0,
+    "exception":  null,
+    "log":  {
+                "path":  "test-results-coherent-startup-settings-panel-focus-01.log",
+                "bytes":  4720,
+                "sha256":  "95b1fa9d32bd1fe196a4df47878f046e11c6f79b67a7891f3baa0a7fffcbf8ce"
+            },
+    "report":  {
+                   "path":  "test-results-settings-panel-focus-01.json",
+                   "bytes":  182755,
+                   "sha256":  "abc27b189026453cf314ad88c82de4637cff1d7042c17755f4a2e0ed747dd08e"
+               },
+    "browserOutputDirectory":  ".build/settings-panel-tests/focus-01",
+    "lastRun":  {
+                    "path":  ".build/settings-panel-tests/focus-01/.last-run.json",
+                    "bytes":  45,
+                    "sha256":  "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+                }
+}

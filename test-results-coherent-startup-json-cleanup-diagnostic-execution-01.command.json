@@ -1,0 +1,17 @@
+﻿{
+    "schemaVersion":  1,
+    "kind":  "observed-local-command-terminal",
+    "workingDirectory":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io",
+    "executable":  "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.tools\\node-v24.21.0-win-x64\\node.exe",
+    "arguments":  [
+                      ".build/wasm/contracts/splatview-json-cleanup-contracts.mjs"
+                  ],
+    "startedAtUtc":  "2026-10-12T19:24:25.4215904Z",
+    "finishedAtUtc":  "2026-10-12T19:24:25.5291123Z",
+    "exitCode":  0,
+    "exception":  null,
+    "log":  null,
+    "report":  null,
+    "browserOutputDirectory":  "",
+    "lastRun":  null
+}

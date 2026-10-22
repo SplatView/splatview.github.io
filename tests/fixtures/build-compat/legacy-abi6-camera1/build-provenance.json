@@ -1,0 +1,196 @@
+{
+  "schemaVersion": 1,
+  "buildMode": "clean-first",
+  "qualification": "Verified source snapshot, adapters, installed Windows toolchain/cache fingerprints and codec trees. Not complete host closure, independent source-to-sysroot-cache reproduction, upstream binary authentication, native executable provenance, or cross-host bit reproducibility.",
+  "inputs": {
+    "sourceLock": {
+      "bytes": 270929,
+      "sha256": "d6515ebbc1f22ca1498b37d6369420f87cf48a39aba2d0ec952fcc9dbae9c747"
+    },
+    "dependencyLock": {
+      "bytes": 984,
+      "sha256": "60767567735a536be378067ea88e3b01cbd42840bbcf26c318cb0cff957e272c"
+    },
+    "toolchainLock": {
+      "bytes": 2816,
+      "sha256": "d75fff40237635b80e9ab1532c33a0df9f15037dc57ec8230a86dab3ab9048d7"
+    },
+    "wasmAdapters": {
+      "files": 8,
+      "bytes": 61801,
+      "sha256": "fa5cdfd7e1ffd035e81d26e25b8cb96b4a43bc1825d2552fdcda8806fb06a037"
+    },
+    "buildScripts": {
+      "build-core.py": {
+        "bytes": 14389,
+        "sha256": "502795bbd6ebc899c42b6eae27d97f6161800fb4d55d125deb4ec842e569d8a5"
+      },
+      "verify-toolchain.py": {
+        "bytes": 14897,
+        "sha256": "922df54a0e88166a30962369fcf83f907affdac9e57caa06170aa639ef1d20ac"
+      },
+      "capture-sources.py": {
+        "bytes": 7228,
+        "sha256": "e38378072351041efec60317bddea0f4a4ece37c35b27c657136202ecf6ab440"
+      }
+    }
+  },
+  "toolchain": {
+    "host": "windows-x86_64",
+    "emscriptenVersion": "6.0.12",
+    "sdkRelease": "6e9f6885cb17a3d6c8fd488a5cff730f50aba61d",
+    "emscriptenRevision": "5488e0871d46d19a3209988190fa6a653126256f",
+    "files": {
+      "emsdkConfig": {
+        "bytes": 221,
+        "sha256": "142a4c27839e91a0671807fd9428e67700a4025cacb0a4ed2d865be4f26ec063"
+      },
+      "cmake": {
+        "bytes": 13465160,
+        "sha256": "3a329667300846abc8dffccbdcb1c8c2d4a6cebe342d499181825205ea8c766c"
+      },
+      "ninja": {
+        "bytes": 598528,
+        "sha256": "2df494116decdae84d74c02373119176bbfc4797a6f49a6c709d85d961d6a0d8"
+      }
+    },
+    "trees": {
+      "emscriptenCompilerSources": {
+        "files": 7941,
+        "bytes": 147455601,
+        "sha256": "26b2bead885289cd78209491d24e6a5424a66b84b023be228ba253cacd655fbf"
+      },
+      "llvmAndBinaryenExecutables": {
+        "files": 41,
+        "bytes": 1135943168,
+        "sha256": "73f1fabd67ce20d47764acfdd6a2c4c0247c4c3707a6081abeddb8a6a57f9039"
+      },
+      "clangBuiltinHeaders": {
+        "files": 292,
+        "bytes": 8199429,
+        "sha256": "464f8910bb6836e02c120c2edcfd3be1f3efb662527fc575b373ff84afa10287"
+      },
+      "sdkPythonRuntime": {
+        "files": 1945,
+        "bytes": 59788396,
+        "sha256": "1e70d9b1da58ef99fb08dd398d0a306872af47c69ff1e3987c48c35df850ce8d"
+      },
+      "sdkNodeRuntime": {
+        "files": 1990,
+        "bytes": 106112896,
+        "sha256": "bb0d835ad92d3e17e6d7e8598e175f260627ccb621ecc38c92fa5b751ce42cc0"
+      },
+      "cmakeDistribution": {
+        "files": 4145,
+        "bytes": 87942448,
+        "sha256": "3f9165cde1add88960b5e997cacff0003ecf9ccf6d4c2552cc548383f62613e9"
+      },
+      "compiledSysrootCache": {
+        "files": 2098,
+        "bytes": 629060889,
+        "sha256": "ae8b44533b23c3ed8271f35a999ae76f12e9a0c67753ac668a714ca25593f080"
+      }
+    }
+  },
+  "codecDependencies": {
+    "ports": {
+      "webp": {
+        "archiveSha512": "5c159d9760efcb92749092536daada22c0a73c20926c76097a5f0448ddbf874cf761324ca97925ca5f578b30477564b2b072b47667e504673797128b31cafcbf",
+        "tree": {
+          "files": 367,
+          "bytes": 10092224,
+          "sha256": "821829a47a9912a0e1bb0714d93b581786de6824b798b45e5bb24acafe6cb200"
+        }
+      },
+      "zlib": {
+        "archiveSha512": "16fea4df307a68cf0035858abe2fd550250618a97590e202037acd18a666f57afc10f8836cbbd472d54a0e76539d0e558cb26f059d53de52ff90634bbf4f47d4",
+        "tree": {
+          "files": 262,
+          "bytes": 3603929,
+          "sha256": "9a190188d052b3a1315d28738f4795fe2088c06282c1526e6d3e0ae71ee33ded"
+        }
+      }
+    },
+    "zstd": {
+      "archiveSha256": "8c29e06cf42aacc1eafc4077ae2ec6c6fcb96a626157e0593d5e82a34fd403c1",
+      "omittedNonBuildSymlinksOnWindows": {
+        "tests/cli-tests/bin/unzstd": "zstd",
+        "tests/cli-tests/bin/zstdcat": "zstd"
+      },
+      "tree": {
+        "files": 634,
+        "bytes": 8249254,
+        "sha256": "9ca9e0937c8d43a9c6af1f02d00cb2ec19cbb66690d8e498e169bb02eb5fb9c8"
+      }
+    }
+  },
+  "desktopOverlay": {
+    "files": 303,
+    "bytes": 6807933,
+    "sha256": "7acd47a98c3b52886bf8cc54dff440392053d330fd3f7e4f762267ca00c523fd"
+  },
+  "bootstrapPython": {
+    "version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "executable": {
+      "bytes": 103192,
+      "sha256": "5f7b89a612c9b8af1d6456cdfcd1dbe5ca630849e79aebced9bee9a6694952ec"
+    }
+  },
+  "configureCommand": [
+    "{cmake}",
+    "-S",
+    "{workspace}\\native\\wasm",
+    "-B",
+    "{workspace}\\.build\\wasm",
+    "-G",
+    "Ninja",
+    "-DCMAKE_BUILD_TYPE=Release",
+    "-DCMAKE_TOOLCHAIN_FILE={sdk}\\upstream\\emscripten\\cmake\\Modules\\Platform\\Emscripten.cmake",
+    "-DCMAKE_MAKE_PROGRAM={ninja}",
+    "-DSPLATVIEW_PACKAGE={workspace}\\.build\\desktop-package",
+    "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
+    "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
+    "-DCMAKE_DISABLE_FIND_PACKAGE_zstd=ON",
+    "-DCMAKE_FIND_USE_PACKAGE_REGISTRY=OFF"
+  ],
+  "buildCommand": [
+    "{cmake}",
+    "--build",
+    "{workspace}\\.build\\wasm",
+    "--clean-first",
+    "--parallel",
+    "6"
+  ],
+  "commandEvidence": {
+    "path": ".build/wasm/build-commands.txt",
+    "bytes": 110941,
+    "sha256": "f2b8921bd02e605b88d3654e8ecfc59c55c72d57d179fd2cad3658661b9079eb"
+  },
+  "compileCommands": {
+    "bytes": 121543,
+    "sha256": "97e475b088c6f6439c1652864940ca609d4477043cc916a0f649bc278b5ca9a1"
+  },
+  "cmakeCache": {
+    "bytes": 28159,
+    "sha256": "1b1242e1a988e34defe10ad69dead5002badf2a37c7a9939899be99ad8595400"
+  },
+  "environmentPolicy": "Locked SDK paths; ambient compiler/Python/Node overrides removed; empty isolated Python bytecode prefix; fresh root CMake cache; external zstd package discovery disabled.",
+  "outputs": {
+    "splatview-core.mjs": {
+      "bytes": 77935,
+      "sha256": "d983622631b19f713d194952f56bc37abe92f028184847b1de10e47c659512e1"
+    },
+    "splatview-core.wasm": {
+      "bytes": 1446804,
+      "sha256": "61108a68be7a5e700b03aaf512499d887549a63331c46eb7bf3071dde1c61761"
+    },
+    "splatview-camera.mjs": {
+      "bytes": 10854,
+      "sha256": "085ece724dad161b45d2b49630d8e64556b52e2bc94aade1052379977bc18c64"
+    },
+    "splatview-camera.wasm": {
+      "bytes": 26675,
+      "sha256": "01068841465e51d348d620f8a66b33353094310113191d9bc775480b994d60b5"
+    }
+  }
+}

@@ -1,0 +1,4 @@
+#pragma once
+namespace preview {
+inline constexpr const char *gsmodPresetJson = R"gsmod(@GSMOD_PRESET_JSON@)gsmod";
+}

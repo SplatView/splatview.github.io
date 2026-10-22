@@ -1,0 +1,5 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": { "types": ["node"], "erasableSyntaxOnly": true },
+  "include": ["*.ts", "../../tests/release-*.test.ts"]
+}

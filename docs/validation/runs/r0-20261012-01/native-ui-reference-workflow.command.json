@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "case": "workflow",
+  "argv": [
+    "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.build\\r0-native-02\\attempt05\\Release\\SplatViewToolsTests.exe",
+    "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.build\\native-ui-reference\\r0-20261012-01\\workflow",
+    "--workflow-only"
+  ],
+  "workingDirectory": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\.build\\native-ui-reference\\r0-20261012-01",
+  "startedUtc": "2026-10-12T15:26:18.307488+00:00",
+  "stdout": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\docs\\validation\\runs\\r0-20261012-01\\native-ui-reference-workflow.stdout.log",
+  "stderr": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\docs\\validation\\runs\\r0-20261012-01\\native-ui-reference-workflow.stderr.log",
+  "timeoutSeconds": 240,
+  "exitCode": 0,
+  "finishedUtc": "2026-10-12T15:26:29.621881+00:00",
+  "durationSeconds": 11.312,
+  "stdoutIdentity": {
+    "path": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\docs\\validation\\runs\\r0-20261012-01\\native-ui-reference-workflow.stdout.log",
+    "bytes": 97,
+    "sha256": "8992c6b59e08629f1e97f1dd3388127ab6871e9802c841ee962bf5f2af8983da"
+  },
+  "stderrIdentity": {
+    "path": "C:\\Users\\opsiclear\\Desktop\\projects\\gaussian_splatting\\splatview.github.io\\docs\\validation\\runs\\r0-20261012-01\\native-ui-reference-workflow.stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}
