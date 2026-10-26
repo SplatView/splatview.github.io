@@ -63,26 +63,32 @@
         "nativeInputId": "59b0d5f23b429590c4804a68ecba23fb6d3b0b1c3c44f17cb92d6b5ba81b3230"
       }
     },
-    "appInputId": "7dac8f6dbffe9131b036806a82831ce5a811f0335a851ec8cc6c010aca8b2374"
+    "appInputId": "d51d79422aa65cd86d3a4250edb59923b901800f2829d80189bbf2a73953eaea"
   },
   "artifacts": [
     {
+      "role": "runtime-asset",
+      "path": "assets/compute.worker-CpNkGlJb.js",
+      "bytes": 21061,
+      "sha256": "bebb3130d0602d86051854a7a567d9fa4fed2400bd9735385770c745572d4b2c"
+    },
+    {
       "role": "document-worker",
-      "path": "assets/document.worker-Cg5XXk6L.js",
-      "bytes": 218549,
-      "sha256": "2e4f1560b0c21c21321128f61abfb6a0e4fc864d67a8a4680188282cbc8f13ef"
+      "path": "assets/document.worker-BnE3yM3f.js",
+      "bytes": 218778,
+      "sha256": "cfa362e9f4f465aea4eb604bf5d7dca9112c0ae184afd54e128fdd0c50db50e7"
     },
     {
       "role": "stylesheet",
-      "path": "assets/index-B0bvTFXQ.css",
-      "bytes": 46525,
-      "sha256": "8b3219fcdf7c801fd016e0cb87126e1183838547a8b37b2db7adf96ffed10eaf"
+      "path": "assets/index-BYQ_Delt.css",
+      "bytes": 47407,
+      "sha256": "0798cbae4931074aa5e5aa8fbb0c988b4f5852df8b7cd09246d41093040e6894"
     },
     {
       "role": "application-entry",
-      "path": "assets/index-SLRFRDxK.js",
-      "bytes": 1761367,
-      "sha256": "305d0e7bf6c0b04a117ff00217f1f8e788112f606e9dfdf623144221dfe1f649"
+      "path": "assets/index-xb2gWH8C.js",
+      "bytes": 1976142,
+      "sha256": "355edbbac5715bd877858caf4f01e0fc4e743b493f9d17dc9465e4708078ae93"
     },
     {
       "role": "runtime-asset",
@@ -610,13 +616,13 @@
       "role": "html",
       "path": "index.html",
       "bytes": 773,
-      "sha256": "b0b6bcc84611ac24a59fb6b9ebdf3f8b01ec2af074bbcc26c5cff26303156644"
+      "sha256": "5498f46b285e1cf88adc72ee763bc56e3af97e68284385f107fbf3452f5f13d3"
     },
     {
       "role": "runtime-asset",
       "path": "licenses/BROWSER_DEPENDENCIES.md",
-      "bytes": 1742,
-      "sha256": "c421d5d0ff54dc6a5b769e22a49e9237eee0ea3a4d1638e784991286e93723b5"
+      "bytes": 1969,
+      "sha256": "382ba28d9e28dc9117d48f277ab0e7a7952446a70cb92dc4b45d9a3aa812d04b"
     },
     {
       "role": "runtime-asset",
@@ -641,6 +647,12 @@
       "path": "licenses/Mip-NeRF-360-NOTICE.txt",
       "bytes": 2606,
       "sha256": "2d9504a85c7c8fb1cfed38ba047f93532a968448d2394b6b68ce1ff76eafce70"
+    },
+    {
+      "role": "runtime-asset",
+      "path": "licenses/PlayCanvas-MIT.txt",
+      "bytes": 1064,
+      "sha256": "42fa51ddd556be151a29f381fb97ee975825dcc454e805ea3ea9c079cca04d34"
     },
     {
       "role": "runtime-asset",
@@ -721,5 +733,5 @@
       "sha256": "2f0e9b58778894a4299c1b6e3f71faf4a88bb509c4f81abab4581685193398f8"
     }
   ],
-  "deploymentId": "45bb9b11d1ebd2dc08789494f6fe91192f4d256304193e06f5328c3bb14b5799"
+  "deploymentId": "876142158bb9823310098d303da672463cbbb29d1ff289177709ce4e2a3b8c35"
 }

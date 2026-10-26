@@ -1,36 +1,13 @@
-# SplatView web and publisher pages
+# SplatView web 0.2.0
 
-Public privacy information, license terms and support links for SplatView, published by OpsiClear LLC. Application source and contributor instructions are available on the [source branch](https://github.com/SplatView/splatview.github.io/tree/source).
+[Open the viewer](https://splatview.github.io/).
 
-GitHub Pages: https://splatview.github.io/
+This branch contains the published website. Source and development instructions
+are on the [source branch](https://github.com/SplatView/splatview.github.io/tree/source).
+The [v0.2.0 release](https://github.com/SplatView/splatview.github.io/releases/tag/v0.2.0)
+includes the self-hosted website and reusable WebGPU/WebGL2 renderer.
 
-Publish from the `main` branch and `/` root. Keep the plain-text legal documents and their HTML pages synchronized with the released application. The publisher and legal pages use no JavaScript, cookies, external fonts or application analytics. The browser application uses JavaScript, WebAssembly, WebGPU and browser-local storage. GitHub handles web hosting under its own privacy policies.
+Source commit: `2c9d5f04f043f5bbbe90548fbcdf1a7e11c289a6`.
+Deployment: `876142158bb9823310098d303da672463cbbb29d1ff289177709ce4e2a3b8c35`.
 
-## Browser application
-
-The root serves the Basic SplatView browser viewer and lightweight editor over HTTPS. Selected scene files are processed locally in the browser. WebGPU is required. The previous desktop publisher homepage is retained at [/publisher/](https://splatview.github.io/publisher/); existing privacy and license URLs remain unchanged.
-
-The `main` branch contains the emitted static site. Downloadable web builds are available in [Releases](https://github.com/SplatView/splatview.github.io/releases). Publish the complete verified `dist` closure from the application workspace, retaining the existing publisher/legal pages and `.nojekyll`. Do not copy build caches, toolchains, fixtures or test reports. Keep all application assets, native modules, workers, notices, maps and `build-manifest.json` together.
-
-Published application input: `7dac8f6dbffe9131b036806a82831ce5a811f0335a851ec8cc6c010aca8b2374`.
-
-Deployment identity: `45bb9b11d1ebd2dc08789494f6fe91192f4d256304193e06f5328c3bb14b5799`.
-
-## Demo data
-
-The browser demo and tutorial use the same Bench reconstruction and authored
-view as the desktop application: 5,124,962 bytes (5.1 MB), 262,556 splats.
-The app owner identifies its source data as
-[Mip-NeRF 360](https://jonbarron.info/mipnerf360/), by Jonathan T. Barron,
-Ben Mildenhall, Dor Verbin, Pratul P. Srinivasan and Peter Hedman (CVPR 2022).
-See the [sample provenance and authored view](examples/bench.json) and the
-[distributed dataset attribution](licenses/Mip-NeRF-360-NOTICE.txt).
-The underlying Mip-NeRF 360 dataset is licensed under
-[Creative Commons Attribution 4.0 International](licenses/CC-BY-4.0.txt),
-as declared in the official [SMERF dataset release](https://smerf-3d.github.io/#data)
-and its [June 18, 2024 source commit](https://github.com/smerf-3d/smerf-3d.github.io/commit/f4fd7c9978164b2cd7eaa718fa19bc6ec62551e8).
-Bench is the owner-supplied edited Gaussian reconstruction, encoded as SOG;
-these are changes from the original dataset photographs. It is not an official
-SMERF teacher checkpoint. The data license is separate from application and
-software dependency licenses. The supplied notice credits the dataset authors,
-identifies these changes and includes the license link and warranty disclaimer.
+Previously published publisher/legal pages and hashed assets are retained.
