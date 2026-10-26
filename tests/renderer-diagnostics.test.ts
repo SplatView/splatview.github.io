@@ -110,6 +110,25 @@ describe('bounded renderer negotiation observations', () => {
 });
 
 describe('renderer creation negotiation integration', () => {
+  it('starts independent raster and geometry compilation while compute compilation is pending', async () => {
+    const f = rendererFixture(); let release!: (value: object) => void;
+    const held = new Promise<object>(resolve => { release = resolve; });
+    f.device.createComputePipelineAsync.mockImplementation(() => held);
+    const task = GaussianRenderer.create(f.canvas);
+    await vi.waitFor(() => expect(f.device.createRenderPipelineAsync).toHaveBeenCalledTimes(3));
+    expect(f.device.createComputePipelineAsync).toHaveBeenCalledTimes(8);
+    release({}); const renderer = await task; await renderer.close();
+  });
+  it('joins other compilers before destroying a failed startup device', async () => {
+    const f = rendererFixture(); let release!: (value: object) => void;
+    const held = new Promise<object>(resolve => { release = resolve; });
+    f.device.createComputePipelineAsync.mockRejectedValueOnce(new Error('compile refused'));
+    f.device.createRenderPipelineAsync.mockImplementation(() => held);
+    const task = GaussianRenderer.create(f.canvas), rejected = expect(task).rejects.toThrow('compile refused');
+    await vi.waitFor(() => expect(f.device.createRenderPipelineAsync).toHaveBeenCalledTimes(3));
+    expect(f.destroy).not.toHaveBeenCalled(); release({}); await rejected;
+    expect(f.destroy).toHaveBeenCalledTimes(1);
+  });
   it('reports absent WebGPU without claiming adapter negotiation occurred', async () => {
     vi.stubGlobal('navigator', {}); const snapshots: RendererNegotiationSnapshot[] = [];
     await expect(GaussianRenderer.create({} as HTMLCanvasElement, value => { snapshots.push(value); })).rejects.toThrow('WebGPU is required');

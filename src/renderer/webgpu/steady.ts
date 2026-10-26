@@ -26,6 +26,7 @@ export class SteadySplats {
   private preparation?: Promise<void>;
   private readonly retiring = new Set<Promise<void>>();
   private pipelines?: Pipelines;
+  private pipelinePreparation?: Promise<void>;
   private resources?: Resources;
   private state = new SteadyFrameState();
   private previousViewProjection?: Float32Array;
@@ -73,7 +74,7 @@ export class SteadySplats {
     if (this.preparation || this.disposed || this.failed || !this.desired || this.settings.mode !== 'steady') return;
     const generation = this.generation, { width, height } = this.desired;
     this.report('preparing');
-    const task = this.createResources(width, height).then(async resources => {
+    const task = this.createResources(width, height, generation).then(async resources => {
       if (this.disposed || generation !== this.generation || this.settings.mode !== 'steady') { await this.retire(resources); return; }
       this.resources = resources; this.resetHistory(); this.report('steady');
     }).catch(error => {
@@ -86,8 +87,41 @@ export class SteadySplats {
     });
     this.preparation = task;
   }
-  private async createResources(width: number, height: number): Promise<Resources> {
+  preparePipelines(): Promise<void> {
+    if (this.disposed) return Promise.reject(new DOMException('Steady preparation was retired.', 'AbortError'));
+    if (this.pipelines) return Promise.resolve();
+    if (this.pipelinePreparation) return this.pipelinePreparation;
+    const task = (async () => {
+      const device = this.device;
+      const module = device.createShaderModule({ label: 'SplatView SteadySplats', code: frameSource + splatSource + steadySource });
+      const compute = (entryPoint: string) => device.createComputePipelineAsync({ label: entryPoint, layout: 'auto', compute: { module, entryPoint } });
+      const create = [
+        () => device.createRenderPipelineAsync({ label: 'SteadySplats stochastic visibility', layout: 'auto',
+          vertex: { module, entryPoint: 'steadyVertex' }, primitive: { topology: 'triangle-list' },
+          depthStencil: { format: 'depth32float', depthWriteEnabled: true, depthCompare: 'less-equal' },
+          fragment: { module, entryPoint: 'steadyFragment', targets: [{ format: 'rgba16float' }, { format: 'rg32uint' }] } }),
+        () => compute('steadyHistoryPass'), () => compute('steadyResolvePass'),
+        () => device.createRenderPipelineAsync({ label: 'SteadySplats display', layout: 'auto',
+          vertex: { module, entryPoint: 'steadyCompositeVertex' }, primitive: { topology: 'triangle-list' },
+          fragment: { module, entryPoint: 'steadyCompositeFragment', targets: [{ format: this.format }] } }),
+      ];
+      // Join every compiler even if another one fails; close() owns the same join.
+      const results = await Promise.allSettled(create.map(start => Promise.resolve().then<GPURenderPipeline | GPUComputePipeline>(start)));
+      const failure = results.find(result => result.status === 'rejected');
+      if (failure?.status === 'rejected') throw failure.reason;
+      if (this.disposed) throw new DOMException('Steady preparation was retired.', 'AbortError');
+      const values = results.map(result => (result as PromiseFulfilledResult<GPURenderPipeline | GPUComputePipeline>).value);
+      this.pipelines = { sample: values[0] as GPURenderPipeline, history: values[1] as GPUComputePipeline,
+        resolve: values[2] as GPUComputePipeline, composite: values[3] as GPURenderPipeline };
+    })().finally(() => { if (this.pipelinePreparation === task) this.pipelinePreparation = undefined; });
+    this.pipelinePreparation = task;
+    return task;
+  }
+  private async createResources(width: number, height: number, generation: number): Promise<Resources> {
     const plan = planSteadyResources(width, height, this.device.limits);
+    await this.preparePipelines();
+    if (this.disposed || generation !== this.generation || this.settings.mode !== 'steady')
+      throw new DOMException('Steady preparation was retired.', 'AbortError');
     const credit = this.callbacks.admit(plan.bytes);
     this.allocatedBytes += plan.bytes;
     let released = false;
@@ -96,20 +130,6 @@ export class SteadySplats {
     let result: Resources | undefined, failure: unknown;
     device.pushErrorScope('out-of-memory'); device.pushErrorScope('validation'); device.pushErrorScope('internal');
     try {
-      if (!this.pipelines) {
-        const module = device.createShaderModule({ label: 'SplatView SteadySplats', code: frameSource + splatSource + steadySource });
-        const compute = (entryPoint: string) => device.createComputePipeline({ label: entryPoint, layout: 'auto', compute: { module, entryPoint } });
-        this.pipelines = {
-          sample: device.createRenderPipeline({ label: 'SteadySplats stochastic visibility', layout: 'auto',
-            vertex: { module, entryPoint: 'steadyVertex' }, primitive: { topology: 'triangle-list' },
-            depthStencil: { format: 'depth32float', depthWriteEnabled: true, depthCompare: 'less-equal' },
-            fragment: { module, entryPoint: 'steadyFragment', targets: [{ format: 'rgba16float' }, { format: 'rg32uint' }] } }),
-          history: compute('steadyHistoryPass'), resolve: compute('steadyResolvePass'),
-          composite: device.createRenderPipeline({ label: 'SteadySplats display', layout: 'auto',
-            vertex: { module, entryPoint: 'steadyCompositeVertex' }, primitive: { topology: 'triangle-list' },
-            fragment: { module, entryPoint: 'steadyCompositeFragment', targets: [{ format: this.format }] } }),
-        };
-      }
       const texture = (label: string, format: GPUTextureFormat, usage: GPUTextureUsageFlags) => {
         const value = device.createTexture({ label, size: [width, height], format, usage }); textures.push(value); return value;
       };
@@ -153,7 +173,7 @@ export class SteadySplats {
     resources.retirement = task; this.retiring.add(task); return task;
   }
   async finish() {
-    await this.preparation;
+    await Promise.allSettled([this.preparation, this.pipelinePreparation]);
     await Promise.allSettled([...this.retiring]);
   }
   private group(pipeline: GPURenderPipeline | GPUComputePipeline, index: number, entries: [number, GPUBindingResource][]) {

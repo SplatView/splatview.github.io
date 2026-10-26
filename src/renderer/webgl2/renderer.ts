@@ -161,6 +161,11 @@ export class GlRenderer implements SceneRenderer {
   }
   setRenderSettings(settings:SteadySettings) { this.steady.configure(settings); }
   resetRenderHistory() { this.steady.resetHistory(); this.onFrameNeeded?.(); }
+  async prepareRenderMode(mode:SteadySettings['mode']):Promise<void> {
+    this.requireScene();
+    if(mode!=='steady' && mode!=='sorted') return Promise.reject(new RangeError('Invalid Gaussian rendering mode.'));
+    return mode==='steady'?this.steady.preparePrograms():Promise.resolve();
+  }
   setHistogramEnabled(enabled:boolean) { this.histogram.setEnabled(enabled); }
   resetHistogram() { this.histogramDisplay=undefined; this.histogram.reset(); }
   private dimensions(width:number,height:number) {

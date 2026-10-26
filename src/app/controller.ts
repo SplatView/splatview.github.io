@@ -1419,6 +1419,10 @@ export class AppController {
     this.renderer?.setRenderSettings(settings);
     setApp({ renderSettings: settings }); this.invalidate();
   }
+  async prepareRenderMode(mode: SteadySettings['mode']): Promise<void> {
+    if (!this.renderer || this.renderer.lost || this.destroyed || this.recovery || this.closing) return Promise.resolve();
+    return this.renderer.prepareRenderMode(mode);
+  }
   private async draw(time: number) {
     this.frame = 0;
     if (!this.renderer || !this.camera || this.renderer.lost || this.recovery || this.destroyed || document.hidden) { this.lastTime = 0; return; }
@@ -1864,6 +1868,7 @@ export class AppController {
     let group: PreparedSogGroup | undefined;
     let viewsOwner: (() => void) | undefined;
     let recoveryStore: DocumentRecoveryStore | undefined;
+    let uploadCompletion: Promise<void> | undefined;
     const renderer = this.renderer;
     const check = () => {
       if (collectionSource) this.checkIntake(collectionSource.intake);
@@ -1943,7 +1948,12 @@ export class AppController {
         if (!selectionRestored(streamed) || !sameGeometryDescriptor(geometryDescriptor(streamed), descriptor))
           throw new Error('The uploaded geometry does not match the decoded document.');
       }
-      await renderer.finish(); check();
+      // Native checkpoint creation and saved-view lookup do not read the GPU
+      // mirror. Overlap that work with its bounded upload tail, but keep the
+      // candidate private until both have completed and join on every exit.
+      uploadCompletion = renderer.finish();
+      void uploadCompletion.catch(() => undefined);
+      check();
       let views: readonly SavedViewRecord[] = [], viewStatus: string | null = null;
       try {
         const lookup = await this.viewStorage.list(fingerprint, summary.kind === 0 ? 'gaussian' : summary.kind === 1 ? 'points' : 'mesh', {
@@ -1966,6 +1976,7 @@ export class AppController {
           restoredBackground), signal: cancel.signal }, prepared => {
         check(); recoveryStore!.installInitial(prepared);
       }); check();
+      await uploadCompletion; check();
       if (staged.kind === 'geometry') candidate.updateNativeCoverage([{ lease,
         nextLeaseBytes: checkedBytes(summary.memoryBytes + staged.allocationBytes + 64 * 1024, 1), nativeBytes: summary.memoryBytes }]);
       candidate.activateNativeMemory();
@@ -2023,6 +2034,7 @@ export class AppController {
     } catch (error) { if (generation === this.generation) this.error(error); return false; }
     finally {
       try {
+        await uploadCompletion?.catch(() => undefined);
         if (staged) await staged.dispose();
         if (memory) {
           candidate?.dispose();

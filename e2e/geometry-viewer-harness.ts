@@ -62,7 +62,9 @@ function internals() {
     files: readonly Readonly<{ name: string }>[]; currentFile: number };
 }
 function ledger() {
-  const value = internals().ledger;
+  if (!instance) throw new Error('The actual App controller has not initialized.');
+  // Retirement assertions still own this ledger after dispose clears renderer.
+  const value = (instance as unknown as { ledger: ResourceLedger }).ledger;
   const entries = [...(value as unknown as { entries: Map<symbol, { category: string; bytes: number }> }).entries.values()]
     .map(entry => ({ ...entry })).sort((a, b) => a.category.localeCompare(b.category) || a.bytes - b.bytes);
   return { bytes: value.usage.bytes, allocations: value.usage.allocations, entries };

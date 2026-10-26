@@ -409,9 +409,7 @@ export class GaussianRenderer implements SceneRenderer {
       ['project', modules.splat], ['generate', modules.sort], ['rank', modules.sort], ['scatter', modules.sort],
       ['local', modules.scan], ['blocks', modules.scan], ['bins', modules.scan], ['pick', modules.splat],
     ];
-    const pipelineEntries = await Promise.all(entries.map(async ([name, module]) => [name,
-      await device.createComputePipelineAsync({ label: name, layout: 'auto', compute: { module, entryPoint: name } })]));
-    const raster = await device.createRenderPipelineAsync({ label: 'Native Gaussian composition', layout: 'auto',
+    const rasterPipeline = () => device.createRenderPipelineAsync({ label: 'Native Gaussian composition', layout: 'auto',
       vertex: { module: modules.splat, entryPoint: 'vertex' }, primitive: { topology: 'triangle-list' },
       fragment: { module: modules.splat, entryPoint: 'fragment', targets: [{ format, blend: {
         color: { srcFactor: 'one', dstFactor: 'one-minus-src-alpha' }, alpha: { srcFactor: 'one', dstFactor: 'one-minus-src-alpha' },
@@ -428,7 +426,15 @@ export class GaussianRenderer implements SceneRenderer {
       depthStencil: { format: 'depth32float', depthWriteEnabled: true, depthCompare: 'less' },
       fragment: { module: modules.geometry, entryPoint: mesh ? 'meshFragment' : 'pointFragment', targets: [{ format }] },
     });
-    const [geometryPoints, geometryMesh] = await Promise.all([geometryPipeline(false), geometryPipeline(true)]);
+    const pipelineResults = await Promise.allSettled([
+      ...entries.map(([name, module]) => () => device.createComputePipelineAsync({ label: name, layout: 'auto', compute: { module, entryPoint: name } })),
+      rasterPipeline, () => geometryPipeline(false), () => geometryPipeline(true),
+    ].map(start => Promise.resolve().then<GPUComputePipeline | GPURenderPipeline>(start)));
+    const pipelineFailure = pipelineResults.find(result => result.status === 'rejected');
+    if (pipelineFailure?.status === 'rejected') throw pipelineFailure.reason;
+    const pipelines = pipelineResults.map(result => (result as PromiseFulfilledResult<GPUComputePipeline | GPURenderPipeline>).value);
+    const pipelineEntries = entries.map(([name], index) => [name, pipelines[index]]);
+    const [raster, geometryPoints, geometryMesh] = pipelines.slice(entries.length) as GPURenderPipeline[];
     negotiation.advance('renderer-creation');
     created = new GaussianRenderer(canvas, device, format, Object.fromEntries(pipelineEntries) as Pipelines,
       raster, geometryPoints, geometryMesh, negotiation);
@@ -467,6 +473,11 @@ export class GaussianRenderer implements SceneRenderer {
   prepareSurfaceResources() { return Promise.all([prepareSurfacePipelines(this),preparePickCandidates(this).catch(()=>undefined)]).then(() => undefined); }
   setRenderSettings(settings: SteadySettings) { this.steady.configure(settings); }
   resetRenderHistory() { this.steady.resetHistory(); this.onFrameNeeded?.(); }
+  async prepareRenderMode(mode: SteadySettings['mode']): Promise<void> {
+    this.requireScene();
+    if (mode !== 'steady' && mode !== 'sorted') return Promise.reject(new RangeError('Invalid Gaussian rendering mode.'));
+    return mode === 'steady' ? this.steady.preparePipelines() : Promise.resolve();
+  }
   get steadySnapshot() { return this.steady.snapshot; }
   resetHistogram() { this.histogramDisplay = undefined; this.histogram.reset(); }
   trimSurfaceResources(owner?: object) { this.surfaceScratch.trim(owner); }

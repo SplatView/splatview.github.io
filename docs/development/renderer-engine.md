@@ -75,6 +75,15 @@ Surface admission returns a resizable `ResourceLease`; abort completion joins th
 executor acknowledgement before releasing active work. Do not release a credit
 while its operation or GPU retirement is pending.
 
+`await renderer.prepareRenderMode('steady')` optionally compiles the shaders
+before a user selects SteadySplats. It leaves the active mode, status and history
+unchanged and allocates no optional frame buffers. Concurrent requests share one
+preparation; failures reject and can be retried. The normal mode setter still
+prepares shaders on demand, so warmup is optional. `prepareRenderMode('sorted')`
+does no preparation. Handle a warmup rejection without changing a working view;
+`close()` joins pending compilation. The app starts this warmup when General
+settings opens for a Gaussian or empty view.
+
 `preference` is `auto`, `webgpu` or `webgl2`; forced choices reject instead of
 switching APIs. If a failed WebGPU attempt has claimed the canvas, `auto` invokes
 the supplied `replaceCanvas(previous)` callback before WebGL2. The example shows

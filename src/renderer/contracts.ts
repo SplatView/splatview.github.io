@@ -83,6 +83,8 @@ export interface SceneRenderer {
     selectedOnly?: boolean, geometrySelectedOnly?: boolean, opacityScale?: number, opacitySelectedOnly?: boolean): Promise<Blob>;
   setOpacityPreview(scale: number, selectedOnly: boolean): void;
   setRenderSettings(settings: SteadySettings): void;
+  /** Prepare optional shaders without selecting a mode or allocating its frame buffers. */
+  prepareRenderMode(mode: SteadySettings['mode']): Promise<void>;
   resetRenderHistory(): void;
   setHistogramEnabled(enabled: boolean): void;
   resetHistogram(): void;

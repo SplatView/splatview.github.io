@@ -1,0 +1,90 @@
+{
+  "baseCommit": "2c9d5f04f043f5bbbe90548fbcdf1a7e11c289a6",
+  "changedFiles": [
+    {
+      "path": "design/feature-reviews/scene-load-mode-latency-2026-10-25.md",
+      "bytes": 10360,
+      "sha256": "ce14d348ce68aec62a26b63e4c06b2572ca2634c5af9769ccb87ab69ddfc9809"
+    },
+    {
+      "path": "docs/development/renderer-engine.md",
+      "bytes": 10100,
+      "sha256": "2ffe5b7cad9c20616da0e302f8325e9551d8d2d91595c92147b77b28a2e1fb16"
+    },
+    {
+      "path": "e2e/geometry-viewer-harness.ts",
+      "bytes": 23128,
+      "sha256": "5e4d7d90e24ad55ec741d4133c9281137af1107e400b81f6ca56d7d2630e4520"
+    },
+    {
+      "path": "e2e/render-mode-preparation.spec.ts",
+      "bytes": 3485,
+      "sha256": "0f9b3c941c4a03d87764056f11ec8efd255f4afd9ca63bf1eaff7bb37d9a52eb"
+    },
+    {
+      "path": "e2e/scene-load-overlap.spec.ts",
+      "bytes": 4877,
+      "sha256": "74852ac5c799344b9b8c5bb9901125c7152789bcda3bb465babdc3cc815b8c82"
+    },
+    {
+      "path": "e2e/steady-harness.ts",
+      "bytes": 11472,
+      "sha256": "82eeff9e36cb591a48d5d1e088c9b00e62753784b0247a61eb9697f1978071ec"
+    },
+    {
+      "path": "src/app/controller.ts",
+      "bytes": 481485,
+      "sha256": "ad718b30c680a7b34c597764cf780101b7ee61837ac7f7b2ba1811db3b899343"
+    },
+    {
+      "path": "src/generated/buildIdentity.ts",
+      "bytes": 2008,
+      "sha256": "7e8a2a51377ead662029e3f15e318cc35b7720a0375f56e830e96de6204b96e4"
+    },
+    {
+      "path": "src/renderer/contracts.ts",
+      "bytes": 6239,
+      "sha256": "40e63a77c895301b5934dad9b85bbf34067cb3b7418d185d1f271cc6117b1cca"
+    },
+    {
+      "path": "src/renderer/webgl2/renderer.ts",
+      "bytes": 35786,
+      "sha256": "77e7c82953a1b9cecf23d2e9d66664cbf2bde55251f8e5ed1cc2f874c3e27345"
+    },
+    {
+      "path": "src/renderer/webgl2/steady.ts",
+      "bytes": 14531,
+      "sha256": "0624044fc0116208fb4639323f94ba8dd2876079dc16bdb5c18c5dda89e0b836"
+    },
+    {
+      "path": "src/renderer/webgpu/renderer.ts",
+      "bytes": 61768,
+      "sha256": "5853143ca7b5e32bfb7e5458b38b9f1458b05b9ac2b88810b5868eb6f6bb9cff"
+    },
+    {
+      "path": "src/renderer/webgpu/steady.ts",
+      "bytes": 16475,
+      "sha256": "920f27e6aca2a1cd5de8c28735663896e5c075dc6f4a293061ed864b02d386f7"
+    },
+    {
+      "path": "src/ui/RenderSettings.tsx",
+      "bytes": 5374,
+      "sha256": "8cf4302d2ae6ff4c055033542fee803160c14195c9140f5d15c4c6756442fc6f"
+    },
+    {
+      "path": "tests/gl-render-mode-preparation.test.ts",
+      "bytes": 3501,
+      "sha256": "3054bf08d972384dc288e2cd20c3ae8a613eee12f703b9f800c10756f2aabfbd"
+    },
+    {
+      "path": "tests/render-mode-preparation.test.ts",
+      "bytes": 4171,
+      "sha256": "c8cedceb3f9e6b8927fd635b3b6b546d3dea8b327343e904ec0c89791f16c8a8"
+    },
+    {
+      "path": "tests/renderer-diagnostics.test.ts",
+      "bytes": 16959,
+      "sha256": "b57894cfc204ef882198be034ce68e760b51ef81382eaf682a805c3ccba16f5d"
+    }
+  ]
+}

@@ -143,6 +143,7 @@ async function createHarness() {
         held=true; return wait.then(() => result);
       };
       renderer.setRenderSettings({...DEFAULT_STEADY_SETTINGS,mode:'steady'}); await draw();
+      await until(() => held);
       const preparing=renderer.steadySnapshot.status,admitted=ledger.usage.bytes;
       if(dispose) renderer.dispose(); else renderer.setRenderSettings(DEFAULT_STEADY_SETTINGS);
       const heldUntilRetirement=ledger.usage.bytes===admitted;

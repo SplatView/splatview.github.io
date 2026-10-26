@@ -26,6 +26,7 @@ export class GlSteadySplats {
   private readonly state=new SteadyFrameState();
   private resources?:Resources;
   private programs?:Programs;
+  private programPreparation?:Promise<void>;
   private desired?:{width:number;height:number};
   private generation=0;
   private failed=false;
@@ -74,24 +75,17 @@ export class GlSteadySplats {
     this.preparation=task; this.renderer.trackRetirement(task);
   }
   private async createResources(width:number,height:number,generation:number):Promise<Resources> {
+    const plan=planGlSteady(width,height,this.renderer.capabilities);
+    await this.preparePrograms();
+    if(this.disposed || generation!==this.generation) throw new DOMException('Steady preparation was retired.','AbortError');
     await this.renderer.compute.trimSortScratch();
     if(this.disposed || generation!==this.generation) throw new DOMException('Steady preparation was retired.','AbortError');
-    const {gl}=this.renderer,plan=planGlSteady(width,height,this.renderer.capabilities),credit=this.renderer.admitSteady?.(plan.bytes);
+    const {gl}=this.renderer,credit=this.renderer.admitSteady?.(plan.bytes);
     this.allocatedBytes+=plan.bytes; let released=false;
     const release=() => { if(released) return; released=true; this.allocatedBytes-=plan.bytes; credit?.(); };
-    const textures:WebGLTexture[]=[],targets:WebGLFramebuffer[]=[],newPrograms:WebGLProgram[]=[];
+    const textures:WebGLTexture[]=[],targets:WebGLFramebuffer[]=[];
     let depth:WebGLRenderbuffer|undefined,params:WebGLBuffer|undefined;
     try {
-      if(!this.programs) {
-
-        const prepared=await preparePrograms(gl,[
-          {vertex:'#version 300 es\n'+gaussianSource+splatVertex,fragment:'#version 300 es\n'+uniformSource+sampleSource},
-          {vertex:FULLSCREEN_VERTEX,fragment:'#version 300 es\n'+uniformSource+densitySource+historySource},
-          {vertex:FULLSCREEN_VERTEX,fragment:'#version 300 es\n'+uniformSource+densitySource+resolveSource},
-          {vertex:FULLSCREEN_VERTEX,fragment:'#version 300 es\n'+compositeSource}],()=>!this.disposed && generation===this.generation);
-        newPrograms.push(...prepared);
-        this.programs={sample:prepared[0],history:prepared[1],resolve:prepared[2],composite:prepared[3]};
-      }
       const texture=(format:number) => { const value=texture2d(gl,width,height,format); textures.push(value); return value; };
       const target=(colors:WebGLTexture[],depth?:WebGLRenderbuffer) => { const value=framebuffer(gl,colors,depth); targets.push(value); return value; };
       const raw=texture(gl.RGBA16F),samples=texture(gl.RGBA32UI),axes=texture(gl.RGBA32F),opacity=texture(gl.R32F);
@@ -113,9 +107,30 @@ export class GlSteadySplats {
       await this.renderer.fence().catch(()=>undefined);
       for(const value of textures) gl.deleteTexture(value); for(const value of targets) gl.deleteFramebuffer(value);
       if(depth) gl.deleteRenderbuffer(depth); if(params) gl.deleteBuffer(params);
-      for(const value of newPrograms) gl.deleteProgram(value); if(newPrograms.length) this.programs=undefined;
       release(); throw error;
     } finally { gl.bindFramebuffer(gl.FRAMEBUFFER,null); }
+  }
+  preparePrograms():Promise<void> {
+    if(this.disposed) return Promise.reject(new DOMException('Steady preparation was retired.','AbortError'));
+    if(!this.renderer.capabilities.steady) return Promise.reject(new Error(this.renderer.capabilities.steadyReason??'SteadySplats render targets are unavailable.'));
+    if(this.programs) return Promise.resolve();
+    if(this.programPreparation) return this.programPreparation;
+    const {gl}=this.renderer;
+    const task=preparePrograms(gl,[
+      {vertex:'#version 300 es\n'+gaussianSource+splatVertex,fragment:'#version 300 es\n'+uniformSource+sampleSource},
+      {vertex:FULLSCREEN_VERTEX,fragment:'#version 300 es\n'+uniformSource+densitySource+historySource},
+      {vertex:FULLSCREEN_VERTEX,fragment:'#version 300 es\n'+uniformSource+densitySource+resolveSource},
+      {vertex:FULLSCREEN_VERTEX,fragment:'#version 300 es\n'+compositeSource}],()=>!this.disposed && !this.renderer.lost)
+      .then(prepared=>{
+        if(this.disposed || this.renderer.lost) {
+          for(const program of prepared) gl.deleteProgram(program);
+          throw new DOMException('Steady preparation was retired.','AbortError');
+        }
+        this.programs={sample:prepared[0],history:prepared[1],resolve:prepared[2],composite:prepared[3]};
+      })
+      .finally(()=>{ if(this.programPreparation===task) this.programPreparation=undefined; });
+    this.programPreparation=task;
+    return this.renderer.trackRetirement(task);
   }
   private retire(resources:Resources):Promise<void> {
     return resources.retirement??=this.renderer.trackRetirement((async () => {

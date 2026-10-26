@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import type { AppController } from '../app/controller';
 import { useApp } from '../app/store';
 import { useTranslation } from '../app/useLanguageAppearance';
@@ -9,6 +10,10 @@ export function RenderSettings({ controller }: { controller: AppController }) {
   const settings = useApp(state => state.renderSettings), status = useApp(state => state.renderStatus);
   const geometry = useApp(state => !!state.summary && state.summary.kind !== 0);
   const fallback = useApp(state => state.graphicsFallbackReason);
+  const ready = useApp(state => state.ready), backend = useApp(state => state.graphicsBackend);
+  useEffect(() => {
+    if (ready && !geometry) void controller.prepareRenderMode('steady').catch(() => undefined);
+  }, [controller, ready, backend, geometry]);
   const update = (patch: Partial<SteadySettings>) => controller.setRenderSettings({ ...settings, ...patch });
   if (geometry) return null;
   return <section className="render-settings" aria-label={t('Rendering')}>

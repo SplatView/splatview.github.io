@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.2.1 — October 26, 2026
+
+- Reduce loading delay by overlapping GPU upload completion with saved-view and
+  recovery preparation. Publish only after both finish; preserve the old scene
+  through cancellation and failure.
+- Prepare optional SteadySplats shaders while General settings opens, without
+  allocating its full frame buffers or changing the active rendering mode.
+- Compile WebGPU Steady pipelines asynchronously and independent startup
+  pipelines concurrently. Share the same preparation API with standalone hosts.
+- Preserve rendering quality/defaults, exact picks/maps/captures, native history,
+  source verification, memory budgets and automatic WebGL2 fallback.
+
+Local benchmark medians improved WebGL loading from 971 to 691 ms and the first
+WebGPU mode selection from 109 to 31 ms after opening Settings. First WebGL
+SteadySplats activation remains about 420 ms. Measurements cover the documented
+Windows Chromium/NVIDIA workload and do not measure physical presentation FPS.
+
 ## 0.2.0 — October 25, 2026
 
 - Add integrated WebGL2 rendering and automatic startup fallback when WebGPU
