@@ -72,7 +72,7 @@ in the frozen input tree. It is confined to this local comparison output and is
 not a dependency of the distributed application or standalone engine.
 
 Results and a portable image comparison are in the
-[recorded packet](../../../docs/validation/runs/renderer-comparison-20261025-01/README.md).
+[recorded packet](../../../docs/validation/README.md#renderer-comparison-20261025-01).
 Image agreement uses SplatView exact output as an explicit common reference,
 not perceptual ground truth. Physical presentation FPS and physical driver memory
 are not observed. Other OS/browser/GPU, SH degrees, resolutions, real-world

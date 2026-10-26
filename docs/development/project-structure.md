@@ -38,8 +38,8 @@ npm run build
 npm run build:engine
 ```
 
-`verify:project` checks the source layout and archive catalog without fetching
-historical data. See [historical evidence](../validation/README.md) to fetch,
+`verify:project` checks the source layout, archive catalog and active-guide
+archive links without fetching historical data. See [historical evidence](../validation/README.md) to fetch,
 verify or restore exact original reports. Historical evidence is optional for
 building and running the application.
 

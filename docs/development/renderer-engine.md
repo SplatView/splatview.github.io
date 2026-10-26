@@ -135,7 +135,7 @@ sort using the portable radix, then compact exactly the projector's visible
 entries into a private indirect draw list. Scene retirement owns that credit;
 refusal/failure retains full drawing. This saves raster work for sparse views
 and adds a small compaction cost to dense exact views. See the
-[throughput packet](../validation/runs/rendering-throughput-20261025-01/validation.json)
+[throughput packet](../validation/README.md#rendering-throughput-20261025-01)
 for measured scope, quality and limitations.
 
 WebGL worker sorting uses bounded synchronous key/count/scatter kernels, skips
@@ -147,7 +147,7 @@ Host admission and worker allocation share `webgl2/sortScratchLayout.ts`.
 Refused optional storage uses the transient 256-bin radix/counting path; exact
 queries keep that smaller allocation. Cancellation and retirement remain owned
 by the existing serial executor. See the
-[matched benchmark](../validation/runs/webgl-sort-20261025-01/README.md):
+[matched benchmark](../validation/README.md#webgl-sort-20261025-01):
 43–75% lower worker round-trip medians in the measured configurations, with
 48 byte-identical before/after snapshot pairs. These clocks exclude the app's
 separate fence-polling/presentation behavior.

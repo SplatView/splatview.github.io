@@ -39,25 +39,25 @@ Native final publication stages SceneEdits and color metadata before no-throw sw
 
 Desktop hover overlays, inactive-control automatic commit and deferred busy presses remain open; whole W18/full-plan acceptance is not claimed. The [pinned MIT PlayCanvas review](third-party/PLAYCANVAS_REFERENCES.md) is reference-only with no adapted production code. Existing 256 MiB/one-million-preview limits and the browser-only/no-Mac-gate scope remain unchanged; no browser-performance guarantee follows from these sizes or allowances.
 
-The [sealed local receipt](validation/runs/auto-color-20261013-01/validation.json) passes **1,968 units/48 files, 19 focused browser cases/one file, 239 affected development cases/13 files and 66 production cases/two files**, counted separately. Browser cohorts have zero failures/skips/flaky results/retries. Final units03/typecheck03/web-build03/native-build03/source04 and post-cohort source05/test-inputs04 pass. The 1,562,199-byte receipt has SHA-256 `538dc5f9b6accede25a2d08e728814e8ae5c4b053273a76edf598bc689517509`, binding 2,642 exact files, 161 application inputs and 92 runtime artifacts. This is bounded local acceptance; whole W18/full-plan acceptance remains open, with no fresh complete 718-case development run claimed.
+The [sealed local receipt](validation/README.md#auto-color-20261013-01) passes **1,968 units/48 files, 19 focused browser cases/one file, 239 affected development cases/13 files and 66 production cases/two files**, counted separately. Browser cohorts have zero failures/skips/flaky results/retries. Final units03/typecheck03/web-build03/native-build03/source04 and post-cohort source05/test-inputs04 pass. The 1,562,199-byte receipt has SHA-256 `538dc5f9b6accede25a2d08e728814e8ae5c4b053273a76edf598bc689517509`, binding 2,642 exact files, 161 application inputs and 92 runtime artifacts. This is bounded local acceptance; whole W18/full-plan acceptance remains open, with no fresh complete 718-case development run claimed.
 
-Current app/native/deployment IDs are `1aa41fe2798dd9d1ed03dedc008739f2bc60dc507f5affc7f8fd9bd08fc10d4c`, `71b5d759b66f6a55afbe0e767b5caa1260aaebabd9fd9a968e6efbf6aef00311` and `f93fc1aee842691d82c3d5392c4950d347082eaab9f35e8f182e7150faf05b82`. [Final native execution](validation/runs/auto-color-20261013-01/native-execution-final.json) passes 11 actual linked mains after the 146-target build: Auto analysis 45 cases/52,212 checks; metadata nine suites/287 assertions; actual color bindings 27 cases/9,096 checks, including colored White balance, settled active export and four terminal publication refusals. The [independent audit](../.build/auto-color-tests/receipt-audit-01/audit.json) passes 2,642 observed files/222,730 assertions with zero issues and rehashes five archives/1,234 files. Its 1,492,472-byte report has SHA-256 `413be58567a51a7d6ab4c6085248c41c5f66c33ad288c19311c24cb081a516db`.
+Current app/native/deployment IDs are `1aa41fe2798dd9d1ed03dedc008739f2bc60dc507f5affc7f8fd9bd08fc10d4c`, `71b5d759b66f6a55afbe0e767b5caa1260aaebabd9fd9a968e6efbf6aef00311` and `f93fc1aee842691d82c3d5392c4950d347082eaab9f35e8f182e7150faf05b82`. [Final native execution](validation/README.md#auto-color-20261013-01) passes 11 actual linked mains after the 146-target build: Auto analysis 45 cases/52,212 checks; metadata nine suites/287 assertions; actual color bindings 27 cases/9,096 checks, including colored White balance, settled active export and four terminal publication refusals. The [independent audit](../.build/auto-color-tests/receipt-audit-01/audit.json) passes 2,642 observed files/222,730 assertions with zero issues and rehashes five archives/1,234 files. Its 1,492,472-byte report has SHA-256 `413be58567a51a7d6ab4c6085248c41c5f66c33ad288c19311c24cb081a516db`.
 
 Failed regression01 remains **68 passed/five failed/165 unrun**; regression02 remains **235 passed/three failed/all 238 executed**; regression03 remains **237 passed/two failed/all 239 executed**. The latter's HTTP/source-map evidence identified an older served morphology harness matching archived input01; excluding generated/reference/native/WASM trees from Vite watching and restarting established the final app identity. Native identity stayed unchanged across that watcher correction. Initial unit/runner/focus diagnostics, earlier focus02/03 passes and all historical receipts retain their original scope and do not contribute a current passing union.
 
 [Preflight01](../.build/auto-color-tests/preflight-01/verification.json) passes 21 selected HTTP modules/source maps (29,522 bytes/SHA-256 `751532cebe8ada78f30e683699f2ca4bb285c803e7b77eb26101fcea94d89479`). The 179-file browser-input snapshots03/04 and source snapshots04/05 remain exact before/after the final cohorts. These observations do not establish execution-time transitive dependency/toolchain closure or deployed-host bytes.
 
-[Actual-App observation01](validation/runs/auto-color-20261013-01/ui-observation.json) records four root-reviewed PNGs: Basic Auto menu/applied at 1280 × 720, Pro White balance/all 15 fields at 1280 × 900 and compact Pro at 640 × 300. The 105,839-byte report has SHA-256 `65679f73c1f5238423420b2da7e595a3276cd9560a7a9bde446072e1d5b5c0ae`. Scope is local Windows Chromium 156, default Small font/DPR1, with actual native actions; matched native camera/font/DPR, hosted/offline and performance acceptance remain open. No Mac gate applies.
+[Actual-App observation01](validation/README.md#auto-color-20261013-01) records four root-reviewed PNGs: Basic Auto menu/applied at 1280 × 720, Pro White balance/all 15 fields at 1280 × 900 and compact Pro at 640 × 300. The 105,839-byte report has SHA-256 `65679f73c1f5238423420b2da7e595a3276cd9560a7a9bde446072e1d5b5c0ae`. Scope is local Windows Chromium 156, default Small font/DPR1, with actual native actions; matched native camera/font/DPR, hosted/offline and performance acceptance remain open. No Mac gate applies.
 
 ## Historical Grow/Shrink allocation boundary; bounded runtime qualification
 
 The following sealed packet retains its original counts, identities and scope. “Current” within it describes the captured-icon successor before the October 13 contract.
 
-The [current captured-icon successor](validation/runs/morphology-icons-20261012-01/validation.json) passes 1,879 units/44 files, 27 focused browser cases/two files (21 morphology plus six Settings) and 66 production cases/two files, without failures/skips/flaky results/retries; typecheck01, build and source verification pass. Its 451,367-byte receipt has SHA-256 `95de0c7fa57d4fea9f8a672bfd7ae984cb59f27c9d23a45fc65f769f3e649d6e`, with 822 exact-file bindings including 457 archived originals, 158 current app inputs and 92 runtime artifacts. Independent audit passes 822 bindings/1,428 checks with zero issues. Current app/deployment IDs are `b17472926563b9141f44f027782c194061a397eb4816fe796923e1ff9a75cf2c` and `eda78712d36034e8f41afbaadfe6ea0bffe00b63416cfdfb731ff120ca857b28`. Native source/provenance and five artifact leaves are unchanged at `351867cd57f9edfac461810e83b573f48d08b335fc46a75aca7c02f72c008431`, ABI7/protocol11/UI-worker7/camera ABI1/`selectionMorphology:1`; nine-main execution is reused, with no new native build/execution.
+The [current captured-icon successor](validation/README.md#morphology-icons-20261012-01) passes 1,879 units/44 files, 27 focused browser cases/two files (21 morphology plus six Settings) and 66 production cases/two files, without failures/skips/flaky results/retries; typecheck01, build and source verification pass. Its 451,367-byte receipt has SHA-256 `95de0c7fa57d4fea9f8a672bfd7ae984cb59f27c9d23a45fc65f769f3e649d6e`, with 822 exact-file bindings including 457 archived originals, 158 current app inputs and 92 runtime artifacts. Independent audit passes 822 bindings/1,428 checks with zero issues. Current app/deployment IDs are `b17472926563b9141f44f027782c194061a397eb4816fe796923e1ff9a75cf2c` and `eda78712d36034e8f41afbaadfe6ea0bffe00b63416cfdfb731ff120ca857b28`. Native source/provenance and five artifact leaves are unchanged at `351867cd57f9edfac461810e83b573f48d08b335fc46a75aca7c02f72c008431`, ABI7/protocol11/UI-worker7/camera ABI1/`selectionMorphology:1`; nine-main execution is reused, with no new native build/execution.
 
-Captured-target Grow/Shrink SVGs now resolve before the legacy palette; generation verifies pinned `icons.def`, both SVG records/hashes and mapping. Seven added asset tests cover actual Icon rendering, tamper refusal and the new capture. The 73-icon baseline remains unchanged at 34,538 bytes/SHA-256 `aac4e0622fcd225a06ac70831effbdaedb1373ff4ad61325d29428ac9541b313`. [Current App observation](validation/runs/morphology-icons-20261012-01/ui-observation.json) is 59,521 bytes/SHA-256 `593ae3495c9699313c6e4b4c2a8fff89d19a14dced7fe469ae62042d923fa957`, with exact SVG DOM checks before PNGs for Basic/Pro at 1280 × 720 and compact Pro at 640 × 300. All three corrected states were visually reviewed, without matched native camera/font/DPR, host/offline or performance acceptance.
+Captured-target Grow/Shrink SVGs now resolve before the legacy palette; generation verifies pinned `icons.def`, both SVG records/hashes and mapping. Seven added asset tests cover actual Icon rendering, tamper refusal and the new capture. The 73-icon baseline remains unchanged at 34,538 bytes/SHA-256 `aac4e0622fcd225a06ac70831effbdaedb1373ff4ad61325d29428ac9541b313`. [Current App observation](validation/README.md#morphology-icons-20261012-01) is 59,521 bytes/SHA-256 `593ae3495c9699313c6e4b4c2a8fff89d19a14dced7fe469ae62042d923fa957`, with exact SVG DOM checks before PNGs for Basic/Pro at 1280 × 720 and compact Pro at 640 × 300. All three corrected states were visually reviewed, without matched native camera/font/DPR, host/offline or performance acceptance.
 
-The [original-packet archive](validation/runs/morphology-20261012-01/archive.json) preserves all 457 original bindings and was independently rehashed. Original runtime counts, the 700-case passing union and fallback-icon observations below remain historical; the current focused/production qualification is not a fresh full 700-case run. Icon changes add no native grant, census payload, admission credit or quota. Whole W30/full-plan acceptance remains open; no Mac gate applies.
+The [original-packet archive](validation/README.md#morphology-20261012-01) preserves all 457 original bindings and was independently rehashed. Original runtime counts, the 700-case passing union and fallback-icon observations below remain historical; the current focused/production qualification is not a fresh full 700-case run. Icon changes add no native grant, census payload, admission credit or quota. Whole W30/full-plan acceptance remains open; no Mac gate applies.
 
 Current Grow/Shrink runs exact anisotropic ellipsoid contact against an immutable entry mask, with six lifetime-admitted POD arrays and a stable owner. Actual WASM32 full-owner size is 6,168 bytes, including the 6,024-byte job and array-owner metadata. Six scratch payloads are `S = 37*N + 44*M`: 42,767,124 bytes for one million splats/131,071 nodes. The existing generated AdmittedAllocator census hooks tag physical payload after an actual grant; admission precedes allocation and physical release precedes grant retirement. Scene/mask references do not create duplicate payload charges.
 
@@ -65,13 +65,13 @@ Controller operation policy reserves `S + 6168 + 24*N + 4 MiB`, with existing `h
 
 BrowserSelectionAccess validates captured scene/revisions/mask identity and sorted live overrides before one atomic native commit. Empty results preserve executable Redo and revisions. Cancellation, completion, rollback and replacement retire arrays and also clear the empty global pointer's deleter-held Work service; the latter fixes a metadata-retention gap that did not retain scratch payload. Cooperative traversal uses MessageChannel task yields and 4,096-work steps in batches capped at 8 ms or 256 steps with a coarse/frozen clock. Final O(K) conversion/history application plus O(N) COW remains synchronous publication work, without a maximum-latency or browser-performance claim.
 
-The [historical original runtime receipt](validation/runs/morphology-20261012-01/validation.json) gives bounded local qualification: 1,872 units/43 files, 66 production cases/two files and exact passing coverage of 700 unique development cases/33 files. Original all-browser01 remains **699 passed/one failed**; settings-correction01 passes six, overlapping five prior passes. Focus21 overlaps and is counted separately. Final typecheck03, source01, web-build01, native-build02 and nine fresh actual mains in native-execution01 pass, including morphology 27 cases/294 assertions/6,168-byte owner. The receipt is 206,122 bytes/SHA-256 `d3c9d488f95f9e094f7ed276101050dc4e78c99019ac155c973e30d421c23cec`, binding 457 observed exact files, 157 app inputs and 92 runtime artifacts.
+The [historical original runtime receipt](validation/README.md#morphology-20261012-01) gives bounded local qualification: 1,872 units/43 files, 66 production cases/two files and exact passing coverage of 700 unique development cases/33 files. Original all-browser01 remains **699 passed/one failed**; settings-correction01 passes six, overlapping five prior passes. Focus21 overlaps and is counted separately. Final typecheck03, source01, web-build01, native-build02 and nine fresh actual mains in native-execution01 pass, including morphology 27 cases/294 assertions/6,168-byte owner. The receipt is 206,122 bytes/SHA-256 `d3c9d488f95f9e094f7ed276101050dc4e78c99019ac155c973e30d421c23cec`, binding 457 observed exact files, 157 app inputs and 92 runtime artifacts.
 
 Original development failure occurred before Settings opened: roughly 6.2-second startup outlasted three-second idle hide; canvas intercepted 105 Tools clicks over about 53.7 seconds. A real pointer wake/visibility wait corrects only the e2e helper, with no product/App/native/UI change. Original test bytes, trace, error context and the 10,381-byte diagnosis/SHA-256 `0051afdd4a49792d18975d14200fecaccd4f2fc2b753bd5c1106ec6a77de9e64` remain bound. Initial Windows-launcher SyntaxError executed no main. Native assertion diagnostics corrected legitimate 4-to-2 context consolidation/48-byte decrease with payload/live blocks unchanged; valid map envelopes now exercise busy guards. Failed attempts retain their original outcomes.
 
-[Original actual-App observation](validation/runs/morphology-20261012-01/ui-observation.json), 55,280 bytes/SHA-256 `1196618177b584a9c629469007d3a46152ff90b9c1a3fe7993bd360f544d5394`, records Basic/Pro at 1280 × 720 and compact Pro at 640 × 300; all three states were visually reviewed. Review detected Help fallback glyphs on Grow/Shrink because legacy generated assets lack their names; the successor above corrects and locally qualifies them. Original runtime evidence remains unchanged historical limited evidence, without matched native camera/font/DPR, host/offline or browser-performance acceptance. Whole W30/full-plan acceptance remains open.
+[Original actual-App observation](validation/README.md#morphology-20261012-01), 55,280 bytes/SHA-256 `1196618177b584a9c629469007d3a46152ff90b9c1a3fe7993bd360f544d5394`, records Basic/Pro at 1280 × 720 and compact Pro at 640 × 300; all three states were visually reviewed. Review detected Help fallback glyphs on Grow/Shrink because legacy generated assets lack their names; the successor above corrects and locally qualifies them. Original runtime evidence remains unchanged historical limited evidence, without matched native camera/font/DPR, host/offline or browser-performance acceptance. Whole W30/full-plan acceptance remains open.
 
-Sealed-packet native ID is `351867cd57f9edfac461810e83b573f48d08b335fc46a75aca7c02f72c008431`, app ID `c0f5ba40795f4d3167cecec18004718980194601def339b60acc714d148efe6b` and deployment ID `749a10a8bebd354f89d638106aae9f5b0618f33391bcef2f9ecb6ed5d1c4189c`. Requirements are core ABI7/protocol11/UI-worker7/camera ABI1 plus `selectionMorphology:1`. No dedicated Mac test gate applies. The [histogram archive](validation/runs/histogram-20261012-01/archive.json) preserves all 343 exact-file bindings; original receipt IDs/counts and exclusions below remain unchanged.
+Sealed-packet native ID is `351867cd57f9edfac461810e83b573f48d08b335fc46a75aca7c02f72c008431`, app ID `c0f5ba40795f4d3167cecec18004718980194601def339b60acc714d148efe6b` and deployment ID `749a10a8bebd354f89d638106aae9f5b0618f33391bcef2f9ecb6ed5d1c4189c`. Requirements are core ABI7/protocol11/UI-worker7/camera ABI1 plus `selectionMorphology:1`. No dedicated Mac test gate applies. The [histogram archive](validation/README.md#histogram-20261012-01) preserves all 343 exact-file bindings; original receipt IDs/counts and exclusions below remain unchanged.
 
 The histogram/stats implementation has bounded local qualification. Desktop
 contracts are `src/app_ui.cpp:1012–1142`, `src/renderer.cpp:1900` and
@@ -88,11 +88,11 @@ reservation adds no native admission credit; hide/Close/replacement/recovery gua
 against stale publication. Native/WASM/census and 256 MiB/one-million-preview
 policy are unchanged.
 
-[Focused histogram qualification](validation/runs/histogram-20261012-01/validation.json) passes 1,834 unit cases/40 files and 66 production cases/two files. Exact file/project/title coverage verifies 679 unique development-browser cases/32 files across three runs: initial01 remains 444 passed/five failed/230 unrun, remainder01 remains 261 passed/one failed, and final checkpoint-correction01 passes two. The latter runs overlap prior passing coverage by 27 and one cases respectively; failed runs retain their outcomes. Focus03 passes 13 overlapping cases/one file and is counted separately. Final typecheck05, web-build01 and source02 pass. The receipt binds 343 observed exact files, 153 application inputs and 92 runtime artifacts, is 142,470 bytes and has SHA-256 `ac6beb64bc722ca6a250e6d382bfc804dda7ba372208cfa7c10dd57f27553ad1`.
+[Focused histogram qualification](validation/README.md#histogram-20261012-01) passes 1,834 unit cases/40 files and 66 production cases/two files. Exact file/project/title coverage verifies 679 unique development-browser cases/32 files across three runs: initial01 remains 444 passed/five failed/230 unrun, remainder01 remains 261 passed/one failed, and final checkpoint-correction01 passes two. The latter runs overlap prior passing coverage by 27 and one cases respectively; failed runs retain their outcomes. Focus03 passes 13 overlapping cases/one file and is counted separately. Final typecheck05, web-build01 and source02 pass. The receipt binds 343 observed exact files, 153 application inputs and 92 runtime artifacts, is 142,470 bytes and has SHA-256 `ac6beb64bc722ca6a250e6d382bfc804dda7ba372208cfa7c10dd57f27553ad1`.
 
 The histogram packet app input ID is `27eb08fb538d95522cfab75f424206a184ac34adccf008ef716d9f785d8eb3f0`; its deployment ID is `dacef8c72fdb7f309b088d20dd9cb685c4931799d6dba86ba7e6642334835d2c`. Native remains `d10f9d7f72adf377da2a14827a3b175ce31ba444b043acaf31d6fa088a41e7a5`, at core ABI7/protocol11/UI-worker6/camera ABI1. The five exact native artifact/provenance leaves match the prior Settings receipt; this packet claims no fresh native build or execution. Earlier receipts retain their exact identities and scope.
 
-[Actual-App observation](validation/runs/histogram-20261012-01/ui-observation.json) covers Basic/Pro at 1280 ? 720 and compact Pro at 640 ? 300; Basic and compact Pro were visually reviewed. The 29,577-byte observation has SHA-256 `da0bc244feaac7e1144a5d7539d23101307d029b2d27984c81f005e0446c2c19`. These are local Windows Chromium observations, without matched native camera/font/DPR visual acceptance, deployed-host/offline qualification or a performance guarantee. The receipt does not assert a portable test/helper execution-source closure or a fresh full historical A/B/C cohort.
+[Actual-App observation](validation/README.md#histogram-20261012-01) covers Basic/Pro at 1280 ? 720 and compact Pro at 640 ? 300; Basic and compact Pro were visually reviewed. The 29,577-byte observation has SHA-256 `da0bc244feaac7e1144a5d7539d23101307d029b2d27984c81f005e0446c2c19`. These are local Windows Chromium observations, without matched native camera/font/DPR visual acceptance, deployed-host/offline qualification or a performance guarantee. The receipt does not assert a portable test/helper execution-source closure or a fresh full historical A/B/C cohort.
 
 The pre-integration `.build/morphology-port-draft` remains supporting CPU/standalone-WASM evidence with 612 host jobs, 100 desktop comparisons and million-splat fixtures. Its 6,120-byte host/6,024-byte WASM job measurements describe those isolated observations. Current integrated ownership and qualification are recorded above; Auto Color, alignments, Pro filters/transforms, Language/Theme, grouped SOG, recovery, visuals and hosting remain active work without a Mac gate.
 
@@ -107,14 +107,14 @@ ARIA roving Arrow/Home/End tabs, consumed outside presses through a transparent
 shield and retained modal focus/shortcuts are explicit browser adaptations from
 the native popup. Privacy/Help describe the browser truthfully; missing desktop
 settings/content remain future work without simulated controls.
-[Focused Settings qualification](validation/runs/settings-panel-20261012-01/validation.json)
+[Focused Settings qualification](validation/README.md#settings-panel-20261012-01)
 passes 1,825 units/38 files, 157 development-browser cases/14 files and 66
 production cases/two files; focus01/13 cases/three files overlaps and is counted
 separately. Browser runs have zero retries/skips/flaky results; final build01 and
 typecheck02 pass. The receipt binds 420 distinct exact files/819 bindings and 92
 runtime artifacts, is 182,982 bytes and has SHA-256
 `cd3312d180a5732f3b6d00c3c69262a7e22e07a3774c5ca4068234076416aaf8`.
-[Capture01](validation/runs/settings-panel-20261012-01/ui-comparison.json) passes
+[Capture01](validation/README.md#settings-panel-20261012-01) passes
 six helper-checked states: Small General/Privacy/Help at 1280 × 720, Medium commit,
 uncommitted Large hover and compact 640 × 240. Placement/width/tab bounds match
 the native contract; failed native versus loaded browser scene and visibly
@@ -147,14 +147,14 @@ above. The rendered histogram/stats also have separate successor qualification
 above. Language/Theme, richer Help, Guides, Grow/Shrink, filters and full UI parity
 remain future work without placeholder buttons.
 
-[Focused viewer-shell qualification](validation/runs/viewer-shell-20261012-01/validation.json)
+[Focused viewer-shell qualification](validation/README.md#viewer-shell-20261012-01)
 passes 1,825 units/38 files, 151 development-browser cases/13 files and 66
 production cases/two files, counted separately. Both browser cohorts have zero
 retries/skips/flaky results; typecheck03, final web-build03 and the separately
 named benchmark typecheck pass. The receipt binds 433 observed files/855 bindings,
 92 runtime artifacts and HTML integrity, is 212,035 bytes and has SHA-256
 `0a0dc57f1d4f1f81d8a65a48383148a1185bf2d2e68853c1714c3cd4baa81c84`.
-[Capture02](validation/runs/viewer-shell-20261012-01/ui-comparison-02.json) passes
+[Capture02](validation/README.md#viewer-shell-20261012-01) passes
 four actual-App states at 1920 × 1080/DPR1 with before/after workspace app/native
 bindings and source-matched demo1728 reference observations. Empty/Basic/Pro and
 visible Fullscreen were reviewed locally in Windows Chromium. This does not
@@ -175,7 +175,7 @@ Language/Theme, richer Help, Guides, Grow/Shrink, Pro filters,
 wrapped-row corners and complete visuals remain pending. The central 256 MiB/
 one-million-preview policy is unchanged.
 
-[The bounded-input receipt](validation/runs/limited-input-20261012-01/validation.json)
+[The bounded-input receipt](validation/README.md#limited-input-20261012-01)
 passes 1,825 units/38 files, 128 development-browser cases/ten files and 66
 production cases/two files, counted separately; both browser cohorts have zero
 retries/skips/flaky results. Final web-build02, full post-correction typecheck02
@@ -249,9 +249,9 @@ already retired. Independent Python `hashlib` hashes of contract ZIP bytes
 provide the identity oracle; the scanner and formatter do not redefine source
 identity.
 
-[Fresh linked native execution02](validation/runs/native-json-cleanup-20261012-01/native-contracts.json) passes all eight mains. The JSON suite reports 13 cases/3,838 assertions, 68 scans, 46 qualification refusals, six qualified destructions, 98 parse and 247 candidate allocation refusals, six ordinary refusals, five accepted fallback variants and the retained 65,536-point command path. It observes zero C++ allocation attempts/backend events after injected refusal through the observed unwind boundaries and a maximum sampled destructor stack delta of 1,056 bytes; independent archive identity checks total four.
+[Fresh linked native execution02](validation/README.md#native-json-cleanup-20261012-01) passes all eight mains. The JSON suite reports 13 cases/3,838 assertions, 68 scans, 46 qualification refusals, six qualified destructions, 98 parse and 247 candidate allocation refusals, six ordinary refusals, five accepted fallback variants and the retained 65,536-point command path. It observes zero C++ allocation attempts/backend events after injected refusal through the observed unwind boundaries and a maximum sampled destructor stack delta of 1,056 bytes; independent archive identity checks total four.
 
-[Fresh focused local validation](validation/runs/json-cleanup-20261012-01/validation.json) passes 1,808 unit cases across 38 files, 117 development-browser cases across eight files and 66 production compatibility/initialization cases across two files. Both browser runs have zero retries, skips or flaky results. Clean native02, production web build01, typechecks, the 30-case toolchain-protection suite and 19 Node build-protection cases pass. Counts remain separate and overlap historical inventories. The receipt verifies 395 observed files, all 92 deployment artifacts and HTML integrity; it is 174,454 bytes with SHA-256 `3b8fe2e21c057374fb5877f261ba9c7146bb93330afb96a22012c2ab95c08af3`. It does not establish a fresh complete A/B/C cohort, complete execution-source capture for test/helper imports, matched visuals, deployed-host or performance acceptance.
+[Fresh focused local validation](validation/README.md#json-cleanup-20261012-01) passes 1,808 unit cases across 38 files, 117 development-browser cases across eight files and 66 production compatibility/initialization cases across two files. Both browser runs have zero retries, skips or flaky results. Clean native02, production web build01, typechecks, the 30-case toolchain-protection suite and 19 Node build-protection cases pass. Counts remain separate and overlap historical inventories. The receipt verifies 395 observed files, all 92 deployment artifacts and HTML integrity; it is 174,454 bytes with SHA-256 `3b8fe2e21c057374fb5877f261ba9c7146bb93330afb96a22012c2ab95c08af3`. It does not establish a fresh complete A/B/C cohort, complete execution-source capture for test/helper imports, matched visuals, deployed-host or performance acceptance.
 
 The receipt preserves native01's swallowed content-key allocation failure, the superseded first native build, diagnostic incremental build, direct module execution that invoked no main, explicit factory diagnostic and the protection-test source-spelling failure. Later results do not relabel those attempts or upgrade older sealed receipts. The final census records 18,867 allocation attempts/18,864 blocks after removal of the stream-formatting allocations; its remaining contract counts and the SPZ/export results are unchanged.
 
@@ -303,7 +303,7 @@ The two reserve/two insert counters identify paired path cases; eight additional
 insert refusals each recover successfully and participate in the lifetime totals.
 This establishes cleanup, not raw codec accounting or low-level output atomicity.
 
-The [export contracts](../native/wasm/export_cleanup_contracts.cpp) exercise
+The export contracts (`../native/wasm/export_cleanup_contracts.cpp`) exercise
 actual bindings across eight current format IDs: 14 cases/1,345 assertions,
 130 filesystem refusals, two invalid requests, one candidate-vector refusal
 and 24 successes. Tests retain exact scene/mask/output owners and bytes, full
@@ -315,11 +315,11 @@ CSV-only. Close-error injection reports failure after descriptor retirement.
 Unlink failure, close failure before retirement, SPZ v4/Zstd, full independent
 format decoding and command-wide closed-refusal safety remain unqualified.
 
-[Fresh local validation](validation/runs/cleanup-20261012-01/validation.json) passes all seven linked native mains, 1,808 unit cases across 38 files, 117 development-browser cases across eight files and 66 production compatibility/initialization cases across two files. Browser runs have zero retries, skips or flaky results; counts remain separate. Legacy-gzip SPZ has 18 cases/2,898 assertions with 37 initialized/37 ended streams and 103 raw allocations/103 frees. Export has 14 cases/1,345 assertions, 130 filesystem refusals, two invalid requests, one candidate-vector refusal and 24 successes. Typechecks and the clean native/production web builds pass. The receipt verifies 367 observed files, all 92 deployment artifacts and HTML integrity; SHA-256 `1737cac62f768f1686b43082ad287ad8ec31e810200a14adf4a4354f62ad15ed`. This is focused local qualification, excluding a fresh complete A/B/C cohort, matched desktop visuals, deployed-host and performance acceptance.
+[Fresh local validation](validation/README.md#cleanup-20261012-01) passes all seven linked native mains, 1,808 unit cases across 38 files, 117 development-browser cases across eight files and 66 production compatibility/initialization cases across two files. Browser runs have zero retries, skips or flaky results; counts remain separate. Legacy-gzip SPZ has 18 cases/2,898 assertions with 37 initialized/37 ended streams and 103 raw allocations/103 frees. Export has 14 cases/1,345 assertions, 130 filesystem refusals, two invalid requests, one candidate-vector refusal and 24 successes. Typechecks and the clean native/production web builds pass. The receipt verifies 367 observed files, all 92 deployment artifacts and HTML integrity; SHA-256 `1737cac62f768f1686b43082ad287ad8ec31e810200a14adf4a4354f62ad15ed`. This is focused local qualification, excluding a fresh complete A/B/C cohort, matched desktop visuals, deployed-host and performance acceptance.
 
 The historical SPZ/export cleanup snapshot has native input ID `68666aa16bc3ecc26195bd142a1bbb9ce3b1992dc0c16ddbda70e47550666119`; app input ID is `d97689ddd01df8db0becd246d50230558205c1d628f12d33ed4a0f7bdabbd385`; deployment ID is `0a1659daee739f3721114020f541a4afef2465fe5753d381467cda2a073bde5a`. Core ABI7/protocol11/UI-worker6/camera ABI1 are unchanged. Older census, response/font and portable receipts retain their own source identities and scopes.
 
-The [seven-main native execution](validation/runs/native-cleanup-20261012-01/native-contracts.json)
+The [seven-main native execution](validation/README.md#native-cleanup-20261012-01)
 retains exact pre/post artifact hashes and expected SPZ diagnostics. The older
 census snapshot below remains historical evidence for its original bytes.
 
@@ -339,7 +339,7 @@ to pre-module state. Invalid census is fatal on every response family, including
 progress. Ordinary measured native refusals remain recoverable. H/C/R admission,
 coverage credit and existing ResourceBudget policy are unchanged.
 
-The [census native receipt](validation/runs/native-census-20261012-01/native-contracts.json)
+The [census native receipt](validation/README.md#native-census-20261012-01)
 passes all five linked source-hash, geometry, live-selection, response and
 allocation-census mains. Census reports 15 cases/2,351 assertions, 371
 allocation-free observations, 106 binding queries and 20 ordinary refusals.
@@ -352,7 +352,7 @@ Full units02 passes 1,808/1,808 across 38 files; affected development validation
 passes 117/117 across eight files with zero retries/skips. Actual-worker cases
 exercise a fresh stable census after real 40 MiB source staging, no additional
 admission credit and retained edited state, executable Redo and joined retirement.
-Typechecks and web build01 pass. The [combined local receipt](validation/runs/census-20261012-01/validation.json)
+Typechecks and web build01 pass. The [combined local receipt](validation/README.md#census-20261012-01)
 also records production02 at 66/66 across two files, with zero retries/skips/flaky
 results. Unit, development, production and native counts remain separate. It
 verifies 367 observed files, 92 deployment artifacts, exact source/runtime
@@ -377,8 +377,8 @@ The implementation/version status here supersedes proposal tense in the retained
 contract below; it does not rewrite that contract or older receipt facts.
 
 The earlier response/font snapshot uses core ABI6/protocol10/UI-worker5 and has
-its own [native receipt](validation/runs/native-response-20261012-02/native-contracts.json)
-and [targeted browser receipt](validation/runs/response-ui-20261012-01/validation.json).
+its own [native receipt](validation/README.md#native-response-20261012-02)
+and [targeted browser receipt](validation/README.md#response-ui-20261012-01).
 Portable01 and those receipts retain their original source identities and scopes.
 [response.hpp](../native/wasm/response.hpp) and
 [response.cpp](../native/wasm/response.cpp) still provide two fixed 8,192-byte reply

@@ -2,6 +2,7 @@
 import argparse
 import hashlib
 import json
+import os
 import re
 import stat
 import subprocess
@@ -147,11 +148,23 @@ class Evidence:
                         output.write(chunk)
                 if received != metadata['bytes'] or value.hexdigest() != metadata['sha256']:
                     raise ValueError('Archive download hash/size mismatch')
-            # Never replace a different file another process created meanwhile.
-            with self.cache.open('xb') as output, temporary.open('rb') as source:
-                for chunk in iter(lambda: source.read(1024 * 1024), b''):
-                    output.write(chunk)
-            self.verify()
+            # Exclusive creation preserves a competing cache. Failed publication
+            # removes only our own file, so the next fetch can retry normally.
+            identity = None
+            try:
+                with temporary.open('rb') as source, self.cache.open('xb') as output:
+                    identity = os.fstat(output.fileno())
+                    for chunk in iter(lambda: source.read(1024 * 1024), b''):
+                        output.write(chunk)
+                self.verify()
+            except BaseException:
+                if identity is not None:
+                    try:
+                        if os.path.samestat(identity, self.cache.lstat()):
+                            self.cache.unlink()
+                    except FileNotFoundError:
+                        pass
+                raise
         finally:
             if temporary is not None:
                 temporary.unlink(missing_ok=True)
@@ -236,6 +249,23 @@ def check_layout(root):
     bad = [name for name in names if name and historical_path(name) and name not in evidence.retained and (root / name).is_file()]
     if bad:
         raise ValueError('Loose generated evidence is tracked in source: ' + ', '.join(bad[:5]))
+    check_guide_links(root, evidence)
+
+
+def check_guide_links(root, evidence):
+    archived = {(root / name).resolve() for name in evidence.by_path if name not in evidence.retained}
+    guides = [root / name for name in ['README.md', 'WEB_PORT_PLAN.md', 'IMPLEMENTATION_STATUS.md',
+                                      'WEB_IMPLEMENTATION_DETAILS.md', 'docs/native-allocation-census.md']]
+    for directory in ['docs/development', 'tools']:
+        guides.extend((root / directory).rglob('*.md'))
+    for guide in guides:
+        if not guide.is_file():
+            continue
+        for target in re.findall(r'\]\(([^)\s]+)\)', guide.read_text(encoding='utf-8')):
+            url = urllib.parse.urlsplit(target)
+            if not url.scheme and not url.netloc and (guide.parent / urllib.parse.unquote(url.path)).resolve() in archived:
+                raise ValueError('Maintained guide links to archived evidence; use the catalog: '
+                                 + guide.relative_to(root).as_posix() + ' -> ' + target)
 
 
 def main():

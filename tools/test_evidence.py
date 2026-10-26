@@ -9,6 +9,11 @@ from unittest.mock import patch
 from evidence import CATALOG, Evidence, check_layout, digest, safe_path
 
 
+class ArchiveResponse(io.BytesIO):
+    def geturl(self):
+        return 'https://release-assets.githubusercontent.com/example'
+
+
 class HistoricalEvidenceTests(unittest.TestCase):
     def setUp(self):
         self.temporary = tempfile.TemporaryDirectory()
@@ -37,6 +42,36 @@ class HistoricalEvidenceTests(unittest.TestCase):
         data = self.cache.read_bytes()
         self.catalog['archive'].update(bytes=len(data), sha256=digest(data))
         self.save_catalog()
+
+    def interrupt_cache_write(self, replacement=None):
+        original_open, cache = Path.open, self.cache
+
+        class InterruptedWriter:
+            def __init__(self, stream):
+                self.stream = stream
+
+            def __enter__(self):
+                self.stream.__enter__()
+                return self
+
+            def __exit__(self, *args):
+                result = self.stream.__exit__(*args)
+                if replacement is not None:
+                    replacement.replace(cache)
+                return result
+
+            def fileno(self):
+                return self.stream.fileno()
+
+            def write(self, data):
+                self.stream.write(data[:len(data) // 2])
+                raise OSError('Interrupted cache write')
+
+        def open_file(path, mode='r', *args, **kwargs):
+            stream = original_open(path, mode, *args, **kwargs)
+            return InterruptedWriter(stream) if path == cache and mode == 'xb' else stream
+
+        return patch.object(Path, 'open', open_file)
 
     def test_original_bytes_restore_with_encoding_and_provenance_unchanged(self):
         evidence = Evidence(self.root)
@@ -100,16 +135,66 @@ class HistoricalEvidenceTests(unittest.TestCase):
     def test_bad_download_does_not_publish_a_cache_and_valid_download_is_verified(self):
         data = self.cache.read_bytes()
         self.cache.unlink()
-        class Response(io.BytesIO):
-            def geturl(self):
-                return 'https://release-assets.githubusercontent.com/example'
-        with patch('urllib.request.urlopen', return_value=Response(b'corrupt')):
+        with patch('urllib.request.urlopen', return_value=ArchiveResponse(b'corrupt')):
             with self.assertRaisesRegex(ValueError, 'download hash/size'):
                 Evidence(self.root).fetch()
         self.assertFalse(self.cache.exists())
-        with patch('urllib.request.urlopen', return_value=Response(data)):
+        with patch('urllib.request.urlopen', return_value=ArchiveResponse(data)):
             Evidence(self.root).fetch()
         self.assertEqual(self.cache.read_bytes(), data)
+
+    def test_interrupted_cache_publication_is_removed_and_fetch_can_retry(self):
+        data = self.cache.read_bytes()
+        self.cache.unlink()
+        with patch('urllib.request.urlopen', return_value=ArchiveResponse(data)), self.interrupt_cache_write():
+            with self.assertRaisesRegex(OSError, 'Interrupted cache write'):
+                Evidence(self.root).fetch()
+        self.assertFalse(self.cache.exists())
+        self.assertEqual(list(self.cache.parent.iterdir()), [])
+        with patch('urllib.request.urlopen', return_value=ArchiveResponse(data)):
+            Evidence(self.root).fetch()
+        self.assertEqual(self.cache.read_bytes(), data)
+
+    def test_failed_publication_preserves_a_concurrent_replacement(self):
+        data = self.cache.read_bytes()
+        self.cache.unlink()
+        replacement = self.cache.with_name('concurrent.zip')
+        replacement.write_bytes(b'concurrent replacement')
+        with patch('urllib.request.urlopen', return_value=ArchiveResponse(data)), self.interrupt_cache_write(replacement):
+            with self.assertRaisesRegex(OSError, 'Interrupted cache write'):
+                Evidence(self.root).fetch()
+        self.assertEqual(self.cache.read_bytes(), b'concurrent replacement')
+        with patch('urllib.request.urlopen') as network:
+            with self.assertRaisesRegex(ValueError, 'Archive hash/size'):
+                Evidence(self.root).fetch()
+        network.assert_not_called()
+        self.assertEqual(self.cache.read_bytes(), b'concurrent replacement')
+
+    def test_fetch_does_not_overwrite_or_remove_a_competing_publication(self):
+        data = self.cache.read_bytes()
+        self.cache.unlink()
+        original_open, cache = Path.open, self.cache
+
+        def open_file(path, mode='r', *args, **kwargs):
+            if path == cache and mode == 'xb':
+                with original_open(cache, 'wb') as stream:
+                    stream.write(b'other publisher')
+            return original_open(path, mode, *args, **kwargs)
+
+        with patch('urllib.request.urlopen', return_value=ArchiveResponse(data)), patch.object(Path, 'open', open_file):
+            with self.assertRaises(FileExistsError):
+                Evidence(self.root).fetch()
+        self.assertEqual(self.cache.read_bytes(), b'other publisher')
+
+    def test_fetched_archive_with_invalid_members_does_not_remain_in_cache(self):
+        data = self.cache.read_bytes()
+        self.cache.unlink()
+        self.catalog['files'][0]['sha256'] = '1' * 64
+        self.save_catalog()
+        with patch('urllib.request.urlopen', return_value=ArchiveResponse(data)):
+            with self.assertRaisesRegex(ValueError, 'Historical evidence hash/size'):
+                Evidence(self.root).fetch()
+        self.assertFalse(self.cache.exists())
 
     def test_project_layout_check_is_offline_and_rejects_loose_generated_evidence(self):
         check_layout(self.root)
@@ -129,6 +214,29 @@ class HistoricalEvidenceTests(unittest.TestCase):
         target.write_bytes(b'changed')
         with self.assertRaisesRegex(ValueError, 'Pinned evidence input'):
             check_layout(self.root)
+
+    def test_project_check_rejects_archive_links_in_active_guides_only(self):
+        frozen = self.root / 'design/feature-reviews/historical.md'
+        frozen.parent.mkdir(parents=True)
+        frozen.write_text('[original](../../test-results-example.command.json)', encoding='utf-8')
+        check_layout(self.root)
+        guide = self.root / 'tools/bench/README.md'
+        guide.parent.mkdir(parents=True)
+        guide.write_text('[original](../../docs/validation/runs/example/report.json#scope)', encoding='utf-8')
+        with self.assertRaisesRegex(ValueError, 'Maintained guide links to archived evidence'):
+            check_layout(self.root)
+        guide.write_text('[archived](../../docs/validation/README.md#example)', encoding='utf-8')
+        check_layout(self.root)
+
+    def test_maintained_guide_can_link_to_a_retained_byte_pinned_witness(self):
+        name = next(iter(self.payloads))
+        self.catalog['retainedInputs'] = [name]
+        self.save_catalog()
+        target = self.root / name
+        target.parent.mkdir(parents=True)
+        target.write_bytes(self.payloads[name])
+        (self.root / 'README.md').write_text(f'[fixture witness]({name})', encoding='utf-8')
+        check_layout(self.root)
 
 
 if __name__ == '__main__':

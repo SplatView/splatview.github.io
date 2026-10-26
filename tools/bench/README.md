@@ -285,11 +285,11 @@ decode proves a real complete image file and dimensions, without approving
 pixel fidelity or physical presentation. A concise progress record is emitted
 after each terminal cycle; detailed evidence stays in the private files.
 
-The current [attribute-export qualification](../../docs/validation/runs/generic-export-20261016-01/validation.json)
+The current [attribute-export qualification](../../docs/validation/README.md#generic-export-20261016-01)
 closes the bounded native-workspace and retained output/Blob ownership path for
-SPLAT and the other attribute writers. The [SPZ v3](../../docs/validation/runs/spz3-export-20261016-01/validation.json),
-[SOG/SOGS](../../docs/validation/runs/sog-export-20261016-01/validation.json) and
-[SPZ v4](../../docs/validation/runs/spz4-20261014-01/validation-02.json)
+SPLAT and the other attribute writers. The [SPZ v3](../../docs/validation/README.md#spz3-export-20261016-01),
+[SOG/SOGS](../../docs/validation/README.md#sog-export-20261016-01) and
+[SPZ v4](../../docs/validation/README.md#spz4-20261014-01)
 receipts record the other codec-owned paths. Their admission and cancellation
 limits retain each receipt's scope; they do not establish physical-memory ceilings.
 This lifecycle collector keeps `closedExportAccounting` false because its
