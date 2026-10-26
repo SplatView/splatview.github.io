@@ -126,6 +126,8 @@ for (const primary of ['Control', 'Meta'] as const) test(`Settings tabs, ${prima
   await trigger.focus(); await page.keyboard.press('ArrowDown'); await page.keyboard.press('End');
   await expect(page.locator('main')).toHaveAttribute('data-ui-size', 'large');
   await page.keyboard.press('Tab'); await expect(page.getByRole('listbox', { name: 'Font size choices', exact: true })).toHaveCount(0);
+  await expect(page.getByRole('combobox', { name: 'Gaussian renderer', exact: true })).toBeFocused();
+  await page.keyboard.press('Tab');
   await expect(page.getByRole('button', { name: 'Open folder', exact: true })).toBeFocused();
   await expect(page.locator('main')).toHaveAttribute('data-ui-size', 'small');
   const tabCanceled = await scene(page); expect(tabCanceled).toEqual(before);

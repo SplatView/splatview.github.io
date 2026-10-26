@@ -12,7 +12,7 @@ For embedding in another browser app, `npm run build:engine` creates a standalon
 WebGPU/WebGL2 ES module, worker, types and plain browser example in `dist-engine/`.
 See the [renderer API and ownership guide](docs/development/renderer-engine.md).
 
-**SteadySplats** is available in **Settings → General → Gaussian rendering**.
+**SteadySplats** is available in **Settings → General → Renderer**.
 It uses stochastic visibility, spatial resampling and temporal reconstruction,
 with 16 refinement frames at rest by default. Sorted rendering remains the
 default and the fallback when optional resources cannot be admitted. Picking,
@@ -52,7 +52,7 @@ All 6,255 CPU tests, 126 focused browser cases and four production cases pass.
 and [validation](docs/validation/README.md#selection-interaction-optimization-20261018-01).
 
 The web file toolbar is simplified to **Open, Save, Capture and Copy**. Folder
-loading is in **Settings / General / Scene**. **Remember view** in Settings saves
+loading is in **Settings / General**. **Remember view** in Settings saves
 the camera and background in this browser; it does not update Finder or Explorer
 thumbnails. The T shortcut and saved-view import/export remain available.
 [Review and validation](design/feature-reviews/web-toolbar-simplification-2026-10-18.md).
@@ -287,10 +287,11 @@ the portable path. See the [throughput review](design/feature-reviews/rendering-
 and [evidence](docs/validation/README.md#rendering-throughput-20261025-01)
 for local measurements and dense-scene costs.
 
-Settings follows the Windows General / Privacy / Help structure. Appearance and
-Gaussian rendering use aligned compact rows; optional SteadySplats tuning is
-collapsed. Point and mesh views omit Gaussian controls. Application updates and
+Settings follows the Windows General / Privacy / Help structure. General uses
+flat, aligned rows and actions; SteadySplats tuning appears directly when selected.
+Point and mesh views omit Gaussian controls. Application updates and collapsed
 graphics diagnostics live in Help; browser-local saved views remain in General.
+See the [presentation review](design/feature-reviews/settings-simplification-2026-10-26.md).
 
 Exact WebGL worker sorting now skips uniform digits and uses admitted counting
 sort for narrow key spans. The [matched benchmark](docs/validation/README.md#webgl-sort-20261025-01)

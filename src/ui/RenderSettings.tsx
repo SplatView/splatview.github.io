@@ -17,15 +17,14 @@ export function RenderSettings({ controller }: { controller: AppController }) {
   const update = (patch: Partial<SteadySettings>) => controller.setRenderSettings({ ...settings, ...patch });
   if (geometry) return null;
   return <section className="render-settings" aria-label={t('Rendering')}>
-    <h2>{t('Rendering')}</h2>
     {fallback && <p role="status">{t('WebGPU is unavailable. Using WebGL2.')}</p>}
     <label className="render-settings-row"><span>{t('Renderer')}</span>
-      <select aria-label={t('Gaussian renderer')} value={settings.mode} onChange={event => update({ mode: event.target.value as GaussianRenderMode })}>
+      <select aria-label={t('Gaussian renderer')} title={t('Capture and saved-view images use sorted rendering.')}
+        value={settings.mode} onChange={event => update({ mode: event.target.value as GaussianRenderMode })}>
         <option value="sorted">{t('Sorted (default)')}</option><option value="steady">SteadySplats</option>
       </select>
     </label>
     {settings.mode === 'steady' && <>
-      <details className="settings-details steady-options"><summary>{t('SteadySplats options')}</summary>
       <label className="render-settings-row"><span>{t('History weight')}</span><span className="render-history-weight slider-control">
         <input type="range" min="0" max="0.95" step="0.05" aria-label={t('History weight')} value={settings.historyWeight}
           onChange={event => update({ historyWeight: Number(event.target.value) })} />
@@ -40,8 +39,6 @@ export function RenderSettings({ controller }: { controller: AppController }) {
         onChange={event => update({ convergenceFrames: Number(event.target.value) })}>
         {[16,64,256,1024].map(value => <option key={value} value={value}>{value}</option>)}
       </select></label>
-      <p>{t('Capture and saved-view images use sorted rendering.')}</p>
-      </details>
       {status === 'preparing' && <p role="status">{t('Preparing SteadySplats…')}</p>}
       {status === 'unavailable' && <p role="status">{t('SteadySplats is unavailable for this view. Using sorted rendering.')}</p>}
     </>}

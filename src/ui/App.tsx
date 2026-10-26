@@ -2045,14 +2045,12 @@ export function App() {
       <ThemePicker />
       <FontSizePicker />
       <RenderSettings controller={controller} />
-      <h2>{t("Scene")}</h2>
-      <div className="settings-scene-actions">
+      <div className="settings-scene-actions" role="group" aria-label={t('Scene')}>
         <button disabled={!state.ready || state.busy || selectionBlocked || operationBlocked || memoryBlocked || state.navigationPrompt}
           onClick={() => { closeSettings(); requestPicker(folderPicker); }}>{t('Open folder')}</button>
         <button disabled={!state.summary || state.navigationPrompt || operationBlocked} onClick={() => { closeSettings(); void controller.closeScene(); }}>{t("Close scene")}</button>
       </div>
-      <h2>{t("Saved view")}</h2><p>{t('Save this camera view and background in this browser.')}</p>
-      <div className="dialog-actions saved-view-actions">
+      <div className="dialog-actions saved-view-actions" role="group" aria-label={t('Saved view')}>
         <button aria-keyshortcuts="T" aria-pressed={!!state.toolbarFeedback.thumbnail}
           title={t(state.toolbarFeedback.thumbnail?.message ?? 'Save this camera view and background in this browser.')}
           disabled={disabled || memoryBlocked || state.navigationPrompt || state.thumbnailPending || state.viewTransferPending}
@@ -2066,8 +2064,8 @@ export function App() {
       {state.bootstrapState === 'failed' && <button onClick={() => location.reload()}>{t("Reload application")}</button>}
       {state.rendererState === 'unavailable' && state.bootstrapState !== 'failed' && <button disabled={memoryBlocked || operationBlocked} onClick={() => void controller.retryRenderer()}>{t("Retry graphics")}</button>}
       </>, privacy: <>
-        <h2>{t("Your scene stays on your device")}</h2><p>{t("Scenes are processed locally in this browser. Scene data is not uploaded.")}</p>
-        <p>{t("Usage and error reporting are off.")}</p><h2>{t("Local storage")}</h2>
+        <p>{t("Scenes are processed locally in this browser. Scene data is not uploaded.")}</p>
+        <p>{t("Usage and error reporting are off.")}</p>
         <p>{t("Appearance preferences and saved views are stored in this browser. You can remove them using your browser's site-data controls.")}</p>
       </>, help: <>
         <div className="settings-help-actions">
@@ -2079,12 +2077,12 @@ export function App() {
         {tutorial.error && <p role="alert" data-tutorial-error>{t(tutorial.error)}</p>}
         <OfflineStatus controller={controller} />
         <GraphicsDiagnostics controller={controller} />
-        <h2>{t("Navigation")}</h2><dl className="settings-shortcuts">
+        <div className="settings-navigation" role="group" aria-label={t('Navigation')}><dl className="settings-shortcuts">
           <dt>{t("Orbit")}</dt><dd>{t("Drag")}</dd><dt>{t("Pan")}</dt><dd>{t("Right drag")}</dd><dt>{t("Zoom")}</dt><dd>{t("Scroll")}</dd>
           <dt>{t("Look")}</dt><dd><kbd>V</kbd></dd><dt>{t("Auto orbit")}</dt><dd><kbd>O</kbd></dd><dt>{t("Reset view")}</dt><dd><kbd>R</kbd></dd>
           <dt>{t("Fill")}</dt><dd><kbd>G</kbd></dd>
         </dl><p>{t("Shortcuts work when the scene has focus.")}</p>
-        <h2>{t("Fly navigation")}</h2><p>{t("Move with W/A/S/D, Q/E or Space; use arrows to turn. Hold Shift to move faster or Alt to move slowly.")}</p>
+        <p>{t("Move with W/A/S/D, Q/E or Space; use arrows to turn. Hold Shift to move faster or Alt to move slowly.")}</p></div>
       </> }} />}
     {aboutOpen && !state.exportOpen && !state.navigationPrompt && !state.outputPending && <AboutDialog onClose={closeAbout}
       focus={{ returnFocus: aboutReturnFocus, fallbackFocus: () => [canvas.current, openButton.current],

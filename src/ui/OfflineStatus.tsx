@@ -19,7 +19,6 @@ export function OfflineStatus({ controller }: { controller: AppController }) {
     catch { setCheckFailed(true); }
   };
   return <section className="offline-settings" aria-label={t('Application')}>
-    <h2>{t('Application')}</h2>
     <p role="status" title={offline.error ?? undefined}>{t(message)}{available ? ` · ${t('Update available')}` : ''}</p>
     {offline.phase !== 'unsupported' && <div className="dialog-actions">
       <button type="button" disabled={offline.checking || state.navigationPrompt || state.outputPending || state.exportOpen}

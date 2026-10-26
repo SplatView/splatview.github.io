@@ -38,7 +38,7 @@ test('Settings opts into SteadySplats, settles on demand and retains Basic clean
   const settings=page.getByRole('dialog',{name:'Settings',exact:true});
   const mode=settings.getByRole('combobox',{name:'Gaussian renderer',exact:true});
   await expect(mode).toHaveValue('sorted'); await mode.selectOption('steady');
-  await settings.getByText('SteadySplats options', { exact: true }).click();
+  await expect(settings.getByRole('slider',{name:'History weight'})).toBeVisible();
   await expect(settings.getByText('Preparing SteadySplats…',{exact:true})).toBeHidden();
   await expect(settings.getByText('SteadySplats is unavailable for this view. Using sorted rendering.',{exact:true})).toHaveCount(0);
   await expect(settings.getByRole('combobox',{name:'Refinement frames'})).toHaveValue('16');

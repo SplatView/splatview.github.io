@@ -423,8 +423,7 @@ canvas[data-selection-cursor] { cursor: none; }
 .settings-tabs > button:focus-visible { outline-offset: -2px; }
 /* Preview reflow must preserve the Settings scroll position and popup owner. */
 .settings-content { overflow-anchor: none; min-width: 0; min-height: 0; overflow: auto; padding: 6px 0 12px; scrollbar-width: thin; scrollbar-color: var(--scrollbar) transparent; }
-.settings-content h2 { margin: 12px 0 6px; }
-.settings-content h2:first-child { margin-top: 0; }
+.settings-content > .render-settings, .settings-scene-actions, .settings-navigation { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--separator); }
 .settings-content p { margin: 8px 0; color: var(--muted); font-size: calc(13px + var(--ui-font-increase)); line-height: 1.5; overflow-wrap: anywhere; }
 .settings-content a { color: var(--accent-hover); text-underline-offset: 2px; }
 .settings-content a:hover { color: var(--text); }
@@ -441,7 +440,7 @@ canvas[data-selection-cursor] { cursor: none; }
 .settings-shortcuts kbd { font: inherit; font-kerning: inherit; white-space: nowrap; }
 .settings-scene-actions, .saved-view-actions { display: flex; flex-wrap: wrap; gap: 6px; }
 .settings-scene-actions { display: grid; grid-template-columns: 1fr 1fr; }
-.saved-view-actions { display: grid; grid-template-columns: 1fr; }
+.saved-view-actions { display: grid; grid-template-columns: 1fr; margin-top: 6px; }
 /* Compact reflow retains whole desktop controls and scrolls their owning UI. */
 @media (max-width: 640px), (max-height: 480px) {
   .toolbar { max-height: calc(100% - 24px); overflow-x: hidden; overflow-y: auto; align-content: flex-start; scrollbar-width: thin; scrollbar-gutter: stable; overscroll-behavior: contain; }

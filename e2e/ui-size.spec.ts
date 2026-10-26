@@ -142,8 +142,12 @@ test('Settings contains keyboard focus including its picker portal and restores 
   await expect(menu.getByRole('option', { name: 'Small', exact: true })).toBeFocused();
   await page.keyboard.press('End'); await expect(page.locator('main')).toHaveAttribute('data-ui-size', 'large');
   await page.keyboard.press('Tab'); await expect(menu).toHaveCount(0);
+  const renderer = page.getByRole('combobox', { name: 'Gaussian renderer', exact: true });
+  await expect(renderer).toBeFocused();
+  await page.keyboard.press('Tab');
   await expect(page.getByRole('button', { name: 'Open folder', exact: true })).toBeFocused();
   await expect(page.locator('main')).toHaveAttribute('data-ui-size', 'small');
+  await page.keyboard.press('Shift+Tab'); await expect(renderer).toBeFocused();
   await page.keyboard.press('Shift+Tab'); await expect(trigger).toBeFocused();
   await page.keyboard.press('ArrowDown'); await page.keyboard.press('End');
   await page.keyboard.press('Escape'); await expect(trigger).toBeFocused();

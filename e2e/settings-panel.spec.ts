@@ -14,7 +14,7 @@ async function load(page: Page) {
   await page.getByRole('button', { name: 'Tools', exact: true }).click();
 }
 
-test('General uses aligned property rows and keeps support controls in Help', async ({ page }) => {
+test('General uses direct property rows and keeps support controls in Help', async ({ page }) => {
   await load(page);
   await page.getByRole('button', { name: 'Settings', exact: true }).click();
   const dialog = settings(page), renderer = dialog.getByRole('combobox', { name: 'Gaussian renderer', exact: true });
@@ -24,13 +24,18 @@ test('General uses aligned property rows and keeps support controls in Help', as
   expect(Math.abs(control.width - language.width)).toBeLessThanOrEqual(1);
   await expect(dialog.getByRole('combobox', { name: 'Graphics backend', exact: true })).toHaveCount(0);
   await expect(dialog.getByRole('region', { name: 'Application', exact: true })).toHaveCount(0);
+  await expect(dialog.locator('h2, details')).toHaveCount(0);
+  await expect(renderer).toHaveAccessibleDescription('Capture and saved-view images use sorted rendering.');
   await renderer.selectOption('steady');
-  await expect(dialog.getByRole('slider', { name: 'History weight', exact: true })).toBeHidden();
-  await dialog.getByText('SteadySplats options', { exact: true }).focus();
-  await page.keyboard.press('Enter');
   await expect(dialog.getByRole('slider', { name: 'History weight', exact: true })).toBeVisible();
+  await expect(dialog.getByRole('checkbox', { name: 'Animate samples', exact: true })).toBeVisible();
+  await expect(dialog.getByRole('checkbox', { name: 'Converge at rest', exact: true })).toBeVisible();
+  await expect(dialog.getByRole('combobox', { name: 'Refinement frames', exact: true })).toBeVisible();
+  await expect(dialog.getByRole('group', { name: 'Scene', exact: true }).getByRole('button', { name: 'Open folder', exact: true })).toBeEnabled();
+  await expect(dialog.getByRole('group', { name: 'Saved view', exact: true }).getByRole('button', { name: 'Remember view', exact: true })).toBeEnabled();
   await dialog.getByRole('tab', { name: 'Help', exact: true }).click();
   await expect(dialog.getByRole('region', { name: 'Application', exact: true })).toBeVisible();
+  await expect(dialog.locator('h2')).toHaveCount(0);
   await expect(dialog.locator('.graphics-diagnostics pre')).toBeHidden();
   await dialog.getByText('Graphics diagnostics', { exact: true }).click();
   await expect(dialog.getByRole('combobox', { name: 'Graphics backend', exact: true })).toBeDisabled();
@@ -103,6 +108,13 @@ test('short windows keep Settings header and tabs fixed while the active page sc
   await page.setViewportSize({ width: 360, height: 240 }); await load(page);
   await page.getByRole('button', { name: 'Settings', exact: true }).click();
   const dialog = settings(page); expect(await dialog.boundingBox()).toMatchObject({ x: 12, y: 12, width: 336 });
+  await dialog.getByRole('combobox', { name: 'Gaussian renderer', exact: true }).selectOption('steady');
+  const importView = dialog.getByRole('button', { name: 'Import view…', exact: true });
+  await importView.focus(); await expect(importView).toBeInViewport();
+  await page.keyboard.press('Tab');
+  await expect(dialog.getByRole('button', { name: 'Close Settings', exact: true })).toBeFocused();
+  await page.keyboard.press('Shift+Tab');
+  await expect(importView).toBeFocused(); await expect(importView).toBeInViewport();
   await dialog.getByRole('tab', { name: 'Help', exact: true }).click();
   const header = dialog.locator('.panel-heading'), tabs = dialog.getByRole('tablist'), content = dialog.getByRole('tabpanel', { name: 'Help', exact: true });
   const before = { header: await header.boundingBox(), tabs: await tabs.boundingBox() };
