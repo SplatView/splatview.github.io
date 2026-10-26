@@ -26,7 +26,8 @@
     "test:e2e": "playwright test",
     "build": "npm run verify:sources && npm run verify:build && npm run prepare:web && npm run typecheck && npm run typecheck:bench && vite build",
     "preview": "vite preview --host 127.0.0.1",
-    "verify:product": "python -B contracts/product/tool.py verify --root ."
+    "verify:product": "python -B contracts/product/tool.py verify --root .",
+    "verify:project": "python -B tools/evidence.py check"
   },
   "dependencies": {
     "react": "19.3.0",

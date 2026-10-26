@@ -1,5 +1,7 @@
 # SplatView web
 
+[Project map](docs/development/project-structure.md) | [Historical validation](docs/validation/README.md)
+
 Contributors and agents: read [AGENTS.md](AGENTS.md) before feature work. Every new or changed feature must review Windows, macOS, Ubuntu and web support under the shared product contract, while retaining the existing source-lock, browser and WASM contracts.
 
 A browser viewer and editor for Gaussian splats, with desktop SplatView controls,
@@ -47,7 +49,7 @@ improved the compact baseline's warm median from 15.2 to 11.6 ms; a small brush
 tap read 4 KiB instead of about 2 MiB. Results depend on scene and hardware.
 All 6,255 CPU tests, 126 focused browser cases and four production cases pass.
 [Review](design/feature-reviews/selection-interaction-optimization-2026-10-18.md)
-and [validation](docs/validation/runs/selection-interaction-optimization-20261018-01/validation.json).
+and [validation](docs/validation/README.md#selection-interaction-optimization-20261018-01).
 
 The web file toolbar is simplified to **Open, Save, Capture and Copy**. Folder
 loading is in **Settings / General / Scene**. **Remember view** in Settings saves
@@ -74,7 +76,7 @@ capture retain sorted display/fallback, clean output, raw maps and native editin
 Automatic WebGPU-to-WebGL2 fallback and the sorted default are preserved.
 
 The [review](design/feature-reviews/rendering-optimization-plan-2026-10-25.md) and
-[validation receipt](docs/validation/runs/rendering-optimization-20261025-01/validation.json)
+[validation receipt](docs/validation/README.md#rendering-optimization-20261025-01)
 record 6,426 portable tests, actual browser/production checks and repeated
 measurements on Windows Chromium/RTX 5090. Exact queries and sorted capture
 improve; the approximately 31 ms GL completion floor and App input latency remain.
@@ -117,7 +119,7 @@ tour continues afterward. Auto color commits immediately, while preset and
 slider previews use Apply color. The tour explains these differences and uses
 the same Ctrl snapping shortcut as the web controls on every platform.
 
-Validation passed: 6,181 CPU tests across 189 files, the pinned product verifier (128 registrations), source/native-artifact checks, both typechecks and the production build. Three production-browser journeys passed with zero retries: Basic cleanup/Undo and manual Flip/Apply, Color/Fill picking without Range, and all 34 projected tutorial steps with selection restoration. Browser evidence is Windows Chromium 156 on a secure localhost origin; the separate high-performance adapter probe reported NVIDIA Blackwell without fallback. This is scoped browser evidence, not new macOS/native-provider or universal device qualification. [Review](design/feature-reviews/web-lite-selection-policy-2026-10-18.md). [Validation](docs/validation/runs/web-lite-selection-policy-20261018-01/validation.json).
+Validation passed: 6,181 CPU tests across 189 files, the pinned product verifier (128 registrations), source/native-artifact checks, both typechecks and the production build. Three production-browser journeys passed with zero retries: Basic cleanup/Undo and manual Flip/Apply, Color/Fill picking without Range, and all 34 projected tutorial steps with selection restoration. Browser evidence is Windows Chromium 156 on a secure localhost origin; the separate high-performance adapter probe reported NVIDIA Blackwell without fallback. This is scoped browser evidence, not new macOS/native-provider or universal device qualification. [Review](design/feature-reviews/web-lite-selection-policy-2026-10-18.md). [Validation](docs/validation/README.md#web-lite-selection-policy-20261018-01).
 
 Earlier full-editor qualification records describe their captured source and profile. They remain historical evidence and do not advertise advanced editing in this Basic web interface.
 
@@ -126,7 +128,7 @@ six focused development-browser checks and five production-browser checks, all
 browser cases with zero retries. Both typechecks, the production build and the
 pinned source/product/native-artifact checks pass. Refused inputs preserve the
 edited document and executable Undo/Redo. [Input-policy review](design/feature-reviews/playcanvas-input-policy-2026-10-18.md).
-[Validation](docs/validation/runs/playcanvas-input-policy-20261018-01/validation.json).
+[Validation](docs/validation/README.md#playcanvas-input-policy-20261018-01).
 
 ## Run locally
 
@@ -275,14 +277,14 @@ a backend for this session. Sorted rendering remains the default on both;
 SteadySplats requires additional tested float framebuffer capabilities and
 admitted memory. Device loss restores the selected backend and native history.
 See the [implementation review](design/feature-reviews/webgl2-implementation-2026-10-25.md)
-and [local validation](docs/validation/runs/webgl2-implementation-20261025-02/validation.json)
+and [local validation](docs/validation/README.md#webgl2-implementation-20261025-02)
 for the observed Windows Chromium/NVIDIA configuration, checks and limitations.
 
 The application uses 24-bit depth sorting during motion and refines to exact
 32-bit sorting at rest. Picks, maps and clean captures retain full precision.
 Large WebGPU scenes can use admitted visible-draw compaction; small scenes keep
 the portable path. See the [throughput review](design/feature-reviews/rendering-throughput-2026-10-25.md)
-and [evidence](docs/validation/runs/rendering-throughput-20261025-01/validation.json)
+and [evidence](docs/validation/README.md#rendering-throughput-20261025-01)
 for local measurements and dense-scene costs.
 
 Settings follows the Windows General / Privacy / Help structure. Appearance and
@@ -291,11 +293,11 @@ collapsed. Point and mesh views omit Gaussian controls. Application updates and
 graphics diagnostics live in Help; browser-local saved views remain in General.
 
 Exact WebGL worker sorting now skips uniform digits and uses admitted counting
-sort for narrow key spans. The [matched benchmark](docs/validation/runs/webgl-sort-20261025-01/README.md)
+sort for narrow key spans. The [matched benchmark](docs/validation/README.md#webgl-sort-20261025-01)
 records 43–75% lower worker round-trip medians and 48 identical snapshot pairs;
 precision, query/output behavior and the retained-memory cap are preserved.
 
 Actual App orbit/pan/zoom measurements are recorded separately in the
-[responsiveness packet](docs/validation/runs/app-responsiveness-20261025-01/README.md).
+[responsiveness packet](docs/validation/README.md#app-responsiveness-20261025-01).
 The [developer tool guide](tools/bench/APP_RESPONSIVENESS.md) explains input
 attribution, real completion fences and automation/environment limits.

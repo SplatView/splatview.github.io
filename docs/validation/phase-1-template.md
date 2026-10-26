@@ -1,6 +1,6 @@
 # Phase 1 Apple Silicon browser proof template
 
-**Status: pending. No Mac qualification run or measurement is recorded by this template.** Copy this file to `phase-1.md` and [the evidence template](phase-1-template.json) to `phase-1.json` when collecting actual results. Keep one JSON run per machine, browser and browser host; index the runs in the Markdown report. Preserve failed runs and raw evidence under `runs/<run-id>/`.
+**Status: pending. No Mac qualification run or measurement is recorded by this template.** Copy this file to `.build/validation/phase-1.md` and [the evidence template](phase-1-template.json) to `.build/validation/phase-1.json` when collecting actual results. Keep one JSON run per machine, browser and browser host; index the runs in the Markdown report. Preserve failed runs and raw evidence under `.build/validation/runs/<run-id>/`; publish checksum-pinned archives following [the evidence workflow](README.md).
 
 This packet implements the [immediate Mac proof](../../WEB_PORT_PLAN.md#immediate-mac-proof-alongside-foundation-work), using the [measurement protocol](../../WEB_IMPLEMENTATION_DETAILS.md#performance-measurement-protocol), [capture contract](../../WEB_IMPLEMENTATION_DETAILS.md#reference-capture-manifest) and [evidence lifetime rules](../../WEB_PORT_PLAN.md#qualification-evidence-lifetime). It qualifies a bounded foundation workflow. Complete formats, all retained editor features, 1M scenes and the separate 3M gate require later packets.
 

@@ -6,6 +6,7 @@ if (certificatePin && !/^[A-Za-z0-9+/]{43}=$/.test(certificatePin)) throw new Er
 
 // The root runner owns the fixture server, browser cohort and its shutdown.
 export default defineConfig({
+  outputDir: './.build/validation/offline',
   testDir: './tests/offline', testMatch: 'offline.spec.ts', timeout: 90_000,
   expect: { timeout: 20_000 }, workers: 1, retries: 0, fullyParallel: false,
   use: { locale: 'en-US', baseURL: origin, viewport: { width: 1280, height: 800 },

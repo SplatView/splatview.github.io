@@ -32,6 +32,7 @@ const projects = specs.map(filename => {
   return { name, testMatch: new RegExp(`^${escaped}$`) };
 });
 export default defineConfig({
+  outputDir: './.build/validation/playwright',
   testDir: './e2e', timeout: 60_000, expect: { timeout: 15_000 }, workers: 1, retries: 0, fullyParallel: false, projects,
   use: { locale: 'en-US', baseURL: process.env.SPLATVIEW_TEST_ORIGIN ?? 'http://127.0.0.1:5173',
     // Existing feature cohorts start after onboarding. Tutorial specs override

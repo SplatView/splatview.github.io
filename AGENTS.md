@@ -12,3 +12,10 @@ Before adding or changing any feature, read the shared product contract at `../S
 The review workflow applies now. Windows has an automated registration-review gate; the web typed-action/native-command adapter and worker policy gate are now present. Keep the manual platform review and existing source/WASM/browser contracts until that adapter is qualified. Pure formatting/documentation corrections need no new feature record. Do not advertise a planned profile migration as completed.
 
 The local product bundle and normalized inventory adapter are now present. Run `python -B contracts/product/tool.py verify --root .` in addition to all existing port contracts. New/changed registrations require explicit reviewed bindings and all-platform policy, then regenerated local projections; never relax source locks or replace an existing controller/history owner. Testing-enabled native builds and browser source checks run this gate. Native/runtime qualification remains separate.
+
+Follow the [project map](docs/development/project-structure.md). Put new raw
+reports/traces in ignored `.build/validation/` directories and run
+`npm run verify:project` for repository/source-layout work. Historical evidence
+is preserved through the [archive catalog](docs/validation/README.md); fetch or
+materialize it explicitly when needed. Never edit old receipts or weaken strict
+evidence readers to make a moved path pass. Builds must not fetch the archive.

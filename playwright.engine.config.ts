@@ -1,6 +1,7 @@
 import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
+  outputDir: './.build/validation/engine',
   testDir: './tests/browser-engine', testMatch: '**/*.spec.ts', timeout: 60_000, workers: 1, retries: 0,
   expect: { timeout: 15_000 },
   use: { baseURL: 'http://127.0.0.1:4175', channel: 'chromium',

@@ -9,6 +9,11 @@ playwright-report/
 __pycache__/
 /public/wasm/
 /test-results-*
+# Historical collection locations remain readable through tools/evidence.py.
+# New raw runs belong in .build/validation, never in the maintained source tree.
+/docs/validation/runs/
+/docs/validation/*-local*.json
+/docs/validation/*-inputs*.json
 *.tsbuildinfo
 
 # Restore frozen desktop sources explicitly from reference/frozen-sources.zip.

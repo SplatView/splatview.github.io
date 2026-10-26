@@ -56,8 +56,8 @@ function record(relative) {
 async function main() {
   const args = process.argv.slice(2);
   requireValue(args.length === 2 && args[0] === '--output' &&
-    /^docs\/validation\/runs\/[a-z0-9-]+\/[a-z0-9-]+\.json$/.test(args[1]),
-  'Expected --output docs/validation/runs/NEW-RUN/NAME.json.');
+    /^(?:\.build\/validation|docs\/validation\/runs)\/[a-z0-9-]+\/[a-z0-9-]+\.json$/.test(args[1]),
+  'Expected --output .build/validation/NEW-RUN/NAME.json.');
   requireValue(samePath(process.execPath, path.join(root, '.tools/node-v24.21.0-win-x64/node.exe')),
     'Use the pinned workspace Node executable.');
   const output = path.join(root, args[1]);
