@@ -28,7 +28,9 @@ capture_sources = importlib.util.module_from_spec(CAPTURE_SPEC)
 CAPTURE_SPEC.loader.exec_module(capture_sources)
 TITLE_BEFORE = b'<title>SplatView offline unavailable</title>'
 TITLE_AFTER = b'<title>SplatView offline cache unavailable</title>'
-EXTRA_ROOT_FILES = ('playwright.offline.config.ts',)
+EXTRA_ROOT_FILES = ('playwright.offline.config.ts', 'playwright.engine.config.ts',
+                    'playwright.selection.config.ts', 'vite.engine.config.ts', 'tsconfig.engine.json')
+EXTRA_TREES = ('contracts', 'design/feature-reviews')
 PROVENANCE_AUTHORITIES = ('tools/capture-sources.py', 'tools/generate-assets.py', 'tools/generate-native-translations.py')
 
 
@@ -80,6 +82,7 @@ def reviewed_override_leaves():
     asset_script = 'tools/generate-assets.py'
     language_script = 'tools/generate-native-translations.py'
     asset_base = reviewed_capture_path(asset_script, 'current_capture')
+    pivot_base = reviewed_capture_path(asset_script, 'pivot_capture')
     language_base = reviewed_capture_path(language_script, 'CAPTURE_RELATIVE', path_call=True)
     captures = {}
 
@@ -95,7 +98,7 @@ def reviewed_override_leaves():
             raise ValueError('Reviewed source digest tuple changed shape')
         return {'bytes': value[0], 'sha256': value[1]}
 
-    for base in (asset_base, language_base):
+    for base in (asset_base, pivot_base, language_base):
         name = base + '/CAPTURE_MANIFEST.json'
         checked_summary(name)
         manifest = json.loads((ROOT / name).read_text(encoding='utf-8'), object_pairs_hook=capture_sources._unique_manifest_object)
@@ -108,6 +111,7 @@ def reviewed_override_leaves():
             captures[language_base].get('captureId') != assigned_literal(language_script, 'CAPTURE_ID'):
         raise ValueError('Reviewed translation capture manifest identity or pinned bytes differ')
     for base, filename, constant in ((asset_base, asset_script, 'supplemental_records'),
+                                     (pivot_base, asset_script, 'pivot_records'),
                                      (language_base, language_script, 'SOURCE_RECORDS')):
         records = assigned_literal(filename, constant)
         if not isinstance(records, dict) or not records:
@@ -125,9 +129,13 @@ def reviewed_override_leaves():
 
 
 def source_inventory(root, override_names, with_native=False):
-    """Add only reviewed provenance and the named offline acceptance config."""
+    """Capture reviewed provenance, sealed product policy and current configs."""
     ordinary = helpers.source_inventory(root, with_native=with_native)
     rows = {row['path']: row for row in ordinary['inventory']}
+    for tree in EXTRA_TREES:
+        for path in helpers.walk_files(root / tree, root, helpers.excluded):
+            name = path.relative_to(root).as_posix()
+            rows[name] = {'path': name, **helpers.summary(path)}
     for name in (*override_names, *EXTRA_ROOT_FILES):
         path = helpers.checked_relative(root, name)
         if path.resolve() != path.absolute():

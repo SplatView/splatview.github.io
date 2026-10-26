@@ -1,0 +1,1659 @@
+{
+  "observations": [
+    {
+      "backend": "webgpu",
+      "fixture": "base",
+      "value": {
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+        "devicePixelRatio": 1,
+        "secureContext": true,
+        "crossOriginIsolated": false,
+        "negotiation": {
+          "schemaVersion": 1,
+          "kind": "splatview-renderer-negotiation",
+          "status": "ready",
+          "stage": "ready",
+          "clock": "performance.now",
+          "startedAtMs": 1557.3999999761581,
+          "observedAtMs": 1592.5999999046326,
+          "clockUnavailableReason": null,
+          "stages": [
+            {
+              "stage": "start",
+              "status": "initializing",
+              "atMs": 1557.3999999761581
+            },
+            {
+              "stage": "adapter-request",
+              "status": "initializing",
+              "atMs": 1557.3999999761581
+            },
+            {
+              "stage": "adapter-observed",
+              "status": "initializing",
+              "atMs": 1558.2999999523163
+            },
+            {
+              "stage": "device-request",
+              "status": "initializing",
+              "atMs": 1558.3999999761581
+            },
+            {
+              "stage": "device-observed",
+              "status": "initializing",
+              "atMs": 1587.2999999523163
+            },
+            {
+              "stage": "shader-compilation",
+              "status": "initializing",
+              "atMs": 1587.2999999523163
+            },
+            {
+              "stage": "pipeline-creation",
+              "status": "initializing",
+              "atMs": 1588.0999999046326
+            },
+            {
+              "stage": "renderer-creation",
+              "status": "initializing",
+              "atMs": 1589.6999999284744
+            },
+            {
+              "stage": "validation",
+              "status": "initializing",
+              "atMs": 1589.6999999284744
+            },
+            {
+              "stage": "ready",
+              "status": "ready",
+              "atMs": 1592.5999999046326
+            }
+          ],
+          "adapter": {
+            "features": [
+              "atomic-vec2u-min-max",
+              "bgra8unorm-storage",
+              "chromium-experimental-multi-draw-indirect",
+              "chromium-experimental-sampling-resource-table",
+              "chromium-experimental-timestamp-query-inside-passes",
+              "clip-distances",
+              "core-features-and-limits",
+              "depth-clip-control",
+              "depth32float-stencil8",
+              "dual-source-blending",
+              "float32-blendable",
+              "float32-filterable",
+              "indirect-first-instance",
+              "primitive-index",
+              "rg11b10ufloat-renderable",
+              "shader-f16",
+              "subgroup-size-control",
+              "subgroups",
+              "texture-component-swizzle",
+              "texture-compression-bc",
+              "texture-compression-bc-sliced-3d",
+              "texture-compression-unaligned",
+              "texture-formats-tier1",
+              "texture-formats-tier2",
+              "timestamp-query"
+            ],
+            "limits": {
+              "maxTextureDimension1D": 16384,
+              "maxTextureDimension2D": 16384,
+              "maxTextureDimension3D": 2048,
+              "maxTextureArrayLayers": 2048,
+              "maxBindGroups": 4,
+              "maxBindGroupsPlusVertexBuffers": 24,
+              "maxBindingsPerBindGroup": 1000,
+              "maxDynamicUniformBuffersPerPipelineLayout": 10,
+              "maxDynamicStorageBuffersPerPipelineLayout": 8,
+              "maxSampledTexturesPerShaderStage": 48,
+              "maxSamplersPerShaderStage": 16,
+              "maxStorageBuffersPerShaderStage": 16,
+              "maxStorageBuffersInVertexStage": 16,
+              "maxStorageBuffersInFragmentStage": 16,
+              "maxStorageTexturesPerShaderStage": 8,
+              "maxStorageTexturesInVertexStage": 8,
+              "maxStorageTexturesInFragmentStage": 8,
+              "maxUniformBuffersPerShaderStage": 12,
+              "maxUniformBufferBindingSize": 65536,
+              "maxStorageBufferBindingSize": 2147483644,
+              "minUniformBufferOffsetAlignment": 256,
+              "minStorageBufferOffsetAlignment": 256,
+              "maxVertexBuffers": 8,
+              "maxBufferSize": 2147483648,
+              "maxVertexAttributes": 30,
+              "maxVertexBufferArrayStride": 2048,
+              "maxInterStageShaderVariables": 28,
+              "maxColorAttachments": 8,
+              "maxColorAttachmentBytesPerSample": 128,
+              "maxComputeWorkgroupStorageSize": 32768,
+              "maxComputeInvocationsPerWorkgroup": 1024,
+              "maxComputeWorkgroupSizeX": 1024,
+              "maxComputeWorkgroupSizeY": 1024,
+              "maxComputeWorkgroupSizeZ": 64,
+              "maxComputeWorkgroupsPerDimension": 65535,
+              "maxImmediateSize": 64
+            },
+            "featuresUnavailableReason": null,
+            "limitsUnavailableReason": null,
+            "info": {
+              "vendor": "nvidia",
+              "architecture": "blackwell",
+              "device": "",
+              "description": "",
+              "subgroupMinSize": 32,
+              "subgroupMaxSize": 32,
+              "isFallbackAdapter": false
+            },
+            "infoUnavailableReason": null
+          },
+          "requested": {
+            "features": [],
+            "limits": {
+              "maxStorageBufferBindingSize": 536870912,
+              "maxBufferSize": 536870912
+            }
+          },
+          "device": {
+            "features": [
+              "core-features-and-limits"
+            ],
+            "limits": {
+              "maxTextureDimension1D": 8192,
+              "maxTextureDimension2D": 8192,
+              "maxTextureDimension3D": 2048,
+              "maxTextureArrayLayers": 256,
+              "maxBindGroups": 4,
+              "maxBindGroupsPlusVertexBuffers": 24,
+              "maxBindingsPerBindGroup": 1000,
+              "maxDynamicUniformBuffersPerPipelineLayout": 8,
+              "maxDynamicStorageBuffersPerPipelineLayout": 4,
+              "maxSampledTexturesPerShaderStage": 16,
+              "maxSamplersPerShaderStage": 16,
+              "maxStorageBuffersPerShaderStage": 8,
+              "maxStorageBuffersInVertexStage": 8,
+              "maxStorageBuffersInFragmentStage": 8,
+              "maxStorageTexturesPerShaderStage": 4,
+              "maxStorageTexturesInVertexStage": 4,
+              "maxStorageTexturesInFragmentStage": 4,
+              "maxUniformBuffersPerShaderStage": 12,
+              "maxUniformBufferBindingSize": 65536,
+              "maxStorageBufferBindingSize": 536870912,
+              "minUniformBufferOffsetAlignment": 256,
+              "minStorageBufferOffsetAlignment": 256,
+              "maxVertexBuffers": 8,
+              "maxBufferSize": 536870912,
+              "maxVertexAttributes": 16,
+              "maxVertexBufferArrayStride": 2048,
+              "maxInterStageShaderVariables": 16,
+              "maxColorAttachments": 8,
+              "maxColorAttachmentBytesPerSample": 32,
+              "maxComputeWorkgroupStorageSize": 16384,
+              "maxComputeInvocationsPerWorkgroup": 256,
+              "maxComputeWorkgroupSizeX": 256,
+              "maxComputeWorkgroupSizeY": 256,
+              "maxComputeWorkgroupSizeZ": 64,
+              "maxComputeWorkgroupsPerDimension": 65535,
+              "maxImmediateSize": 64
+            },
+            "featuresUnavailableReason": null,
+            "limitsUnavailableReason": null
+          },
+          "failure": null,
+          "gpuTimestamps": {
+            "available": false,
+            "reason": "GPU timestamp queries are not instrumented. Initialization observations use CPU performance.now wall time."
+          }
+        }
+      }
+    },
+    {
+      "backend": "webgl2",
+      "fixture": "base",
+      "value": {
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+        "devicePixelRatio": 1,
+        "secureContext": true,
+        "crossOriginIsolated": false,
+        "negotiation": {
+          "schemaVersion": 1,
+          "kind": "splatview-renderer-negotiation",
+          "status": "ready",
+          "stage": "ready",
+          "clock": "performance.now",
+          "startedAtMs": 2324.7999999523163,
+          "observedAtMs": 2358.0999999046326,
+          "clockUnavailableReason": null,
+          "stages": [
+            {
+              "stage": "start",
+              "status": "initializing",
+              "atMs": 2324.7999999523163
+            },
+            {
+              "stage": "ready",
+              "status": "ready",
+              "atMs": 2358.0999999046326
+            }
+          ],
+          "adapter": {
+            "features": [
+              "EXT_color_buffer_float",
+              "WEBGL_debug_renderer_info"
+            ],
+            "limits": {
+              "MAX_TEXTURE_SIZE": 16384,
+              "MAX_RENDERBUFFER_SIZE": 16384,
+              "MAX_VIEWPORT_WIDTH": 32767,
+              "MAX_VIEWPORT_HEIGHT": 32767,
+              "MAX_DRAW_BUFFERS": 8,
+              "MAX_COLOR_ATTACHMENTS": 8,
+              "MAX_VERTEX_TEXTURE_IMAGE_UNITS": 16,
+              "MAX_TEXTURE_IMAGE_UNITS": 16,
+              "MAX_COMBINED_TEXTURE_IMAGE_UNITS": 32
+            },
+            "featuresUnavailableReason": null,
+            "limitsUnavailableReason": null,
+            "info": {
+              "backend": "webgl2",
+              "vendor": "WebKit",
+              "description": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5090 (0x00002B85) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+              "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+              "shadingLanguageVersion": "WebGL GLSL ES 3.00 (OpenGL ES GLSL ES 3.0 Chromium)"
+            },
+            "infoUnavailableReason": null
+          },
+          "requested": {
+            "features": [],
+            "limits": {}
+          },
+          "device": {
+            "features": [
+              "EXT_color_buffer_float",
+              "WEBGL_debug_renderer_info"
+            ],
+            "limits": {
+              "MAX_TEXTURE_SIZE": 16384,
+              "MAX_RENDERBUFFER_SIZE": 16384,
+              "MAX_VIEWPORT_WIDTH": 32767,
+              "MAX_VIEWPORT_HEIGHT": 32767,
+              "MAX_DRAW_BUFFERS": 8,
+              "MAX_COLOR_ATTACHMENTS": 8,
+              "MAX_VERTEX_TEXTURE_IMAGE_UNITS": 16,
+              "MAX_TEXTURE_IMAGE_UNITS": 16,
+              "MAX_COMBINED_TEXTURE_IMAGE_UNITS": 32
+            },
+            "featuresUnavailableReason": null,
+            "limitsUnavailableReason": null
+          },
+          "failure": null,
+          "gpuTimestamps": {
+            "available": false,
+            "reason": "GPU timestamp queries are not instrumented. Initialization uses performance.now."
+          }
+        }
+      }
+    },
+    {
+      "standalone": {
+        "degree": 0,
+        "backend": "webgpu",
+        "index": 1,
+        "depth": 2,
+        "opacity": 0.78650963306427,
+        "visible": 7,
+        "color": [
+          0.5,
+          0.7820948362350464,
+          0.5
+        ],
+        "capture": [
+          100,
+          157,
+          100,
+          255
+        ],
+        "secure": true,
+        "isolated": false,
+        "bytes": 0,
+        "retired": true,
+        "rejected": true,
+        "environment": {
+          "schemaVersion": 1,
+          "kind": "splatview-renderer-negotiation",
+          "status": "ready",
+          "stage": "ready",
+          "clock": "performance.now",
+          "startedAtMs": 21.799999952316284,
+          "observedAtMs": 197.69999992847443,
+          "clockUnavailableReason": null,
+          "stages": [
+            {
+              "stage": "start",
+              "status": "initializing",
+              "atMs": 21.799999952316284
+            },
+            {
+              "stage": "adapter-request",
+              "status": "initializing",
+              "atMs": 22
+            },
+            {
+              "stage": "adapter-observed",
+              "status": "initializing",
+              "atMs": 90.5
+            },
+            {
+              "stage": "device-request",
+              "status": "initializing",
+              "atMs": 90.60000002384186
+            },
+            {
+              "stage": "device-observed",
+              "status": "initializing",
+              "atMs": 115
+            },
+            {
+              "stage": "shader-compilation",
+              "status": "initializing",
+              "atMs": 115
+            },
+            {
+              "stage": "pipeline-creation",
+              "status": "initializing",
+              "atMs": 119
+            },
+            {
+              "stage": "renderer-creation",
+              "status": "initializing",
+              "atMs": 188.89999997615814
+            },
+            {
+              "stage": "validation",
+              "status": "initializing",
+              "atMs": 189.5
+            },
+            {
+              "stage": "ready",
+              "status": "ready",
+              "atMs": 197.69999992847443
+            }
+          ],
+          "adapter": {
+            "features": [
+              "atomic-vec2u-min-max",
+              "bgra8unorm-storage",
+              "chromium-experimental-multi-draw-indirect",
+              "chromium-experimental-sampling-resource-table",
+              "chromium-experimental-timestamp-query-inside-passes",
+              "clip-distances",
+              "core-features-and-limits",
+              "depth-clip-control",
+              "depth32float-stencil8",
+              "dual-source-blending",
+              "float32-blendable",
+              "float32-filterable",
+              "indirect-first-instance",
+              "primitive-index",
+              "rg11b10ufloat-renderable",
+              "shader-f16",
+              "subgroup-size-control",
+              "subgroups",
+              "texture-component-swizzle",
+              "texture-compression-bc",
+              "texture-compression-bc-sliced-3d",
+              "texture-compression-unaligned",
+              "texture-formats-tier1",
+              "texture-formats-tier2",
+              "timestamp-query"
+            ],
+            "limits": {
+              "maxTextureDimension1D": 16384,
+              "maxTextureDimension2D": 16384,
+              "maxTextureDimension3D": 2048,
+              "maxTextureArrayLayers": 2048,
+              "maxBindGroups": 4,
+              "maxBindGroupsPlusVertexBuffers": 24,
+              "maxBindingsPerBindGroup": 1000,
+              "maxDynamicUniformBuffersPerPipelineLayout": 10,
+              "maxDynamicStorageBuffersPerPipelineLayout": 8,
+              "maxSampledTexturesPerShaderStage": 48,
+              "maxSamplersPerShaderStage": 16,
+              "maxStorageBuffersPerShaderStage": 16,
+              "maxStorageBuffersInVertexStage": 16,
+              "maxStorageBuffersInFragmentStage": 16,
+              "maxStorageTexturesPerShaderStage": 8,
+              "maxStorageTexturesInVertexStage": 8,
+              "maxStorageTexturesInFragmentStage": 8,
+              "maxUniformBuffersPerShaderStage": 12,
+              "maxUniformBufferBindingSize": 65536,
+              "maxStorageBufferBindingSize": 2147483644,
+              "minUniformBufferOffsetAlignment": 256,
+              "minStorageBufferOffsetAlignment": 256,
+              "maxVertexBuffers": 8,
+              "maxBufferSize": 2147483648,
+              "maxVertexAttributes": 30,
+              "maxVertexBufferArrayStride": 2048,
+              "maxInterStageShaderVariables": 28,
+              "maxColorAttachments": 8,
+              "maxColorAttachmentBytesPerSample": 128,
+              "maxComputeWorkgroupStorageSize": 32768,
+              "maxComputeInvocationsPerWorkgroup": 1024,
+              "maxComputeWorkgroupSizeX": 1024,
+              "maxComputeWorkgroupSizeY": 1024,
+              "maxComputeWorkgroupSizeZ": 64,
+              "maxComputeWorkgroupsPerDimension": 65535,
+              "maxImmediateSize": 64
+            },
+            "featuresUnavailableReason": null,
+            "limitsUnavailableReason": null,
+            "info": {
+              "vendor": "nvidia",
+              "architecture": "blackwell",
+              "device": "",
+              "description": "",
+              "subgroupMinSize": 32,
+              "subgroupMaxSize": 32,
+              "isFallbackAdapter": false
+            },
+            "infoUnavailableReason": null
+          },
+          "requested": {
+            "features": [],
+            "limits": {
+              "maxStorageBufferBindingSize": 536870912,
+              "maxBufferSize": 536870912
+            }
+          },
+          "device": {
+            "features": [
+              "core-features-and-limits"
+            ],
+            "limits": {
+              "maxTextureDimension1D": 8192,
+              "maxTextureDimension2D": 8192,
+              "maxTextureDimension3D": 2048,
+              "maxTextureArrayLayers": 256,
+              "maxBindGroups": 4,
+              "maxBindGroupsPlusVertexBuffers": 24,
+              "maxBindingsPerBindGroup": 1000,
+              "maxDynamicUniformBuffersPerPipelineLayout": 8,
+              "maxDynamicStorageBuffersPerPipelineLayout": 4,
+              "maxSampledTexturesPerShaderStage": 16,
+              "maxSamplersPerShaderStage": 16,
+              "maxStorageBuffersPerShaderStage": 8,
+              "maxStorageBuffersInVertexStage": 8,
+              "maxStorageBuffersInFragmentStage": 8,
+              "maxStorageTexturesPerShaderStage": 4,
+              "maxStorageTexturesInVertexStage": 4,
+              "maxStorageTexturesInFragmentStage": 4,
+              "maxUniformBuffersPerShaderStage": 12,
+              "maxUniformBufferBindingSize": 65536,
+              "maxStorageBufferBindingSize": 536870912,
+              "minUniformBufferOffsetAlignment": 256,
+              "minStorageBufferOffsetAlignment": 256,
+              "maxVertexBuffers": 8,
+              "maxBufferSize": 536870912,
+              "maxVertexAttributes": 16,
+              "maxVertexBufferArrayStride": 2048,
+              "maxInterStageShaderVariables": 16,
+              "maxColorAttachments": 8,
+              "maxColorAttachmentBytesPerSample": 32,
+              "maxComputeWorkgroupStorageSize": 16384,
+              "maxComputeInvocationsPerWorkgroup": 256,
+              "maxComputeWorkgroupSizeX": 256,
+              "maxComputeWorkgroupSizeY": 256,
+              "maxComputeWorkgroupSizeZ": 64,
+              "maxComputeWorkgroupsPerDimension": 65535,
+              "maxImmediateSize": 64
+            },
+            "featuresUnavailableReason": null,
+            "limitsUnavailableReason": null
+          },
+          "failure": null,
+          "gpuTimestamps": {
+            "available": false,
+            "reason": "GPU timestamp queries are not instrumented. Initialization observations use CPU performance.now wall time."
+          }
+        },
+        "requests": [
+          "http://127.0.0.1:4175/nested/renderer/example/?backend=webgpu&degree=0",
+          "http://127.0.0.1:4175/nested/renderer/example/example.js",
+          "http://127.0.0.1:4175/nested/renderer/splatview-renderer.js"
+        ]
+      }
+    },
+    {
+      "standalone": {
+        "degree": 1,
+        "backend": "webgpu",
+        "index": 1,
+        "depth": 2,
+        "opacity": 0.78650963306427,
+        "visible": 7,
+        "color": [
+          0.5,
+          0.7820948362350464,
+          0.5
+        ],
+        "capture": [
+          100,
+          157,
+          100,
+          255
+        ],
+        "secure": true,
+        "isolated": false,
+        "bytes": 0,
+        "retired": true,
+        "rejected": true,
+        "environment": {
+          "schemaVersion": 1,
+          "kind": "splatview-renderer-negotiation",
+          "status": "ready",
+          "stage": "ready",
+          "clock": "performance.now",
+          "startedAtMs": 23.90000009536743,
+          "observedAtMs": 195.80000007152557,
+          "clockUnavailableReason": null,
+          "stages": [
+            {
+              "stage": "start",
+              "status": "initializing",
+              "atMs": 23.90000009536743
+            },
+            {
+              "stage": "adapter-request",
+              "status": "initializing",
+              "atMs": 24.100000023841858
+            },
+            {
+              "stage": "adapter-observed",
+              "status": "initializing",
+              "atMs": 86.10000002384186
+            },
+            {
+              "stage": "device-request",
+              "status": "initializing",
+              "atMs": 86.20000004768372
+            },
+            {
+              "stage": "device-observed",
+              "status": "initializing",
+              "atMs": 110.90000009536743
+            },
+            {
+              "stage": "shader-compilation",
+              "status": "initializing",
+              "atMs": 111
+            },
+            {
+              "stage": "pipeline-creation",
+              "status": "initializing",
+              "atMs": 115
+            },
+            {
+              "stage": "renderer-creation",
+              "status": "initializing",
+              "atMs": 187.5
+            },
+            {
+              "stage": "validation",
+              "status": "initializing",
+              "atMs": 188.10000002384186
+            },
+            {
+              "stage": "ready",
+              "status": "ready",
+              "atMs": 195.80000007152557
+            }
+          ],
+          "adapter": {
+            "features": [
+              "atomic-vec2u-min-max",
+              "bgra8unorm-storage",
+              "chromium-experimental-multi-draw-indirect",
+              "chromium-experimental-sampling-resource-table",
+              "chromium-experimental-timestamp-query-inside-passes",
+              "clip-distances",
+              "core-features-and-limits",
+              "depth-clip-control",
+              "depth32float-stencil8",
+              "dual-source-blending",
+              "float32-blendable",
+              "float32-filterable",
+              "indirect-first-instance",
+              "primitive-index",
+              "rg11b10ufloat-renderable",
+              "shader-f16",
+              "subgroup-size-control",
+              "subgroups",
+              "texture-component-swizzle",
+              "texture-compression-bc",
+              "texture-compression-bc-sliced-3d",
+              "texture-compression-unaligned",
+              "texture-formats-tier1",
+              "texture-formats-tier2",
+              "timestamp-query"
+            ],
+            "limits": {
+              "maxTextureDimension1D": 16384,
+              "maxTextureDimension2D": 16384,
+              "maxTextureDimension3D": 2048,
+              "maxTextureArrayLayers": 2048,
+              "maxBindGroups": 4,
+              "maxBindGroupsPlusVertexBuffers": 24,
+              "maxBindingsPerBindGroup": 1000,
+              "maxDynamicUniformBuffersPerPipelineLayout": 10,
+              "maxDynamicStorageBuffersPerPipelineLayout": 8,
+              "maxSampledTexturesPerShaderStage": 48,
+              "maxSamplersPerShaderStage": 16,
+              "maxStorageBuffersPerShaderStage": 16,
+              "maxStorageBuffersInVertexStage": 16,
+              "maxStorageBuffersInFragmentStage": 16,
+              "maxStorageTexturesPerShaderStage": 8,
+              "maxStorageTexturesInVertexStage": 8,
+              "maxStorageTexturesInFragmentStage": 8,
+              "maxUniformBuffersPerShaderStage": 12,
+              "maxUniformBufferBindingSize": 65536,
+              "maxStorageBufferBindingSize": 2147483644,
+              "minUniformBufferOffsetAlignment": 256,
+              "minStorageBufferOffsetAlignment": 256,
+              "maxVertexBuffers": 8,
+              "maxBufferSize": 2147483648,
+              "maxVertexAttributes": 30,
+              "maxVertexBufferArrayStride": 2048,
+              "maxInterStageShaderVariables": 28,
+              "maxColorAttachments": 8,
+              "maxColorAttachmentBytesPerSample": 128,
+              "maxComputeWorkgroupStorageSize": 32768,
+              "maxComputeInvocationsPerWorkgroup": 1024,
+              "maxComputeWorkgroupSizeX": 1024,
+              "maxComputeWorkgroupSizeY": 1024,
+              "maxComputeWorkgroupSizeZ": 64,
+              "maxComputeWorkgroupsPerDimension": 65535,
+              "maxImmediateSize": 64
+            },
+            "featuresUnavailableReason": null,
+            "limitsUnavailableReason": null,
+            "info": {
+              "vendor": "nvidia",
+              "architecture": "blackwell",
+              "device": "",
+              "description": "",
+              "subgroupMinSize": 32,
+              "subgroupMaxSize": 32,
+              "isFallbackAdapter": false
+            },
+            "infoUnavailableReason": null
+          },
+          "requested": {
+            "features": [],
+            "limits": {
+              "maxStorageBufferBindingSize": 536870912,
+              "maxBufferSize": 536870912
+            }
+          },
+          "device": {
+            "features": [
+              "core-features-and-limits"
+            ],
+            "limits": {
+              "maxTextureDimension1D": 8192,
+              "maxTextureDimension2D": 8192,
+              "maxTextureDimension3D": 2048,
+              "maxTextureArrayLayers": 256,
+              "maxBindGroups": 4,
+              "maxBindGroupsPlusVertexBuffers": 24,
+              "maxBindingsPerBindGroup": 1000,
+              "maxDynamicUniformBuffersPerPipelineLayout": 8,
+              "maxDynamicStorageBuffersPerPipelineLayout": 4,
+              "maxSampledTexturesPerShaderStage": 16,
+              "maxSamplersPerShaderStage": 16,
+              "maxStorageBuffersPerShaderStage": 8,
+              "maxStorageBuffersInVertexStage": 8,
+              "maxStorageBuffersInFragmentStage": 8,
+              "maxStorageTexturesPerShaderStage": 4,
+              "maxStorageTexturesInVertexStage": 4,
+              "maxStorageTexturesInFragmentStage": 4,
+              "maxUniformBuffersPerShaderStage": 12,
+              "maxUniformBufferBindingSize": 65536,
+              "maxStorageBufferBindingSize": 536870912,
+              "minUniformBufferOffsetAlignment": 256,
+              "minStorageBufferOffsetAlignment": 256,
+              "maxVertexBuffers": 8,
+              "maxBufferSize": 536870912,
+              "maxVertexAttributes": 16,
+              "maxVertexBufferArrayStride": 2048,
+              "maxInterStageShaderVariables": 16,
+              "maxColorAttachments": 8,
+              "maxColorAttachmentBytesPerSample": 32,
+              "maxComputeWorkgroupStorageSize": 16384,
+              "maxComputeInvocationsPerWorkgroup": 256,
+              "maxComputeWorkgroupSizeX": 256,
+              "maxComputeWorkgroupSizeY": 256,
+              "maxComputeWorkgroupSizeZ": 64,
+              "maxComputeWorkgroupsPerDimension": 65535,
+              "maxImmediateSize": 64
+            },
+            "featuresUnavailableReason": null,
+            "limitsUnavailableReason": null
+          },
+          "failure": null,
+          "gpuTimestamps": {
+            "available": false,
+            "reason": "GPU timestamp queries are not instrumented. Initialization observations use CPU performance.now wall time."
+          }
+        },
+        "requests": [
+          "http://127.0.0.1:4175/nested/renderer/example/?backend=webgpu&degree=1",
+          "http://127.0.0.1:4175/nested/renderer/example/example.js",
+          "http://127.0.0.1:4175/nested/renderer/splatview-renderer.js"
+        ]
+      }
+    },
+    {
+      "standalone": {
+        "degree": 2,
+        "backend": "webgpu",
+        "index": 1,
+        "depth": 2,
+        "opacity": 0.78650963306427,
+        "visible": 7,
+        "color": [
+          0.5,
+          0.7820948362350464,
+          0.5
+        ],
+        "capture": [
+          100,
+          157,
+          100,
+          255
+        ],
+        "secure": true,
+        "isolated": false,
+        "bytes": 0,
+        "retired": true,
+        "rejected": true,
+        "environment": {
+          "schemaVersion": 1,
+          "kind": "splatview-renderer-negotiation",
+          "status": "ready",
+          "stage": "ready",
+          "clock": "performance.now",
+          "startedAtMs": 21.199999928474426,
+          "observedAtMs": 197.69999992847443,
+          "clockUnavailableReason": null,
+          "stages": [
+            {
+              "stage": "start",
+              "status": "initializing",
+              "atMs": 21.199999928474426
+            },
+            {
+              "stage": "adapter-request",
+              "status": "initializing",
+              "atMs": 21.399999976158142
+            },
+            {
+              "stage": "adapter-observed",
+              "status": "initializing",
+              "atMs": 88.69999992847443
+            },
+            {
+              "stage": "device-request",
+              "status": "initializing",
+              "atMs": 88.69999992847443
+            },
+            {
+              "stage": "device-observed",
+              "status": "initializing",
+              "atMs": 115.39999997615814
+            },
+            {
+              "stage": "shader-compilation",
+              "status": "initializing",
+              "atMs": 115.39999997615814
+            },
+            {
+              "stage": "pipeline-creation",
+              "status": "initializing",
+              "atMs": 119.29999995231628
+            },
+            {
+              "stage": "renderer-creation",
+              "status": "initializing",
+              "atMs": 189
+            },
+            {
+              "stage": "validation",
+              "status": "initializing",
+              "atMs": 189.60000002384186
+            },
+            {
+              "stage": "ready",
+              "status": "ready",
+              "atMs": 197.69999992847443
+            }
+          ],
+          "adapter": {
+            "features": [
+              "atomic-vec2u-min-max",
+              "bgra8unorm-storage",
+              "chromium-experimental-multi-draw-indirect",
+              "chromium-experimental-sampling-resource-table",
+              "chromium-experimental-timestamp-query-inside-passes",
+              "clip-distances",
+              "core-features-and-limits",
+              "depth-clip-control",
+              "depth32float-stencil8",
+              "dual-source-blending",
+              "float32-blendable",
+              "float32-filterable",
+              "indirect-first-instance",
+              "primitive-index",
+              "rg11b10ufloat-renderable",
+              "shader-f16",
+              "subgroup-size-control",
+              "subgroups",
+              "texture-component-swizzle",
+              "texture-compression-bc",
+              "texture-compression-bc-sliced-3d",
+              "texture-compression-unaligned",
+              "texture-formats-tier1",
+              "texture-formats-tier2",
+              "timestamp-query"
+            ],
+            "limits": {
+              "maxTextureDimension1D": 16384,
+              "maxTextureDimension2D": 16384,
+              "maxTextureDimension3D": 2048,
+              "maxTextureArrayLayers": 2048,
+              "maxBindGroups": 4,
+              "maxBindGroupsPlusVertexBuffers": 24,
+              "maxBindingsPerBindGroup": 1000,
+              "maxDynamicUniformBuffersPerPipelineLayout": 10,
+              "maxDynamicStorageBuffersPerPipelineLayout": 8,
+              "maxSampledTexturesPerShaderStage": 48,
+              "maxSamplersPerShaderStage": 16,
+              "maxStorageBuffersPerShaderStage": 16,
+              "maxStorageBuffersInVertexStage": 16,
+              "maxStorageBuffersInFragmentStage": 16,
+              "maxStorageTexturesPerShaderStage": 8,
+              "maxStorageTexturesInVertexStage": 8,
+              "maxStorageTexturesInFragmentStage": 8,
+              "maxUniformBuffersPerShaderStage": 12,
+              "maxUniformBufferBindingSize": 65536,
+              "maxStorageBufferBindingSize": 2147483644,
+              "minUniformBufferOffsetAlignment": 256,
+              "minStorageBufferOffsetAlignment": 256,
+              "maxVertexBuffers": 8,
+              "maxBufferSize": 2147483648,
+              "maxVertexAttributes": 30,
+              "maxVertexBufferArrayStride": 2048,
+              "maxInterStageShaderVariables": 28,
+              "maxColorAttachments": 8,
+              "maxColorAttachmentBytesPerSample": 128,
+              "maxComputeWorkgroupStorageSize": 32768,
+              "maxComputeInvocationsPerWorkgroup": 1024,
+              "maxComputeWorkgroupSizeX": 1024,
+              "maxComputeWorkgroupSizeY": 1024,
+              "maxComputeWorkgroupSizeZ": 64,
+              "maxComputeWorkgroupsPerDimension": 65535,
+              "maxImmediateSize": 64
+            },
+            "featuresUnavailableReason": null,
+            "limitsUnavailableReason": null,
+            "info": {
+              "vendor": "nvidia",
+              "architecture": "blackwell",
+              "device": "",
+              "description": "",
+              "subgroupMinSize": 32,
+              "subgroupMaxSize": 32,
+              "isFallbackAdapter": false
+            },
+            "infoUnavailableReason": null
+          },
+          "requested": {
+            "features": [],
+            "limits": {
+              "maxStorageBufferBindingSize": 536870912,
+              "maxBufferSize": 536870912
+            }
+          },
+          "device": {
+            "features": [
+              "core-features-and-limits"
+            ],
+            "limits": {
+              "maxTextureDimension1D": 8192,
+              "maxTextureDimension2D": 8192,
+              "maxTextureDimension3D": 2048,
+              "maxTextureArrayLayers": 256,
+              "maxBindGroups": 4,
+              "maxBindGroupsPlusVertexBuffers": 24,
+              "maxBindingsPerBindGroup": 1000,
+              "maxDynamicUniformBuffersPerPipelineLayout": 8,
+              "maxDynamicStorageBuffersPerPipelineLayout": 4,
+              "maxSampledTexturesPerShaderStage": 16,
+              "maxSamplersPerShaderStage": 16,
+              "maxStorageBuffersPerShaderStage": 8,
+              "maxStorageBuffersInVertexStage": 8,
+              "maxStorageBuffersInFragmentStage": 8,
+              "maxStorageTexturesPerShaderStage": 4,
+              "maxStorageTexturesInVertexStage": 4,
+              "maxStorageTexturesInFragmentStage": 4,
+              "maxUniformBuffersPerShaderStage": 12,
+              "maxUniformBufferBindingSize": 65536,
+              "maxStorageBufferBindingSize": 536870912,
+              "minUniformBufferOffsetAlignment": 256,
+              "minStorageBufferOffsetAlignment": 256,
+              "maxVertexBuffers": 8,
+              "maxBufferSize": 536870912,
+              "maxVertexAttributes": 16,
+              "maxVertexBufferArrayStride": 2048,
+              "maxInterStageShaderVariables": 16,
+              "maxColorAttachments": 8,
+              "maxColorAttachmentBytesPerSample": 32,
+              "maxComputeWorkgroupStorageSize": 16384,
+              "maxComputeInvocationsPerWorkgroup": 256,
+              "maxComputeWorkgroupSizeX": 256,
+              "maxComputeWorkgroupSizeY": 256,
+              "maxComputeWorkgroupSizeZ": 64,
+              "maxComputeWorkgroupsPerDimension": 65535,
+              "maxImmediateSize": 64
+            },
+            "featuresUnavailableReason": null,
+            "limitsUnavailableReason": null
+          },
+          "failure": null,
+          "gpuTimestamps": {
+            "available": false,
+            "reason": "GPU timestamp queries are not instrumented. Initialization observations use CPU performance.now wall time."
+          }
+        },
+        "requests": [
+          "http://127.0.0.1:4175/nested/renderer/example/?backend=webgpu&degree=2",
+          "http://127.0.0.1:4175/nested/renderer/example/example.js",
+          "http://127.0.0.1:4175/nested/renderer/splatview-renderer.js"
+        ]
+      }
+    },
+    {
+      "standalone": {
+        "degree": 3,
+        "backend": "webgpu",
+        "index": 1,
+        "depth": 2,
+        "opacity": 0.78650963306427,
+        "visible": 7,
+        "color": [
+          0.5,
+          0.7820948362350464,
+          0.5
+        ],
+        "capture": [
+          100,
+          157,
+          100,
+          255
+        ],
+        "secure": true,
+        "isolated": false,
+        "bytes": 0,
+        "retired": true,
+        "rejected": true,
+        "environment": {
+          "schemaVersion": 1,
+          "kind": "splatview-renderer-negotiation",
+          "status": "ready",
+          "stage": "ready",
+          "clock": "performance.now",
+          "startedAtMs": 21.200000047683716,
+          "observedAtMs": 189.10000002384186,
+          "clockUnavailableReason": null,
+          "stages": [
+            {
+              "stage": "start",
+              "status": "initializing",
+              "atMs": 21.200000047683716
+            },
+            {
+              "stage": "adapter-request",
+              "status": "initializing",
+              "atMs": 21.399999976158142
+            },
+            {
+              "stage": "adapter-observed",
+              "status": "initializing",
+              "atMs": 85.10000002384186
+            },
+            {
+              "stage": "device-request",
+              "status": "initializing",
+              "atMs": 85.20000004768372
+            },
+            {
+              "stage": "device-observed",
+              "status": "initializing",
+              "atMs": 109.89999997615814
+            },
+            {
+              "stage": "shader-compilation",
+              "status": "initializing",
+              "atMs": 109.89999997615814
+            },
+            {
+              "stage": "pipeline-creation",
+              "status": "initializing",
+              "atMs": 114
+            },
+            {
+              "stage": "renderer-creation",
+              "status": "initializing",
+              "atMs": 181
+            },
+            {
+              "stage": "validation",
+              "status": "initializing",
+              "atMs": 181.60000002384186
+            },
+            {
+              "stage": "ready",
+              "status": "ready",
+              "atMs": 189.10000002384186
+            }
+          ],
+          "adapter": {
+            "features": [
+              "atomic-vec2u-min-max",
+              "bgra8unorm-storage",
+              "chromium-experimental-multi-draw-indirect",
+              "chromium-experimental-sampling-resource-table",
+              "chromium-experimental-timestamp-query-inside-passes",
+              "clip-distances",
+              "core-features-and-limits",
+              "depth-clip-control",
+              "depth32float-stencil8",
+              "dual-source-blending",
+              "float32-blendable",
+              "float32-filterable",
+              "indirect-first-instance",
+              "primitive-index",
+              "rg11b10ufloat-renderable",
+              "shader-f16",
+              "subgroup-size-control",
+              "subgroups",
+              "texture-component-swizzle",
+              "texture-compression-bc",
+              "texture-compression-bc-sliced-3d",
+              "texture-compression-unaligned",
+              "texture-formats-tier1",
+              "texture-formats-tier2",
+              "timestamp-query"
+            ],
+            "limits": {
+              "maxTextureDimension1D": 16384,
+              "maxTextureDimension2D": 16384,
+              "maxTextureDimension3D": 2048,
+              "maxTextureArrayLayers": 2048,
+              "maxBindGroups": 4,
+              "maxBindGroupsPlusVertexBuffers": 24,
+              "maxBindingsPerBindGroup": 1000,
+              "maxDynamicUniformBuffersPerPipelineLayout": 10,
+              "maxDynamicStorageBuffersPerPipelineLayout": 8,
+              "maxSampledTexturesPerShaderStage": 48,
+              "maxSamplersPerShaderStage": 16,
+              "maxStorageBuffersPerShaderStage": 16,
+              "maxStorageBuffersInVertexStage": 16,
+              "maxStorageBuffersInFragmentStage": 16,
+              "maxStorageTexturesPerShaderStage": 8,
+              "maxStorageTexturesInVertexStage": 8,
+              "maxStorageTexturesInFragmentStage": 8,
+              "maxUniformBuffersPerShaderStage": 12,
+              "maxUniformBufferBindingSize": 65536,
+              "maxStorageBufferBindingSize": 2147483644,
+              "minUniformBufferOffsetAlignment": 256,
+              "minStorageBufferOffsetAlignment": 256,
+              "maxVertexBuffers": 8,
+              "maxBufferSize": 2147483648,
+              "maxVertexAttributes": 30,
+              "maxVertexBufferArrayStride": 2048,
+              "maxInterStageShaderVariables": 28,
+              "maxColorAttachments": 8,
+              "maxColorAttachmentBytesPerSample": 128,
+              "maxComputeWorkgroupStorageSize": 32768,
+              "maxComputeInvocationsPerWorkgroup": 1024,
+              "maxComputeWorkgroupSizeX": 1024,
+              "maxComputeWorkgroupSizeY": 1024,
+              "maxComputeWorkgroupSizeZ": 64,
+              "maxComputeWorkgroupsPerDimension": 65535,
+              "maxImmediateSize": 64
+            },
+            "featuresUnavailableReason": null,
+            "limitsUnavailableReason": null,
+            "info": {
+              "vendor": "nvidia",
+              "architecture": "blackwell",
+              "device": "",
+              "description": "",
+              "subgroupMinSize": 32,
+              "subgroupMaxSize": 32,
+              "isFallbackAdapter": false
+            },
+            "infoUnavailableReason": null
+          },
+          "requested": {
+            "features": [],
+            "limits": {
+              "maxStorageBufferBindingSize": 536870912,
+              "maxBufferSize": 536870912
+            }
+          },
+          "device": {
+            "features": [
+              "core-features-and-limits"
+            ],
+            "limits": {
+              "maxTextureDimension1D": 8192,
+              "maxTextureDimension2D": 8192,
+              "maxTextureDimension3D": 2048,
+              "maxTextureArrayLayers": 256,
+              "maxBindGroups": 4,
+              "maxBindGroupsPlusVertexBuffers": 24,
+              "maxBindingsPerBindGroup": 1000,
+              "maxDynamicUniformBuffersPerPipelineLayout": 8,
+              "maxDynamicStorageBuffersPerPipelineLayout": 4,
+              "maxSampledTexturesPerShaderStage": 16,
+              "maxSamplersPerShaderStage": 16,
+              "maxStorageBuffersPerShaderStage": 8,
+              "maxStorageBuffersInVertexStage": 8,
+              "maxStorageBuffersInFragmentStage": 8,
+              "maxStorageTexturesPerShaderStage": 4,
+              "maxStorageTexturesInVertexStage": 4,
+              "maxStorageTexturesInFragmentStage": 4,
+              "maxUniformBuffersPerShaderStage": 12,
+              "maxUniformBufferBindingSize": 65536,
+              "maxStorageBufferBindingSize": 536870912,
+              "minUniformBufferOffsetAlignment": 256,
+              "minStorageBufferOffsetAlignment": 256,
+              "maxVertexBuffers": 8,
+              "maxBufferSize": 536870912,
+              "maxVertexAttributes": 16,
+              "maxVertexBufferArrayStride": 2048,
+              "maxInterStageShaderVariables": 16,
+              "maxColorAttachments": 8,
+              "maxColorAttachmentBytesPerSample": 32,
+              "maxComputeWorkgroupStorageSize": 16384,
+              "maxComputeInvocationsPerWorkgroup": 256,
+              "maxComputeWorkgroupSizeX": 256,
+              "maxComputeWorkgroupSizeY": 256,
+              "maxComputeWorkgroupSizeZ": 64,
+              "maxComputeWorkgroupsPerDimension": 65535,
+              "maxImmediateSize": 64
+            },
+            "featuresUnavailableReason": null,
+            "limitsUnavailableReason": null
+          },
+          "failure": null,
+          "gpuTimestamps": {
+            "available": false,
+            "reason": "GPU timestamp queries are not instrumented. Initialization observations use CPU performance.now wall time."
+          }
+        },
+        "requests": [
+          "http://127.0.0.1:4175/nested/renderer/example/?backend=webgpu&degree=3",
+          "http://127.0.0.1:4175/nested/renderer/example/example.js",
+          "http://127.0.0.1:4175/nested/renderer/splatview-renderer.js"
+        ]
+      }
+    },
+    {
+      "standalone": {
+        "degree": 0,
+        "backend": "webgl2",
+        "index": 1,
+        "depth": 2,
+        "opacity": 0.78650963306427,
+        "visible": 7,
+        "color": [
+          0.5,
+          0.7820948362350464,
+          0.5
+        ],
+        "capture": [
+          100,
+          157,
+          100,
+          255
+        ],
+        "secure": true,
+        "isolated": false,
+        "bytes": 0,
+        "retired": true,
+        "rejected": true,
+        "environment": {
+          "schemaVersion": 1,
+          "kind": "splatview-renderer-negotiation",
+          "status": "ready",
+          "stage": "ready",
+          "clock": "performance.now",
+          "startedAtMs": 24.299999952316284,
+          "observedAtMs": 185.5,
+          "clockUnavailableReason": null,
+          "stages": [
+            {
+              "stage": "start",
+              "status": "initializing",
+              "atMs": 24.299999952316284
+            },
+            {
+              "stage": "ready",
+              "status": "ready",
+              "atMs": 185.5
+            }
+          ],
+          "adapter": {
+            "features": [
+              "EXT_color_buffer_float",
+              "WEBGL_debug_renderer_info"
+            ],
+            "limits": {
+              "MAX_TEXTURE_SIZE": 16384,
+              "MAX_RENDERBUFFER_SIZE": 16384,
+              "MAX_VIEWPORT_WIDTH": 32767,
+              "MAX_VIEWPORT_HEIGHT": 32767,
+              "MAX_DRAW_BUFFERS": 8,
+              "MAX_COLOR_ATTACHMENTS": 8,
+              "MAX_VERTEX_TEXTURE_IMAGE_UNITS": 16,
+              "MAX_TEXTURE_IMAGE_UNITS": 16,
+              "MAX_COMBINED_TEXTURE_IMAGE_UNITS": 32
+            },
+            "featuresUnavailableReason": null,
+            "limitsUnavailableReason": null,
+            "info": {
+              "backend": "webgl2",
+              "vendor": "WebKit",
+              "description": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5090 (0x00002B85) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+              "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+              "shadingLanguageVersion": "WebGL GLSL ES 3.00 (OpenGL ES GLSL ES 3.0 Chromium)"
+            },
+            "infoUnavailableReason": null
+          },
+          "requested": {
+            "features": [],
+            "limits": {}
+          },
+          "device": {
+            "features": [
+              "EXT_color_buffer_float",
+              "WEBGL_debug_renderer_info"
+            ],
+            "limits": {
+              "MAX_TEXTURE_SIZE": 16384,
+              "MAX_RENDERBUFFER_SIZE": 16384,
+              "MAX_VIEWPORT_WIDTH": 32767,
+              "MAX_VIEWPORT_HEIGHT": 32767,
+              "MAX_DRAW_BUFFERS": 8,
+              "MAX_COLOR_ATTACHMENTS": 8,
+              "MAX_VERTEX_TEXTURE_IMAGE_UNITS": 16,
+              "MAX_TEXTURE_IMAGE_UNITS": 16,
+              "MAX_COMBINED_TEXTURE_IMAGE_UNITS": 32
+            },
+            "featuresUnavailableReason": null,
+            "limitsUnavailableReason": null
+          },
+          "failure": null,
+          "gpuTimestamps": {
+            "available": false,
+            "reason": "GPU timestamp queries are not instrumented. Initialization uses performance.now."
+          }
+        },
+        "requests": [
+          "http://127.0.0.1:4175/nested/renderer/example/?backend=webgl2&degree=0",
+          "http://127.0.0.1:4175/nested/renderer/example/example.js",
+          "http://127.0.0.1:4175/nested/renderer/splatview-renderer.js",
+          "http://127.0.0.1:4175/nested/renderer/assets/compute.worker-D93-qexC.js"
+        ]
+      }
+    },
+    {
+      "standalone": {
+        "degree": 1,
+        "backend": "webgl2",
+        "index": 1,
+        "depth": 2,
+        "opacity": 0.78650963306427,
+        "visible": 7,
+        "color": [
+          0.5,
+          0.7820948362350464,
+          0.5
+        ],
+        "capture": [
+          100,
+          157,
+          100,
+          255
+        ],
+        "secure": true,
+        "isolated": false,
+        "bytes": 0,
+        "retired": true,
+        "rejected": true,
+        "environment": {
+          "schemaVersion": 1,
+          "kind": "splatview-renderer-negotiation",
+          "status": "ready",
+          "stage": "ready",
+          "clock": "performance.now",
+          "startedAtMs": 22.299999952316284,
+          "observedAtMs": 55.699999928474426,
+          "clockUnavailableReason": null,
+          "stages": [
+            {
+              "stage": "start",
+              "status": "initializing",
+              "atMs": 22.299999952316284
+            },
+            {
+              "stage": "ready",
+              "status": "ready",
+              "atMs": 55.699999928474426
+            }
+          ],
+          "adapter": {
+            "features": [
+              "EXT_color_buffer_float",
+              "WEBGL_debug_renderer_info"
+            ],
+            "limits": {
+              "MAX_TEXTURE_SIZE": 16384,
+              "MAX_RENDERBUFFER_SIZE": 16384,
+              "MAX_VIEWPORT_WIDTH": 32767,
+              "MAX_VIEWPORT_HEIGHT": 32767,
+              "MAX_DRAW_BUFFERS": 8,
+              "MAX_COLOR_ATTACHMENTS": 8,
+              "MAX_VERTEX_TEXTURE_IMAGE_UNITS": 16,
+              "MAX_TEXTURE_IMAGE_UNITS": 16,
+              "MAX_COMBINED_TEXTURE_IMAGE_UNITS": 32
+            },
+            "featuresUnavailableReason": null,
+            "limitsUnavailableReason": null,
+            "info": {
+              "backend": "webgl2",
+              "vendor": "WebKit",
+              "description": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5090 (0x00002B85) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+              "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+              "shadingLanguageVersion": "WebGL GLSL ES 3.00 (OpenGL ES GLSL ES 3.0 Chromium)"
+            },
+            "infoUnavailableReason": null
+          },
+          "requested": {
+            "features": [],
+            "limits": {}
+          },
+          "device": {
+            "features": [
+              "EXT_color_buffer_float",
+              "WEBGL_debug_renderer_info"
+            ],
+            "limits": {
+              "MAX_TEXTURE_SIZE": 16384,
+              "MAX_RENDERBUFFER_SIZE": 16384,
+              "MAX_VIEWPORT_WIDTH": 32767,
+              "MAX_VIEWPORT_HEIGHT": 32767,
+              "MAX_DRAW_BUFFERS": 8,
+              "MAX_COLOR_ATTACHMENTS": 8,
+              "MAX_VERTEX_TEXTURE_IMAGE_UNITS": 16,
+              "MAX_TEXTURE_IMAGE_UNITS": 16,
+              "MAX_COMBINED_TEXTURE_IMAGE_UNITS": 32
+            },
+            "featuresUnavailableReason": null,
+            "limitsUnavailableReason": null
+          },
+          "failure": null,
+          "gpuTimestamps": {
+            "available": false,
+            "reason": "GPU timestamp queries are not instrumented. Initialization uses performance.now."
+          }
+        },
+        "requests": [
+          "http://127.0.0.1:4175/nested/renderer/example/?backend=webgl2&degree=1",
+          "http://127.0.0.1:4175/nested/renderer/example/example.js",
+          "http://127.0.0.1:4175/nested/renderer/splatview-renderer.js",
+          "http://127.0.0.1:4175/nested/renderer/assets/compute.worker-D93-qexC.js"
+        ]
+      }
+    },
+    {
+      "standalone": {
+        "degree": 2,
+        "backend": "webgl2",
+        "index": 1,
+        "depth": 2,
+        "opacity": 0.78650963306427,
+        "visible": 7,
+        "color": [
+          0.5,
+          0.7820948362350464,
+          0.5
+        ],
+        "capture": [
+          100,
+          157,
+          100,
+          255
+        ],
+        "secure": true,
+        "isolated": false,
+        "bytes": 0,
+        "retired": true,
+        "rejected": true,
+        "environment": {
+          "schemaVersion": 1,
+          "kind": "splatview-renderer-negotiation",
+          "status": "ready",
+          "stage": "ready",
+          "clock": "performance.now",
+          "startedAtMs": 25.600000023841858,
+          "observedAtMs": 49.39999997615814,
+          "clockUnavailableReason": null,
+          "stages": [
+            {
+              "stage": "start",
+              "status": "initializing",
+              "atMs": 25.600000023841858
+            },
+            {
+              "stage": "ready",
+              "status": "ready",
+              "atMs": 49.39999997615814
+            }
+          ],
+          "adapter": {
+            "features": [
+              "EXT_color_buffer_float",
+              "WEBGL_debug_renderer_info"
+            ],
+            "limits": {
+              "MAX_TEXTURE_SIZE": 16384,
+              "MAX_RENDERBUFFER_SIZE": 16384,
+              "MAX_VIEWPORT_WIDTH": 32767,
+              "MAX_VIEWPORT_HEIGHT": 32767,
+              "MAX_DRAW_BUFFERS": 8,
+              "MAX_COLOR_ATTACHMENTS": 8,
+              "MAX_VERTEX_TEXTURE_IMAGE_UNITS": 16,
+              "MAX_TEXTURE_IMAGE_UNITS": 16,
+              "MAX_COMBINED_TEXTURE_IMAGE_UNITS": 32
+            },
+            "featuresUnavailableReason": null,
+            "limitsUnavailableReason": null,
+            "info": {
+              "backend": "webgl2",
+              "vendor": "WebKit",
+              "description": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5090 (0x00002B85) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+              "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+              "shadingLanguageVersion": "WebGL GLSL ES 3.00 (OpenGL ES GLSL ES 3.0 Chromium)"
+            },
+            "infoUnavailableReason": null
+          },
+          "requested": {
+            "features": [],
+            "limits": {}
+          },
+          "device": {
+            "features": [
+              "EXT_color_buffer_float",
+              "WEBGL_debug_renderer_info"
+            ],
+            "limits": {
+              "MAX_TEXTURE_SIZE": 16384,
+              "MAX_RENDERBUFFER_SIZE": 16384,
+              "MAX_VIEWPORT_WIDTH": 32767,
+              "MAX_VIEWPORT_HEIGHT": 32767,
+              "MAX_DRAW_BUFFERS": 8,
+              "MAX_COLOR_ATTACHMENTS": 8,
+              "MAX_VERTEX_TEXTURE_IMAGE_UNITS": 16,
+              "MAX_TEXTURE_IMAGE_UNITS": 16,
+              "MAX_COMBINED_TEXTURE_IMAGE_UNITS": 32
+            },
+            "featuresUnavailableReason": null,
+            "limitsUnavailableReason": null
+          },
+          "failure": null,
+          "gpuTimestamps": {
+            "available": false,
+            "reason": "GPU timestamp queries are not instrumented. Initialization uses performance.now."
+          }
+        },
+        "requests": [
+          "http://127.0.0.1:4175/nested/renderer/example/?backend=webgl2&degree=2",
+          "http://127.0.0.1:4175/nested/renderer/example/example.js",
+          "http://127.0.0.1:4175/nested/renderer/splatview-renderer.js",
+          "http://127.0.0.1:4175/nested/renderer/assets/compute.worker-D93-qexC.js"
+        ]
+      }
+    },
+    {
+      "standalone": {
+        "degree": 3,
+        "backend": "webgl2",
+        "index": 1,
+        "depth": 2,
+        "opacity": 0.78650963306427,
+        "visible": 7,
+        "color": [
+          0.5,
+          0.7820948362350464,
+          0.5
+        ],
+        "capture": [
+          100,
+          157,
+          100,
+          255
+        ],
+        "secure": true,
+        "isolated": false,
+        "bytes": 0,
+        "retired": true,
+        "rejected": true,
+        "environment": {
+          "schemaVersion": 1,
+          "kind": "splatview-renderer-negotiation",
+          "status": "ready",
+          "stage": "ready",
+          "clock": "performance.now",
+          "startedAtMs": 23.5,
+          "observedAtMs": 54.300000071525574,
+          "clockUnavailableReason": null,
+          "stages": [
+            {
+              "stage": "start",
+              "status": "initializing",
+              "atMs": 23.5
+            },
+            {
+              "stage": "ready",
+              "status": "ready",
+              "atMs": 54.300000071525574
+            }
+          ],
+          "adapter": {
+            "features": [
+              "EXT_color_buffer_float",
+              "WEBGL_debug_renderer_info"
+            ],
+            "limits": {
+              "MAX_TEXTURE_SIZE": 16384,
+              "MAX_RENDERBUFFER_SIZE": 16384,
+              "MAX_VIEWPORT_WIDTH": 32767,
+              "MAX_VIEWPORT_HEIGHT": 32767,
+              "MAX_DRAW_BUFFERS": 8,
+              "MAX_COLOR_ATTACHMENTS": 8,
+              "MAX_VERTEX_TEXTURE_IMAGE_UNITS": 16,
+              "MAX_TEXTURE_IMAGE_UNITS": 16,
+              "MAX_COMBINED_TEXTURE_IMAGE_UNITS": 32
+            },
+            "featuresUnavailableReason": null,
+            "limitsUnavailableReason": null,
+            "info": {
+              "backend": "webgl2",
+              "vendor": "WebKit",
+              "description": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5090 (0x00002B85) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+              "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+              "shadingLanguageVersion": "WebGL GLSL ES 3.00 (OpenGL ES GLSL ES 3.0 Chromium)"
+            },
+            "infoUnavailableReason": null
+          },
+          "requested": {
+            "features": [],
+            "limits": {}
+          },
+          "device": {
+            "features": [
+              "EXT_color_buffer_float",
+              "WEBGL_debug_renderer_info"
+            ],
+            "limits": {
+              "MAX_TEXTURE_SIZE": 16384,
+              "MAX_RENDERBUFFER_SIZE": 16384,
+              "MAX_VIEWPORT_WIDTH": 32767,
+              "MAX_VIEWPORT_HEIGHT": 32767,
+              "MAX_DRAW_BUFFERS": 8,
+              "MAX_COLOR_ATTACHMENTS": 8,
+              "MAX_VERTEX_TEXTURE_IMAGE_UNITS": 16,
+              "MAX_TEXTURE_IMAGE_UNITS": 16,
+              "MAX_COMBINED_TEXTURE_IMAGE_UNITS": 32
+            },
+            "featuresUnavailableReason": null,
+            "limitsUnavailableReason": null
+          },
+          "failure": null,
+          "gpuTimestamps": {
+            "available": false,
+            "reason": "GPU timestamp queries are not instrumented. Initialization uses performance.now."
+          }
+        },
+        "requests": [
+          "http://127.0.0.1:4175/nested/renderer/example/?backend=webgl2&degree=3",
+          "http://127.0.0.1:4175/nested/renderer/example/example.js",
+          "http://127.0.0.1:4175/nested/renderer/splatview-renderer.js",
+          "http://127.0.0.1:4175/nested/renderer/assets/compute.worker-D93-qexC.js"
+        ]
+      }
+    }
+  ],
+  "scope": "Observed Windows Chromium on secure localhost, cross-origin isolation false. Other OS/browser/GPU and hosting contexts unqualified.",
+  "launchEvidence": {
+    "chromiumArguments": [
+      "--enable-unsafe-webgpu"
+    ],
+    "productionOptionalFeaturesAdded": [],
+    "timestampFixtureOptionalFeature": "timestamp-query"
+  }
+}

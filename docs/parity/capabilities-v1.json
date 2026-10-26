@@ -16,8 +16,8 @@
   },
   "capabilityInventory": {
     "path": "docs/parity/capabilities-v1.csv",
-    "bytes": 4202,
-    "sha256": "fb8e140600cf4c82fbd179772053385da64cfbc371cfdb26161512d0d2788e55"
+    "bytes": 4449,
+    "sha256": "22dcf4aa9dadc445fbb9abb292f73fdf382300f7cc15f19db857483b0095f947"
   },
   "capabilities": [
     {
@@ -1545,7 +1545,7 @@
       "implementation": "excluded",
       "requiredCells": [],
       "approvedDifferenceIds": [],
-      "exclusionReason": "Optional separate compatibility release; the editor requires WebGPU and does not claim a WebGL fallback."
+      "exclusionReason": "Separate compatibility viewer remains excluded. The conditional integrated WebGL2 backend, automatic fallback and observed Basic workflow qualification are recorded in design/feature-reviews/webgl2-implementation-2026-10-25.md and docs/validation/runs/webgl2-implementation-20261025-02/validation.json; other environments require their own evidence."
     },
     {
       "id": "native-shell-integration",

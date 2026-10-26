@@ -1,7 +1,9 @@
+import { requireWebGpuRenderer } from './gaussian-harness-scene';
 import { admittedExport, exportWorkObservation } from './admitted-export';
 import './geometry-viewer-harness';
 import { setApp, useApp } from '../src/app/store';
-import { NEUTRAL_COLOR, type SceneCommand } from '../src/document/types';
+import { NEUTRAL_COLOR } from '../src/renderer/defaults';
+import { type SceneCommand } from '../src/document/types';
 import type { AutoColorMethod } from '../src/document/colorProtocol';
 import type { ResourceLedger } from '../src/document/resources';
 import { gaussianPly } from '../tests/fixtures/gaussians';
@@ -52,7 +54,7 @@ async function admissionRefusal(method: AutoColorMethod) {
   return { before, after: await snapshot(), accepted, error };
 }
 async function publicationRefusal() {
-  const app = controller(), before = await snapshot(), client = app.client!, queue = app.renderer!.device.queue;
+  const app = controller(), before = await snapshot(), client = app.client!, queue = requireWebGpuRenderer(app.renderer).device.queue;
   const originalCommand = client.command.bind(client), originalCompletion = queue.onSubmittedWorkDone.bind(queue);
   let decoded = false, failed = false;
   client.command = async (...args) => {
@@ -99,7 +101,7 @@ async function cancelPending() {
   return { before, after: await snapshot(), accepted, cancelled, progress, error: useApp.getState().error };
 }
 async function recover() {
-  const app = controller(), before = await snapshot(), device = app.renderer!.device;
+  const app = controller(), before = await snapshot(), device = requireWebGpuRenderer(app.renderer).device;
   device.destroy(); await device.lost;
   if (!await app.retryRenderer()) throw new Error(useApp.getState().error ?? 'Actual color device recovery failed.');
   return { before, after: await snapshot() };

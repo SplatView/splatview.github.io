@@ -14,6 +14,40 @@ async function load(page: Page) {
   await page.getByRole('button', { name: 'Tools', exact: true }).click();
 }
 
+test('General uses aligned property rows and keeps support controls in Help', async ({ page }) => {
+  await load(page);
+  await page.getByRole('button', { name: 'Settings', exact: true }).click();
+  const dialog = settings(page), renderer = dialog.getByRole('combobox', { name: 'Gaussian renderer', exact: true });
+  const language = (await dialog.getByRole('button', { name: 'Language', exact: true }).boundingBox())!;
+  const control = (await renderer.boundingBox())!;
+  expect(Math.abs(control.x - language.x)).toBeLessThanOrEqual(1);
+  expect(Math.abs(control.width - language.width)).toBeLessThanOrEqual(1);
+  await expect(dialog.getByRole('combobox', { name: 'Graphics backend', exact: true })).toHaveCount(0);
+  await expect(dialog.getByRole('region', { name: 'Application', exact: true })).toHaveCount(0);
+  await renderer.selectOption('steady');
+  await expect(dialog.getByRole('slider', { name: 'History weight', exact: true })).toBeHidden();
+  await dialog.getByText('SteadySplats options', { exact: true }).focus();
+  await page.keyboard.press('Enter');
+  await expect(dialog.getByRole('slider', { name: 'History weight', exact: true })).toBeVisible();
+  await dialog.getByRole('tab', { name: 'Help', exact: true }).click();
+  await expect(dialog.getByRole('region', { name: 'Application', exact: true })).toBeVisible();
+  await expect(dialog.locator('.graphics-diagnostics pre')).toBeHidden();
+  await dialog.getByText('Graphics diagnostics', { exact: true }).click();
+  await expect(dialog.getByRole('combobox', { name: 'Graphics backend', exact: true })).toBeDisabled();
+});
+
+for (const kind of ['points', 'mesh'] as const) test(`${kind} Settings omits Gaussian-only controls and retains saved views`, async ({ page }) => {
+  await load(page);
+  await page.evaluate(kind => window.geometryViewer.load(kind), kind);
+  await page.getByRole('button', { name: 'Settings', exact: true }).click();
+  const dialog = settings(page);
+  await expect(dialog.getByRole('button', { name: 'Language', exact: true })).toBeVisible();
+  await expect(dialog.getByRole('combobox', { name: 'Gaussian renderer', exact: true })).toHaveCount(0);
+  await expect(dialog.getByText('SteadySplats options', { exact: true })).toHaveCount(0);
+  await expect(dialog.getByRole('button', { name: 'Remember view', exact: true })).toBeVisible();
+  await expect(dialog.getByRole('button', { name: 'Close scene', exact: true })).toBeEnabled();
+});
+
 for (const [size, width, left] of [['small', 300, 656], ['medium', 336, 584], ['large', 375, 506]] as const) {
   test(`${size} Settings follows desktop floating geometry with and without Tools`, async ({ page }) => {
     await page.addInitScript(size => localStorage.setItem('splatview.ui-size.v1', size), size);

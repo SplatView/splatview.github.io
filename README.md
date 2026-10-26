@@ -3,8 +3,21 @@
 Contributors and agents: read [AGENTS.md](AGENTS.md) before feature work. Every new or changed feature must review Windows, macOS, Ubuntu and web support under the shared product contract, while retaining the existing source-lock, browser and WASM contracts.
 
 A browser viewer and editor for Gaussian splats, with desktop SplatView controls,
-a WebGPU renderer, and portable C++ scene logic running as WebAssembly in a worker.
+WebGPU and WebGL2 renderers, and portable C++ scene logic running as WebAssembly in a worker.
 Selected scene files are processed in the browser.
+
+For embedding in another browser app, `npm run build:engine` creates a standalone
+WebGPU/WebGL2 ES module, worker, types and plain browser example in `dist-engine/`.
+See the [renderer API and ownership guide](docs/development/renderer-engine.md).
+
+**SteadySplats** is available in **Settings → General → Gaussian rendering**.
+It uses stochastic visibility, spatial resampling and temporal reconstruction,
+with 16 refinement frames at rest by default. Sorted rendering remains the
+default and the fallback when optional resources cannot be admitted. Picking,
+editing maps and clean capture/saved-view images retain deterministic sorted
+semantics. These rendering preferences last for the viewer session.
+See the [feature review](design/feature-reviews/steady-splats-2026-10-25.md)
+and [reference attribution](docs/third-party/STEADY_SPLATS_REFERENCES.md).
 
 The desktop behavior target is SplatView 1.0.2, committed revision
 `4e1be155511fb49f08fd8c863d785ac008a4c43a`. COLMAPView and PlayCanvas inform browser
@@ -16,7 +29,7 @@ and [port plan](WEB_PORT_PLAN.md) for the active scope and validation.
 For selection changes, see the [module map, ownership invariants and focused
 test commands](docs/development/selection.md).
 
-Surface selection now uses compact per-tile GPU lists and workgroup-memory
+WebGPU surface selection uses compact per-tile GPU lists and workgroup-memory
 sorting for ordinary tiles, preserving desktop composited depth, color and
 visibility. The default 8,192-overlap cutoff is removed; device buffers and
 memory admission still apply. A local 512 × 512 surface benchmark reduced
@@ -51,6 +64,21 @@ passed 106 focused UI/policy tests, 18 browser checks and the production build.
 
 Earlier 1.0.4 labels for this commit are corrected by the
 [desktop version erratum](IMPLEMENTATION_STATUS.md#desktop-reference-version-erratum).
+
+### Exact rendering optimizations (October 25, 2026)
+
+Both backends now reuse exact resident depth order; WebGPU also reuses unchanged
+projected data. Indexed Gaussian quads, asynchronous GL program preparation,
+exact pick candidates, cooperative dense-tile sorting and color-only GL Gaussian
+capture retain sorted display/fallback, clean output, raw maps and native editing.
+Automatic WebGPU-to-WebGL2 fallback and the sorted default are preserved.
+
+The [review](design/feature-reviews/rendering-optimization-plan-2026-10-25.md) and
+[validation receipt](docs/validation/runs/rendering-optimization-20261025-01/validation.json)
+record 6,426 portable tests, actual browser/production checks and repeated
+measurements on Windows Chromium/RTX 5090. Exact queries and sorted capture
+improve; the approximately 31 ms GL completion floor and App input latency remain.
+No native/profile migration or other-platform GPU qualification is claimed.
 
 ## Basic web interface
 
@@ -142,8 +170,8 @@ that emitted build locally. Opening `index.html` directly as a filesystem URL
 does not provide the application's HTTP worker and asset environment.
 
 The build lock describes the native build host. Browser clients use the emitted
-static files and require a secure context, WebAssembly, and the WebGPU features
-and limits checked at startup. Mac hardware testing is optional for this project;
+static files and require WebAssembly and a graphics API with the capabilities
+and limits checked at startup. WebGPU and clipboard APIs require a secure context. Mac hardware testing is optional for this project;
 compatibility claims stay limited to observed browser environments.
 
 ## Scene workflow
@@ -179,8 +207,8 @@ imports would require streaming decode; its separate 10 GB cloud-upload limit
 does not describe local-editor capacity. [Reference sources and current
 differences](docs/third-party/PLAYCANVAS_INPUT_LIMIT_REFERENCES.md).
 
-The app targets WebGPU. A WebGL compatibility viewer is separate optional
-work. Native shell extensions, file associations and desktop packaging are
+Automatic startup prefers WebGPU and falls back to the integrated WebGL2 backend.
+A separate WebGL compatibility viewer remains outside the active product. Native shell extensions, file associations and desktop packaging are
 outside the browser app. Expensive hover computation is omitted where the plan
 records that adaptation.
 
@@ -227,7 +255,7 @@ test reports outside `public` and `dist`.
 | --- | --- |
 | `src/ui`, `src/app`, `src/input` | Desktop-style React UI, orchestration and browser input ownership |
 | `src/document`, `src/workers` | Typed document protocol, memory admission and worker lifecycle |
-| `src/renderer` | WebGPU rendering, geometry viewing and scene queries |
+| `src/renderer` | Shared contracts, WebGPU/WebGL2 rendering and scene queries |
 | `src/io` | File collections, images, saved views and browser downloads |
 | `native/wasm` | Portable native adapters, cooperative jobs and contracts |
 | `native/upstream`, `native/SOURCE_LOCK.json` | Captured source/dependency authority |
@@ -239,3 +267,35 @@ Reuse and reference notes live in [docs/third-party](docs/third-party), includin
 notices are retained in [public/licenses](public/licenses) and
 [the icon notice](public/icons/LICENSE.txt). Preserve the applicable upstream
 licenses and attribution when redistributing those components.
+
+Settings / Help / Graphics diagnostics offers a session-only graphics backend choice.
+Automatic prefers WebGPU, then uses WebGL2 if initialization fails. Close the
+scene before switching backends. `?graphics=webgl2` and `?graphics=webgpu` force
+a backend for this session. Sorted rendering remains the default on both;
+SteadySplats requires additional tested float framebuffer capabilities and
+admitted memory. Device loss restores the selected backend and native history.
+See the [implementation review](design/feature-reviews/webgl2-implementation-2026-10-25.md)
+and [local validation](docs/validation/runs/webgl2-implementation-20261025-02/validation.json)
+for the observed Windows Chromium/NVIDIA configuration, checks and limitations.
+
+The application uses 24-bit depth sorting during motion and refines to exact
+32-bit sorting at rest. Picks, maps and clean captures retain full precision.
+Large WebGPU scenes can use admitted visible-draw compaction; small scenes keep
+the portable path. See the [throughput review](design/feature-reviews/rendering-throughput-2026-10-25.md)
+and [evidence](docs/validation/runs/rendering-throughput-20261025-01/validation.json)
+for local measurements and dense-scene costs.
+
+Settings follows the Windows General / Privacy / Help structure. Appearance and
+Gaussian rendering use aligned compact rows; optional SteadySplats tuning is
+collapsed. Point and mesh views omit Gaussian controls. Application updates and
+graphics diagnostics live in Help; browser-local saved views remain in General.
+
+Exact WebGL worker sorting now skips uniform digits and uses admitted counting
+sort for narrow key spans. The [matched benchmark](docs/validation/runs/webgl-sort-20261025-01/README.md)
+records 43–75% lower worker round-trip medians and 48 identical snapshot pairs;
+precision, query/output behavior and the retained-memory cap are preserved.
+
+Actual App orbit/pan/zoom measurements are recorded separately in the
+[responsiveness packet](docs/validation/runs/app-responsiveness-20261025-01/README.md).
+The [developer tool guide](tools/bench/APP_RESPONSIVENESS.md) explains input
+attribution, real completion fences and automation/environment limits.

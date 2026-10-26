@@ -1,3 +1,4 @@
+import { requireWebGpuRenderer } from './gaussian-harness-scene';
 import { admittedExport } from './admitted-export';
 // Real App, worker, native edits and GPU readback. Only the timing of a genuine
 // manual-grade reply and an explicitly tested publication refusal are gated.
@@ -6,7 +7,7 @@ import { setApp, setSelectionPreferences, useApp, type SelectionTool } from '../
 import type { CoreClient } from '../src/document/coreClient';
 import type { DeferredSelectionOptions } from '../src/app/controller';
 import type { NativeSummary, SceneCommand } from '../src/document/types';
-import { NEUTRAL_COLOR } from '../src/document/types';
+import { NEUTRAL_COLOR } from '../src/renderer/defaults';
 import { gesturePly, gesturePositions } from './gesture-fixture';
 import type { OperationOwner } from '../src/document/operationProtocol';
 
@@ -66,7 +67,7 @@ function installPointerObserver() {
   for (const type of ['pointerdown', 'pointermove', 'pointerup', 'pointercancel', 'gotpointercapture', 'lostpointercapture'])
     window.addEventListener(type, event => {
       if (!(event instanceof PointerEvent)) return;
-      const canvas = controller().renderer!.canvas, bounds = canvas.getBoundingClientRect();
+      const canvas = requireWebGpuRenderer(controller().renderer).canvas, bounds = canvas.getBoundingClientRect();
       pointers.push({ type, pointerId: event.pointerId, trusted: event.isTrusted, buttons: event.buttons, button: event.button,
         x: Math.round((event.clientX - bounds.left) * canvas.width / bounds.width),
         y: Math.round((event.clientY - bounds.top) * canvas.height / bounds.height),
@@ -75,7 +76,7 @@ function installPointerObserver() {
     }, true);
   for (const type of ['mousedown', 'dblclick']) window.addEventListener(type, event => {
     if (!(event instanceof MouseEvent)) return;
-    const canvas = controller().renderer!.canvas, bounds = canvas.getBoundingClientRect();
+    const canvas = requireWebGpuRenderer(controller().renderer).canvas, bounds = canvas.getBoundingClientRect();
     mouseCompanions.push({ type, detail: event.detail, trusted: event.isTrusted, targetCanvas: event.target === canvas,
       x: Math.round((event.clientX - bounds.left) * canvas.width / bounds.width),
       y: Math.round((event.clientY - bounds.top) * canvas.height / bounds.height) });
@@ -95,7 +96,7 @@ function installReleaseObserver() {
   };
 }
 function state() {
-  const value = useApp.getState(), app = controller(), canvas = app.renderer!.canvas;
+  const value = useApp.getState(), app = controller(), canvas = requireWebGpuRenderer(app.renderer).canvas;
   const pointerId = pointers.findLast(pointer => pointer.type === 'pointerdown')?.pointerId;
   return { busy: value.busy, error: value.error, sourceName: value.sourceName, tool: value.tool,
     dragging: value.selectionDragging, pending: value.pendingSelectionCount, draft: value.summary?.selectionDraft ?? false,
@@ -113,10 +114,10 @@ async function gpu() {
   return Array.from(new Uint32Array(await gpuBytes(scene.buffers.states, scene.count * 4)));
 }
 async function gpuBytes(buffer: GPUBuffer, size: number) {
-  const app = controller(), readback = app.renderer!.device.createBuffer({ size, usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.MAP_READ });
+  const app = controller(), readback = requireWebGpuRenderer(app.renderer).device.createBuffer({ size, usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.MAP_READ });
   try {
-    const encoder = app.renderer!.device.createCommandEncoder(); encoder.copyBufferToBuffer(buffer, 0, readback, 0, size);
-    app.renderer!.device.queue.submit([encoder.finish()]); await readback.mapAsync(GPUMapMode.READ);
+    const encoder = requireWebGpuRenderer(app.renderer).device.createCommandEncoder(); encoder.copyBufferToBuffer(buffer, 0, readback, 0, size);
+    requireWebGpuRenderer(app.renderer).device.queue.submit([encoder.finish()]); await readback.mapAsync(GPUMapMode.READ);
     const result = readback.getMappedRange().slice(0); readback.unmap(); return result;
   } finally { readback.destroy(); }
 }
@@ -192,7 +193,7 @@ async function settle() {
 }
 async function load(tool: SelectionTool = 'single', live = false) {
   await window.autoColorHarness.load('deferred-grade.ply', gesturePly());
-  const app = controller(), canvas = app.renderer!.canvas;
+  const app = controller(), canvas = requireWebGpuRenderer(app.renderer).canvas;
   app.camera!.set([0, 0, 0, 0, 0, 3, 1, 45, 0, 0, canvas.width / canvas.height]); app.invalidate();
   setSelectionPreferences({ operation: 0, live, overlap: false, visibleOnly: false });
   setApp({ toolsOpen: false, tool, brushSize: 16 });
@@ -202,7 +203,7 @@ async function load(tool: SelectionTool = 'single', live = false) {
 }
 function clear() { calls.length = 0; pointers.length = 0; mouseCompanions.length = 0; releases.length = 0; publicationFailed = false; blurs = 0; }
 function centers() {
-  const app = controller(), canvas = app.renderer!.canvas, bounds = canvas.getBoundingClientRect();
+  const app = controller(), canvas = requireWebGpuRenderer(app.renderer).canvas, bounds = canvas.getBoundingClientRect();
   // Independently project the fixture's literal positions with the actual native
   // camera. Never use a renderer hit or selected result to choose a test point.
   const multiply = (point: number[], matrix: Float32Array) => Array.from({ length: 4 }, (_, column) =>
@@ -251,7 +252,7 @@ async function releaseAuto() {
   try { return await owner.pending; } finally { owner.restore(); }
 }
 function failPublication() {
-  const queue = controller().renderer!.device.queue, original = queue.onSubmittedWorkDone.bind(queue);
+  const queue = requireWebGpuRenderer(controller().renderer).device.queue, original = queue.onSubmittedWorkDone.bind(queue);
   queue.onSubmittedWorkDone = async () => {
     await original();
     if (!publicationFailed) { publicationFailed = true; throw new Error('Deferred fixture refused publication after actual GPU completion.'); }
@@ -259,12 +260,12 @@ function failPublication() {
   restorePublication = () => { queue.onSubmittedWorkDone = original; };
 }
 function loseCapture() {
-  const canvas = controller().renderer!.canvas, pointer = pointers.findLast(value => value.type === 'pointerdown');
+  const canvas = requireWebGpuRenderer(controller().renderer).canvas, pointer = pointers.findLast(value => value.type === 'pointerdown');
   if (!pointer || !canvas.hasPointerCapture(pointer.pointerId)) throw new Error('The actual physical pointer does not own capture.');
   canvas.releasePointerCapture(pointer.pointerId);
 }
 function resize() {
-  const canvas = controller().renderer!.canvas;
+  const canvas = requireWebGpuRenderer(controller().renderer).canvas;
   canvas.style.width = `${Math.max(400, canvas.getBoundingClientRect().width - 80)}px`;
 }
 function startCommand() { competing = controller().command({ command: 'selectAll' }); }

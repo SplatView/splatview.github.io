@@ -1,10 +1,11 @@
+import type { ImageOperation } from '../src/io/image';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { AppController } from '../src/app/controller';
 import { setApp, useApp } from '../src/app/store';
 import type { CoreClient } from '../src/document/coreClient';
 import { MiB, ResourceLedger } from '../src/document/resources';
 import { ownRgbaImage } from '../src/io/image';
-import type { SavedViewOperation } from '../src/io/thumbnail';
+
 
 // Real controller/image/ledger owners, with browser encoder and renderer
 // transport doubles. Actual PNG/JPEG/IndexedDB outcomes are exercised in E2E.
@@ -48,7 +49,7 @@ function fixture() {
   app.client = client as unknown as CoreClient;
   app.scene = { kind: 'gaussian', setDuplicateRange: vi.fn(), dispose: vi.fn(async () => {}) } as unknown as NonNullable<AppController['scene']>;
   app.camera = { dispose: vi.fn(), clearInput: vi.fn() } as unknown as NonNullable<AppController['camera']>;
-  const captureRgba = vi.fn(async (_scene: unknown, _camera: unknown, operation: SavedViewOperation) => {
+  const captureRgba = vi.fn(async (_scene: unknown, _camera: unknown, operation: ImageOperation) => {
     operation.current?.(); const release = operation.admit(4);
     return ownRgbaImage(1, 1, new Uint8ClampedArray([12, 34, 56, 255]), release);
   });

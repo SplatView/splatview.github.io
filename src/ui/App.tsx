@@ -23,6 +23,7 @@ import { Icon } from './Icon';
 import { DecorativeChevron } from './DecorativeChevron';
 import { FontSizePicker } from './FontSizePicker';
 import { ThemePicker } from './ThemePicker';
+import { RenderSettings, GraphicsDiagnostics } from './RenderSettings';
 import { useThemeAppearance } from '../app/useThemeAppearance';
 import { useLanguageAppearance, useTranslation } from '../app/useLanguageAppearance';
 import { translateStatus } from '../app/i18n';
@@ -616,6 +617,15 @@ export function App() {
   const [autoChoice, setAutoChoice] = useState<{ documentId: string | null; method: AutoColorMethod }>({ documentId: null, method: 'enhance' });
   const uiPreference = useUiPreferences(), displayedUiSize = uiPreference.previewSize ?? uiPreference.size;
   const canvas = useRef<HTMLCanvasElement>(null), picker = useRef<HTMLInputElement>(null), folderPicker = useRef<HTMLInputElement>(null), viewPicker = useRef<HTMLInputElement>(null), openButton = useRef<HTMLButtonElement>(null);
+  const [canvasGeneration, setCanvasGeneration] = useState(0);
+  const replacementCanvas = useRef<{ resolve(value: HTMLCanvasElement): void; reject(error: unknown): void; focus: boolean } | null>(null);
+  const bindCanvas = useCallback((element: HTMLCanvasElement | null) => {
+    canvas.current = element;
+    if (element && replacementCanvas.current) {
+      const pending = replacementCanvas.current; replacementCanvas.current = null;
+      if (pending.focus) element.focus({ preventScroll: true }); pending.resolve(element);
+    }
+  }, []);
   const pickerActive = useRef(false);
   const [inputLedger] = useState(() => new KeyOwnershipLedger());
   const inputMenus = useRef(new Set<string>()), inputComposing = useRef(false), dialogReturnFocus = useRef<HTMLElement | null>(null);
@@ -984,8 +994,13 @@ export function App() {
     };
     controller.onOpenPicker = () => { if (!tutorial.blocksInput()) requestPicker(picker); };
     const detachBenchmark = installProductionBenchmarkBridge(controller);
+    controller.onCanvasReplacement = previous => new Promise<HTMLCanvasElement>((resolve, reject) => {
+      replacementCanvas.current = { resolve, reject, focus: document.activeElement === previous }; setCanvasGeneration(value => value + 1);
+    });
     void controller.initialize(canvas.current!);
-    return () => { cancelGesture(); clearFilterPointer(true); controller.onViewportResize = undefined; controller.onSelectionOperationChanged = undefined; controller.onDeferredPointerCancel = undefined; detachBenchmark(); controller.dispose(); };
+    return () => {
+      replacementCanvas.current?.reject(new DOMException('Graphics restoration cancelled', 'AbortError')); replacementCanvas.current = null; controller.onCanvasReplacement = undefined;
+      cancelGesture(); clearFilterPointer(true); controller.onViewportResize = undefined; controller.onSelectionOperationChanged = undefined; controller.onDeferredPointerCancel = undefined; detachBenchmark(); controller.dispose(); };
   }, [controller]);
   useEffect(() => {
     let timer = 0, keyboardInput = false;
@@ -1375,7 +1390,7 @@ export function App() {
       window.removeEventListener('keyup', release); window.removeEventListener('beforeunload', beforeUnload);
       document.removeEventListener('visibilitychange', visibility);
     };
-  }, [controller]);
+  }, [controller, canvasGeneration]);
   useEffect(() => {
     alignmentGesture.current = null;
   }, [state.alignmentTool]);
@@ -1898,7 +1913,7 @@ export function App() {
     !state.exportOpen && !state.navigationPrompt && !state.savedViewChoices.length;
   return <main inert={tutorial.active} style={uiSizeStyle(displayedUiSize)} data-ui-size={displayedUiSize} data-scene-ready={!!state.summary} className={`viewport-shell ${chromeVisible ? '' : 'chrome-hidden'}`} onDragOver={event => event.preventDefault()}
     onDrop={event => { event.preventDefault(); if (tutorial.blocksInput(event.nativeEvent) || useApp.getState().operationRecovery !== 'idle') return; const snapshot = controller.snapshotDrop(event.dataTransfer); if (snapshot) void controller.openDrop(snapshot); }}>
-    <canvas ref={canvas} aria-label={t("SplatView scene")} aria-describedby={instructionsId}
+    <canvas key={canvasGeneration} ref={bindCanvas} data-graphics-backend={state.graphicsBackend ?? undefined} aria-label={t("SplatView scene")} aria-describedby={instructionsId}
       aria-busy={state.busy || operationBlocked || state.selectionDragging || state.selectionRecovery === 'restoring' || state.rendererState === 'recovering'} data-navigation={state.fly ? 'look' : 'orbit'} tabIndex={0} onContextMenu={event => event.preventDefault()} onPointerDown={pointerDown}
       onMouseDown={mouseDown}
       onPointerMove={pointerMove} onPointerUp={pointerUp} onPointerLeave={() => { if (!gizmoGesture.current) setGizmoPointer(null); }} onDoubleClick={doubleClick}
@@ -1984,7 +1999,7 @@ export function App() {
     <a className="brand-link" data-chrome inert={!chromeVisible} aria-hidden={!chromeVisible || undefined} href="https://opsiclear.com" target="_blank" rel="noopener noreferrer" aria-label={t("OpsiClear website")}>
       <img className="brand" src={new URL('opsiclear.png', new URL(import.meta.env.BASE_URL, document.baseURI)).href} alt="" /></a>
     <OfflineUpdateNotice chromeVisible={chromeVisible} disabled={tutorial.active || aboutOpen || state.navigationPrompt || state.outputPending || state.exportOpen || state.settingsOpen}
-      onOpen={() => { setChrome(true); setSettingsTab('general'); setApp({ settingsOpen: true }); }} />
+      onOpen={() => { setChrome(true); setSettingsTab('help'); setApp({ settingsOpen: true }); }} />
     {/* The read-only tour projects Tools without opening the actual editor. */}
     {(!geometrySource && state.toolsOpen || tutorial.phase === 'tour' && (!geometrySource || tutorial.step?.tools)) && <ToolsPanel controller={controller} scene={canvas} chromeVisible={chromeVisible} autoMethod={autoMethod} visible={toolsVisible} tutorialStep={tutorial.step ?? undefined}
       retention={toolsRetention.current} polygon={polygonActions} onInputScopeChange={onInputScopeChange} onAutoMethod={method => setAutoChoice({ documentId, method })} />}
@@ -2029,7 +2044,7 @@ export function App() {
       <LanguagePicker />
       <ThemePicker />
       <FontSizePicker />
-      <OfflineStatus controller={controller} />
+      <RenderSettings controller={controller} />
       <h2>{t("Scene")}</h2>
       <div className="settings-scene-actions">
         <button disabled={!state.ready || state.busy || selectionBlocked || operationBlocked || memoryBlocked || state.navigationPrompt}
@@ -2062,6 +2077,8 @@ export function App() {
         <a href="mailto:support@opsiclear.com?subject=SplatView%20web%20bug%20report"><Icon name="Bug" />{t('Report a bug')}</a>
         </div>
         {tutorial.error && <p role="alert" data-tutorial-error>{t(tutorial.error)}</p>}
+        <OfflineStatus controller={controller} />
+        <GraphicsDiagnostics controller={controller} />
         <h2>{t("Navigation")}</h2><dl className="settings-shortcuts">
           <dt>{t("Orbit")}</dt><dd>{t("Drag")}</dd><dt>{t("Pan")}</dt><dd>{t("Right drag")}</dd><dt>{t("Zoom")}</dt><dd>{t("Scroll")}</dd>
           <dt>{t("Look")}</dt><dd><kbd>V</kbd></dd><dt>{t("Auto orbit")}</dt><dd><kbd>O</kbd></dd><dt>{t("Reset view")}</dt><dd><kbd>R</kbd></dd>

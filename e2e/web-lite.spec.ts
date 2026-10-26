@@ -1,4 +1,4 @@
-import { expect, test, type Page } from '@playwright/test';
+import { expect, test, type Page } from './backend-test';
 import { gaussianPly } from '../tests/fixtures/gaussians';
 import { chooseSelectionTool } from './selectTool';
 

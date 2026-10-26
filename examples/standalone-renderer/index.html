@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Standalone SplatView renderer</title>
+<body>
+  <h1>Standalone Gaussian renderer</h1>
+  <p>Three packed Gaussians, a matrix camera and the reusable ES module.</p>
+  <p><label>Backend <select id="backend"><option value="auto">Automatic</option><option value="webgpu">WebGPU</option><option value="webgl2">WebGL2</option></select></label>
+    <label><input id="steady" type="checkbox"> SteadySplats</label></p>
+  <canvas id="scene" width="128" height="96" aria-label="Rendered Gaussian scene"></canvas>
+  <p id="status" role="status">Starting renderer…</p>
+  <script type="module" src="./example.js"></script>
+</body>
+</html>

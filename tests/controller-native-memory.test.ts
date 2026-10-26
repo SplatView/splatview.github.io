@@ -7,7 +7,8 @@ import { setApp, useApp } from '../src/app/store';
 import type { CoreClient } from '../src/document/coreClient';
 import { NativeHeapAccounting, WASM_PAGE_BYTES as P, type NativeCoverageUpdate } from '../src/document/nativeMemory';
 import { AdmissionError, MiB, ResourceLedger, type ResourceLease } from '../src/document/resources';
-import { NEUTRAL_COLOR, type NativeAllocationSnapshot, type NativeSummary, type SceneCommand } from '../src/document/types';
+import { NEUTRAL_COLOR } from '../src/renderer/defaults';
+import { type NativeAllocationSnapshot, type NativeSummary, type SceneCommand } from '../src/document/types';
 import type { ModuleFactory } from '../src/workers/wasm';
 import { gaussianPly } from './fixtures/gaussians';
 import { operationSnapshot, validateOperationReceipt, type OperationOwner, type OperationResolution } from '../src/document/operationProtocol';
@@ -115,7 +116,7 @@ function fixture(limit = 256 * MiB, heapBytes = 32 * MiB, options: {
   const coverage = internals.bindNativeCoverage(core, sceneLease, history, baseBytes);
   const masks = { allocationBytes: options.maskBytes ?? 2000, publish: vi.fn(() => ({ destroy: vi.fn() })), dispose: vi.fn() };
   const scene = { kind: 'gaussian', setDuplicateRange: vi.fn(), allocationBytes: options.sceneBytes ?? 100000, stageMasks: vi.fn(async () => masks), dispose: vi.fn(async () => {}) };
-  const renderer = { lost: false, device: { queue: { onSubmittedWorkDone: vi.fn(async () => {}) } }, dispose: vi.fn(),
+  const renderer = { lost: false, finish(): Promise<void> { return this.device.queue.onSubmittedWorkDone(); }, device: { queue: { onSubmittedWorkDone: vi.fn(async () => {}) } }, dispose: vi.fn(),
     setHistogramEnabled: vi.fn(), resetHistogram: vi.fn(),
     allocateScene: vi.fn(async () => ({ kind: 'gaussian', setDuplicateRange: vi.fn(), allocationBytes: options.sceneBytes ?? 100000, upload: vi.fn(), masks: vi.fn(), dispose: vi.fn(async () => {}) })) };
   controller.scene = scene as unknown as NonNullable<AppController['scene']>;

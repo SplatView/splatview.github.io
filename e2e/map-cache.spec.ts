@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 import type {} from './map-cache-harness';
 import type { NativeMemoryState } from '../src/document/nativeMemory';
-import { NEUTRAL_COLOR } from '../src/document/types';
+import { NEUTRAL_COLOR } from '../src/renderer/defaults';
 
 type Accounting = { native: NativeMemoryState; nativeRemainderLeaseId: number; retainedExportLeaseId: number | null;
   workOwnership: { transient: { allocations: number; bytes: number }; retainedExport: { allocations: number; bytes: number }; total: { allocations: number; bytes: number } };

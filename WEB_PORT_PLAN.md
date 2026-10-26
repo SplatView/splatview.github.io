@@ -1,3 +1,33 @@
+### Standalone browser renderer (October 25, 2026)
+
+`npm run build:engine` produces an independent WebGPU/WebGL2 ES module, worker,
+TypeScript declarations and plain browser example. Shared sorted/Steady kernels,
+exact queries, automatic startup fallback and app artifact verification remain
+in place. The [API guide](docs/development/renderer-engine.md) defines host camera,
+admission, scheduling and async shutdown ownership. The [review](design/feature-reviews/standalone-renderer-2026-10-25.md)
+records qualification and the remaining query-admission/cancellation, startup and
+platform/performance follow-ups. No native/profile migration is claimed.
+
+### Integrated WebGL2 delivery (October 25, 2026)
+
+### Exact rendering optimizations (October 25, 2026)
+
+Both backends now reuse exact resident depth order; WebGPU also reuses unchanged
+projected data. Indexed Gaussian quads, asynchronous GL program preparation,
+exact pick candidates, cooperative dense-tile sorting and color-only GL Gaussian
+capture retain sorted display/fallback, clean output, raw maps and native editing.
+Automatic WebGPU-to-WebGL2 fallback and the sorted default are preserved.
+
+The [review](design/feature-reviews/rendering-optimization-plan-2026-10-25.md) and
+[validation receipt](docs/validation/runs/rendering-optimization-20261025-01/validation.json)
+record 6,426 portable tests, actual browser/production checks and repeated
+measurements on Windows Chromium/RTX 5090. Exact queries and sorted capture
+improve; the approximately 31 ms GL completion floor and App input latency remain.
+No native/profile migration or other-platform GPU qualification is claimed.
+
+
+The [WebGL2 plan](design/feature-reviews/steady-splats-webgl2-plan-2026-10-25.md) now has an integrated backend for the retained Basic surface, including deterministic editing/output and the same opt-in SteadySplats logic. Automatic startup prefers WebGPU, then WebGL2; device loss stays on the selected backend. This supersedes earlier statements that only a separate compatibility viewer was planned, while that separate viewer remains excluded. The [review](design/feature-reviews/webgl2-implementation-2026-10-25.md) and [delivery receipt](docs/validation/runs/webgl2-implementation-20261025-02/validation.json) bind local qualification and performance scope. Existing native/source/worker/format contracts, resource caps and independent environment/hosting qualification remain required.
+
 ### Text-tour refinement (October 19, 2026)
 
 Continue refining the current text tour, as selected by the user. Accurate browser instructions and remembered-view modal sequencing belong in the existing course/hook/overlay owners. Preserve the 20/34 spatial courses, all seven translated rows, scene/history ownership, exact Bench data/license, source/native pins and keyboard/focus boundaries. A requested course may resume after its sample's saved-view choice only while that scene/client/renderer remains current; a dismissed or superseded preparation cannot revive. The [review](design/feature-reviews/tutorial-text-refinement-2026-10-19.md) and [evidence](docs/validation/runs/tutorial-text-refinement-20261019-01/validation.json) record final qualification.
@@ -2319,3 +2349,38 @@ The final [release-evidence bundle](WEB_IMPLEMENTATION_DETAILS.md#release-eviden
 | Deployment and idle behavior | Real static production build without assumed dev headers, correct worker/WASM URLs, offline restart after caching, cache-version consistency, no idle render loop, and no background histogram/hover polling while hidden. |
 
 Local build, WASM and Chromium prototype evidence is tracked in [implementation status](IMPLEMENTATION_STATUS.md). No Mac GPU measurements or shipping Safari qualification are established, and neither is required for this scope. Complete the retained desktop behavior/UI parity and browser/deployed-host gates before claiming a full editor; publish compatibility and budgets only for the observed environments.
+
+### Opt-in SteadySplats (October 25, 2026)
+
+Settings / General now offers SteadySplats alongside the default sorted renderer.
+The WebGPU adaptation uses the existing Gaussian projection/color/opacity
+contract, STBN visibility, four-neighbor PDF resampling, occluder history,
+motion reprojection and stationary convergence. Exact queries and clean captures
+retain sorted semantics. Optional framebuffer allocations use existing render
+admission and queue-fenced retirement; unavailable views keep sorted rendering.
+See the [review](design/feature-reviews/steady-splats-2026-10-25.md) and its
+validation record for actual browser evidence. Native adapters remain separate
+implementation gaps; WebGL compatibility and profile migration are not added.
+
+### Qualified browser throughput policy (October 25, 2026)
+
+[Rendering throughput review](design/feature-reviews/rendering-throughput-2026-10-25.md)
+updates the current sorted-display policy: 24-bit moving views, exact 32-bit
+rest/output, two bounded host display submissions, and optional large-scene
+WebGPU visible-draw compaction. The standalone API defaults to exact precision.
+The [packet](docs/validation/runs/rendering-throughput-20261025-01/validation.json)
+separates observed local speed/quality from platform requirements. Earlier
+planning targets and validation records remain historical; there is no matched
+PlayCanvas/COLMAPView performance claim.
+
+### Exact WebGL worker throughput (October 25, 2026)
+
+The [worker-sort review](design/feature-reviews/webgl-worker-sort-2026-10-25.md)
+adds bounded synchronous kernels, uniform-digit skipping and exact adaptive
+counting with separately admitted retained storage. Existing precision/defaults,
+source ties, worker ownership, query budgets and the 16 MiB pool cap remain.
+Matched old/new standalone builds measured 43–75% lower current-sort worker
+round-trip medians across four synthetic scenes at 24/32 bits; all 48 snapshot
+pairs were identical. The [packet](docs/validation/runs/webgl-sort-20261025-01/README.md)
+records app/browser qualification separately. This does not establish physical
+FPS, remove the app's GL fence-polling floor or require external-engine parity.

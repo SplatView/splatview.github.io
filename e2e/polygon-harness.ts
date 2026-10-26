@@ -1,3 +1,4 @@
+import { requireWebGpuRenderer } from './gaussian-harness-scene';
 import { exportWorkObservation } from './admitted-export';
 // Scheduling gates wrap real controller/native/GPU operations. No shipping
 // test hooks, fabricated scene masks, or production browser entry points.
@@ -29,7 +30,7 @@ function gate() {
   return { held: new Promise<void>(resolve => { release = resolve; }), release: () => release() };
 }
 export async function polygonGpu(controller: AppController) {
-  const renderer = controller.renderer!, scene = requireGaussianScene(controller.scene), size = scene.count * 4;
+  const renderer = requireWebGpuRenderer(controller.renderer), scene = requireGaussianScene(controller.scene), size = scene.count * 4;
   const read = renderer.device.createBuffer({ size, usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.MAP_READ });
   try {
     const encoder = renderer.device.createCommandEncoder(); encoder.copyBufferToBuffer(scene.buffers.states, 0, read, 0, size);
@@ -44,7 +45,7 @@ export function polygonCsvIds(data: ArrayBuffer) {
   }).sort((a, b) => a - b);
 }
 export function polygonProjection(controller: AppController, points = polygonWorldOutline, css = false) {
-  const canvas = controller.renderer!.canvas, bounds = canvas.getBoundingClientRect();
+  const canvas = requireWebGpuRenderer(controller.renderer).canvas, bounds = canvas.getBoundingClientRect();
   return points.map(([x, y, z]) => {
     const multiply = (point: number[], matrix: Float32Array) => Array.from({ length: 4 }, (_, column) =>
       point.reduce((sum, value, row) => sum + value * matrix[row * 4 + column], 0));
@@ -265,7 +266,7 @@ export function createPolygonHarness() {
       try {
         h.profiles(mode, true, false); await h.baseline(); const before = await h.snapshot();
         useApp.setState({ tool, live: true, visibleOnly: false, overlap: false });
-        const renderer = h.controller.renderer!, points = h.physicalOutline();
+        const renderer = requireWebGpuRenderer(h.controller.renderer), points = h.physicalOutline();
         const command: SceneCommand = { command: tool, camera: h.controller.camera!.state,
           width: renderer.canvas.width, height: renderer.canvas.height, operation: 0, overlap: false,
           visibleOnly: false, radius: 24, points: polygonProjection(h.controller, [polygonPositions[1]]),
@@ -302,7 +303,7 @@ export function createPolygonHarness() {
           await new Promise(resolve => setTimeout(resolve, 10));
         }
         useApp.setState({ tool, live: true, visibleOnly: false, overlap: false });
-        const renderer = h.controller.renderer!, points = h.physicalOutline();
+        const renderer = requireWebGpuRenderer(h.controller.renderer), points = h.physicalOutline();
         const command: SceneCommand = { command: tool, camera: h.controller.camera!.state,
           width: renderer.canvas.width, height: renderer.canvas.height, operation: 0, overlap: false,
           visibleOnly: false, radius: 24, points: polygonProjection(h.controller, [polygonPositions[1]]),
@@ -326,7 +327,7 @@ export function createPolygonHarness() {
         h.profiles(mode, true, false); await h.baseline(); const before = await h.snapshot();
         const nativeTool = tool === 'visible-brush' ? 'brush' : tool, visibleOnly = tool === 'visible-brush';
         useApp.setState({ tool: nativeTool, live: true, visibleOnly, overlap: false });
-        const renderer = h.controller.renderer!, outline = h.physicalOutline();
+        const renderer = requireWebGpuRenderer(h.controller.renderer), outline = h.physicalOutline();
         // Independent source islands: the first brush center is ID1, the last
         // is ID3. ID2's center is outside a 0.3-world-unit brush but its 3-sigma
         // radius (0.24) touches it. ID0 is separated from the entire path.
@@ -381,7 +382,7 @@ export function createPolygonHarness() {
       try {
         await h.baseline(); const before = await h.snapshot();
         await h.controller.command({ command: 'polygon', points: h.physicalOutline(), camera: h.controller.camera!.state,
-          width: h.controller.renderer!.canvas.width, height: h.controller.renderer!.canvas.height, operation: 0, overlap });
+          width: requireWebGpuRenderer(h.controller.renderer).canvas.width, height: requireWebGpuRenderer(h.controller.renderer).canvas.height, operation: 0, overlap });
         const after = await h.snapshot(); await h.controller.command({ command: 'undo' }); const undone = await h.snapshot();
         return { before, after, undone, traffic: h.traffic, work: h.work() };
       } finally { h.dispose(); }
@@ -390,7 +391,7 @@ export function createPolygonHarness() {
       const h = await setup();
       try {
         h.profiles(mode, true, false); await h.baseline(); const before = await h.snapshot();
-        const renderer = h.controller.renderer!, command = { command: 'polygon', points: h.physicalOutline(),
+        const renderer = requireWebGpuRenderer(h.controller.renderer), command = { command: 'polygon', points: h.physicalOutline(),
           camera: h.controller.camera!.state, width: renderer.canvas.width, height: renderer.canvas.height, operation: 0, overlap: false };
         if (!h.controller.beginPolygonGesture(0)) throw new Error('The real Polygon did not begin.');
         await h.controller.updatePolygon({ ...command, points: command.points.slice(0, 2) }, true);

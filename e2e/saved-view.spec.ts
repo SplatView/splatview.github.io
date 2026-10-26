@@ -1,7 +1,7 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './backend-test';
 import type {} from './saved-view-harness';
 
-test.describe('Saved views and thumbnails through real IndexedDB/native/WebGPU', () => {
+test.describe('Saved views and thumbnails through real IndexedDB/native/rendering', () => {
   test.beforeEach(async ({ page }) => { await page.goto('/e2e/saved-view-harness.html'); await page.waitForFunction(() => !!window.savedViewHarness); });
   test('saves one atomic pair without editing history, restores Reset and renamed content', async ({ page }) => {
     const result = await page.evaluate(() => window.savedViewHarness.roundTrip());

@@ -1,9 +1,11 @@
+import { requireWebGpuRenderer } from './gaussian-harness-scene';
 // Test-only observations of the mounted App, actual native worker and GPU.
 // Snapshot never exports or settles the opacity owner. Fixtures and expected
 // alpha calculations in the spec are independent of production operations.
 import './geometry-viewer-harness';
 import { useApp } from '../src/app/store';
-import { IDENTITY_MATRIX, type SceneCommand } from '../src/document/types';
+import { IDENTITY_MATRIX } from '../src/renderer/defaults';
+import { type SceneCommand } from '../src/document/types';
 import { requireGaussianScene } from './gaussian-harness-scene';
 
 const controller = () => window.geometryViewer.controllerForSourceNavigation();
@@ -31,7 +33,7 @@ function state() {
     document: app.client ? { ...app.client.revision } : null, deviceEpoch: app.renderer?.deviceEpoch ?? null };
 }
 async function gpuBytes(buffer: GPUBuffer, size: number) {
-  const renderer = controller().renderer!, readback = renderer.device.createBuffer({ size, usage: GPUBufferUsage.MAP_READ | GPUBufferUsage.COPY_DST });
+  const renderer = requireWebGpuRenderer(controller().renderer), readback = renderer.device.createBuffer({ size, usage: GPUBufferUsage.MAP_READ | GPUBufferUsage.COPY_DST });
   try {
     const encoder = renderer.device.createCommandEncoder(); encoder.copyBufferToBuffer(buffer, 0, readback, 0, size);
     renderer.device.queue.submit([encoder.finish()]); await readback.mapAsync(GPUMapMode.READ);
@@ -58,7 +60,7 @@ async function snapshot() {
 }
 async function capture() {
   const app = controller(), value = useApp.getState(), scene = requireGaussianScene(app.scene), camera = app.camera!;
-  const blob = await app.renderer!.capture(scene, camera, 'image/png', value.grade, value.transformPreview?.matrix ?? IDENTITY_MATRIX,
+  const blob = await requireWebGpuRenderer(app.renderer).capture(scene, camera, 'image/png', value.grade, value.transformPreview?.matrix ?? IDENTITY_MATRIX,
     value.colorSelectedOnly, value.transformPreview?.selectedOnly ?? false, value.opacityPreview?.scale ?? 1, value.opacityPreview?.selectedOnly ?? false);
   const bitmap = await createImageBitmap(blob);
   try {
@@ -85,7 +87,7 @@ const harness = {
     const app = controller(); await app.openFiles([new File([fixture()], name)]);
     if (useApp.getState().navigationPrompt) await app.discardAndContinue();
     if (useApp.getState().summary?.count !== 6 || useApp.getState().summary?.shDegree !== 3) throw new Error(useApp.getState().error ?? 'Actual opacity fixture was not published.');
-    const canvas = app.renderer!.canvas; app.camera!.set([0, 0, 0, 0, 0, 3, 1, 45, 0, 0, canvas.width / canvas.height]);
+    const canvas = requireWebGpuRenderer(app.renderer).canvas; app.camera!.set([0, 0, 0, 0, 0, 3, 1, 45, 0, 0, canvas.width / canvas.height]);
     app.camera!.background = 'black'; app.invalidate();
   },
   command: (command: SceneCommand) => controller().command(command),
@@ -133,7 +135,7 @@ const harness = {
   releaseEnd() { releaseEnd?.(); releaseEnd = undefined; },
   commands: () => [...commands], stop: () => restore?.(),
   async recover() {
-    const app = controller(), oldRenderer = app.renderer!, oldScene = app.scene!, client = app.client!, oldEpoch = oldRenderer.deviceEpoch;
+    const app = controller(), oldRenderer = requireWebGpuRenderer(app.renderer), oldScene = app.scene!, client = app.client!, oldEpoch = oldRenderer.deviceEpoch;
     oldRenderer.device.destroy(); await oldRenderer.device.lost;
     // Device-loss notification can already start automatic restoration. This
     // public Retry path joins that exact owner; it never substitutes a device

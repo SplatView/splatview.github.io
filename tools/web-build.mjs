@@ -283,7 +283,7 @@ export function copyQualifiedPublic(snapshot, outDir) {
   }
 }
 
-export function writeDeploymentManifest(snapshot, outDir, entryPath, workerPath, emittedPaths, serviceWorkerPath) {
+export function writeDeploymentManifest(snapshot, outDir, entryPath, workerPath, emittedPaths, serviceWorkerPath, renderWorkerPath) {
   assertBuildInputsUnchanged(snapshot);
   outDir = currentOutputDirectory(snapshot, outDir);
   if (!Array.isArray(emittedPaths) || !emittedPaths.length) throw new Error('Actual emitted bundle paths are required');
@@ -298,7 +298,10 @@ export function writeDeploymentManifest(snapshot, outDir, entryPath, workerPath,
     if (aliases.has(folded)) throw new Error(`Duplicate or case-aliased deployment output: ${name}`);
     expected.add(name); aliases.add(folded);
   };
-  const scriptOwners = [entryPath, workerPath, ...(serviceWorkerPath ? [serviceWorkerPath] : [])];
+  if (renderWorkerPath !== undefined && !/^assets\/compute\.worker-[A-Za-z0-9_-]+\.js$/.test(renderWorkerPath)) {
+    throw new Error('The render executor must use its content-addressed compute.worker output');
+  }
+  const scriptOwners = [entryPath, workerPath, ...(serviceWorkerPath ? [serviceWorkerPath] : []), ...(renderWorkerPath ? [renderWorkerPath] : [])];
   const maps = scriptOwners.map(path => path + '.map');
   for (const name of emittedPaths) {
     assertArtifactPath(name);
@@ -429,9 +432,11 @@ export function webBuildIdentityPlugin() {
       if (!Object.hasOwn(bundle, SERVICE_WORKER_PATH) || bundle[SERVICE_WORKER_PATH].type !== 'asset') {
         throw new Error('Production requires the self-contained application-root service-worker.js output');
       }
+      const renderWorkers = Object.keys(bundle).filter(path => /^assets\/compute\.worker-[A-Za-z0-9_-]+\.js$/.test(path));
+      if (renderWorkers.length !== 1) throw new Error('Production requires exactly one self-contained render executor');
       const outDir = currentOutputDirectory(snapshot, resolve(config.root, config.build.outDir));
       copyQualifiedPublic(snapshot, outDir);
-      const manifest = writeDeploymentManifest(snapshot, outDir, entryPath, workers[0], emittedBundlePaths(bundle), SERVICE_WORKER_PATH);
+      const manifest = writeDeploymentManifest(snapshot, outDir, entryPath, workers[0], emittedBundlePaths(bundle), SERVICE_WORKER_PATH, renderWorkers[0]);
       config.logger.info(`SplatView deployment ${manifest.deploymentId}: ${manifest.artifacts.length} qualified runtime artifacts`);
     },
   };

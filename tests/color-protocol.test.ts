@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { colorValues, sameColorBase, validateColorSession } from '../src/document/colorProtocol';
-import { NEUTRAL_COLOR } from '../src/document/types';
+import { NEUTRAL_COLOR } from '../src/renderer/defaults';
 
 const session = () => ({ version: 1, active: true, sessionId: 1, baseId: 2, epochId: 3,
   selectedOnly: false, pending: false, values: [...NEUTRAL_COLOR], applied: [...NEUTRAL_COLOR] });

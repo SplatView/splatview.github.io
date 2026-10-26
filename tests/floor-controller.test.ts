@@ -1,7 +1,8 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { AppController } from '../src/app/controller';
 import { setApp, useApp } from '../src/app/store';
-import { NEUTRAL_COLOR, type NativeSummary, type Revision, type SceneCommand } from '../src/document/types';
+import { NEUTRAL_COLOR } from '../src/renderer/defaults';
+import { type NativeSummary, type Revision, type SceneCommand } from '../src/document/types';
 import { IDENTITY_ALIGNMENT_FRAME, alignmentFrameChange, type AlignmentFrame } from '../src/document/alignment';
 import type { AlignmentSummary } from '../src/document/alignmentProtocol';
 import type { FloorSummary } from '../src/document/floorProtocol';
@@ -89,7 +90,7 @@ function fixture(limit = 256 * MiB) {
   const renderer = { lost: false, deviceEpoch: 7,
     canvas: { width: 800, height: 400, getBoundingClientRect: () => ({ width: 400, height: 200 }) },
     render: vi.fn(), pick: vi.fn(async () => ({ index: 2, deviceEpoch: 7 })), setHistogramEnabled: vi.fn(), resetHistogram: vi.fn(), dispose: vi.fn(),
-    device: { queue: { onSubmittedWorkDone: vi.fn(async () => {
+    finish(): Promise<void> { return this.device.queue.onSubmittedWorkDone(); }, device: { queue: { onSubmittedWorkDone: vi.fn(async () => {
       events.push('gpu-fence'); if (failure === 'fence') { failure = undefined; throw new Error('Injected GPU fence refusal'); }
     }) } },
     allocateScene: vi.fn(async () => {

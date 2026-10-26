@@ -1,4 +1,4 @@
-import { expect, test, type Page } from '@playwright/test';
+import { expect, test, type Page } from './backend-test';
 import type {} from './alignment-harness';
 
 type Snapshot = Awaited<ReturnType<Window['alignmentHarness']['snapshot']>>;
@@ -181,7 +181,7 @@ test('a selection boundary retires the mixed alignment Reset group without chang
   const selected = await snapshot(page); mirrors(selected); expect(selected.records).toEqual(scaled.records);
   expect(selected.masks).toEqual([1, 0, 0, 0, 0]); expect(selected.summary.alignment!.canReset).toBe(false);
   await expect(tools(page).getByRole('button', { name: 'Reset transform', exact: true })).toBeEnabled();
-  expect(await page.evaluate(() => window.geometryViewer.controllerForSourceNavigation().resetAlignment())).toBe(false);
+  expect(await page.evaluate(() => window.geometryViewer.controllerForRendererNavigation().resetAlignment())).toBe(false);
   await tools(page).getByRole('button', { name: 'Reset transform', exact: true }).click(); await settled(page);
   retained(await snapshot(page), selected);
 });
@@ -190,7 +190,7 @@ test('compact Scale controls retain explicit confirmation without background geo
   await expect.poll(() => page.evaluate(() => window.alignmentHarness.state().mode)).toBe('basic');
   await page.setViewportSize({ width: 640, height: 360 });
   await page.waitForFunction(() => {
-    const render = window.geometryViewer.renderState(), camera = window.geometryViewer.controllerForSourceNavigation().camera!;
+    const render = window.alignmentHarness.renderState(), camera = window.geometryViewer.controllerForRendererNavigation().camera!;
     return render.width === 640 && render.height === 360 && camera.state[10] === Math.fround(640 / 360);
   });
   await page.evaluate(() => window.alignmentHarness.pickScale());

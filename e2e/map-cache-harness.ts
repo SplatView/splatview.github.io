@@ -1,8 +1,9 @@
+import { requireWebGpuRenderer } from './gaussian-harness-scene';
 import { admittedExport, exportWorkObservation } from './admitted-export';
 import { DocumentSelectionMaps, type SelectionMapContext, type SelectionMapDiagnosticEvent } from '../src/app/selectionMaps';
 import { CoreClient } from '../src/document/coreClient';
 import { estimateSceneBytes, MiB, ResourceLedger, type ResourceLease } from '../src/document/resources';
-import { IDENTITY_MATRIX, NEUTRAL_COLOR } from '../src/document/types';
+import { IDENTITY_MATRIX, NEUTRAL_COLOR } from '../src/renderer/defaults';
 import { CameraController } from '../src/input/camera';
 import { GaussianRenderer } from '../src/renderer/webgpu/renderer';
 import { gaussianPly } from '../tests/fixtures/gaussians';
@@ -79,7 +80,7 @@ const endTolerance = async (controller: AppController) => {
   controller.endToleranceSelection(); await (controller as unknown as { toleranceCleanup: Promise<void> }).toleranceCleanup;
 };
 async function gpuMasks(controller: AppController) {
-  const renderer = controller.renderer!, scene = requireGaussianScene(controller.scene), bytes = scene.count * 4;
+  const renderer = requireWebGpuRenderer(controller.renderer), scene = requireGaussianScene(controller.scene), bytes = scene.count * 4;
   const read = renderer.device.createBuffer({ label: 'Map lifecycle mask oracle', size: bytes, usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.MAP_READ });
   try {
     const encoder = renderer.device.createCommandEncoder(); encoder.copyBufferToBuffer(scene.buffers.states, 0, read, 0, bytes);
@@ -95,9 +96,9 @@ async function controllerFixture() {
   if (!controller.client || !controller.scene || !controller.renderer || !controller.camera) {
     controller.dispose(); target.remove(); throw new Error(useApp.getState().error || 'The controller fixture did not open.');
   }
-  const internals = controller as unknown as ControllerInternals, client = controller.client, renderer = controller.renderer;
+  const internals = controller as unknown as ControllerInternals, client = controller.client, renderer = requireWebGpuRenderer(controller.renderer);
   categoryClients.set(internals.ledger, () => controller.client);
-  categoryRenderers.set(internals.ledger, () => controller.renderer);
+  categoryRenderers.set(internals.ledger, () => controller.renderer ? requireWebGpuRenderer(controller.renderer) : undefined);
   await selectionReady(controller);
   const baseline = internals.ledger.usage.bytes;
   const identities = new Map<symbol, number>();
@@ -124,7 +125,7 @@ async function controllerFixture() {
     const outputIdentity = output && owners.identities.get(output);
     const retainedExportLeaseId = outputIdentity === undefined ? null : identities.get(outputIdentity);
     if (retainedExportLeaseId === undefined) throw new Error('The retained native export has no observed ledger identity.');
-    const scratchOwner = (controller.renderer ?? renderer).surfaceScratch;
+    const scratchOwner = requireWebGpuRenderer(controller.renderer ?? renderer).surfaceScratch;
     const scratchEntries = [...(scratchOwner as unknown as { entries: Set<{ credit: ResourceLease; size: number; busy: boolean }> }).entries];
     const scratchLeases = scratchEntries.map(entry => {
       const identity = owners.identities.get(entry.credit), id = identity === undefined ? undefined : identities.get(identity);
@@ -190,7 +191,7 @@ async function createHarness() {
         canvas.style.width = `${options.width / devicePixelRatio}px`; canvas.style.height = `${options.height / devicePixelRatio}px`;
         camera.set([0, 0, 0, 0, 0, 3, 1, 45, 0, 0, options.width / options.height]);
         renderer.render(f.context.scene, camera, NEUTRAL_COLOR, false);
-        oracle = await compositedSurface(renderer, f.context.scene, { admit: bytes => f.ledger.reserve('work', bytes) });
+        oracle = await compositedSurface(renderer, requireGaussianScene(f.context.scene), { admit: bytes => f.ledger.reserve('work', bytes) });
         const focal = options.height / 2 / Math.tan(Math.PI / 8), cx = Math.floor(options.width / 2), cy = Math.floor(options.height / 2);
         const left = Math.round(options.width / 2 - .4 * focal / 3), right = Math.round(options.width / 2 + .4 * focal / 3);
         const top = Math.round(options.height / 2 - .4 * focal / 2.9);
@@ -274,7 +275,7 @@ async function createHarness() {
           } else if (stage === 'restored') await f.client.command({ command: 'undo' });
           if (stage !== 'initial' && stage !== 'camera') await f.client.readMasks(bytes => f.context.scene.masks(bytes));
           const pooled = await f.maps.request(f.context, { colors: true, visible: true });
-          const fresh = await compositedSurface(renderer, f.context.scene, {
+          const fresh = await compositedSurface(renderer, requireGaussianScene(f.context.scene), {
             colors: true, visible: true, admit: bytes => f.ledger.reserve('work', bytes),
           });
           const difference = surfaceDifference(pooled.map, fresh); fresh.dispose();
@@ -640,7 +641,7 @@ async function createHarness() {
           mapShape: { width: first.map.width, height: first.map.height, sourceCount: before.count },
           bytesBeforeReacquire, oldValid, newValid: valid(second), sameOwner: first === second,
           sameClient: f.controller.client === f.client, sceneChanged: f.controller.scene !== oldScene, oldSceneRetired: oldScene.retired,
-          sameOutput: equalBytes(output, afterOutput), masks, afterMasks, oldEpoch, newEpoch: f.controller.renderer!.deviceEpoch,
+          sameOutput: equalBytes(output, afterOutput), masks, afterMasks, oldEpoch, newEpoch: requireWebGpuRenderer(f.controller.renderer).deviceEpoch,
           sameView: f.controller.camera!.state.every((value, i) => value === view[i]), busy: useApp.getState().busy, error: useApp.getState().error };
       } finally { await f.close(); }
     },

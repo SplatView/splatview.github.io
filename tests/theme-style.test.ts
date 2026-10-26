@@ -73,7 +73,7 @@ describe('desktop theme CSS coverage', () => {
         return [value.slice(0, colon).trim(), value.slice(colon + 1).trim().replace(/\s+/g, ' ')];
       }));
     };
-    expect(declarations(['.font-size-setting', '.theme-setting', '.language-setting'])).toMatchObject({
+    expect(declarations(['.font-size-setting', '.theme-setting', '.language-setting', '.render-settings-row'])).toMatchObject({
       display: 'grid', 'grid-template-columns': 'min(43%, calc(108px + 7.2 * var(--ui-font-increase))) minmax(0, 1fr)',
       'align-items': 'center', gap: '6px',
     });

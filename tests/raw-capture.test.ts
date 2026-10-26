@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { GaussianRenderer, type RenderableScene } from '../src/renderer/webgpu/renderer';
-import { IDENTITY_MATRIX, NEUTRAL_COLOR } from '../src/document/types';
+import { IDENTITY_MATRIX, NEUTRAL_COLOR } from '../src/renderer/defaults';
 import { ResourceLedger } from '../src/document/resources';
 import type { CameraController } from '../src/input/camera';
 

@@ -1,3 +1,41 @@
+### Standalone browser renderer (October 25, 2026)
+
+The [exact WebGL worker optimization](design/feature-reviews/webgl-worker-sort-2026-10-25.md)
+halves million-source exact-sort round trips in the matched local benchmark;
+the dense 24-bit case drops from 31.9 to 8.0 ms. All 48 matched snapshot pairs
+are identical. See the [new packet](docs/validation/runs/webgl-sort-20261025-01/README.md)
+for checks and scope. The existing 24-bit motion/32-bit rest policy, exact query/
+capture contracts and 16 MiB retained cap are preserved. App GL fence polling,
+native qualification and other-platform browser evidence remain separate.
+
+`npm run build:engine` produces an independent WebGPU/WebGL2 ES module, worker,
+TypeScript declarations and plain browser example. Shared sorted/Steady kernels,
+exact queries, automatic startup fallback and app artifact verification remain
+in place. The [API guide](docs/development/renderer-engine.md) defines host camera,
+admission, scheduling and async shutdown ownership. The [review](design/feature-reviews/standalone-renderer-2026-10-25.md)
+records qualification and the remaining query-admission/cancellation, startup and
+platform/performance follow-ups. No native/profile migration is claimed.
+
+### Integrated WebGL2 backend (October 25, 2026)
+
+### Exact rendering optimizations (October 25, 2026)
+
+Both backends now reuse exact resident depth order; WebGPU also reuses unchanged
+projected data. Indexed Gaussian quads, asynchronous GL program preparation,
+exact pick candidates, cooperative dense-tile sorting and color-only GL Gaussian
+capture retain sorted display/fallback, clean output, raw maps and native editing.
+Automatic WebGPU-to-WebGL2 fallback and the sorted default are preserved.
+
+The [review](design/feature-reviews/rendering-optimization-plan-2026-10-25.md) and
+[validation receipt](docs/validation/runs/rendering-optimization-20261025-01/validation.json)
+record 6,426 portable tests, actual browser/production checks and repeated
+measurements on Windows Chromium/RTX 5090. Exact queries and sorted capture
+improve; the approximately 31 ms GL completion floor and App input latency remain.
+No native/profile migration or other-platform GPU qualification is claimed.
+
+
+Implemented sorted Gaussian/PLY rendering and opt-in SteadySplats on WebGL2 using shared WebGPU frame/history/noise logic. Automatic startup prefers WebGPU, then WebGL2; Settings offers a session override while the scene is closed. Native editing/history, exact worker queries, capture/clipboard/saved views, retirement and recovery have observed Basic coverage. The [review](design/feature-reviews/webgl2-implementation-2026-10-25.md) and [delivery receipt](docs/validation/runs/webgl2-implementation-20261025-02/validation.json) bind actual checks, source/build identity, measured environment and limitations. Earlier checkpoint statements below stay historical. No native profile migration or other-platform GPU qualification is claimed.
+
 ### Text-tour refinement (October 19, 2026)
 
 This packet refines the current text tour under the user's explicit choice. Course copy explains Topics and closing the tour to practice, actual Ctrl snapping, Auto color's immediate commit, neutral Reset previews and scene/selection transform scope. Native catalog provenance, eight languages, spatial order and the 20/34 lesson counts remain authoritative. Preparation pauses presentation for the existing saved-view chooser and resumes only for the same current scene after the choice and input settle.
@@ -1447,3 +1485,46 @@ npm run dev
 ```
 
 `build:core` verifies the frozen inputs, installed tool/runtime/cache fingerprints and pinned codec archives/trees; removes ambient build overrides, stale reports and root CMake state; recreates the adapter overlay; and compiles with `--clean-first`. It rejects changed inputs during compilation and records command/input/output hashes in `public/wasm/build-provenance.json`. `verify-build --local-evidence` checks report freshness and local command/configuration evidence. `build` verifies sources/product data and native provenance, generates the application input descriptor, typechecks, bundles self-contained application/worker output, rewrites entry/style SRI, then writes the final deployment manifest and rechecks inputs/copied native bytes. Runtime bootstrap independently verifies the compiled descriptor, exact roles/URLs/bytes and actual native identities before editor readiness. Final deployment verification must additionally run from the production output and the real hosting URL; a passing development server does not prove cache updates, MIME types, offline use or browser permissions.
+
+### Opt-in SteadySplats (October 25, 2026)
+
+Implemented session-only Gaussian renderer settings, stochastic unsorted
+visibility, four-neighbor spatial resampling, temporal reconstruction and
+16-frame default convergence. The existing controller retains render demand,
+memory admission and recovery ownership. Sorted rendering is the default and
+fallback, and remains authoritative for exact picking/maps and clean captures.
+
+Current portable checks passed 6,402 tests. The initial development cohort passed
+51 real-browser checks, including SteadySplats, Settings, Basic workflows,
+geometry, histogram and product policy, with no retries. Browser evidence is
+Windows Chromium 156 / nonfallback NVIDIA Blackwell, secure localhost without
+cross-origin isolation or optional WebGPU features. The [feature review](design/feature-reviews/steady-splats-2026-10-25.md)
+links final build/production results and retained diagnostics. Other browsers,
+native editors and preview providers require their own qualification.
+
+### WebGL2 implementation checkpoint (October 25, 2026)
+
+Forced WebGL2 now renders sorted Gaussians/PLY and opt-in SteadySplats using the
+reviewed shared frame state. Exact worker picks/maps, clean image readback,
+display histogram and context-loss canvas replacement are implemented and have
+focused observed-browser evidence. The
+[active review](design/feature-reviews/webgl2-implementation-2026-10-25.md)
+records checks and remaining qualification. Default startup still uses WebGPU;
+automatic fallback, the remaining full-editor operating envelope and final
+production qualification are pending. Earlier WebGPU receipts remain historical.
+
+### Rendering throughput checkpoint (October 25, 2026)
+
+The controller admits up to two matching display submissions while retaining
+serialized CPU preparation and genuine GPU completion/retirement. Moving sorted
+views use 24-bit keys and refine to exact 32-bit order at rest on both backends.
+WebGPU optionally compacts the sorted draw list at 262,144 sources and above;
+resource refusal retains portable full drawing. Exact queries/capture remain
+full precision. Standalone defaults remain 32-bit, with typed precision and
+optional host admission/motion helpers.
+
+The [review](design/feature-reviews/rendering-throughput-2026-10-25.md) and
+[delivery receipt](docs/validation/runs/rendering-throughput-20261025-01/validation.json)
+record this packet's source identities, actual checks, quality, before/after
+measurements and rejected candidates. External-engine performance parity and
+other browser/OS/GPU qualification remain unproven.

@@ -1,9 +1,12 @@
 import { create } from 'zustand';
+import type { GraphicsBackend, GraphicsBackendPreference } from '../renderer/backend';
 import { webFeatureAllowed } from './productPolicy';
-import { NEUTRAL_COLOR, type NativeSummary } from '../document/types';
+import { NEUTRAL_COLOR } from '../renderer/defaults';
+import { type NativeSummary } from '../document/types';
 import type { BackgroundColor } from '../input/background';
 import type { SavedViewRecord } from '../io/savedView';
 import type { RenderedHistogram } from '../renderer/histogram';
+import { DEFAULT_STEADY_SETTINGS, type SteadySettings, type SteadyStatus } from '../renderer/steadySettings';
 import { SELECTION_SIGMA_DEFAULT } from '../input/selectionMorphology';
 import type { ColorSessionState } from '../document/colorSession';
 import type { FloorSummary } from '../document/floorProtocol';
@@ -57,6 +60,8 @@ const mode = initialMode();
 type AppState = {
   ready: boolean; busy: boolean; stage: string; progress: number; error: string | null;
   rendererState: 'ready' | 'recovering' | 'unavailable';
+  renderSettings: SteadySettings; renderStatus: SteadyStatus;
+  backendPreference: GraphicsBackendPreference; graphicsBackend: GraphicsBackend | null; graphicsFallbackReason: string | null;
   bootstrapState: 'initializing' | 'ready' | 'failed';
   runtimeMode: 'production-verified' | 'development-module-graph' | null;
   selectionRecovery: 'idle' | 'restoring' | 'required';
@@ -95,6 +100,8 @@ type AppState = {
 export const useApp = create<AppState>(() => ({
   ready: false, busy: false, stage: '', progress: 0, error: null, rendererState: 'unavailable', selectionRecovery: 'idle', operationRecovery: 'idle', operationRecoveryCommitted: false, memoryOverageBytes: 0, summary: null,
   bootstrapState: 'initializing', runtimeMode: null,
+  renderSettings: DEFAULT_STEADY_SETTINGS, renderStatus: 'sorted',
+  backendPreference: 'auto', graphicsBackend: null, graphicsFallbackReason: null,
   sourceName: '', dirty: false, toolsOpen: false, histogram: null, histogramUnavailable: false, settingsOpen: false, exportOpen: false,
   toolbarFeedback: { save: null, capture: null, thumbnail: null },
   collectionCount: 0, collectionIndex: 0, collectionPath: '', collectionPrevious: false, collectionNext: false,

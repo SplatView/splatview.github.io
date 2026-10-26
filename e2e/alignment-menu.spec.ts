@@ -1,4 +1,4 @@
-import { expect, test, type Locator, type Page } from '@playwright/test';
+import { expect, test, type Locator, type Page } from './backend-test';
 import type {} from './alignment-harness';
 import { queuePositions } from './queue-fixture';
 import { chooseSelectionTool } from './selectTool';
@@ -59,7 +59,7 @@ async function contributor(page: Page, id = 0) {
   return pixel;
 }
 async function passiveFinish(page: Page) {
-  const observed = await page.evaluate(() => window.geometryViewer.keyboardFinish());
+  const observed = await page.evaluate(() => window.alignmentHarness.keyboardFinish());
   expect(observed.calls.filter(command => command !== 'summary')).toEqual([]);
   return observed;
 }
@@ -96,7 +96,7 @@ test.afterEach(async ({ page }) => { await page.evaluate(() => window.alignmentM
 
 test('Alignment hover, directional bridge, click pin and keyboard dismissal preserve native/GPU bytes and executable Redo', async ({ page }, info) => {
   const initial = await baseline(page); await scene(page).focus();
-  await page.evaluate(() => window.geometryViewer.keyboardStart());
+  await page.evaluate(() => window.alignmentHarness.keyboardStart());
   await trigger(page).hover(); await page.waitForTimeout(160);
   await expect(menu(page)).toHaveCount(0); await expect(scene(page)).toBeFocused();
   await expect(menu(page)).toBeVisible(); await expect(scene(page)).toBeFocused();
@@ -131,7 +131,7 @@ test('Alignment hover, directional bridge, click pin and keyboard dismissal pres
 
 test('Alignment outside canvas dismissal cannot pick a contributor and the next fresh press can confirm a real Center', async ({ page }, info) => {
   await baseline(page); await armCenter(page); const before = await snapshot(page);
-  await page.evaluate(() => window.geometryViewer.keyboardStart()); await open(page);
+  await page.evaluate(() => window.alignmentHarness.keyboardStart()); await open(page);
   await contributor(page); await expect(menu(page)).toHaveCount(0); await settled(page);
   expect((await page.evaluate(() => window.alignmentHarness.state())).alignmentPoint).toBeNull();
   const observed = await passiveFinish(page), dismissed = await snapshot(page); retained(dismissed, before);
@@ -155,7 +155,7 @@ test('Alignment dismissal over Reset camera preserves the picked draft and curre
   await baseline(page); await armCenter(page); await contributor(page);
   await expect(page.getByRole('button', { name: 'Set center', exact: true })).toBeEnabled();
   await page.evaluate(() => window.alignmentHarness.navigate()); const before = await snapshot(page);
-  await page.evaluate(() => window.geometryViewer.keyboardStart()); await open(page);
+  await page.evaluate(() => window.alignmentHarness.keyboardStart()); await open(page);
   await page.keyboard.press('Escape'); await expect(menu(page)).toHaveCount(0);
   expect((await page.evaluate(() => window.alignmentHarness.state())).alignmentPoint).toEqual(before.alignmentPoint);
   await open(page);
@@ -175,7 +175,7 @@ for (const button of ['right', 'middle'] as const) test(`Alignment owns outside 
   const tolerance = tools(page).getByRole('slider', { name: 'Selection tolerance', exact: true });
   const entry = tools(page).getByRole('spinbutton', { name: 'Tolerance percent', exact: true });
   await tolerance.scrollIntoViewIfNeeded(); const before = await snapshot(page);
-  await page.evaluate(() => window.geometryViewer.keyboardStart()); await open(page); await observe(tolerance);
+  await page.evaluate(() => window.alignmentHarness.keyboardStart()); await open(page); await observe(tolerance);
   const box = (await tolerance.boundingBox())!;
   await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2, { button });
   await expect(menu(page)).toHaveCount(0); await expect(entry).toHaveCount(0);

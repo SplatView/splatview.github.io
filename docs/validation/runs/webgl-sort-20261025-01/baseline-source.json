@@ -1,0 +1,34 @@
+{
+  "files": [
+    {
+      "path": "src/renderer/webgl2/radix.ts",
+      "bytes": 3021,
+      "sha256": "1dbba5f71c132267fddb23a966f41d381dd9c08d3137284fba38b66950ddcd83"
+    },
+    {
+      "path": "src/renderer/webgl2/computeClient.ts",
+      "bytes": 7304,
+      "sha256": "fbd69ce8f342790ed85a97f5646d62ed5dfd8bfa0bbc2d83a0a1d2d46885da7e"
+    },
+    {
+      "path": "src/renderer/webgl2/computeExecutor.ts",
+      "bytes": 6903,
+      "sha256": "477e22b1ee976598bb6b38152557e8af8b07a28ed97dcf6bb827b263039554d1"
+    },
+    {
+      "path": "src/renderer/webgl2/renderer.ts",
+      "bytes": 35492,
+      "sha256": "248766d1640f90f56abdab05ed2a02078ca437398c763b59ec061d2923b5ef52"
+    },
+    {
+      "path": "src/renderer/webgl2/queryCompute.ts",
+      "bytes": 8512,
+      "sha256": "94c24ed77ee32e89003fe61557fef2f9343fc234b97cf75fffc0d0c70130d540"
+    },
+    {
+      "path": "tools/bench/comparison/run.mjs",
+      "bytes": 6713,
+      "sha256": "3895b2c56dfa1706a7c71b01e94ed8b41a172657a9250df6459d1331125506e1"
+    }
+  ]
+}

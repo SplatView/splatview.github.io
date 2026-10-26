@@ -1,0 +1,406 @@
+{
+  "scope": "Historical before/after queue/fence wall clocks; measured-source interleaved GPU implementation variants. Physical presentation FPS unavailable.",
+  "inputComparisonLimit": "The shipping sampler requires CPU draw start after input and accepts actual captured display fences during camera advance. Historical sampler used submit-observed time and rejected camera-stale observation. These latency summaries are not a matched improvement claim.",
+  "throughput": {
+    "baseline": {
+      "webgpu/sorted": {
+        "repetitions": 3,
+        "rows": [
+          480,
+          480,
+          480
+        ],
+        "submissionInterval": {
+          "samples": 1437,
+          "medianMs": 31.200000047683716,
+          "p95Ms": 31.799999952316284
+        },
+        "maximumPending": 1
+      },
+      "webgl2/sorted": {
+        "repetitions": 3,
+        "rows": [
+          242,
+          243,
+          242
+        ],
+        "submissionInterval": {
+          "samples": 724,
+          "medianMs": 62.5,
+          "p95Ms": 66.5
+        },
+        "maximumPending": 1
+      },
+      "webgpu/steady": {
+        "repetitions": 3,
+        "rows": [
+          477,
+          478,
+          477
+        ],
+        "submissionInterval": {
+          "samples": 1429,
+          "medianMs": 31.200000047683716,
+          "p95Ms": 31.700000047683716
+        },
+        "maximumPending": 1
+      },
+      "webgl2/steady": {
+        "repetitions": 3,
+        "rows": [
+          474,
+          489,
+          477
+        ],
+        "submissionInterval": {
+          "samples": 1437,
+          "medianMs": 31.200000047683716,
+          "p95Ms": 32.299999952316284
+        },
+        "maximumPending": 1
+      }
+    },
+    "final": {
+      "webgpu/sorted": {
+        "repetitions": 3,
+        "rows": [
+          480,
+          480,
+          480
+        ],
+        "submissionInterval": {
+          "samples": 1437,
+          "medianMs": 31.299999952316284,
+          "p95Ms": 31.700000047683716
+        },
+        "maximumPending": 1
+      },
+      "webgl2/sorted": {
+        "repetitions": 3,
+        "rows": [
+          480,
+          483,
+          489
+        ],
+        "submissionInterval": {
+          "samples": 1449,
+          "medianMs": 31.299999952316284,
+          "p95Ms": 34.89999997615814
+        },
+        "maximumPending": 2
+      },
+      "webgpu/steady": {
+        "repetitions": 3,
+        "rows": [
+          480,
+          479,
+          479
+        ],
+        "submissionInterval": {
+          "samples": 1435,
+          "medianMs": 31.299999952316284,
+          "p95Ms": 31.700000047683716
+        },
+        "maximumPending": 2
+      },
+      "webgl2/steady": {
+        "repetitions": 3,
+        "rows": [
+          481,
+          480,
+          479
+        ],
+        "submissionInterval": {
+          "samples": 1437,
+          "medianMs": 31.299999952316284,
+          "p95Ms": 32.0
+        },
+        "maximumPending": 2
+      }
+    }
+  },
+  "appInputCompletion": {
+    "historicalSubmitObservedSampler": {
+      "webgpu": {
+        "samples": 360,
+        "medianMs": 4.200000047683716,
+        "p95Ms": 4.699999928474426
+      },
+      "webgl2": {
+        "samples": 360,
+        "medianMs": 67.54999995231628,
+        "p95Ms": 70.89999997615814
+      }
+    },
+    "shippingPostInputDrawSampler": {
+      "webgpu": {
+        "samples": 360,
+        "medianMs": 4.399999976158142,
+        "p95Ms": 4.900000095367432
+      },
+      "webgl2": {
+        "samples": 360,
+        "medianMs": 36.60000002384186,
+        "p95Ms": 40.199999928474426
+      }
+    }
+  },
+  "quality24": {
+    "webgpu": {
+      "views": 16,
+      "minimumPsnrDb": 59.213919391641305,
+      "maximumMeanAbsoluteRgb": 9.027777777777748e-05,
+      "maximumAbsoluteRgb": 0.15294117647058825
+    },
+    "webgl2": {
+      "views": 16,
+      "minimumPsnrDb": 59.2142096663344,
+      "maximumMeanAbsoluteRgb": 9.025735294117616e-05,
+      "maximumAbsoluteRgb": 0.15294117647058825
+    }
+  },
+  "gpuImplementationVariants": [
+    {
+      "count": 4096,
+      "visibility": 0.25,
+      "compactionAvailable": false,
+      "gpuPassMediansMs": {
+        "baseline32": {
+          "Project Gaussians": 0.003392,
+          "Stable depth sort": 0.056304,
+          "raster": 0.00464
+        },
+        "compact32": {
+          "Project Gaussians": 0.003376,
+          "Stable depth sort": 0.055232,
+          "raster": 0.004608
+        },
+        "compact24": {
+          "Project Gaussians": 0.003424,
+          "Stable depth sort": 0.042352,
+          "raster": 0.004592000000000001
+        }
+      },
+      "summedPassMedianMs": {
+        "baseline32": 0.064336,
+        "compact32": 0.063216,
+        "compact24": 0.050367999999999996
+      },
+      "scope": "Opt-in fixture GPU pass timestamps, interleaved 32 measured frames after eight warm-up frames; visibility reports the fraction of source centers placed in the view region. No presentation FPS claim."
+    },
+    {
+      "count": 4096,
+      "visibility": 1,
+      "compactionAvailable": false,
+      "gpuPassMediansMs": {
+        "baseline32": {
+          "Project Gaussians": 0.003488,
+          "Stable depth sort": 0.057872,
+          "raster": 0.005552
+        },
+        "compact32": {
+          "Project Gaussians": 0.00352,
+          "Stable depth sort": 0.057184,
+          "raster": 0.005568
+        },
+        "compact24": {
+          "Project Gaussians": 0.003456,
+          "Stable depth sort": 0.043663999999999994,
+          "raster": 0.005552
+        }
+      },
+      "summedPassMedianMs": {
+        "baseline32": 0.066912,
+        "compact32": 0.066272,
+        "compact24": 0.052672
+      },
+      "scope": "Opt-in fixture GPU pass timestamps, interleaved 32 measured frames after eight warm-up frames; visibility reports the fraction of source centers placed in the view region. No presentation FPS claim."
+    },
+    {
+      "count": 65536,
+      "visibility": 0.25,
+      "compactionAvailable": false,
+      "gpuPassMediansMs": {
+        "baseline32": {
+          "Project Gaussians": 0.005536,
+          "Stable depth sort": 0.059024,
+          "raster": 0.036416
+        },
+        "compact32": {
+          "Project Gaussians": 0.005376,
+          "Stable depth sort": 0.059104,
+          "raster": 0.0364
+        },
+        "compact24": {
+          "Project Gaussians": 0.005376,
+          "Stable depth sort": 0.0448,
+          "raster": 0.036384
+        }
+      },
+      "summedPassMedianMs": {
+        "baseline32": 0.10097600000000001,
+        "compact32": 0.10088,
+        "compact24": 0.08656
+      },
+      "scope": "Opt-in fixture GPU pass timestamps, interleaved 32 measured frames after eight warm-up frames; visibility reports the fraction of source centers placed in the view region. No presentation FPS claim."
+    },
+    {
+      "count": 65536,
+      "visibility": 1,
+      "compactionAvailable": false,
+      "gpuPassMediansMs": {
+        "baseline32": {
+          "Project Gaussians": 0.0056,
+          "Stable depth sort": 0.059072,
+          "raster": 0.043264
+        },
+        "compact32": {
+          "Project Gaussians": 0.005648,
+          "Stable depth sort": 0.058944,
+          "raster": 0.043232
+        },
+        "compact24": {
+          "Project Gaussians": 0.005664,
+          "Stable depth sort": 0.044624,
+          "raster": 0.043247999999999995
+        }
+      },
+      "summedPassMedianMs": {
+        "baseline32": 0.10793599999999999,
+        "compact32": 0.107824,
+        "compact24": 0.093536
+      },
+      "scope": "Opt-in fixture GPU pass timestamps, interleaved 32 measured frames after eight warm-up frames; visibility reports the fraction of source centers placed in the view region. No presentation FPS claim."
+    },
+    {
+      "count": 262144,
+      "visibility": 0.25,
+      "compactionAvailable": true,
+      "gpuPassMediansMs": {
+        "baseline32": {
+          "Project Gaussians": 0.013184000000000001,
+          "Stable depth sort": 0.082816,
+          "raster": 0.138832
+        },
+        "compact32": {
+          "Project Gaussians": 0.013232,
+          "Stable depth sort": 0.083008,
+          "Compact visible draw order": 0.009184,
+          "raster": 0.044992
+        },
+        "compact24": {
+          "Project Gaussians": 0.013136,
+          "Stable depth sort": 0.06478400000000001,
+          "Compact visible draw order": 0.009216,
+          "raster": 0.04496
+        }
+      },
+      "summedPassMedianMs": {
+        "baseline32": 0.234832,
+        "compact32": 0.150416,
+        "compact24": 0.132096
+      },
+      "scope": "Opt-in fixture GPU pass timestamps, interleaved 32 measured frames after eight warm-up frames; visibility reports the fraction of source centers placed in the view region. No presentation FPS claim."
+    },
+    {
+      "count": 262144,
+      "visibility": 1,
+      "compactionAvailable": true,
+      "gpuPassMediansMs": {
+        "baseline32": {
+          "Project Gaussians": 0.014848,
+          "Stable depth sort": 0.08892800000000001,
+          "raster": 0.172208
+        },
+        "compact32": {
+          "Project Gaussians": 0.014896,
+          "Stable depth sort": 0.088288,
+          "Compact visible draw order": 0.009888,
+          "raster": 0.171728
+        },
+        "compact24": {
+          "Project Gaussians": 0.014784,
+          "Stable depth sort": 0.06775999999999999,
+          "Compact visible draw order": 0.009888,
+          "raster": 0.171568
+        }
+      },
+      "summedPassMedianMs": {
+        "baseline32": 0.275984,
+        "compact32": 0.2848,
+        "compact24": 0.264
+      },
+      "scope": "Opt-in fixture GPU pass timestamps, interleaved 32 measured frames after eight warm-up frames; visibility reports the fraction of source centers placed in the view region. No presentation FPS claim."
+    },
+    {
+      "count": 1000000,
+      "visibility": 0.25,
+      "compactionAvailable": true,
+      "gpuPassMediansMs": {
+        "baseline32": {
+          "Project Gaussians": 0.050208,
+          "Stable depth sort": 0.193008,
+          "raster": 0.50744
+        },
+        "compact32": {
+          "Project Gaussians": 0.048784,
+          "Stable depth sort": 0.192464,
+          "Compact visible draw order": 0.027664,
+          "raster": 0.149792
+        },
+        "compact24": {
+          "Project Gaussians": 0.045936000000000005,
+          "Stable depth sort": 0.14992,
+          "Compact visible draw order": 0.028848,
+          "raster": 0.14952
+        }
+      },
+      "summedPassMedianMs": {
+        "baseline32": 0.750656,
+        "compact32": 0.41870399999999997,
+        "compact24": 0.374224
+      },
+      "scope": "Opt-in fixture GPU pass timestamps, interleaved 32 measured frames after eight warm-up frames; visibility reports the fraction of source centers placed in the view region. No presentation FPS claim."
+    },
+    {
+      "count": 1000000,
+      "visibility": 1,
+      "compactionAvailable": true,
+      "gpuPassMediansMs": {
+        "baseline32": {
+          "Project Gaussians": 0.053792,
+          "Stable depth sort": 0.20008,
+          "raster": 0.6004160000000001
+        },
+        "compact32": {
+          "Project Gaussians": 0.049952,
+          "Stable depth sort": 0.196208,
+          "Compact visible draw order": 0.029904,
+          "raster": 0.5986400000000001
+        },
+        "compact24": {
+          "Project Gaussians": 0.050416,
+          "Stable depth sort": 0.154544,
+          "Compact visible draw order": 0.029935999999999997,
+          "raster": 0.59544
+        }
+      },
+      "summedPassMedianMs": {
+        "baseline32": 0.854288,
+        "compact32": 0.874704,
+        "compact24": 0.830336
+      },
+      "scope": "Opt-in fixture GPU pass timestamps, interleaved 32 measured frames after eight warm-up frames; visibility reports the fraction of source centers placed in the view region. No presentation FPS claim."
+    }
+  ],
+  "gl24WorkerMediansMs": {
+    "1": {
+      "roundTripMs": 9.0,
+      "computeMs": 8.799999952316284
+    },
+    "2": {
+      "roundTripMs": 17.399999976158142,
+      "computeMs": 17.199999928474426
+    }
+  }
+}

@@ -1,3 +1,4 @@
+import { requireWebGpuRenderer } from './gaussian-harness-scene';
 // Test-only observation of the actual App, native worker and WebGPU buffers.
 import './geometry-viewer-harness';
 import { useApp } from '../src/app/store';
@@ -26,7 +27,7 @@ function state() {
     enabled: app.filterControlsEnabled, finishEnabled: app.filterFinishEnabled, previewPending: app.filterPreviewPending };
 }
 async function gpuBytes(buffer: GPUBuffer, size: number) {
-  const renderer = controller().renderer!, readback = renderer.device.createBuffer({ size, usage: GPUBufferUsage.MAP_READ | GPUBufferUsage.COPY_DST });
+  const renderer = requireWebGpuRenderer(controller().renderer), readback = renderer.device.createBuffer({ size, usage: GPUBufferUsage.MAP_READ | GPUBufferUsage.COPY_DST });
   try {
     const encoder = renderer.device.createCommandEncoder(); encoder.copyBufferToBuffer(buffer,0,readback,0,size);
     renderer.device.queue.submit([encoder.finish()]); await readback.mapAsync(GPUMapMode.READ);

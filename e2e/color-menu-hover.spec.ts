@@ -1,5 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
-import { NEUTRAL_COLOR } from '../src/document/types';
+import { NEUTRAL_COLOR } from '../src/renderer/defaults';
 
 const tools = (page: Page) => page.getByRole('complementary', { name: 'Tools', exact: true });
 const auto = (page: Page) => tools(page).getByRole('button', { name: 'Auto color', exact: true });

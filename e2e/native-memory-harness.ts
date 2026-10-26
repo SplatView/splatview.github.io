@@ -1,3 +1,4 @@
+import { requireWebGpuRenderer } from './gaussian-harness-scene';
 // Test-only orchestration of the mounted App, its actual worker/native module,
 // Blob reads and GPU owners. No shipping worker command or memory.grow hook.
 import './geometry-viewer-harness';
@@ -6,7 +7,7 @@ import { GpuGeometryScene } from '../src/renderer/webgpu/renderer';
 import type { CoreClient } from '../src/document/coreClient';
 import { resourceCreditBytes, resourceLeaseCredit, type ResourceCredit, type ResourceLedger, type ResourceLease } from '../src/document/resources';
 import { assertOwnedSceneCollection, type OwnedSceneCollection, type SceneCollectionOptions } from '../src/io/sceneCollection';
-import { NEUTRAL_COLOR } from '../src/document/types';
+import { NEUTRAL_COLOR } from '../src/renderer/defaults';
 import { gaussianPly } from '../tests/fixtures/gaussians';
 
 const MiB = 1024 * 1024, pageBytes = 65536, stagedBytes = 40 * MiB;
@@ -227,7 +228,7 @@ const harness = {
     let candidate: CoreClient | undefined, staged: GpuGeometryScene | undefined, settled = false;
     GpuGeometryScene.prototype.uploadVertices = async function (...args) {
       await upload.apply(this, args); candidate = internals().candidate; staged = this;
-      const dispose = this.dispose.bind(this), queue = controller.renderer!.device.queue;
+      const dispose = this.dispose.bind(this), queue = requireWebGpuRenderer(controller.renderer).device.queue;
       this.dispose = () => {
         const fence = queue.onSubmittedWorkDone.bind(queue);
         queue.onSubmittedWorkDone = async () => { await fence(); retirement.enter(); await retirement.held; };

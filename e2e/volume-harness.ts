@@ -1,3 +1,4 @@
+import { requireWebGpuRenderer } from './gaussian-harness-scene';
 import { admittedExport } from './admitted-export';
 // Test-only controller entry point; the production bundle includes index.html.
 import { AppController } from '../src/app/controller';
@@ -15,7 +16,7 @@ async function waitFor(condition: () => boolean) {
   }
 }
 async function gpuMasks(controller: AppController) {
-  const renderer = controller.renderer!, scene = requireGaussianScene(controller.scene);
+  const renderer = requireWebGpuRenderer(controller.renderer), scene = requireGaussianScene(controller.scene);
   const bytes = Math.max(4, scene.count * 4), buffer = renderer.device.createBuffer({ size: bytes, usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.MAP_READ });
   try {
     const encoder = renderer.device.createCommandEncoder(); encoder.copyBufferToBuffer(scene.buffers.states, 0, buffer, 0, bytes);

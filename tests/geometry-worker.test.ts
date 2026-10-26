@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { BUILD_DESCRIPTOR } from '../src/generated/buildIdentity';
 import { BUILD_ID, PROTOCOL_VERSION, type NativeSummary, type WorkerRequest, type WorkerResponse } from '../src/document/types';
-import type { GeometryDescriptor } from '../src/document/geometry';
+import type { GeometryDescriptor } from '../src/renderer/geometryLayout';
 import type { WasmModule } from '../src/workers/wasm';
 import type { WorkerBootstrapResponse } from '../src/build/bootstrap';
 import { validateNativeHeapSnapshot, WASM_PAGE_BYTES, type NativeHeapSnapshot } from '../src/document/nativeMemory';

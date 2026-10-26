@@ -1,4 +1,4 @@
-import { test, expect, type Page } from '@playwright/test';
+import { test, expect, type Page } from './backend-test';
 import { gaussianPly } from '../tests/fixtures/gaussians';
 import { chooseSelectionTool } from './selectTool';
 async function setOption(page: Page, name: string, pressed: boolean) {
@@ -80,7 +80,9 @@ test('live rectangle shrinks, commits once and cancels on Escape, blur, lost cap
   await page.mouse.move(420, 280, { steps: 3 }); await expect(tools.locator('.model-stats')).toHaveText(/^0\/[\d,]+ splats \| SH[0-3]$/);
   await page.mouse.up(); await expect(page.locator('.status.panel')).toHaveCount(0);
   await page.getByRole('button', { name: 'Undo', exact: true }).click(); await expect(tools.locator('.model-stats')).toHaveText(/^3\/[\d,]+ splats \| SH[0-3]$/);
+  await expect(page.getByRole('button', { name: 'Selection tool', exact: true })).toBeEnabled();
   for (const cancel of ['escape', 'blur', 'capture', 'undo'] as const) {
+    await expect(page.getByRole('button', { name: 'Selection tool', exact: true })).toBeEnabled();
     await page.mouse.move(300, 200); await page.mouse.down(); await page.mouse.move(420, 280, { steps: 3 });
     await expect(tools.locator('.model-stats')).toHaveText(/^0\/[\d,]+ splats \| SH[0-3]$/);
     if (cancel === 'escape') await page.keyboard.press('Escape');
@@ -90,9 +92,12 @@ test('live rectangle shrinks, commits once and cancels on Escape, blur, lost cap
     await page.mouse.up(); await expect(tools.locator('.model-stats')).toHaveText(/^3\/[\d,]+ splats \| SH[0-3]$/);
     await expect(page.locator('.gesture-overlay > rect')).toHaveCount(0);
     if (cancel === 'escape') await chooseSelectionTool(page, 'Box select');
+    await expect(page.getByRole('button', { name: 'Selection tool', exact: true })).toBeEnabled();
   }
+  await expect(page.getByRole('button', { name: 'Undo', exact: true })).toBeEnabled();
   await page.keyboard.press('ControlOrMeta+z'); await expect(tools.locator('.model-stats')).toHaveText(/^0\/[\d,]+ splats \| SH[0-3]$/);
   await expect(page.getByRole('button', { name: 'Undo', exact: true })).toBeDisabled();
+  await expect(page.getByRole('button', { name: 'Selection tool', exact: true })).toBeEnabled();
   await expect(page.getByRole('alert')).toHaveCount(0);
 });
 
@@ -120,6 +125,7 @@ test('live polygon supports Backspace, Enter, Escape and one history entry', asy
   await expect(page.locator('.status.panel')).toHaveCount(0); await expect(page.locator('.gesture-overlay > polyline')).toHaveCount(0);
   await page.getByRole('button', { name: 'Undo', exact: true }).click(); await expect(tools.locator('.model-stats')).toHaveText(/^0\/[\d,]+ splats \| SH[0-3]$/);
   await expect(page.getByRole('button', { name: 'Undo', exact: true })).toBeDisabled();
+  await expect(page.getByRole('button', { name: 'Selection tool', exact: true })).toBeEnabled();
   for (const close of ['first point', 'double click'] as const) {
     for (const [x, y] of outline) { await page.mouse.click(x, y); await expect(page.locator('.status.panel')).toHaveCount(0); }
     if (close === 'first point') await page.mouse.click(...outline[0] as [number, number]);
@@ -128,6 +134,7 @@ test('live polygon supports Backspace, Enter, Escape and one history entry', asy
     await expect(tools.locator('.model-stats')).toHaveText(/^3\/[\d,]+ splats \| SH[0-3]$/);
     await page.getByRole('button', { name: 'Undo', exact: true }).click(); await expect(tools.locator('.model-stats')).toHaveText(/^0\/[\d,]+ splats \| SH[0-3]$/);
     await expect(page.getByRole('button', { name: 'Undo', exact: true })).toBeDisabled();
+    await expect(page.getByRole('button', { name: 'Selection tool', exact: true })).toBeEnabled();
   }
   await expect(page.getByRole('alert')).toHaveCount(0);
 });
@@ -150,5 +157,6 @@ for (const live of [false, true]) test(`${live ? 'live' : 'deferred'} brush reta
   await expect(page.locator('.status.panel')).toHaveCount(0);
   await page.getByRole('button', { name: 'Undo', exact: true }).click(); await expect(tools.locator('.model-stats')).toHaveText(/^0\/[\d,]+ splats \| SH[0-3]$/);
   await expect(page.getByRole('button', { name: 'Undo', exact: true })).toBeDisabled();
+  await expect(page.getByRole('button', { name: 'Selection tool', exact: true })).toBeEnabled();
   await expect(page.getByRole('alert')).toHaveCount(0);
 });

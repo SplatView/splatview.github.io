@@ -1,3 +1,4 @@
+import { requireWebGpuRenderer } from './gaussian-harness-scene';
 import { admittedExport, exportWorkObservation } from './admitted-export';
 // Real worker, native core, mask upload and WebGPU; only scheduling gates are
 // test doubles. The production build does not include this entry point.
@@ -13,7 +14,7 @@ function gate() {
   return { entered: new Promise<void>(resolve => { enter = resolve; }), held: new Promise<void>(resolve => { release = resolve; }), enter: () => enter(), release: () => release() };
 }
 async function gpuMasks(controller: AppController) {
-  const renderer = controller.renderer!, scene = requireGaussianScene(controller.scene), size = scene.count * 4;
+  const renderer = requireWebGpuRenderer(controller.renderer), scene = requireGaussianScene(controller.scene), size = scene.count * 4;
   const read = renderer.device.createBuffer({ size, usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.MAP_READ });
   try {
     const encoder = renderer.device.createCommandEncoder(); encoder.copyBufferToBuffer(scene.buffers.states, 0, read, 0, size);

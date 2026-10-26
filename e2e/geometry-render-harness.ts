@@ -1,9 +1,9 @@
 // Test-only: fixed clip-space vertices make depth and pixel expectations
 // independent of the production PLY decoder, native camera and Gaussian packer.
 import { GaussianRenderer, type GpuGeometryScene, type GpuScene } from '../src/renderer/webgpu/renderer';
-import type { GeometryDescriptor } from '../src/document/geometry';
+import type { GeometryDescriptor } from '../src/renderer/geometryLayout';
 import type { CameraController } from '../src/input/camera';
-import { IDENTITY_MATRIX } from '../src/document/types';
+import { IDENTITY_MATRIX } from '../src/renderer/defaults';
 import { ResourceLedger } from '../src/document/resources';
 import type { BackgroundColor } from '../src/input/background';
 

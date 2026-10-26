@@ -4,7 +4,7 @@ import { compositedSurface } from '../src/renderer/webgpu/surface';
 import { SurfaceCapacityError, type SurfaceMap } from '../src/renderer/webgpu/surfaceQuery';
 import { AdmissionError, MiB, ResourceLedger } from '../src/document/resources';
 import { CameraController } from '../src/input/camera';
-import { IDENTITY_MATRIX, NEUTRAL_COLOR } from '../src/document/types';
+import { IDENTITY_MATRIX, NEUTRAL_COLOR } from '../src/renderer/defaults';
 import frameSource from '../src/renderer/webgpu/frame.wgsl?raw';
 import surfaceSource from '../src/renderer/webgpu/surface.wgsl?raw';
 

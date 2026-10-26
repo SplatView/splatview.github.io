@@ -1,3 +1,4 @@
+import { requireWebGpuRenderer } from './gaussian-harness-scene';
 // Test-only fault boundaries around the real App, worker, WASM and WebGPU.
 // The production entry does not import this module or expose the controller.
 import { AppController } from '../src/app/controller';
@@ -36,7 +37,7 @@ function gate() {
   return { held: new Promise<void>(resolve => { release = resolve; }), release: () => release() };
 }
 export function installCancelCleanupProbe(controller: AppController) {
-  const client = controller.client!, scene = requireGaussianScene(controller.scene), renderer = controller.renderer!;
+  const client = controller.client!, scene = requireGaussianScene(controller.scene), renderer = requireWebGpuRenderer(controller.renderer);
   const internals = controller as unknown as Internals, ledger = internals.ledger;
   const command = client.command.bind(client), preview = client.livePreview.bind(client), stage = scene.stageMasks.bind(scene), reserve = ledger.reserve.bind(ledger);
   const beginOperation = client.beginOperation.bind(client), commitOperation = client.commitOperation.bind(client),
@@ -207,7 +208,7 @@ export function installCancelCleanupProbe(controller: AppController) {
         sourceGeneration: description.binding.revision.sourceGeneration, sourceDigest: description.binding.source.assetDigest } };
   };
   const finalPolygon = () => ({ command: 'polygon', points: polygonProjection(controller), camera: controller.camera!.state,
-    width: controller.renderer!.canvas.width, height: controller.renderer!.canvas.height, operation: 0, overlap: false });
+    width: requireWebGpuRenderer(controller.renderer).canvas.width, height: requireWebGpuRenderer(controller.renderer).canvas.height, operation: 0, overlap: false });
   const nativeRecords = async () => {
     const before = await command({ command: 'summary' }), count = polygonPositions.length;
     const stride = 40 + 4 * Math.ceil(3 * (Math.min(before.shDegree, 3) + 1) ** 2 / 2);
@@ -248,7 +249,7 @@ export function installCancelCleanupProbe(controller: AppController) {
       sameClient: controller.client === client && client.revision.documentId === originalDocument,
       sameView: controller.camera!.state.every((value, axis) => value === originalView[axis]),
       originalRenderer: controller.renderer === originalRenderer, originalScene: controller.scene === originalScene,
-      epoch: controller.renderer!.deviceEpoch, originalEpoch: originalRenderer.deviceEpoch, readiness: structuredClone(readiness),
+      epoch: requireWebGpuRenderer(controller.renderer).deviceEpoch, originalEpoch: originalRenderer.deviceEpoch, readiness: structuredClone(readiness),
       readyExposures: readiness.map(state => state.editing && !state.cleanupOwned && !state.recovering && state.selectionRecovery === 'idle') };
   };
   return {

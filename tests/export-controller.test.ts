@@ -121,7 +121,7 @@ function fixture(limit = 64 * MiB) {
   controller.client = core; owned.bindNativeCoverage(core, sceneLease, history);
   const scene = { kind: 'gaussian', setDuplicateRange: vi.fn(), dispose: vi.fn(async () => {}) },
     renderer = { lost: false, dispose: vi.fn(), setHistogramEnabled: vi.fn(), resetHistogram: vi.fn(),
-      device: { queue: { onSubmittedWorkDone: vi.fn(async () => {}) } } },
+      finish(): Promise<void> { return this.device.queue.onSubmittedWorkDone(); }, device: { queue: { onSubmittedWorkDone: vi.fn(async () => {}) } } },
     camera = { clearInput: vi.fn(), dispose: vi.fn() };
   controller.scene = scene as unknown as NonNullable<AppController['scene']>;
   controller.renderer = renderer as unknown as NonNullable<AppController['renderer']>;

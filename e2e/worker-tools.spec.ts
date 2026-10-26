@@ -1,6 +1,7 @@
 import { expect, test, type Page } from '@playwright/test';
 import type {} from './operation-harness';
-import { NEUTRAL_COLOR, type SceneCommand } from '../src/document/types';
+import { NEUTRAL_COLOR } from '../src/renderer/defaults';
+import { type SceneCommand } from '../src/document/types';
 
 type Snapshot = Awaited<ReturnType<Window['operationHarness']['toolSnapshot']>>;
 type Trace = ReturnType<Window['operationHarness']['trace']>;

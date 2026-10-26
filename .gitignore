@@ -17,3 +17,5 @@ __pycache__/
 /reference/windows/
 /reference/targets/*/source/
 !/reference/targets/windows-pivot-20261016-01/source/
+
+dist-engine/

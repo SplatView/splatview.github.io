@@ -86,12 +86,16 @@ async function prepare(page: Page) {
   await observeWorkers(page); await observeOffline(page);
 }
 async function settings(page: Page) {
-  if (await page.getByRole('dialog', { name: 'Settings', exact: true }).isVisible()) return;
-  await wake(page);
-  if (!await page.getByRole('button', { name: 'Settings', exact: true }).isVisible())
-    await page.getByRole('button', { name: 'Tools', exact: true }).click();
-  await page.getByRole('button', { name: 'Settings', exact: true }).click();
-  await expect(page.getByRole('dialog', { name: 'Settings', exact: true })).toBeVisible();
+  const dialog = page.getByRole('dialog', { name: 'Settings', exact: true });
+  if (!await dialog.isVisible()) {
+    await wake(page);
+    if (!await page.getByRole('button', { name: 'Settings', exact: true }).isVisible())
+      await page.getByRole('button', { name: 'Tools', exact: true }).click();
+    await page.getByRole('button', { name: 'Settings', exact: true }).click();
+    await expect(dialog).toBeVisible();
+  }
+  // Upgrade fixtures can contain the older General placement.
+  if (!await application(page).isVisible()) await dialog.getByRole('tab', { name: 'Help', exact: true }).click();
 }
 async function closeSettings(page: Page) {
   const dialog = page.getByRole('dialog', { name: 'Settings', exact: true });
@@ -158,11 +162,11 @@ async function assertBuild(page: Page, cohort: Cohort) {
 }
 async function assertCache(page: Page, scope: OfflineScope, cohort: Cohort) {
   const state = await storage(page, scope), fixture = fixtureSet.fixtures[cohort], manifest = manifests[cohort];
-  expect(manifest.artifacts).toHaveLength(97);
+  expect(manifest.artifacts).toHaveLength(111);
   const record = state.metadata?.cohorts[fixture.deploymentId]; expect(record).toBeDefined();
   const cache = state.caches.find(value => value.name === record!.cacheName); expect(cache).toBeDefined();
   const urls = [new URL('build-manifest.json', base(scope)).href, ...manifest.artifacts.map(artifact => new URL(artifact.path, base(scope)).href)].sort();
-  expect(cache!.urls).toEqual(urls); expect(cache!.urls).toHaveLength(98);
+  expect(cache!.urls).toEqual(urls); expect(cache!.urls).toHaveLength(112);
   expect(cache!.urls.some(url => /\.(?:map|ply|spz|splat)(?:$|\?)/.test(url))).toBe(false);
   const actual = await page.evaluate(async ({ cacheName, urls }) => {
     const cache = await caches.open(cacheName), rows = [];
@@ -260,7 +264,7 @@ async function ticketDrop(context: BrowserContext, scope: OfflineScope) {
 async function attach(testInfo: TestInfo, name: string, value: unknown) { await testInfo.attach(name, { body: Buffer.from(JSON.stringify(value, null, 2)), contentType: 'application/json' }); }
 async function denyCohortNetwork(request: APIRequestContext, scope: OfflineScope, cohort: Cohort) {
   const paths = ['build-manifest.json', ...manifests[cohort].artifacts.map(artifact => artifact.path)];
-  expect(new Set(paths).size).toBe(98);
+  expect(new Set(paths).size).toBe(112);
   // Browser-owned registration updates can bypass renderer offline emulation.
   // The real host refuses every application response, including that script.
   return control(request).configure({ clearFaults: true,
@@ -277,7 +281,7 @@ test.beforeAll(async ({ request }) => {
     manifests[cohort] = JSON.parse(raw.toString('utf8')) as RuntimeManifest;
     expect(manifests[cohort].deploymentId).toBe(fixture.deploymentId);
     expect(state.cohorts[cohort]).toMatchObject({ deploymentId: fixture.deploymentId, appInputId: fixture.build.appInputId,
-      manifestSha256: fixture.manifest.sha256, serviceWorkerSha256: fixture.serviceWorker.sha256, runtimeArtifacts: 97, files: 101 });
+      manifestSha256: fixture.manifest.sha256, serviceWorkerSha256: fixture.serviceWorker.sha256, runtimeArtifacts: 111, files: 116 });
     const expectedChanges = cohort === 'C' ? ['src/main.tsx', 'src/offline/cohortStore.ts'] : ['src/main.tsx'];
     expect(fixture.patches.map(patch => patch.sourcePath).sort()).toEqual(expectedChanges);
     expect(fixture.sourceDifferences.map(difference => difference.path).sort()).toEqual(expectedChanges);
@@ -317,7 +321,7 @@ test.afterEach(async ({ context, request }, testInfo) => {
 });
 
 for (const scope of ['root', 'project'] as const) {
-  test(`${scope}: installs only 98 verified application URLs and cold-starts offline with genuine native edits`, async ({ page, context, request }, testInfo) => {
+  test(`${scope}: installs only 112 verified application URLs and cold-starts offline with genuine native edits`, async ({ page, context, request }, testInfo) => {
     expect((await page.goto(new URL('first-visit-storage.html', base(scope)).href))!.status()).toBe(404);
     expect((await storage(page, scope)).caches).toEqual([]);
     await start(page, scope, false); await assertBuild(page, 'A');

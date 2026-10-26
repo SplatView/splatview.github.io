@@ -9,6 +9,7 @@ import { tutorialCourseTranslations } from './translations/tutorialCourse';
 import { accessibilityTranslations } from './translations/accessibility';
 import { operationTranslations } from './translations/operation';
 import { offlineTranslations } from './translations/offline';
+import { renderingTranslations } from './translations/rendering';
 
 export const TRANSLATED_LOCALES = ['es', 'fr', 'de', 'pt', 'zh-Hans', 'ja', 'ko'] as const;
 export type BrowserTranslations = Readonly<Record<string, readonly [string, string, string, string, string, string, string]>>;
@@ -24,7 +25,7 @@ function merge<T>(groups: readonly Readonly<Record<string, T>>[]): Readonly<Reco
   return Object.freeze(result);
 }
 export const browserTranslations = merge<BrowserTranslations[string]>([
-  appearanceTranslations, editingTranslations, selectionTranslations, webTranslations, tutorialTranslations, tutorialCourseTranslations, accessibilityTranslations, operationTranslations, offlineTranslations,
+  appearanceTranslations, editingTranslations, selectionTranslations, webTranslations, tutorialTranslations, tutorialCourseTranslations, accessibilityTranslations, operationTranslations, offlineTranslations, renderingTranslations,
 ]);
 export const translationAliases = merge<string>([appearanceAliases, editingAliases, selectionAliases, webAliases]);
 

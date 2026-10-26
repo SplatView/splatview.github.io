@@ -1,0 +1,42 @@
+import { expect, test } from '@playwright/test';
+import { gaussianPly } from '../tests/fixtures/gaussians';
+import type {} from './geometry-viewer-harness';
+
+test('Settings changes the session backend on an empty scene and preserves focus and Gaussian settings', async ({ page }) => {
+  await page.goto('/e2e/geometry-viewer-harness.html');
+  await page.waitForFunction(() => window.geometryViewer?.ready());
+  await page.getByRole('button', { name: 'Tools', exact: true }).click();
+  const tools = page.getByRole('complementary', { name: 'Tools', exact: true });
+  await tools.getByRole('button', { name: 'Settings', exact: true }).click();
+  const settings = page.getByRole('dialog', { name: 'Settings', exact: true });
+  await settings.getByRole('combobox', { name: 'Gaussian renderer', exact: true }).selectOption('steady');
+  await settings.getByRole('tab', { name: 'Help', exact: true }).click();
+  await settings.getByText('Graphics diagnostics', { exact: true }).click();
+  const backend = settings.getByRole('combobox', { name: 'Graphics backend', exact: true });
+  await expect(backend).toHaveValue('auto'); await expect(backend).toBeEnabled();
+  const previous = await page.getByLabel('SplatView scene', { exact: true }).elementHandle();
+  await backend.focus(); await backend.selectOption('webgl2');
+  await expect(page.getByLabel('SplatView scene', { exact: true })).toHaveAttribute('data-graphics-backend', 'webgl2');
+  await expect(backend).toBeEnabled(); await expect(backend).toBeFocused();
+  expect(await previous!.evaluate(canvas => canvas.isConnected)).toBe(false);
+  const diagnostics = JSON.parse(await settings.locator('.graphics-diagnostics pre').innerText());
+  expect(diagnostics.backend).toBe('webgl2'); expect(diagnostics.observation.status).toBe('ready');
+  await settings.getByRole('tab', { name: 'General', exact: true }).click();
+  await expect(settings.getByRole('combobox', { name: 'Gaussian renderer', exact: true })).toHaveValue('steady');
+  await settings.getByRole('button', { name: 'Close Settings', exact: true }).click();
+  await page.getByLabel('Open scene files').setInputFiles({ name: 'backend-settings.ply', mimeType: 'application/octet-stream', buffer: Buffer.from(gaussianPly(0)) });
+  await expect(page).toHaveTitle('backend-settings.ply — SplatView');
+  await tools.getByRole('button', { name: 'Settings', exact: true }).click();
+  await settings.getByRole('tab', { name: 'Help', exact: true }).click();
+  await settings.getByText('Graphics diagnostics', { exact: true }).click();
+  await expect(backend).toBeDisabled();
+  const refused = await page.evaluate(async () => {
+    const app = window.geometryViewer.controllerForRendererNavigation(), client = app.client, scene = app.scene;
+    const before = await client!.command({ command: 'summary' }), accepted = await app.setBackendPreference('webgpu');
+    return { before, after: await client!.command({ command: 'summary' }), accepted, same: client === app.client && scene === app.scene, backend: app.renderer!.backend };
+  });
+  expect(refused.accepted).toBe(false); expect(refused.same).toBe(true); expect(refused.after).toEqual(refused.before); expect(refused.backend).toBe('webgl2');
+  await page.reload(); await page.waitForFunction(() => window.geometryViewer?.ready());
+  await expect(page.getByLabel('SplatView scene', { exact: true })).toHaveAttribute('data-graphics-backend', 'webgpu');
+  expect(await page.evaluate(() => window.geometryViewer.controllerForRendererNavigation().renderer!.backend)).toBe('webgpu');
+});

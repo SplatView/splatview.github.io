@@ -390,7 +390,7 @@ canvas[data-selection-cursor] { cursor: none; }
 .saved-view-choice { display: block; width: 100%; text-align: left; margin-top: 8px; }
 .saved-view-choice small { display: block; margin-top: 4px; color: var(--muted); }
 /* Current Windows Settings uses the same compact property columns as tools. */
-.font-size-setting, .theme-setting, .language-setting { display: grid; grid-template-columns: min(43%, calc(108px + 7.2 * var(--ui-font-increase))) minmax(0, 1fr); align-items: center; gap: 6px; margin: 0 0 4px; }
+.font-size-setting, .theme-setting, .language-setting, .render-settings-row { display: grid; grid-template-columns: min(43%, calc(108px + 7.2 * var(--ui-font-increase))) minmax(0, 1fr); align-items: center; gap: 6px; margin: 0 0 4px; }
 .font-size-trigger, .theme-trigger, .language-trigger { width: 100%; min-width: 0; height: calc(21px + var(--ui-font-increase)); min-height: 0; display: flex; justify-content: space-between; gap: 6px; padding: 2px 6px; background: var(--field); line-height: 1; }
 .font-size-caption, .theme-caption, .language-caption { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text); text-align: left; line-height: 1; }
 .font-size-value, .theme-value, .language-value { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: calc(15px + var(--ui-font-increase)); line-height: 1; text-align: left; }
@@ -440,6 +440,8 @@ canvas[data-selection-cursor] { cursor: none; }
 .settings-shortcuts dd { margin: 0; color: var(--text); text-align: right; }
 .settings-shortcuts kbd { font: inherit; font-kerning: inherit; white-space: nowrap; }
 .settings-scene-actions, .saved-view-actions { display: flex; flex-wrap: wrap; gap: 6px; }
+.settings-scene-actions { display: grid; grid-template-columns: 1fr 1fr; }
+.saved-view-actions { display: grid; grid-template-columns: 1fr; }
 /* Compact reflow retains whole desktop controls and scrolls their owning UI. */
 @media (max-width: 640px), (max-height: 480px) {
   .toolbar { max-height: calc(100% - 24px); overflow-x: hidden; overflow-y: auto; align-content: flex-start; scrollbar-width: thin; scrollbar-gutter: stable; overscroll-behavior: contain; }
@@ -527,3 +529,12 @@ canvas[data-selection-cursor] { cursor: none; }
 .offline-settings .dialog-actions > button { flex: 1 1 120px; min-width: 0; min-height: 28px; height: auto; overflow-wrap: anywhere; }
 .offline-settings .offline-cache-hint { font-size: calc(12px + var(--ui-font-increase)); }
 .offline-update-notice { position: absolute; left: 60px; bottom: 12px; z-index: 3; max-width: calc(100% - 84px); min-height: 24px; height: auto; padding: 3px 8px; color: var(--muted); font-size: calc(12px + var(--ui-font-increase)); overflow-wrap: anywhere; }
+.render-settings-row > span { min-width: 0; overflow-wrap: anywhere; }
+.render-settings-row > select, .render-history-weight { width: 100%; min-width: 0; height: calc(21px + var(--ui-font-increase)); min-height: 0; }
+.render-settings-row > input[type=checkbox] { justify-self: start; margin: 0; }
+.render-history-weight input { width: 100%; min-width: 0; height: 100%; }
+.render-history-weight output { inset: 0; display: flex; align-items: center; justify-content: center; font: inherit; font-variant-numeric: tabular-nums; }
+.settings-details { margin: 6px 0; }
+.settings-details > summary { cursor: pointer; min-height: 24px; padding: 3px 0; }
+.settings-details[open] > summary { margin-bottom: 6px; }
+.graphics-diagnostics pre { max-height: 180px; overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; font-size: .85em; }

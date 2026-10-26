@@ -1,4 +1,5 @@
 struct Dispatch { count: u32, groups: u32, blocks: u32, digit: u32 }
+const RADIX_BINS:u32=16u;
 @group(0) @binding(0) var<uniform> params: Dispatch;
 @group(0) @binding(1) var<storage, read> source: array<u32>;
 @group(0) @binding(2) var<storage, read_write> offsets: array<u32>;
@@ -27,7 +28,12 @@ fn blocks(@builtin(workgroup_id) group: vec3<u32>, @builtin(local_invocation_ind
   if(lane<params.blocks) { offsets[group.x*params.blocks+lane]=values[lane]-value; }
   if(lane==255u) { sums[group.x]=values[lane]; }
 }
-@compute @workgroup_size(16)
+@compute @workgroup_size(RADIX_BINS)
 fn bins(@builtin(local_invocation_index) lane: u32) {
-  var total=0u; for(var i=0u;i<lane;i++) { total+=source[i]; } offsets[lane]=total;
+  let value=source[lane]; values[lane]=value; workgroupBarrier();
+  for(var stride=1u;stride<RADIX_BINS;stride*=2u) {
+    var add=0u; if(lane>=stride) { add=values[lane-stride]; }
+    workgroupBarrier(); values[lane]+=add; workgroupBarrier();
+  }
+  offsets[lane]=values[lane]-value;
 }

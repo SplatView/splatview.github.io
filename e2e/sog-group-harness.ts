@@ -1,3 +1,4 @@
+import { requireWebGpuRenderer } from './gaussian-harness-scene';
 // Additive observations of the mounted App. No codec, summary, pick or GPU result is substituted.
 import './alignment-harness';
 import { useApp } from '../src/app/store';
@@ -134,7 +135,7 @@ let allocation: { scene?: GpuScene; entered: boolean; released: boolean; release
   activeClient: CoreClient | undefined; activeScene: ReturnType<typeof controller>['scene'] } | undefined;
 function holdAllocation() {
   if (allocation) throw new Error('A GPU allocation is already held.');
-  const app = controller(), renderer = app.renderer!, original = renderer.allocateScene, held = gate();
+  const app = controller(), renderer = requireWebGpuRenderer(app.renderer), original = renderer.allocateScene, held = gate();
   const owner = { scene: undefined as GpuScene | undefined, entered: false, released: false,
     buffers: [] as { label: string; bytes: number; destroyCalls: number }[],
     activeClient: app.client, activeScene: app.scene,

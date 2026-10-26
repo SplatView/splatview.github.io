@@ -72,7 +72,8 @@ function fixture() {
   const scene = { kind: 'gaussian', setDuplicateRange: vi.fn(), count: 3, sourceRevision: 1, allocationBytes: 100, dispose: vi.fn(async () => {}) };
   const viewport = { x: 0, y: 0, width: 400, height: 300 };
   const renderer = { lost: false, deviceEpoch: 1, canvas: { width: 400, height: 300, getBoundingClientRect: vi.fn(() => ({ ...viewport })) },
-    device: { queue: { onSubmittedWorkDone: vi.fn(async () => {}) } }, setHistogramEnabled: vi.fn(), resetHistogram: vi.fn(), dispose: vi.fn() };
+    device: { queue: { onSubmittedWorkDone: vi.fn(async () => {}) } }, finish(): Promise<void> { return this.device.queue.onSubmittedWorkDone(); }, setHistogramEnabled: vi.fn(),
+    setRenderSettings: vi.fn(), steadySnapshot: { status: 'sorted' }, resetHistogram: vi.fn(), dispose: vi.fn() };
   const compose = (definition: TransformDefinition) => {
     const matrix = transformDefaults().matrix;
     if (definition.mode === 'matrix') { matrix[12] = definition.matrix[3]; matrix[13] = definition.matrix[7]; matrix[14] = definition.matrix[11]; }

@@ -1,4 +1,4 @@
-import { expect, test, type Page } from '@playwright/test';
+import { expect, test, type Page } from './backend-test';
 import type {} from './alignment-harness';
 import { queuePositions } from './queue-fixture';
 
@@ -139,7 +139,7 @@ for (const boundary of ['selection', 'history', 'grade'] as const)
     }, boundary);
     const newBaseline = await snapshot(page); mirrors(newBaseline); expect(newBaseline.summary.alignment!.canReset).toBe(false);
     await expect(tools(page).getByRole('button', { name: 'Reset transform', exact: true })).toBeEnabled();
-    expect(await page.evaluate(() => window.geometryViewer.controllerForSourceNavigation().resetAlignment())).toBe(false);
+    expect(await page.evaluate(() => window.geometryViewer.controllerForRendererNavigation().resetAlignment())).toBe(false);
     // The captured header also resets numeric defaults; a retired alignment
     // baseline cannot be resurrected by that broader action.
     await tools(page).getByRole('button', { name: 'Reset transform', exact: true }).click(); await settled(page);
@@ -159,7 +159,7 @@ test('a manual color preview retires an accepted Center point and disables Reset
   expect(picked.alignmentPoint).not.toBeNull(); expect(picked.alignmentTool).toBe('center');
   const before = await snapshot(page); expect(before.summary.alignment!.canReset).toBe(true); expect(before.colorPending).toBe(false);
   const preview = await page.evaluate(async () => {
-    const app = window.geometryViewer.controllerForSourceNavigation(), client = app.client!, original = client.command.bind(client), calls: string[] = [];
+    const app = window.geometryViewer.controllerForRendererNavigation(), client = app.client!, original = client.command.bind(client), calls: string[] = [];
     client.command = async (...args) => { calls.push(args[0].command); return original(...args); };
     try {
       app.setGrade([1.2, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
@@ -195,7 +195,7 @@ test('three isolated real contributors distinguish float32 cumulative frame came
   for (const id of [0, 1, 2]) {
     const before = await snapshot(page), accepted = await page.evaluate(id => window.alignmentHarness.pick(id), id);
     expect(accepted.alignmentPoint).not.toBeNull();
-    expect(await page.evaluate(() => window.geometryViewer.controllerForSourceNavigation().confirmAlignment())).toBe(true);
+    expect(await page.evaluate(() => window.geometryViewer.controllerForRendererNavigation().confirmAlignment())).toBe(true);
     await settled(page); const after = await snapshot(page); mirrors(after, 0); attributes(after, initial);
     const oldFrame = translation(before), nextFrame = translation(after);
     for (const axis of [0, 1, 2]) {

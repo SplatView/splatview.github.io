@@ -2,8 +2,9 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { AppController } from '../src/app/controller';
 import { BenchmarkObservation } from '../src/app/benchmarkObservation';
 import { setApp, useApp } from '../src/app/store';
-import { IDENTITY_MATRIX, NEUTRAL_COLOR, type NativeSummary } from '../src/document/types';
-import type { GaussianRenderer, GpuScene, GpuPick } from '../src/renderer/webgpu/renderer';
+import { IDENTITY_MATRIX, NEUTRAL_COLOR } from '../src/renderer/defaults';
+import { type NativeSummary } from '../src/document/types';
+import type { SceneRenderer as GaussianRenderer, GaussianScene as GpuScene, RenderPick as GpuPick } from '../src/renderer/contracts';
 import type { CameraController } from '../src/input/camera';
 import type { CoreClient } from '../src/document/coreClient';
 

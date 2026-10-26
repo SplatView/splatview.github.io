@@ -1,13 +1,13 @@
 import type { CoreClient } from '../document/coreClient';
-import { IDENTITY_MATRIX } from '../document/types';
+import { IDENTITY_MATRIX } from '../renderer/defaults';
 import type { CameraController } from '../input/camera';
-import { StaleGpuQueryError, type GaussianRenderer, type GpuScene } from '../renderer/webgpu/renderer';
+import { StaleRenderQueryError, type SceneRenderer, type GaussianScene } from '../renderer/contracts';
 
 /** View/source dependencies only. Admission, observation and execution belong to the adapter. */
 export type SelectionMapDependencyContext = {
   client: CoreClient;
-  renderer: GaussianRenderer;
-  scene: GpuScene;
+  renderer: SceneRenderer;
+  scene: GaussianScene;
   camera: CameraController;
   current(): void;
   geometry?: number[];
@@ -60,7 +60,7 @@ export function captureSelectionMapDependencies(context: SelectionMapDependencyC
       renderer.canvas.width !== width || renderer.canvas.height !== height ||
       client.revision.documentId !== revision.documentId || client.revision.sourceGeneration !== revision.sourceGeneration ||
       client.nativeContentRevision !== contentRevision)
-      throw new StaleGpuQueryError('The selection surface no longer matches this document and view.');
+      throw new StaleRenderQueryError('The selection surface no longer matches this document and view.');
   };
   const key = [identity(client), revision.documentId, revision.sourceGeneration, contentRevision,
     identity(renderer), renderer.deviceEpoch, identity(scene), sourceRevision, identity(camera), cameraRevision,

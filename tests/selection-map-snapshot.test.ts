@@ -1,9 +1,10 @@
 import { describe, expect, it, vi } from 'vitest';
 import { captureSelectionMapDependencies, type SelectionMapDependencyContext } from '../src/app/selectionMapSnapshot';
-import { IDENTITY_MATRIX, NEUTRAL_COLOR } from '../src/document/types';
+import { IDENTITY_MATRIX, NEUTRAL_COLOR } from '../src/renderer/defaults';
 import type { CoreClient } from '../src/document/coreClient';
 import type { CameraController } from '../src/input/camera';
-import { StaleGpuQueryError, type GaussianRenderer, type GpuScene } from '../src/renderer/webgpu/renderer';
+import type { GaussianRenderer, GpuScene } from '../src/renderer/webgpu/renderer';
+import { StaleRenderQueryError } from '../src/renderer/contracts';
 
 const translated = () => [...IDENTITY_MATRIX.slice(0, 12), 3, 4, 5, 1];
 function fixture() {
@@ -51,7 +52,7 @@ describe('selection map dependency snapshot', () => {
   ] as const)('expires the captured query and changes the key for %s', (_name, mutate) => {
     const f = fixture(), first = captureSelectionMapDependencies(f.context);
     mutate(f);
-    expect(first.assertCurrent).toThrow(StaleGpuQueryError);
+    expect(first.assertCurrent).toThrow(StaleRenderQueryError);
     expect(captureSelectionMapDependencies(f.context).key).not.toBe(first.key);
   });
 
@@ -62,7 +63,7 @@ describe('selection map dependency snapshot', () => {
   ] as const)('rejects %s without treating liveness as a cache identity', (_name, mutate) => {
     const f = fixture(), first = captureSelectionMapDependencies(f.context);
     mutate(f);
-    expect(first.assertCurrent).toThrow(StaleGpuQueryError);
+    expect(first.assertCurrent).toThrow(StaleRenderQueryError);
     expect(captureSelectionMapDependencies(f.context).key).toBe(first.key);
   });
 
@@ -130,7 +131,7 @@ describe('selection map dependency snapshot', () => {
   ] as const)('tracks canonical selection only for active %s', (_name, configure) => {
     const f = fixture(); configure(f);
     const first = captureSelectionMapDependencies(f.context); f.scene.selectedRevision++;
-    expect(first.assertCurrent).toThrow(StaleGpuQueryError);
+    expect(first.assertCurrent).toThrow(StaleRenderQueryError);
     expect(captureSelectionMapDependencies(f.context).key).not.toBe(first.key);
   });
 
@@ -140,7 +141,7 @@ describe('selection map dependency snapshot', () => {
   ] as const)('tracks active %s target ownership without a canonical mask change', (target, configure) => {
     const f = fixture(); configure(f);
     const first = captureSelectionMapDependencies(f.context); f.targets[target]++;
-    expect(first.assertCurrent).toThrow(StaleGpuQueryError);
+    expect(first.assertCurrent).toThrow(StaleRenderQueryError);
     expect(captureSelectionMapDependencies(f.context).key).not.toBe(first.key);
   });
 
@@ -154,7 +155,7 @@ describe('selection map dependency snapshot', () => {
   it('tracks opacity scope changes only while opacity is active', () => {
     const f = fixture(); f.context.opacityScale = 2;
     const first = captureSelectionMapDependencies(f.context); f.context.opacitySelectedOnly = true;
-    expect(first.assertCurrent).toThrow(StaleGpuQueryError);
+    expect(first.assertCurrent).toThrow(StaleRenderQueryError);
     expect(captureSelectionMapDependencies(f.context).key).not.toBe(first.key);
   });
 

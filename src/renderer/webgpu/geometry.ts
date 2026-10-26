@@ -1,4 +1,4 @@
-import { validateGeometryDescriptor, type GeometryDescriptor } from '../../document/geometry';
+import { validateGeometryDescriptor, type GeometryDescriptor } from '../geometryLayout';
 import { checkedBytes, MiB } from '../../document/resources';
 import type { GaussianRenderer } from './renderer';
 

@@ -97,7 +97,7 @@ const parameterWord = {
 export function encodeSurfaceParameters(input: {
   fullWidth: number; fullHeight: number; width: number; height: number;
   sourceCount: number; channelFlags: number; dispatchWidth: number; scale: number; region?: SurfaceRegion;
-}): Uint32Array {
+}): Uint32Array<ArrayBuffer> {
   const words = new Uint32Array(SURFACE_PARAMETERS_BYTES / Uint32Array.BYTES_PER_ELEMENT);
   words[parameterWord.fullWidth] = input.fullWidth;
   words[parameterWord.fullHeight] = input.fullHeight;

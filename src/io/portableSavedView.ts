@@ -1,5 +1,6 @@
+import type { ImageOperation } from './image';
 import { MAX_SAVED_THUMBNAIL_BYTES, MAX_SAVED_VIEW_RECORD_BYTES, validateSavedViewRecord, type SavedViewRecord } from './savedView';
-import { checkSavedViewOperation, verifySavedThumbnail, type SavedViewOperation } from './thumbnail';
+import { checkSavedViewOperation, verifySavedThumbnail } from './thumbnail';
 
 const CONTAINER_OVERHEAD = 2048;
 export const MAX_PORTABLE_SAVED_VIEW_BYTES = MAX_SAVED_THUMBNAIL_BYTES + MAX_SAVED_VIEW_RECORD_BYTES + CONTAINER_OVERHEAD;
@@ -22,7 +23,7 @@ function checkSize(blob: unknown): asserts blob is Blob {
   if (!(blob instanceof Blob) || blob.size < 22 + DIRECTORY_BYTES || blob.size > MAX_PORTABLE_SAVED_VIEW_BYTES)
     invalid('container size');
 }
-async function readRange(blob: Blob, start: number, end: number, operation: SavedViewOperation): Promise<Uint8Array<ArrayBuffer>> {
+async function readRange(blob: Blob, start: number, end: number, operation: ImageOperation): Promise<Uint8Array<ArrayBuffer>> {
   checkSavedViewOperation(operation);
   if (!Number.isSafeInteger(start) || !Number.isSafeInteger(end) || start < 0 || end < start || end > blob.size)
     invalid('member range');
@@ -47,7 +48,7 @@ function updateCrc(crc: number, bytes: Uint8Array, table: Uint32Array): number {
   for (const byte of bytes) crc = (crc >>> 8) ^ table[(crc ^ byte) & 255];
   return crc;
 }
-async function blobCrc(blob: Blob, table: Uint32Array, operation: SavedViewOperation): Promise<number> {
+async function blobCrc(blob: Blob, table: Uint32Array, operation: ImageOperation): Promise<number> {
   let crc = 0xffff_ffff;
   for (let start = 0; start < blob.size; start += CRC_CHUNK_BYTES) {
     const bytes = await readRange(blob, start, Math.min(blob.size, start + CRC_CHUNK_BYTES), operation);
@@ -83,7 +84,7 @@ function directory(bytes: Uint8Array<ArrayBuffer>, centralStart: number): Member
     invalid('overlapping or noncontiguous members');
   return members;
 }
-async function checkLocalHeaders(blob: Blob, members: readonly Member[], operation: SavedViewOperation) {
+async function checkLocalHeaders(blob: Blob, members: readonly Member[], operation: ImageOperation) {
   for (const member of members) {
     const bytes = await readRange(blob, member.offset, member.body, operation);
     const header = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
@@ -97,7 +98,7 @@ async function checkLocalHeaders(blob: Blob, members: readonly Member[], operati
 }
 
 /** A strict two-member stored ZIP profile; no extraction or decompression. */
-export async function readPortableSavedView(blob: Blob, operation: SavedViewOperation): Promise<PortableSavedView> {
+export async function readPortableSavedView(blob: Blob, operation: ImageOperation): Promise<PortableSavedView> {
   checkSavedViewOperation(operation); checkSize(blob);
   let retained: (() => void) | undefined = operation.admit(blob.size + RECORD_RETENTION_BYTES);
   let scratch: (() => void) | undefined;
@@ -147,7 +148,7 @@ function centralHeader(name: string, size: number, crc: number, offset: number):
 }
 
 /** Construct admitted Blob parts while preserving the immutable PNG backing. */
-export async function writePortableSavedView(input: SavedViewRecord, image: Blob, operation: SavedViewOperation): Promise<PortableSavedViewOutput> {
+export async function writePortableSavedView(input: SavedViewRecord, image: Blob, operation: ImageOperation): Promise<PortableSavedViewOutput> {
   checkSavedViewOperation(operation);
   if (!(image instanceof Blob) || image.size < 1 || image.size > MAX_SAVED_THUMBNAIL_BYTES) invalid('image size');
   // IndexedDB/structured clone loses WeakMap identity while a Blob may still

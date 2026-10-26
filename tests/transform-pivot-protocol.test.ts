@@ -2,7 +2,8 @@ import { describe, expect, it } from 'vitest';
 import { assertTransformFocusBinding, assertTransformFocusUnchanged, captureTransformFocusState, nextPivotMode, pivotPresentation,
   transformFocusPoint, validateSelectionCommitRevision, validateTransformFocusCommand } from '../src/document/transformPivot';
 import { transformDefaults } from '../src/document/transformProtocol';
-import { NEUTRAL_COLOR, type NativeSummary } from '../src/document/types';
+import { NEUTRAL_COLOR } from '../src/renderer/defaults';
+import { type NativeSummary } from '../src/document/types';
 
 function scene(): NativeSummary {
   return { ok: true, selectionCommitRevision: 0, duplicateRange: null, loaded: true, count: 5, sourceCount: 8, shDegree: 0, format: 'PLY', kind: 0,

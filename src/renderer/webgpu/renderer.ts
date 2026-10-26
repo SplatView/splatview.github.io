@@ -1,3 +1,8 @@
+import type { ImageOperation } from '../../io/image';
+import { captureDepthOrderKey,depthOrderMatches,type DepthOrderKey } from '../orderKey';
+import { captureCompactOrderKey, compactOrderMatches, type CompactOrderKey } from '../compactOrderKey';
+import { validateSortPrecision, type SortPrecision } from '../sortPrecision';
+import { allocateFastOrder, type FastOrder } from './fastOrder';
 import frameSource from './frame.wgsl?raw';
 import splatSource from './splats.wgsl?raw';
 import sortSource from './sort.wgsl?raw';
@@ -6,18 +11,26 @@ import geometrySource from './geometry.wgsl?raw';
 import { GpuGeometryScene } from './geometry';
 import { HistogramSampler } from './histogram';
 import type { RenderedHistogram } from '../histogram';
-import type { GeometryDescriptor } from '../../document/geometry';
-import { IDENTITY_MATRIX, NEUTRAL_COLOR } from '../../document/types';
+import type { GeometryDescriptor } from '../geometryLayout';
+import { IDENTITY_MATRIX, NEUTRAL_COLOR } from '../defaults';
 import { checkedBytes, MiB, packedStride } from '../../document/resources';
-import type { CameraController } from '../../input/camera';
 import { encodeRgba, ownRgbaImage, rgbaImageBytes, type OwnedRgbaImage } from '../../io/image';
-import type { SavedViewOperation } from '../../io/thumbnail';
+
 import { RendererNegotiation, type RendererNegotiationObserver, type RendererNegotiationSnapshot } from './diagnostics';
 import { sameDuplicateRange, validateDuplicateRange, type DuplicateRange } from '../../document/duplicateProtocol';
 import { forgetSurfacePipelines } from './surfacePipelines';
 import { SurfaceScratchPool } from './surfaceScratchPool';
+import { SteadySplats } from './steady';
+import { supportsSteadyProjection } from '../steadyState';
+import type { SteadySettings, SteadyStatus } from '../steadySettings';
+import { nextRendererEpoch,recordCanvasBackend } from '../backend';
+import { StaleRenderQueryError, type SceneRenderer, type RenderScene, type GaussianScene } from '../contracts';
+import { allocatePickCandidates,preparePickCandidates } from './pickCandidates';
+import { compositedSurface } from './surface';
+import { prepareSurfacePipelines } from './surfacePipelines';
+import type { SurfaceOptions } from './surfaceQuery';
 
-type RenderCamera = Pick<CameraController, 'view' | 'projection' | 'eye' | 'revision' | 'background'>;
+import { encodeGaussianFrame, type RenderCamera } from '../frame';
 import { backgroundShade } from '../../input/background';
 
 type Pipelines = Record<'project' | 'generate' | 'rank' | 'scatter' | 'local' | 'blocks' | 'bins' | 'pick', GPUComputePipeline>;
@@ -32,8 +45,7 @@ export type GpuPreviewMaskUpdate = { allocationBytes: number; retirementBytes: n
   publish(): GPUBuffer | undefined; dispose(): void | Promise<void> };
 const previewMaskChannels: readonly PreviewMaskChannel[] = ['colorBase', 'transformBase', 'opacityBase'];
 export type GpuPick = { index: number | null; depth: number; opacity: number; contribution: number; deviceEpoch: number };
-export class StaleGpuQueryError extends Error {}
-let nextDeviceEpoch = 0;
+export class StaleGpuQueryError extends StaleRenderQueryError {}
 const canvasOwners = new WeakMap<HTMLCanvasElement, GaussianRenderer>();
 export { GpuGeometryScene } from './geometry';
 export type RenderableScene = GpuScene | GpuGeometryScene;
@@ -51,6 +63,11 @@ export class GpuScene {
   readonly pickGroup: GPUBindGroup;
   readonly ordered: GPUBuffer;
   lastCameraRevision = -1;
+  residentOrder?: DepthOrderKey;
+  residentSortPrecision:SortPrecision=32;
+  residentCompactOrder?:CompactOrderKey;
+  fastOrder?:FastOrder;
+  residentProjection?: {revision:number;words:Uint32Array};
   sortDirty = true;
   lastGeometry = '';
   private uploadBytes = 0;
@@ -140,9 +157,11 @@ export class GpuScene {
       throw error;
     }
   }
+  // Base mirror coverage excludes optional storage with its own admission.
   get allocationBytes() { return this.stateBytes.byteLength + [...Object.values(this.buffers), ...this.params,
     ...Object.values(this.previewBuffers)].reduce((total, buffer) => total + buffer.size, 0); }
   previewMask(channel: PreviewMaskChannel): GPUBuffer { return this.previewBuffers[channel] ?? this.buffers.states; }
+  hasPreviewMask(channel: PreviewMaskChannel) { return this.previewBuffers[channel] !== undefined; }
   previewMaskRevision(channel: PreviewMaskChannel): number { return this.previewRevisions[channel]; }
   async upload(first: number, count: number, bytes: ArrayBuffer) {
     if (bytes.byteLength !== count * this.stride || first + count > this.count) throw new Error('Invalid scene upload.');
@@ -257,7 +276,8 @@ export class GpuScene {
     if (this.retired) return;
     this.retired = true;
     this.renderer.trimSurfaceResources?.();
-    try { await this.renderer.device.queue.onSubmittedWorkDone(); } catch { /* Device already lost. */ }
+    try { await this.renderer.finish(); } catch { /* Device already lost. */ }
+    this.fastOrder?.dispose(); this.fastOrder=undefined;
     for (const buffer of Object.values(this.buffers)) buffer.destroy();
     for (const buffer of Object.values(this.previewBuffers)) buffer.destroy();
     for (const channel of previewMaskChannels) delete this.previewBuffers[channel];
@@ -266,14 +286,20 @@ export class GpuScene {
   }
 }
 
-export class GaussianRenderer {
-  readonly deviceEpoch = ++nextDeviceEpoch;
+export class GaussianRenderer implements SceneRenderer {
+  readonly backend = 'webgpu' as const;
+  admitSortScratch?: (bytes:number)=>()=>void;
+  admitWork?: (bytes: number) => () => void;
+  readonly deviceEpoch = nextRendererEpoch();
   readonly surfaceScratch: SurfaceScratchPool;
   readonly frame: GPUBuffer;
   readonly query: GPUBuffer;
   readonly queryOutput: GPUBuffer;
+  private readonly quadIndices: GPUBuffer;
+  private displayCheckpoint?:import('../contracts').DisplayCompletion;
   private context: GPUCanvasContext;
   private queryQueue: Promise<unknown> = Promise.resolve();
+  private readonly scenePreparations = new Set<Promise<GpuScene>>();
   private disposed = false;
   private frameRevision = 0;
   private opacityScale = 1;
@@ -285,6 +311,7 @@ export class GaussianRenderer {
   private preparedWidth = 0;
   private preparedHeight = 0;
   private preparedUniform?: Uint32Array;
+  private preparedCameraRevision = -1;
   private geometryDepth?: GeometryDepth;
   private readonly geometryDepthAllocations = new Set<GeometryDepth>();
   private readonly retiringGeometryDepth = new Set<GeometryDepth>();
@@ -294,11 +321,14 @@ export class GaussianRenderer {
   private readonly geometryTargetTasks = new Set<Promise<void>>();
   private geometryTargetFailure?: { width: number; height: number };
   private readonly histogram: HistogramSampler;
+  private readonly steady: SteadySplats;
   private histogramDisplay?: { scene: GpuScene; revision: number; cameraRevision: number; width: number; height: number;
-    uniform: Uint32Array; shade: number; identity: object };
+    uniform: Uint32Array; shade: number; steadyFrame?: number; identity: object };
   admitGeometryDepth?: (bytes: number) => () => void;
   admitHistogram?: (bytes: number) => () => void;
-  onHistogram?: (result: RenderedHistogram, scene: RenderableScene) => void;
+  admitSteady?: (bytes: number) => () => void;
+  onRenderStatus?: (status: SteadyStatus) => void;
+  onHistogram?: (result: RenderedHistogram, scene: RenderScene) => void;
   onHistogramUnavailable?: () => void;
   onFrameNeeded?: () => void;
   frames = 0;
@@ -314,6 +344,8 @@ export class GaussianRenderer {
     readonly geometryPoints: GPURenderPipeline, readonly geometryMesh: GPURenderPipeline,
     private readonly negotiation: RendererNegotiation) {
     this.context = canvas.getContext('webgpu')!;
+    if (!this.context) throw new Error('The WebGPU presentation context is unavailable.');
+    recordCanvasBackend(canvas,'webgpu');
     this.context.configure({ device, format, alphaMode: 'opaque',
       usage: GPUTextureUsage.RENDER_ATTACHMENT | GPUTextureUsage.TEXTURE_BINDING });
     this.surfaceScratch = new SurfaceScratchPool(device);
@@ -326,8 +358,15 @@ export class GaussianRenderer {
     this.frame = device.createBuffer({ size: 320, usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST });
     this.query = device.createBuffer({ size: 16, usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST });
     this.queryOutput = device.createBuffer({ size: 16, usage: GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_SRC });
+    this.quadIndices=device.createBuffer({size:12,usage:GPUBufferUsage.INDEX|GPUBufferUsage.COPY_DST});
+    device.queue.writeBuffer(this.quadIndices,0,new Uint16Array([0,1,2,2,1,3]));
+    this.steady = new SteadySplats(device, format, this.frame, {
+      admit: bytes => this.admitSteady?.(bytes), invalidate: () => this.onFrameNeeded?.(),
+      status: status => this.onRenderStatus?.(status),
+    });
     void device.lost.then(info => {
       this.lost = true;
+      this.steady.dispose();
       this.histogram.dispose();
       forgetSurfacePipelines(this); this.surfaceScratch.dispose();
       if (!this.disposed) (this.onDeviceLost ?? this.onLost)?.(info.message || 'The graphics device was lost. Your edits are retained.');
@@ -412,16 +451,39 @@ export class GaussianRenderer {
       entries: entries.map(([binding, buffer]) => ({ binding, resource: { buffer } })) });
   }
   setHistogramEnabled(enabled: boolean) { this.histogram.setEnabled(enabled); }
+  displayCompletion() { return this.displayCheckpoint; }
+  async finish() { await this.queryQueue; await this.device.queue.onSubmittedWorkDone(); }
+  surface(scene: GaussianScene, options: SurfaceOptions) {
+    this.requireScene(scene); this.surfaceSnapshot(scene);
+    // Raw maps retain a complete, exact order. Display compaction has separate
+    // pairs, so a same-view display cannot overwrite a map between its stages.
+    if(scene.sortDirty || scene.residentSortPrecision<32 || !depthOrderMatches(scene.residentOrder,this.preparedUniform!,scene.sourceRevision)) {
+      const encoder=this.device.createCommandEncoder();
+      try { this.sort(encoder,scene,this.preparedCameraRevision); this.device.queue.submit([encoder.finish()]); }
+      catch(error) { scene.residentOrder=undefined; scene.sortDirty=true; throw error; }
+    }
+    return compositedSurface(this, scene, options);
+  }
+  prepareSurfaceResources() { return Promise.all([prepareSurfacePipelines(this),preparePickCandidates(this).catch(()=>undefined)]).then(() => undefined); }
+  setRenderSettings(settings: SteadySettings) { this.steady.configure(settings); }
+  resetRenderHistory() { this.steady.resetHistory(); this.onFrameNeeded?.(); }
+  get steadySnapshot() { return this.steady.snapshot; }
   resetHistogram() { this.histogramDisplay = undefined; this.histogram.reset(); }
   trimSurfaceResources(owner?: object) { this.surfaceScratch.trim(owner); }
   scene(count: number, degree: number) { return new GpuScene(this, count, Math.min(degree, 3)); }
-  requireScene(scene?: RenderableScene) {
+  requireScene(scene?: RenderScene): asserts scene is RenderableScene | undefined {
     if (this.disposed || this.lost) throw new StaleGpuQueryError('The graphics device is unavailable. Your edits are retained.');
     if (scene && (scene.renderer !== this || scene.deviceEpoch !== this.deviceEpoch || scene.retired))
       throw new StaleGpuQueryError('The scene belongs to an obsolete graphics device or allocation.');
   }
-  allocateScene(count: number, degree: number) {
-    return this.checkedAllocation(() => this.scene(count, degree), scene => scene.dispose());
+  async allocateScene(count: number, degree: number) {
+    const preparation=(async()=>{
+      const scene=await this.checkedAllocation(() => this.scene(count, degree), scene => scene.dispose());
+      try { scene.fastOrder=await allocateFastOrder(this,scene); this.requireScene(scene); return scene; }
+      catch(error) { await scene.dispose(); throw error; }
+    })();
+    this.scenePreparations.add(preparation);
+    try { return await preparation; } finally { this.scenePreparations.delete(preparation); }
   }
   async allocateGeometry(descriptor: GeometryDescriptor): Promise<GpuGeometryScene> {
     const scene = await this.checkedAllocation(() => new GpuGeometryScene(this, descriptor), value => value.dispose());
@@ -542,39 +604,59 @@ export class GaussianRenderer {
     if (!Number.isFinite(opacityScale) || opacityScale < 0 || opacityScale > 5) throw new RangeError('Opacity scale must be between 0 and 5.');
     opacityScale = Math.fround(opacityScale); opacitySelectedOnly = opacityScale !== 1 && opacitySelectedOnly;
     if (admitOpacity) this.setOpacityPreview(opacityScale, opacitySelectedOnly);
-    const values = new Float32Array(80), integers = new Uint32Array(values.buffer);
-    const geometryActive = geometry.some((value, index) => value !== IDENTITY_MATRIX[index]);
-    // An identity transform has no scope. Legacy query preparation and display
-    // rendering must keep the same frame identity while GPU readback is pending.
-    const geometryScope = geometryActive && geometrySelectedOnly;
-    const geometryKey = geometry.join(',') + ':' + geometryScope;
+    const { values, words: integers, geometryKey } = encodeGaussianFrame(scene, camera, grade, highlight,
+      geometry, selectedOnly, width, height, geometrySelectedOnly, opacityScale, opacitySelectedOnly);
     if (geometryKey !== scene.lastGeometry) { scene.sortDirty = true; scene.lastGeometry = geometryKey; }
-    values.set(camera.view, 0); values.set(camera.projection, 16); values.set(camera.eye, 32); values[35] = scene.degree;
-    values.set([width, height, width * camera.projection[0] * .5, height * camera.projection[5] * .5], 36);
-    integers.set([scene.count, scene.stride / 4, grade.some((value, i) => value !== NEUTRAL_COLOR[i]) ? 1 : 0, selectedOnly ? 1 : 0], 40);
-    values.set(grade, 44); values[59] = opacityScale; values.set(geometry, 60);
-    integers.set([geometryActive ? 1 : 0, geometryScope ? 1 : 0, highlight ? scene.duplicateSelectionGuarded ? 2 : 1 : 0,
-      opacityScale === 1 ? 0 : 1 | (opacitySelectedOnly ? 2 : 0)], 76);
     if (this.preparedScene !== scene || this.preparedSceneRevision !== scene.revision || !this.preparedUniform ||
       integers.some((value, index) => value !== this.preparedUniform![index])) this.frameRevision++;
     this.preparedScene = scene; this.preparedSceneRevision = scene.revision; this.preparedWidth = width; this.preparedHeight = height;
+    this.preparedCameraRevision = camera.revision;
     this.preparedUniform = integers;
     this.preparedOpacityRevision = opacityScale === (this.opacityScale ?? 1) &&
       opacitySelectedOnly === (this.opacitySelectedOnly ?? false) ? this.opacityRevision ?? 0 : -1;
     this.device.queue.writeBuffer(this.frame, 0, values);
   }
-  private prepare(encoder: GPUCommandEncoder, scene: GpuScene, camera: RenderCamera) {
-    const pass = encoder.beginComputePass({ label: 'Project and stable depth sort' });
-    pass.setPipeline(this.pipelines.project); pass.setBindGroup(0, scene.projectGroup); pass.dispatchWorkgroups(Math.ceil(scene.count / 256));
-    if (scene.sortDirty || scene.lastCameraRevision !== camera.revision) {
-      for (const stage of scene.sortStages) { pass.setPipeline(stage.pipeline); pass.setBindGroup(0, stage.group); pass.dispatchWorkgroups(stage.x, stage.y ?? 1); }
-      scene.sortDirty = false; scene.lastCameraRevision = camera.revision;
+  private sortPrecision:SortPrecision=32;
+  get displaySortPrecision() { return this.sortPrecision??32; }
+  set displaySortPrecision(value:SortPrecision) {const next=validateSortPrecision(value);if(this.displaySortPrecision!==next){this.sortPrecision=next;this.onFrameNeeded?.();}}
+  private prepare(encoder: GPUCommandEncoder, scene: GpuScene, camera: RenderCamera, sorted = true, precision:SortPrecision=32) {
+    const words=this.preparedUniform!,resident=scene.residentProjection;
+    if(!resident || resident.revision!==scene.revision || words.some((word,i)=>word!==resident.words[i])) {
+      const pass = encoder.beginComputePass({ label: 'Project Gaussians' });
+      pass.setPipeline(this.pipelines.project); pass.setBindGroup(0, scene.projectGroup); pass.dispatchWorkgroups(Math.ceil(scene.count / 256)); pass.end();
+      scene.residentProjection={revision:scene.revision,words:words.slice()};
     }
-    pass.end();
+    if (sorted) {
+      this.sort(encoder,scene,camera.revision,precision);
+      if(scene.fastOrder) {
+        if(!compactOrderMatches(scene.residentCompactOrder,words,scene.revision,precision)) {
+          scene.fastOrder.encode(encoder);
+          scene.residentCompactOrder=captureCompactOrderKey(words,scene.revision,precision);
+        }
+      }
+    }
+  }
+  private sort(encoder: GPUCommandEncoder, scene: GpuScene, cameraRevision: number,precision:SortPrecision=32) {
+    if(scene.count<2048)precision=32;
+    if (scene.sortDirty || (scene.residentSortPrecision??32)<precision || !depthOrderMatches(scene.residentOrder,this.preparedUniform!,scene.sourceRevision)) {
+      const pass = encoder.beginComputePass({ label: 'Stable depth sort' });
+      const firstDigitStage=1+(32-precision)/4*5;
+      for (let i=0;i<scene.sortStages.length;i++) {
+        if(i>0&&i<firstDigitStage)continue;
+        const stage=scene.sortStages[i];pass.setPipeline(stage.pipeline);pass.setBindGroup(0,stage.group);pass.dispatchWorkgroups(stage.x,stage.y??1);
+      }
+      pass.end();
+      scene.sortDirty = false; scene.lastCameraRevision = cameraRevision;
+      scene.residentSortPrecision=precision;
+      scene.residentOrder=captureDepthOrderKey(this.preparedUniform!,scene.sourceRevision);
+    }
   }
   private draw(encoder: GPUCommandEncoder, scene: GpuScene, target: GPUTextureView, shade: number) {
     const pass = encoder.beginRenderPass({ colorAttachments: [{ view: target, clearValue: [shade, shade, shade, 1], loadOp: 'clear', storeOp: 'store' }] });
-    pass.setPipeline(this.raster); pass.setBindGroup(0, scene.drawGroup); pass.draw(6, scene.count); pass.end();
+    pass.setPipeline(this.raster); pass.setBindGroup(0, scene.fastOrder && scene.residentCompactOrder ? scene.fastOrder.drawGroup : scene.drawGroup); pass.setIndexBuffer(this.quadIndices,'uint16');
+    if(scene.fastOrder && scene.residentCompactOrder) pass.drawIndexedIndirect(scene.fastOrder.indirect,0);
+    else pass.drawIndexed(6, scene.count);
+    pass.end();
   }
   private geometryUniform(scene: GpuGeometryScene, camera: RenderCamera, width: number, height: number) {
     this.requireScene(scene);
@@ -599,14 +681,16 @@ export class GaussianRenderer {
     } else pass.draw(6, scene.count);
     pass.end();
   }
-  render(scene: RenderableScene | undefined, camera: CameraController, grade = NEUTRAL_COLOR,
+  render(scene: RenderScene | undefined, camera: RenderCamera, grade = NEUTRAL_COLOR,
     highlight = true, geometry = IDENTITY_MATRIX, selectedOnly = false, geometrySelectedOnly = selectedOnly,
     opacityScale = 1, opacitySelectedOnly = false) {
     this.requireScene(scene);
+    try {
     const encoder = this.device.createCommandEncoder();
     let texture: GPUTexture;
     const shade = backgroundShade(camera.background);
     if (scene?.kind === 'geometry') {
+      this.steady.suspend('SteadySplats requires a Gaussian scene.');
       const width = this.canvas.width, height = this.canvas.height;
       if (this.geometryDepth?.width !== width || this.geometryDepth.height !== height) {
         // createTexture reports some failures asynchronously. Keep the usable
@@ -619,32 +703,47 @@ export class GaussianRenderer {
       texture = this.context.getCurrentTexture();
       this.drawGeometry(encoder, scene, texture.createView(), this.geometryDepth!.texture.createView(), shade);
     } else if (scene) {
+      const supported = supportsSteadyProjection(camera.projection);
+      if (!supported) this.steady.suspend('SteadySplats requires a supported perspective projection.');
+      const steady = supported && this.steady.ready(this.canvas.width, this.canvas.height);
       this.uniform(scene, camera, grade, highlight, geometry, selectedOnly, this.canvas.width, this.canvas.height,
-        geometrySelectedOnly, opacityScale, opacitySelectedOnly); this.prepare(encoder, scene, camera);
+        geometrySelectedOnly, opacityScale, opacitySelectedOnly); this.prepare(encoder, scene, camera, !steady,this.displaySortPrecision);
       texture = this.context.getCurrentTexture();
-      this.draw(encoder, scene, texture.createView(), shade);
+      if (steady) {
+        if (this.steady.encode(encoder, scene, this.preparedUniform!, shade, texture.createView())) this.onFrameNeeded?.();
+      } else this.draw(encoder, scene, texture.createView(), shade);
     } else {
+      this.steady.suspend('SteadySplats requires a Gaussian scene.');
       texture = this.context.getCurrentTexture();
       const pass = encoder.beginRenderPass({ colorAttachments: [{ view: texture.createView(),
         clearValue: [shade, shade, shade, 1], loadOp: 'clear', storeOp: 'store' }] }); pass.end();
     }
     this.device.queue.submit([encoder.finish()]); this.submittedDisplayFrames++;
+    const done=this.device.queue.onSubmittedWorkDone(); void done.catch(()=>undefined);
+    this.displayCheckpoint={deviceEpoch:this.deviceEpoch,submissionSequence:this.submittedDisplayFrames,done};
     this.canvas.dataset.frames = String(++this.frames);
     if (scene?.kind === 'gaussian') {
       // Query/capture preparation can overwrite preparedUniform. Only actual
       // display frames update this identity; unchanged views stop all polling.
       const width = this.canvas.width, height = this.canvas.height, uniform = this.preparedUniform!;
+      const steadyFrame = this.steady.snapshot.status === 'steady' ? this.steady.snapshot.frame : undefined;
       const previous = this.histogramDisplay;
       if (!previous || previous.scene !== scene || previous.revision !== scene.revision ||
-        previous.cameraRevision !== camera.revision || previous.width !== width || previous.height !== height || previous.shade !== shade ||
+        previous.cameraRevision !== camera.revision || previous.width !== width || previous.height !== height || previous.shade !== shade || previous.steadyFrame !== steadyFrame ||
         uniform.some((value, index) => value !== previous.uniform[index])) {
         this.histogramDisplay = { scene, revision: scene.revision, cameraRevision: camera.revision,
-          width, height, uniform, shade, identity: {} };
+          width, height, uniform, shade, steadyFrame, identity: {} };
       }
       this.histogram.observe(texture, { identity: this.histogramDisplay!.identity, scene, width, height, frame: this.frames });
     } else if (this.histogramDisplay) this.resetHistogram();
+    } catch(error) {
+      if(scene?.kind==='gaussian') { scene.residentOrder=undefined; scene.residentCompactOrder=undefined; scene.residentProjection=undefined; scene.sortDirty=true; }
+      this.preparedScene=undefined; this.preparedUniform=undefined; this.frameRevision++;
+      throw error;
+    }
   }
-  async pick(scene: GpuScene, x: number, y: number, centerRadius = 0): Promise<GpuPick> {
+  async pick(scene: GaussianScene, x: number, y: number, centerRadius = 0): Promise<GpuPick> {
+    this.requireScene(scene);
     this.requireGaussian(scene);
     if (!Number.isFinite(x) || !Number.isFinite(y) || !Number.isFinite(centerRadius) || centerRadius < 0 ||
       x < 0 || y < 0 || x >= this.canvas.width || y >= this.canvas.height)
@@ -654,20 +753,30 @@ export class GaussianRenderer {
     const execute = async () => {
       check();
       const readback = this.device.createBuffer({ size: 16, usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.MAP_READ });
+      let compact:Awaited<ReturnType<typeof allocatePickCandidates>>,submitted:Promise<void>|undefined,didSubmit=false;
       try {
+        compact=await allocatePickCandidates(this,scene); check();
         this.device.queue.writeBuffer(this.query, 0, sample);
-        const encoder = this.device.createCommandEncoder(); const pass = encoder.beginComputePass();
-        pass.setPipeline(this.pipelines.pick); pass.setBindGroup(0, scene.pickGroup); pass.dispatchWorkgroups(1); pass.end();
-        encoder.copyBufferToBuffer(this.queryOutput, 0, readback, 0, 16); this.device.queue.submit([encoder.finish()]);
+        const encoder = this.device.createCommandEncoder();
+        this.sort(encoder, scene, this.preparedCameraRevision);
+        if(compact) compact.encode(encoder);
+        else { const pass = encoder.beginComputePass();
+          pass.setPipeline(this.pipelines.pick); pass.setBindGroup(0, scene.pickGroup); pass.dispatchWorkgroups(1); pass.end(); }
+        encoder.copyBufferToBuffer(this.queryOutput, 0, readback, 0, 16); this.device.queue.submit([encoder.finish()]); didSubmit=true;
+        if(compact) submitted=this.device.queue.onSubmittedWorkDone();
         await readback.mapAsync(GPUMapMode.READ);
         check();
         const data = readback.getMappedRange().slice(0), words = new Uint32Array(data), floats = new Float32Array(data);
         readback.unmap(); return { index: words[0] ? words[0] - 1 : null, depth: floats[1], opacity: floats[2], contribution: floats[3], deviceEpoch: this.deviceEpoch };
-      } finally { readback.destroy(); }
+      } finally {
+        if(!didSubmit) { scene.residentOrder=undefined; scene.sortDirty=true; }
+        if(submitted) await submitted.catch(()=>undefined); compact?.dispose(); readback.destroy();
+      }
     };
     const result = this.queryQueue.then(execute, execute); this.queryQueue = result.catch(() => undefined); return result;
   }
-  querySnapshot(scene: GpuScene): () => void {
+  querySnapshot(scene: GaussianScene): () => void {
+    this.requireScene(scene);
     this.requireGaussian(scene);
     const revision = this.frameRevision;
     const check = () => {
@@ -679,7 +788,8 @@ export class GaussianRenderer {
     };
     check(); return check;
   }
-  surfaceSnapshot(scene: GpuScene): () => void {
+  surfaceSnapshot(scene: GaussianScene): () => void {
+    this.requireScene(scene);
     this.requireGaussian(scene);
     this.requireScene(scene);
     if (this.preparedScene !== scene || !this.preparedUniform || scene.revision !== this.preparedSceneRevision ||
@@ -716,7 +826,7 @@ export class GaussianRenderer {
     this.requireScene(scene);
     if (scene.kind !== 'gaussian') throw new Error('Surface queries are available for Gaussian splats only.');
   }
-  async captureRgba(scene: RenderableScene, camera: CameraController, operation: SavedViewOperation, grade = NEUTRAL_COLOR,
+  async captureRgba(scene: RenderScene, camera: RenderCamera, operation: ImageOperation, grade = NEUTRAL_COLOR,
     geometry = IDENTITY_MATRIX, selectedOnly = false, geometrySelectedOnly = selectedOnly,
     opacityScale = 1, opacitySelectedOnly = false): Promise<OwnedRgbaImage> {
     this.requireScene(scene);
@@ -740,7 +850,7 @@ export class GaussianRenderer {
     check();
     let rawCredit: (() => void) | undefined = operation.admit(pixelBytes), scratchCredit: (() => void) | undefined;
     let texture: GPUTexture | undefined, readback: GPUBuffer | undefined, depth: GPUTexture | undefined;
-    let pixels: Uint8ClampedArray<ArrayBuffer> | undefined, mapped = false, submitted = false;
+    let pixels: Uint8ClampedArray<ArrayBuffer> | undefined, mapped = false, submitted = false, prepared = false;
     try {
       scratchCredit = operation.admit(scratchBytes); check();
       try {
@@ -761,6 +871,7 @@ export class GaussianRenderer {
           this.geometryUniform(scene, captured, width, height);
           this.drawGeometry(encoder, scene, texture.createView(), depth!.createView(), backgroundShade(captured.background));
         } else {
+          prepared=true;
           this.uniform(scene, captured, capturedGrade, false, capturedGeometry, selectedOnly, width, height,
             geometrySelectedOnly, capturedOpacity, capturedOpacityScope, false); this.prepare(encoder, scene, captured);
           this.draw(encoder, scene, texture.createView(), backgroundShade(captured.background));
@@ -775,6 +886,10 @@ export class GaussianRenderer {
         // Submitted capture work borrows the scene until this real GPU fence
         // settles. mapAsync also remains joined on abort or device loss before
         // readback, attachments and their admission can be retired.
+        if(prepared && !submitted && scene.kind==='gaussian') {
+          scene.residentProjection=undefined; scene.residentOrder=undefined; scene.residentCompactOrder=undefined; scene.sortDirty=true;
+          this.preparedScene=undefined; this.preparedUniform=undefined; this.frameRevision++;
+        }
         if (submitted) try { await this.device.queue.onSubmittedWorkDone(); } catch { /* Device already lost. */ }
         try { if (mapped) readback?.unmap(); }
         finally { readback?.destroy(); texture?.destroy(); depth?.destroy(); scratchCredit?.(); scratchCredit = undefined; }
@@ -789,23 +904,30 @@ export class GaussianRenderer {
       }
     }
   }
-  async capture(scene: RenderableScene, camera: CameraController, type = 'image/png', grade = NEUTRAL_COLOR,
+  async capture(scene: RenderScene, camera: RenderCamera, type = 'image/png', grade = NEUTRAL_COLOR,
     geometry = IDENTITY_MATRIX, selectedOnly = false, geometrySelectedOnly = selectedOnly,
     opacityScale = 1, opacitySelectedOnly = false): Promise<Blob> {
     if (type !== 'image/png' && type !== 'image/jpeg') throw new Error('Unsupported capture image type.');
-    const operation: SavedViewOperation = { admit: () => () => undefined };
+    const operation: ImageOperation = { admit: () => () => undefined };
     const raw = await this.captureRgba(scene, camera, operation, grade, geometry, selectedOnly, geometrySelectedOnly, opacityScale, opacitySelectedOnly);
     try {
       const output = await encodeRgba(raw, type, operation);
       try { return output.blob; } finally { output.dispose(); }
     } finally { raw.dispose(); }
   }
+  async close() {
+    this.dispose();
+    await Promise.allSettled([this.queryQueue, this.steady.finish(), this.histogram.finish(),
+      ...this.scenePreparations,
+      ...[...this.retiringGeometryDepth].map(depth => depth.retirement)]);
+  }
   dispose() {
     if (this.disposed) return; this.disposed = true;
     this.histogram.dispose();
+    this.steady.dispose();
     this.geometryTargetGeneration++;
     if (this.geometryDepth) { const depth = this.geometryDepth; this.geometryDepth = undefined; void this.retireGeometryDepth(depth); }
-    this.frame.destroy(); this.query.destroy(); this.queryOutput.destroy();
+    this.frame.destroy(); this.query.destroy(); this.queryOutput.destroy(); this.quadIndices.destroy();
     // Recreated renderers share the same canvas context. Retiring the old one
     // must not unconfigure the replacement's presentation.
     if (canvasOwners.get(this.canvas) === this) { this.context.unconfigure(); canvasOwners.delete(this.canvas); }

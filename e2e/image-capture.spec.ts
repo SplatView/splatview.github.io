@@ -1,4 +1,4 @@
-import { expect, test, type TestInfo } from '@playwright/test';
+import { expect, test, type TestInfo } from './backend-test';
 import type {} from './image-capture-harness';
 
 test.use({ permissions: ['clipboard-read', 'clipboard-write'] });

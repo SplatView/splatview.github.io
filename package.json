@@ -1,6 +1,6 @@
 {
   "name": "splatview-web",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "engines": {
@@ -8,6 +8,7 @@
   },
   "scripts": {
     "dev": "vite --host 127.0.0.1",
+    "build:engine": "node tools/build-engine.mjs",
     "build:core": "python -B tools/build-core.py",
     "verify:sources": "python -B tools/capture-sources.py verify && python -B tools/generate-assets.py --check && python -B tools/generate-native-translations.py --check && npm run verify:product",
     "verify:build": "python -B tools/verify-toolchain.py verify-build",
@@ -17,6 +18,7 @@
     "typecheck:bench": "tsc --project tools/bench/tsconfig.json",
     "bench:validate": "node tools/bench/cli.ts",
     "bench:run": "node tools/bench/run.ts",
+    "test:engine": "npm run build:engine && playwright test --config playwright.engine.config.ts",
     "test:bench": "vitest run tests/benchmark-validator.test.ts",
     "test:selection": "vitest run tests/surface-query.test.ts tests/surface-buffers.test.ts tests/surface-layout.test.ts tests/surface-coverage.test.ts tests/surface-pipelines.test.ts tests/surface-scratch-pool.test.ts tests/selection-map-cache.test.ts tests/selection-map-snapshot.test.ts tests/opacity-selection-maps.test.ts",
     "test:selection:e2e": "playwright test --config playwright.selection.config.ts",

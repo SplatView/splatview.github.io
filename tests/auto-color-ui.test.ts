@@ -2,7 +2,7 @@ import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { setApp, useApp } from '../src/app/store';
-import { NEUTRAL_COLOR } from '../src/document/types';
+import { NEUTRAL_COLOR } from '../src/renderer/defaults';
 import { colorFields, colorPresets, desktopIcons } from '../src/generated/desktop';
 import { currentDesktopIcons } from '../src/generated/currentDesktopIcons';
 import { AUTO_COLOR_ACTIONS, AutoColorActions, ColorApplyButton, colorPresetName, colorPresetNames,

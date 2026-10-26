@@ -1,7 +1,8 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { AppController } from '../src/app/controller';
 import { setApp, useApp } from '../src/app/store';
-import { NEUTRAL_COLOR, type NativeSummary, type SceneCommand } from '../src/document/types';
+import { NEUTRAL_COLOR } from '../src/renderer/defaults';
+import { type NativeSummary, type SceneCommand } from '../src/document/types';
 import type { OperationOwner } from '../src/document/operationProtocol';
 import type { ResourceLease, ResourceLedger } from '../src/document/resources';
 
@@ -24,7 +25,7 @@ function host() {
   const client = { revision:{documentId:'scope-document', sourceGeneration:1, contentRevision:1, selectionRevision:2, draftRevision:0},
     assertNativeAdmission:vi.fn(), setNativeCoveragePlanner:vi.fn() };
   const camera = { revision:1, state:cameraState(), clearInput:vi.fn() };
-  const renderer = { lost:false, canvas:{width:400,height:400}, device:{queue:{onSubmittedWorkDone:vi.fn(async()=>{})}} };
+  const renderer = { lost:false, canvas:{width:400,height:400}, finish(): Promise<void> { return this.device.queue.onSubmittedWorkDone(); }, device:{queue:{onSubmittedWorkDone:vi.fn(async()=>{})}} };
   const scene = { kind: 'gaussian', setDuplicateRange: vi.fn(), count:3, allocationBytes:100, dispose:vi.fn(async()=>{}) };
   controller.client = client as unknown as NonNullable<AppController['client']>;
   controller.camera = camera as unknown as NonNullable<AppController['camera']>;
@@ -118,7 +119,7 @@ describe('scoped first color preview and GPU publication',()=>{
       })});
     const staged={kind: 'gaussian', setDuplicateRange: vi.fn(), count:3,allocationBytes:100,upload:vi.fn(async()=>{}),masks:vi.fn(),dispose:vi.fn(async()=>{})};
     Object.assign(f.renderer,{allocateScene:vi.fn(async()=>staged)});
-    Object.assign(f.scene,{buffers:{states:canonical},previewMask:vi.fn(()=>gpuTarget?target:canonical),
+    Object.assign(f.scene,{buffers:{states:canonical},previewMask:vi.fn(()=>gpuTarget?target:canonical),hasPreviewMask:()=>gpuTarget,
       stageMasks:vi.fn(async(bytes:ArrayBuffer,targets:Record<string,ArrayBuffer|null>)=>{
         if(heldStage){const held=heldStage;heldStage=undefined;await held.promise;}
         if(failStage)throw new Error('Independent GPU target staging failure');

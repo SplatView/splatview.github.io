@@ -1,7 +1,8 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { CoreClient } from '../src/document/coreClient';
 import { transformDefaults, transformWireParameters, type TransformSessionSummary } from '../src/document/transformProtocol';
-import { NEUTRAL_COLOR, type NativeSummary, type WorkerRequest } from '../src/document/types';
+import { NEUTRAL_COLOR } from '../src/renderer/defaults';
+import { type NativeSummary, type WorkerRequest } from '../src/document/types';
 import { BUILD_DESCRIPTOR } from '../src/generated/buildIdentity';
 import { emptyCensus } from './fixtures/allocation-census';
 

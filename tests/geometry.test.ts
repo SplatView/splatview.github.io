@@ -3,8 +3,8 @@ import { createHash } from 'node:crypto';
 import { BUILD_DESCRIPTOR } from '../src/generated/buildIdentity';
 import { emptyCensus } from './fixtures/allocation-census';
 import { CoreClient } from '../src/document/coreClient';
-import { GEOMETRY_CHUNK_BYTES, geometryChunkCount, geometryDescriptor, geometryHeapChunk, sameGeometryDescriptor,
-  validateGeometryChunk, validateGeometryDescriptor, type GeometryDescriptor } from '../src/document/geometry';
+import { GEOMETRY_CHUNK_BYTES, sameGeometryDescriptor, validateGeometryDescriptor, type GeometryDescriptor } from '../src/renderer/geometryLayout';
+import { geometryChunkCount, geometryDescriptor, geometryHeapChunk, validateGeometryChunk } from '../src/document/geometry';
 import type { NativeSummary, WorkerRequest } from '../src/document/types';
 import { ResourceLedger } from '../src/document/resources';
 

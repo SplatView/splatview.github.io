@@ -1,7 +1,8 @@
+import { requireWebGpuController } from './gaussian-harness-scene';
 // Test-only real native/WebGPU entry. No replacement renderer or histogram is used.
 import { AppController } from '../src/app/controller';
 import { useApp } from '../src/app/store';
-import { IDENTITY_MATRIX, NEUTRAL_COLOR } from '../src/document/types';
+import { IDENTITY_MATRIX, NEUTRAL_COLOR } from '../src/renderer/defaults';
 import type { GaussianRenderer, RenderableScene } from '../src/renderer/webgpu/renderer';
 import type { RenderedHistogram } from '../src/renderer/histogram';
 import { requireGaussianScene } from './gaussian-harness-scene';
@@ -22,7 +23,7 @@ async function setup(width: number, height: number) {
   const controller = new AppController(); await controller.initialize(canvas);
   await controller.openFiles([new File([layers()], 'rendered-histogram-sh0.ply')]);
   if (!controller.client || !controller.scene || !controller.renderer || !controller.camera) throw new Error(useApp.getState().error ?? 'Histogram fixture did not load.');
-  const { renderer, camera } = controller;
+  const { renderer } = requireWebGpuController(controller), { camera  } = controller;
   camera.set([0, 0, 0, 0, 0, 3, 1, 45, 0, 0, width / height]);
   // COPY_SRC is an independent test observation capability, never a production requirement.
   const context = canvas.getContext('webgpu')!;

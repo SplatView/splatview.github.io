@@ -1,0 +1,2317 @@
+{
+  "schemaVersion": 1,
+  "kind": "webgl2-implementation-delivery",
+  "status": "implemented-and-locally-qualified",
+  "observedAtUtc": "2026-10-25T08:06:59.467551+00:00",
+  "baseRevision": "fea86cfe91a52fe3f68cc5bb4cfedc5cebcb7db2",
+  "review": {
+    "path": "design/feature-reviews/webgl2-implementation-2026-10-25.md",
+    "bytes": 11986,
+    "sha256": "a83979669bf8652cafcc9e7fc5a93f1984872048ae495d5b1c53055a7266b843"
+  },
+  "plan": {
+    "path": "design/feature-reviews/steady-splats-webgl2-plan-2026-10-25.md",
+    "bytes": 30242,
+    "sha256": "1b7c36e529a80c53b3e9fc14c85b60ed6d9408585e45353c200e38ac87631bf8"
+  },
+  "scope": "Integrated conditional WebGL2 backend for the existing Basic product, including sorted/steady display, deterministic editing/output contracts and WebGPU-first startup fallback. No remote publication or broader platform/profile qualification.",
+  "product": {
+    "version": "2.0.0",
+    "bundleSha256": "fff64dad4589c07b26821cb23a866aaec6f824e7786d719ca6e3122b3750895a",
+    "registrations": 133,
+    "feature": "view.render",
+    "nativeQualification": false
+  },
+  "sourceFiles": [
+    {
+      "path": "IMPLEMENTATION_STATUS.md",
+      "bytes": 425994,
+      "sha256": "a7c64c8497c3b558a0c70f61afb6220adedffec715d3fbc64bb56db44122973f"
+    },
+    {
+      "path": "README.md",
+      "bytes": 15962,
+      "sha256": "05dfe635a016f1c255398f5da7e719385aa8b78627fe11076620056cd72f99a7"
+    },
+    {
+      "path": "WEB_PORT_PLAN.md",
+      "bytes": 605409,
+      "sha256": "ec1e55f1da771467e90d22bb2df2fe63e6e41bf6dfa7ccfeba7752518c0bdea2"
+    },
+    {
+      "path": "contracts/generated/product_adapter.hpp",
+      "bytes": 10607,
+      "sha256": "f2a11007bd87ad1ba4ec6c8828ebf5cc572c3aee64e9900a48448b90d76e91ac"
+    },
+    {
+      "path": "contracts/product-adapter.json",
+      "bytes": 44885,
+      "sha256": "32d4c9e1429edc38ac9aac8788e518b47ee42668b525d8230ffc87fd1e672a74"
+    },
+    {
+      "path": "design/feature-reviews/steady-splats-2026-10-25.md",
+      "bytes": 9410,
+      "sha256": "eb57319abd4c47cab768d346182dea6138f93d33a030a78ee3f0e016237046aa"
+    },
+    {
+      "path": "design/feature-reviews/steady-splats-webgl2-plan-2026-10-25.md",
+      "bytes": 30242,
+      "sha256": "1b7c36e529a80c53b3e9fc14c85b60ed6d9408585e45353c200e38ac87631bf8"
+    },
+    {
+      "path": "design/feature-reviews/webgl2-implementation-2026-10-25.md",
+      "bytes": 11986,
+      "sha256": "a83979669bf8652cafcc9e7fc5a93f1984872048ae495d5b1c53055a7266b843"
+    },
+    {
+      "path": "docs/parity/capabilities-v1.csv",
+      "bytes": 4449,
+      "sha256": "22dcf4aa9dadc445fbb9abb292f73fdf382300f7cc15f19db857483b0095f947"
+    },
+    {
+      "path": "docs/parity/capabilities-v1.json",
+      "bytes": 148941,
+      "sha256": "7e62f3bc1862a0177295dca726e0deb311c33a33c2685edd4b86ad5ebc2d761f"
+    },
+    {
+      "path": "docs/third-party/STEADY_SPLATS_REFERENCES.md",
+      "bytes": 3132,
+      "sha256": "531e6f8f742f698c37f62b19d68344bd69a15c3016cbc26cd78778c7e9fa64a4"
+    },
+    {
+      "path": "e2e/alignment-harness.ts",
+      "bytes": 30976,
+      "sha256": "05eb9dafbce1228ad8103496e295d8940d028c216296f6fa3aff663b040e0253"
+    },
+    {
+      "path": "e2e/alignment-menu.spec.ts",
+      "bytes": 14965,
+      "sha256": "b381b36df913561bffdb8c181459844c3c1d4f2e6371dcdce6b00398ce832d1e"
+    },
+    {
+      "path": "e2e/alignment-plane.spec.ts",
+      "bytes": 31686,
+      "sha256": "0919455a3835dc3fba86a4c0cfe08ac583cf79ddf066eed628e945940f45cdbf"
+    },
+    {
+      "path": "e2e/alignment-scale.spec.ts",
+      "bytes": 16732,
+      "sha256": "f5af383febd2a12ee40671a46ff0f0d1529103b5427a6c9608ac5c42c20dae23"
+    },
+    {
+      "path": "e2e/alignment.spec.ts",
+      "bytes": 30245,
+      "sha256": "1ff5193fd8b1da6c5586f61c92dfa075e73cb617ee4d908346f97e91b08b4e88"
+    },
+    {
+      "path": "e2e/app-idle.ts",
+      "bytes": 1156,
+      "sha256": "a8dc64ac4aadff038da620ff3d4e8f8a51bf5beb661150ccc41b2e9905816bc3"
+    },
+    {
+      "path": "e2e/app.spec.ts",
+      "bytes": 13234,
+      "sha256": "25ec346fa49d7cf89d922af8de88febbb37d0c7d3033c4727b1ad311a3e6eeb5"
+    },
+    {
+      "path": "e2e/auto-color-harness.ts",
+      "bytes": 7872,
+      "sha256": "5661c730a20cf07c123054cbd1da9b85baf8ea70e6db8a426633c46bc3af8d4b"
+    },
+    {
+      "path": "e2e/backend-bench-harness.html",
+      "bytes": 237,
+      "sha256": "c5c00994f75f91bea2c1fe7552624aaa67024cdde10364334380f6174d866157"
+    },
+    {
+      "path": "e2e/backend-bench-harness.ts",
+      "bytes": 10900,
+      "sha256": "071a13782a6614364237edbfd7ac7cbac33aacb0e687870cbaac7fbf880027c2"
+    },
+    {
+      "path": "e2e/backend-bench.spec.ts",
+      "bytes": 1704,
+      "sha256": "34c72662972a174c4fa08c3be5894152fa71cd9f8908cf5b243fd436a3ee5625"
+    },
+    {
+      "path": "e2e/backend-fallback.spec.ts",
+      "bytes": 4055,
+      "sha256": "b380b4dfaf405c313b8fadb96426cff097f2223f8a0a9f53d573e7a58baf22ed"
+    },
+    {
+      "path": "e2e/backend-metadata-harness.html",
+      "bytes": 217,
+      "sha256": "81621f2569e6735bce815bcd9594edfc6fda73fa2c28d296b22990ca7bc60327"
+    },
+    {
+      "path": "e2e/backend-metadata-harness.ts",
+      "bytes": 8091,
+      "sha256": "2912ee9edb8a3d3456f20f56643c6c1e342f9f0ee05eb17711fa57155cdba0bf"
+    },
+    {
+      "path": "e2e/backend-metadata.spec.ts",
+      "bytes": 1126,
+      "sha256": "dbe0d69e27371bb674a797f2f005dd07b388207f975b112963dd2fc3370fa7b0"
+    },
+    {
+      "path": "e2e/backend-settings.spec.ts",
+      "bytes": 3231,
+      "sha256": "6f33e013a8fd98f3995530bab23f329ef0999f13e84e2c2a8851855449b77dd4"
+    },
+    {
+      "path": "e2e/backend-state-harness.html",
+      "bytes": 238,
+      "sha256": "e034f41fd8f36613e998223270a464b4785c9cfa23f221d6948ab348fabb1278"
+    },
+    {
+      "path": "e2e/backend-state-harness.ts",
+      "bytes": 7509,
+      "sha256": "6114dcfc21a984a298225018397fadbbcc1c387867ae5abaf42f04d4d2007be9"
+    },
+    {
+      "path": "e2e/backend-state.spec.ts",
+      "bytes": 2273,
+      "sha256": "3867d3909b13e9eff9dfb5490226fdedb8b304774e409e245a0c9751f4472ae3"
+    },
+    {
+      "path": "e2e/backend-test.ts",
+      "bytes": 736,
+      "sha256": "cf6e20263fa136f435ce48408787487cb017662d362a442707bdbfacf29a3fed"
+    },
+    {
+      "path": "e2e/background-harness.ts",
+      "bytes": 15770,
+      "sha256": "cff3fe0463b262a24487820a4b44a314c3df658e22faaeaf61aad0da952e85ba"
+    },
+    {
+      "path": "e2e/cancel-cleanup-harness.ts",
+      "bytes": 26627,
+      "sha256": "83d3d896a0ca43857043d00e73fe90a194d60c45eba27d3c2da34f2b46f232d3"
+    },
+    {
+      "path": "e2e/color.spec.ts",
+      "bytes": 14664,
+      "sha256": "657d5b0619688a99aa31f984a635a127b7467abc839fb57d02692f2928552d47"
+    },
+    {
+      "path": "e2e/connected-harness.ts",
+      "bytes": 20269,
+      "sha256": "093533f4e076b028bfaede2a48fca84af05950eec75a7fa617b16abcb84b84b0"
+    },
+    {
+      "path": "e2e/deferred-grade-harness.ts",
+      "bytes": 19177,
+      "sha256": "fa9668f4d14027310474639f75e7c8433710bc3083411f422155533a171c6b8a"
+    },
+    {
+      "path": "e2e/fill-harness.ts",
+      "bytes": 15172,
+      "sha256": "1f371b7ba40b74b99354fd6040c73cd41bf775d2255ef2fb60a25fc6c69da5f1"
+    },
+    {
+      "path": "e2e/fill-shortcut-harness.ts",
+      "bytes": 11438,
+      "sha256": "ebe74b81ecbe173349bde48c3bee68aed2ca9a5490d4049d5d470943e7614ab8"
+    },
+    {
+      "path": "e2e/fill.spec.ts",
+      "bytes": 18688,
+      "sha256": "8afa1f69aa0aec46b6c8bcaf264545b1aaec5bf9b8a9a9707375fe2285cbe824"
+    },
+    {
+      "path": "e2e/filter-harness.ts",
+      "bytes": 7122,
+      "sha256": "cf109448a8b40d0970882763ce24353a7838bb51a4a83e00b157b8d94586d78a"
+    },
+    {
+      "path": "e2e/gaussian-harness-scene.ts",
+      "bytes": 1354,
+      "sha256": "06e7996b925a729f48252ff9073b59086de92ec26870677405d383adda986c12"
+    },
+    {
+      "path": "e2e/gaussian-storage.ts",
+      "bytes": 3286,
+      "sha256": "bbab590eb748e2b5b7b1e108bc0661f18c9658bd13b5969167890401fdbd5716"
+    },
+    {
+      "path": "e2e/geometry-viewer-harness.ts",
+      "bytes": 22881,
+      "sha256": "fcc6a2b9745fdf0a01aca9c3d8d52640cb3ec9d7184078036ba6d845a7c97878"
+    },
+    {
+      "path": "e2e/gesture-harness.ts",
+      "bytes": 11599,
+      "sha256": "897f46785d401fc8cdcf9db4d73f28eae481afa004a8d603c7aa0af3f4107147"
+    },
+    {
+      "path": "e2e/gpu-harness.ts",
+      "bytes": 48166,
+      "sha256": "0d25213c9c79412d24725ac6856b76b120d34d3c72471191f430cb91d0d2b225"
+    },
+    {
+      "path": "e2e/guides-harness.ts",
+      "bytes": 6322,
+      "sha256": "120b65080b664e8aa7ea988ee70535089f1edae1fad5a5fc2112d8e516f384fb"
+    },
+    {
+      "path": "e2e/histogram-harness.ts",
+      "bytes": 11127,
+      "sha256": "12dd67a25e0bbb5d70146f9e57bc67aa0ed28661b7ea7d263000a9eb7659074f"
+    },
+    {
+      "path": "e2e/image-capture-harness.ts",
+      "bytes": 35703,
+      "sha256": "7b074b65146649395065823e1ff26ed35642e341859c42f0b9cad9ca93d8f5dc"
+    },
+    {
+      "path": "e2e/image-capture.spec.ts",
+      "bytes": 15914,
+      "sha256": "b2d8c0bb1bdeaae120fd82ccf942eefff5bb55ac9644464476ab1b10173c50f1"
+    },
+    {
+      "path": "e2e/map-cache-harness.ts",
+      "bytes": 58646,
+      "sha256": "c63b3112aac2b1f521b68feec33b8c78223f2eb234930a487b14fa39792644da"
+    },
+    {
+      "path": "e2e/native-memory-harness.ts",
+      "bytes": 19140,
+      "sha256": "f4920fa032ea226c862a5dabf9c0255f6d77de66a95a0ab0744d118c22fbb80d"
+    },
+    {
+      "path": "e2e/opacity-harness.ts",
+      "bytes": 10533,
+      "sha256": "6c5bdfceaec46bb46399d153c8b4b87006ff544ee7fe01ef42233d77a19e519e"
+    },
+    {
+      "path": "e2e/operation-harness.ts",
+      "bytes": 75568,
+      "sha256": "38209e77cf0498f479e0b57a4a2bf7635e283c2a3069890656fbc4c861251a72"
+    },
+    {
+      "path": "e2e/polygon-harness.ts",
+      "bytes": 29881,
+      "sha256": "53e5745e5e7d42112b9ed90469620686d300ac009bada165f4ded1b6770a11ae"
+    },
+    {
+      "path": "e2e/portable-saved-view.spec.ts",
+      "bytes": 18700,
+      "sha256": "173a277a9317c1db6de4bdf831f5f20c58dfdc02f4bef1019caaa9b615d466d2"
+    },
+    {
+      "path": "e2e/queue-harness.ts",
+      "bytes": 36056,
+      "sha256": "5b8996f9f1eb281fef9de8edea304f0e950c49b824fe1fc110fed904eb7e5df9"
+    },
+    {
+      "path": "e2e/saved-view-harness.ts",
+      "bytes": 67523,
+      "sha256": "0f14267a1cfb64af1153f14543d6f1f96f2aaf9a7c851b063beb7744cb377f31"
+    },
+    {
+      "path": "e2e/saved-view.spec.ts",
+      "bytes": 16176,
+      "sha256": "ef7473cd1bb2e848a899840727289c141d9bbf8980b9fd275be4e8e8b1052467"
+    },
+    {
+      "path": "e2e/sceneCoordinates.ts",
+      "bytes": 2657,
+      "sha256": "833c1c8fe1dfa89d8c47cd77c817c6e2c3efc79ba6aad2ac7b4ff2b9bc25b6b4"
+    },
+    {
+      "path": "e2e/sog-group-harness.ts",
+      "bytes": 12359,
+      "sha256": "706409f72e4d330ceaf2f767dad546035c971b08b9b06705d43c46aa98808d95"
+    },
+    {
+      "path": "e2e/steady-harness.html",
+      "bytes": 262,
+      "sha256": "b11f9b8e468dc659d1d73ecfd9a640a34cd6f6c4500abe49ac7c658d72791981"
+    },
+    {
+      "path": "e2e/steady-harness.ts",
+      "bytes": 11438,
+      "sha256": "94dc13e9f33dde2ce2ea91baec678e515d94870406bb867a0f9bf60e16ea90aa"
+    },
+    {
+      "path": "e2e/steady-settings.spec.ts",
+      "bytes": 5580,
+      "sha256": "725f4a222309dc57a5a9f9cb9e0e15765bdfab02a46b5b2cbc7364253950d844"
+    },
+    {
+      "path": "e2e/steady.spec.ts",
+      "bytes": 3981,
+      "sha256": "ac8db1153793b10c2892930aa8f22d0be4764252ec30b4a36c04299d03316819"
+    },
+    {
+      "path": "e2e/transform-harness.ts",
+      "bytes": 7677,
+      "sha256": "2beb2db33864ab8fda157e5d71077b9f3e8af022717f1d25fda73a6b4ace360c"
+    },
+    {
+      "path": "e2e/transform.spec.ts",
+      "bytes": 10974,
+      "sha256": "8b9990d4666e1e291959baddaa7f0981a0b9ba7c4caac14fba90d0e30cf8ce68"
+    },
+    {
+      "path": "e2e/volume-harness.ts",
+      "bytes": 10409,
+      "sha256": "59af788cf040aa609a4452aab9c84d66c44acc07eb61b4c1faa7ee8907f51992"
+    },
+    {
+      "path": "e2e/web-lite.spec.ts",
+      "bytes": 7040,
+      "sha256": "e5a78c547b16b3d7d8726b95954bdd6568261354506ad9dc09c1890aa8aacef4"
+    },
+    {
+      "path": "e2e/webgl-basic.spec.ts",
+      "bytes": 3730,
+      "sha256": "b12a54e75d0a3658cf32b02f7bed6f7f54177f1ca41698ddb799a35e7727f143"
+    },
+    {
+      "path": "e2e/webgl-fallback.spec.ts",
+      "bytes": 1018,
+      "sha256": "5f2798eacdf6c5bdf568deb805cafd847066800762feb7705e27cac794f67b49"
+    },
+    {
+      "path": "e2e/webgl-fifo.ts",
+      "bytes": 6001,
+      "sha256": "4c25aa92dbfb4b2f1f2fec5daa81748ce4a3e26cba13ab53a411be4ba66da17d"
+    },
+    {
+      "path": "e2e/webgl-harness.html",
+      "bytes": 255,
+      "sha256": "268b24a7f71c3caf6e6e4c5d6260f4e68977428ac87dd9d24eb35e547b962c32"
+    },
+    {
+      "path": "e2e/webgl-harness.ts",
+      "bytes": 19993,
+      "sha256": "c27e903a1c2a2cfcfcc44c09987d33d5c94df226a60c56871099d71a8132fefc"
+    },
+    {
+      "path": "e2e/webgl-histogram.spec.ts",
+      "bytes": 654,
+      "sha256": "e47f521ab723347013badc2bdef42609ac7c137ce462c9bc4c4b624be7793586"
+    },
+    {
+      "path": "e2e/webgl-lifecycle-harness.html",
+      "bytes": 238,
+      "sha256": "1dbd8dcb242d431b2c34301c692f993866bb72476fc6d5cff5f8e28a8480b159"
+    },
+    {
+      "path": "e2e/webgl-lifecycle-harness.ts",
+      "bytes": 12080,
+      "sha256": "241fa337819a26e3d3653b8b2b5f8a4771161a97c05df88d6d3c072adce7723b"
+    },
+    {
+      "path": "e2e/webgl-lifecycle.spec.ts",
+      "bytes": 4692,
+      "sha256": "2ecab2aff19befd85b5060b99fd33f7326b34af07665dfb79388f5a09d7affd2"
+    },
+    {
+      "path": "e2e/webgl-query.spec.ts",
+      "bytes": 2168,
+      "sha256": "6da4fe3962966f0426e2ce16f336314e65b51bf1b5850ca73c47c8afac7181b7"
+    },
+    {
+      "path": "e2e/webgl-steady.spec.ts",
+      "bytes": 3773,
+      "sha256": "7a2b64a35081f15a11469160c39e844b2dea5de6bda813b38dc5c2decc188aaf"
+    },
+    {
+      "path": "e2e/webgl.spec.ts",
+      "bytes": 2564,
+      "sha256": "0ec41dcf1615272423a53aca79ebdee4114ec89b48216520d06c1a6b8b7e8359"
+    },
+    {
+      "path": "public/licenses/BROWSER_DEPENDENCIES.md",
+      "bytes": 1969,
+      "sha256": "382ba28d9e28dc9117d48f277ab0e7a7952446a70cb92dc4b45d9a3aa812d04b"
+    },
+    {
+      "path": "public/licenses/PlayCanvas-MIT.txt",
+      "bytes": 1064,
+      "sha256": "42fa51ddd556be151a29f381fb97ee975825dcc454e805ea3ea9c079cca04d34"
+    },
+    {
+      "path": "src/app/controller.ts",
+      "bytes": 478790,
+      "sha256": "96f3df6ec5482db64f5ee7f321563c7ab2b7757c3498b3474ceb6d93667a86bc"
+    },
+    {
+      "path": "src/app/i18n.ts",
+      "bytes": 5258,
+      "sha256": "da9075c54dd5f9993bd5f0615125d4febf14adb3b989e82d64820f74cc2fab23"
+    },
+    {
+      "path": "src/app/selectionMapSnapshot.ts",
+      "bytes": 4339,
+      "sha256": "f7c71ac00d992be1b939eac0e38b02497df3073da30adba40c4117023d121f07"
+    },
+    {
+      "path": "src/app/selectionMaps.ts",
+      "bytes": 4312,
+      "sha256": "98ea581cb90ae7c8e22d4b01b1eeb136cf093a9396a16f600b75fe98adab8ff1"
+    },
+    {
+      "path": "src/app/store.ts",
+      "bytes": 12490,
+      "sha256": "bab9b4f09efaab2963d7d4ce3ddcdf99bc9b9362781e1ad36d6fae422d10b6d4"
+    },
+    {
+      "path": "src/app/translations/rendering.ts",
+      "bytes": 5449,
+      "sha256": "24ccf0633a304c94510ed4d178b671200acdfbad0955653f501aba62f106b0c7"
+    },
+    {
+      "path": "src/generated/buildIdentity.ts",
+      "bytes": 2008,
+      "sha256": "c3db45ad3010782d08026b46a30029c1c1bced7b48d6afa95b83d4543eb5991d"
+    },
+    {
+      "path": "src/generated/product-adapter.ts",
+      "bytes": 7030,
+      "sha256": "b8455338eb9848e7f8249f3789726901ddfa2b3782bb0ae03e703297aa4f74f2"
+    },
+    {
+      "path": "src/renderer/backend.ts",
+      "bytes": 808,
+      "sha256": "b22bdcdde3734ac08270a6bef7876e89512a1233f693dbb131b24f719bea7683"
+    },
+    {
+      "path": "src/renderer/contracts.ts",
+      "bytes": 5370,
+      "sha256": "77cfe7f0ef654bb83d8bec7048194dcf910bdc393e61eccd3b6798e182885cf7"
+    },
+    {
+      "path": "src/renderer/factory.ts",
+      "bytes": 1878,
+      "sha256": "6bcc79246125beec20a7e3ba22af6939b5466a7fe4a025f3cd8e77bd6417a6cb"
+    },
+    {
+      "path": "src/renderer/frame.ts",
+      "bytes": 1847,
+      "sha256": "60adf757542a5794fd8e371b3b8d865f1d7c91bc89cab40ebbed02637fc8aa1f"
+    },
+    {
+      "path": "src/renderer/sceneResources.ts",
+      "bytes": 675,
+      "sha256": "e27e92c1677a82909255a4c67d0476512207b17e2b356c0396d409a4f6e00c01"
+    },
+    {
+      "path": "src/renderer/steadyNoise.ts",
+      "bytes": 95901,
+      "sha256": "e07baa24de8263a609244a74ba8e2f868408d2d6f296b169386ecb1bc42dcb37"
+    },
+    {
+      "path": "src/renderer/steadySettings.ts",
+      "bytes": 1262,
+      "sha256": "703a4da0d4b4c5db800c208c350b04ae707ba8d672cbd574ec961655cabc7f16"
+    },
+    {
+      "path": "src/renderer/steadyState.ts",
+      "bytes": 3028,
+      "sha256": "df77fa1f7384acffb444d4da5faf5ee1cab934094baf8df891f80e55da91c5ec"
+    },
+    {
+      "path": "src/renderer/webgl2/capabilities.ts",
+      "bytes": 6341,
+      "sha256": "26d04b22570d41a14b1e8957fb9015ed937ed3c7e0e9d487cc77dedf0fed5048"
+    },
+    {
+      "path": "src/renderer/webgl2/compute.worker.ts",
+      "bytes": 5630,
+      "sha256": "2073d4533915f469f9360e820280e3972939a3a9467f729ee193dd9ca148aa0f"
+    },
+    {
+      "path": "src/renderer/webgl2/computeClient.ts",
+      "bytes": 4342,
+      "sha256": "5fa76b2ad7b89b704912d18370feb72ea019b85e9a7061d2b64f7a00938e2d2b"
+    },
+    {
+      "path": "src/renderer/webgl2/computeProtocol.ts",
+      "bytes": 1366,
+      "sha256": "723d79e04e849a3fa8e1bbd75b9c5ec70750c4c6609d2d46260f1660f7844b7c"
+    },
+    {
+      "path": "src/renderer/webgl2/diagnostics.ts",
+      "bytes": 1899,
+      "sha256": "e3bce8b063fef588d6afbb4e3af629b7933a1450aa15eace791e175fcbb69a2d"
+    },
+    {
+      "path": "src/renderer/webgl2/gaussian.glsl",
+      "bytes": 7073,
+      "sha256": "c199559cf7a6a8dabb3438fa813c52b1355a00896c5588040787bfd1a7834c8a"
+    },
+    {
+      "path": "src/renderer/webgl2/geometry.frag.glsl",
+      "bytes": 453,
+      "sha256": "4e9881ccf0410a9d4a5a2f59b4acc81a9387041db3ba862ec8abb7644c81bf46"
+    },
+    {
+      "path": "src/renderer/webgl2/geometry.ts",
+      "bytes": 3549,
+      "sha256": "54bc68041a34c05890017a0f50dc42d1b1d5e0c5fd0a387c52a91d2ec4b95a8d"
+    },
+    {
+      "path": "src/renderer/webgl2/geometry.vert.glsl",
+      "bytes": 629,
+      "sha256": "e6c0f3d0df236c3cd7350320bf14693c78d551deaecfd04d3ce0257a90fe0283"
+    },
+    {
+      "path": "src/renderer/webgl2/gl.ts",
+      "bytes": 4854,
+      "sha256": "eb41f9173d8ef607ad29c58a8fdbdb17c95d84127d9dc858f2bf8c81f6d086ee"
+    },
+    {
+      "path": "src/renderer/webgl2/histogram.ts",
+      "bytes": 5565,
+      "sha256": "83f77f7faf0d7799dad9f92bb8c94558a8baf86ad8d5ea5848ea2c07aae39478"
+    },
+    {
+      "path": "src/renderer/webgl2/queryCompute.ts",
+      "bytes": 7442,
+      "sha256": "db292872fdf1d21535a40c8a3b2abe45862acdc97e33c2d14c211c18981a7777"
+    },
+    {
+      "path": "src/renderer/webgl2/queryProjection.ts",
+      "bytes": 7335,
+      "sha256": "99efa2c0f3fcaeea9cbecfa8d76ade6c1ece4500d2c6133359b0c0c32d5f05bc"
+    },
+    {
+      "path": "src/renderer/webgl2/radix.ts",
+      "bytes": 2063,
+      "sha256": "3bc7a0a967086a3acc415d6670f315f6faccfca9a32a889773a421fd6532be10"
+    },
+    {
+      "path": "src/renderer/webgl2/renderer.ts",
+      "bytes": 30725,
+      "sha256": "092ba39c78c6e01def74ece2ffcc7a51473f34fbbbf54097696ca3e3d9c8980f"
+    },
+    {
+      "path": "src/renderer/webgl2/scene.ts",
+      "bytes": 11123,
+      "sha256": "f389f3e78b5ee8f5bca747a12ea9b639900454726c576db7364e69c76549b4bd"
+    },
+    {
+      "path": "src/renderer/webgl2/sceneLayout.ts",
+      "bytes": 2470,
+      "sha256": "80f2f83cce03696ecb6e513a6f631deae70a17d31b5fb5e2d55469dd100a1684"
+    },
+    {
+      "path": "src/renderer/webgl2/sorted.frag.glsl",
+      "bytes": 601,
+      "sha256": "7dd690f14b3cf67aebbea08fc4ba567afbaa51460c8cfccb05fb0c942d2ddf31"
+    },
+    {
+      "path": "src/renderer/webgl2/splat.vert.glsl",
+      "bytes": 1243,
+      "sha256": "46c5c9d6994eedd988336b087464e60c7528b8e12b64e209bbe17c699c6297dc"
+    },
+    {
+      "path": "src/renderer/webgl2/steady.ts",
+      "bytes": 13345,
+      "sha256": "d4537b5264250535833492a55c2c1d93a316aa63c6afea9f74090b2dc10fac2f"
+    },
+    {
+      "path": "src/renderer/webgl2/steadyComposite.frag.glsl",
+      "bytes": 270,
+      "sha256": "c6a2eba84045a42666aaf20c2a470c79e0d8b291e43e0afa0cda2f2ac0e5aa40"
+    },
+    {
+      "path": "src/renderer/webgl2/steadyDensity.glsl",
+      "bytes": 1562,
+      "sha256": "0a57009372d19a2f335389062ee4f6d9f1863fe598fb0efa63ea359079c56ca1"
+    },
+    {
+      "path": "src/renderer/webgl2/steadyHistory.frag.glsl",
+      "bytes": 771,
+      "sha256": "8c83feb5a53c7a527c2707109f5fb3b24f94bbe357753a3835f00d2ac17a5131"
+    },
+    {
+      "path": "src/renderer/webgl2/steadyLayout.ts",
+      "bytes": 1019,
+      "sha256": "517386713df2a27a02e815fc4d8add5525ad7f3bd9c8ec052323df1bde5e931d"
+    },
+    {
+      "path": "src/renderer/webgl2/steadyResolve.frag.glsl",
+      "bytes": 3181,
+      "sha256": "6254ca23dfa06e59794354898597dcbd9033a3ad7dc28d4b2d90ee7c5a5c0bbf"
+    },
+    {
+      "path": "src/renderer/webgl2/steadySample.frag.glsl",
+      "bytes": 1196,
+      "sha256": "da48ccf139522f11fcb26e0d3ee85a07e9c7cc0fb7f814b2880f85a82f4e2c61"
+    },
+    {
+      "path": "src/renderer/webgl2/steadyUniform.glsl",
+      "bytes": 1134,
+      "sha256": "147b6e5ca1c65c866885f579581102d93c26d3dd158441007b03cb09b44b1536"
+    },
+    {
+      "path": "src/renderer/webgpu/renderer.ts",
+      "bytes": 55527,
+      "sha256": "74b352a83a1b6d9301284e8b63dd4ff829dc1fb7c7ea9c408f9b394006460e56"
+    },
+    {
+      "path": "src/renderer/webgpu/steady.ts",
+      "bytes": 14600,
+      "sha256": "8f089456eeb13ce2f9ce5a4bd083f959e513d5bc9e7ab96e6cd43d4e196627a0"
+    },
+    {
+      "path": "src/renderer/webgpu/steady.wgsl",
+      "bytes": 9400,
+      "sha256": "539d39a89b2e6cec43166d39d245cbf453fb5e932460568eb39ddf1f58e945ac"
+    },
+    {
+      "path": "src/renderer/webgpu/steadyState.ts",
+      "bytes": 1489,
+      "sha256": "08b47dc56058d80cca0b11683da5b02573749b41c2a5e508cf6a32d2fdb230bd"
+    },
+    {
+      "path": "src/renderer/webgpu/surfaceQuery.ts",
+      "bytes": 6190,
+      "sha256": "f011962893d08782afed16dc05af51a7ef1bb4188de743f869793da1e2e3e574"
+    },
+    {
+      "path": "src/styles/app.css",
+      "bytes": 56781,
+      "sha256": "9eb3c787831998b015b9e0985698efb96e34e2bf4af5af6d1d18f2f4ed530c2d"
+    },
+    {
+      "path": "src/ui/App.tsx",
+      "bytes": 179460,
+      "sha256": "15ac711fa5903983c32c1b3b607bbc7bac02bba1bab95253688c9a1bb44900cf"
+    },
+    {
+      "path": "src/ui/RenderSettings.tsx",
+      "bytes": 4608,
+      "sha256": "28ec3c7fdd66010fd55708ce47fbf6152a3e2a26b65945c5a485ff93ae6955c5"
+    },
+    {
+      "path": "tests/alignment-controller.test.ts",
+      "bytes": 65743,
+      "sha256": "8f1165736ff2f3b8f6885980e3ce616bcd71c320c5e97d83a369e17878ebdc24"
+    },
+    {
+      "path": "tests/benchmark-query-controller.test.ts",
+      "bytes": 6841,
+      "sha256": "5ee51216fd3afc686d3df5b7e7eb999d5bb3599e6a6b14f649d29c3ff9513dd9"
+    },
+    {
+      "path": "tests/color-session-controller.test.ts",
+      "bytes": 17404,
+      "sha256": "e3eab09021a9ab979c2b49c205ffadbeaacd2a78898b4e723790c68fbf1a2f90"
+    },
+    {
+      "path": "tests/controller-memory-policy.test.ts",
+      "bytes": 14106,
+      "sha256": "eaf9b674fa83556f97416a76897f14492c1782a090b0b418fb45983eaa71013a"
+    },
+    {
+      "path": "tests/controller-native-memory.test.ts",
+      "bytes": 35217,
+      "sha256": "43e2f9092b50cb175e842aec9fe7e71bed4dcc94ec9cf9b7d84ab7b2be3aa26a"
+    },
+    {
+      "path": "tests/current-view-only-controller.test.ts",
+      "bytes": 14588,
+      "sha256": "fe9c0e625eb120eb4ccc0285771c86cb4fa2bf3d3ef8e4c34b62153d65116208"
+    },
+    {
+      "path": "tests/export-controller.test.ts",
+      "bytes": 25318,
+      "sha256": "459e897de397ae2192e7396a069fe5e814bf02cc83349e2f252335be7b6b5aaa"
+    },
+    {
+      "path": "tests/filter-controller.test.ts",
+      "bytes": 42526,
+      "sha256": "fc80b0141bb484dabbea046df61e95a3ce3bee57d4a16e98cb748a534ea972f3"
+    },
+    {
+      "path": "tests/floor-controller.test.ts",
+      "bytes": 42787,
+      "sha256": "752744db4277802bd05edff8f05d7af6b53305475895e82920e914cfe07b3fb9"
+    },
+    {
+      "path": "tests/opacity-controller.test.ts",
+      "bytes": 35651,
+      "sha256": "55bec9cb295d1fcbae7a94596fff639764aa04a7595c929503772168292684f5"
+    },
+    {
+      "path": "tests/opacity-selection-maps.test.ts",
+      "bytes": 8422,
+      "sha256": "6ee0f112dd440e203ea524f109a63df96c1ea6c2caf31b1e49c4517b69b81eb4"
+    },
+    {
+      "path": "tests/render-backend.types.ts",
+      "bytes": 724,
+      "sha256": "79bce012c490557028e1bebd6015ad0a13a282911988a7c085ed34249d9ea701"
+    },
+    {
+      "path": "tests/renderer-diagnostics.test.ts",
+      "bytes": 15476,
+      "sha256": "a7284c9196f41c8269698fdfffe8b3ba27258ebcac0b6db113e9589b294a6446"
+    },
+    {
+      "path": "tests/selection-map-snapshot.test.ts",
+      "bytes": 11504,
+      "sha256": "60472f1b42e473667299a2f6a7da2060e81336ebe90bce14bb40aa7afc423964"
+    },
+    {
+      "path": "tests/steady-state.test.ts",
+      "bytes": 5507,
+      "sha256": "ec48d9175baecd60d32e4cdc4f7695ef8a35e13f2ca8c29a56293921cf9f8a0d"
+    },
+    {
+      "path": "tests/transform-controller.test.ts",
+      "bytes": 76844,
+      "sha256": "fe09983a4b6a860964d18131348582ad2b7e60ce8ff846c62fe476937b851065"
+    },
+    {
+      "path": "tests/webgl-query-core.test.ts",
+      "bytes": 3625,
+      "sha256": "7c6128670e90a84f3d35beed7a06c24c401948b4fc0171691e4a1332d24f4430"
+    },
+    {
+      "path": "tests/webgl-render-core.test.ts",
+      "bytes": 3443,
+      "sha256": "b8d9ff82ab79feabfd6d283fddf7355a78cf6c1b8b681eaad57b5e403a4be19d"
+    },
+    {
+      "path": "tools/public-assets.json",
+      "bytes": 2978,
+      "sha256": "a23958a5d903e662924dfb4c5630349fc1915dc974903ea4867372bfdbab6904"
+    },
+    {
+      "path": "tools/web-build.mjs",
+      "bytes": 24226,
+      "sha256": "91bb3eb95f06f6a2e75a0d53b6bca3ba5d5f13ed7e2adc8afabaef52e674b2ce"
+    },
+    {
+      "path": "tools/web-build.test.mjs",
+      "bytes": 43007,
+      "sha256": "fff62a46b94bd9288e8b239a2517cd3c5f5fbeb16cb3ea18ab16d92c562cb1b6"
+    }
+  ],
+  "sourceCaptureScope": "Final working-tree bytes. Runtime src/build inputs match the production descriptor and final backend/production lanes. Earlier output/checkpoint lanes and later test-only coordinate/metadata fixture changes are scoped in their cohort entries. Historical receipts are not rewritten.",
+  "checks": [
+    {
+      "command": "npm test -- --maxWorkers=4 --reporter=json --outputFile=.build/webgl2-implementation-20261025-02/unit-final.json",
+      "passed": 6412,
+      "failed": 0,
+      "skipped": 0,
+      "files": 201,
+      "report": {
+        "path": ".build/webgl2-implementation-20261025-02/unit-final.json",
+        "bytes": 2485376,
+        "sha256": "df62ca635c1c354e08388b1ad35946809b37fa9f6aceba3790cb584c9f72838e"
+      },
+      "scope": "Full implementation portable suite. Later documentation-only CSV amendment additionally passes the focused ledger/policy lane."
+    },
+    {
+      "command": "npx vitest run tests/capability-ledger.test.ts tests/product-policy.test.ts",
+      "passed": 10,
+      "failed": 0,
+      "report": {
+        "path": ".build/webgl2-implementation-20261025-02/policy-corrected.json",
+        "bytes": 4230,
+        "sha256": "7302aa28b1b4f72340ee0ccffa1c058a8bb6f5fa757fd1f04f7a7db3948225ec"
+      }
+    },
+    {
+      "command": "npm run test:web-build",
+      "passed": 40,
+      "failed": 0,
+      "log": {
+        "path": ".build/webgl2-implementation-20261025-02/build-tools.log",
+        "bytes": 9002,
+        "sha256": "69b484a7c145053ae1ddfdeb53a4de68e682efda5e16bd44d0abf0c4a28c1972"
+      }
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "log": {
+        "path": ".build/webgl2-implementation-20261025-02/build.log",
+        "bytes": 6834,
+        "sha256": "cce8d6cf81ed9f504986201fad770b3680ce151ceb56f011a16e43d3dfaefce4"
+      },
+      "includes": [
+        "919 pinned source files",
+        "generated assets/native translations",
+        "133 product registrations",
+        "frozen native/toolchain provenance",
+        "application and benchmark TypeScript checks",
+        "224 modules",
+        "111 qualified runtime artifacts"
+      ],
+      "warning": "Existing Vite application chunk-size advisory."
+    },
+    {
+      "command": "npm run verify:sources",
+      "exitCode": 0,
+      "log": {
+        "path": ".build/webgl2-implementation-20261025-02/sources-final.log",
+        "bytes": 1632,
+        "sha256": "8cbbcd778f62cc5d11b3bdc1dffde633687b30003e5f22534416fc6f8e6835a8"
+      }
+    },
+    {
+      "command": "npm run typecheck && npm run typecheck:bench",
+      "exitCode": 0,
+      "scope": "Repeated after final test-only fixture additions; production source remains unchanged."
+    },
+    {
+      "command": "python -B contracts/product/tool.py verify --root .",
+      "valid": true,
+      "registrations": 133
+    },
+    {
+      "command": "git -c core.whitespace=cr-at-eol diff --check",
+      "exitCode": 0
+    }
+  ],
+  "browserCohorts": [
+    {
+      "report": {
+        "path": ".build/webgl2-implementation-20261025-02/gl-final.json",
+        "bytes": 6231274,
+        "sha256": "baf23c65db9e292d6691d4958cea60c7874f7f44b52c2240918e514963af6c79"
+      },
+      "stats": {
+        "startTime": "2026-10-25T07:55:15.445Z",
+        "duration": 230296.438,
+        "expected": 103,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "scope": "Final runtime implementation: native editing/alignment/history, actual graphics storage, shader metadata/noise/ties, paired state clocks/native map cache, optional resource/readback/worker retirement, failed and accepted-preview recovery, exact SH0-3 queries, sorted/steady render and histogram."
+    },
+    {
+      "report": {
+        "path": ".build/webgl2-implementation-20261025-02/webgpu-regression.json",
+        "bytes": 6112226,
+        "sha256": "692a5cb970f1fee68ed3e44813bf679df2746969dc0bd831dcdbe90580ee12e8"
+      },
+      "stats": {
+        "startTime": "2026-10-25T07:42:44.141Z",
+        "duration": 116212.969,
+        "expected": 72,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "scope": "Existing WebGPU native editing/alignment/transform oracles and SteadySplats/Settings after shared renderer integration. Uses actual WebGPU buffers; no GL stand-ins."
+    },
+    {
+      "report": {
+        "path": ".build/webgl2-implementation-20261025-02/production-public.json",
+        "bytes": 79507,
+        "sha256": "07a055204993029cb696215283b951a2b5f295ba7cc09cb78e40a5d25c210b2f"
+      },
+      "stats": {
+        "startTime": "2026-10-25T07:55:05.322Z",
+        "duration": 114604.00899999999,
+        "expected": 40,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "scope": "Emitted production app and verified content-addressed render worker: public selection/Color/Fill at DPR1/2, editing/history/export, Bench/Steady Settings, real context loss, portable views and automatic fallback before/after canvas claim. Two private source-module injection cases are deliberately development-only and pass in private-boundaries.json."
+    },
+    {
+      "report": {
+        "path": ".build/webgl2-implementation-20261025-02/output.json",
+        "bytes": 444426,
+        "sha256": "b7a551ee966df7cecf1d1185b8da7529e32a340e9cd540488b793f5c9decd388"
+      },
+      "stats": {
+        "startTime": "2026-10-25T07:06:15.091Z",
+        "duration": 87134.553,
+        "expected": 52,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "scope": "Real GL capture/download/encoder/clipboard, thumbnail/IDB/native saved-view ownership and portable views, Bench Settings and full web-lite tutorial. Observed before the yield optimization and automatic startup switch; capture/storage/native ownership code is unchanged, and final retirement/production lanes supplement it."
+    },
+    {
+      "report": {
+        "path": ".build/webgl2-implementation-20261025-02/lifecycle-bench-02.json",
+        "bytes": 373443,
+        "sha256": "9f51eb244b9e141496270efe24db98401b42427fb610221c755eda00a2d54062"
+      },
+      "stats": {
+        "startTime": "2026-10-25T07:25:54.389Z",
+        "duration": 53597.55,
+        "expected": 31,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "scope": "Four measured Bench/duplicated overlap cases plus GL readback/worker/initialization and numerical render/query follow-ups after MessageChannel yielding. Some cases repeat gl-final.json; do not add as unique coverage."
+    },
+    {
+      "report": {
+        "path": ".build/webgl2-implementation-20261025-02/million.json",
+        "bytes": 259629,
+        "sha256": "fb257c096e5a1346995f59cab057b1f3801a18e17840b86c90a9e6cdfc6274bc"
+      },
+      "stats": {
+        "startTime": "2026-10-25T07:35:25.354Z",
+        "duration": 13472.503999999999,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "scope": "Two renderer-only SH3 stress cases at 1,050,224 records and 1280x800, real DPR2, complete 32x32 downsampled-grid map region. This is above the unchanged one-million App loader cap and does not establish larger loader support."
+    },
+    {
+      "report": {
+        "path": ".build/webgl2-implementation-20261025-02/private-boundaries.json",
+        "bytes": 241947,
+        "sha256": "a2ca6566b2526002594f219251901a9e62f62584ce93e0801b350a04212e7dfe"
+      },
+      "stats": {
+        "startTime": "2026-10-25T07:59:13.160Z",
+        "duration": 7714.602,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "scope": "The two genuine private owner-injection Color/Fill tests run against development GL with unchanged assertions. No development source or new test API is shipped in production."
+    },
+    {
+      "report": {
+        "path": ".build/webgl2-implementation-20261025-02/webgpu-selection.json",
+        "bytes": 237772,
+        "sha256": "31454b6ab44affff1166788cede0580a9869b174ee12d4d0fce43f8f3cd2779f"
+      },
+      "stats": {
+        "startTime": "2026-10-25T06:59:33.904Z",
+        "duration": 95020.10399999999,
+        "expected": 126,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "scope": "126-case maintained selection regression at the earlier shared-controller checkpoint; the later final WebGPU/runtime and production lanes cover subsequent integration changes."
+    }
+  ],
+  "countingPolicy": "Cohorts overlap; counts are executions within each declared lane and must not be summed as unique test cases.",
+  "production": {
+    "deploymentId": "2022c8edf3fb47f693375f81c430c83bfad1478f779b3232c332f967d51733f1",
+    "appInputId": "6ecb41d41b07281312d00d24d88ee75f3ca9aa2a91f7df1c8bd3c5b30e2c5e63",
+    "manifest": {
+      "path": "dist/build-manifest.json",
+      "bytes": 22863,
+      "sha256": "937eb1ab5186a688051908d66484307c2653e6a43ef6de42c2aa01ab2c57d76c"
+    },
+    "artifactCount": 111,
+    "distributionFileCount": 116,
+    "sourceMaps": [
+      "assets/compute.worker-DPwlIi8S.js.map",
+      "assets/document.worker-BpeT7GZ0.js.map",
+      "assets/index-BzOO4Ptp.js.map",
+      "service-worker.js.map"
+    ],
+    "artifactClosure": {
+      "path": "docs/validation/runs/webgl2-implementation-20261025-02/artifact-closure.json",
+      "bytes": 24642,
+      "sha256": "c0c84d0bf04b569fda9552b7b082c5d09b403b4c0d3b30c3664133ad083947de"
+    },
+    "native": {
+      "core": {
+        "schemaVersion": 1,
+        "kind": "core",
+        "abi": 24,
+        "variant": "scalar",
+        "mapLayoutVersion": 1,
+        "capabilities": {
+          "atomicCheckpoint": 1,
+          "transactionReceipt": 2,
+          "recoveryCheckpoint": 2,
+          "duplicate": 1,
+          "selectionMap": 1,
+          "volumeSelection": 1,
+          "fillSelection": 1,
+          "connectedColorSelection": 1,
+          "toleranceCheckpoint": 1,
+          "colorFillRange": 1,
+          "liveSelectionOutcome": 1,
+          "geometryPreview": 1,
+          "sourceHash": 1,
+          "allocationCensus": 1,
+          "selectionMorphology": 2,
+          "absoluteColorSession": 1,
+          "autoColor": 1,
+          "colorBaseStream": 1,
+          "alignment": 4,
+          "groupedSog": 3,
+          "exportSpz4": 1,
+          "boundedAttributeExport": 1,
+          "boundedSpz3Export": 1,
+          "boundedSogExport": 1,
+          "selectionFilter": 2,
+          "selectionActions": 2,
+          "proTransformSession": 2,
+          "transformPivot": 2,
+          "absoluteOpacitySession": 1,
+          "opacityBaseStream": 1,
+          "currentViewScope": 1
+        },
+        "nativeInputId": "59b0d5f23b429590c4804a68ecba23fb6d3b0b1c3c44f17cb92d6b5ba81b3230"
+      },
+      "camera": {
+        "schemaVersion": 1,
+        "kind": "camera",
+        "abi": 4,
+        "variant": "scalar",
+        "capabilities": {
+          "cameraInput": 1,
+          "cameraTransform": 1,
+          "cameraFrame": 1,
+          "cameraOrientation": 1,
+          "cameraFilterView": 1,
+          "cameraFilterGizmo": 1,
+          "cameraTransformGizmo": 1
+        },
+        "nativeInputId": "59b0d5f23b429590c4804a68ecba23fb6d3b0b1c3c44f17cb92d6b5ba81b3230"
+      }
+    },
+    "scope": "Actual emitted preview on secure localhost, verified worker/native bytes; no deployment to an external host."
+  },
+  "environment": {
+    "os": "Windows-10-10.0.26100-SP0",
+    "browserVersion": "156.0.8078.4",
+    "webgl": {
+      "secureContext": true,
+      "crossOriginIsolated": false,
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "capabilities": {
+        "maxTextureSize": 16384,
+        "maxRenderbufferSize": 16384,
+        "maxViewport": [
+          32767,
+          32767
+        ],
+        "maxVertexTextureUnits": 16,
+        "maxFragmentTextureUnits": 16,
+        "maxCombinedTextureUnits": 32,
+        "maxDrawBuffers": 8,
+        "maxColorAttachments": 8,
+        "fragmentFloatPrecision": 23,
+        "fragmentIntPrecision": 30,
+        "extensions": [
+          "EXT_clip_control",
+          "EXT_color_buffer_float",
+          "EXT_color_buffer_half_float",
+          "EXT_conservative_depth",
+          "EXT_depth_clamp",
+          "EXT_disjoint_timer_query_webgl2",
+          "EXT_float_blend",
+          "EXT_polygon_offset_clamp",
+          "EXT_render_snorm",
+          "EXT_texture_compression_bptc",
+          "EXT_texture_compression_rgtc",
+          "EXT_texture_filter_anisotropic",
+          "EXT_texture_mirror_clamp_to_edge",
+          "EXT_texture_norm16",
+          "KHR_parallel_shader_compile",
+          "NV_shader_noperspective_interpolation",
+          "OES_draw_buffers_indexed",
+          "OES_sample_variables",
+          "OES_shader_multisample_interpolation",
+          "OES_texture_float_linear",
+          "OVR_multiview2",
+          "WEBGL_blend_func_extended",
+          "WEBGL_clip_cull_distance",
+          "WEBGL_compressed_texture_s3tc",
+          "WEBGL_compressed_texture_s3tc_srgb",
+          "WEBGL_debug_renderer_info",
+          "WEBGL_debug_shaders",
+          "WEBGL_lose_context",
+          "WEBGL_multi_draw",
+          "WEBGL_polygon_mode",
+          "WEBGL_provoking_vertex",
+          "WEBGL_stencil_texturing"
+        ],
+        "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+        "enabledExtensions": [
+          "EXT_color_buffer_float",
+          "WEBGL_debug_renderer_info"
+        ],
+        "shadingLanguageVersion": "WebGL GLSL ES 3.00 (OpenGL ES GLSL ES 3.0 Chromium)",
+        "vendor": "WebKit",
+        "renderer": "WebKit WebGL",
+        "unmaskedVendor": "Google Inc. (NVIDIA)",
+        "unmaskedRenderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5090 (0x00002B85) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "steady": true,
+        "steadyReason": null
+      },
+      "negotiation": {
+        "schemaVersion": 1,
+        "kind": "splatview-renderer-negotiation",
+        "status": "ready",
+        "stage": "ready",
+        "clock": "performance.now",
+        "startedAtMs": 44.89999997615814,
+        "observedAtMs": 218.19999992847443,
+        "clockUnavailableReason": null,
+        "stages": [
+          {
+            "stage": "start",
+            "status": "initializing",
+            "atMs": 44.89999997615814
+          },
+          {
+            "stage": "ready",
+            "status": "ready",
+            "atMs": 218.19999992847443
+          }
+        ],
+        "adapter": {
+          "features": [
+            "EXT_color_buffer_float",
+            "WEBGL_debug_renderer_info"
+          ],
+          "limits": {
+            "MAX_TEXTURE_SIZE": 16384,
+            "MAX_RENDERBUFFER_SIZE": 16384,
+            "MAX_VIEWPORT_WIDTH": 32767,
+            "MAX_VIEWPORT_HEIGHT": 32767,
+            "MAX_DRAW_BUFFERS": 8,
+            "MAX_COLOR_ATTACHMENTS": 8,
+            "MAX_VERTEX_TEXTURE_IMAGE_UNITS": 16,
+            "MAX_TEXTURE_IMAGE_UNITS": 16,
+            "MAX_COMBINED_TEXTURE_IMAGE_UNITS": 32
+          },
+          "featuresUnavailableReason": null,
+          "limitsUnavailableReason": null,
+          "info": {
+            "backend": "webgl2",
+            "vendor": "WebKit",
+            "description": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5090 (0x00002B85) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+            "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+            "shadingLanguageVersion": "WebGL GLSL ES 3.00 (OpenGL ES GLSL ES 3.0 Chromium)"
+          },
+          "infoUnavailableReason": null
+        },
+        "requested": {
+          "features": [],
+          "limits": {}
+        },
+        "device": {
+          "features": [
+            "EXT_color_buffer_float",
+            "WEBGL_debug_renderer_info"
+          ],
+          "limits": {
+            "MAX_TEXTURE_SIZE": 16384,
+            "MAX_RENDERBUFFER_SIZE": 16384,
+            "MAX_VIEWPORT_WIDTH": 32767,
+            "MAX_VIEWPORT_HEIGHT": 32767,
+            "MAX_DRAW_BUFFERS": 8,
+            "MAX_COLOR_ATTACHMENTS": 8,
+            "MAX_VERTEX_TEXTURE_IMAGE_UNITS": 16,
+            "MAX_TEXTURE_IMAGE_UNITS": 16,
+            "MAX_COMBINED_TEXTURE_IMAGE_UNITS": 32
+          },
+          "featuresUnavailableReason": null,
+          "limitsUnavailableReason": null
+        },
+        "failure": null,
+        "gpuTimestamps": {
+          "available": false,
+          "reason": "GPU timestamp queries are not instrumented. Initialization uses performance.now."
+        }
+      }
+    },
+    "webgpu": {
+      "schemaVersion": 1,
+      "kind": "splatview-renderer-negotiation",
+      "status": "ready",
+      "stage": "ready",
+      "clock": "performance.now",
+      "startedAtMs": 1525.5999999046326,
+      "observedAtMs": 1554.5999999046326,
+      "clockUnavailableReason": null,
+      "stages": [
+        {
+          "stage": "start",
+          "status": "initializing",
+          "atMs": 1525.5999999046326
+        },
+        {
+          "stage": "adapter-request",
+          "status": "initializing",
+          "atMs": 1525.5999999046326
+        },
+        {
+          "stage": "adapter-observed",
+          "status": "initializing",
+          "atMs": 1526.5
+        },
+        {
+          "stage": "device-request",
+          "status": "initializing",
+          "atMs": 1526.5
+        },
+        {
+          "stage": "device-observed",
+          "status": "initializing",
+          "atMs": 1552.0999999046326
+        },
+        {
+          "stage": "shader-compilation",
+          "status": "initializing",
+          "atMs": 1552.0999999046326
+        },
+        {
+          "stage": "pipeline-creation",
+          "status": "initializing",
+          "atMs": 1552.6999999284744
+        },
+        {
+          "stage": "renderer-creation",
+          "status": "initializing",
+          "atMs": 1554
+        },
+        {
+          "stage": "validation",
+          "status": "initializing",
+          "atMs": 1554.0999999046326
+        },
+        {
+          "stage": "ready",
+          "status": "ready",
+          "atMs": 1554.5999999046326
+        }
+      ],
+      "adapter": {
+        "features": [
+          "atomic-vec2u-min-max",
+          "bgra8unorm-storage",
+          "chromium-experimental-multi-draw-indirect",
+          "chromium-experimental-sampling-resource-table",
+          "chromium-experimental-timestamp-query-inside-passes",
+          "clip-distances",
+          "core-features-and-limits",
+          "depth-clip-control",
+          "depth32float-stencil8",
+          "dual-source-blending",
+          "float32-blendable",
+          "float32-filterable",
+          "indirect-first-instance",
+          "primitive-index",
+          "rg11b10ufloat-renderable",
+          "shader-f16",
+          "subgroup-size-control",
+          "subgroups",
+          "texture-component-swizzle",
+          "texture-compression-bc",
+          "texture-compression-bc-sliced-3d",
+          "texture-compression-unaligned",
+          "texture-formats-tier1",
+          "texture-formats-tier2",
+          "timestamp-query"
+        ],
+        "limits": {
+          "maxTextureDimension1D": 16384,
+          "maxTextureDimension2D": 16384,
+          "maxTextureDimension3D": 2048,
+          "maxTextureArrayLayers": 2048,
+          "maxBindGroups": 4,
+          "maxBindGroupsPlusVertexBuffers": 24,
+          "maxBindingsPerBindGroup": 1000,
+          "maxDynamicUniformBuffersPerPipelineLayout": 10,
+          "maxDynamicStorageBuffersPerPipelineLayout": 8,
+          "maxSampledTexturesPerShaderStage": 48,
+          "maxSamplersPerShaderStage": 16,
+          "maxStorageBuffersPerShaderStage": 16,
+          "maxStorageBuffersInVertexStage": 16,
+          "maxStorageBuffersInFragmentStage": 16,
+          "maxStorageTexturesPerShaderStage": 8,
+          "maxStorageTexturesInVertexStage": 8,
+          "maxStorageTexturesInFragmentStage": 8,
+          "maxUniformBuffersPerShaderStage": 12,
+          "maxUniformBufferBindingSize": 65536,
+          "maxStorageBufferBindingSize": 2147483644,
+          "minUniformBufferOffsetAlignment": 256,
+          "minStorageBufferOffsetAlignment": 256,
+          "maxVertexBuffers": 8,
+          "maxBufferSize": 2147483648,
+          "maxVertexAttributes": 30,
+          "maxVertexBufferArrayStride": 2048,
+          "maxInterStageShaderVariables": 28,
+          "maxColorAttachments": 8,
+          "maxColorAttachmentBytesPerSample": 128,
+          "maxComputeWorkgroupStorageSize": 32768,
+          "maxComputeInvocationsPerWorkgroup": 1024,
+          "maxComputeWorkgroupSizeX": 1024,
+          "maxComputeWorkgroupSizeY": 1024,
+          "maxComputeWorkgroupSizeZ": 64,
+          "maxComputeWorkgroupsPerDimension": 65535,
+          "maxImmediateSize": 64
+        },
+        "featuresUnavailableReason": null,
+        "limitsUnavailableReason": null,
+        "info": {
+          "vendor": "nvidia",
+          "architecture": "blackwell",
+          "device": "",
+          "description": "",
+          "subgroupMinSize": 32,
+          "subgroupMaxSize": 32,
+          "isFallbackAdapter": false
+        },
+        "infoUnavailableReason": null
+      },
+      "requested": {
+        "features": [],
+        "limits": {
+          "maxStorageBufferBindingSize": 536870912,
+          "maxBufferSize": 536870912
+        }
+      },
+      "device": {
+        "features": [
+          "core-features-and-limits"
+        ],
+        "limits": {
+          "maxTextureDimension1D": 8192,
+          "maxTextureDimension2D": 8192,
+          "maxTextureDimension3D": 2048,
+          "maxTextureArrayLayers": 256,
+          "maxBindGroups": 4,
+          "maxBindGroupsPlusVertexBuffers": 24,
+          "maxBindingsPerBindGroup": 1000,
+          "maxDynamicUniformBuffersPerPipelineLayout": 8,
+          "maxDynamicStorageBuffersPerPipelineLayout": 4,
+          "maxSampledTexturesPerShaderStage": 16,
+          "maxSamplersPerShaderStage": 16,
+          "maxStorageBuffersPerShaderStage": 8,
+          "maxStorageBuffersInVertexStage": 8,
+          "maxStorageBuffersInFragmentStage": 8,
+          "maxStorageTexturesPerShaderStage": 4,
+          "maxStorageTexturesInVertexStage": 4,
+          "maxStorageTexturesInFragmentStage": 4,
+          "maxUniformBuffersPerShaderStage": 12,
+          "maxUniformBufferBindingSize": 65536,
+          "maxStorageBufferBindingSize": 536870912,
+          "minUniformBufferOffsetAlignment": 256,
+          "minStorageBufferOffsetAlignment": 256,
+          "maxVertexBuffers": 8,
+          "maxBufferSize": 536870912,
+          "maxVertexAttributes": 16,
+          "maxVertexBufferArrayStride": 2048,
+          "maxInterStageShaderVariables": 16,
+          "maxColorAttachments": 8,
+          "maxColorAttachmentBytesPerSample": 32,
+          "maxComputeWorkgroupStorageSize": 16384,
+          "maxComputeInvocationsPerWorkgroup": 256,
+          "maxComputeWorkgroupSizeX": 256,
+          "maxComputeWorkgroupSizeY": 256,
+          "maxComputeWorkgroupSizeZ": 64,
+          "maxComputeWorkgroupsPerDimension": 65535,
+          "maxImmediateSize": 64
+        },
+        "featuresUnavailableReason": null,
+        "limitsUnavailableReason": null
+      },
+      "failure": null,
+      "gpuTimestamps": {
+        "available": false,
+        "reason": "GPU timestamp queries are not instrumented. Initialization observations use CPU performance.now wall time."
+      }
+    },
+    "launchFlags": [
+      "--enable-unsafe-webgpu"
+    ],
+    "origins": [
+      "http://127.0.0.1:5173",
+      "http://127.0.0.1:4173"
+    ],
+    "secureContext": true,
+    "crossOriginIsolated": false,
+    "browserDefaultWebGpuAvailabilityEstablished": false,
+    "scope": "Observed Windows Chromium 156 / NVIDIA RTX 5090; the test launch flag does not establish browser-default WebGPU support or other OS/browser/GPU behavior."
+  },
+  "renderingEvidence": {
+    "path": "docs/validation/runs/webgl2-implementation-20261025-02/rendering-evidence.json",
+    "bytes": 2633290,
+    "sha256": "8d417e7100c6fbd135fd93b8d087159fcfc94fc65901371cad734520ec03a531"
+  },
+  "measurements": [
+    {
+      "backend": "webgpu",
+      "count": 262556,
+      "shDegree": 3,
+      "multiplier": 1,
+      "overlap": "original",
+      "cssViewport": [
+        320,
+        200
+      ],
+      "dpr": 1,
+      "framebuffer": [
+        320,
+        200
+      ],
+      "memory": {
+        "bytes": 0,
+        "peakBytes": 108187880,
+        "allocations": 0
+      },
+      "memoryScope": "logical renderer/worker/readback reservations; excludes the separately owned App/native source and physical driver memory",
+      "timingScope": "wall time through actual queue/fence completion; worker sorting reported separately on GL, GPU sorting remains within frame time",
+      "modes": [
+        {
+          "mode": "sorted",
+          "frameCompletionMs": {
+            "samples": [
+              1.2000000476837158,
+              3.799999952316284,
+              2.5,
+              2.5,
+              2.5,
+              2.5,
+              3,
+              3
+            ],
+            "median": 2.5,
+            "p95": 3.799999952316284
+          },
+          "workerSort": null,
+          "pickMs": 50.39999997615814,
+          "surfaceMs": 7.5,
+          "surface": {
+            "width": 320,
+            "height": 200,
+            "region": {
+              "x": 144,
+              "y": 84,
+              "width": 32,
+              "height": 32
+            },
+            "candidateEntries": 20480,
+            "candidateBytes": 81920,
+            "allocationBytes": 512000
+          },
+          "captureMs": 5.899999976158142,
+          "quality": null,
+          "retained": {
+            "bytes": 98294456,
+            "peakBytes": 99418104,
+            "allocations": 2
+          }
+        },
+        {
+          "mode": "steady",
+          "frameCompletionMs": {
+            "samples": [
+              5.200000047683716,
+              4.200000047683716,
+              3.5,
+              1.7999999523162842,
+              3.399999976158142,
+              3.100000023841858,
+              2.700000047683716,
+              2.6999999284744263
+            ],
+            "median": 3.399999976158142,
+            "p95": 5.200000047683716
+          },
+          "workerSort": null,
+          "pickMs": 49.90000009536743,
+          "surfaceMs": 5.299999952316284,
+          "surface": {
+            "width": 320,
+            "height": 200,
+            "region": {
+              "x": 144,
+              "y": 84,
+              "width": 32,
+              "height": 32
+            },
+            "candidateEntries": 20480,
+            "candidateBytes": 81920,
+            "allocationBytes": 512000
+          },
+          "captureMs": 4.299999952316284,
+          "quality": {
+            "firstMse": 2054.915348958333,
+            "refinedMse": 94.83380208333334,
+            "frames": 65,
+            "restFrames": 64
+          },
+          "retained": {
+            "bytes": 107064232,
+            "peakBytes": 108187880,
+            "allocations": 3
+          }
+        }
+      ]
+    },
+    {
+      "backend": "webgpu",
+      "count": 525112,
+      "shDegree": 3,
+      "multiplier": 2,
+      "overlap": "two coincident copies with distinct source IDs",
+      "cssViewport": [
+        320,
+        200
+      ],
+      "dpr": 2,
+      "framebuffer": [
+        640,
+        400
+      ],
+      "memory": {
+        "bytes": 0,
+        "peakBytes": 233526192,
+        "allocations": 0
+      },
+      "memoryScope": "logical renderer/worker/readback reservations; excludes the separately owned App/native source and physical driver memory",
+      "timingScope": "wall time through actual queue/fence completion; worker sorting reported separately on GL, GPU sorting remains within frame time",
+      "modes": [
+        {
+          "mode": "sorted",
+          "frameCompletionMs": {
+            "samples": [
+              4.299999952316284,
+              2.600000023841858,
+              2.5,
+              4.799999952316284,
+              2.600000023841858,
+              2.5,
+              2.600000023841858,
+              2.600000023841858
+            ],
+            "median": 2.600000023841858,
+            "p95": 4.799999952316284
+          },
+          "workerSort": null,
+          "pickMs": 102.89999997615814,
+          "surfaceMs": 6.199999928474426,
+          "surface": {
+            "width": 640,
+            "height": 400,
+            "region": {
+              "x": 304,
+              "y": 184,
+              "width": 32,
+              "height": 32
+            },
+            "candidateEntries": 15360,
+            "candidateBytes": 61440,
+            "allocationBytes": 2048000
+          },
+          "captureMs": 8.700000047683716,
+          "quality": null,
+          "retained": {
+            "bytes": 194442608,
+            "peakBytes": 198644416,
+            "allocations": 2
+          }
+        },
+        {
+          "mode": "steady",
+          "frameCompletionMs": {
+            "samples": [
+              3.8000000715255737,
+              4.199999928474426,
+              2.899999976158142,
+              2.8000000715255737,
+              3.1999999284744263,
+              3,
+              2.700000047683716,
+              3
+            ],
+            "median": 3,
+            "p95": 4.199999928474426
+          },
+          "workerSort": null,
+          "pickMs": 153.60000002384186,
+          "surfaceMs": 4.799999952316284,
+          "surface": {
+            "width": 640,
+            "height": 400,
+            "region": {
+              "x": 304,
+              "y": 184,
+              "width": 32,
+              "height": 32
+            },
+            "candidateEntries": 15360,
+            "candidateBytes": 61440,
+            "allocationBytes": 2048000
+          },
+          "captureMs": 3.399999976158142,
+          "quality": {
+            "firstMse": 1300.87633203125,
+            "refinedMse": 55.9567734375,
+            "frames": 65,
+            "restFrames": 64
+          },
+          "retained": {
+            "bytes": 229324384,
+            "peakBytes": 233526192,
+            "allocations": 3
+          }
+        }
+      ]
+    },
+    {
+      "backend": "webgl2",
+      "count": 262556,
+      "shDegree": 3,
+      "multiplier": 1,
+      "overlap": "original",
+      "cssViewport": [
+        320,
+        200
+      ],
+      "dpr": 1,
+      "framebuffer": [
+        320,
+        200
+      ],
+      "memory": {
+        "bytes": 0,
+        "peakBytes": 109003792,
+        "allocations": 0
+      },
+      "memoryScope": "logical renderer/worker/readback reservations; excludes the separately owned App/native source and physical driver memory",
+      "timingScope": "wall time through actual queue/fence completion; worker sorting reported separately on GL, GPU sorting remains within frame time",
+      "modes": [
+        {
+          "mode": "sorted",
+          "frameCompletionMs": {
+            "samples": [
+              22.899999976158142,
+              17.299999952316284,
+              30.700000047683716,
+              27.100000023841858,
+              32.200000047683716,
+              35.5,
+              28.100000023841858,
+              30.59999990463257
+            ],
+            "median": 30.59999990463257,
+            "p95": 35.5
+          },
+          "workerSort": {
+            "displayJobs": 8,
+            "displayWallMs": 93.299999833107,
+            "queryJobs": 1,
+            "queryWallMs": 10
+          },
+          "pickMs": 141.5,
+          "surfaceMs": 183.70000004768372,
+          "surface": {
+            "width": 320,
+            "height": 200,
+            "region": {
+              "x": 144,
+              "y": 84,
+              "width": 32,
+              "height": 32
+            },
+            "candidateEntries": 20480,
+            "candidateBytes": 81920,
+            "allocationBytes": 14053300
+          },
+          "captureMs": 272.2000000476837,
+          "quality": null,
+          "retained": {
+            "bytes": 77995132,
+            "peakBytes": 94602016,
+            "allocations": 2
+          }
+        },
+        {
+          "mode": "steady",
+          "frameCompletionMs": {
+            "samples": [
+              371.7999999523163,
+              34.89999997615814,
+              31.899999976158142,
+              29.800000071525574,
+              29.09999990463257,
+              34.200000047683716,
+              29,
+              32.5
+            ],
+            "median": 32.5,
+            "p95": 371.7999999523163
+          },
+          "workerSort": {
+            "displayJobs": 0,
+            "displayWallMs": 0,
+            "queryJobs": 1,
+            "queryWallMs": 10.399999976158142
+          },
+          "pickMs": 123.79999995231628,
+          "surfaceMs": 168.30000007152557,
+          "surface": {
+            "width": 320,
+            "height": 200,
+            "region": {
+              "x": 144,
+              "y": 84,
+              "width": 32,
+              "height": 32
+            },
+            "candidateEntries": 20480,
+            "candidateBytes": 81920,
+            "allocationBytes": 14053300
+          },
+          "captureMs": 266.6999999284744,
+          "quality": {
+            "firstMse": 2057.976765625,
+            "refinedMse": 94.94009895833334,
+            "frames": 65,
+            "restFrames": 64
+          },
+          "retained": {
+            "bytes": 92396908,
+            "peakBytes": 109003792,
+            "allocations": 3
+          }
+        }
+      ]
+    },
+    {
+      "backend": "webgl2",
+      "count": 525112,
+      "shDegree": 3,
+      "multiplier": 2,
+      "overlap": "two coincident copies with distinct source IDs",
+      "cssViewport": [
+        320,
+        200
+      ],
+      "dpr": 2,
+      "framebuffer": [
+        640,
+        400
+      ],
+      "memory": {
+        "bytes": 0,
+        "peakBytes": 248554992,
+        "allocations": 0
+      },
+      "memoryScope": "logical renderer/worker/readback reservations; excludes the separately owned App/native source and physical driver memory",
+      "timingScope": "wall time through actual queue/fence completion; worker sorting reported separately on GL, GPU sorting remains within frame time",
+      "modes": [
+        {
+          "mode": "sorted",
+          "frameCompletionMs": {
+            "samples": [
+              38,
+              31,
+              28.700000047683716,
+              28.200000047683716,
+              28.5,
+              29.200000047683716,
+              48.5,
+              33.89999997615814
+            ],
+            "median": 31,
+            "p95": 48.5
+          },
+          "workerSort": {
+            "displayJobs": 8,
+            "displayWallMs": 187.79999995231628,
+            "queryJobs": 1,
+            "queryWallMs": 22
+          },
+          "pickMs": 263.5,
+          "surfaceMs": 244.60000002384186,
+          "surface": {
+            "width": 640,
+            "height": 400,
+            "region": {
+              "x": 304,
+              "y": 184,
+              "width": 32,
+              "height": 32
+            },
+            "candidateEntries": 19456,
+            "candidateBytes": 77824,
+            "allocationBytes": 28984440
+          },
+          "captureMs": 283.40000009536743,
+          "quality": null,
+          "retained": {
+            "bytes": 157997304,
+            "peakBytes": 191145216,
+            "allocations": 2
+          }
+        },
+        {
+          "mode": "steady",
+          "frameCompletionMs": {
+            "samples": [
+              36.700000047683716,
+              14.299999952316284,
+              34.799999952316284,
+              15.900000095367432,
+              9,
+              34.199999928474426,
+              29.100000023841858,
+              31.700000047683716
+            ],
+            "median": 31.700000047683716,
+            "p95": 36.700000047683716
+          },
+          "workerSort": {
+            "displayJobs": 0,
+            "displayWallMs": 0,
+            "queryJobs": 1,
+            "queryWallMs": 21.200000047683716
+          },
+          "pickMs": 210.79999995231628,
+          "surfaceMs": 228.60000002384186,
+          "surface": {
+            "width": 640,
+            "height": 400,
+            "region": {
+              "x": 304,
+              "y": 184,
+              "width": 32,
+              "height": 32
+            },
+            "candidateEntries": 19456,
+            "candidateBytes": 77824,
+            "allocationBytes": 28984440
+          },
+          "captureMs": 268.09999990463257,
+          "quality": {
+            "firstMse": 1300.38489453125,
+            "refinedMse": 55.8962890625,
+            "frames": 65,
+            "restFrames": 64
+          },
+          "retained": {
+            "bytes": 215407080,
+            "peakBytes": 248554992,
+            "allocations": 3
+          }
+        }
+      ]
+    },
+    {
+      "backend": "webgpu",
+      "count": 1050224,
+      "shDegree": 3,
+      "multiplier": 4,
+      "overlap": "4 coincident copies with distinct source IDs",
+      "cssViewport": [
+        640,
+        400
+      ],
+      "dpr": 2,
+      "framebuffer": [
+        1280,
+        800
+      ],
+      "memory": {
+        "bytes": 0,
+        "peakBytes": 587032488,
+        "allocations": 0
+      },
+      "memoryScope": "logical renderer/worker/readback reservations; excludes the separately owned App/native source and physical driver memory",
+      "timingScope": "wall time through actual queue/fence completion; worker sorting reported separately on GL, GPU sorting remains within frame time",
+      "modes": [
+        {
+          "mode": "sorted",
+          "frameCompletionMs": {
+            "samples": [
+              5,
+              2.899999976158142,
+              3,
+              2.899999976158142,
+              2.8000000715255737,
+              3.3000000715255737,
+              3.299999952316284,
+              2.600000023841858
+            ],
+            "median": 3,
+            "p95": 5
+          },
+          "workerSort": null,
+          "pickMs": 35.39999997615814,
+          "surfaceMs": 9.399999976158142,
+          "surface": {
+            "width": 647,
+            "height": 404,
+            "region": {
+              "x": 307,
+              "y": 186,
+              "width": 32,
+              "height": 32
+            },
+            "candidateEntries": 45056,
+            "candidateBytes": 180224,
+            "allocationBytes": 2091104
+          },
+          "captureMs": 11.600000023841858,
+          "quality": null,
+          "retained": {
+            "bytes": 392882784,
+            "peakBytes": 447702712,
+            "allocations": 2
+          }
+        },
+        {
+          "mode": "steady",
+          "frameCompletionMs": {
+            "samples": [
+              20.300000071525574,
+              11.799999952316284,
+              3.100000023841858,
+              3,
+              2.899999976158142,
+              3,
+              2.899999976158142,
+              2.899999976158142
+            ],
+            "median": 3,
+            "p95": 20.300000071525574
+          },
+          "workerSort": null,
+          "pickMs": 59.10000002384186,
+          "surfaceMs": 6.100000023841858,
+          "surface": {
+            "width": 647,
+            "height": 404,
+            "region": {
+              "x": 307,
+              "y": 186,
+              "width": 32,
+              "height": 32
+            },
+            "candidateEntries": 45056,
+            "candidateBytes": 180224,
+            "allocationBytes": 2091104
+          },
+          "captureMs": 6,
+          "quality": {
+            "firstMse": 794.0905787760416,
+            "refinedMse": 50.681753255208335,
+            "frames": 65,
+            "restFrames": 64
+          },
+          "retained": {
+            "bytes": 532212560,
+            "peakBytes": 587032488,
+            "allocations": 3
+          }
+        }
+      ]
+    },
+    {
+      "backend": "webgl2",
+      "count": 1050224,
+      "shDegree": 3,
+      "multiplier": 4,
+      "overlap": "4 coincident copies with distinct source IDs",
+      "cssViewport": [
+        640,
+        400
+      ],
+      "dpr": 2,
+      "framebuffer": [
+        1280,
+        800
+      ],
+      "memory": {
+        "bytes": 0,
+        "peakBytes": 619784624,
+        "allocations": 0
+      },
+      "memoryScope": "logical renderer/worker/readback reservations; excludes the separately owned App/native source and physical driver memory",
+      "timingScope": "wall time through actual queue/fence completion; worker sorting reported separately on GL, GPU sorting remains within frame time",
+      "modes": [
+        {
+          "mode": "sorted",
+          "frameCompletionMs": {
+            "samples": [
+              86.29999995231628,
+              55,
+              70.39999997615814,
+              50.800000071525574,
+              72.89999997615814,
+              58.799999952316284,
+              64,
+              54.10000002384186
+            ],
+            "median": 64,
+            "p95": 86.29999995231628
+          },
+          "workerSort": {
+            "displayJobs": 8,
+            "displayWallMs": 400.4999997615814,
+            "queryJobs": 1,
+            "queryWallMs": 49.39999997615814
+          },
+          "pickMs": 534.8999999761581,
+          "surfaceMs": 503,
+          "surface": {
+            "width": 647,
+            "height": 404,
+            "region": {
+              "x": 307,
+              "y": 186,
+              "width": 32,
+              "height": 32
+            },
+            "candidateEntries": 38912,
+            "candidateBytes": 155648,
+            "allocationBytes": 55886872
+          },
+          "captureMs": 78.70000004768372,
+          "quality": null,
+          "retained": {
+            "bytes": 324112880,
+            "peakBytes": 390342848,
+            "allocations": 2
+          }
+        },
+        {
+          "mode": "steady",
+          "frameCompletionMs": {
+            "samples": [
+              425.6999999284744,
+              30.90000009536743,
+              32.59999990463257,
+              31.200000047683716,
+              31.100000023841858,
+              31.600000023841858,
+              31.299999952316284,
+              28.700000047683716
+            ],
+            "median": 31.299999952316284,
+            "p95": 425.6999999284744
+          },
+          "workerSort": {
+            "displayJobs": 0,
+            "displayWallMs": 0,
+            "queryJobs": 1,
+            "queryWallMs": 47.40000009536743
+          },
+          "pickMs": 466.89999997615814,
+          "surfaceMs": 479.10000002384186,
+          "surface": {
+            "width": 647,
+            "height": 404,
+            "region": {
+              "x": 307,
+              "y": 186,
+              "width": 32,
+              "height": 32
+            },
+            "candidateEntries": 38912,
+            "candidateBytes": 155648,
+            "allocationBytes": 55886872
+          },
+          "captureMs": 318.5,
+          "quality": {
+            "firstMse": 794.202306640625,
+            "refinedMse": 50.666864583333336,
+            "frames": 65,
+            "restFrames": 64
+          },
+          "retained": {
+            "bytes": 553554656,
+            "peakBytes": 619784624,
+            "allocations": 3
+          }
+        }
+      ]
+    }
+  ],
+  "retainedDiagnostics": [
+    {
+      "report": {
+        "path": ".build/webgl2-implementation-20261025-02/unit.json",
+        "bytes": 2485609,
+        "sha256": "1c773d965defd6be3c1220a9e827e9696d315114279c477bf8d2882c6a112382"
+      },
+      "stats": {
+        "numTotalTests": 6412,
+        "numPassedTests": 6411,
+        "numFailedTests": 1
+      },
+      "resolution": "One 5-second release-fixture timeout under concurrent validation (6411/6412 passed). The isolated 17-case fixture lane and fresh full 6412-case run with four workers pass; no timeout/assertion relaxation."
+    },
+    {
+      "report": {
+        "path": ".build/webgl2-implementation-20261025-02/editing.json",
+        "bytes": 2311477,
+        "sha256": "94ef697691d9abcd7fc98ae7ef32667e6a5e8c40bf003331971183ee891d74cc"
+      },
+      "stats": {
+        "startTime": "2026-10-25T07:08:38.554Z",
+        "duration": 109959.687,
+        "expected": 20,
+        "skipped": 0,
+        "unexpected": 32,
+        "flaky": 0
+      },
+      "resolution": "Early GL qualification still hit WebGPU-only fixture helpers (32 failures, 20 passes). Backend-neutral observations now read actual GL allocations and preserve actual WebGPU readback oracles."
+    },
+    {
+      "report": {
+        "path": ".build/webgl2-implementation-20261025-02/editing-02.json",
+        "bytes": 5716625,
+        "sha256": "a292339e45e4167502d0543998382653850d353560a3e933134b8a26406d21c2"
+      },
+      "stats": {
+        "startTime": "2026-10-25T07:11:48.479Z",
+        "duration": 112233.91,
+        "expected": 57,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      },
+      "resolution": "Two observations inspected a genuine pending GL sort credit before completion. The observation now awaits the renderer completion boundary; zero-credit and native/history assertions remain."
+    },
+    {
+      "report": {
+        "path": ".build/webgl2-implementation-20261025-02/lifecycle-bench.json",
+        "bytes": 292949,
+        "sha256": "5a9032cf5d930ab1c61abc578388faee7f775768103127ff762e7588b745cb80"
+      },
+      "stats": {
+        "startTime": "2026-10-25T07:22:29.730Z",
+        "duration": 55848.812,
+        "expected": 8,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      },
+      "resolution": "The accepted-transform fixture called an unavailable Tools action. Setup now opens Tools and waits for the actual Apply readiness; final real loss/preview recovery passes. The four before-optimization measurements remain diagnostic observations."
+    },
+    {
+      "report": {
+        "path": ".build/webgl2-implementation-20261025-02/state.json",
+        "bytes": 254554,
+        "sha256": "0b11e811c11262175797c0a927cf077487312b914d4baceef17a84e41f59cdaa"
+      },
+      "stats": {
+        "startTime": "2026-10-25T07:29:09.037Z",
+        "duration": 26955.392,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      },
+      "resolution": "A fixture tried uploading a native map while its accepted color session remained owned. It now retires its fixture map and uses the controller native settlement/map owner; both actual backends pass."
+    },
+    {
+      "report": {
+        "path": ".build/webgl2-implementation-20261025-02/million-recovery.json",
+        "bytes": 255744,
+        "sha256": "319bfed2c402e195cbfdb40bded60bbf44872f7b1745f6ee1f2ab43c58245388"
+      },
+      "stats": {
+        "startTime": "2026-10-25T07:34:51.318Z",
+        "duration": 10672.919,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      },
+      "resolution": "Stress-query coordinates used framebuffer coordinates after downsampling. The fixture now centers its complete region in the unchanged selection-map grid. No production projection/query behavior changed."
+    },
+    {
+      "report": {
+        "path": ".build/webgl2-implementation-20261025-02/metadata.json",
+        "bytes": 253559,
+        "sha256": "dfe0736a3cc76233334830a5b3fff21a8e869247ce862beff1b2bd7ac45ea181"
+      },
+      "stats": {
+        "startTime": "2026-10-25T07:52:47.953Z",
+        "duration": 2941.3810000000003,
+        "expected": 0,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      },
+      "resolution": "The independent WGSL readback fixture initially concatenated a vec4 textureLoad with vec2 center metadata. Corrected to sample.xy; production shaders were unchanged."
+    },
+    {
+      "report": {
+        "path": ".build/webgl2-implementation-20261025-02/policy-final.json",
+        "bytes": 5239,
+        "sha256": "396e1dfb236c9d487dfaad59b226772e161c1125390137ae182b8ad71ca295e6"
+      },
+      "stats": {
+        "numTotalTests": 10,
+        "numPassedTests": 8,
+        "numFailedTests": 2
+      },
+      "resolution": "The documentation amendment initially left commas unquoted in the compact capability CSV. Quoting and exact byte/digest binding were corrected; all 10 policy/ledger cases and source/product verification pass."
+    },
+    {
+      "report": {
+        "path": ".build/webgl2-implementation-20261025-02/production.json",
+        "bytes": 177452,
+        "sha256": "ecff49d961ba58c786a2e31319b97adf9ec1549bd20b1b23d8ae0109f0146d05"
+      },
+      "stats": {
+        "startTime": "2026-10-25T07:44:00.793Z",
+        "duration": 115518.369,
+        "expected": 20,
+        "skipped": 0,
+        "unexpected": 22,
+        "flaky": 0
+      },
+      "resolution": "22 coordinate fixtures imported development-only TypeScript URLs. They now use separate shipping native core/camera WASM modules, preserving independent native projection expectations."
+    },
+    {
+      "report": {
+        "path": ".build/webgl2-implementation-20261025-02/production-final.json",
+        "bytes": 87780,
+        "sha256": "ada4dd7286d51982bc70b4590013f4fee78f4edfc9176d6288cd8a97a83ce837"
+      },
+      "stats": {
+        "startTime": "2026-10-25T07:50:11.164Z",
+        "duration": 116418.71699999999,
+        "expected": 40,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      },
+      "resolution": "After native-coordinate correction, 40 passed and two deliberate private source-owner injection tests were inapplicable to a static bundle. They remain unchanged and pass in the development-only lane; the declared public production cohort passes 40/40."
+    }
+  ],
+  "automaticFallbackEnabled": true,
+  "backendOverride": "Settings / General / Rendering, or ?graphics=webgl2 / ?graphics=webgpu; session only; loaded-scene switch refused at discovery and dispatch.",
+  "remainingRequiredWork": [],
+  "externalQualification": [
+    "Other browsers/OS/GPU/security contexts are not qualified by this local evidence.",
+    "Real deployed-host HTTPS/offline/update/permission behavior retains its separate existing qualification; no remote deployment was requested.",
+    "Native editors and OS preview/thumbnail providers are unchanged and receive no new qualification."
+  ],
+  "historicalEvidence": [
+    {
+      "path": "docs/validation/runs/webgl2-implementation-20261025-01/validation.json",
+      "bytes": 43532,
+      "sha256": "9e9f613531c3b9b81a3d1f8264e8270d1bff41425b525625a510bebb8191ac86"
+    },
+    {
+      "path": "docs/validation/runs/steady-splats-20261025-01/validation.json",
+      "bytes": 20274,
+      "sha256": "1faab19fe8ab4b05b4aa100e1abb129f5f0fd3d808d1953607d38d45bc20cdcd"
+    }
+  ]
+}

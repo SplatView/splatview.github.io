@@ -54,7 +54,7 @@ function fixture(dirty = false) {
   controller.client = client; internals.sourceMemory = owner; internals.releaseScene = sceneLease; internals.releaseHistory = history;
   const scene = { kind: 'gaussian', setDuplicateRange: vi.fn(), dispose: vi.fn(async () => {}) };
   const renderer = { lost: false, dispose: vi.fn(), capture: vi.fn(), setHistogramEnabled: vi.fn(), resetHistogram: vi.fn(),
-    device: { queue: { onSubmittedWorkDone: vi.fn(async () => {}) } } };
+    finish(): Promise<void> { return this.device.queue.onSubmittedWorkDone(); }, device: { queue: { onSubmittedWorkDone: vi.fn(async () => {}) } } };
   const camera = { clearInput: vi.fn(), dispose: vi.fn() };
   controller.scene = scene as unknown as NonNullable<AppController['scene']>;
   controller.renderer = renderer as unknown as NonNullable<AppController['renderer']>;

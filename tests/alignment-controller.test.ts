@@ -1,7 +1,8 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { AppController } from '../src/app/controller';
 import { setApp, useApp } from '../src/app/store';
-import { NEUTRAL_COLOR, type NativeSummary, type Revision, type SceneCommand } from '../src/document/types';
+import { NEUTRAL_COLOR } from '../src/renderer/defaults';
+import { type NativeSummary, type Revision, type SceneCommand } from '../src/document/types';
 import { IDENTITY_ALIGNMENT_FRAME, alignmentFrameChange, type AlignmentFrame } from '../src/document/alignment';
 import type { AlignmentSummary } from '../src/document/alignmentProtocol';
 import type { AlignmentViewCheckpoints } from '../src/document/alignmentViews';
@@ -86,7 +87,7 @@ function fixture(start = summary()) {
     canvas: { width: 800, height: 400, getBoundingClientRect: () => ({ width: 400, height: 200 }) },
     render: vi.fn(), pick: vi.fn(async () => ({ index: 1 as number | null, deviceEpoch: renderer.deviceEpoch })),
     captureRgba: vi.fn(async () => ({ width: 1, height: 1, pixels: new Uint8ClampedArray(4), dispose: vi.fn() })),
-    device: { queue: { onSubmittedWorkDone: vi.fn(async () => {
+    finish(): Promise<void> { return this.device.queue.onSubmittedWorkDone(); }, device: { queue: { onSubmittedWorkDone: vi.fn(async () => {
       events.push('gpu-fence');
       if (failure === 'fence') { failure = undefined; throw new Error('Injected completion fence failure'); }
     }) } },

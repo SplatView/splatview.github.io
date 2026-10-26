@@ -64,7 +64,8 @@ function fixture() {
     assertNativeAdmission: vi.fn(), cancel: vi.fn(), command: vi.fn(), stream: vi.fn() });
   const scene = { kind: 'gaussian', setDuplicateRange: vi.fn(), count: 3, sourceRevision: 1, dispose: vi.fn(async () => {}) };
   const renderer = { lost: false, deviceEpoch: 1, canvas: { width: 400, height: 300, getBoundingClientRect: () => ({ width: 400 }) },
-    device: { queue: { onSubmittedWorkDone: vi.fn(async () => {}) } }, setHistogramEnabled: vi.fn(), render: vi.fn(), pick: vi.fn(), dispose: vi.fn() };
+    device: { queue: { onSubmittedWorkDone: vi.fn(async () => {}) } }, finish(): Promise<void> { return this.device.queue.onSubmittedWorkDone(); }, setHistogramEnabled: vi.fn(),
+    setRenderSettings: vi.fn(), steadySnapshot: { status: 'sorted' }, render: vi.fn(), pick: vi.fn(), dispose: vi.fn() };
   const camera = { revision: 2, clearInput: vi.fn(), state: [0, 0, 0, 0, 0, 3, 1, 45, 0, 0, 1],
     filterView: vi.fn(() => ({ center: [1, 2, 3], rotation: [0, 90, 0], fov: 45, aspect: 4 / 3, near: .01, far: 30 })) };
   controller.client = client as unknown as CoreClient; controller.scene = scene as unknown as NonNullable<AppController['scene']>;

@@ -1,8 +1,12 @@
+import { createVerifiedRenderCompute } from './renderCompute';
+import { DisplayFrameAdmission } from '../renderer/displayFrameAdmission';
+import { interactiveDisplayPrecision, type DisplayPoseIdentity } from '../renderer/displayPrecision';
+import type { ImageOperation } from '../io/image';
 import { CoreClient, type CoreClientRecoverySeed, type CoreWorkerFailure } from '../document/coreClient';
 import { DocumentRecoveryStore, recoveryPublicationRevision } from '../document/recoveryCoordinator';
 import { encodeRecoveryMetadata, decodeRecoveryMetadata, type RecoveryMetadata } from './recoveryMetadata';
 import { assertOperationSummary, isOperationRestoredError, type OperationOwner, type OperationResolution } from '../document/operationProtocol';
-import { AdmissionError, checkedBytes, estimateSceneBytes, estimateFloorWorkBytes,
+import { AdmissionError, checkedBytes, estimateFloorWorkBytes,
   FLOOR_VIEW_BOOKKEEPING_BYTES, MiB, ResourceLedger, type ResourceLease } from '../document/resources';
 import { LOADED_PREVIEW_LIMIT, probeSceneFile, PROBE_WORK_BYTES } from '../document/loadProbe';
 import { assertSourceFitsDecodeBudget, NATIVE_LOAD_BUDGET_BYTES, sceneFileBytes } from '../document/sceneInputLimits';
@@ -12,8 +16,10 @@ import { acquireSceneCollectionFromFiles, acquireSceneCollectionFromFolderFiles,
   snapshotSceneCollectionDrop, type SceneCollectionDrop } from '../io/collectionAcquisition';
 import type { OwnedSceneCollection } from '../io/sceneCollection';
 import { EXAMPLE_SCENE, EXAMPLE_SCENE_LOAD_ERROR, prepareExampleSceneCollection } from './exampleScene';
-import { geometryDescriptor, sameGeometryDescriptor } from '../document/geometry';
-import { IDENTITY_MATRIX, NEUTRAL_COLOR, sameRevision, type NativeAllocationSnapshot, type NativeSummary, type Revision, type SceneCommand } from '../document/types';
+import { sameGeometryDescriptor } from '../renderer/geometryLayout';
+import { geometryDescriptor } from '../document/geometry';
+import { IDENTITY_MATRIX, NEUTRAL_COLOR } from '../renderer/defaults';
+import { sameRevision, type NativeAllocationSnapshot, type NativeSummary, type Revision, type SceneCommand } from '../document/types';
 import { NativeHeapAccounting, type NativeCoverageUpdate } from '../document/nativeMemory';
 import { CameraController } from '../input/camera';
 import { SelectionSession, type SelectionRunResult } from '../input/selectionSession';
@@ -25,18 +31,23 @@ import { DUPLICATE_SCENE_LIMIT, isDuplicateCommand, sameDuplicateRange } from '.
 import { estimateDuplicateWorkBytes } from '../document/duplicateMemory';
 import { colorValues, colorSessionState, estimateColorWorkBytes, isAutoColorMethod, sameColorValues,
   type AutoColorMethod, type ColorDisplayBinding } from '../document/colorSession';
-import { GaussianRenderer, StaleGpuQueryError, type GpuMaskUpdate, type GpuScene, type GpuPick, type RenderableScene } from '../renderer/webgpu/renderer';
+import { createSceneRenderer } from '../renderer/factory';
+import { estimateRendererSceneBytes } from '../renderer/sceneResources';
+import { estimateSceneBytes as estimateWebGpuSceneBytes } from '../document/resources';
+import { validateBackendPreference, type GraphicsBackend, type GraphicsBackendPreference } from '../renderer/backend';
+import { StaleRenderQueryError, type SceneRenderer, type MaskUpdate, type GaussianScene, type RenderPick, type RenderScene, type RetiredRenderResource } from '../renderer/contracts';
+import { validateSteadySettings, type SteadySettings } from '../renderer/steadySettings';
+import { registeredAllowed } from '../generated/product-adapter';
 import { useApp, setApp, setSelectionPreferences, type SelectionTool, type ToolbarAction, type ToolbarFeedback } from './store';
 import { DocumentSelectionMaps, type SelectionMapContext } from './selectionMaps';
 import { surfaceDimensions, type SurfaceChannels } from '../renderer/webgpu/surfaceQuery';
-import { prepareSurfacePipelines } from '../renderer/webgpu/surfacePipelines';
 import { volumeSurfaceRegion } from '../renderer/webgpu/surfaceCoverage';
 import type { CachedSelectionMap } from '../document/selectionMapCache';
 import { ensureRuntime, getRuntimeVerificationMode } from '../build/runtime';
 import type { SourceFingerprint } from '../io/fingerprint';
 import { savedViewCameraState, savedViewFromCamera, savedViewMatches, validateSavedViewRecord, type SavedViewRecord } from '../io/savedView';
 import { SAVED_VIEW_RETENTION_BYTES, SavedViewStorage } from '../io/savedViewStorage';
-import { createSavedThumbnail, type SavedViewOperation } from '../io/thumbnail';
+import { createSavedThumbnail } from '../io/thumbnail';
 import { encodeRgba, type OwnedImageOutput, type OwnedRgbaImage } from '../io/image';
 import { readPortableSavedView, writePortableSavedView } from '../io/portableSavedView';
 import { IDENTITY_ALIGNMENT_FRAME, cameraStateFromOriginal, cameraStateToOriginal, prepareDefaultRolls } from '../document/alignment';
@@ -167,12 +178,12 @@ export function downloadBlob(blob: Blob, name: string, onSettled?: () => void, c
   finally { anchor?.remove(); }
 }
 type SavedViewTransfer = {
-  source: Readonly<SourceFingerprint>; client: CoreClient; scene: RenderableScene; renderer: GaussianRenderer;
-  camera: CameraController; record?: SavedViewRecord; operation: SavedViewOperation; current(): void;
+  source: Readonly<SourceFingerprint>; client: CoreClient; scene: RenderScene; renderer: SceneRenderer;
+  camera: CameraController; record?: SavedViewRecord; operation: ImageOperation; current(): void;
 };
 type ToleranceRequest = SelectionRangeFields & { tolerance: number; connected: boolean; sequence: number };
 type ToleranceSelection = {
-  id: number; client: CoreClient; renderer: GaussianRenderer; scene: GpuScene; camera: CameraController;
+  id: number; client: CoreClient; renderer: SceneRenderer; scene: GaussianScene; camera: CameraController;
   tool: 'color' | 'fill'; sourceRevision: number;
   cameraRevision: number; width: number; height: number; optionsRevision: number;
   revision: Revision; active: boolean; applying: boolean; session: ToleranceSession<ToleranceRequest>;
@@ -204,7 +215,7 @@ type SelectionCleanupOwner = {
 };
 type FilterOwner = {
   client: CoreClient; documentId: string; sourceGeneration: number; generation: number;
-  scene?: GpuScene; renderer?: GaussianRenderer; kind: SelectionFilterKind; id?: number; nextEpoch: number;
+  scene?: GaussianScene; renderer?: SceneRenderer; kind: SelectionFilterKind; id?: number; nextEpoch: number;
   parameters: SelectionFilterParameters; operation: number; desiredRevision: number; previewRevision: number | null;
   parameterRevision: number;
   viewRevision?: string;
@@ -221,7 +232,7 @@ type FilterGizmoGesture = {
   expectedDesiredRevision: number; expectedParameterRevision: number; lastUpdateRevision: number;
 };
 type TransformOwner = {
-  client: CoreClient; documentId: string; sourceGeneration: number; generation: number; scene?: GpuScene; renderer?: GaussianRenderer;
+  client: CoreClient; documentId: string; sourceGeneration: number; generation: number; scene?: GaussianScene; renderer?: SceneRenderer;
   kind: TransformKind; selectedOnly: boolean; metadata?: TransformSessionSummary; nextEpoch: number;
   parameters: TransformParameters; appliedParameters: TransformParameters; desiredRevision: number; appliedRevision: number | null;
   phase: NonNullable<ReturnType<typeof useApp.getState>['transform']>['phase']; applyRequested: boolean;
@@ -237,7 +248,7 @@ type TransformGizmoGesture = {
   widgetMatrix: TransformMatrix;
 };
 type OpacityOwner = {
-  client: CoreClient; documentId: string; sourceGeneration: number; generation: number; scene?: GpuScene; renderer?: GaussianRenderer;
+  client: CoreClient; documentId: string; sourceGeneration: number; generation: number; scene?: GaussianScene; renderer?: SceneRenderer;
   selectedOnly: boolean; metadata?: OpacitySessionSummary; nextEpoch: number; scale: number; appliedScale: number;
   desiredRevision: number; appliedRevision: number | null; phase: NonNullable<ReturnType<typeof useApp.getState>['opacity']>['phase'];
   applyRequested: boolean; cancelRequested: boolean; task?: Promise<boolean>; ending?: Promise<boolean>; error?: string;
@@ -246,31 +257,31 @@ type EditOperation = { cancel: AbortController; committing: boolean; finished: P
 type ExportOperation = { cancel: AbortController; finished: Promise<void> };
 type ToolbarAttempt = { action: ToolbarAction; sequence: number; client?: CoreClient; generation: number;
   documentId?: string; sourceGeneration?: number };
-type MorphologyRangeOwner = { client: CoreClient; scene: GpuScene; generation: number; revision: Revision;
+type MorphologyRangeOwner = { client: CoreClient; scene: GaussianScene; generation: number; revision: Revision;
   cancel: AbortController; finished: Promise<void>; task: Promise<boolean> };
 type CollectionIntake = {
   cancel: AbortController; collection?: OwnedSceneCollection; scan?: Promise<OwnedSceneCollection>;
   drop?: SceneCollectionDrop; cleanup?: Promise<void>; ownsCollection: boolean; barrier: boolean;
-  example?: { ownsFile(file: File): boolean; published?: { scene: RenderableScene; client: CoreClient; generation: number } };
+  example?: { ownsFile(file: File): boolean; published?: { scene: RenderScene; client: CoreClient; generation: number } };
 };
 type SourceSelection = Readonly<{ files: readonly File[]; index: number; groupFiles?: readonly File[] }> |
   Readonly<{ collection: OwnedSceneCollection; index: number; intake: CollectionIntake; file?: File }>;
 type NativeSceneCoverage = { scene: ResourceLease; sceneNativeBytes?: number; history?: ResourceLease; work?: ResourceLease };
 type AlignmentToolOwner = {
-  client: CoreClient; renderer: GaussianRenderer; scene: GpuScene; generation: number; revision: Revision;
+  client: CoreClient; renderer: SceneRenderer; scene: GaussianScene; generation: number; revision: Revision;
   tool: 'center' | 'scale' | 'align'; point?: readonly [number, number, number];
   secondPoint?: readonly [number, number, number]; targetDistance?: number;
   thirdPoint?: readonly [number, number, number]; normal?: readonly [number, number, number]; flip: boolean;
 };
 type FloorToolOwner = {
-  client: CoreClient; renderer: GaussianRenderer; scene: GpuScene; generation: number; sourceRevision: number;
+  client: CoreClient; renderer: SceneRenderer; scene: GaussianScene; generation: number; sourceRevision: number;
   revision: Revision; baseline: NativeSummary; cancel: AbortController; detecting: boolean;
   task?: Promise<boolean>; candidate?: FloorSummary; nativeId?: number;
   metadata: ResourceLease; retirement?: Promise<void>;
 };
 type ReleasedSelection = {
   tool: 'color' | 'fill'; seed: [number, number]; operation: number;
-  renderer: GaussianRenderer; scene: GpuScene; camera: CameraController; client: CoreClient;
+  renderer: SceneRenderer; scene: GaussianScene; camera: CameraController; client: CoreClient;
   cameraRevision: number; sourceRevision: number; width: number; height: number; optionsRevision: number;
   cameraState: number[]; grade: number[]; visibleOnly: boolean; overlap: boolean; sampleRadiusPixels: number;
   selectionView: SelectionView | null;
@@ -284,9 +295,9 @@ type ReleasedSelection = {
 const releasedSelectionBytes = 1024;
 const maxReleasedSelections = 1024;
 export class AppController {
-  renderer?: GaussianRenderer;
+  renderer?: SceneRenderer;
   camera?: CameraController;
-  scene?: RenderableScene;
+  scene?: RenderScene;
   client?: CoreClient;
   private morphologyRangeOwner?: MorphologyRangeOwner;
   private morphologyRangeFailure?: { client: CoreClient; generation: number; revision: Revision };
@@ -344,9 +355,11 @@ export class AppController {
   get sourceFingerprint() { return this.fingerprint; }
   private generation = 0;
   private frame = 0;
-  private warmedSurfaceRenderers = new WeakSet<GaussianRenderer>();
+  private warmedSurfaceRenderers = new WeakSet<SceneRenderer>();
   private viewportListeners = new Set<() => void>();
   private drawing = false;
+  private readonly displayAdmission = new DisplayFrameAdmission();
+  private lastDisplayPose?:DisplayPoseIdentity;
   private dirtyFrame = true;
   private histogramVisible = false;
   private lastTime = 0;
@@ -354,14 +367,14 @@ export class AppController {
   private releaseHistory?: ResourceLease;
   private editOperation?: EditOperation;
   private committedGraphicsRecovery?: { client: CoreClient; resolution: OperationResolution; admittedGpuBytes?: number };
-  private retainedGraphicsCredit?: { client: CoreClient; scene: GpuScene; lease: ResourceLease };
+  private retainedGraphicsCredit?: { client: CoreClient; scene: GaussianScene; lease: ResourceLease };
   // The sole live GPU scene is the immutable color base while native content
   // and history advance. A boundary stages baked content before clearing this.
-  private colorDisplay?: ColorDisplayBinding & { scene: GpuScene };
+  private colorDisplay?: ColorDisplayBinding & { scene: GaussianScene };
   private colorBoundary?: Promise<boolean>;
   private colorJob?: 'manual' | 'auto';
   private deferredColorPointer?: {
-    token: DeferredColorPointerToken; client: CoreClient; camera: CameraController; renderer: GaussianRenderer;
+    token: DeferredColorPointerToken; client: CoreClient; camera: CameraController; renderer: SceneRenderer;
     generation: number; documentId: string; sourceGeneration: number; cameraRevision: number;
     width: number; height: number; tool: SelectionTool | null; operation: EditOperation; lease: ResourceLease; ready?: Promise<boolean>;
   };
@@ -462,7 +475,7 @@ export class AppController {
   private destroyed = false;
   private benchmarkObservation?: BenchmarkObservation;
   private benchmarkMaskRead?:Promise<BenchmarkMaskObservation>;
-  private benchmarkPickTasks?:Set<Promise<GpuPick>>;
+  private benchmarkPickTasks?:Set<Promise<RenderPick>>;
   /** An explicit opt-in capture. Its unsubscribe owns only this capture. */
   enableBenchmarkObservation(options: { maxFrames?: number } = {}): () => void {
     if (this.destroyed) throw new Error('The viewer has been disposed.');
@@ -488,22 +501,22 @@ export class AppController {
       visibility:document.visibilityState};
   }
   /** Existing ordinary UI preparation/pick, with observations only when opted in. */
-  private selectionPixelPick(path:'ordinary-single'|'ordinary-color',renderer:GaussianRenderer,scene:GpuScene,camera:CameraController,
+  private selectionPixelPick(path:'ordinary-single'|'ordinary-color',renderer:SceneRenderer,scene:GaussianScene,camera:CameraController,
     x:number,y:number,grade:number[],selectedOnly:boolean){
     const observation=this.benchmarkObservation?.active?this.benchmarkObservation:undefined;
-    if(!observation){renderer.render(scene,camera,grade,true,IDENTITY_MATRIX,selectedOnly);return renderer.pick(scene,x,y);}
+    if(!observation){const pending=renderer.render(scene,camera,grade,true,IDENTITY_MATRIX,selectedOnly);return pending?pending.then(()=>renderer.pick(scene,x,y)):renderer.pick(scene,x,y);}
     const task=this.observedSelectionPixelPick(observation,path,renderer,scene,camera,x,y,grade,selectedOnly);
     const tasks=this.benchmarkPickTasks??=new Set();tasks.add(task);void task.finally(()=>tasks.delete(task)).catch(()=>undefined);return task;
   }
-  private async observedSelectionPixelPick(observation:BenchmarkObservation,path:'ordinary-single'|'ordinary-color',renderer:GaussianRenderer,
-    scene:GpuScene,camera:CameraController,x:number,y:number,grade:number[],selectedOnly:boolean){
+  private async observedSelectionPixelPick(observation:BenchmarkObservation,path:'ordinary-single'|'ordinary-color',renderer:SceneRenderer,
+    scene:GaussianScene,camera:CameraController,x:number,y:number,grade:number[],selectedOnly:boolean){
     let sequence:number|undefined,before:BenchmarkQueryOwner|undefined;
     try{before=this.benchmarkQueryOwner(observation);sequence=observation.beginPick({path,request:{x,y,centerRadius:0,sample:{x:Math.floor(x)+.5,y:Math.floor(y)+.5}},
       before:before!,renderState:{grade:[...grade],highlight:true,geometry:[...IDENTITY_MATRIX],selectedOnly,
         geometrySelectedOnly:selectedOnly,opacityScale:1,opacitySelectedOnly:false}},performance.now());}
     catch(error){observation.disable(`Pick observation failed: ${error instanceof Error?error.message:String(error)}`);}
     try{
-      renderer.render(scene,camera,grade,true,IDENTITY_MATRIX,selectedOnly);
+      const pending=renderer.render(scene,camera,grade,true,IDENTITY_MATRIX,selectedOnly);if(pending)await pending;
       const hit=await renderer.pick(scene,x,y);
       if(observation?.active&&sequence!==undefined)try{
         const after=this.benchmarkQueryOwner(observation),bad=[hit.depth,hit.opacity,hit.contribution].some(value=>!Number.isFinite(value));
@@ -625,9 +638,39 @@ export class AppController {
         benchmarkPickTasks:this.benchmarkPickTasks?.size??0,
         unavailable: ['CoreClient private pending requests/deliveries', 'renderer private query/retirement queues', 'promise settlement of cleanup chain fields'] } });
   }
-  private createRenderer(canvas: HTMLCanvasElement) {
+  private graphicsBackend?: GraphicsBackend;
+  private backendPreferenceInitialized = false;
+  onCanvasReplacement?: (previous: HTMLCanvasElement) => Promise<HTMLCanvasElement>;
+  private estimateSceneBytes(count: number, degree: number) {
+    return estimateRendererSceneBytes(count, degree, this.graphicsBackend ?? this.renderer?.backend ?? 'webgpu');
+  }
+  private async createRenderer(canvas: HTMLCanvasElement): Promise<SceneRenderer> {
+    if (!this.backendPreferenceInitialized) {
+      this.backendPreferenceInitialized = true;
+      const requested = typeof location === 'undefined' ? null : new URL(location.href).searchParams.get('graphics');
+      if (requested) setApp({ backendPreference: validateBackendPreference(requested) });
+    }
     const observation = this.benchmarkObservation;
-    return GaussianRenderer.create(canvas, observation?.active ? value => observation.recordNegotiation(value) : undefined);
+    const renderer = await createSceneRenderer(canvas, { createCompute: createVerifiedRenderCompute, preference: useApp.getState().backendPreference,
+      recoveryBackend: this.graphicsBackend, allowFallback: true,
+      observe: observation?.active ? value => observation.recordNegotiation(value) : undefined,
+      fallback: graphicsFallbackReason => setApp({ graphicsFallbackReason }),
+      replaceCanvas: async previous => {
+        if (!this.onCanvasReplacement) throw new Error('A new presentation canvas is required to restore graphics. Your document is retained.');
+        this.onViewportResize?.(); this.camera?.clearInput();
+        const next = await this.onCanvasReplacement(previous);
+        if (this.destroyed || this.canvas !== previous) throw new DOMException('Graphics restoration cancelled', 'AbortError');
+        this.resize?.disconnect(); this.resize = undefined; this.canvas = next;
+        this.synchronizeViewport(); this.observeCanvas(); return next;
+      } });
+    this.graphicsBackend = renderer.backend; setApp({ graphicsBackend: renderer.backend }); return renderer;
+  }
+  async setBackendPreference(value: GraphicsBackendPreference) {
+    const preference = validateBackendPreference(value);
+    if (!registeredAllowed(`GraphicsBackendPreference.${preference}`, 'ui')) throw new Error('This graphics backend is unavailable.');
+    if (this.scene || this.client || this.recovery || this.closing || this.closeRequest || this.destroyed || useApp.getState().busy) return false;
+    this.backendPreferenceInitialized = true; this.graphicsBackend = undefined;
+    setApp({ backendPreference: preference, graphicsFallbackReason: null }); return this.retryRenderer();
   }
   private async observeBenchmarkOperation(kind: 'open-files' | 'close-scene', run: () => Promise<void>) {
     const observation = this.benchmarkObservation!;
@@ -640,7 +683,7 @@ export class AppController {
     }
   }
   private observeBenchmarkSubmission(observation: BenchmarkObservation, context: BenchmarkFrameContext,
-    renderer: GaussianRenderer, camera: CameraController, scene: RenderableScene | undefined, client: CoreClient | undefined,
+    renderer: SceneRenderer, camera: CameraController, scene: RenderScene | undefined, client: CoreClient | undefined,
     previousSubmission: number, rafAtMs: number, drawStartedAtMs: number, drawError: unknown = null) {
     if (!observation.active || renderer.frameSubmissionSequence <= previousSubmission) return;
     try {
@@ -826,7 +869,7 @@ export class AppController {
     ]);
     if (sceneChange && coverage) coverage.sceneNativeBytes = sceneChange.nativeBytes;
   }
-  private releaseRetainedGraphics(scene: RenderableScene | undefined) {
+  private releaseRetainedGraphics(scene: RenderScene | undefined) {
     const retained = this.retainedGraphicsCredit;
     if (!retained || retained.scene !== scene) return;
     this.retainedGraphicsCredit = undefined;
@@ -861,9 +904,17 @@ export class AppController {
     camera.aspect(width / height);
     return resized || camera.revision !== revision;
   }
-  private watchRenderer(renderer: GaussianRenderer) {
+  private watchRenderer(renderer: SceneRenderer) {
+    renderer.admitWork = bytes => { this.client?.assertNativeAdmission(); return this.ledger.reserve('work', bytes); };
+    renderer.admitSortScratch = bytes => { this.client?.assertNativeAdmission(); return this.ledger.reserve('render', bytes); };
     renderer.admitGeometryDepth = bytes => { this.client?.assertNativeAdmission(); return this.ledger.reserve('render', bytes); };
     renderer.admitHistogram = bytes => { this.client?.assertNativeAdmission(); return this.ledger.reserve('render', bytes); };
+    renderer.admitSteady = bytes => { this.client?.assertNativeAdmission(); return this.ledger.reserve('render', bytes); };
+    renderer.onRenderStatus = renderStatus => {
+      if (renderer === this.renderer && !this.destroyed) setApp({ renderStatus });
+    };
+    renderer.setRenderSettings(useApp.getState().renderSettings);
+    setApp({ renderStatus: renderer.steadySnapshot.status });
     renderer.onHistogram = (histogram, scene) => {
       if (renderer === this.renderer && scene === this.scene && this.histogramVisible && !this.destroyed &&
           !this.recovery && !this.closing && !document.hidden) setApp({ histogram });
@@ -934,7 +985,7 @@ export class AppController {
     setApp({ ready: false, rendererState: 'recovering', busy: true, stage: 'Restoring scene', error: null,
       autoOrbit: false, histogram: null });
     let candidate: CoreClient | undefined, memory: NativeHeapAccounting | undefined;
-    let replacement: GaussianRenderer | undefined, staged: RenderableScene | undefined;
+    let replacement: SceneRenderer | undefined, staged: RenderScene | undefined;
     let lease: ResourceLease | undefined, history: ResourceLease | undefined;
     let viewsLease: ResourceLease | undefined;
     let reader: Awaited<ReturnType<DocumentRecoveryStore['openRestore']>> | undefined;
@@ -1006,7 +1057,7 @@ export class AppController {
       lease = this.ledger.reserve('decoded', 0); history = this.ledger.reserve('history', 0);
       const nativeBytes = summary.kind === 0 ? summary.count * 144 : summary.memoryBytes;
       const coverage: NativeCoverageUpdate[] = [{ lease,
-        nextLeaseBytes: summary.kind === 0 ? estimateSceneBytes(summary.count, summary.shDegree) : nativeBytes,
+        nextLeaseBytes: summary.kind === 0 ? this.estimateSceneBytes(summary.count, summary.shDegree) : nativeBytes,
         nativeBytes }, { lease: history, nextLeaseBytes: nativeHistoryBytes(summary), nativeBytes: nativeHistoryBytes(summary) }];
       try { candidate.updateNativeCoverage(coverage); }
       catch (error) {
@@ -1034,7 +1085,7 @@ export class AppController {
         if (!sameGeometryDescriptor(geometryDescriptor(streamed), descriptor)) throw new Error('The restored geometry changed.');
         candidate.updateNativeCoverage([{ lease, nextLeaseBytes: nativeBytes + geometry.allocationBytes + 64 * 1024, nativeBytes }]);
       }
-      await replacement.device.queue.onSubmittedWorkDone(); check();
+      await replacement.finish(); check();
       if (replacement.lost) throw new Error('The replacement graphics device was lost.');
       candidate.activateNativeMemory();
       this.client = candidate; candidate = undefined; this.sourceMemory = memory; memory = undefined;
@@ -1064,7 +1115,7 @@ export class AppController {
         const pivotChosen = sameBase ? previous.appliedPivotChosen ?? false : false;
         if (sameBase) parameters.pivot = [...previous.appliedParameters.pivot];
         this.transformOwner = { client: this.client, documentId: this.client.revision.documentId,
-          sourceGeneration: this.client.revision.sourceGeneration, generation, scene: this.scene as GpuScene, renderer: this.renderer,
+          sourceGeneration: this.client.revision.sourceGeneration, generation, scene: this.scene as GaussianScene, renderer: this.renderer,
           kind: transform.kind, selectedOnly: transform.selectedOnly, metadata: transform, nextEpoch: transform.epoch + 1,
           parameters, appliedParameters: transformUiParameters(parameters)!, desiredRevision: 0, appliedRevision: 0,
           phase: 'ready', applyRequested: false, cancelRequested: false,
@@ -1073,7 +1124,7 @@ export class AppController {
       }
       if (opacity) {
         this.opacityOwner = { client: this.client, documentId: this.client.revision.documentId,
-          sourceGeneration: this.client.revision.sourceGeneration, generation, scene: this.scene as GpuScene, renderer: this.renderer,
+          sourceGeneration: this.client.revision.sourceGeneration, generation, scene: this.scene as GaussianScene, renderer: this.renderer,
           selectedOnly: opacity.selectedOnly, metadata: opacity, nextEpoch: opacity.epoch + 1,
           scale: opacity.appliedScale, appliedScale: opacity.appliedScale, desiredRevision: 0, appliedRevision: 0,
           phase: 'ready', applyRequested: false, cancelRequested: false };
@@ -1121,7 +1172,7 @@ export class AppController {
     }
     this.camera?.clearInput();
     setApp({ rendererState: 'recovering', ready: false, busy: true, stage: 'Restoring graphics', error: null, autoOrbit: false });
-    let replacement: GaussianRenderer | undefined, staged: RenderableScene | undefined, lease: ResourceLease | undefined;
+    let replacement: SceneRenderer | undefined, staged: RenderScene | undefined, lease: ResourceLease | undefined;
     const check = () => { if (signal.aborted || this.destroyed || this.generation !== generation) throw new DOMException('Graphics restoration cancelled', 'AbortError'); };
     try {
       await this.ensureStartupCore(); check();
@@ -1195,7 +1246,7 @@ export class AppController {
         client?.assertNativeAdmission();
         const geometry = summary.kind === 0 ? null : geometryDescriptor(summary);
         lease = this.ledger.reserve('render', geometry ? checkedBytes(geometry.vertexBytes + geometry.indexBytes, 1) + 20 * MiB :
-          estimateSceneBytes(summary.count, summary.shDegree) - summary.count * 144 + 20 * MiB);
+          this.estimateSceneBytes(summary.count, summary.shDegree) - summary.count * 144 + 20 * MiB);
       }
       replacement = await this.createRenderer(this.canvas!); this.watchRenderer(replacement); check();
       if (summary && client) {
@@ -1220,7 +1271,7 @@ export class AppController {
             streamed.contentRevision !== summary.contentRevision || streamed.revision !== summary.revision ||
             opacityMetadata && !sameOpacitySummary(validateOpacitySummary(streamed.opacitySession), opacityMetadata))
           throw new Error('The restored graphics do not match the authoritative document.');
-        await replacement.device.queue.onSubmittedWorkDone(); checkDocument();
+        await replacement.finish(); checkDocument();
       }
       if (replacement.lost) throw new Error('The replacement graphics device was lost.');
       const oldScene = this.scene;
@@ -1234,7 +1285,7 @@ export class AppController {
       this.renderer = replacement; replacement = undefined; this.scene = staged; staged = undefined;
       if (recoveringTransform) {
         if (transformMetadata) {
-          recoveringTransform.scene = this.scene as GpuScene; recoveringTransform.renderer = this.renderer;
+          recoveringTransform.scene = this.scene as GaussianScene; recoveringTransform.renderer = this.renderer;
           recoveringTransform.generation = generation;
           recoveringTransform.metadata = transformMetadata; recoveringTransform.nextEpoch = Math.max(recoveringTransform.nextEpoch, transformMetadata.epoch + 1);
           recoveringTransform.cancelRequested = false; recoveringTransform.phase = 'ready';
@@ -1249,7 +1300,7 @@ export class AppController {
       this.watchRenderer(this.renderer);
       if (recoveringOpacity) {
         if (opacityMetadata) {
-          recoveringOpacity.scene = this.scene as GpuScene; recoveringOpacity.renderer = this.renderer; recoveringOpacity.metadata = opacityMetadata;
+          recoveringOpacity.scene = this.scene as GaussianScene; recoveringOpacity.renderer = this.renderer; recoveringOpacity.metadata = opacityMetadata;
           recoveringOpacity.generation = generation;
           recoveringOpacity.nextEpoch = Math.max(recoveringOpacity.nextEpoch, opacityMetadata.epoch + 1);
           recoveringOpacity.cancelRequested = false; recoveringOpacity.phase = 'ready'; this.refreshOpacityPreview(recoveringOpacity);
@@ -1278,7 +1329,7 @@ export class AppController {
       }
       if (filterCleanup && this.filterOwner === filterCleanup) {
         if (committedRecovery && summary?.filter) {
-          filterCleanup.scene = this.scene as GpuScene; filterCleanup.renderer = this.renderer;
+          filterCleanup.scene = this.scene as GaussianScene; filterCleanup.renderer = this.renderer;
           filterCleanup.cancelRequested = false; filterCleanup.phase = 'ready'; this.publishFilter(filterCleanup);
         } else this.retireFilter(filterCleanup);
       }
@@ -1303,10 +1354,10 @@ export class AppController {
   private error(error: unknown) { if (!this.destroyed) setApp({ error: error instanceof Error ? error.message : String(error) }); }
   /** Base geometry and its effective edit targets are separate from the full
    * acknowledged selection. A replacement is unpublished until both arrive. */
-  private async uploadNativeScene(client: CoreClient, scene: GpuScene, channel: MaskChannel, check: () => void, admitTarget: (bytes: number) => void) {
+  private async uploadNativeScene(client: CoreClient, scene: GaussianScene, channel: MaskChannel, check: () => void, admitTarget: (bytes: number) => void) {
     const work = channel === 'document' ? undefined : this.ledger.reserve('work', scene.count * 6);
     let target: ArrayBuffer | undefined;
-    let update: Awaited<ReturnType<GpuScene['stagePreviewMasks']>> | undefined;
+    let update: Awaited<ReturnType<GaussianScene['stagePreviewMasks']>> | undefined;
     try {
       const summary = await client.stream((first, count, bytes) => { check(); return scene.upload(first, count, bytes); }, bytes => {
         check();
@@ -1323,9 +1374,9 @@ export class AppController {
         if (selectedOnly) {
           admitTarget(scene.count * 4); check();
           update = await scene.stagePreviewMasks(target, channel); target = undefined;
-          await scene.renderer.device.queue.onSubmittedWorkDone(); check();
+          await scene.renderer.finish(); check();
           update.publish();
-          await scene.renderer.device.queue.onSubmittedWorkDone(); check();
+          await scene.renderer.finish(); check();
           for (const buffer of update.retirementBuffers) buffer.destroy();
         }
       }
@@ -1362,10 +1413,20 @@ export class AppController {
     this.dirtyFrame = true;
     if (!this.frame && !this.destroyed && !document.hidden) this.frame = requestAnimationFrame(time => this.draw(time));
   }
-  private draw(time: number) {
+  setRenderSettings(value: SteadySettings) {
+    const settings = validateSteadySettings(value);
+    if (!registeredAllowed(`GaussianRenderMode.${settings.mode}`, 'ui')) throw new Error('This rendering mode is unavailable.');
+    this.renderer?.setRenderSettings(settings);
+    setApp({ renderSettings: settings }); this.invalidate();
+  }
+  private async draw(time: number) {
     this.frame = 0;
     if (!this.renderer || !this.camera || this.renderer.lost || this.recovery || this.destroyed || document.hidden) { this.lastTime = 0; return; }
     if (this.drawing) { this.invalidate(); return; }
+    const displayRenderer = this.renderer, displayScene = this.scene;
+    const displayIdentity = { owner: displayRenderer, scene: displayScene, width: displayRenderer.canvas.width, height: displayRenderer.canvas.height };
+    if (!this.displayAdmission.canSubmit(displayIdentity)) return;
+    const displayBefore = displayRenderer.frameSubmissionSequence;
     const state = useApp.getState();
     const elapsed = this.lastTime ? Math.max(0, (time - this.lastTime) / 1000) : 0;
     // Freeze input-driven pose updates across the irreversible commit reply;
@@ -1376,6 +1437,8 @@ export class AppController {
     }
     this.validateReleasedSelections();
     this.lastTime = time;
+    const displayPose={owner:displayRenderer,scene:displayScene,camera:this.camera,revision:this.camera.revision};
+    displayRenderer.displaySortPrecision=interactiveDisplayPrecision(this.lastDisplayPose,displayPose);
     if (!this.dirtyFrame) { if (this.camera.active || state.autoOrbit) this.invalidate(); else this.lastTime = 0; return; }
     this.dirtyFrame = false; this.drawing = true;
     const observation = this.benchmarkObservation?.active ? this.benchmarkObservation : undefined;
@@ -1394,30 +1457,43 @@ export class AppController {
     try {
       this.renderer.setHistogramEnabled(this.histogramVisible && state.toolsOpen && this.scene?.kind === 'gaussian' && !document.hidden);
       this.syncDuplicateFeedback(state.summary);
-      this.renderer.render(this.scene, this.camera, state.grade, true, state.transformPreview?.matrix ?? IDENTITY_MATRIX,
+      const pendingRender = this.renderer.render(this.scene, this.camera, state.grade, true, state.transformPreview?.matrix ?? IDENTITY_MATRIX,
         this.colorScope, state.transformPreview?.selectedOnly ?? false, state.opacityPreview?.scale ?? 1, state.opacityPreview?.selectedOnly ?? false);
+      if (pendingRender) await pendingRender;
     }
     catch (error) {
       if (observation && observedContext && observedRenderer && observedCamera) this.observeBenchmarkSubmission(observation, observedContext,
         observedRenderer, observedCamera, observedScene, observedClient, observedPreviousSubmission!, time, observedDrawStart!, error);
-      this.drawing = false; this.error(error); return;
+      this.drawing = false; if (this.renderer === displayRenderer) this.error(error); return;
     }
     const observeCompletion = observation && observedContext && observedRenderer && observedCamera ? this.observeBenchmarkSubmission(observation, observedContext,
       observedRenderer, observedCamera, observedScene, observedClient, observedPreviousSubmission!, time, observedDrawStart!) : undefined;
-    const submittedWork = this.renderer.device.queue.onSubmittedWorkDone();
+    const checkpoint = displayRenderer.displayCompletion?.();
+    if (checkpoint && checkpoint.submissionSequence > displayBefore) {
+      this.displayAdmission.track(displayIdentity, checkpoint);
+      this.lastDisplayPose=displayPose;
+      if(displayRenderer.displaySortPrecision<32)this.dirtyFrame=true;
+    }
+    const submittedWork = checkpoint?.done ?? displayRenderer.finish();
     // Prepare after an actual first frame, without delaying loading or a
     // selection. A failed warmup is retried by the real query, not every frame.
     if (this.scene?.kind === 'gaussian' && !this.warmedSurfaceRenderers.has(this.renderer)) {
       this.warmedSurfaceRenderers.add(this.renderer);
-      void prepareSurfacePipelines(this.renderer).catch(() => undefined);
+      void this.renderer.prepareSurfaceResources().catch(() => undefined);
     }
     // Reuse the exact existing fence; the normal path adds no timing calls,
     // frame records, camera copies or extra GPU API calls.
     if (observeCompletion) void submittedWork.then(() => observeCompletion(), error => observeCompletion(error));
-    void submittedWork.catch(error => this.error(error)).finally(() => {
-      this.drawing = false;
-      if (this.dirtyFrame || useApp.getState().autoOrbit || this.camera?.active) this.invalidate(); else this.lastTime = 0;
-    });
+    // CPU preparation remains serialized. A second matching display may be
+    // submitted while the first fence is pending; full finish/retirement stays
+    // with the renderer. Old-owner completion never releases a newer CPU draw.
+    this.drawing = false;
+    const continueDisplay = () => {
+      if (this.dirtyFrame || useApp.getState().autoOrbit || this.camera?.active) this.invalidate();
+      else if (!this.drawing && !this.displayAdmission.inFlight) this.lastTime = 0;
+    };
+    void submittedWork.catch(error => { if (this.renderer === displayRenderer) this.error(error); }).finally(continueDisplay);
+    continueDisplay();
     // Presentation overlays follow an actual display frame and do not keep the
     // scheduler awake. Snapshot subscriptions so cleanup cannot extend a pass.
     if (this.viewportListeners.size) for (const listener of [...this.viewportListeners]) listener();
@@ -1784,7 +1860,7 @@ export class AppController {
     this.cancelCandidateLoad(); const generation = ++this.generation, cancel = new AbortController(); this.loadAbort = cancel;
     let candidate: CoreClient | undefined;
     let lease: ResourceLease | undefined, memory: NativeHeapAccounting | undefined, historyLease: ResourceLease | undefined;
-    let probeLease: ResourceLease | undefined, staged: RenderableScene | undefined;
+    let probeLease: ResourceLease | undefined, staged: RenderScene | undefined;
     let group: PreparedSogGroup | undefined;
     let viewsOwner: (() => void) | undefined;
     let recoveryStore: DocumentRecoveryStore | undefined;
@@ -1823,7 +1899,9 @@ export class AppController {
         const result = await probeSceneFile(file!); check();
         probeLease(); probeLease = undefined; return result;
       })();
-      lease = this.ledger.reserve('decoded', probe.peakBytes);
+      const rendererDelta = probe.kind === 'gaussian' && renderer.backend === 'webgl2' ?
+        Math.max(0, this.estimateSceneBytes(probe.count, probe.degree) - estimateWebGpuSceneBytes(probe.count, probe.degree)) : 0;
+      lease = this.ledger.reserve('decoded', probe.peakBytes + rendererDelta);
       const options = {
         admit: (bytes: number) => this.ledger.reserve('source', bytes), current: check, nativeLease: lease,
       };
@@ -1837,7 +1915,7 @@ export class AppController {
           throw new Error('The decoded scene exceeds its preflight estimate.');
         historyLease = this.ledger.reserve('history', 0);
         candidate.updateNativeCoverage([
-          { lease, nextLeaseBytes: isGroup ? estimateSceneBytes(summary.count, summary.shDegree) : lease.bytes, nativeBytes: summary.count * 144 },
+          { lease, nextLeaseBytes: isGroup ? this.estimateSceneBytes(summary.count, summary.shDegree) : Math.max(lease.bytes, this.estimateSceneBytes(summary.count, summary.shDegree)), nativeBytes: summary.count * 144 },
           { lease: historyLease, nextLeaseBytes: nativeHistoryBytes(summary), nativeBytes: nativeHistoryBytes(summary) },
         ]);
         this.bindNativeCoverage(candidate, lease, historyLease, summary.count * 144);
@@ -1865,7 +1943,7 @@ export class AppController {
         if (!selectionRestored(streamed) || !sameGeometryDescriptor(geometryDescriptor(streamed), descriptor))
           throw new Error('The uploaded geometry does not match the decoded document.');
       }
-      await renderer.device.queue.onSubmittedWorkDone(); check();
+      await renderer.finish(); check();
       let views: readonly SavedViewRecord[] = [], viewStatus: string | null = null;
       try {
         const lookup = await this.viewStorage.list(fingerprint, summary.kind === 0 ? 'gaussian' : summary.kind === 1 ? 'points' : 'mesh', {
@@ -2387,7 +2465,7 @@ export class AppController {
       try {
         this.cancelAlignment(); await this.floorCleanup; await this.closeToleranceSelection();
         if (!this.opacityCurrent(owner) || !await this.cancelSelectionGesture() || !await this.settleColorSession() || !this.opacityCurrent(owner)) return false;
-        owner.scene = this.scene as GpuScene; owner.renderer = this.renderer; owner.selectedOnly = (useApp.getState().summary?.selected ?? 0) > 0;
+        owner.scene = this.scene as GaussianScene; owner.renderer = this.renderer; owner.selectedOnly = (useApp.getState().summary?.selected ?? 0) > 0;
         this.camera?.clearInput(); setApp({ tool: null, fly: false, autoOrbit: false });
         const begun = await this.executeEditCommand({ command: 'beginOpacity', selectedOnly: owner.selectedOnly }, () => this.opacityCurrent(owner));
         const metadata = validateOpacitySummary(useApp.getState().summary?.opacitySession);
@@ -2631,7 +2709,7 @@ export class AppController {
         this.cancelAlignment(); await this.floorCleanup; await this.closeToleranceSelection();
         if (!this.transformCurrent(owner) || !await this.cancelSelectionGesture() || !await this.settleColorSession() || !this.transformCurrent(owner)) return false;
         owner.selectedOnly = (useApp.getState().summary?.selected ?? 0) > 0;
-        owner.scene = this.scene as GpuScene; owner.renderer = this.renderer;
+        owner.scene = this.scene as GaussianScene; owner.renderer = this.renderer;
         this.camera?.clearInput(); setApp({ tool: null, fly: false, autoOrbit: false });
         const started = await this.executeEditCommand({ command: 'beginTransform', kind, selectedOnly: owner.selectedOnly }, () => this.transformCurrent(owner));
         const metadata = validateTransformSummary(useApp.getState().summary?.transformSession ?? null);
@@ -3167,7 +3245,7 @@ export class AppController {
       this.retireTransform(owner); return true;
     });
   }
-  private transformGizmoViewport(renderer: GaussianRenderer): TransformGizmoGesture['viewport'] | null {
+  private transformGizmoViewport(renderer: SceneRenderer): TransformGizmoGesture['viewport'] | null {
     try {
       const rect = renderer.canvas.getBoundingClientRect(), dpr = Math.min(typeof window === 'undefined' ? 1 : window.devicePixelRatio || 1, 2);
       if (![rect.x, rect.y, rect.width, rect.height, dpr].every(Number.isFinite) || rect.width <= 0 || rect.height <= 0 || dpr <= 0) return null;
@@ -3454,7 +3532,7 @@ export class AppController {
         await this.closeToleranceSelection();
         if (owner.cancelRequested || !this.filterCurrent(owner) || !await this.cancelSelectionGesture() ||
           !await this.settleColorSession() || owner.cancelRequested || !this.filterCurrent(owner)) return false;
-        owner.scene = this.scene as GpuScene; owner.renderer = this.renderer;
+        owner.scene = this.scene as GaussianScene; owner.renderer = this.renderer;
         this.camera?.clearInput(); setApp({ tool: null, fly: false, autoOrbit: false });
         const started = await this.executeEditCommand({ command: 'beginFilter', kind }, () => this.filterCurrent(owner) && !owner.cancelRequested);
         if (started !== true) {
@@ -3552,7 +3630,8 @@ export class AppController {
     const task = (async () => {
       try {
         owner.client.assertNativeAdmission();
-        renderer.render(scene, camera, useApp.getState().grade, true, IDENTITY_MATRIX, this.colorScope);
+        const pendingRender = renderer.render(scene, camera, useApp.getState().grade, true, IDENTITY_MATRIX, this.colorScope);
+        if (pendingRender) await pendingRender;
         const radius = 8 * width / Math.max(1, renderer.canvas.getBoundingClientRect().width);
         const hit = await renderer.pick(scene, x, y, radius);
         if (!current() || hit.deviceEpoch !== epoch || hit.index === null) return false;
@@ -3561,7 +3640,7 @@ export class AppController {
           result.point.some(value => typeof value !== 'number' || !Number.isFinite(Math.fround(value)))) return false;
         this.setFilterParameters({ center: result.point.map(Math.fround) as [number, number, number] });
         this.cancelFilterCenterPick(); return true;
-      } catch (error) { if (!(error instanceof StaleGpuQueryError) && current()) this.error(error); return false; }
+      } catch (error) { if (!(error instanceof StaleRenderQueryError) && current()) this.error(error); return false; }
       finally {
         if (owner.centerPick === token) { owner.centerPick = undefined; if (!this.destroyed) setApp({ filterCenterPending: false }); }
       }
@@ -3949,7 +4028,7 @@ export class AppController {
     setApp({ busy: true, stage: 'Applying edit', ...(command.command === 'cancelSelection' ? {} : { error: null }) });
     const previousHistory = this.releaseHistory;
     const history = previousHistory ?? this.ledger.reserve('history', 0), historyBytes = history.bytes;
-    let workLease: ResourceLease | undefined, staged: GpuScene | undefined, masks: GpuMaskUpdate | undefined;
+    let workLease: ResourceLease | undefined, staged: GaussianScene | undefined, masks: MaskUpdate | undefined;
     let transaction = false, published = false, workCovered = false, historyCovered = previousHistory !== undefined;
     let nativeOperation: OperationOwner | undefined;
     let externallyDecided = false;
@@ -3974,16 +4053,18 @@ export class AppController {
       const workBytes = command.command === 'duplicate' ? estimateDuplicateWorkBytes(summary.count, summary.selected, summary.shDegree) :
         opacityCommand ? estimateOpacityWorkBytes(summary.count, summary.shDegree) : transformCommand ? estimateTransformWorkBytes(summary.count, summary.shDegree) : filterCommand ? estimateFilterWorkBytes(summary.count) : command.command === 'morphology' ? estimateMorphologyWorkBytes(summary.count) :
         color || beginColor ? estimateColorWorkBytes(summary.count, summary.shDegree, command.command === 'autoColor') :
-        mayChangeContent ? estimateSceneBytes(historyCount, summary.shDegree) : summary.count * 24 + 4 * MiB;
+        mayChangeContent ? this.estimateSceneBytes(historyCount, summary.shDegree) : summary.count * 24 + 4 * MiB;
       // Color publication stages another admitted SceneEdits history copy in
       // addition to the outer rollback checkpoint. Shared scene references do
       // not duplicate payload charges; physical history copies still overlap.
       // Native effective mask N, two transferred byte masks2N, expanded
       // uploads8N and target GPU4N overlap; retain another N of mask headroom.
+      const backendWork = renderer.backend === 'webgl2' && (mayChangeContent || color || beginColor || transformCommand || opacityCommand) ?
+        Math.max(0, this.estimateSceneBytes(historyCount, summary.shDegree) - estimateWebGpuSceneBytes(historyCount, summary.shDegree)) : 0;
       const previewWork = (beginColor || color || transformCommand || opacityCommand) &&
         (command.selectedOnly === true || summary.colorSession?.selectedOnly || summary.transformSession?.selectedOnly || summary.opacitySession?.selectedOnly) ? summary.count * 16 : 0;
       const scopeWork = command.selectionView && command.command === 'morphology' ? summary.count + 1024 : 0;
-      workLease = this.ledger.reserve('work', (opacityCommand || transformCommand || filterCommand || color || beginColor || flushColor ? 2 : 1) * historyBytes + workBytes + previewWork + scopeWork);
+      workLease = this.ledger.reserve('work', (opacityCommand || transformCommand || filterCommand || color || beginColor || flushColor ? 2 : 1) * historyBytes + workBytes + backendWork + previewWork + scopeWork);
       client.updateNativeCoverage([{ lease: workLease, nextLeaseBytes: workLease.bytes, nativeBytes: 0 }]);
       workCovered = true;
       if (coverage) { coverage.history = history; coverage.work = workLease; }
@@ -4104,7 +4185,7 @@ export class AppController {
         if (!bytes) throw new Error('The scene state update was not received.');
         masks = await scene.stageMasks(bytes, targets);
       }
-      await renderer.device.queue.onSubmittedWorkDone(); check();
+      await renderer.finish(); check();
       const nextAlignment = validateAlignmentSummary(updated.alignment);
       if (beforeAlignment && !nextAlignment) throw new Error('The scene worker lost its alignment metadata.');
       if (alignmentCommand && (!nextAlignment || updated.count !== summary.count || updated.shDegree !== summary.shDegree))
@@ -4217,7 +4298,7 @@ export class AppController {
           throw error;
         }
       }
-      let retiredMasks: readonly GPUBuffer[] = [];
+      let retiredMasks: readonly RetiredRenderResource[] = [];
       if (renderer.lost) {
         const resolution = client.operationResolution;
         if (!resolution || resolution.receipt.outcome !== 'committed') throw new Error('The committed edit proof is unavailable.');
@@ -4239,7 +4320,7 @@ export class AppController {
       }
       let acceptedGizmoPreview: ReturnType<typeof useApp.getState>['transformPreview'] | undefined;
       if (transformCommand && this.transformOwner) {
-        this.transformOwner.scene = this.scene as GpuScene;
+        this.transformOwner.scene = this.scene as GaussianScene;
         const metadata = validateTransformSummary(committed.transformSession);
         if (metadata) {
           this.transformOwner.metadata = metadata; this.transformOwner.selectedOnly = metadata.selectedOnly;
@@ -4257,7 +4338,7 @@ export class AppController {
       this.invalidate();
       document.title = `${committed.contentRevision !== this.savedContent ? '• ' : ''}${useApp.getState().sourceName} — SplatView`;
       if (this.scene !== scene) await retireScene();
-      else { await renderer.device.queue.onSubmittedWorkDone().catch(() => undefined); for (const buffer of retiredMasks) buffer.destroy(); }
+      else { await renderer.finish().catch(() => undefined); for (const buffer of retiredMasks) buffer.destroy(); }
       return true;
     } catch (error) {
       if (client.failed && client === this.client && !this.destroyed && this.documentRecovery?.description) {
@@ -4320,7 +4401,7 @@ export class AppController {
     finally {
       try {
         if (staged) await staged.dispose();
-        await renderer.device.queue.onSubmittedWorkDone().catch(() => undefined); await masks?.dispose();
+        await renderer.finish().catch(() => undefined); await masks?.dispose();
         if (this.scene !== scene) await retireScene();
         client.setNativeWork(undefined);
         if (coverage) coverage.work = undefined;
@@ -4399,7 +4480,7 @@ export class AppController {
   }
   private hasPreviewTarget(channel: Exclude<MaskChannel, 'document'>) {
     const scene = this.scene;
-    return scene?.kind === 'gaussian' && typeof scene.previewMask === 'function' && scene.previewMask(channel) !== scene.buffers.states;
+    return scene?.kind === 'gaussian' && typeof scene.hasPreviewMask === 'function' && scene.hasPreviewMask(channel);
   }
   private captureSelectionView(enabled = useApp.getState().currentViewOnly): SelectionView | null {
     return enabled && this.camera ? validateSelectionView(this.camera.state) : null;
@@ -4856,7 +4937,7 @@ export class AppController {
       if (!valid()) return false;
       return result(await this.executeEditCommand({ ...command, mapId: map.mapId }, valid, false, refused, undefined, nativeLivePreview));
     } catch (error) {
-      if (!(error instanceof StaleGpuQueryError) && !(error instanceof DOMException && error.name === 'AbortError')) refused(error);
+      if (!(error instanceof StaleRenderQueryError) && !(error instanceof DOMException && error.name === 'AbortError')) refused(error);
       return false;
     }
   }
@@ -4974,10 +5055,11 @@ export class AppController {
       useApp.getState().tool === 'single' && useApp.getState().grade.join(',') === grade && !this.recovery && !this.destroyed;
     try {
       client.assertNativeAdmission();
-      renderer.render(scene, camera, state.grade, true, IDENTITY_MATRIX, this.colorScope);
+      const pendingRender = renderer.render(scene, camera, state.grade, true, IDENTITY_MATRIX, this.colorScope);
+      if (pendingRender) await pendingRender;
       const hit = await renderer.pick(scene, x, y);
       if (current() && hit.deviceEpoch === renderer.deviceEpoch) return this.scopedCommand({ command: 'single', index: hit.index, operation }, selection.selectionView);
-    } catch (error) { if (!(error instanceof StaleGpuQueryError) && current()) this.error(error); }
+    } catch (error) { if (!(error instanceof StaleRenderQueryError) && current()) this.error(error); }
   }
   async finishSelectionGesture(command: SceneCommand) {
     const selection = this.selection;
@@ -5168,8 +5250,8 @@ export class AppController {
       if (!await this.cancelSelectionGesture() || !currentPreparation()) return false;
       if (!await this.settleColorSession() || !currentPreparation() || !this.alignmentReady(true) || useApp.getState().pendingSelectionCount > 0) return false;
       const metadata = this.ledger.reserve('work', FLOOR_VIEW_BOOKKEEPING_BYTES);
-      const owner: FloorToolOwner = { client, generation, renderer: this.renderer!, scene: this.scene as GpuScene,
-        sourceRevision: (this.scene as GpuScene).sourceRevision, revision: { ...client.revision }, baseline: useApp.getState().summary!,
+      const owner: FloorToolOwner = { client, generation, renderer: this.renderer!, scene: this.scene as GaussianScene,
+        sourceRevision: (this.scene as GaussianScene).sourceRevision, revision: { ...client.revision }, baseline: useApp.getState().summary!,
         cancel: new AbortController(), detecting: true, metadata };
       this.floorOwner = owner; this.floorPreparing = undefined;
       const task = Promise.resolve().then(() => this.detectFloor(owner)); owner.task = task;
@@ -5288,7 +5370,7 @@ export class AppController {
       if (client !== this.client || generation !== this.generation || !this.alignmentReady(true) ||
           useApp.getState().pendingSelectionCount > 0) return false;
       this.camera!.clearInput();
-      this.alignmentOwner = { client: this.client!, renderer: this.renderer!, scene: this.scene as GpuScene,
+      this.alignmentOwner = { client: this.client!, renderer: this.renderer!, scene: this.scene as GaussianScene,
         generation, revision: { ...this.client!.revision }, tool, flip: false };
       setApp({ alignmentTool: tool, alignmentPoint: null, alignmentSecondPoint: null, alignmentThirdPoint: null,
         alignmentNormal: null, alignmentFlip: false, alignmentTargetDistance: null, alignmentPicking: false,
@@ -5313,7 +5395,8 @@ export class AppController {
     setApp({ alignmentPicking: true });
     try {
       owner.client.assertNativeAdmission();
-      owner.renderer.render(owner.scene, camera, useApp.getState().grade, true, IDENTITY_MATRIX, this.colorScope);
+      const pendingRender = owner.renderer.render(owner.scene, camera, useApp.getState().grade, true, IDENTITY_MATRIX, this.colorScope);
+      if (pendingRender) await pendingRender;
       const radius = 8 * width / Math.max(1, owner.renderer.canvas.getBoundingClientRect().width);
       const hit = await owner.renderer.pick(owner.scene, x, y, radius);
       if (!current() || hit.deviceEpoch !== epoch || hit.index === null) return false;
@@ -5353,7 +5436,7 @@ export class AppController {
       this.publishAlignmentPoints(owner);
       this.invalidate(); return true;
     } catch (error) {
-      if (!(error instanceof StaleGpuQueryError) && current()) this.error(error);
+      if (!(error instanceof StaleRenderQueryError) && current()) this.error(error);
       return false;
     } finally {
       if (this.alignmentPick === token) {
@@ -5591,14 +5674,15 @@ export class AppController {
     try {
       if (!current()) return;
       client.assertNativeAdmission();
-      renderer.render(scene, camera, useApp.getState().grade, true, IDENTITY_MATRIX, this.colorScope);
+      const pendingRender = renderer.render(scene, camera, useApp.getState().grade, true, IDENTITY_MATRIX, this.colorScope);
+      if (pendingRender) await pendingRender;
       const radius = 8 * renderer.canvas.width / Math.max(1, renderer.canvas.getBoundingClientRect().width);
       const hit = await renderer.pick(scene, x, y, radius);
       if (!current() || hit.deviceEpoch !== renderer.deviceEpoch || hit.index === null) return;
       const result = await client.command({ command: 'point', index: hit.index });
       if (!current() || !result.point) return;
       camera.focus(result.point); setApp({ fly: false, autoOrbit: false, tool: null }); focused = true; this.invalidate();
-    } catch (error) { if (!(error instanceof StaleGpuQueryError) && current()) this.error(error); }
+    } catch (error) { if (!(error instanceof StaleRenderQueryError) && current()) this.error(error); }
     finally { if (!focused && autoOrbit && current()) { setApp({ autoOrbit: true }); this.invalidate(); } }
   }
   async selectPixel(x: number, y: number, operation: number, deferredPointer?: DeferredColorPointerToken) {
@@ -5620,7 +5704,7 @@ export class AppController {
       if (renderer !== this.renderer || hit.deviceEpoch !== this.renderer.deviceEpoch || scene !== this.scene ||
         this.camera.revision !== revision || !this.client || !sameRevision(content, this.client.revision) || tool !== useApp.getState().tool) return;
       await this.command(this.scopedCommand({ command: 'single', index: hit.index, operation }, this.captureSelectionView()), deferredPointer);
-    } catch (error) { if (!(error instanceof StaleGpuQueryError) && renderer === this.renderer && !renderer.lost &&
+    } catch (error) { if (!(error instanceof StaleRenderQueryError) && renderer === this.renderer && !renderer.lost &&
       (!deferredPointer || this.deferredColorPointersCurrent(deferredPointer))) this.error(error); }
   }
   get isToleranceUpdating() { return !!this.tolerance?.active && this.tolerance.applying; }
@@ -5769,7 +5853,7 @@ export class AppController {
       if (accepted) owner.acceptedRequest = { ...request };
       return accepted;
     } catch (error) {
-      if (!(error instanceof StaleGpuQueryError) && !(error instanceof DOMException && error.name === 'AbortError') &&
+      if (!(error instanceof StaleRenderQueryError) && !(error instanceof DOMException && error.name === 'AbortError') &&
           this.tolerance === owner) this.error(error);
       return false;
     }
@@ -5849,7 +5933,7 @@ export class AppController {
         let accepted = false;
         try { if (!record.cancel.signal.aborted) accepted = await this.applyReleasedSelection(record); }
         catch (error) {
-          if (!record.cancel.signal.aborted && !(error instanceof StaleGpuQueryError)) this.error(error);
+          if (!record.cancel.signal.aborted && !(error instanceof StaleRenderQueryError)) this.error(error);
         }
         finally {
           this.releasedSelections.shift();
@@ -6008,7 +6092,7 @@ export class AppController {
       }
       return accepted;
     } catch (error) {
-      if (!(error instanceof StaleGpuQueryError) && !(error instanceof DOMException && error.name === 'AbortError') && current()) this.error(error);
+      if (!(error instanceof StaleRenderQueryError) && !(error instanceof DOMException && error.name === 'AbortError') && current()) this.error(error);
       return false;
     }
   }
@@ -6028,7 +6112,7 @@ export class AppController {
     this.cancelAlignment();
     const client = this.client;
     const generation = this.generation;
-    let settledScene: GpuScene | undefined;
+    let settledScene: GaussianScene | undefined;
     const check = () => {
       operation.cancel.signal.throwIfAborted();
       if (this.exportOperation !== operation || client !== this.client || generation !== this.generation ||
@@ -6110,7 +6194,7 @@ export class AppController {
         const currentOpacity = useApp.getState().opacityPreview;
         if (client !== this.client || renderer !== this.renderer || scene !== this.scene || camera !== this.camera || this.recovery || this.destroyed || this.selectionCleanupOwner ||
           useApp.getState().opacityPreviewRevision !== opacityRevision || currentOpacity?.id !== opacity?.id || currentOpacity?.baseId !== opacity?.baseId || currentOpacity?.epoch !== opacity?.epoch)
-          throw new StaleGpuQueryError('The document or graphics owner changed.');
+          throw new StaleRenderQueryError('The document or graphics owner changed.');
       },
     };
     const observation=this.benchmarkObservation;
@@ -6148,7 +6232,7 @@ export class AppController {
       cancel.signal.throwIfAborted();
       if (!relevant() || renderer.lost) throw new DOMException('Image capture cancelled', 'AbortError');
     };
-    const operation: SavedViewOperation = { signal: cancel.signal, current, admit: bytes => this.ledger.reserve('image', bytes) };
+    const operation: ImageOperation = { signal: cancel.signal, current, admit: bytes => this.ledger.reserve('image', bytes) };
     // Register before calling GPU/browser APIs: synchronous allocation hooks
     // may initiate Close while capture is still constructing its consumer.
     let complete!: () => void;

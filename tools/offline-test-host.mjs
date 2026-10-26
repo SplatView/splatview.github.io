@@ -77,6 +77,9 @@ function loadCohort(id, value) {
     if (matches.length !== 1) throw new Error(`Ambiguous ${role} in cohort ${id}`);
     return matches[0].path;
   });
+  const renderWorkers = manifest.artifacts.filter(artifact => artifact.role === 'runtime-asset' && /^assets\/compute\.worker-[A-Za-z0-9_-]+\.js$/.test(artifact.path));
+  if (renderWorkers.length > 1) throw new Error(`Ambiguous render executor in cohort ${id}`);
+  scripts.push(...renderWorkers.map(artifact => artifact.path));
   const serviceWorker = manifest.artifacts.find(artifact => artifact.path === 'service-worker.js' && artifact.role === 'runtime-asset');
   if (!serviceWorker) throw new Error(`Offline cohort requires a genuine root service-worker.js: ${id}`);
   for (const path of [...scripts, 'service-worker.js']) {

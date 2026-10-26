@@ -1,12 +1,7 @@
 import { MAX_SAVED_THUMBNAIL_BYTES, thumbnailPlan, type SavedViewRecord } from './savedView';
-import { encodeRgba, ownRgbaImage, withRgbaImage, type OwnedRgbaImage, type OwnedImageOutput } from './image';
+import { encodeRgba, ownRgbaImage, withRgbaImage, type OwnedRgbaImage, type ImageOperation, type OwnedImageOutput } from './image';
 
-export type SavedViewOperation = {
-  signal?: AbortSignal;
-  current?: () => void;
-  admit: (bytes: number) => () => void;
-};
-export function checkSavedViewOperation(operation: SavedViewOperation) {
+export function checkSavedViewOperation(operation: ImageOperation) {
   operation.signal?.throwIfAborted(); operation.current?.();
 }
 const digestHex = async (bytes: ArrayBuffer) => Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', bytes)),
@@ -25,7 +20,7 @@ function pngDimensions(bytes: ArrayBuffer, width: number, height: number) {
  * differ; this is not a claim to reproduce every private WIC implementation.
  * https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicbitmapinterpolationmode
  */
-export async function resampleThumbnailRgba(source: OwnedRgbaImage, operation: SavedViewOperation, maxSide = 1024): Promise<OwnedRgbaImage> {
+export async function resampleThumbnailRgba(source: OwnedRgbaImage, operation: ImageOperation, maxSide = 1024): Promise<OwnedRgbaImage> {
   checkSavedViewOperation(operation);
   const plan = thumbnailPlan(source.width, source.height, maxSide), target = plan.width, side = plan.side;
   return withRgbaImage(source, async pixels => {
@@ -106,7 +101,7 @@ export async function resampleThumbnailRgba(source: OwnedRgbaImage, operation: S
 
 /** One raw filter and one PNG encode; the returned owner survives hashing and
  * the caller's atomic metadata/image transaction until explicitly disposed. */
-export async function createSavedThumbnail(source: OwnedRgbaImage, operation: SavedViewOperation, maxSide = 1024) {
+export async function createSavedThumbnail(source: OwnedRgbaImage, operation: ImageOperation, maxSide = 1024) {
   const resized = await resampleThumbnailRgba(source, operation, maxSide);
   let output: OwnedImageOutput | undefined;
   try {
@@ -124,7 +119,7 @@ export async function createSavedThumbnail(source: OwnedRgbaImage, operation: Sa
 }
 
 /** Verify both encoded identity and actual PNG decoding before a stored pair is usable. */
-export async function verifySavedThumbnail(record: SavedViewRecord, image: unknown, operation: SavedViewOperation): Promise<Blob> {
+export async function verifySavedThumbnail(record: SavedViewRecord, image: unknown, operation: ImageOperation): Promise<Blob> {
   checkSavedViewOperation(operation);
   if (!(image instanceof Blob) || image.type !== 'image/png' || image.size !== record.thumbnail.byteLength)
     throw new Error('The saved thumbnail is missing or corrupt.');

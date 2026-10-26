@@ -1,7 +1,8 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { AppController } from '../src/app/controller';
 import { setApp, useApp } from '../src/app/store';
-import { NEUTRAL_COLOR, type NativeSummary, type SceneCommand } from '../src/document/types';
+import { NEUTRAL_COLOR } from '../src/renderer/defaults';
+import { type NativeSummary, type SceneCommand } from '../src/document/types';
 import type { ColorSessionSummary } from '../src/document/colorProtocol';
 import { colorValues, estimateColorWorkBytes, isAutoColorMethod, sameColorValues } from '../src/document/colorSession';
 import { AdmissionError, estimateSceneBytes, MiB, type ResourceLease, type ResourceLedger } from '../src/document/resources';
@@ -60,7 +61,7 @@ function fixture() {
     upload: vi.fn(async () => {}), masks: vi.fn(), stageMasks: vi.fn(async () => ({ allocationBytes: 27, retirementBytes: 15,
       retirementBuffers: [], publish: vi.fn(), dispose: vi.fn() })), dispose: vi.fn(async () => {}) };
   const staged = { ...base, upload: vi.fn(async () => {}), masks: vi.fn(), dispose: vi.fn(async () => {}) };
-  const renderer = { lost: false, device: { queue: { onSubmittedWorkDone: vi.fn(async () => {}) } },
+  const renderer = { lost: false, finish(): Promise<void> { return this.device.queue.onSubmittedWorkDone(); }, device: { queue: { onSubmittedWorkDone: vi.fn(async () => {}) } },
     allocateScene: vi.fn(async () => staged) };
   const command = vi.fn(async (request: SceneCommand) => {
     if (request.command === 'beginTransaction') { checkpoint = { ...native }; native = { ...native, transaction: true }; }

@@ -1,3 +1,4 @@
+import { requireWebGpuRenderer } from './gaussian-harness-scene';
 // Test-only instrumentation of the real App. No production module imports
 // this probe; command results, masks and exports remain actual WASM/WebGPU.
 import { AppController } from '../src/app/controller';
@@ -23,7 +24,7 @@ function gate() {
   return { held: new Promise<void>(resolve => { release = resolve; }), release: () => release() };
 }
 export function installFillShortcutProbe(controller: AppController) {
-  const client = controller.client!, renderer = controller.renderer!, camera = controller.camera!;
+  const client = controller.client!, renderer = requireWebGpuRenderer(controller.renderer), camera = controller.camera!;
   const internals = controller as unknown as Internals, command = client.command.bind(client);
   const traffic: SceneCommand[] = [], counters = { cancel: 0, end: 0, clearInput: 0, maps: 0, picks: 0 };
   const cancel = controller.cancelSelectionGesture.bind(controller), end = controller.endToleranceSelection.bind(controller), clear = camera.clearInput.bind(camera);

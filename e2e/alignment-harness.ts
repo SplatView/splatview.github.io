@@ -1,3 +1,5 @@
+import { requireWebGpuRenderer } from './gaussian-harness-scene';
+import { GlRenderer } from '../src/renderer/webgl2/renderer';
 import { admittedExport, exportWorkObservation } from './admitted-export';
 // Observes actual App/controller/worker/native/WebGPU owners. Fixtures never supply pick results or summaries.
 import './geometry-viewer-harness';
@@ -6,11 +8,11 @@ import type { NativeSummary, SceneCommand } from '../src/document/types';
 import type { ResourceLedger } from '../src/document/resources';
 import { SAVED_VIEW_DATABASE } from '../src/io/savedViewStorage';
 import { validateSavedViewRecord } from '../src/io/savedView';
-import { requireGaussianScene } from './gaussian-harness-scene';
+import { gaussianStorage } from './gaussian-storage';
 import { queuePly, queuePositions } from './queue-fixture';
 import type { AlignmentViewCheckpoints } from '../src/document/alignmentViews';
 
-const controller = () => window.geometryViewer.controllerForSourceNavigation();
+const controller = () => window.geometryViewer.controllerForRendererNavigation();
 const ledger = () => (controller() as unknown as { ledger: ResourceLedger }).ledger;
 let fixturePositions: readonly (readonly number[])[] = queuePositions;
 const planePositions = [[-.75, 0, 0], [-.25, 0, 0], [.25, 0, 0], [.75, 0, 0], [0, .85, .25]];
@@ -36,15 +38,6 @@ function planeFixture() {
 async function digest(bytes: BufferSource) {
   return Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', bytes)), value => value.toString(16).padStart(2, '0')).join('');
 }
-async function gpuBytes(buffer: GPUBuffer, size: number) {
-  const renderer = controller().renderer!, readback = renderer.device.createBuffer({ size,
-    usage: GPUBufferUsage.MAP_READ | GPUBufferUsage.COPY_DST });
-  try {
-    const encoder = renderer.device.createCommandEncoder(); encoder.copyBufferToBuffer(buffer, 0, readback, 0, size);
-    renderer.device.queue.submit([encoder.finish()]); await readback.mapAsync(GPUMapMode.READ);
-    const bytes = readback.getMappedRange().slice(0); readback.unmap(); return bytes;
-  } finally { readback.destroy(); }
-}
 function state() {
   const value = useApp.getState(), app = controller();
   return { busy: value.busy, error: value.error, sourceName: value.sourceName, mode: value.mode,
@@ -63,13 +56,14 @@ function state() {
     colorPending: app.colorPending, grade: [...value.grade], appliedGrade: [...value.appliedGrade], colorSession: value.colorSession };
 }
 async function snapshot() {
-  const app = controller(), client = app.client!, scene = requireGaussianScene(app.scene);
+  const app = controller(), client = app.client!, scene = app.scene!;
+  if (scene.kind !== 'gaussian') throw new Error('The actual Gaussian fixture is missing.');
   const chunks: Uint8Array[] = [];
   let nativeMasks = new Uint8Array();
   await client.stream(async (_first, _count, bytes) => { chunks.push(new Uint8Array(bytes)); }, bytes => { nativeMasks = new Uint8Array(bytes); });
   const native = new Uint8Array(chunks.reduce((total, chunk) => total + chunk.byteLength, 0));
   let offset = 0; for (const chunk of chunks) { native.set(chunk, offset); offset += chunk.byteLength; }
-  const gpu = await gpuBytes(scene.buffers.splats, scene.count * scene.stride);
+  const { source: gpu, masks: gpuMasks } = await gaussianStorage(app);
   const records = (bytes: ArrayBuffer) => {
     const view = new DataView(bytes);
     return Array.from({ length: scene.count }, (_, id) => ({
@@ -84,12 +78,14 @@ async function snapshot() {
   const exported = await admittedExport(client, 0, 0), csv = new TextDecoder().decode(await admittedExport(client, 5, 0)).trim().split(/\r?\n/);
   const summary = await client.command({ command: 'summary' });
   const csvHeader = csv.shift()!.split(','), csvRows = csv.map(row => row.split(',').map(Number));
+  // Observe retirement after the asynchronous display order has completed.
+  await app.renderer!.finish();
   const workOwnership = exportWorkObservation(client, ledger());
   // Detached observations of actual controller owners, never replacement metadata.
   const owners = app as unknown as { alignmentViews: AlignmentViewCheckpoints; defaultAlignmentCamera(): number[] };
   return { ...state(), summary, records: records(native.buffer), gpuRecords: records(gpu),
     nativeRecordHash: await digest(native), gpuRecordHash: await digest(gpu), masks: Array.from(nativeMasks),
-    gpuMasks: Array.from(new Uint32Array(await gpuBytes(scene.buffers.states, scene.count * 4))),
+    gpuMasks: Array.from(gpuMasks),
     exported: await digest(exported), exportedBytes: Array.from(new Uint8Array(exported)), csvHeader, csvRows,
     camera: [...app.camera!.state], cameraRevision: app.camera!.revision, background: app.camera!.background,
     defaultCamera: [...owners.defaultAlignmentCamera()], checkpoints: [...owners.alignmentViews.values()].map(entry => ({
@@ -314,20 +310,46 @@ function expectedCamera(state: readonly number[], oldFrame: readonly number[], n
     throw new Error('The pure native camera expectation mutated the actual viewport owner.');
   return result;
 }
+async function loseGraphics() {
+  const renderer = controller().renderer!;
+  if (renderer instanceof GlRenderer) {
+    const extension = renderer.gl.getExtension('WEBGL_lose_context');
+    if (!extension) throw new Error('The actual GL context-loss extension is unavailable.');
+    const lost = new Promise<void>(resolve => renderer.canvas.addEventListener('webglcontextlost', () => resolve(), { once: true }));
+    extension.loseContext(); await lost;
+  } else {
+    const gpu = requireWebGpuRenderer(renderer); gpu.device.destroy(); await gpu.device.lost;
+  }
+}
+let keyboardTraffic: { client: NonNullable<ReturnType<typeof controller>['client']>; original: NonNullable<ReturnType<typeof controller>['client']>['command']; calls: string[] } | undefined;
+async function keyboardStart() {
+  const initial = await snapshot(), client = controller().client!, original = client.command.bind(client), calls: string[] = [];
+  client.command = async (...args) => { calls.push(args[0].command); return original(...args); };
+  keyboardTraffic = { client, original, calls }; return initial;
+}
+async function keyboardFinish() {
+  if (!keyboardTraffic) throw new Error('Keyboard observation has not started.');
+  const { client, original, calls } = keyboardTraffic; keyboardTraffic = undefined; client.command = original;
+  return { calls, after: await snapshot() };
+}
+function renderState() {
+  const renderer = controller().renderer!;
+  return { width: renderer.canvas.width, height: renderer.canvas.height };
+}
 async function redoBaseline() { await seed([0]); await seed([1]); await command({ command: 'undo' }); }
 async function refusal(kind: 'admission' | 'gpu' | 'cancel', tool: 'center' | 'scale' | 'align' = 'center') {
   await redoBaseline();
   if (tool === 'align') { await pickPlane(); controller().setAlignmentFlip(true); }
   else if (tool === 'scale') { const points = await pickScale(); controller().setAlignmentTargetDistance(Math.fround(points.alignmentTargetDistance! * 2)); }
   else await pick();
-  const app = controller(), before = await snapshot(), client = app.client!, queue = app.renderer!.device.queue;
+  const app = controller(), before = await snapshot(), client = app.client!, renderer = app.renderer!;
   const budget = ledger() as unknown as { limit: number }, previousLimit = budget.limit;
-  const originalCommand = client.command.bind(client), originalStream = client.stream.bind(client), originalCompletion = queue.onSubmittedWorkDone.bind(queue);
+  const originalCommand = client.command.bind(client), originalStream = client.stream.bind(client), originalCompletion = renderer.finish.bind(renderer);
   let decoded = false, streamed = false, failed = false, active = true, release!: () => void, enter!: () => void;
   const entered = new Promise<void>(resolve => { enter = resolve; }), held = new Promise<void>(resolve => { release = resolve; });
   client.command = async (...args) => { const result = await originalCommand(...args); if (args[0].command === (tool === 'align' ? 'alignPlane' : tool === 'scale' ? 'alignScale' : 'alignCenter')) decoded = true; return result; };
   client.stream = async (...args) => { const result = await originalStream(...args); if (decoded) streamed = true; return result; };
-  queue.onSubmittedWorkDone = async () => {
+  renderer.finish = async () => {
     await originalCompletion();
     // A renderer fence can overlap the candidate upload. Keep the failure/hold
     // active through confirmation so an unrelated fence cannot consume it.
@@ -343,7 +365,7 @@ async function refusal(kind: 'admission' | 'gpu' | 'cancel', tool: 'center' | 's
     const pending = app.confirmAlignment();
     if (kind === 'cancel') { await entered; app.cancelEdit(); release(); }
     accepted = await pending; error = useApp.getState().error;
-  } finally { active = false; release?.(); budget.limit = previousLimit; client.command = originalCommand; client.stream = originalStream; queue.onSubmittedWorkDone = originalCompletion; }
+  } finally { active = false; release?.(); budget.limit = previousLimit; client.command = originalCommand; client.stream = originalStream; renderer.finish = originalCompletion; }
   const after = await snapshot(), redone = await app.command({ command: 'redo' });
   return { before, after, accepted, decoded, failed, error, redone, afterRedo: await snapshot() };
 }
@@ -365,7 +387,7 @@ async function stalePick(kind: 'camera' | 'edit' | 'source' | 'device') {
     else if (kind === 'edit') await seed([2]);
     else if (kind === 'source') await load('alignment-replaced.ply');
     else {
-      renderer.device.destroy(); await renderer.device.lost;
+      await loseGraphics();
       if (!await app.retryRenderer()) throw new Error(useApp.getState().error ?? 'The actual stale-pick device recovery failed.');
     }
     release(); return { before, after: await snapshot(), accepted: await pending, picked };
@@ -373,7 +395,7 @@ async function stalePick(kind: 'camera' | 'edit' | 'source' | 'device') {
 }
 async function stalePlaneNormal(kind: 'camera' | 'edit' | 'source' | 'device' | 'clear') {
   const app = controller(); await pickPlane([3, 4]);
-  const before = await snapshot(), client = app.client!, original = client.command.bind(client), renderer = app.renderer!;
+  const before = await snapshot(), client = app.client!, original = client.command.bind(client);
   let release!: () => void, enter!: () => void, normal: number[] | null = null;
   const entered = new Promise<void>(resolve => { enter = resolve; }), held = new Promise<void>(resolve => { release = resolve; });
   client.command = async (...args) => {
@@ -389,7 +411,7 @@ async function stalePlaneNormal(kind: 'camera' | 'edit' | 'source' | 'device' | 
     else if (kind === 'source') await loadPlane('alignment-plane-replaced.ply');
     else if (kind === 'clear') app.clearAlignmentPoint();
     else {
-      renderer.device.destroy(); await renderer.device.lost;
+      await loseGraphics();
       if (!await app.retryRenderer()) throw new Error(useApp.getState().error ?? 'The actual stale plane device recovery failed.');
     }
     release(); const accepted = await pending;
@@ -434,7 +456,7 @@ async function reopenExport() {
   return { before, after: await snapshot() };
 }
 
-const harness = { ready: () => window.geometryViewer.ready(), state, snapshot, load, loadPlane, loadFloor, detectFloor, confirmFloor,
+const harness = { ready: () => window.geometryViewer.ready(), state, snapshot, keyboardStart, keyboardFinish, renderState, load, loadPlane, loadFloor, detectFloor, confirmFloor,
   beginFloorCommandObservation, finishFloorCommandObservation, beginFloorDetectionHold, finishFloorDetectionHold, loadPrecision, view, pixel, pick, center, pickScale, scale,
   pickPlane, plane, flip, setRoll, seed, command, navigate, expectedCamera, expectedFrameCamera, refusal, stalePick, stalePlaneNormal,
   beginPlaneCommitHold, commitState, queueHeldCameraInput, finishPlaneCommitHold, savedRoundtrip, savedDefaultCarry, resetCamera, reopenExport };

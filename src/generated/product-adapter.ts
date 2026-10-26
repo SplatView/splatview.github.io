@@ -2,6 +2,11 @@
 import { productAllowed } from './product-policy';
 export const productContractPin = "fff64dad4589c07b26821cb23a866aaec6f824e7786d719ca6e3122b3750895a";
 export const productBindings: Readonly<Record<string, string>> = {
+  "GaussianRenderMode.sorted": "view.render",
+  "GaussianRenderMode.steady": "view.render",
+  "GraphicsBackendPreference.auto": "view.render",
+  "GraphicsBackendPreference.webgl2": "view.render",
+  "GraphicsBackendPreference.webgpu": "view.render",
   "SelectionTool.brush": "selection.manual",
   "SelectionTool.color": "selection.color",
   "SelectionTool.fill": "selection.color",

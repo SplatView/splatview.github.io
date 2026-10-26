@@ -1,0 +1,91 @@
+{
+  "runs": [
+    {
+      "name": "initial-sdk-close",
+      "stats": {
+        "startTime": "2026-10-25T17:05:19.463Z",
+        "duration": 14562.314,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 8,
+        "flaky": 0
+      },
+      "report": {
+        "archive": {
+          "path": "docs/validation/runs/standalone-renderer-20261025-01/initial-sdk-close.json.gz",
+          "bytes": 3996,
+          "sha256": "3fee88c691f1fe8eb748a97b6c63fe956a1974bf1a676dbb402df95830f2eaa1"
+        },
+        "uncompressedBytes": 94852,
+        "uncompressedSha256": "40475e22eb143e524c521c8cb0a0f28035fd1f5f1bc88d91b6dd95c9e54956d1"
+      }
+    },
+    {
+      "name": "sdk-example-scheduler",
+      "stats": {
+        "startTime": "2026-10-25T17:15:45.038Z",
+        "duration": 30245.367000000002,
+        "expected": 10,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      },
+      "report": {
+        "archive": {
+          "path": "docs/validation/runs/standalone-renderer-20261025-01/sdk-example-scheduler.json.gz",
+          "bytes": 8603,
+          "sha256": "9098c56603a96a93cbd433e68a04ff3117137de1afbadb65b3430ea54a5f4da3"
+        },
+        "uncompressedBytes": 52820,
+        "uncompressedSha256": "1cab53a2bbb910f6dd3cfa456a0ac8bfe39b58007576cc6e73b0de85a4ec33d7"
+      }
+    },
+    {
+      "name": "production-webgpu-network",
+      "stats": {
+        "startTime": "2026-10-25T17:27:59.306Z",
+        "duration": 129465.239,
+        "expected": 39,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      },
+      "report": {
+        "archive": {
+          "path": "docs/validation/runs/standalone-renderer-20261025-01/production-webgpu-network.json.gz",
+          "bytes": 9584,
+          "sha256": "12103a922b8eccc42e1c9500ad264668c3ed390e5170fc5fd892d55fa076adc4"
+        },
+        "uncompressedBytes": 84706,
+        "uncompressedSha256": "9af7aec5e88c854f5053f772c7a43682d15c6e70e2e3245a45792bfbc4ac0ce8"
+      }
+    }
+  ],
+  "productionNetwork": {
+    "observedTraceConsoleEvent": {
+      "type": "console",
+      "messageType": "error",
+      "text": "Failed to load resource: net::ERR_NO_BUFFER_SPACE",
+      "location": {
+        "url": "http://127.0.0.1:4173/assets/index-D2z9Dr30.js",
+        "lineNumber": 0,
+        "columnNumber": 0
+      },
+      "time": 63240.09,
+      "pageId": "page@39e0f3c20872b7c4127d11c2fd46b3f7"
+    },
+    "traceArchiveRetained": false,
+    "reason": "Playwright replaced its temporary output directory during the unchanged full-cohort rerun. The failed report and inspected console event are retained.",
+    "finalOutcome": "40 passed, no retries, source and production artifacts unchanged",
+    "classification": "Observed pre-startup browser resource-fetch failure; no rendering fault established."
+  },
+  "repairs": [
+    "Added awaitable close joining existing optional preparation/retirement owners.",
+    "Published the example drawing owner before synchronous render callbacks; retained frame requests during completion."
+  ],
+  "otherCheckpoints": [
+    "Geometry layout move initially missed the shared integer validator/import; corrected before final checks.",
+    "New browser spec initially had duplicate object properties and an OffscreenCanvas type mismatch; corrected before final checks."
+  ],
+  "appBuildAdvisory": "Existing Vite large-chunk advisory; build exit code 0."
+}

@@ -1,5 +1,5 @@
 import type { SelectionMapDescriptor } from './selectionMap';
-import type { GeometryChannel, GeometryDescriptor } from './geometry';
+import type { GeometryChannel, GeometryDescriptor } from '../renderer/geometryLayout';
 import type { SingleSourceDescriptor, SourceRange } from './source';
 import type { GroupSourceDescriptor } from './sourceGroup';
 import type { SourceFingerprint } from '../io/fingerprint';
@@ -138,5 +138,3 @@ export function acceptsResult(envelope: Envelope, current: Revision): boolean {
   return envelope.protocolVersion === PROTOCOL_VERSION && envelope.buildId === BUILD_ID &&
     sameRevision(envelope.base, current);
 }
-export const NEUTRAL_COLOR = [1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-export const IDENTITY_MATRIX = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1];

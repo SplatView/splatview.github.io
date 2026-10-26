@@ -122,3 +122,57 @@ earlier optimization measurements are linked from the
 [current DX review](../../design/feature-reviews/selection-dx-review-2026-10-18.md),
 [module refactor](../../design/feature-reviews/selection-modularity-2026-10-18.md)
 and [optimization review](../../design/feature-reviews/selection-interaction-optimization-2026-10-18.md).
+
+## Sorted pick and GL query optimizations (October 25, 2026)
+
+Both backends preserve exact sorted pick/map semantics while display may use
+SteadySplats. The existing controller/native selection-map cache remains the
+owner of accepted maps, selection and history.
+
+- `renderer/orderKey.ts` captures canonical f32 depth-row, source and geometry
+  dependencies for each scene's actually installed order. A capture can overwrite
+  it; display and queries must validate their own captured dependencies afterward.
+- `renderer/webgl2/queryProjection.ts` uses job-owned scalar covariance scratch;
+  `queryCompute.ts` retains complete tile candidates and all-fragment composition.
+  Exact pixel pick candidates include occluders outside the winner radius.
+  Dense tile merge-sort scratch is admitted together with the complete candidate
+  allocation, and `cooperativeSort.ts` yields inside one large tile.
+- `renderer/webgl2/computeClient.ts` owns the bounded, separately leased worker
+  radix scratch. Busy users pin it; eviction, last-scene removal and worker
+  termination retain admission until the corresponding terminal acknowledgement.
+  Pure worker query waits do not occupy the renderer's GL submission tail.
+- `renderer/webgpu/pickCandidates.ts` and its shader compact conservative pixel
+  candidates in stable front-to-back order. Optional admission/preparation failure
+  uses the existing exact single-pass pick. Full-frame visibility and the 48-byte
+  surface ABI are independent of this pick optimization.
+
+Additional focused browser coverage:
+
+```sh
+npx playwright test --project=spec:render-order.spec.ts --project=spec:webgl-query.spec.ts --project=spec:webgl-lifecycle.spec.ts
+```
+
+The repeated developer/agent benchmark is `rendering-optimization-bench.spec.ts`;
+`rendering-input-latency.spec.ts` measures trusted inputs through the actual App.
+Each uses 120 measured samples and three repetitions. The controlled renderer
+matrix holds physical resolution fixed for count/SH comparisons and holds source
+fixed for resolution/DPR comparisons. Run these without competing test/build
+loads. `tools/bench/rendering-report.py` validates and compares their reports.
+Queue/fence completion, GL Gaussian-draw GPU timers and logical reservations are
+separate observations; they do not establish physical presentation or driver
+memory. See the [review](../../design/feature-reviews/rendering-optimization-plan-2026-10-25.md).
+
+The display precision/compaction path is separate from selection-map ownership.
+WebGPU `renderer.surface()` first ensures a complete 32-bit full-source order;
+its private compact draw pairs never replace that order. WebGL queries use exact
+worker sorting and clean capture explicitly requests 32 bits. Same-view display
+interleaving must not overwrite an active exact map order. Run `fast-order.spec.ts`
+when changing this boundary; it compares exact pixels/maps/picks and exercises
+canonical/divergent preview-mask replacement and a display between query stages.
+
+The WebGL depth sorter now skips uniform digits and may use exact counting for
+an admitted key range. Query sorts retain their original 256-bin allocation;
+the larger histogram is optional retained display storage. Neither path changes
+32-bit query keys, candidate tie order or tile-map composition. Its independent
+oracle, cancellation and byte-plan checks are in `webgl-worker-sort.test.ts` and
+the [review](../../design/feature-reviews/webgl-worker-sort-2026-10-25.md).

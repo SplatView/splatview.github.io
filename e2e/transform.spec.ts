@@ -1,4 +1,4 @@
-import { expect, test, type Page } from '@playwright/test';
+import { expect, test, type Page } from './backend-test';
 import type {} from './transform-harness';
 
 const panel = (page: Page) => page.getByRole('complementary', { name: 'Tools', exact: true });

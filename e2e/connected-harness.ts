@@ -1,3 +1,4 @@
+import { requireWebGpuRenderer } from './gaussian-harness-scene';
 import { admittedExport, exportWorkObservation } from './admitted-export';
 // Test-only real-controller entry. Production builds only include index.html.
 import { AppController } from '../src/app/controller';
@@ -8,7 +9,7 @@ import type { AdoptedSelectionMap } from '../src/document/selectionMap';
 import { connectedPly } from './connected-fixture';
 
 async function gpuMasks(controller: AppController) {
-  const renderer = controller.renderer!, scene = requireGaussianScene(controller.scene), size = Math.max(4, scene.count * 4);
+  const renderer = requireWebGpuRenderer(controller.renderer), scene = requireGaussianScene(controller.scene), size = Math.max(4, scene.count * 4);
   const buffer = renderer.device.createBuffer({ size, usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.MAP_READ });
   try {
     const encoder = renderer.device.createCommandEncoder(); encoder.copyBufferToBuffer(scene.buffers.states, 0, buffer, 0, size);
@@ -237,7 +238,7 @@ function createHarness() {
         held.resume(); await cancelling;
         const activeAfter = controller.selectionActive;
         const accepted = await controller.finishSelectionGesture({ command: 'brush', camera: controller.camera!.state,
-          width: controller.renderer!.canvas.width, height: controller.renderer!.canvas.height,
+          width: requireWebGpuRenderer(controller.renderer).canvas.width, height: requireWebGpuRenderer(controller.renderer).canvas.height,
           points: [[h.x, h.y]], radius: 3, operation: 0, overlap: false, visibleOnly: false });
         const after = await client.command({ command: 'summary' }), masks = await gpuMasks(controller);
         await controller.command({ command: 'undo' }); const undone = await client.command({ command: 'summary' });

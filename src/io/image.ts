@@ -1,5 +1,9 @@
 import { checkedBytes } from '../document/resources';
-import type { SavedViewOperation } from './thumbnail';
+export type ImageOperation = {
+  signal?: AbortSignal;
+  current?: () => void;
+  admit: (bytes: number) => () => void;
+};
 
 export type OwnedRgbaImage = Readonly<{
   width: number; height: number; pixels: Uint8ClampedArray<ArrayBuffer>; dispose(): void;
@@ -8,7 +12,7 @@ export type OwnedImageOutput = Readonly<{ blob: Blob; dispose(): void }>;
 type ImageOwner = { pixels: Uint8ClampedArray<ArrayBuffer>; release(): void; borrowers: number; closing: boolean; retired: boolean };
 const owners = new WeakMap<OwnedRgbaImage, ImageOwner>();
 const claimedBuffers = new WeakSet<ArrayBuffer>();
-const check = (operation: SavedViewOperation) => { operation.signal?.throwIfAborted(); operation.current?.(); };
+const check = (operation: ImageOperation) => { operation.signal?.throwIfAborted(); operation.current?.(); };
 
 /** The same bounded raw-image dimensions as the desktop thumbnail endpoint. */
 export function rgbaImageBytes(width: number, height: number): number {
@@ -54,7 +58,7 @@ export async function withRgbaImage<T>(source: OwnedRgbaImage,
  * an explicit PNG/JPEG adapter; matching JPEG bytes across encoders is not
  * promised. Both working storage and returned Blob ownership remain admitted. */
 export async function encodeRgba(source: OwnedRgbaImage, type: 'image/png' | 'image/jpeg',
-  operation: SavedViewOperation, quality = .95): Promise<OwnedImageOutput> {
+  operation: ImageOperation, quality = .95): Promise<OwnedImageOutput> {
   check(operation);
   if (type !== 'image/png' && type !== 'image/jpeg') throw new TypeError('Choose PNG or JPEG image output.');
   if (!Number.isFinite(quality) || quality < 0 || quality > 1) throw new RangeError('Invalid image quality.');

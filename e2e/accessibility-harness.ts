@@ -2,7 +2,7 @@
 // DOM status region. Scheduling gates are inherited from the qualified harness.
 import './deferred-grade-harness';
 import { setApp, useApp } from '../src/app/store';
-import { NEUTRAL_COLOR } from '../src/document/types';
+import { NEUTRAL_COLOR } from '../src/renderer/defaults';
 
 type StatusUpdate = { text: string; busy: boolean; selected: number | null; sourceName: string; time: number };
 const updates: StatusUpdate[] = [];

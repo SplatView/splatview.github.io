@@ -1,11 +1,13 @@
+import { compositedSurface } from '../src/renderer/webgpu/surface';
+import type { SurfaceOptions } from '../src/renderer/webgpu/surfaceQuery';
 import { describe, expect, it, vi } from 'vitest';
 import { DocumentSelectionMaps, type SelectionMapContext } from '../src/app/selectionMaps';
 import { ResourceLedger, type ResourceLease } from '../src/document/resources';
 import type { CoreClient } from '../src/document/coreClient';
 import type { CameraController } from '../src/input/camera';
 import type { GaussianRenderer, GpuScene } from '../src/renderer/webgpu/renderer';
-import { StaleGpuQueryError } from '../src/renderer/webgpu/renderer';
-import { NEUTRAL_COLOR } from '../src/document/types';
+import { StaleRenderQueryError } from '../src/renderer/contracts';
+import { NEUTRAL_COLOR } from '../src/renderer/defaults';
 
 const stub = vi.hoisted(() => ({ created: 0, admissions: [] as ((bytes: number) => ResourceLease)[] }));
 vi.mock('../src/renderer/webgpu/surface', () => ({
@@ -19,6 +21,7 @@ vi.mock('../src/renderer/webgpu/surface', () => ({
 function fixture() {
   stub.created = 0; stub.admissions.length = 0; let nextId = 0;
   const renderer = { lost: false, deviceEpoch: 1, canvas: { width: 1, height: 1 }, render: vi.fn(),
+    surface: (scene: GpuScene, options: SurfaceOptions) => compositedSurface(renderer, scene, options),
     trimSurfaceResources: vi.fn() } as unknown as GaussianRenderer;
   const scene = { kind: 'gaussian', count: 1, sourceRevision: 1, selectedRevision: 1, retired: false, renderer } as GpuScene;
   const client = { revision: { documentId: 'scene', sourceGeneration: 1 }, nativeContentRevision: 1,
@@ -60,7 +63,7 @@ describe('opacity dependencies of cached selection surfaces', () => {
     if(channel==='opacityBase')f.context.opacitySelectedOnly=true;
     else{f.context.geometry=[1,0,0,0,0,1,0,0,0,0,1,0,1,0,0,1];f.context.geometrySelectedOnly=true;}
     const selected=f.scene.selectedRevision,first=await f.maps.request(f.context);revisions[channel]++;
-    expect(f.scene.selectedRevision).toBe(selected);expect(()=>first.assertCurrent()).toThrow(StaleGpuQueryError);
+    expect(f.scene.selectedRevision).toBe(selected);expect(()=>first.assertCurrent()).toThrow(StaleRenderQueryError);
     expect(await f.maps.request(f.context)).not.toBe(first);await f.maps.invalidate();
   });
   it('inactive target ownership changes do not invalidate an unrestricted raw surface',async()=>{
@@ -85,7 +88,7 @@ describe('opacity dependencies of cached selection surfaces', () => {
   it('an alpha edit expires the retained map before rendering another frame', async () => {
     const f = fixture(), first = await f.maps.request(f.context);
     f.context.opacityScale = 3;
-    expect(() => first.assertCurrent()).toThrow(StaleGpuQueryError);
+    expect(() => first.assertCurrent()).toThrow(StaleRenderQueryError);
     const next = await f.maps.request(f.context); expect(next).not.toBe(first); expect(f.created()).toBe(2);
     expect(f.renderer.render).toHaveBeenLastCalledWith(f.scene, f.context.camera, NEUTRAL_COLOR, false,
       expect.any(Array), false, false, 3, false);
@@ -94,13 +97,13 @@ describe('opacity dependencies of cached selection surfaces', () => {
   it('an owner revision expires otherwise identical alpha', async () => {
     const f = fixture(), first = await f.maps.request(f.context);
     f.context.opacityPreviewRevision = (f.context.opacityPreviewRevision ?? 0) + 1;
-    expect(() => first.assertCurrent()).toThrow(StaleGpuQueryError);
+    expect(() => first.assertCurrent()).toThrow(StaleRenderQueryError);
     expect(await f.maps.request(f.context)).not.toBe(first); await f.maps.invalidate();
   });
   it.each([false, true])('mask changes affect active selected opacity=%s', async selected => {
     const f = fixture(); f.context.opacitySelectedOnly = selected;
     const first = await f.maps.request(f.context); f.scene.selectedRevision++;
-    if (selected) { expect(() => first.assertCurrent()).toThrow(StaleGpuQueryError); expect(await f.maps.request(f.context)).not.toBe(first); }
+    if (selected) { expect(() => first.assertCurrent()).toThrow(StaleRenderQueryError); expect(await f.maps.request(f.context)).not.toBe(first); }
     else { expect(first.assertCurrent).not.toThrow(); expect(await f.maps.request(f.context)).toBe(first); }
     await f.maps.invalidate();
   });

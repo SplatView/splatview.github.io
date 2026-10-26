@@ -1,10 +1,12 @@
+import { requireWebGpuRenderer } from './gaussian-harness-scene';
 import { admittedExport, exportWorkObservation } from './admitted-export';
 // Test-only real worker/native/WebGPU controller. No shipping test hooks.
 import { AppController } from '../src/app/controller';
 import { requireGaussianScene } from './gaussian-harness-scene';
 import { setSelectionPreferences, useApp } from '../src/app/store';
 import { AdmissionError, type ResourceLedger, type ResourceLease } from '../src/document/resources';
-import { NEUTRAL_COLOR, type SceneCommand } from '../src/document/types';
+import { NEUTRAL_COLOR } from '../src/renderer/defaults';
+import { type SceneCommand } from '../src/document/types';
 import { queuePly, queuePositions } from './queue-fixture';
 
 type Tool = 'color' | 'fill';
@@ -13,7 +15,7 @@ function gate() {
   return { wait: new Promise<void>(resolve => { enter = resolve; }), held: new Promise<void>(resolve => { release = resolve; }), enter: () => enter(), release: () => release() };
 }
 async function gpuMasks(controller: AppController) {
-  const renderer = controller.renderer!, scene = requireGaussianScene(controller.scene), size = scene.count * 4;
+  const renderer = requireWebGpuRenderer(controller.renderer), scene = requireGaussianScene(controller.scene), size = scene.count * 4;
   const read = renderer.device.createBuffer({ size, usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.MAP_READ });
   try {
     const encoder = renderer.device.createCommandEncoder(); encoder.copyBufferToBuffer(scene.buffers.states, 0, read, 0, size);

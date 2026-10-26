@@ -18,12 +18,13 @@ function rendererFixture() {
   const device = { ...resulting, pushErrorScope: vi.fn(), popErrorScope: vi.fn(async (): Promise<{ message: string } | null> => null), destroy,
     createShaderModule: vi.fn(() => ({ getCompilationInfo: vi.fn(async (): Promise<{ messages: { type: string; lineNum: number; message: string }[] }> => ({ messages: [] })) })),
     createComputePipelineAsync: vi.fn(async () => ({})), createRenderPipelineAsync: vi.fn(async () => ({})),
+    queue: { writeBuffer: vi.fn(), onSubmittedWorkDone: vi.fn(async()=>{}) },
     createBuffer: vi.fn(() => ({ destroy: vi.fn() })), lost: new Promise<never>(() => undefined), addEventListener: vi.fn() };
   const adapter = { ...advertised, info: { vendor: 'observed vendor', architecture: 'observed family', device: 'observed type', description: '' },
     requestDevice: vi.fn(async (_descriptor: GPUDeviceDescriptor) => device) };
   const gpu = { requestAdapter: vi.fn(async () => adapter), getPreferredCanvasFormat: vi.fn(() => 'bgra8unorm') };
   vi.stubGlobal('navigator', { gpu });
-  vi.stubGlobal('GPUBufferUsage', { UNIFORM: 1, COPY_DST: 2, STORAGE: 4, COPY_SRC: 8 });
+  vi.stubGlobal('GPUBufferUsage', { UNIFORM: 1, COPY_DST: 2, STORAGE: 4, COPY_SRC: 8, INDEX: 16 });
   vi.stubGlobal('GPUTextureUsage', { RENDER_ATTACHMENT: 1, TEXTURE_BINDING: 2 });
   const canvas = { getContext: vi.fn(() => context) } as unknown as HTMLCanvasElement;
   return { canvas, gpu, adapter, device, advertised, resulting, context, destroy };
@@ -164,7 +165,8 @@ describe('renderer creation negotiation integration', () => {
     const submit = vi.fn(), context = { getCurrentTexture: () => ({ createView: () => ({}) }) };
     const renderer = Object.assign(Object.create(GaussianRenderer.prototype), {
       submittedDisplayFrames: 0, frames: 0, canvas: { width: 64, height: 48, dataset: {} }, context, requireScene() {}, requestGeometryTarget: vi.fn(),
-      device: { createCommandEncoder: () => ({ beginRenderPass: () => ({ end() {} }), finish: () => ({}) }), queue: { submit } },
+      steady: { suspend: vi.fn() },
+      device: { createCommandEncoder: () => ({ beginRenderPass: () => ({ end() {} }), finish: () => ({}) }), queue: { submit, onSubmittedWorkDone: async()=>{} } },
     }) as GaussianRenderer;
     const camera = { background: 'black' } as CameraController;
     renderer.render(undefined, camera); expect(renderer.frameSubmissionSequence).toBe(1);

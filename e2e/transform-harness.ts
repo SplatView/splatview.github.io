@@ -5,9 +5,9 @@ import { useApp } from '../src/app/store';
 import { UI_SIZES, useUiPreferences } from '../src/app/uiPreferences';
 import type { TransformGizmoPrimitive } from '../src/document/transformGizmo';
 import type { SceneCommand } from '../src/document/types';
-import { requireGaussianScene } from './gaussian-harness-scene';
+import { gaussianStorage } from './gaussian-storage';
 
-const controller = () => window.geometryViewer.controllerForSourceNavigation();
+const controller = () => window.geometryViewer.controllerForRendererNavigation();
 const positions = [[.2, .1, .3], [.5, 0, 0], [0, .5, 0], [0, 0, -2], [-.4, -.2, .1]];
 function fixture() {
   const names = ['x', 'y', 'z', 'f_dc_0', 'f_dc_1', 'f_dc_2', 'opacity', 'scale_0', 'scale_1', 'scale_2', 'rot_0', 'rot_1', 'rot_2', 'rot_3',
@@ -28,21 +28,14 @@ function state() {
     rendererState: value.rendererState, selectionRecovery: value.selectionRecovery,
     camera: app.camera!.state, cameraRevision: app.camera!.revision };
 }
-async function gpuBytes(buffer: GPUBuffer, size: number) {
-  const renderer = controller().renderer!, readback = renderer.device.createBuffer({ size, usage: GPUBufferUsage.MAP_READ | GPUBufferUsage.COPY_DST });
-  try {
-    const encoder = renderer.device.createCommandEncoder(); encoder.copyBufferToBuffer(buffer, 0, readback, 0, size);
-    renderer.device.queue.submit([encoder.finish()]); await readback.mapAsync(GPUMapMode.READ);
-    const bytes = readback.getMappedRange().slice(0); readback.unmap(); return bytes;
-  } finally { readback.destroy(); }
-}
 async function snapshot() {
-  const app = controller(), client = app.client!, scene = requireGaussianScene(app.scene), chunks: Uint8Array[] = [];
+  const app = controller(), client = app.client!, scene = app.scene!, chunks: Uint8Array[] = [];
+  if (scene.kind !== 'gaussian') throw new Error('The actual Gaussian fixture is missing.');
   const summary = await client.command({ command: 'summary' }); let masks: number[] = [];
   await client.stream(async (_first, _count, bytes) => { chunks.push(new Uint8Array(bytes)); }, bytes => { masks = Array.from(new Uint8Array(bytes)); });
   const native = new Uint8Array(chunks.reduce((sum, chunk) => sum + chunk.byteLength, 0));
   let at = 0; for (const chunk of chunks) { native.set(chunk, at); at += chunk.byteLength; }
-  const gpu = await gpuBytes(scene.buffers.splats, scene.count * scene.stride);
+  const { source: gpu, masks: gpuMasks } = await gaussianStorage(app);
   const records = (bytes: ArrayBufferLike) => {
     const view = new DataView(bytes);
     return Array.from({ length: scene.count }, (_, id) => ({
@@ -53,7 +46,7 @@ async function snapshot() {
     }));
   };
   return { ...state(), summary, records: records(native.buffer), gpuRecords: records(gpu), masks,
-    gpuMasks: Array.from(new Uint32Array(await gpuBytes(scene.buffers.states, scene.count * 4))), sourceFingerprint: app.sourceFingerprint };
+    gpuMasks: Array.from(gpuMasks), sourceFingerprint: app.sourceFingerprint };
 }
 function frame(pointer: readonly [number, number] = [-1, -1]) {
   const value = useApp.getState(), app = controller(), widgetMatrix = app.transformGizmoWidgetMatrix;

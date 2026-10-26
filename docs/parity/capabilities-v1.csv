@@ -30,5 +30,5 @@ desktop-appearance,Desktop appearance and interaction,retained,partial,desktop-a
 languages-accessibility,Languages tutorial accessibility,retained,implemented,languages-accessibility:translations;languages-accessibility:interaction;languages-accessibility:assistive-technology,
 static-offline,Static deployment and offline,retained,implemented,static-offline:offline-update;static-offline:deployed-host,
 browser-operating-budgets,Mac operating budgets,retained,planned,browser-operating-budgets:observed-browser,
-webgl-compatibility,WebGL compatibility viewer,excluded,excluded,,Optional separate compatibility release; the editor requires WebGPU and does not claim a WebGL fallback.
+webgl-compatibility,WebGL compatibility viewer,excluded,excluded,,"Separate compatibility viewer remains excluded. The conditional integrated WebGL2 backend, automatic fallback and observed Basic workflow qualification are recorded in design/feature-reviews/webgl2-implementation-2026-10-25.md and docs/validation/runs/webgl2-implementation-20261025-02/validation.json; other environments require their own evidence."
 native-shell-integration,Finder shell and native integration,excluded,excluded,,"Browser scope excludes Finder/Explorer previews, native shell extensions, file associations and native packaging."

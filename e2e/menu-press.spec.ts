@@ -1,5 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
-import { NEUTRAL_COLOR } from '../src/document/types';
+import { NEUTRAL_COLOR } from '../src/renderer/defaults';
 import { chooseSelectionTool } from './selectTool';
 import type {} from './auto-color-harness';
 

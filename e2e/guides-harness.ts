@@ -1,14 +1,15 @@
+import { requireWebGpuRenderer } from './gaussian-harness-scene';
 // Actual mounted App/native worker/WebGPU observations. No guides math is
 // imported here: projection and lattice expectations live independently in the spec.
 import './opacity-harness';
 import { useApp } from '../src/app/store';
-import { IDENTITY_MATRIX } from '../src/document/types';
+import { IDENTITY_MATRIX } from '../src/renderer/defaults';
 
 const controller = () => window.geometryViewer.controllerForSourceNavigation();
 const numeric = (element: Element, name: string) => Number(element.getAttribute(name));
 const vector = (element: Element, name: string) => element.getAttribute(name)!.split(',').map(Number);
 function view() {
-  const app = controller(), camera = app.camera!, canvas = app.renderer!.canvas, bounds = canvas.getBoundingClientRect();
+  const app = controller(), camera = app.camera!, canvas = requireWebGpuRenderer(app.renderer).canvas, bounds = canvas.getBoundingClientRect();
   return { state: camera.state, view: Array.from(camera.view), projection: Array.from(camera.projection),
     revision: camera.revision, background: camera.background, dpr: devicePixelRatio,
     width: bounds.width, height: bounds.height, backingWidth: canvas.width, backingHeight: canvas.height };
@@ -42,7 +43,7 @@ async function capture() {
   if (!app.scene) throw new Error('Open an actual scene before capturing.');
   // Raw renderer capture intentionally excludes every DOM overlay. Forward all
   // current independent grade/geometry/opacity scopes, as the production API does.
-  const blob = await app.renderer!.capture(app.scene, app.camera!, 'image/png', state.grade,
+  const blob = await requireWebGpuRenderer(app.renderer).capture(app.scene, app.camera!, 'image/png', state.grade,
     state.transformPreview?.matrix ?? IDENTITY_MATRIX, state.colorSelectedOnly,
     state.transformPreview?.selectedOnly ?? false, state.opacityPreview?.scale ?? 1, state.opacityPreview?.selectedOnly ?? false);
   const bytes = await blob.arrayBuffer(), bitmap = await createImageBitmap(blob);
@@ -63,7 +64,7 @@ const harness = {
   snapshot: () => window.opacityHarness.snapshot(),
   load: (name?: string) => window.opacityHarness.load(name ?? 'guides-literals-sh3.ply'),
   loadGeometry: (source: 'points' | 'mesh') => window.geometryViewer.load(source),
-  async settle() { await controller().renderer!.device.queue.onSubmittedWorkDone();await frames(6); },
+  async settle() { await requireWebGpuRenderer(controller().renderer).device.queue.onSubmittedWorkDone();await frames(6); },
   setCamera(values: number[]) { controller().camera!.set(values);controller().invalidate(); },
   async close() { const app = controller();await app.closeScene();if (useApp.getState().navigationPrompt) await app.discardAndContinue(); },
   async saveView() {
@@ -75,7 +76,7 @@ const harness = {
   observe() {
     unsubscribe?.();notifications = 0;unsubscribe = controller().subscribeViewport(() => notifications++);window.opacityHarness.observe();
   },
-  counters: () => ({ frames: controller().renderer!.frames, notifications, commands: window.opacityHarness.commands(),
+  counters: () => ({ frames: requireWebGpuRenderer(controller().renderer).frames, notifications, commands: window.opacityHarness.commands(),
     cameraRevision: controller().camera!.revision }),
   async waitFrames(count = 8) { await frames(count); },
   recover: () => window.opacityHarness.recover(),

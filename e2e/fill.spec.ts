@@ -1,4 +1,4 @@
-import { expect, test, type Page } from '@playwright/test';
+import { expect, test, type Page } from './backend-test';
 import { fixtureCenters } from './sceneCoordinates';
 import { fillPly, fillPositions } from './fill-fixture';
 import type {} from './fill-harness';

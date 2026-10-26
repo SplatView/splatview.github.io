@@ -24,8 +24,8 @@ import { ensureRuntime, runtimeNativeSource } from '../build/runtime';
 import type { WorkerBootstrapResponse, WorkerInitialize } from '../build/bootstrap';
 import { assertBuildDescriptor, assertNativeIdentity, canonicalJson } from '../build/verification';
 import { BUILD_DESCRIPTOR } from '../generated/buildIdentity';
-import { geometryChannelCount, geometryDescriptor, sameGeometryDescriptor, validateGeometryChunk, validateGeometryDescriptor,
-  type GeometryDescriptor } from './geometry';
+import { sameGeometryDescriptor, validateGeometryDescriptor, type GeometryDescriptor } from '../renderer/geometryLayout';
+import { geometryChannelCount, geometryDescriptor, validateGeometryChunk } from './geometry';
 import { SourceReadBroker } from '../io/readBroker';
 import { assertSourceFitsDecodeBudget, sceneFileBytes } from './sceneInputLimits';
 import { assertPreparedSogGroup, type PreparedSogGroup } from '../io/sogGroup';

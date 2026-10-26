@@ -6,7 +6,7 @@ import { MAX_ALIGNMENT_VIEW_CHECKPOINTS, type AlignmentViewCheckpoint } from '..
 import type { ColorSessionSummary } from '../src/document/colorProtocol';
 import type { DuplicateRange } from '../src/document/duplicateProtocol';
 import { transformDefaults, type TransformMatrix, type TransformSessionSummary } from '../src/document/transformProtocol';
-import { NEUTRAL_COLOR } from '../src/document/types';
+import { NEUTRAL_COLOR } from '../src/renderer/defaults';
 
 function frame(x = 0): AlignmentFrame {
   const values = [...IDENTITY_ALIGNMENT_FRAME]; values[12] = x;

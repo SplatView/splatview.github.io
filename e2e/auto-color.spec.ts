@@ -1,5 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
-import { NEUTRAL_COLOR } from '../src/document/types';
+import { NEUTRAL_COLOR } from '../src/renderer/defaults';
 import { desktopIcons } from '../src/generated/desktop';
 import { currentDesktopIcons } from '../src/generated/currentDesktopIcons';
 import type { AutoColorMethod } from '../src/document/colorProtocol';

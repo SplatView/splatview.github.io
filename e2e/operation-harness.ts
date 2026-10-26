@@ -1,3 +1,4 @@
+import { requireWebGpuRenderer } from './gaussian-harness-scene';
 import { admittedExport, exportWorkObservation } from './admitted-export';
 // Test-only transport faults around the actual App, emitted worker, native
 // transactions and GPU. No receipt, summary or scene stream is fabricated.
@@ -199,7 +200,7 @@ function observeScene(scene: GpuScene) {
   scene.dispose = (...args) => { observation.disposeCalls++; return original(...args); }; return id;
 }
 function observeRenderer() {
-  const renderer = controller().renderer!;
+  const renderer = requireWebGpuRenderer(controller().renderer);
   if (observingRenderer !== renderer) {
     const original = renderer.allocateScene.bind(renderer);
     renderer.allocateScene = async (...args) => { const scene = await original(...args); observeScene(scene); return scene; };
@@ -248,10 +249,10 @@ function state() {
       plan: structuredClone(recovery.plan) } : null,
     selectionActive: app.selectionActive, selectionRecovery: value.selectionRecovery,
     scene: app.scene?.kind === 'gaussian' ? observeScene(app.scene) : null, camera: [...app.camera!.state],
-    deviceEpoch: app.renderer!.deviceEpoch, finished, resources: resources() };
+    deviceEpoch: requireWebGpuRenderer(app.renderer).deviceEpoch, finished, resources: resources() };
 }
 async function gpuBytes(buffer: GPUBuffer, size: number) {
-  const device = controller().renderer!.device, readback = device.createBuffer({ size, usage: GPUBufferUsage.MAP_READ | GPUBufferUsage.COPY_DST });
+  const device = requireWebGpuRenderer(controller().renderer).device, readback = device.createBuffer({ size, usage: GPUBufferUsage.MAP_READ | GPUBufferUsage.COPY_DST });
   try {
     const encoder = device.createCommandEncoder(); encoder.copyBufferToBuffer(buffer, 0, readback, 0, size);
     device.queue.submit([encoder.finish()]); await readback.mapAsync(GPUMapMode.READ);
@@ -490,7 +491,7 @@ async function unfinishedDraft() {
 }
 function armPostPublicationLoss() {
   if (publicationRestore) throw new Error('A publication fault is already installed.');
-  const app = controller(), scene = requireGaussianScene(app.scene), renderer = app.renderer!, client = app.client!;
+  const app = controller(), scene = requireGaussianScene(app.scene), renderer = requireWebGpuRenderer(app.renderer), client = app.client!;
   const original = scene.dispose.bind(scene);
   const observed: PostPublicationLoss = { calls: 0, oldScene: observeScene(scene), oldWorker: state().authoritativeWorker,
     oldDeviceEpoch: renderer.deviceEpoch, oldBorrowersJoined: false, oldRetired: false,
@@ -537,7 +538,7 @@ function pressure() {
 }
 function armPressure(mode: 'recoverable' | 'insufficient') {
   if (pressureOwner || publicationRestore || !['recoverable', 'insufficient'].includes(mode)) throw new Error('A pressure owner is already installed or invalid.');
-  const app = controller(), oldClient = app.client!, oldScene = requireGaussianScene(app.scene), queue = app.renderer!.device.queue;
+  const app = controller(), oldClient = app.client!, oldScene = requireGaussianScene(app.scene), queue = requireWebGpuRenderer(app.renderer).device.queue;
   const leases = app as unknown as { releaseScene: ResourceLease; releaseHistory?: ResourceLease };
   const oldLease = leases.releaseScene, oldHistory = leases.releaseHistory, budget = ledger();
   const observation: PressureObservation = { mode, limit: budget.limit, oldWorker: state().authoritativeWorker,
@@ -606,7 +607,7 @@ async function closePressure() {
   await controller().closeScene(); if (useApp.getState().navigationPrompt) await controller().discardAndContinue(); return pressure();
 }
 function refusePublication() {
-  const queue = controller().renderer!.device.queue, original = queue.onSubmittedWorkDone.bind(queue); let failed = false;
+  const queue = requireWebGpuRenderer(controller().renderer).device.queue, original = queue.onSubmittedWorkDone.bind(queue); let failed = false;
   queue.onSubmittedWorkDone = async () => { await original(); if (!failed) { failed = true; throw new Error('Operation fixture refused publication after actual GPU completion.'); } };
   publicationRestore = () => { queue.onSubmittedWorkDone = original; };
 }
@@ -641,7 +642,7 @@ async function blocked() {
   await controller().openFiles([new File([fixture()], 'operation-replacement.ply')]);
   return { before, after: state(), accepted, captureError };
 }
-async function loseDevice() { const device = controller().renderer!.device; device.destroy(); await device.lost; }
+async function loseDevice() { const device = requireWebGpuRenderer(controller().renderer).device; device.destroy(); await device.lost; }
 async function recoverGraphics() { return controller().retryRenderer(); }
 
 function releaseWatchdog(callback: TimerHandler, delay?: number): RecoveryWatchdogObservation | undefined {
@@ -818,7 +819,7 @@ function reconstruction() {
 function armReconstructionFault(mode: ReconstructionMode, rangeIndex = 0) {
   if (reconstructionFault || publicationRestore || pressureOwner || !['header', 'payload', 'range', 'gpu', 'source-generation', 'core', 'admission'].includes(mode) ||
       ![0, 1].includes(rangeIndex)) throw new Error('Invalid or overlapping reconstruction fault.');
-  const app = controller(), oldClient = app.client!, oldScene = requireGaussianScene(app.scene), oldRenderer = app.renderer!;
+  const app = controller(), oldClient = app.client!, oldScene = requireGaussianScene(app.scene), oldRenderer = requireWebGpuRenderer(app.renderer);
   const oldLease = (app as unknown as { releaseScene: ResourceLease }).releaseScene;
   reconstructionFault = { mode, rangeIndex, oldWorker: state().authoritativeWorker, oldScene: observeScene(oldScene), candidate: null,
     rangeHeld: false, consumed: [], errors: [], mutation: null, heldEntries: [], fillerBytes: 0, admission: null, gpu: null,

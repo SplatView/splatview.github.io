@@ -7,7 +7,7 @@ import { MiB, resourceLeaseCredit, ResourceLedger, type ResourceLease } from '..
 import type { OwnedExportBytes, SceneExportPlan, Spz4ExportOptions } from '../src/document/spz4Export';
 import type { AdmittedSceneExportFormat } from '../src/document/exportFormats';
 import { emptyCensus } from './fixtures/allocation-census';
-import { NEUTRAL_COLOR } from '../src/document/types';
+import { NEUTRAL_COLOR } from '../src/renderer/defaults';
 
 // The real CoreClient talks only to this independently controlled transport.
 // No WASM/native module, renderer, fixture decoder or browser is started.

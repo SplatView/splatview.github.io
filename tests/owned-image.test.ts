@@ -1,8 +1,9 @@
+import type { ImageOperation } from '../src/io/image';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { encodeRgba, ownRgbaImage, rgbaImageBytes, withRgbaImage } from '../src/io/image';
-import { createSavedThumbnail, resampleThumbnailRgba, type SavedViewOperation } from '../src/io/thumbnail';
+import { createSavedThumbnail, resampleThumbnailRgba } from '../src/io/thumbnail';
 
 function gate<T>() { let resolve!: (value: T) => void; return { promise: new Promise<T>(done => { resolve = done; }), resolve }; }
 function budget() {
@@ -13,7 +14,7 @@ function budget() {
   });
   return { admit, bytes: () => [...entries.values()].reduce((sum, bytes) => sum + bytes, 0), allocations: () => entries.size, released: () => released };
 }
-function raw(width: number, height: number, operation: SavedViewOperation, values?: number[]) {
+function raw(width: number, height: number, operation: ImageOperation, values?: number[]) {
   const pixels = new Uint8ClampedArray(width * height * 4); if (values) pixels.set(values);
   return ownRgbaImage(width, height, pixels, operation.admit(pixels.byteLength));
 }

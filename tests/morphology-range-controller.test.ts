@@ -4,7 +4,8 @@ import { setApp, useApp } from '../src/app/store';
 import { NativeHeapAccounting, WASM_PAGE_BYTES } from '../src/document/nativeMemory';
 import { MORPHOLOGY_RANGE_WORK_BYTES } from '../src/document/morphologyMemory';
 import { ResourceLedger, type ResourceLease } from '../src/document/resources';
-import { NEUTRAL_COLOR, type NativeSummary, type Revision, type SceneCommand } from '../src/document/types';
+import { NEUTRAL_COLOR } from '../src/renderer/defaults';
+import { type NativeSummary, type Revision, type SceneCommand } from '../src/document/types';
 
 const initial = useApp.getState(), range = { version: 1 as const, minimum: .125, maximum: 8, default: 1 };
 const flush = async () => { for (let index = 0; index < 40; index++) await Promise.resolve(); };

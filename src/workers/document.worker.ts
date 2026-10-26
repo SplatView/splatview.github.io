@@ -10,8 +10,8 @@ import { assertBuildDescriptor, canonicalJson, validateManifest } from '../build
 import { nativeModuleIdentity } from '../build/native';
 import { livePreviewOutcome } from '../document/livePreview';
 import { isDuplicateCommand, sameDuplicateRange, validateDuplicateSummary } from '../document/duplicateProtocol';
-import { geometryChannelCount, geometryChunkCount, geometryDescriptor, geometryHeapChunk, sameGeometryDescriptor,
-  validateGeometryDescriptor, type GeometryChannel } from '../document/geometry';
+import { sameGeometryDescriptor, validateGeometryDescriptor, type GeometryChannel } from '../renderer/geometryLayout';
+import { geometryChannelCount, geometryChunkCount, geometryDescriptor, geometryHeapChunk } from '../document/geometry';
 import { sourceWorkerBytes, validateSourceDescriptor, validateSourceFingerprint, validateSourceRange,
   type SourceDescriptor, type SourceRange, type SourceReadDescriptor } from '../document/source';
 import { GROUP_NATIVE_BUDGET_BYTES, GROUP_NATIVE_WORK_BYTES, groupNativeStageBytes, groupTransferBytes, groupWorkerBytes,

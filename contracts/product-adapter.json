@@ -32,6 +32,18 @@
       "prefix": "TutorialTarget.",
       "name": "TUTORIAL_TARGETS",
       "path": "src/app/tutorialCatalog.ts"
+    },
+    {
+      "syntax": "string-union",
+      "prefix": "GaussianRenderMode.",
+      "name": "GaussianRenderMode",
+      "path": "src/renderer/steadySettings.ts"
+    },
+    {
+      "syntax": "string-union",
+      "prefix": "GraphicsBackendPreference.",
+      "name": "GraphicsBackendPreference",
+      "path": "src/renderer/backend.ts"
     }
   ],
   "bindings": {
@@ -802,6 +814,36 @@
       "fingerprint": "2196f427764472c2dc8d532627bf6047504c0c9118e9f9641c2d6f94f995fa4b",
       "review": "design/feature-reviews/contract-gap-implementation.md",
       "reviewSha256": "c9873e32911d242f075331b8152f616dc1256744477820ca39ef3bced7c839f1"
+    },
+    "GaussianRenderMode.sorted": {
+      "feature": "view.render",
+      "fingerprint": "7195dda81e594b886cb635fe2182e023a5feab1011fc97d2f59fdcc5b9e67bf1",
+      "review": "design/feature-reviews/rendering-throughput-2026-10-25.md",
+      "reviewSha256": "c16b440762d748cd98c8545d42c40f7c363274bce40734499bbd33e044ea5a95"
+    },
+    "GaussianRenderMode.steady": {
+      "feature": "view.render",
+      "fingerprint": "4eb2e6b08e48d73a2d34309ddfc11963675d5e94ec9b80e5bbda6703b3e35d71",
+      "review": "design/feature-reviews/steady-splats-2026-10-25.md",
+      "reviewSha256": "eb57319abd4c47cab768d346182dea6138f93d33a030a78ee3f0e016237046aa"
+    },
+    "GraphicsBackendPreference.auto": {
+      "feature": "view.render",
+      "fingerprint": "ba3c74458aae9d95a43c9a7b27b58af93700e2e7bf850f82b493e3e742e77666",
+      "review": "design/feature-reviews/webgl2-implementation-2026-10-25.md",
+      "reviewSha256": "a83979669bf8652cafcc9e7fc5a93f1984872048ae495d5b1c53055a7266b843"
+    },
+    "GraphicsBackendPreference.webgpu": {
+      "feature": "view.render",
+      "fingerprint": "3ffe99d68708b4e2ab360771dcb99a5eafa873f5160152113514cc58314b08f3",
+      "review": "design/feature-reviews/webgl2-implementation-2026-10-25.md",
+      "reviewSha256": "a83979669bf8652cafcc9e7fc5a93f1984872048ae495d5b1c53055a7266b843"
+    },
+    "GraphicsBackendPreference.webgl2": {
+      "feature": "view.render",
+      "fingerprint": "c446891433667e95c4545309502732550fc19c7c1c184b6964cc9899104b174a",
+      "review": "design/feature-reviews/webgl2-implementation-2026-10-25.md",
+      "reviewSha256": "a83979669bf8652cafcc9e7fc5a93f1984872048ae495d5b1c53055a7266b843"
     }
   }
 }

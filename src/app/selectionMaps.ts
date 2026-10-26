@@ -1,8 +1,7 @@
 import { SelectionMapCache } from '../document/selectionMapCache';
 import { AdmissionError, type ResourceLedger } from '../document/resources';
-import { NEUTRAL_COLOR } from '../document/types';
-import type { GaussianRenderer } from '../renderer/webgpu/renderer';
-import { compositedSurface } from '../renderer/webgpu/surface';
+import { NEUTRAL_COLOR } from '../renderer/defaults';
+import type { SceneRenderer } from '../renderer/contracts';
 import type { SurfaceChannels } from '../renderer/webgpu/surfaceQuery';
 import { captureSelectionMapDependencies, type SelectionMapDependencyContext } from './selectionMapSnapshot';
 export type SelectionMapDiagnosticEvent = {
@@ -19,7 +18,7 @@ export type SelectionMapContext = SelectionMapDependencyContext & {
 /** Browser query channels and the native map share one explicit cache owner. */
 export class DocumentSelectionMaps {
   private cache = new SelectionMapCache();
-  private resourceOwner?: { renderer: GaussianRenderer; ledger: ResourceLedger };
+  private resourceOwner?: { renderer: SceneRenderer; ledger: ResourceLedger };
   diagnosticSnapshot(identity:(value:object)=>number){return this.cache.diagnosticSnapshot(identity);}
 
   request(context: SelectionMapContext, channels: SurfaceChannels = {}, signal?: AbortSignal) {
@@ -37,15 +36,16 @@ export class DocumentSelectionMaps {
       captureSelectionMapDependencies(context);
     return this.cache.acquire({ key, sourceCount: scene.count, current,
       admit,
-      create: options => {
-        current(); renderer.render(scene, camera, context.grade ?? NEUTRAL_COLOR, false, [...geometry], selectedOnly,
+      create: async options => {
+        current(); const pending = renderer.render(scene, camera, context.grade ?? NEUTRAL_COLOR, false, [...geometry], selectedOnly,
           geometrySelectedOnly, opacityScale, selectedOpacity);
+        if (pending) await pending; current();
         if(context.observe){
           const event={stage:'surface-create' as const,key,sourceCount:scene.count,channels:{colors:!!options.colors,visible:!!options.visible}};
-          return observeWork(context.observe,event,()=>compositedSurface(renderer,scene,{...options,reuseBuffers:true,poolOwner:ledger,admit}),
+          return observeWork(context.observe,event,()=>renderer.surface(scene,{...options,reuseBuffers:true,poolOwner:ledger,admit}),
             map=>({attempts:map.attempts,tileCapacity:map.tileCapacity}));
         }
-        return compositedSurface(renderer, scene, { ...options, reuseBuffers: true, poolOwner: ledger, admit });
+        return renderer.surface(scene, { ...options, reuseBuffers: true, poolOwner: ledger, admit });
       },
       adopt: (data, options) => {
         if(context.observe)return observeWork(context.observe,{stage:'native-adopt',key,sourceCount:scene.count,

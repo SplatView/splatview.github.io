@@ -1,11 +1,13 @@
+import { requireWebGpuRenderer } from './gaussian-harness-scene';
 import { admittedExport } from './admitted-export';
 // Real App/native/GPU/image/IndexedDB paths. Holds delay genuine asynchronous
 // completions; they never fabricate image bytes, allocator receipts or pixels.
 import { AppController } from '../src/app/controller';
 import { setApp, useApp } from '../src/app/store';
-import { NEUTRAL_COLOR } from '../src/document/types';
+import { NEUTRAL_COLOR } from '../src/renderer/defaults';
 import type { ResourceLedger } from '../src/document/resources';
 import type { GaussianRenderer } from '../src/renderer/webgpu/renderer';
+import type { SceneRenderer } from '../src/renderer/contracts';
 import { SAVED_VIEW_DATABASE } from '../src/io/savedViewStorage';
 import { withRgbaImage, type OwnedRgbaImage } from '../src/io/image';
 import { gaussianPly } from '../tests/fixtures/gaussians';
@@ -202,7 +204,7 @@ async function opaqueThumbnailBackground(h: Session, background: 'black' | 'gray
     release();
   }
 }
-function captureSignal(renderer: GaussianRenderer) {
+function captureSignal(renderer: SceneRenderer) {
   const original = renderer.captureRgba, aborted = gate(); let observed = false;
   renderer.captureRgba = function (...args) {
     const operation = args[2]; operation.signal?.addEventListener('abort', () => { observed = true; aborted.enter(); }, { once: true });
@@ -287,7 +289,7 @@ const harness = {
     try {
       const before = await h.native(), baseline = admissions(h.app), neutral = await ownedPixels(h, 'image/png');
       const grade = [...NEUTRAL_COLOR]; grade[0] = 1.4; h.app.setGrade(grade);
-      const preview = await ownedPixels(h, 'image/png'); held = holdAllocation(h.app.renderer!);
+      const preview = await ownedPixels(h, 'image/png'); held = holdAllocation(requireWebGpuRenderer(h.app.renderer));
       const pending = h.app.captureOwned('image/png'); await held.entered;
       grade[0] = .35; h.app.setGrade([...grade]); h.app.camera!.pan(80, 30); h.app.camera!.background = 'white';
       h.canvas.width = 333; h.canvas.height = 199; h.app.camera!.aspect(333 / 199);
@@ -324,7 +326,7 @@ const harness = {
   },
   async reentrantAllocationClose() {
     const h = await setup(), observed = downloads(), signal = captureSignal(h.app.renderer!), held = gate();
-    const host = h.app.renderer! as unknown as AllocationHost, allocate = host.checkedAllocation.bind(host), device = h.app.renderer!.device;
+    const host = requireWebGpuRenderer(h.app.renderer) as unknown as AllocationHost, allocate = host.checkedAllocation.bind(host), device = requireWebGpuRenderer(h.app.renderer).device;
     const create = device.createBuffer.bind(device); let readback: GPUBuffer | undefined, destroyed = 0, returned = false, synchronous = false, closed = false;
     let closing: Promise<void> | undefined, once = false;
     device.createBuffer = descriptor => {
@@ -459,15 +461,15 @@ const harness = {
   async invalidateReadback(kind: 'replace' | 'loss') {
     const h = await setup(), held = holdReadback(), signal = captureSignal(h.app.renderer!), observed = downloads();
     try {
-      const before = await h.native(), oldClient = h.app.client, oldScene = h.app.scene, oldEpoch = h.app.renderer!.deviceEpoch;
+      const before = await h.native(), oldClient = h.app.client, oldScene = h.app.scene, oldEpoch = requireWebGpuRenderer(h.app.renderer).deviceEpoch;
       const capturing = h.app.snapshot(); await held.entered; const admitted = admissions(h.app);
       const competing = kind === 'replace' ? h.open('replacement-image.ply', new TextEncoder().encode(new TextDecoder().decode(gaussianPly(3)).replace('-0.4 0 0', '-0.5 0 0')))
-        : (async () => { h.app.renderer!.device.destroy(); await h.app.renderer!.device.lost; await h.app.retryRenderer(); })();
+        : (async () => { requireWebGpuRenderer(h.app.renderer).device.destroy(); await requireWebGpuRenderer(h.app.renderer).device.lost; await h.app.retryRenderer(); })();
       await signal.aborted; const whileHeld = { image: admissions(h.app), readback: held.state(), outputs: observed.outputs.length };
       held.release(); await Promise.all([capturing, competing]);
       const after = await h.native(); return { kind, before, after, admitted, whileHeld, final: h.summary(), readback: held.state(),
         outputs: observed.outputs.length, sameClient: h.app.client === oldClient, replacedScene: h.app.scene !== oldScene,
-        oldEpoch, epoch: h.app.renderer!.deviceEpoch, aborted: signal.observed() };
+        oldEpoch, epoch: requireWebGpuRenderer(h.app.renderer).deviceEpoch, aborted: signal.observed() };
     } finally { held.release(); held.restore(); signal.restore(); await h.dispose(); observed.restore(); }
   },
 };

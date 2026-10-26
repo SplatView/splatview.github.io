@@ -1,9 +1,10 @@
+import type { ImageOperation } from '../src/io/image';
 import { createHash } from 'node:crypto';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { AdmissionError } from '../src/document/resources';
 import { MAX_PORTABLE_SAVED_VIEW_BYTES, readPortableSavedView, writePortableSavedView } from '../src/io/portableSavedView';
 import { MAX_SAVED_THUMBNAIL_BYTES, MAX_SAVED_VIEW_RECORD_BYTES, validateSavedViewRecord, type SavedViewRecord } from '../src/io/savedView';
-import type { SavedViewOperation } from '../src/io/thumbnail';
+
 
 // Independent fixture: Python stdlib zipfile.ZipFile(ZIP_STORED), two ZipInfo
 // entries dated 1980-01-01, compact json.dumps metadata, zlib-built red RGBA PNG.
@@ -53,10 +54,10 @@ function fixtureWithBodies(json: Uint8Array, png: Uint8Array = PNG, reverse = fa
 function changed(change: (bytes: Buffer) => void): Blob {
   const bytes = Buffer.from(ORIGINAL); change(bytes); return new Blob([bytes]);
 }
-function ledger(options: Partial<SavedViewOperation> & { refuseAt?: number } = {}) {
+function ledger(options: Partial<ImageOperation> & { refuseAt?: number } = {}) {
   let sequence = 0, bytes = 0, peak = 0;
   const active = new Map<number, number>(), admissions: number[] = [];
-  const operation: SavedViewOperation = { ...options, admit(amount) {
+  const operation: ImageOperation = { ...options, admit(amount) {
     expect(Number.isSafeInteger(amount) && amount > 0).toBe(true);
     admissions.push(amount); if (++sequence === options.refuseAt) throw new AdmissionError('test admission refusal');
     const id = sequence; active.set(id, amount); bytes += amount; peak = Math.max(bytes, peak);

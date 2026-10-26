@@ -1,3 +1,4 @@
+import { requireWebGpuRenderer } from './gaussian-harness-scene';
 import { admittedExport } from './admitted-export';
 import { AppController } from '../src/app/controller';
 import { useApp } from '../src/app/store';
@@ -6,7 +7,7 @@ import { createSavedThumbnail, verifySavedThumbnail } from '../src/io/thumbnail'
 import { ownRgbaImage } from '../src/io/image';
 import { validateSavedViewRecord } from '../src/io/savedView';
 import { AdmissionError, ResourceLedger } from '../src/document/resources';
-import { NEUTRAL_COLOR } from '../src/document/types';
+import { NEUTRAL_COLOR } from '../src/renderer/defaults';
 import type { GaussianRenderer } from '../src/renderer/webgpu/renderer';
 import { queuePly, queuePositions } from './queue-fixture';
 
@@ -563,7 +564,7 @@ function harness() {
         const neutral = await pixels(await h.controller.capture('image/png'));
         const grade = [...NEUTRAL_COLOR]; grade[0] = 1.4; h.controller.setGrade(grade);
         const baseline = await pixels(await h.controller.capture('image/png'));
-        held = holdAllocation(h.controller.renderer!); const capture = h.controller.capture('image/png'); await held.entered;
+        held = holdAllocation(requireWebGpuRenderer(h.controller.renderer)); const capture = h.controller.capture('image/png'); await held.entered;
         // Mutate the original caller-owned array, not only a new store array.
         // The capture must own its rendering inputs before allocation yields.
         grade[0] = .35; h.controller.setGrade([...grade]);
@@ -576,7 +577,7 @@ function harness() {
     async newerRequest() {
       const h = await setup(); let held: ReturnType<typeof holdAllocation> | undefined;
       try {
-        h.controller.camera!.background = 'gray'; held = holdAllocation(h.controller.renderer!);
+        h.controller.camera!.background = 'gray'; held = holdAllocation(requireWebGpuRenderer(h.controller.renderer));
         const first = h.controller.updateThumbnail(); await held.entered;
         h.controller.camera!.background = 'white'; const second = await h.controller.updateThumbnail();
         held.release(); const old = await first; held.restore(); const data = await stored();
@@ -586,7 +587,7 @@ function harness() {
     async replacement() {
       const h = await setup(); let held: ReturnType<typeof holdAllocation> | undefined;
       try {
-        const before = h.controller.sourceFingerprint; held = holdAllocation(h.controller.renderer!);
+        const before = h.controller.sourceFingerprint; held = holdAllocation(requireWebGpuRenderer(h.controller.renderer));
         const first = h.controller.updateThumbnail(); await held.entered;
         await h.open('new-source.ply', new Uint8Array([...h.bytes, 10]));
         held.release(); const accepted = await first; held.restore(); const data = await stored();
@@ -730,7 +731,7 @@ function harness() {
     async closeHeldCapture() {
       const h = await setup(); let held: ReturnType<typeof holdAllocation> | undefined, unwatch: (() => void) | undefined;
       try {
-        const baseline = imageAdmissions(h.controller); held = holdAllocation(h.controller.renderer!);
+        const baseline = imageAdmissions(h.controller); held = holdAllocation(requireWebGpuRenderer(h.controller.renderer));
         const saving = h.controller.updateThumbnail(); await held.entered;
         const captureAdmissions = imageAdmissions(h.controller), closingEntered = gate();
         unwatch = useApp.subscribe(state => { if (state.stage === 'Closing scene' && state.summary === null) closingEntered.enter(); });

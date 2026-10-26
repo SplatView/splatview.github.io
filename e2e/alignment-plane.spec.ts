@@ -1,4 +1,4 @@
-import { expect, test, type Page } from '@playwright/test';
+import { expect, test, type Page } from './backend-test';
 import type {} from './alignment-harness';
 
 type Snapshot = Awaited<ReturnType<Window['alignmentHarness']['snapshot']>>;
@@ -98,7 +98,7 @@ async function carried(page: Page, before: Snapshot, after: Snapshot, activeRoll
   // The mutable default owner overlays the canvas ratio before Camera.set's
   // float32 admission. Its observation therefore retains the raw ratio.
   const aspect = await page.evaluate(() => {
-    const canvas = window.geometryViewer.controllerForSourceNavigation().renderer!.canvas; return canvas.width / canvas.height;
+    const canvas = window.geometryViewer.controllerForRendererNavigation().renderer!.canvas; return canvas.width / canvas.height;
   });
   defaultCamera[6] = after.summary.radius; defaultCamera[9] = defaultRoll; defaultCamera[10] = aspect;
   expect(after.defaultCamera).toEqual(defaultCamera);
@@ -112,7 +112,7 @@ test.beforeEach(async ({ page }) => {
 
 for (const yUp of [true, false]) test(`three real contributors prepare a cheap native normal and explicit Flip/Enter aligns every SH3 member with yUp=${yUp}`, async ({ page }, testInfo) => {
   await page.evaluate(async yUp => {
-    const app = window.geometryViewer.controllerForSourceNavigation();
+    const app = window.geometryViewer.controllerForRendererNavigation();
     if (!!app.camera!.state[8] !== yUp) { app.camera!.flipUp(); app.invalidate(); }
     await window.alignmentHarness.seed([2]); await window.alignmentHarness.command({ command: 'delete' }); await window.alignmentHarness.seed([1]);
   }, yUp);
@@ -123,7 +123,7 @@ for (const yUp of [true, false]) test(`three real contributors prepare a cheap n
   const layoutBeforeFlip = await placement(page);
   if (yUp) await testInfo.attach('plane-basic-three-points-ready.png', { body: await page.screenshot(), contentType: 'image/png' });
   const actualNormal = await page.evaluate(async () => {
-    const state = window.alignmentHarness.state(), result = await window.geometryViewer.controllerForSourceNavigation().client!.command({
+    const state = window.alignmentHarness.state(), result = await window.geometryViewer.controllerForRendererNavigation().client!.command({
       command: 'planeNormal', points: [state.alignmentPoint, state.alignmentSecondPoint, state.alignmentThirdPoint] });
     return result.point;
   });
@@ -197,13 +197,13 @@ test('plane Undo and Redo carry current navigation but restore independent inten
 test('saving a plane default replaces only default-roll lineage; Reset camera then replaces every active roll from that default', async ({ page }, testInfo) => {
   await page.evaluate(() => window.alignmentHarness.setRoll(.625)); await page.evaluate(() => window.alignmentHarness.plane());
   await page.evaluate(() => { window.alignmentHarness.navigate(); window.alignmentHarness.setRoll(.375); }); const before = await snapshot(page);
-  expect(await page.evaluate(() => window.geometryViewer.controllerForSourceNavigation().updateThumbnail())).toBe(true);
+  expect(await page.evaluate(() => window.geometryViewer.controllerForRendererNavigation().updateThumbnail())).toBe(true);
   const saved = await snapshot(page); mirrors(saved); expect(saved.defaultCamera.slice(0, 6)).toEqual(before.camera.slice(0, 6));
   for (const checkpoint of saved.checkpoints) {
     expect(checkpoint.activeRoll).toBe(before.checkpoints.find(entry => entry.branchId === checkpoint.branchId)!.activeRoll);
     const expected = await page.evaluate(({ state, frame, target }) => {
       if (frame.every((value, index) => value === target[index])) return state[9];
-      const camera = window.geometryViewer.controllerForSourceNavigation().camera!;
+      const camera = window.geometryViewer.controllerForRendererNavigation().camera!;
       return camera.transformState([0, 0, 0, state[3], state[4], 3, 1, 45, state[8], state[9], 1], camera.orientationFrameChange(frame, target))[9];
     }, { state: before.camera, frame: before.summary.alignment!.frame, target: checkpoint.frame });
     expect(checkpoint.defaultRoll).toBe(expected);
@@ -243,17 +243,17 @@ test('plane export/reopen retains rotated positions, covariance, opacity and dir
 
 test('collinear real contributors refuse the third point and permit a fresh valid third without baking geometry', async ({ page }) => {
   const before = await snapshot(page), two = await page.evaluate(() => window.alignmentHarness.pickPlane([0, 1]));
-  const refused = await page.evaluate(async () => { const point = window.alignmentHarness.pixel(3); return window.geometryViewer.controllerForSourceNavigation().pickAlignmentPoint(point.x, point.y); });
+  const refused = await page.evaluate(async () => { const point = window.alignmentHarness.pixel(3); return window.geometryViewer.controllerForRendererNavigation().pickAlignmentPoint(point.x, point.y); });
   expect(refused).toBe(false); const after = await snapshot(page); retained(after, before);
   expect(after.alignmentPoint).toEqual(two.alignmentPoint); expect(after.alignmentSecondPoint).toEqual(two.alignmentSecondPoint);
   expect(after.alignmentThirdPoint).toBeNull(); expect(after.alignmentNormal).toBeNull(); expect(after.error).toBeTruthy(); await expect(confirm(page)).toBeDisabled();
-  const accepted = await page.evaluate(async () => { const point = window.alignmentHarness.pixel(4); return window.geometryViewer.controllerForSourceNavigation().pickAlignmentPoint(point.x, point.y); });
+  const accepted = await page.evaluate(async () => { const point = window.alignmentHarness.pixel(4); return window.geometryViewer.controllerForRendererNavigation().pickAlignmentPoint(point.x, point.y); });
   expect(accepted).toBe(true); await expect(confirm(page)).toBeEnabled(); retained(await snapshot(page), before);
 });
 
 test('a full plane ignores a distinct fourth pick; duplicate-last and Backspace remove the last candidate while retaining Flip', async ({ page }) => {
   const before = await snapshot(page), selected = await triple(page); await flip(page).click();
-  const extra = await page.evaluate(async () => { const point = window.alignmentHarness.pixel(1); return window.geometryViewer.controllerForSourceNavigation().pickAlignmentPoint(point.x, point.y); });
+  const extra = await page.evaluate(async () => { const point = window.alignmentHarness.pixel(1); return window.geometryViewer.controllerForRendererNavigation().pickAlignmentPoint(point.x, point.y); });
   expect(extra).toBe(false); expect((await snapshot(page)).alignmentThirdPoint).toEqual(selected.alignmentThirdPoint);
   await clickPoint(page, 0); await expect.poll(() => page.evaluate(() => window.alignmentHarness.state())).toMatchObject({
     alignmentTool: 'align', alignmentThirdPoint: null, alignmentNormal: null, alignmentFlip: true, error: 'Pick a different point.' });
@@ -315,7 +315,7 @@ test('O/F/V/R keyboard actions and camera ticks cannot alter staged owners while
 test('compact Basic presents three points and Flip without geometry baking, and Escape cancels the candidate', async ({ page }, testInfo) => {
   await expect.poll(() => page.evaluate(() => window.alignmentHarness.state().mode)).toBe('basic'); await page.setViewportSize({ width: 640, height: 300 });
   await page.waitForFunction(() => {
-    const render = window.geometryViewer.renderState(), camera = window.geometryViewer.controllerForSourceNavigation().camera!;
+    const render = window.alignmentHarness.renderState(), camera = window.geometryViewer.controllerForRendererNavigation().camera!;
     return render.width === 640 && render.height === 300 && camera.state[10] === Math.fround(640 / 300);
   });
   const before = await snapshot(page); await page.evaluate(() => window.alignmentHarness.pickPlane());

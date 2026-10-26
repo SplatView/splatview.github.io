@@ -1,9 +1,12 @@
+import { requireWebGpuController } from './gaussian-harness-scene';
+import { requireWebGpuRenderer } from './gaussian-harness-scene';
 import { admittedExport } from './admitted-export';
 // Test-only App exposure. Production entry and controller have no test hooks.
 import { AppController } from '../src/app/controller';
 import { useApp } from '../src/app/store';
 import { GpuGeometryScene } from '../src/renderer/webgpu/renderer';
-import { NEUTRAL_COLOR, type SceneCommand } from '../src/document/types';
+import { NEUTRAL_COLOR } from '../src/renderer/defaults';
+import { type SceneCommand } from '../src/document/types';
 import type { ResourceLedger } from '../src/document/resources';
 import type { CoreClient } from '../src/document/coreClient';
 import { gaussianPly } from '../tests/fixtures/gaussians';
@@ -53,7 +56,7 @@ AppController.prototype.initialize = async function (...args) {
   try { return await initialize.apply(this, args); }
   finally { AppController.prototype.initialize = initialize; }
 };
-function controller() { if (!instance) throw new Error('The actual App controller has not initialized.'); return instance; }
+function controller() { if (!instance) throw new Error('The actual App controller has not initialized.'); return requireWebGpuController(instance); }
 function internals() {
   return controller() as unknown as { ledger: ResourceLedger; candidate?: { dispose(): void };
     files: readonly Readonly<{ name: string }>[]; currentFile: number };
@@ -81,7 +84,7 @@ async function image(blob: Blob) {
   } finally { bitmap.close(); }
 }
 async function gpuBytes(buffer: GPUBuffer, size: number) {
-  const renderer = controller().renderer!, readback = renderer.device.createBuffer({ size, usage: GPUBufferUsage.MAP_READ | GPUBufferUsage.COPY_DST });
+  const renderer = requireWebGpuRenderer(controller().renderer), readback = renderer.device.createBuffer({ size, usage: GPUBufferUsage.MAP_READ | GPUBufferUsage.COPY_DST });
   try {
     const encoder = renderer.device.createCommandEncoder(); encoder.copyBufferToBuffer(buffer, 0, readback, 0, size);
     renderer.device.queue.submit([encoder.finish()]); await readback.mapAsync(GPUMapMode.READ);
@@ -99,7 +102,7 @@ async function snapshot() {
     sourceName: state.sourceName, dirty: state.dirty, grade: state.grade, tool: state.tool, toolsOpen: state.toolsOpen,
     exportOpen: state.exportOpen, background: state.background, rendererState: state.rendererState,
     sourceIndex: internals().currentFile, sourceFiles: internals().files.map(source => source.name), ledger: ledger(),
-    deviceEpoch: app.renderer!.deviceEpoch, depthBytes: app.renderer!.geometryDepthAllocationBytes };
+    deviceEpoch: requireWebGpuRenderer(app.renderer).deviceEpoch, depthBytes: requireWebGpuRenderer(app.renderer).geometryDepthAllocationBytes };
 }
 async function load(source: Source) {
   const app = controller();
@@ -177,6 +180,7 @@ async function attemptReplacement(candidate: File) {
 }
 const harness = {
   controllerForSourceNavigation: controller,
+  controllerForRendererNavigation: () => { if (!instance) throw new Error('The App has not initialized.'); return instance; },
   observeSourceNavigation() {
     const app = controller(), originalFiles = app.openFiles, originalDrop = app.openDrop, operations: Promise<void>[] = [];
     const files: AppController['openFiles'] = function (this: AppController, ...args) {
@@ -233,12 +237,12 @@ const harness = {
     };
   },
   renderState() {
-    const renderer = controller().renderer!;
+    const renderer = requireWebGpuRenderer(controller().renderer);
     return { width: renderer.canvas.width, height: renderer.canvas.height, frames: renderer.frames,
       depthBytes: renderer.geometryDepthAllocationBytes, ledger: ledger() };
   },
   async restrictions() {
-    const app = controller(), client = app.client!, calls: string[] = [], exports: number[] = [], renderer = app.renderer!;
+    const app = controller(), client = app.client!, calls: string[] = [], exports: number[] = [], renderer = requireWebGpuRenderer(app.renderer);
     const command = client.command.bind(client), output = client.exportOwned.bind(client), pick = renderer.pick.bind(renderer), before = await snapshot();
     let gpuPicks = 0;
     client.command = async (...args) => { calls.push(args[0].command); return command(...args); };
@@ -276,7 +280,7 @@ const harness = {
   async replacementFailure(kind: 'malformed' | 'budget' | 'gpu' | 'cancel') {
     await editedGaussian(); const app = controller(), oldClient = app.client, oldScene = app.scene, oldRenderer = app.renderer;
     const before = await snapshot(), budget = internals().ledger as unknown as { limit: number }, limit = budget.limit;
-    const upload = GpuGeometryScene.prototype.uploadVertices, device = app.renderer!.device, createBuffer = device.createBuffer.bind(device);
+    const upload = GpuGeometryScene.prototype.uploadVertices, device = requireWebGpuRenderer(app.renderer).device, createBuffer = device.createBuffer.bind(device);
     const held = gate(); let heldCandidate: ReturnType<typeof internals>['candidate'], uploadCalls = 0;
     let afterCancel: { settled: boolean; sameClient: boolean; sameScene: boolean; admitted: ReturnType<typeof ledger>;
       held: ReturnType<typeof ledger>; candidateDisposed: boolean } | null = null;
@@ -307,7 +311,7 @@ const harness = {
   },
   async recover(source: 'points' | 'mesh') {
     const app = controller(); await load(source); app.camera!.orbit(17, -9); app.cycleBackground(); app.invalidate();
-    const before = await snapshot(), client = app.client, scene = app.scene, renderer = app.renderer!;
+    const before = await snapshot(), client = app.client, scene = app.scene, renderer = requireWebGpuRenderer(app.renderer);
     const commands: string[] = [], original = client!.command.bind(client!);
     client!.command = async (...args) => { commands.push(args[0].command); return original(...args); };
     try {
@@ -319,10 +323,10 @@ const harness = {
     } finally { client!.command = original; }
   },
   async resize(width: number) {
-    const canvas = controller().renderer!.canvas; canvas.style.width = `${width}px`; canvas.style.height = '361px';
+    const canvas = requireWebGpuRenderer(controller().renderer).canvas; canvas.style.width = `${width}px`; canvas.style.height = '361px';
   },
   async disposeRetirement() {
-    const app = controller(); await load('mesh'); const before = await inspect(), scene = app.scene!, renderer = app.renderer!, client = app.client!;
+    const app = controller(); await load('mesh'); const before = await inspect(), scene = app.scene!, renderer = requireWebGpuRenderer(app.renderer), client = app.client!;
     const queue = renderer.device.queue, original = queue.onSubmittedWorkDone.bind(queue), actualCompletion = original(), held = gate();
     const originalRetirement = client.retireNativeMemory;
     let nativeRetirement: Promise<void> | undefined, nativeRetirementCalls = 0, enteredNativeRetirement!: () => void;

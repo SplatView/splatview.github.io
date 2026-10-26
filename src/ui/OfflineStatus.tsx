@@ -7,7 +7,7 @@ import { checkOfflineUpdate, offlineState, reloadOfflineUpdate } from '../offlin
 const subscribe = (listener: () => void) => offlineState.subscribe(listener);
 const getSnapshot = () => offlineState.getSnapshot();
 
-/** A small web-only entry in the desktop General Settings panel. */
+/** Browser application/update information alongside the Help actions. */
 export function OfflineStatus({ controller }: { controller: AppController }) {
   const { t } = useTranslation(), state = useApp(), offline = useSyncExternalStore(subscribe, getSnapshot, getSnapshot);
   const [checkFailed, setCheckFailed] = useState(false);

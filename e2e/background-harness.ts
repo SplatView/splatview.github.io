@@ -1,9 +1,11 @@
+import { requireWebGpuController } from './gaussian-harness-scene';
+import { requireWebGpuRenderer } from './gaussian-harness-scene';
 import { admittedExport } from './admitted-export';
 // Real worker/native/WebGPU tests. This entry is excluded from production builds.
 import { AppController } from '../src/app/controller';
 import { requireGaussianScene } from './gaussian-harness-scene';
 import { useApp } from '../src/app/store';
-import { IDENTITY_MATRIX } from '../src/document/types';
+import { IDENTITY_MATRIX } from '../src/renderer/defaults';
 import { BACKGROUND_COLORS, backgroundShade, type BackgroundColor } from '../src/input/background';
 import { queuePly, queuePositions } from './queue-fixture';
 
@@ -35,7 +37,7 @@ async function setup(overlap = false) {
   const controller = new AppController(); await controller.initialize(canvas);
   await controller.openFiles([new File([overlap ? overlapPly() : queuePly()], 'background-sh0.ply')]);
   if (!controller.client || !controller.scene || !controller.renderer || !controller.camera) throw new Error(useApp.getState().error || 'Background fixture did not load.');
-  const { client, renderer, camera } = controller;
+  const { renderer } = requireWebGpuController(controller), { client, camera  } = controller;
   const scene = requireGaussianScene(controller.scene);
   camera.set([0, 0, 0, 0, 0, 3, 1, 45, 0, 0, canvas.width / canvas.height]);
   useApp.setState({ tool: null, operation: 0, connectedColor: false, colorTolerance: .01, fillTolerance: .01, tolerance: .01,
@@ -47,7 +49,7 @@ async function setup(overlap = false) {
     return [Math.floor((clip[0] / clip[3] + 1) * canvas.width / 2), Math.floor((1 - clip[1] / clip[3]) * canvas.height / 2)] as [number, number];
   };
   const gpuMasks = async () => {
-    const active = controller.renderer!, source = requireGaussianScene(controller.scene), size = source.count * 4;
+    const active = requireWebGpuRenderer(controller.renderer), source = requireGaussianScene(controller.scene), size = source.count * 4;
     const read = active.device.createBuffer({ size, usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.MAP_READ });
     try {
       const encoder = active.device.createCommandEncoder(); encoder.copyBufferToBuffer(source.buffers.states, 0, read, 0, size); active.device.queue.submit([encoder.finish()]);
@@ -204,7 +206,7 @@ function createHarness() {
         const before = await h.snapshot(), beforeImage = await pixels(await h.controller.capture('image/png')), epoch = h.renderer.deviceEpoch;
         h.renderer.device.destroy(); await h.renderer.device.lost; const recovered = await h.controller.retryRenderer();
         const after = await h.snapshot(), afterImage = await pixels(await h.controller.capture('image/png'));
-        return { recovered, before, after, beforeImage, afterImage, changedEpoch: epoch !== h.controller.renderer!.deviceEpoch, error: useApp.getState().error, busy: useApp.getState().busy };
+        return { recovered, before, after, beforeImage, afterImage, changedEpoch: epoch !== requireWebGpuRenderer(h.controller.renderer).deviceEpoch, error: useApp.getState().error, busy: useApp.getState().busy };
       } finally { h.dispose(); }
     },
   };

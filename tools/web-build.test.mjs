@@ -405,6 +405,24 @@ test('stable root service-worker bytes are runtime inventory and its exact third
   assert.deepEqual(second.build, first.build);
 });
 
+test('explicit render executor ownership qualifies exact script/map bytes and rejects other executable names', t => {
+  const { root, write, snapshot } = emittedFixture(t, { serviceWorker: true });
+  const executor = 'assets/compute.worker-A.js';
+  write(`dist/${executor}`, 'self.onmessage = () => {};\n//# sourceMappingURL=compute.worker-A.js.map');
+  write(`dist/${executor}.map`, JSON.stringify({ version: 3, file: 'compute.worker-A.js', sources: ['../src/renderer/webgl2/compute.worker.ts'], sourcesContent: ['executor'], names: [], mappings: '' }));
+  const emitted = [...emittedPaths, 'service-worker.js', 'service-worker.js.map', executor, `${executor}.map`];
+  const publish = path => writeDeploymentManifest(snapshot, join(root, 'dist'), 'assets/index-A.js', 'assets/document.worker-A.js', emitted, 'service-worker.js', path);
+  assert.throws(() => publish(undefined), /Unowned emitted script/);
+  for (const path of ['assets/extra.js', 'compute.worker-A.js', 'assets/compute.worker.js', '../compute.worker-A.js']) {
+    assert.throws(() => publish(path), /content-addressed/);
+  }
+  const manifest = publish(executor), record = manifest.artifacts.find(item => item.path === executor);
+  assert.equal(record.role, 'runtime-asset'); assert.equal(record.sha256, sha256(readFileSync(join(root, 'dist', executor))));
+  assert(!manifest.artifacts.some(item => item.path.endsWith('.map')));
+  write(`dist/${executor}.map`, JSON.stringify({ version: 3, file: 'old.js', sources: ['old.ts'], sourcesContent: ['old'] }));
+  assert.throws(() => publish(executor), /does not belong/);
+});
+
 test('service-worker publication requires the exact root name, emitted source and current owned map', t => {
   const { root, snapshot, publish } = emittedFixture(t, { serviceWorker: true });
   const paths = [...emittedPaths, 'service-worker.js', 'service-worker.js.map'];

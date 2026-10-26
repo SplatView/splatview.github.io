@@ -1,0 +1,931 @@
+{
+  "schemaVersion": 1,
+  "kind": "webgl-worker-sort-delivery",
+  "status": "implemented-and-locally-qualified",
+  "recordedAtUtc": "2026-10-25T21:56:53.962422+00:00",
+  "featureId": "view.render",
+  "review": {
+    "path": "design/feature-reviews/webgl-worker-sort-2026-10-25.md",
+    "bytes": 8885,
+    "sha256": "eb939a1d1c981bf6f655e065f742cb46e2b96143c722dc94674b09050214df50"
+  },
+  "priorEvidenceUnchanged": [
+    {
+      "path": "docs/validation/runs/standalone-renderer-20261025-01/validation.json",
+      "bytes": 7985,
+      "sha256": "5574c1e48169040a7c950309cf90aae7f0f454982c621067d640ff7ba211b77c"
+    },
+    {
+      "path": "docs/validation/runs/rendering-optimization-20261025-01/validation.json",
+      "bytes": 50080,
+      "sha256": "0326dec1df30b79cef47866d93a5ca364c339bff230e741c918f368890925475"
+    },
+    {
+      "path": "docs/validation/runs/webgl2-implementation-20261025-02/validation.json",
+      "bytes": 77001,
+      "sha256": "a8db5009a5ae728be08c31a47bea265d982cae90166de718c63bbd75a08c998c"
+    },
+    {
+      "path": "design/feature-reviews/standalone-renderer-2026-10-25.md",
+      "bytes": 16154,
+      "sha256": "062ef0a22ba3de1f5730acd392ca7eb5b45eb62f0a41faa0557b6bfbccfda0ed"
+    },
+    {
+      "path": "design/feature-reviews/rendering-optimization-plan-2026-10-25.md",
+      "bytes": 36025,
+      "sha256": "07f9ba42254ea4f23e983fc0b2eddcd3f369cece6ebea181be16b57b74114f14"
+    },
+    {
+      "path": "design/feature-reviews/webgl2-implementation-2026-10-25.md",
+      "bytes": 11986,
+      "sha256": "a83979669bf8652cafcc9e7fc5a93f1984872048ae495d5b1c53055a7266b843"
+    },
+    {
+      "path": "design/feature-reviews/steady-splats-2026-10-25.md",
+      "bytes": 9410,
+      "sha256": "eb57319abd4c47cab768d346182dea6138f93d33a030a78ee3f0e016237046aa"
+    },
+    {
+      "path": "docs/validation/runs/rendering-throughput-20261025-01/validation.json",
+      "sha256": "330f5034adb1e0fadc7f5fafc5e5f9c70122939aa2b0f1b56dbd2d67a70b3fcc",
+      "bytes": 76773
+    },
+    {
+      "path": "docs/validation/runs/renderer-comparison-20261025-01/validation.json",
+      "bytes": 58960,
+      "sha256": "4a614ded737322693248fd1214818966441b87637c9da9af0cc58c67edc17299"
+    },
+    {
+      "path": "design/feature-reviews/rendering-throughput-2026-10-25.md",
+      "bytes": 9125,
+      "sha256": "c16b440762d748cd98c8545d42c40f7c363274bce40734499bbd33e044ea5a95"
+    }
+  ],
+  "sourceInventory": {
+    "path": "docs/validation/runs/webgl-sort-20261025-01/source-files.json",
+    "bytes": 64309,
+    "sha256": "04270ccea4bc0918785ed6b80c3e74b330766d303bc4b2a94a9fc7341e64a8dc"
+  },
+  "engineBuilds": [
+    {
+      "kind": "baseline",
+      "sourceId": "4cefb913f6306a516bf21b4d1dbf85eb771197faae887923bd32baf85692fe4a",
+      "manifest": {
+        "path": "docs/validation/runs/webgl-sort-20261025-01/baseline-engine-manifest.json",
+        "bytes": 24839,
+        "sha256": "bea30df713ecf7da75fe66def9fbfb0da4c04c3fed0b9bc8049de2aa3672b448"
+      },
+      "frozenDistribution": {
+        "path": "docs/validation/runs/webgl-sort-20261025-01/baseline-engine.tar.gz",
+        "bytes": 411146,
+        "sha256": "8cf6386642b77580dfbfaccb3260f93f3cb9f7602e1aee40dc4b43711b2a1e01"
+      }
+    },
+    {
+      "kind": "candidate",
+      "sourceId": "898a19650c3808b3c132739b87c06f2c4b80ffa4903d7e11d68b15739667fbc8",
+      "manifest": {
+        "path": "docs/validation/runs/webgl-sort-20261025-01/candidate-engine-manifest.json",
+        "bytes": 25192,
+        "sha256": "7f747432c10e27846a0ee8c54f51928f5eb149ea2a3c1c488fa4a88ddf8a849d"
+      },
+      "frozenDistribution": {
+        "path": "docs/validation/runs/webgl-sort-20261025-01/candidate-engine.tar.gz",
+        "bytes": 415274,
+        "sha256": "50bcbc6aaf8ce6d6698b11587ded6728d31340808106c1f6d372b99fd6ade017"
+      }
+    }
+  ],
+  "sourceArchives": [
+    {
+      "kind": "baseline",
+      "files": 86,
+      "archive": {
+        "path": "docs/validation/runs/webgl-sort-20261025-01/baseline-sdk-sources.tar.gz",
+        "bytes": 188771,
+        "sha256": "6334bab1607f2373cab89979b8ddb344e23669bfa1ae5763e81c64e98544e3c8"
+      }
+    },
+    {
+      "kind": "candidate",
+      "files": 87,
+      "archive": {
+        "path": "docs/validation/runs/webgl-sort-20261025-01/candidate-sdk-sources.tar.gz",
+        "bytes": 190061,
+        "sha256": "9bf62a8bfbf66292b7156b749cf4ae1fcef0c00608da97bf3ffe3a72c068aa87"
+      }
+    }
+  ],
+  "performance": {
+    "path": "docs/validation/runs/webgl-sort-20261025-01/performance.json",
+    "bytes": 36777,
+    "sha256": "d177dcd5df380ba206ca5e80197d0826b2e6d73ab3336716e5e442fc144131a2"
+  },
+  "environment": {
+    "path": "docs/validation/runs/webgl-sort-20261025-01/environment.json",
+    "bytes": 1801,
+    "sha256": "3f598c58348d4c88178b74ffd5cb8020c68b835d7e7763198ae0a3f4f696e2d8"
+  },
+  "raw": [
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-baseline-01.json.gz",
+      "bytes": 16473,
+      "sha256": "1ed643ad539d72bdf1eb9035b2abed25d891218c9b222f72a14f4f8c99cfde70"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-baseline-01/256k-sparse-splatview-webgl2-32-r1.json.gz",
+      "bytes": 3695,
+      "sha256": "bf4859ee03a39bb1507df608eeefe935eb3ebcb550a9c7a6196133a103d24aec"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-baseline-01/256k-sparse-splatview-webgl2-24-r1.json.gz",
+      "bytes": 3712,
+      "sha256": "3403a271f0c09b477bcbe3639a3024ee6df13cadcd572c084fe36613dd11a465"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-baseline-01/256k-dense-splatview-webgl2-32-r1.json.gz",
+      "bytes": 3735,
+      "sha256": "02efc50ab1dbfcee527670ec7740eadf1f797ede798678c98d148ecbb71fe01a"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-baseline-01/256k-dense-splatview-webgl2-24-r1.json.gz",
+      "bytes": 3653,
+      "sha256": "19202ef2d28fd264db6e76ed722e46dd7b38515c5ab32d470254615fb83a6ffa"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-baseline-01/1m-sparse-splatview-webgl2-32-r1.json.gz",
+      "bytes": 3804,
+      "sha256": "ab7ca5adf48118eee3b0354e818e9fbb466f8438b6153463ecff874b53408db7"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-baseline-01/1m-sparse-splatview-webgl2-24-r1.json.gz",
+      "bytes": 3786,
+      "sha256": "0c6e3f7755aed3359a17a48512d8b24083b144aab6630de9f31f399bd3e46734"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-baseline-01/1m-dense-splatview-webgl2-32-r1.json.gz",
+      "bytes": 3810,
+      "sha256": "179eb974db8e4cbb506c521d324cb63992fbde9c79fa36bf088f59c369cf7a97"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-baseline-01/1m-dense-splatview-webgl2-24-r1.json.gz",
+      "bytes": 3777,
+      "sha256": "4b7c78059fb2331e210ec894899eed3427c226642e488538b73c2113154109fb"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-baseline-01/256k-sparse-splatview-webgl2-24-r2.json.gz",
+      "bytes": 3383,
+      "sha256": "2c89de3ac252bc3fb714bdd2a29da8e65af6b7b0374d0392be45170e68de6b13"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-baseline-01/256k-sparse-splatview-webgl2-32-r2.json.gz",
+      "bytes": 3333,
+      "sha256": "3d4ed2ea56f0bdafec0737ffe0729e15e43a1d140e14fc433dd278c6765ffb2a"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-baseline-01/256k-dense-splatview-webgl2-24-r2.json.gz",
+      "bytes": 3325,
+      "sha256": "90662f970b955449509dbd4eac463aae24c5323105ed3ad449140b424b644e9e"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-baseline-01/256k-dense-splatview-webgl2-32-r2.json.gz",
+      "bytes": 3362,
+      "sha256": "6fcf8cd8f1cc4ee6a4cf5057939595f5141e1905d68de5f44ece968bf7cb9c12"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-baseline-01/1m-sparse-splatview-webgl2-24-r2.json.gz",
+      "bytes": 3474,
+      "sha256": "b20a9d8e6ef8eb15ac1affa5e081635023a198cf3bffd41f0a77825e006e0c07"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-baseline-01/1m-sparse-splatview-webgl2-32-r2.json.gz",
+      "bytes": 3558,
+      "sha256": "bbe59bf3202626fac9196ab9e1d1dc7e83b9c99cc7120535f608c65439d2ac85"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-baseline-01/1m-dense-splatview-webgl2-24-r2.json.gz",
+      "bytes": 3448,
+      "sha256": "d91fa411a60300035adb1a9c0d556a0693c32b3791013f825537f0d846337a70"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-baseline-01/1m-dense-splatview-webgl2-32-r2.json.gz",
+      "bytes": 3425,
+      "sha256": "35f47195c5c134efa8383c0a83c45daf735d95a6d60c8d0da2292d36d126e8ae"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-baseline-01/256k-sparse-splatview-webgl2-24-r3.json.gz",
+      "bytes": 3373,
+      "sha256": "e3f1bbfc35ec3ac04e783b15622e6eab48cde878f489e9c98ca2888cb7d91213"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-baseline-01/256k-sparse-splatview-webgl2-32-r3.json.gz",
+      "bytes": 3394,
+      "sha256": "3d9a8a036eda3bde4b198b8da6c66287ae8123c9919ae94cab82963db0a6676b"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-baseline-01/256k-dense-splatview-webgl2-24-r3.json.gz",
+      "bytes": 3322,
+      "sha256": "607d1cee3ab3335b69097aa52fdc654070f56f82723e7195f95dea444110ff90"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-baseline-01/256k-dense-splatview-webgl2-32-r3.json.gz",
+      "bytes": 3378,
+      "sha256": "e29a1e4bbc74ab749a6871ba711fdc429ff133727934b819e30117e1ae02b18e"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-baseline-01/1m-sparse-splatview-webgl2-24-r3.json.gz",
+      "bytes": 3496,
+      "sha256": "4126a50788ec0b3ef3572b442d36a8b6459d8fc2169ab00f865a2ad16bc9b71d"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-baseline-01/1m-sparse-splatview-webgl2-32-r3.json.gz",
+      "bytes": 3584,
+      "sha256": "fdb92178f7c0736cbb766508422e60cb08747643a849ad5eaa8fb8c28aecd1a0"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-baseline-01/1m-dense-splatview-webgl2-24-r3.json.gz",
+      "bytes": 3516,
+      "sha256": "ea88f41eaaf8dbb44f832938f367f4d1f7df12d7adffdbe49b26d1adf57b4e64"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-baseline-01/1m-dense-splatview-webgl2-32-r3.json.gz",
+      "bytes": 3513,
+      "sha256": "336df54c83c97f5a6ba5b1ddb16f35a3b95d3aa824da5a8f5a807ea6aa796708"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-baseline-01/probe-splatview-webgl2-32.json.gz",
+      "bytes": 1066,
+      "sha256": "2d947b1c4b49b403015ecbcaa6f1a28a3363bc6024a9eb4ec463502c74bfefbd"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-baseline-01/probe-splatview-webgl2-24.json.gz",
+      "bytes": 1065,
+      "sha256": "8b0f92d277098af814f75bdc7ed3ae4a8237174cdf4c4ca610b861aebf5b3d1b"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-candidate-01.json.gz",
+      "bytes": 16469,
+      "sha256": "57613e724f51327761a07bd603175168dc2b6f2f0d4ea4ef3fa9a527bf333f02"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-candidate-01/256k-sparse-splatview-webgl2-32-r1.json.gz",
+      "bytes": 3683,
+      "sha256": "df7a85fa44c20c0731946f45d134bad288f69a8ae15bee0215a1129dab2dfb3d"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-candidate-01/256k-sparse-splatview-webgl2-24-r1.json.gz",
+      "bytes": 3760,
+      "sha256": "24905d02f33abfc8db292ccb6d1b0f7148192c086e9fc16d57771e5c22eeda57"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-candidate-01/256k-dense-splatview-webgl2-32-r1.json.gz",
+      "bytes": 3626,
+      "sha256": "4e690805ff90adcd47f2e0aead526e6db9b31a5eb63bc3bcf6b4f7cc236bf213"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-candidate-01/256k-dense-splatview-webgl2-24-r1.json.gz",
+      "bytes": 3634,
+      "sha256": "831ea6cfe74041812a7455ee3fe037bedc5708d0634646a6c35350ebeeb3ed55"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-candidate-01/1m-sparse-splatview-webgl2-32-r1.json.gz",
+      "bytes": 3713,
+      "sha256": "9d03a7383eb980749559705f58f5ee4128931fd2c6383ff61935696c42d088ea"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-candidate-01/1m-sparse-splatview-webgl2-24-r1.json.gz",
+      "bytes": 3768,
+      "sha256": "a515e16d349b2152e52409ff9a635dd9a3b43ae7232e95740a99a5291fca88ae"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-candidate-01/1m-dense-splatview-webgl2-32-r1.json.gz",
+      "bytes": 3760,
+      "sha256": "c0c67565e8e75ff9ca1a9f4ec6434ae98f06d416f5310930cbdf80e93015b4ae"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-candidate-01/1m-dense-splatview-webgl2-24-r1.json.gz",
+      "bytes": 3693,
+      "sha256": "089c449578b9031706d8faa16c10db7cfa8d1bd24fe8248623c8bfa5a71cd247"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-candidate-01/256k-sparse-splatview-webgl2-24-r2.json.gz",
+      "bytes": 3463,
+      "sha256": "c9d558da64775bf4c6e514298bca994dea72b3db2963614513232126ec4893e9"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-candidate-01/256k-sparse-splatview-webgl2-32-r2.json.gz",
+      "bytes": 3357,
+      "sha256": "f5f8fd75832bf6bd1fc44e5396033e387dfb2fcc29ed9c52c3c38fad62be2626"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-candidate-01/256k-dense-splatview-webgl2-24-r2.json.gz",
+      "bytes": 3277,
+      "sha256": "dd6141caf05b11632fb836220cfc6eb25e6fde07359b054dc820f43d4c764c92"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-candidate-01/256k-dense-splatview-webgl2-32-r2.json.gz",
+      "bytes": 3347,
+      "sha256": "8c7c2ba2db0aeb664fd098b41718555e29f8ae431617b55b622ca8dc4d514964"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-candidate-01/1m-sparse-splatview-webgl2-24-r2.json.gz",
+      "bytes": 3509,
+      "sha256": "095e36c2dde540954858d097a15b1a67c9f88ee02a0e5632a3b02473760ea16f"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-candidate-01/1m-sparse-splatview-webgl2-32-r2.json.gz",
+      "bytes": 3444,
+      "sha256": "2239785379a68d3f81d44a233e37ded1502803f4a48787fdd90956c2e6892871"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-candidate-01/1m-dense-splatview-webgl2-24-r2.json.gz",
+      "bytes": 3497,
+      "sha256": "953d4caedf1a8d16e13a607b649ccec0c93804569154ce4371b1683721ea0b85"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-candidate-01/1m-dense-splatview-webgl2-32-r2.json.gz",
+      "bytes": 3417,
+      "sha256": "a0cabf072d8bff9e531e3645f33ad1b0bebb616c9524e28d6b9d1c48d21d960f"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-candidate-01/256k-sparse-splatview-webgl2-24-r3.json.gz",
+      "bytes": 3433,
+      "sha256": "71beb8911030910c340e016b1a442ee701e1810033fdce52d4defa27ef772a0b"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-candidate-01/256k-sparse-splatview-webgl2-32-r3.json.gz",
+      "bytes": 3307,
+      "sha256": "aabb63ad9ddd14137b96a553777f90077eb299529e457183cedf12692f7c8833"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-candidate-01/256k-dense-splatview-webgl2-24-r3.json.gz",
+      "bytes": 3283,
+      "sha256": "ba7a4d86572ce5d7020c37c732e5a2fbcc83516a6bf4578ca131c3eaa324f67e"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-candidate-01/256k-dense-splatview-webgl2-32-r3.json.gz",
+      "bytes": 3300,
+      "sha256": "bc0837612e50bb5389ccbba50d3e5cd20de9870ca3eebdb3a5759459560e8b59"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-candidate-01/1m-sparse-splatview-webgl2-24-r3.json.gz",
+      "bytes": 3513,
+      "sha256": "a08c2781e13e1c4e2c9c412716015902fc8a5b45c18843b3142825489986a090"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-candidate-01/1m-sparse-splatview-webgl2-32-r3.json.gz",
+      "bytes": 3423,
+      "sha256": "c67d1cac49a37cf9553ec0f7e58404c2b2de4d7e64b09e7f0c6f17baefc21c0b"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-candidate-01/1m-dense-splatview-webgl2-24-r3.json.gz",
+      "bytes": 3485,
+      "sha256": "f17885116e49169fc8642d5e2280bdeb7af8b3a2b4e09f9126221d3f1d03948c"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-candidate-01/1m-dense-splatview-webgl2-32-r3.json.gz",
+      "bytes": 3383,
+      "sha256": "22bda6c6bb409ce99df1e1b71bd8e048fb0af668d161f92f9589b7e2fa3bbac9"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-candidate-01/probe-splatview-webgl2-32.json.gz",
+      "bytes": 1058,
+      "sha256": "b78a29be6f8f34b311024e3408995d04e10dbaeecf676c6f1caedd9ad5c73f7c"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/raw/gl-sort-candidate-01/probe-splatview-webgl2-24.json.gz",
+      "bytes": 1065,
+      "sha256": "a23b8c7f84fa3d46ad7f7d73181c68843149fc3e117f1b8194bf211c3c891d5a"
+    }
+  ],
+  "imageIndex": {
+    "path": "docs/validation/runs/webgl-sort-20261025-01/images.json",
+    "bytes": 36677,
+    "sha256": "79b27563c0c9bc99f3c0f2816eab2f30ab701104a43709a900555fa0cdf0b84c"
+  },
+  "browserCohorts": [
+    {
+      "name": "renderer-regression",
+      "stats": {
+        "startTime": "2026-10-25T21:46:01.607Z",
+        "duration": 130622.626,
+        "expected": 103,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "report": {
+        "path": "docs/validation/runs/webgl-sort-20261025-01/renderer-regression.json.gz",
+        "bytes": 3683789,
+        "sha256": "fd38b6adce3a1a2d08f346f789409c305abcd4a3ab90b92f0b314d97247d762b"
+      }
+    },
+    {
+      "name": "selection-browser",
+      "stats": {
+        "startTime": "2026-10-25T21:48:12.574Z",
+        "duration": 90355.907,
+        "expected": 126,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "report": {
+        "path": "docs/validation/runs/webgl-sort-20261025-01/selection-browser.json.gz",
+        "bytes": 22696,
+        "sha256": "9758e3dff47e5fcc6ec79afdf1f44ccbce55f8bcacbf4397ba907ee19722ec58"
+      }
+    },
+    {
+      "name": "outputs-webgl2",
+      "stats": {
+        "startTime": "2026-10-25T21:49:43.229Z",
+        "duration": 102780.77,
+        "expected": 54,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "report": {
+        "path": "docs/validation/runs/webgl-sort-20261025-01/outputs-webgl2.json.gz",
+        "bytes": 26794,
+        "sha256": "4356e92b8c56b12285995bb919a721ad33829bc373f6a2300151b14f84bd1b4d"
+      }
+    },
+    {
+      "name": "outputs-webgpu",
+      "stats": {
+        "startTime": "2026-10-25T21:51:26.412Z",
+        "duration": 63930.436,
+        "expected": 60,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "report": {
+        "path": "docs/validation/runs/webgl-sort-20261025-01/outputs-webgpu.json.gz",
+        "bytes": 30296,
+        "sha256": "401cf8189d9159fe1e2c0c8b65c21cf00370779ae238a825167627521bb3c644"
+      }
+    },
+    {
+      "name": "production-webgl2",
+      "stats": {
+        "startTime": "2026-10-25T21:52:30.697Z",
+        "duration": 126218.262,
+        "expected": 40,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "report": {
+        "path": "docs/validation/runs/webgl-sort-20261025-01/production-webgl2.json.gz",
+        "bytes": 9139,
+        "sha256": "cb45622a13c574c69bb22abfa6ca35ae9ca48650689b34e4b71fbb069e1304b6"
+      }
+    },
+    {
+      "name": "production-webgpu",
+      "stats": {
+        "startTime": "2026-10-25T21:54:37.227Z",
+        "duration": 116445.149,
+        "expected": 40,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "report": {
+        "path": "docs/validation/runs/webgl-sort-20261025-01/production-webgpu.json.gz",
+        "bytes": 9134,
+        "sha256": "619a05f9002785688b3fe04c94ab1a6fdbf94aa8e724b4a7af2c29e7a297c5fd"
+      }
+    },
+    {
+      "name": "engine-browser",
+      "stats": {
+        "startTime": "2026-10-25T21:45:20.117Z",
+        "duration": 23945.652,
+        "expected": 14,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "report": {
+        "path": "docs/validation/runs/webgl-sort-20261025-01/engine-browser.json.gz",
+        "bytes": 12565,
+        "sha256": "ac87d24732e17b52f465f200c3a59bbdb564ec5f571acbacde956aed60142d58"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "command": [
+        "node",
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "--project",
+        "spec:render-order.spec.ts",
+        "--project",
+        "spec:backend-metadata.spec.ts",
+        "--project",
+        "spec:backend-state.spec.ts",
+        "--project",
+        "spec:webgl.spec.ts",
+        "--project",
+        "spec:webgl-query.spec.ts",
+        "--project",
+        "spec:webgl-steady.spec.ts",
+        "--project",
+        "spec:webgl-lifecycle.spec.ts",
+        "--project",
+        "spec:webgl-fallback.spec.ts",
+        "--project",
+        "spec:webgl-histogram.spec.ts",
+        "--project",
+        "spec:backend-fallback.spec.ts",
+        "--project",
+        "spec:backend-settings.spec.ts",
+        "--project",
+        "spec:geometry-render.spec.ts",
+        "--reporter=json",
+        "--project",
+        "spec:fast-order.spec.ts",
+        "--project",
+        "spec:display-policy.spec.ts"
+      ],
+      "backend": null,
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "node",
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "--config",
+        "playwright.selection.config.ts",
+        "--reporter=json"
+      ],
+      "backend": null,
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "node",
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "--project",
+        "spec:image-capture.spec.ts",
+        "--project",
+        "spec:portable-saved-view.spec.ts",
+        "--project",
+        "spec:saved-view.spec.ts",
+        "--project",
+        "spec:steady-settings.spec.ts",
+        "--project",
+        "spec:web-lite.spec.ts",
+        "--project",
+        "spec:webgl-basic.spec.ts",
+        "--grep-invert",
+        "actual owned PNG/JPEG freeze|synchronous Close inside actual capture allocation|an actual held capture readback is invalidated|capture freezes camera/background/framebuffer before actual allocation settles|a newer thumbnail request wins over an older held GPU allocation|source replacement cancels a held thumbnail|Close joins a held real capture allocation",
+        "--reporter=json"
+      ],
+      "backend": "webgl2",
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "node",
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "--project",
+        "spec:image-capture.spec.ts",
+        "--project",
+        "spec:portable-saved-view.spec.ts",
+        "--project",
+        "spec:saved-view.spec.ts",
+        "--project",
+        "spec:steady-settings.spec.ts",
+        "--project",
+        "spec:web-lite.spec.ts",
+        "--reporter=json"
+      ],
+      "backend": "webgpu",
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "node",
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "--config",
+        ".build/webgl-sort-20261025-01/production.config.ts"
+      ],
+      "backend": "webgl2",
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "node",
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "--config",
+        ".build/webgl-sort-20261025-01/production.config.ts"
+      ],
+      "backend": "webgpu",
+      "exitCode": 0
+    },
+    {
+      "command": "npm test -- --maxWorkers=4 --reporter=json --outputFile=.build/webgl-sort-20261025-01/unit.json",
+      "exitCode": 0,
+      "tests": 6470
+    },
+    {
+      "command": "npm run test:selection -- --maxWorkers=4 --reporter=json --outputFile=.build/webgl-sort-20261025-01/selection-unit.json",
+      "exitCode": 0,
+      "tests": 165
+    },
+    {
+      "command": "npx playwright test --config playwright.engine.config.ts --reporter=json",
+      "exitCode": 0,
+      "tests": 14
+    },
+    {
+      "command": "npm run build:engine",
+      "exitCode": 0,
+      "artifacts": 63
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "includes": [
+        "verify:sources",
+        "verify:build",
+        "prepare:web",
+        "typecheck",
+        "typecheck:bench",
+        "vite build"
+      ]
+    },
+    {
+      "command": "python -B contracts/product/tool.py verify --root .",
+      "exitCode": 0,
+      "registrations": 133,
+      "nativeQualification": false
+    },
+    {
+      "command": "npm run test:web-build",
+      "exitCode": 0,
+      "tests": 40
+    },
+    {
+      "command": "node --test tools/bench/comparison/fixtures.test.mjs tools/bench/comparison/build.test.mjs",
+      "exitCode": 0,
+      "tests": 6
+    },
+    {
+      "command": "node tools/check-engine.mjs",
+      "exitCode": 0,
+      "artifacts": 63
+    },
+    {
+      "command": "node .build/webgl-sort-20261025-01/verify-artifacts.mjs",
+      "exitCode": 0,
+      "artifacts": 111,
+      "sourceMaps": 4
+    },
+    {
+      "command": "python -B tools/bench/comparison/compare-sorts.py .build/renderer-comparison-20261025-01 gl-sort-baseline-01 gl-sort-candidate-01 --output=.build/webgl-sort-20261025-01/performance.json",
+      "exitCode": 0,
+      "cases": 48,
+      "probes": 4,
+      "identicalSnapshotPairs": 48
+    },
+    {
+      "command": "git -c core.whitespace=cr-at-eol diff --check",
+      "exitCode": 0
+    },
+    {
+      "command": "node .build/webgl-sort-20261025-01/check-gallery.mjs",
+      "exitCode": 0,
+      "combinations": 48,
+      "scope": "Local file viewer, image decode/hash captions, controls and no page errors."
+    },
+    {
+      "command": "npm run verify:sources",
+      "exitCode": 0,
+      "frozenFiles": 919,
+      "registrations": 133,
+      "scope": "Repeated after final documentation edits."
+    }
+  ],
+  "logs": [
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/logs/artifact-final.log.gz",
+      "bytes": 254,
+      "sha256": "10f9e6847aa0f7dff0c1b920f93581703c4dee79c400e96c2fa6505835a2d54a"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/logs/baseline.log.gz",
+      "bytes": 349,
+      "sha256": "f65ef11f068f8d018837a8d4862dc120ba1726697d10ddb71018555a7e115734"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/logs/benchmark-contracts.log.gz",
+      "bytes": 553,
+      "sha256": "d301d5257b14840d659d9902f01eeb74bc533c1f135f020cc335b0c8bf69b141"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/logs/browser-driver.log.gz",
+      "bytes": 166,
+      "sha256": "8e7844b1a86472d77ea5c2d60389869e0fa7ea9decd36d073410a173dd6e991f"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/logs/build.log.gz",
+      "bytes": 2050,
+      "sha256": "65867412bbeff5b56ad8e529823b21ad8ef4d2b8148c45a9fa5aa7f12003d04c"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/logs/candidate-01.log.gz",
+      "bytes": 342,
+      "sha256": "3104c08a0f10a96701f8b3cba6250bad39e782e74ff4420e69878f6386c8789f"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/logs/engine-browser.log.gz",
+      "bytes": 20,
+      "sha256": "9e72928e7a01615b4cf090daa617b4ca9d68531748f887f323f695eb4ca3ef63"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/logs/engine-build-01.log.gz",
+      "bytes": 514,
+      "sha256": "6b18d443df2f3d6ee62ed63863f9c849526a1b10aa21416f751d6797f37555ad"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/logs/environment.log.gz",
+      "bytes": 520,
+      "sha256": "e86681a862c2101f0b2e1428c4194746ab725dd28ad1e9fa3675ce4fee23124f"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/logs/focused-01.log.gz",
+      "bytes": 193,
+      "sha256": "cedb9605c3346c9eb262951437b4855cc5f12dc072197e0fc6133fe906515a6a"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/logs/focused-02.log.gz",
+      "bytes": 194,
+      "sha256": "8f2a46b9b336a9150eed78cc9aaed6474111f0cebe79ccd6b80d0c694b50dc70"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/logs/outputs-webgl2.log.gz",
+      "bytes": 2405,
+      "sha256": "e4e44ead530af86d39c0e77061c7c1a7a093a34fee8e92a23a532c11ed9e3f5f"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/logs/outputs-webgpu.log.gz",
+      "bytes": 2616,
+      "sha256": "925cb269692c62ef14b9049734fcc5e1ad2b02a443d9dfcf8b0c9b4ea75dd4a6"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/logs/product-final.log.gz",
+      "bytes": 222,
+      "sha256": "7326283feef4e684cb3474327e84a9b4411901487da86a757109df21a16e72fa"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/logs/production-webgl2.log.gz",
+      "bytes": 2027,
+      "sha256": "1d231f524c9fe22b7a41be1e7edb1fddcce64d8aeeeeb81e1c7dfa2374f78c7d"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/logs/production-webgpu.log.gz",
+      "bytes": 2029,
+      "sha256": "2766f3652e2e1a918ba8780151ceae6423842c168259ef3b14d6d5f026454480"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/logs/renderer-regression.log.gz",
+      "bytes": 3173,
+      "sha256": "7801d77cee822af6460a292fef0527d0978bcd571aa985f070bb624b0c940c4d"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/logs/selection-browser.log.gz",
+      "bytes": 4289,
+      "sha256": "1ee5c7b8ef681a748198d05f85c301eb16364598e5ca74155a469fe7db280370"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/logs/selection-unit.log.gz",
+      "bytes": 398,
+      "sha256": "19515ffad01d914b64581dad3775bd19b862b1cd22ad110ccea0bfa6710248c0"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/logs/typecheck-02.log.gz",
+      "bytes": 99,
+      "sha256": "e92b0f98f3899230cd644c742077fd42c46f58618dba5fd5f735b838503e48a2"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/logs/typecheck-early.log.gz",
+      "bytes": 99,
+      "sha256": "e92b0f98f3899230cd644c742077fd42c46f58618dba5fd5f735b838503e48a2"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/logs/unit.log.gz",
+      "bytes": 2879,
+      "sha256": "fcb43a1ee18f09e256c12bc5750a66578c0ac5574d700319db2d139e6f2e5004"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/logs/web-build.log.gz",
+      "bytes": 2354,
+      "sha256": "027705ebef74002db0f75f7f03e8516bbb4a36b47944e1d4165ab28b51b5689c"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/logs/gallery.log.gz",
+      "bytes": 139,
+      "sha256": "06ede3b964151cc8a7a54a50c609abc9dc6e711d0c5b4c35f765811a47483d00"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/logs/contracts-final.log.gz",
+      "bytes": 606,
+      "sha256": "aa16955b278e71e19ffb995275ed92aed8fc90ddf96cbafa933b929ca0fbffb4"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/logs/diff-check.log.gz",
+      "bytes": 20,
+      "sha256": "46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e"
+    }
+  ],
+  "portableReport": {
+    "path": "docs/validation/runs/webgl-sort-20261025-01/unit.json.gz",
+    "bytes": 232976,
+    "sha256": "bf2f555e684454a3415db5c4eece1e89af9a28e5c7ff0ea26cc9d1bbf27da2d8"
+  },
+  "appArtifacts": {
+    "path": "docs/validation/runs/webgl-sort-20261025-01/app-artifacts.json",
+    "bytes": 81942,
+    "sha256": "d2725390b2e42d59542f2d09ab4145df6df5a61d96d7ff7ff4f54a70e6e08869"
+  },
+  "humanReport": {
+    "path": "docs/validation/runs/webgl-sort-20261025-01/README.md",
+    "bytes": 7132,
+    "sha256": "9bfcdc91f2c4c74d76b0b3df2ab03d26103d410868c586f93a910b1c2e7b735c"
+  },
+  "interactiveComparison": {
+    "path": "docs/validation/runs/webgl-sort-20261025-01/comparison.html",
+    "bytes": 44647,
+    "sha256": "a3c5dd1f1c732e1955782ebf55f280bff709e2f4d09f8f23dba5ff0cc82b48d0"
+  },
+  "processors": [
+    {
+      "path": "tools/bench/comparison/compare-sorts.py",
+      "bytes": 5647,
+      "sha256": "152284ed6521508c5dba9c13dcc5a0a7184897fba80e1a7d828645c50d58ecf1"
+    },
+    {
+      "path": "docs/validation/runs/webgl-sort-20261025-01/package-results.py",
+      "bytes": 19753,
+      "sha256": "91e9f12ee806ebb99608a936cb773c702153fd2b5076860a1cb5b1540b2a38b7"
+    }
+  ],
+  "diagnostics": [
+    {
+      "report": {
+        "path": "docs/validation/runs/webgl-sort-20261025-01/focused-01.json.gz",
+        "bytes": 2474,
+        "sha256": "d81a8e1bb6d3ca1a8b36c8513bf139c4e0387ca84f1e3abd38896ba9f0afba18"
+      },
+      "passed": 35,
+      "failed": 1,
+      "reason": "Incorrect expected uniform-digit diagnostic names; independent permutation checks passed."
+    },
+    {
+      "report": {
+        "path": "docs/validation/runs/webgl-sort-20261025-01/focused-02.json.gz",
+        "bytes": 2273,
+        "sha256": "e9ff96fa9b0451f9205081a7a78407d47aba4f49c8ae6f022d318b5c3de66781"
+      },
+      "passed": 36,
+      "failed": 0
+    },
+    {
+      "reason": "Existing production large-chunk advisory; successful build exit 0."
+    }
+  ],
+  "policy": {
+    "newRegistrations": 0,
+    "changedPrecisionOrFreshnessDefaults": false,
+    "retainedScratchCapBytes": 16777216,
+    "nativeQualification": false,
+    "profileMigrationCompleted": false
+  },
+  "scope": [
+    "Windows Chromium/NVIDIA/loopback with documented launch flags; other OS/browser/GPU/preview hosts unqualified.",
+    "Synthetic SH0 performance; SH0\u20133 functional browser checks are separate.",
+    "Current-sort round trip and gl.finish completion, not app presentation or physical FPS."
+  ],
+  "galleryCheck": {
+    "path": "docs/validation/runs/webgl-sort-20261025-01/gallery-check.json",
+    "bytes": 109,
+    "sha256": "15e5414c6242dbaf2e536921c2021b4098b9cab4e69c8419b3edbe2ca2d29230"
+  },
+  "galleryScreenshot": {
+    "path": "docs/validation/runs/webgl-sort-20261025-01/gallery.png",
+    "bytes": 230533,
+    "sha256": "9413070aa15ee4fa264c4040872d6385944c40d7cf7bf22b3bd6b688e2c6db47"
+  }
+}

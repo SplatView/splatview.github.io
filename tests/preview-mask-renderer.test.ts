@@ -13,6 +13,7 @@ function fixture() {
   }), onSubmittedWorkDone: vi.fn(async () => {}) };
   const renderer = {
     frame: {}, query: {}, queryOutput: {}, deviceEpoch: 1,
+    finish: () => queue.onSubmittedWorkDone(),
     pipelines: Object.fromEntries(['project', 'generate', 'rank', 'scatter', 'local', 'blocks', 'bins', 'pick'].map(key => [key, { key }])), raster: {},
     device: { limits: { maxBufferSize: 1e9, maxStorageBufferBindingSize: 1e9 }, queue,
       createBuffer: vi.fn((descriptor: GPUBufferDescriptor) => {

@@ -1,6 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { BUILD_DESCRIPTOR } from '../src/generated/buildIdentity';
-import { BUILD_ID, NEUTRAL_COLOR, PROTOCOL_VERSION, type NativeSummary, type WorkerResponse } from '../src/document/types';
+import { NEUTRAL_COLOR } from '../src/renderer/defaults';
+import { BUILD_ID, PROTOCOL_VERSION, type NativeSummary, type WorkerResponse } from '../src/document/types';
 import { validateColorBaseIdentity, type ColorBaseIdentity, type ColorSessionSummary } from '../src/document/colorProtocol';
 import type { WasmModule } from '../src/workers/wasm';
 import type { WorkerBootstrapResponse } from '../src/build/bootstrap';

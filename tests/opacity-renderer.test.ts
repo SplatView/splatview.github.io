@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { GaussianRenderer, type GpuScene, StaleGpuQueryError } from '../src/renderer/webgpu/renderer';
-import { IDENTITY_MATRIX, NEUTRAL_COLOR } from '../src/document/types';
+import { IDENTITY_MATRIX, NEUTRAL_COLOR } from '../src/renderer/defaults';
 import type { CameraController } from '../src/input/camera';
 
 type FrameOwner = {

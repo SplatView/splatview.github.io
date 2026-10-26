@@ -5,6 +5,11 @@ namespace splatview::product {
 inline constexpr std::string_view localPlatform = "web";
 inline constexpr std::string_view bundleSha256 = "fff64dad4589c07b26821cb23a866aaec6f824e7786d719ca6e3122b3750895a";
 inline std::string_view registeredFeature(std::string_view binding) {
+    if (binding == "GaussianRenderMode.sorted") return "view.render";
+    if (binding == "GaussianRenderMode.steady") return "view.render";
+    if (binding == "GraphicsBackendPreference.auto") return "view.render";
+    if (binding == "GraphicsBackendPreference.webgl2") return "view.render";
+    if (binding == "GraphicsBackendPreference.webgpu") return "view.render";
     if (binding == "SelectionTool.brush") return "selection.manual";
     if (binding == "SelectionTool.color") return "selection.color";
     if (binding == "SelectionTool.fill") return "selection.color";

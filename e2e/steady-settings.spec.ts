@@ -1,0 +1,71 @@
+import { expect,test } from './backend-test';
+import { gaussianPly } from '../tests/fixtures/gaussians';
+
+test('the bundled Bench scene refines after orbiting with the production Settings control',async ({page},info) => {
+  const errors: string[]=[]; page.on('pageerror',error => errors.push(error.message));
+  await page.goto('/');
+  await expect(page.getByRole('button',{name:'Open example',exact:true})).toBeEnabled();
+  await page.getByRole('button',{name:'Open example',exact:true}).click();
+  await expect(page).toHaveTitle('Bench example.sog — SplatView');
+  await page.getByRole('button',{name:'Tools',exact:true}).click();
+  const tools=page.getByRole('complementary',{name:'Tools',exact:true});
+  await expect(tools.locator('.model-stats')).toHaveText('0/262,556 splats | SH3');
+  await tools.getByRole('button',{name:'Settings',exact:true}).click();
+  const settings=page.getByRole('dialog',{name:'Settings',exact:true});
+  await settings.getByRole('combobox',{name:'Gaussian renderer',exact:true}).selectOption('steady');
+  await expect(settings.getByText('Preparing SteadySplats…',{exact:true})).toBeHidden();
+  await expect(settings.getByText('SteadySplats is unavailable for this view. Using sorted rendering.',{exact:true})).toHaveCount(0);
+  await page.screenshot({path:info.outputPath('bench-settings.png')});
+  await settings.getByRole('button',{name:'Close Settings',exact:true}).click();
+  await page.mouse.move(640,400); await page.mouse.down(); await page.mouse.move(705,420,{steps:12}); await page.mouse.up();
+  await page.waitForTimeout(1200);
+  const canvas=page.locator('canvas').first(),frames=await canvas.getAttribute('data-frames');
+  await page.waitForTimeout(500); await expect(canvas).toHaveAttribute('data-frames',frames!);
+  await expect(page.getByRole('alert')).toHaveCount(0); expect(errors).toEqual([]);
+  await page.screenshot({path:info.outputPath('bench-steady.png')});
+  await info.attach('bench-steady',{path:info.outputPath('bench-steady.png'),contentType:'image/png'});
+});
+
+test('Settings opts into SteadySplats, settles on demand and retains Basic cleanup/Undo',async ({page,browser},info) => {
+  const errors: string[]=[]; page.on('pageerror',error => errors.push(error.message));
+  await page.goto('/');
+  await expect(page.getByRole('button',{name:'Open scene',exact:true})).toBeEnabled();
+  await page.getByLabel('Open scene files').setInputFiles({name:'steady-ui.ply',mimeType:'application/octet-stream',buffer:Buffer.from(gaussianPly(0))});
+  await expect(page).toHaveTitle('steady-ui.ply — SplatView');
+  await page.getByRole('button',{name:'Tools',exact:true}).click();
+  const tools=page.getByRole('complementary',{name:'Tools',exact:true});
+  await tools.getByRole('button',{name:'Settings',exact:true}).click();
+  const settings=page.getByRole('dialog',{name:'Settings',exact:true});
+  const mode=settings.getByRole('combobox',{name:'Gaussian renderer',exact:true});
+  await expect(mode).toHaveValue('sorted'); await mode.selectOption('steady');
+  await settings.getByText('SteadySplats options', { exact: true }).click();
+  await expect(settings.getByText('Preparing SteadySplats…',{exact:true})).toBeHidden();
+  await expect(settings.getByText('SteadySplats is unavailable for this view. Using sorted rendering.',{exact:true})).toHaveCount(0);
+  await expect(settings.getByRole('combobox',{name:'Refinement frames'})).toHaveValue('16');
+  const value=await settings.locator('.render-history-weight output').boundingBox();
+  const control=await settings.locator('.render-history-weight').boundingBox();
+  expect(value!.y).toBeGreaterThanOrEqual(control!.y); expect(value!.y+value!.height).toBeLessThanOrEqual(control!.y+control!.height);
+  await settings.getByRole('slider',{name:'History weight'}).focus(); await page.keyboard.press('Home');
+  await expect(settings.getByRole('checkbox',{name:'Converge at rest'})).toBeDisabled();
+  await page.keyboard.press('End'); for(let i=0;i<5;i++) await page.keyboard.press('ArrowLeft');
+  await settings.getByRole('checkbox',{name:'Animate samples'}).uncheck();
+  await expect(settings.getByRole('combobox',{name:'Refinement frames'})).toBeDisabled();
+  await settings.getByRole('checkbox',{name:'Animate samples'}).check();
+  await settings.getByRole('button',{name:'Close Settings',exact:true}).click();
+  await page.waitForTimeout(800);
+  const canvas=page.locator('canvas').first(), frames=await canvas.getAttribute('data-frames');
+  await page.waitForTimeout(500); await expect(canvas).toHaveAttribute('data-frames',frames!);
+  await expect(page).toHaveTitle('steady-ui.ply — SplatView');
+  await tools.getByRole('button',{name:'Select all',exact:true}).click();
+  await expect(tools.locator('.model-stats')).toHaveText('3/3 splats | SH0');
+  await tools.getByRole('button',{name:'Delete selected',exact:true}).click();
+  await expect(tools.locator('.model-stats')).toHaveText('0/0 splats | SH0');
+  await tools.getByRole('button',{name:'Undo',exact:true}).click();
+  await expect(tools.locator('.model-stats')).toHaveText('3/3 splats | SH0');
+  expect(errors).toEqual([]); await expect(page.getByRole('alert')).toHaveCount(0);
+  await info.attach('environment',{body:JSON.stringify({browser:browser.version(),...(await page.evaluate(async () => {
+    const adapter=await navigator.gpu?.requestAdapter({powerPreference:'high-performance'});
+    return {userAgent:navigator.userAgent,secureContext:isSecureContext,crossOriginIsolated,origin:location.origin,
+      adapter:adapter?{vendor:adapter.info.vendor,architecture:adapter.info.architecture,fallback:adapter.info.isFallbackAdapter}:null};
+  }))}),contentType:'application/json'});
+});

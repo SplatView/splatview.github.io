@@ -149,7 +149,7 @@ struct VertexOut {
 }
 @vertex
 fn vertex(@builtin(vertex_index) vertexIndex: u32, @builtin(instance_index) instance: u32) -> VertexOut {
-  let corners=array<vec2<f32>,6>(vec2(-1.0,-1.0),vec2(1.0,-1.0),vec2(-1.0,1.0),vec2(-1.0,1.0),vec2(1.0,-1.0),vec2(1.0,1.0));
+  let corners=array<vec2<f32>,4>(vec2(-1.0,-1.0),vec2(1.0,-1.0),vec2(-1.0,1.0),vec2(1.0,1.0));
   let entry=order[instance].y; let gaussian=projected[entry&0xffffffu];
   let corner=corners[vertexIndex]; let offset=gaussian.axes.xy*corner.x+gaussian.axes.zw*corner.y;
   var result: VertexOut;

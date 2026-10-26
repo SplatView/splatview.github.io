@@ -1,9 +1,10 @@
+import { requireWebGpuRenderer } from './gaussian-harness-scene';
 import { admittedExport } from './admitted-export';
 // Test-only entry point. Vite's production build includes only index.html.
 import { GaussianRenderer, StaleGpuQueryError, type GpuScene } from '../src/renderer/webgpu/renderer';
 import { CameraController } from '../src/input/camera';
 import { CoreClient } from '../src/document/coreClient';
-import { IDENTITY_MATRIX, NEUTRAL_COLOR } from '../src/document/types';
+import { IDENTITY_MATRIX, NEUTRAL_COLOR } from '../src/renderer/defaults';
 import { gaussianPly } from '../tests/fixtures/gaussians';
 import { AppController } from '../src/app/controller';
 import { useApp } from '../src/app/store';
@@ -101,7 +102,7 @@ export async function createHarness() {
         await firstObserved;
         await controller.openFiles([new File([gaussianPly(0)], 'viewport-color.ply')]);
         useApp.setState({ tool: 'color', colorTolerance: .01, tolerance: .01, operation: 0 });
-        const client = controller.client!, gpu = controller.renderer!, scene = requireGaussianScene(controller.scene);
+        const client = controller.client!, gpu = requireWebGpuRenderer(controller.renderer), scene = requireGaussianScene(controller.scene);
         gpu.pick = async () => { picks++; return { index: 0, depth: 3, opacity: .8, contribution: .8, deviceEpoch: gpu.deviceEpoch }; };
         if (!await controller.selectColorPixel(160, 100, 0)) throw new Error('Initial Color pick was refused.');
         const snapshot = async () => {
@@ -136,7 +137,7 @@ export async function createHarness() {
       try {
         await controller.initialize(target); await controller.openFiles([new File([gaussianPly(0)], 'color-failure.ply')]);
         useApp.setState({ tool: 'color', colorTolerance: .01, tolerance: .01, operation: 0 });
-        const client = controller.client!, gpu = controller.renderer!, scene = requireGaussianScene(controller.scene);
+        const client = controller.client!, gpu = requireWebGpuRenderer(controller.renderer), scene = requireGaussianScene(controller.scene);
         let index = 0, picks = 0;
         // Picking correctness has separate real-GPU tests. Fix the contributor
         // here to isolate the real native transaction and mask publication seam.
@@ -175,7 +176,7 @@ export async function createHarness() {
         if (!controller.client || !controller.renderer || !controller.scene) throw new Error(useApp.getState().error || 'No scene opened for the Color export barrier.');
         if (kind !== 'amendment') { await controller.command({ command: 'selectAll' }); await pivotIdle(); }
         useApp.setState({ tool: 'color', colorTolerance: .01, tolerance: .01, operation: 0, selectionDragging: false });
-        const client = controller.client!, gpu = controller.renderer!, scene = requireGaussianScene(controller.scene);
+        const client = controller.client!, gpu = requireWebGpuRenderer(controller.renderer), scene = requireGaussianScene(controller.scene);
         controller.camera!.set([0, 0, 0, 0, 0, 3, 1, 45, 0, 0, target.width / target.height]);
         // The first fixture center projects here for this fixed camera. Hold
         // delivery of a real GPU contributor, then inspect native CSV output.
@@ -267,7 +268,7 @@ export async function createHarness() {
         await controller.initialize(target); await controller.openFiles([new File([gaussianPly()], 'pending-single.ply')]);
         await controller.command({ command: 'single', index: 1 });
         await controller.command({ command: 'delete' }); await controller.command({ command: 'undo' });
-        const client = controller.client!, gpu = controller.renderer!;
+        const client = controller.client!, gpu = requireWebGpuRenderer(controller.renderer);
         const output = new Uint8Array(await admittedExport(client, 0, 0)), before = await client.command({ command: 'summary' });
         const ledger = (controller as unknown as { ledger: ResourceLedger }).ledger, usage = ledger.usage.bytes;
         const pick = gpu.pick.bind(gpu); let entered!: () => void;
@@ -320,7 +321,7 @@ export async function createHarness() {
       };
       try {
         await controller.initialize(target); await controller.openFiles([new File([gaussianPly()], 'recover-sh3.ply')]);
-        const client = controller.client!, gpu = controller.renderer!;
+        const client = controller.client!, gpu = requireWebGpuRenderer(controller.renderer);
         await controller.command({ command: 'single', index: 1 });
         // A selection change briefly owns the automatic pivot query.
         await wait(() => controller.colorControlsEnabled);
@@ -383,7 +384,7 @@ export async function createHarness() {
           sameView: controller.camera!.state.every((v, i) => v === view[i]),
           sameOutput: output.length === afterOutput.length && output.every((v, i) => v === afterOutput[i]),
           image: compare(image, afterImage), usage: { before: usage, after: ledger.usage },
-          epochs: [gpu.deviceEpoch, controller.renderer!.deviceEpoch], dirty: useApp.getState().dirty,
+          epochs: [gpu.deviceEpoch, requireWebGpuRenderer(controller.renderer).deviceEpoch], dirty: useApp.getState().dirty,
           state: useApp.getState().rendererState, busy: useApp.getState().busy, active: controller.selectionActive };
         const redone = await controller.command({ command: 'redo' });
         return { ...result, redone, redoneVisible: useApp.getState().summary?.visible };

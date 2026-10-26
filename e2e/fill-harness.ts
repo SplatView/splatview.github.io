@@ -1,3 +1,4 @@
+import { requireWebGpuRenderer } from './gaussian-harness-scene';
 import { admittedExport } from './admitted-export';
 // Test-only controller entry; no hooks or fixtures enter the production bundle.
 import { AppController } from '../src/app/controller';
@@ -7,7 +8,7 @@ import { AdmissionError, type ResourceLedger } from '../src/document/resources';
 import { fillPly } from './fill-fixture';
 
 async function gpuMasks(controller: AppController) {
-  const renderer = controller.renderer!, scene = requireGaussianScene(controller.scene), size = Math.max(4, scene.count * 4);
+  const renderer = requireWebGpuRenderer(controller.renderer), scene = requireGaussianScene(controller.scene), size = Math.max(4, scene.count * 4);
   const buffer = renderer.device.createBuffer({ size, usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.MAP_READ });
   try {
     const encoder = renderer.device.createCommandEncoder(); encoder.copyBufferToBuffer(scene.buffers.states, 0, buffer, 0, size);

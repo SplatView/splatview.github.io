@@ -227,6 +227,11 @@ export class HistogramSampler {
     this.pending = { resources, task };
   }
 
+  async finish() {
+    await this.preparation;
+    await Promise.allSettled([...this.retiring, ...(this.pending ? [this.pending.task] : [])]);
+  }
+
   dispose() {
     if (this.disposed) return;
     this.enabled = false; this.disposed = true; this.reset();

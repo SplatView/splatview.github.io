@@ -1,7 +1,8 @@
+import type { ImageOperation } from './image';
 import type { SourceFingerprint } from './fingerprint';
 import { AdmissionError } from '../document/resources';
 import { MAX_SAVED_THUMBNAIL_BYTES, MAX_SAVED_VIEW_RECORD_BYTES, savedViewMatches, validateSavedViewRecord, type SavedViewRecord } from './savedView';
-import { checkSavedViewOperation, verifySavedThumbnail, type SavedViewOperation } from './thumbnail';
+import { checkSavedViewOperation, verifySavedThumbnail } from './thumbnail';
 
 const MAX_MATCHES = 64;
 export const SAVED_VIEW_DATABASE = 'splatview-views';
@@ -26,7 +27,7 @@ function storedView(value: unknown): StoredView {
     throw new Error('Invalid or unsupported saved-view storage envelope.');
   return item;
 }
-async function readStoredView(item: StoredView, operation: SavedViewOperation): Promise<SavedViewRecord> {
+async function readStoredView(item: StoredView, operation: ImageOperation): Promise<SavedViewRecord> {
   // Bounded UTF-8 body plus conservative parse/object workspace, including corrupt JSON.
   const release = operation.admit(MAX_SAVED_VIEW_RECORD_BYTES * 128);
   try {
@@ -43,7 +44,7 @@ async function readStoredView(item: StoredView, operation: SavedViewOperation): 
 /** An atomic view/PNG pair. Neither store alone is a restoration candidate. */
 export class SavedViewStorage {
   constructor(private factory: () => IDBFactory = () => globalThis.indexedDB) {}
-  private open(operation: SavedViewOperation): Promise<IDBDatabase> {
+  private open(operation: ImageOperation): Promise<IDBDatabase> {
     checkSavedViewOperation(operation);
     return new Promise((resolve, reject) => {
       let request: IDBOpenDBRequest, settled = false;
@@ -71,7 +72,7 @@ export class SavedViewStorage {
       } catch (error) { finish(error); }
     });
   }
-  private transaction<T>(database: IDBDatabase, mode: IDBTransactionMode, operation: SavedViewOperation,
+  private transaction<T>(database: IDBDatabase, mode: IDBTransactionMode, operation: ImageOperation,
     run: (transaction: IDBTransaction, result: (value: T) => void, fail: (error: unknown) => void) => void): Promise<T> {
     checkSavedViewOperation(operation);
     return new Promise((resolve, reject) => {
@@ -90,7 +91,7 @@ export class SavedViewStorage {
       catch (error) { fail(error); }
     });
   }
-  async list(source: SourceFingerprint, kind: SavedViewRecord['sourceKind'], operation: SavedViewOperation): Promise<SavedViewLookup> {
+  async list(source: SourceFingerprint, kind: SavedViewRecord['sourceKind'], operation: ImageOperation): Promise<SavedViewLookup> {
     // IndexedDB clones bounded envelopes/Blob handles, never a whole JSON tree.
     // Legacy raw-object records are unsupported and excluded from restoration.
     const release = operation.admit((MAX_MATCHES + 1) * SAVED_VIEW_RETENTION_BYTES);
@@ -139,7 +140,7 @@ export class SavedViewStorage {
     } finally { retained?.(); database?.close(); for (const owner of imageOwners) owner(); release(); }
   }
   /** Read exactly one atomic, validated pair and retain its Blob/metadata until disposal. */
-  async get(recordId: string, operation: SavedViewOperation): Promise<SavedViewPair> {
+  async get(recordId: string, operation: ImageOperation): Promise<SavedViewPair> {
     checkSavedViewOperation(operation);
     if (typeof recordId !== 'string' || recordId.length < 1 || recordId.length > MAX_SAVED_VIEW_RECORD_BYTES)
       throw new Error('Invalid saved-view record ID.');
@@ -172,7 +173,7 @@ export class SavedViewStorage {
       } };
     } finally { database?.close(); imageOwner?.(); recordOwner?.(); }
   }
-  async put(input: SavedViewRecord, image: Blob, operation: SavedViewOperation): Promise<SavedViewRecord> {
+  async put(input: SavedViewRecord, image: Blob, operation: ImageOperation): Promise<SavedViewRecord> {
     checkSavedViewOperation(operation);
     const release = operation.admit(MAX_SAVED_VIEW_RECORD_BYTES * 2 + 1024);
     let database: IDBDatabase | undefined;

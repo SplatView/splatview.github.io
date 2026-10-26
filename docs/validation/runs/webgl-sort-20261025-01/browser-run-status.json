@@ -1,0 +1,124 @@
+[
+  {
+    "name": "renderer-regression",
+    "command": [
+      "node",
+      "node_modules/@playwright/test/cli.js",
+      "test",
+      "--project",
+      "spec:render-order.spec.ts",
+      "--project",
+      "spec:backend-metadata.spec.ts",
+      "--project",
+      "spec:backend-state.spec.ts",
+      "--project",
+      "spec:webgl.spec.ts",
+      "--project",
+      "spec:webgl-query.spec.ts",
+      "--project",
+      "spec:webgl-steady.spec.ts",
+      "--project",
+      "spec:webgl-lifecycle.spec.ts",
+      "--project",
+      "spec:webgl-fallback.spec.ts",
+      "--project",
+      "spec:webgl-histogram.spec.ts",
+      "--project",
+      "spec:backend-fallback.spec.ts",
+      "--project",
+      "spec:backend-settings.spec.ts",
+      "--project",
+      "spec:geometry-render.spec.ts",
+      "--reporter=json",
+      "--project",
+      "spec:fast-order.spec.ts",
+      "--project",
+      "spec:display-policy.spec.ts"
+    ],
+    "backend": null,
+    "exitCode": 0
+  },
+  {
+    "name": "selection-browser",
+    "command": [
+      "node",
+      "node_modules/@playwright/test/cli.js",
+      "test",
+      "--config",
+      "playwright.selection.config.ts",
+      "--reporter=json"
+    ],
+    "backend": null,
+    "exitCode": 0
+  },
+  {
+    "name": "outputs-webgl2",
+    "command": [
+      "node",
+      "node_modules/@playwright/test/cli.js",
+      "test",
+      "--project",
+      "spec:image-capture.spec.ts",
+      "--project",
+      "spec:portable-saved-view.spec.ts",
+      "--project",
+      "spec:saved-view.spec.ts",
+      "--project",
+      "spec:steady-settings.spec.ts",
+      "--project",
+      "spec:web-lite.spec.ts",
+      "--project",
+      "spec:webgl-basic.spec.ts",
+      "--grep-invert",
+      "actual owned PNG/JPEG freeze|synchronous Close inside actual capture allocation|an actual held capture readback is invalidated|capture freezes camera/background/framebuffer before actual allocation settles|a newer thumbnail request wins over an older held GPU allocation|source replacement cancels a held thumbnail|Close joins a held real capture allocation",
+      "--reporter=json"
+    ],
+    "backend": "webgl2",
+    "exitCode": 0
+  },
+  {
+    "name": "outputs-webgpu",
+    "command": [
+      "node",
+      "node_modules/@playwright/test/cli.js",
+      "test",
+      "--project",
+      "spec:image-capture.spec.ts",
+      "--project",
+      "spec:portable-saved-view.spec.ts",
+      "--project",
+      "spec:saved-view.spec.ts",
+      "--project",
+      "spec:steady-settings.spec.ts",
+      "--project",
+      "spec:web-lite.spec.ts",
+      "--reporter=json"
+    ],
+    "backend": "webgpu",
+    "exitCode": 0
+  },
+  {
+    "name": "production-webgl2",
+    "command": [
+      "node",
+      "node_modules/@playwright/test/cli.js",
+      "test",
+      "--config",
+      ".build/webgl-sort-20261025-01/production.config.ts"
+    ],
+    "backend": "webgl2",
+    "exitCode": 0
+  },
+  {
+    "name": "production-webgpu",
+    "command": [
+      "node",
+      "node_modules/@playwright/test/cli.js",
+      "test",
+      "--config",
+      ".build/webgl-sort-20261025-01/production.config.ts"
+    ],
+    "backend": "webgpu",
+    "exitCode": 0
+  }
+]
