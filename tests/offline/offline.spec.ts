@@ -239,6 +239,11 @@ async function offer(page: Page, request: APIRequestContext, scope: OfflineScope
   await application(page).getByRole('button', { name: 'Check for updates', exact: true }).click();
   await expect(application(page).getByRole('button', { name: 'Reload to update', exact: true })).toBeEnabled();
   await expect(application(page).getByRole('button', { name: 'Check for updates', exact: true })).toBeEnabled();
+  await closeSettings(page); await wake(page);
+  const notice = page.getByRole('toolbar').getByRole('button', { name: 'Update available', exact: true });
+  await expect(notice).toBeEnabled(); await notice.click();
+  await expect(page.getByRole('dialog', { name: 'Settings', exact: true }).getByRole('tab', { name: 'Help', exact: true })).toHaveAttribute('aria-selected', 'true');
+  await expect(application(page).getByRole('button', { name: 'Reload to update', exact: true })).toBeEnabled();
 }
 async function requestUpdate(page: Page) {
   await settings(page); await application(page).getByRole('button', { name: 'Reload to update', exact: true }).click();

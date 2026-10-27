@@ -3,6 +3,7 @@ import type { AppController } from '../app/controller';
 import { useApp } from '../app/store';
 import { useTranslation } from '../app/useLanguageAppearance';
 import { checkOfflineUpdate, offlineState, reloadOfflineUpdate } from '../offline/client';
+import { Icon } from './Icon';
 
 const subscribe = (listener: () => void) => offlineState.subscribe(listener);
 const getSnapshot = () => offlineState.getSnapshot();
@@ -32,11 +33,13 @@ export function OfflineStatus({ controller }: { controller: AppController }) {
   </section>;
 }
 
-export function OfflineUpdateNotice({ onOpen, disabled, chromeVisible }: {
-  onOpen(): void; disabled: boolean; chromeVisible: boolean;
+export function OfflineUpdateNotice({ onOpen, disabled }: {
+  onOpen(): void; disabled: boolean;
 }) {
   const { t } = useTranslation(), offline = useSyncExternalStore(subscribe, getSnapshot, getSnapshot);
   if (!offline.available || offline.available === offline.current) return null;
-  return <button type="button" className="offline-update-notice" data-chrome inert={!chromeVisible}
-    aria-hidden={!chromeVisible || undefined} disabled={disabled} onClick={onOpen}>{t('Update available')}</button>;
+  return <button type="button" className="icon-button offline-update-notice" aria-label={t('Update available')}
+    title={t('Update available')} aria-haspopup="dialog" disabled={disabled} onClick={onOpen}>
+    <Icon name="Reset" /><span className="update-notice-label" aria-hidden="true">{t('Update available')}</span>
+  </button>;
 }

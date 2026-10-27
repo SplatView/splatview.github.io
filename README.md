@@ -293,6 +293,11 @@ Point and mesh views omit Gaussian controls. Application updates and collapsed
 graphics diagnostics live in Help; browser-local saved views remain in General.
 See the [presentation review](design/feature-reviews/settings-simplification-2026-10-26.md).
 
+When a new build is available, a compact update control appears beside
+Tools/Settings in the top toolbar. It opens Help's update options; reloading
+retains the existing unsaved-changes flow. See the
+[update notice review](design/feature-reviews/update-notice-2026-10-27.md).
+
 Exact WebGL worker sorting now skips uniform digits and uses admitted counting
 sort for narrow key spans. The [matched benchmark](docs/validation/README.md#webgl-sort-20261025-01)
 records 43–75% lower worker round-trip medians and 48 identical snapshot pairs;

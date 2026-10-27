@@ -1904,6 +1904,7 @@ export function App() {
       setArrowSpace(previous => previous[0] === next[0] && previous[1] === next[1] ? previous : next);
     };
     update(); const observer = new ResizeObserver(update); observer.observe(shell); controls.forEach(element => observer.observe(element));
+    shell.querySelectorAll('.toolbar-group').forEach(group => observer.observe(group));
     if (emptyState.current) observer.observe(emptyState.current);
     window.addEventListener('resize', update);
     return () => { observer.disconnect(); window.removeEventListener('resize', update); };
@@ -1974,6 +1975,8 @@ export function App() {
           if (current.toolsOpen && controller.opacityActive && !await controller.endOpacitySession(true)) return;
           setApp({ toolsOpen: !current.toolsOpen });
         })()} />}
+      <OfflineUpdateNotice disabled={tutorial.active || aboutOpen || state.navigationPrompt || state.outputPending || state.exportOpen || state.settingsOpen}
+        onOpen={() => { setChrome(true); setSettingsTab('help'); setApp({ settingsOpen: true }); }} />
       </div>
     </div>
     {arrowsVisible && ([-1, 1] as const).map((direction, index) => {
@@ -1998,8 +2001,6 @@ export function App() {
     </div>}
     <a className="brand-link" data-chrome inert={!chromeVisible} aria-hidden={!chromeVisible || undefined} href="https://opsiclear.com" target="_blank" rel="noopener noreferrer" aria-label={t("OpsiClear website")}>
       <img className="brand" src={new URL('opsiclear.png', new URL(import.meta.env.BASE_URL, document.baseURI)).href} alt="" /></a>
-    <OfflineUpdateNotice chromeVisible={chromeVisible} disabled={tutorial.active || aboutOpen || state.navigationPrompt || state.outputPending || state.exportOpen || state.settingsOpen}
-      onOpen={() => { setChrome(true); setSettingsTab('help'); setApp({ settingsOpen: true }); }} />
     {/* The read-only tour projects Tools without opening the actual editor. */}
     {(!geometrySource && state.toolsOpen || tutorial.phase === 'tour' && (!geometrySource || tutorial.step?.tools)) && <ToolsPanel controller={controller} scene={canvas} chromeVisible={chromeVisible} autoMethod={autoMethod} visible={toolsVisible} tutorialStep={tutorial.step ?? undefined}
       retention={toolsRetention.current} polygon={polygonActions} onInputScopeChange={onInputScopeChange} onAutoMethod={method => setAutoChoice({ documentId, method })} />}
