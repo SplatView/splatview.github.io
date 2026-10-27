@@ -40,6 +40,6 @@ export function OfflineUpdateNotice({ onOpen, disabled }: {
   if (!offline.available || offline.available === offline.current) return null;
   return <button type="button" className="icon-button offline-update-notice" aria-label={t('Update available')}
     title={t('Update available')} aria-haspopup="dialog" disabled={disabled} onClick={onOpen}>
-    <Icon name="Reset" /><span className="update-notice-label" aria-hidden="true">{t('Update available')}</span>
+    <Icon name="Reset" />
   </button>;
 }

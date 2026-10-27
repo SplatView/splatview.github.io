@@ -150,3 +150,59 @@ its byte-pinned source/build packet under
 `.build/offline-tests/update-toolbar-20261027-01/`. Existing contracts retain
 ownership of that packet. No new application release or static-site deployment
 is included in this source update.
+
+## Style amendment: match the existing toolbar
+
+Reviewed October 27 before implementation, baseline
+`226207596539c88574fc69fab715705eae4e69b9`. The user requests the same style as
+the rest of the project. Replace the bespoke desktop label, accent glyph and
+notification dot with the ordinary icon-only toolbar button at every width.
+Use the existing native glyph and shared 36 px size, padding, icon color,
+grouped borders, hover/focus and disabled treatment. Keep the localized
+accessible name/tooltip, dialog semantics, availability condition and Help action.
+No update-specific CSS is necessary.
+
+Re-reviewed the four platform decisions above: native Windows/macOS/Ubuntu
+controls and preview/thumbnail hosts remain unaffected; web support remains
+required with the same verified-update conditions. Shared visual tokens are
+the presentation authority. No registration, policy/surface, cache, renderer,
+controller/history or native/WASM ownership changes. The same local bundle
+2.0.0 and digest apply; no frozen source or generated authority is refreshed.
+
+Update the existing notice checks to compare the shared toolbar geometry and
+icon/padding colors, then verify desktop/compact Bright/Dark French appearance,
+dynamic grouping, keyboard/focus and modal behavior. Run existing style tests,
+build/type/source/native/product gates and inspect new browser screenshots.
+The earlier genuine A/B update tests remain historical unchanged-logic evidence;
+do not relabel their previous styled fixture bytes as this presentation.
+Raw checks belong to `.build/validation/update-style-20261027-01/`.
+
+The amendment is implemented with all update-specific CSS removed. The existing
+button class supplies its appearance at every width; only the native icon,
+localized tooltip/accessibility name and existing dialog action remain.
+
+Actual amendment checks: six notice browser cases passed with no failures,
+skips or retries, including comparison of dimensions, padding and icon color
+against the neighboring Tools button. Inspected Large French Bright/Dark
+screenshots and an English toolbar capture. The focused theme-style, theme-picker,
+offline-controller and offline-navigation suites passed all 46 tests. Both
+application/SDK builds passed the existing type/source/generated/native/product
+gates; the SDK verified 63 artifacts and its isolated TypeScript consumer.
+The source closure remains 919 files and the product gate remains 133
+registrations with native qualification false. All 1,184 protected implementation,
+native, public, contract/reference and fixture files match baseline exactly.
+Whitespace/project checks pass; the existing build chunk-size advisory remains.
+
+Observed browser: Chromium 156.0.8078.4, Windows/Win32, secure loopback,
+cross-origin isolation false. These are actual DOM appearance/focus checks in
+the synthetic availability harness, with no native/GPU or new service-worker
+authorization qualification. The previously recorded genuine update checks
+remain scoped to their earlier fixture bytes; the full portable/offline matrix
+was not repeated for this styling-only amendment.
+
+Amended application input:
+`1139e94ca6f4a492256dda350cd9a4de3dbfddd2a84e03d5ccfcdc4eaba8d990`.
+Local deployment:
+`0009d832338adf17adf9c7e0823ecb449374bc4e967f869ad56d128d2578c793`.
+Native input and standalone renderer source identity remain as recorded above.
+No new application release or deployed-site qualification is claimed.

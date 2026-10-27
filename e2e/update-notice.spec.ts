@@ -22,7 +22,12 @@ test('a distinct candidate appears beside viewer controls and disappears when wi
   const action = toolbar.getByRole('group', { name: 'Viewer panel', exact: true }).getByRole('button', { name: 'Update available', exact: true });
   await expect(action).toBeVisible();
   await expect(action).toHaveAttribute('aria-haspopup', 'dialog');
-  await expect(action.locator('.update-notice-label')).toBeVisible();
+  const tools = toolbar.getByRole('button', { name: 'Tools', exact: true });
+  const sharedStyle = (button: Element) => {
+    const style = getComputedStyle(button), icon = getComputedStyle(button.querySelector('.icon')!);
+    return { width: style.width, height: style.height, padding: style.padding, color: icon.color };
+  };
+  expect(await action.evaluate(sharedStyle)).toEqual(await tools.evaluate(sharedStyle));
   const bounds = (await action.boundingBox())!, bar = (await toolbar.boundingBox())!;
   expect(bounds.y).toBeGreaterThanOrEqual(bar.y);
   expect(bounds.y + bounds.height).toBeLessThanOrEqual(bar.y + bar.height);
@@ -69,12 +74,11 @@ for (const [width, theme] of [[360, 'bright'], [1280, 'dark']] as const) {
     await load(page, 'large', 'fr', theme); await page.setViewportSize({ width, height: 480 }); await offer(page);
     await expect(page.locator('html')).toHaveAttribute('data-ui-theme', theme);
     await expect(notice(page)).toBeVisible();
-    const label = notice(page).locator('.update-notice-label');
     const accessibleName = await notice(page).getAttribute('aria-label');
     expect(accessibleName).toBeTruthy(); expect(accessibleName).not.toBe('Update available');
     await expect(notice(page)).toHaveAttribute('title', accessibleName!);
-    if (width <= 640) { await expect(label).toBeHidden(); expect((await notice(page).boundingBox())!.width).toBe(36); }
-    else await expect(label).toBeVisible();
+    expect((await notice(page).boundingBox())!.width).toBe(36);
+    expect((await notice(page).boundingBox())!.height).toBe(36);
     expect(await page.locator('main').evaluate(element => element.scrollWidth)).toBeLessThanOrEqual(width);
     const bounds = (await notice(page).boundingBox())!;
     expect(bounds.x).toBeGreaterThanOrEqual(12); expect(bounds.x + bounds.width).toBeLessThanOrEqual(width - 12);
