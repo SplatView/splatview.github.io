@@ -15,6 +15,7 @@ The source branch is `source`; `main` contains the published static website.
 | `src/input/`, `src/io/` | Pure navigation/input policies and browser file/view boundaries. |
 | `tests/`, `e2e/` | Portable tests, required fixtures and actual browser journeys. |
 | `tools/` | Source/build verification, benchmark/release tools and evidence inspection. |
+| `.github/` | Source CI, qualified release promotion and reviewed Actions updates. |
 | `contracts/` | Sealed product bundle, explicit adapter and generated policy inputs. |
 | `native/`, `reference/` | Locked native/WASM sources, toolchains and source captures. |
 | `public/` | Curated runtime assets; `public/wasm/` is generated and verified separately. |
@@ -31,6 +32,10 @@ maintained inputs. Test logs, reports and screenshots belong to validation runs.
 ## Working commands
 
 ```sh
+npm run setup
+npm run doctor
+npm run check
+npm run ci
 npm run verify:project
 npm run verify:sources
 npm run typecheck
@@ -39,6 +44,9 @@ npm test
 npm run build
 npm run build:engine
 ```
+
+See [developer workflow and CI/CD](automation.md) for clean-checkout setup,
+validation logs, native runtime reuse and safe release promotion.
 
 `verify:project` checks the source layout, archive catalog and active-guide
 archive links without fetching historical data. See [historical evidence](../validation/README.md) to fetch,

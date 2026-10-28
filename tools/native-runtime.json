@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "release": "v0.2.2",
+  "nativeInputId": "59b0d5f23b429590c4804a68ecba23fb6d3b0b1c3c44f17cb92d6b5ba81b3230",
+  "archive": {
+    "url": "https://github.com/SplatView/splatview.github.io/releases/download/v0.2.2/SplatView-web-v0.2.2.zip",
+    "bytes": 8196661,
+    "sha256": "7b4fdba92b0e463dad8ec19712174348d77d7168c490d505cc63d10952c3befb"
+  },
+  "files": {
+    "splatview-core.mjs": {
+      "bytes": 85553,
+      "sha256": "56f17094ccd8b9ded2d0fe8c7f5797a93cb5397c83b7c6ce39484c134be65a21"
+    },
+    "splatview-core.wasm": {
+      "bytes": 2370662,
+      "sha256": "2f0e9b58778894a4299c1b6e3f71faf4a88bb509c4f81abab4581685193398f8"
+    },
+    "splatview-camera.mjs": {
+      "bytes": 16479,
+      "sha256": "25f49d0b2983bad9b938a61198d89071d1a6db884b196d81826e4fefb9e75711"
+    },
+    "splatview-camera.wasm": {
+      "bytes": 84407,
+      "sha256": "7189addf497dbc3c8180b09d7f6ddbbce57bcd40b3f83ca470f97edf7e34652a"
+    },
+    "build-provenance.json": {
+      "bytes": 11603,
+      "sha256": "a3d7fc81894a6bdd6006c752c7e626ecd07163a25b6bffe9c8b0e4cd7fd7ee70"
+    }
+  }
+}

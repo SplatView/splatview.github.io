@@ -1,0 +1,85 @@
+name: Promote published release
+
+on:
+  workflow_dispatch:
+    inputs:
+      release:
+        description: Published stable release tag (for example v0.2.2)
+        required: true
+        type: string
+      publish:
+        description: Publish the verified candidate to Pages (false is dry run)
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+  pages: read
+
+concurrency:
+  group: pages-release-promotion
+  cancel-in-progress: false
+
+jobs:
+  dry-run:
+    if: github.ref == 'refs/heads/source' && !inputs.publish
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .node-version
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.11'
+      - name: Verify and stage existing release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.release }}
+        run: python -B tools/deploy.py --release "$RELEASE_TAG"
+      - name: Reviewable deployment evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: release-dry-run
+          path: .build/validation/deploy-*/
+          include-hidden-files: true
+          retention-days: 7
+  publish:
+    if: github.ref == 'refs/heads/source' && inputs.publish
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      pages: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .node-version
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.11'
+      - name: Independently verify, publish and check Pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.release }}
+        run: python -B tools/deploy.py --release "$RELEASE_TAG" --publish
+      - name: Publication evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: release-publication
+          path: .build/validation/deploy-*/
+          include-hidden-files: true
+          retention-days: 14

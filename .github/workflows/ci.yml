@@ -1,0 +1,70 @@
+name: Source CI
+
+on:
+  push:
+    branches: [source]
+  pull_request:
+    branches: [source]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: source-ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Source and builds (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-2025]
+    env:
+      PYTHONUTF8: '1'
+      PYTHONDONTWRITEBYTECODE: '1'
+      GIT_CONFIG_COUNT: '1'
+      GIT_CONFIG_KEY_0: core.longpaths
+      GIT_CONFIG_VALUE_0: 'true'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.11'
+      - name: Restore verified inputs and locked dependencies
+        run: npm run setup
+      - name: Shared local and CI validation
+        run: npm run ci
+      - name: Install Chromium for appearance smoke tests
+        if: runner.os == 'Linux'
+        run: node node_modules/@playwright/test/cli.js install --with-deps chromium
+      - name: Browser appearance smoke (no GPU qualification)
+        if: runner.os == 'Linux'
+        run: npm run test:ci
+      - name: Validation logs and browser failure traces
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: validation-${{ matrix.os }}
+          path: .build/validation/
+          include-hidden-files: true
+          retention-days: 7
+          if-no-files-found: warn
+      - name: Verified app and standalone renderer
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: distributions-${{ matrix.os }}
+          path: |
+            dist/
+            dist-engine/
+          retention-days: 7
+          if-no-files-found: error

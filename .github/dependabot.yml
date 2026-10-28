@@ -1,0 +1,11 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    target-branch: source
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 3
+    groups:
+      official-actions:
+        patterns: ['actions/*']

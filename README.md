@@ -132,49 +132,38 @@ edited document and executable Undo/Redo. [Input-policy review](design/feature-r
 
 ## Run locally
 
-The prepared build workspace uses Node.js 24+, npm, Python, and the reviewed
-Windows x86-64 Emscripten toolchain in [TOOLCHAIN_LOCK.json](native/TOOLCHAIN_LOCK.json).
-The native builder expects Emscripten 6.0.12 under `.tools/emsdk` or `EMSDK`, plus
-the pinned CMake/Ninja and codec inputs. Its installed SDK/cache fingerprints
-must match the lock. Build commands verify these inputs and never update the lock.
-
-After a fresh checkout, restore the frozen desktop references from the checked-in
-archive. This explicit step verifies every member against the existing source
-lock/capture manifests and refuses conflicting local files. It never reads a
-sibling checkout or regenerates assets. See [the packaging review](design/feature-reviews/frozen-reference-packaging-2026-10-22.md).
+Use Node **24.21.0** (see `.node-version`), npm and Python **3.11+** on Windows,
+macOS or Ubuntu. From a fresh source checkout:
 
 ```sh
-python -B tools/restore-references.py
-```
-
-From that workspace:
-
-```sh
-npm ci
-npm run build:core
+npm run setup
 npm run dev
 ```
 
-Open the local URL printed by Vite. Once generated native artifacts exist, UI-only
-development uses `npm run dev`. Native or codec changes require `build:core` again.
-Generated native files are intentionally ignored by Git.
-
-For the static production app:
+`setup` restores the checked-in frozen references, restores checksum-pinned
+released WASM when needed, and installs locked npm dependencies. It refuses
+stale native inputs and conflicting files. Runtime reuse does not require the
+Windows native compiler and does not qualify a new native build.
 
 ```sh
-npm run build
-npm run preview
+npm run doctor     # Read-only setup diagnostics
+npm run check      # Contracts, types and portable/tool tests
+npm run ci         # Same checks plus app and standalone renderer builds
+npm run preview    # Serve the emitted app after a build
 ```
 
-`build` verifies sources/native provenance, checks types, cleans `dist`, and
-publishes the reviewed application assets and build manifest. `preview` serves
-that emitted build locally. Opening `index.html` directly as a filesystem URL
-does not provide the application's HTTP worker and asset environment.
+Open the HTTP URL printed by Vite. Native/codec changes still require
+`npm run build:core` and the reviewed Windows x86-64 Emscripten 6.0.12
+[toolchain lock](native/TOOLCHAIN_LOCK.json); setup never changes that lock.
+Generated native files and validation logs remain ignored.
 
-The build lock describes the native build host. Browser clients use the emitted
-static files and require WebAssembly and a graphics API with the capabilities
-and limits checked at startup. WebGPU and clipboard APIs require a secure context. Mac hardware testing is optional for this project;
-compatibility claims stay limited to observed browser environments.
+The [developer workflow and CI/CD guide](docs/development/automation.md) covers
+setup, checks, browser/hardware qualification, logs and release promotion.
+Development uses `source`; `main` contains only the static Pages website.
+
+Browser clients require WebAssembly and a graphics API with the capabilities
+and limits checked at startup. WebGPU and clipboard APIs require a secure
+context. Browser compatibility claims stay limited to observed environments.
 
 ## Scene workflow
 
