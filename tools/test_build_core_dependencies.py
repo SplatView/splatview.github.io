@@ -367,7 +367,7 @@ class SogExportOverlayTests(unittest.TestCase):
         self.assertEqual(header.read_bytes(), before)
 
     def test_webp_copy_preserves_symbols_and_original_source(self):
-        source = builder.SDK / 'upstream/emscripten/cache/ports/contrib.libwebp/libwebp-1.6.0/src/utils/utils.c'
+        source = builder.ROOT / 'tests/fixtures/webp-1.6.0/utils.c'
         before = source.read_bytes()
         destination = self.root / 'codec/webp_utils.c'
         builder.adapt_webp_utils(source, destination)
