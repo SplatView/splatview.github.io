@@ -315,17 +315,28 @@ test('approved profiles cannot omit pointer or retirement targets, or hide unava
   m.samples = null; m.sampleCount = 0; m.unavailableReason = 'Synthetic missing pointer timestamp'; refresh(s);
   assert(has(validateBenchmark(report, target, expectedFixture()), 'unmeasured-target'));
 });
-test('memory ceilings cannot be proposed under pending status, duplicated, unmeasured or exceeded', () => {
-  const p = packet(); p.target.memoryCeilings = [{ cellId: 'synthetic-cell', point: 'load-peak', category: 'ledgerPeak', maximumBytes: 1000 }]; assert(has(validate(p), 'pending-thresholds'));
-  const target = fullTargetFixture(), report = reportFixture(target); approvePolicyFixture(target, report);
-  target.memoryCeilings!.find((entry) => entry.cellId === target.cells[0]!.id && entry.point === 'load-peak' && entry.category === 'ledgerPeak')!.maximumBytes = 1000;
-  assert(has(validateBenchmark(report, target, expectedFixture()), 'memory-ceiling-exceeded'));
-  target.memoryCeilings!.shift(); assert(has(validateBenchmark(report, target, expectedFixture()), 'incomplete-memory-ceilings'));
-  target.memoryCeilings!.push({ ...target.memoryCeilings![0]! }); assert(has(validateBenchmark(report, target, expectedFixture()), 'duplicate-memory-ceiling'));
-  target.memoryCeilings!.pop(); target.memoryCeilings!.push({ cellId: target.cells[0]!.id, point: 'baseline', category: 'jsHeapEstimate', maximumBytes: 1000000 }); assert(has(validateBenchmark(report, target, expectedFixture()), 'unmeasured-memory-target'));
-  const observation = report.cells[1]!.scenarios.find((entry) => entry.kind === 'open-cold')!.attempts[0]!.memory[0]!.observations.wasmLinearHighWater;
-  observation.bytes = null; observation.unavailableReason = 'Synthetic missing high-water measurement'; assert(has(validateBenchmark(report, target, expectedFixture()), 'unmeasured-memory-target'));
+test('pending memory policies cannot propose ceilings', () => {
+  const p = packet(); p.target.memoryCeilings = [{ cellId: 'synthetic-cell', point: 'load-peak', category: 'ledgerPeak', maximumBytes: 1000 }];
+  assert(has(validate(p), 'pending-thresholds'));
 });
+// Preserve the original cumulative fault scenarios, with one full-matrix
+// validation per test so shared CI runners retain the existing five-second limit.
+test.each(['exceeded', 'incomplete', 'duplicate', 'unmeasured-estimate', 'unmeasured-high-water'] as const)(
+  'approved memory policy refuses %s with the complete matrix', fault => {
+    const target = fullTargetFixture(), report = reportFixture(target); approvePolicyFixture(target, report);
+    target.memoryCeilings!.find((entry) => entry.cellId === target.cells[0]!.id && entry.point === 'load-peak' && entry.category === 'ledgerPeak')!.maximumBytes = 1000;
+    if (fault !== 'exceeded') target.memoryCeilings!.shift();
+    if (fault === 'duplicate') target.memoryCeilings!.push({ ...target.memoryCeilings![0]! });
+    if (fault === 'unmeasured-estimate' || fault === 'unmeasured-high-water')
+      target.memoryCeilings!.push({ cellId: target.cells[0]!.id, point: 'baseline', category: 'jsHeapEstimate', maximumBytes: 1000000 });
+    if (fault === 'unmeasured-high-water') {
+      const observation = report.cells[1]!.scenarios.find((entry) => entry.kind === 'open-cold')!.attempts[0]!.memory[0]!.observations.wasmLinearHighWater;
+      observation.bytes = null; observation.unavailableReason = 'Synthetic missing high-water measurement';
+    }
+    const issue = fault === 'exceeded' ? 'memory-ceiling-exceeded' : fault === 'incomplete' ? 'incomplete-memory-ceilings' :
+      fault === 'duplicate' ? 'duplicate-memory-ceiling' : 'unmeasured-memory-target';
+    assert(has(validateBenchmark(report, target, expectedFixture()), issue));
+  });
 test('write-once report preserves existing bytes and diagnostic validity never implies acceptance', async () => {
   const dir = await mkdtemp(join(tmpdir(), 'splatview-bench-validator-exclusive-')); const path = dir + '/report.json';
   const p = packet(); const validation = await writeBenchmarkReportExclusive(path, p.report, p.target, expectedFixture()); assert.equal(validation.accepted, false); const before = await readFile(path);

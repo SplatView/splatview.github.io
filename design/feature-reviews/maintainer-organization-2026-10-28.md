@@ -75,3 +75,12 @@ its timed-out benchmark/memory and sort-oracle cases remain diagnostic. The
 final expression retains Vitest's existing one-CPU runner reserve, verified in
 the locked installed Vitest source, while bounding high-core machines. No case
 is skipped, retried, removed or given a longer deadline to obtain a passing run.
+
+With runner headroom restored, Ubuntu passed; Windows still exceeded the deadline
+in one existing memory-policy case containing six complete validations. Report
+the pending-policy check and five approved-policy scenarios as separate tests.
+Each keeps its complete original matrix, expected issue and cumulative mutations
+(including missing ceilings plus duplicate/unknown measurements). Retain the
+validator, matrix sizes, five-second deadlines and every original assertion.
+The additional reported cases express existing coverage rather than new runtime
+capabilities. Old receipts and failed diagnostics remain unchanged.
