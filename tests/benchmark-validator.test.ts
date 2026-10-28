@@ -282,11 +282,21 @@ test('synthetic in-memory policy test exercises explicit approved thresholds wit
   const target = fullTargetFixture(), report = reportFixture(target); approvePolicyFixture(target, report);
   const accepted = validateBenchmark(report, target, expectedFixture()); assert.equal(accepted.valid, true, JSON.stringify(accepted.issues)); assert.equal(accepted.accepted, true); assert.equal(accepted.sustainedQualified, false);
   assert.equal(accepted.scope, 'w09-initial-only'); assert.equal(accepted.observedScope, undefined);
-  report.evidenceClass = 'local-chromium'; assert(has(validateBenchmark(report, target, expectedFixture()), 'evidence-class')); report.evidenceClass = 'actual-mac';
-  target.thresholds![0]!.maximum = 0; assert(has(validateBenchmark(report, target, expectedFixture()), 'threshold-exceeded'));
-  target.thresholds!.shift(); assert(has(validateBenchmark(report, target, expectedFixture()), 'incomplete-thresholds'));
-  report.evidenceClass = 'synthetic-tooling'; assert.equal(validateBenchmark(report, target, expectedFixture()).accepted, false);
 });
+// Each case still validates the complete 64-cell matrix. Give each independent
+// policy scenario its own timeout and failure identity instead of bundling five
+// CPU-heavy validations into one five-second test on shared CI runners.
+test.each(['evidence-class', 'threshold-exceeded', 'incomplete-thresholds', 'synthetic-tooling'] as const)(
+  'synthetic in-memory approved policy refuses %s without publishing Mac evidence', issue => {
+    const target = fullTargetFixture(), report = reportFixture(target); approvePolicyFixture(target, report);
+    if (issue === 'evidence-class') report.evidenceClass = 'local-chromium';
+    if (issue === 'threshold-exceeded') target.thresholds![0]!.maximum = 0;
+    if (issue === 'incomplete-thresholds' || issue === 'synthetic-tooling') target.thresholds!.shift();
+    if (issue === 'synthetic-tooling') report.evidenceClass = 'synthetic-tooling';
+    const result = validateBenchmark(report, target, expectedFixture());
+    if (issue === 'synthetic-tooling') assert.equal(result.accepted, false);
+    else assert(has(result, issue));
+  });
 test('required targets include selection pointer latency and every scenario retirement metric', () => {
   assert.deepEqual(requiredTargetMetrics('selection-cold'), ['operationSettledMs', 'resourceRetiredMs', 'pointerPreviewMs']);
   assert.deepEqual(requiredTargetMetrics('orbit'), ['frameMs', 'resourceRetiredMs']);
