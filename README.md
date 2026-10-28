@@ -25,8 +25,8 @@ The desktop behavior target is SplatView 1.0.2, committed revision
 `4e1be155511fb49f08fd8c863d785ac008a4c43a`. COLMAPView and PlayCanvas inform browser
 implementation choices; desktop SplatView remains the core and UI authority.
 The active web product is a Basic viewer and lightweight editor. Agent access and
-advanced editing are excluded. See the [implementation status](IMPLEMENTATION_STATUS.md)
-and [port plan](WEB_PORT_PLAN.md) for the active scope and validation.
+advanced editing are excluded. See the [implementation status](docs/porting/status.md)
+and [port plan](docs/porting/plan.md) for the active scope and validation.
 
 For selection changes, see the [module map, ownership invariants and focused
 test commands](docs/development/selection.md).
@@ -65,7 +65,7 @@ passed 106 focused UI/policy tests, 18 browser checks and the production build.
 [Design sources and adaptations](docs/third-party/WINDOWS_DESIGN_ALIGNMENT_REFERENCES.md).
 
 Earlier 1.0.4 labels for this commit are corrected by the
-[desktop version erratum](IMPLEMENTATION_STATUS.md#desktop-reference-version-erratum).
+[desktop version erratum](docs/porting/status.md#desktop-reference-version-erratum).
 
 ### Exact rendering optimizations (October 25, 2026)
 

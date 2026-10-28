@@ -32,6 +32,6 @@ const projects = files.map(file => {
 // Server reuse, origin, reporters and output locations retain base/CLI defaults.
 export default defineConfig({
   ...base,
-  testDir: fileURLToPath(new URL('./e2e/', import.meta.url)),
+  testDir: fileURLToPath(new URL('../e2e/', import.meta.url)),
   projects,
 });

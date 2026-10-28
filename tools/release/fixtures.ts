@@ -7,11 +7,11 @@ import { sameRecords } from './shipping.ts';
 import type { BuildDescriptor, RuntimeManifest } from '../../src/build/contracts.ts';
 import type { FileRef, FixtureApplicability, ReportExpectation, SourceCapture, SourceInventory, TestEvidence } from './types.ts';
 
-const ROOT_FILES = ['index.html', 'package.json', 'package-lock.json', 'tsconfig.json', 'vite.config.ts', 'playwright.config.ts', 'playwright.compat.config.ts', 'native/SOURCE_LOCK.json', 'native/DEPENDENCIES.json', 'native/TOOLCHAIN_LOCK.json'];
-const TREES = ['src', 'e2e', 'tests', 'tools', 'native/wasm', 'native/deps', 'native/upstream/splatview', 'reference/windows', 'public'];
+const ROOT_FILES = ['index.html', 'package.json', 'package-lock.json', 'tsconfig.json', 'vite.config.ts', 'config/playwright.config.ts', 'config/playwright.compat.config.ts', 'native/SOURCE_LOCK.json', 'native/DEPENDENCIES.json', 'native/TOOLCHAIN_LOCK.json'];
+const TREES = ['config', 'contracts', 'design/feature-reviews', 'src', 'e2e', 'tests', 'tools', 'native/wasm', 'native/deps', 'native/upstream/splatview', 'reference/windows', 'public'];
 const NATIVE = ['splatview-core.mjs', 'splatview-core.wasm', 'splatview-camera.mjs', 'splatview-camera.wasm', 'build-provenance.json'];
 const AUTHORITIES = ['tools/capture-sources.py', 'tools/generate-assets.py', 'tools/generate-native-translations.py'];
-const PROTECTED = [...AUTHORITIES, 'tools/build-offline-fixtures.py', 'tools/build-compat-fixtures.py', 'tools/verify-toolchain.py', 'tools/offline-test-host.mjs', 'playwright.offline.config.ts', 'tests/offline/offline.spec.ts'];
+const PROTECTED = [...AUTHORITIES, 'tools/build-offline-fixtures.py', 'tools/build-compat-fixtures.py', 'tools/verify-toolchain.py', 'tools/offline-test-host.mjs', 'config/playwright.offline.config.ts', 'tests/offline/offline.spec.ts'];
 const BEFORE = '<title>SplatView offline unavailable</title>', AFTER = '<title>SplatView offline cache unavailable</title>';
 const C_DESCRIPTION = 'Fixture-only compatible generic-router update: change only the fallback HTML document title';
 type Row = Record<string, unknown>;
@@ -46,7 +46,7 @@ export async function collectFixtureSource(workspace: Workspace, supplementPaths
   };
   for (const name of ROOT_FILES) names.add(name);
   for (const tree of TREES) await walk(tree);
-  for (const name of [...supplementPaths, 'playwright.offline.config.ts']) names.add(relativePath(name));
+  for (const name of [...supplementPaths, 'config/playwright.offline.config.ts']) names.add(relativePath(name));
   if (options.withNative ?? true) for (const name of NATIVE) names.add('public/wasm/' + name);
   const inventory: FileRef[] = [];
   for (const name of [...names].sort()) { const reference = (await workspace.read(prefix + name)).reference; inventory.push({ ...reference, path: name }); }
@@ -71,7 +71,7 @@ export async function inspectGenuineFixtures(workspace: Workspace, receiptRef: F
   require(receiptRef.path === base + '/fixture-set.json', 'Fixture receipt path/capture ID scope differs');
   require(object(value.sourceCapture), 'Fixture source capture missing'); const capture = value.sourceCapture as Row;
   keys(capture, ['initial', 'final', 'additionalRootFiles']); assertSourceInventory(capture.initial); assertSourceInventory(capture.final);
-  require(equal(capture.initial, capture.final) && equal(capture.additionalRootFiles, ['playwright.offline.config.ts']), 'Fixture source changed or additional configuration differs');
+  require(equal(capture.initial, capture.final) && equal(capture.additionalRootFiles, ['config/playwright.offline.config.ts']), 'Fixture source changed or additional configuration differs');
   const initial = capture.initial as SourceInventory;
   const overrides = value.reviewedOverrideProvenance as Row;
   require(object(overrides), 'Fixture provenance supplement missing'); keys(overrides, ['authorities', 'scope', 'initial', 'final']);
@@ -149,7 +149,7 @@ export async function inspectGenuineFixtures(workspace: Workspace, receiptRef: F
     for (let index = 0; index < NATIVE.length; index++) {
       const row = stagedNative[index]!, original = native[index]!; require(object(row), 'Staged native record malformed'); keys(row as unknown as Row, ['name', 'path', 'bytes', 'sha256']); require(row.name === original.name && row.path === `${root}/public/wasm/${row.name}` && equal(summary(row), summary(original)), 'Foreign staged fixture native bytes'); await workspace.read(row.path, { path: row.path, ...summary(row) });
     }
-    for (const [key, originals] of [['reviewedOverrideProvenance', supplements], ['acceptanceConfiguration', [initial.inventory.find(row => row.path === 'playwright.offline.config.ts')!]]] as const) {
+    for (const [key, originals] of [['reviewedOverrideProvenance', supplements], ['acceptanceConfiguration', [initial.inventory.find(row => row.path === 'config/playwright.offline.config.ts')!]]] as const) {
       const copies = fixture[key] as Row[]; require(Array.isArray(copies) && copies.length === originals.length, 'Fixture supplemental/config copy inventory differs');
       for (const original of originals) { const copy = copies.find(row => object(row.before) && row.before.path === original.path); require(copy && equal(copy.before, original) && equal(copy.after, { path: `${root}/${original.path}`, ...summary(original) }), 'Fixture supplemental/config before/after binding differs'); keys(copy!, ['before', 'after']); await workspace.read(`${root}/${original.path}`, { path: `${root}/${original.path}`, ...summary(original) }); }
     }

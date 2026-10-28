@@ -3,15 +3,15 @@ import { createHash } from 'node:crypto';
 import { lstatSync, realpathSync, readFileSync, readdirSync } from 'node:fs';
 import { resolve, relative, dirname } from 'node:path';
 
-const root = import.meta.dirname;
+const root = resolve(import.meta.dirname, '..');
 const pureInputs = ['src/document/resources.ts', 'src/document/duplicateProtocol.ts',
   'src/document/selectionView.ts', 'src/io/image.ts', 'src/input/background.ts', 'src/build/contracts.ts', 'src/build/verification.ts'];
 function files(directory: string): string[] {
   return readdirSync(resolve(root, directory), { withFileTypes: true }).flatMap(entry =>
     entry.isDirectory() ? files(`${directory}/${entry.name}`) : [`${directory}/${entry.name}`]);
 }
-const sources = [...files('src/renderer'), ...files('src/engine'), ...pureInputs, 'vite.engine.config.ts',
-  'tsconfig.engine.json', 'tools/build-engine.mjs', 'tools/check-engine.mjs'].filter(path => !path.endsWith('webgl2/compute.worker.ts')).sort();
+const sources = [...files('src/renderer'), ...files('src/engine'), ...pureInputs, 'config/vite.engine.config.ts',
+  'config/tsconfig.engine.json', 'tools/build-engine.mjs', 'tools/check-engine.mjs'].filter(path => !path.endsWith('webgl2/compute.worker.ts')).sort();
 const digest = createHash('sha256');
 for (const path of sources) digest.update(path).update('\0').update(readFileSync(resolve(root, path))).update('\0');
 const sourceId = digest.digest('hex'), allowed = new Set(sources);
@@ -52,6 +52,7 @@ function closure(): Plugin {
 }
 
 export default defineConfig({
+  root,
   base: './', publicDir: false, define: { __SPLATVIEW_ENGINE_SOURCE_ID__: JSON.stringify(sourceId) },
   plugins: [closure(), {
     name: 'standalone-renderer-manifest',

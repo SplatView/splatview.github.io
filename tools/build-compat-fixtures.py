@@ -24,9 +24,9 @@ import uuid
 sys.dont_write_bytecode = True
 ROOT = Path(__file__).resolve().parents[1]
 ROOT_FILES = ('index.html', 'package.json', 'package-lock.json', 'tsconfig.json',
-              'vite.config.ts', 'playwright.config.ts', 'playwright.compat.config.ts',
+              'vite.config.ts', 'config/playwright.config.ts', 'config/playwright.compat.config.ts',
               'native/SOURCE_LOCK.json', 'native/DEPENDENCIES.json', 'native/TOOLCHAIN_LOCK.json')
-TREES = ('src', 'e2e', 'tests', 'tools', 'native/wasm', 'native/deps',
+TREES = ('config', 'src', 'e2e', 'tests', 'tools', 'native/wasm', 'native/deps',
          'native/upstream/splatview', 'reference/windows', 'public')
 PUBLICATION = ('splatview-core.mjs', 'splatview-core.wasm', 'splatview-camera.mjs',
                'splatview-camera.wasm', 'build-provenance.json')

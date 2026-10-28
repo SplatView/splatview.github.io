@@ -3,7 +3,7 @@ import { lstatSync, readdirSync, realpathSync } from 'node:fs';
 import { isAbsolute, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const specRoot = resolve(fileURLToPath(new URL('./e2e/', import.meta.url)));
+const specRoot = resolve(fileURLToPath(new URL('../e2e/', import.meta.url)));
 const certificatePin = process.env.SPLATVIEW_TEST_CHROMIUM_SPKI_PIN;
 if (certificatePin && !/^[A-Za-z0-9+/]{43}=$/.test(certificatePin)) throw new Error('Invalid test certificate SPKI pin.');
 const specs: string[] = [];
@@ -32,8 +32,8 @@ const projects = specs.map(filename => {
   return { name, testMatch: new RegExp(`^${escaped}$`) };
 });
 export default defineConfig({
-  outputDir: './.build/validation/playwright',
-  testDir: './e2e', timeout: 60_000, expect: { timeout: 15_000 }, workers: 1, retries: 0, fullyParallel: false, projects,
+  outputDir: '../.build/validation/playwright',
+  testDir: specRoot, timeout: 60_000, expect: { timeout: 15_000 }, workers: 1, retries: 0, fullyParallel: false, projects,
   use: { locale: 'en-US', baseURL: process.env.SPLATVIEW_TEST_ORIGIN ?? 'http://127.0.0.1:5173',
     // Existing feature cohorts start after onboarding. Tutorial specs override
     // this state and exercise the actual first-run offer separately.
@@ -42,5 +42,5 @@ export default defineConfig({
     ignoreHTTPSErrors: process.env.SPLATVIEW_TEST_IGNORE_HTTPS_ERRORS === '1', viewport: { width: 1280, height: 800 },
     channel: 'chromium', launchOptions: { args: ['--enable-unsafe-webgpu',
       ...(certificatePin ? [`--ignore-certificate-errors-spki-list=${certificatePin}`] : [])] }, trace: 'retain-on-failure' },
-  webServer: { command: 'npm run dev', url: process.env.SPLATVIEW_TEST_ORIGIN ?? 'http://127.0.0.1:5173', reuseExistingServer: true, timeout: 30_000 },
+  webServer: { cwd: fileURLToPath(new URL('../', import.meta.url)), command: 'npm run dev', url: process.env.SPLATVIEW_TEST_ORIGIN ?? 'http://127.0.0.1:5173', reuseExistingServer: true, timeout: 30_000 },
 });

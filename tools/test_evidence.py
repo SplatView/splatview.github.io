@@ -203,6 +203,24 @@ class HistoricalEvidenceTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'Loose generated evidence'):
             check_layout(self.root)
 
+    def test_project_layout_rejects_non_entrypoint_root_files_in_a_source_export(self):
+        for name in ['playwright.ci.config.ts', 'REVIEW_BASELINE.json', 'WEB_PORT_PLAN.md', 'scratch.txt']:
+            with self.subTest(name=name):
+                target = self.root / name
+                target.write_text('extra root file', encoding='utf-8')
+                with self.assertRaisesRegex(ValueError, 'outside the repository root'):
+                    check_layout(self.root)
+                target.unlink()
+
+    def test_relocated_port_guides_keep_the_strict_archive_link_check(self):
+        guide = self.root / 'docs/porting/plan.md'
+        guide.parent.mkdir(parents=True)
+        guide.write_text('[old report](../validation/runs/example/report.json)', encoding='utf-8')
+        with self.assertRaisesRegex(ValueError, 'Maintained guide links to archived evidence'):
+            check_layout(self.root)
+        guide.write_text('[archive catalog](../validation/README.md#example)', encoding='utf-8')
+        check_layout(self.root)
+
     def test_only_declared_byte_exact_fixture_provenance_stays_in_source(self):
         name = next(iter(self.payloads))
         self.catalog['retainedInputs'] = [name]

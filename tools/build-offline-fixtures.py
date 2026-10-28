@@ -28,8 +28,7 @@ capture_sources = importlib.util.module_from_spec(CAPTURE_SPEC)
 CAPTURE_SPEC.loader.exec_module(capture_sources)
 TITLE_BEFORE = b'<title>SplatView offline unavailable</title>'
 TITLE_AFTER = b'<title>SplatView offline cache unavailable</title>'
-EXTRA_ROOT_FILES = ('playwright.offline.config.ts', 'playwright.engine.config.ts',
-                    'playwright.selection.config.ts', 'vite.engine.config.ts', 'tsconfig.engine.json')
+EXTRA_ROOT_FILES = ('config/playwright.offline.config.ts',)
 EXTRA_TREES = ('contracts', 'design/feature-reviews')
 PROVENANCE_AUTHORITIES = ('tools/capture-sources.py', 'tools/generate-assets.py', 'tools/generate-native-translations.py')
 

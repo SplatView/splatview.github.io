@@ -18,6 +18,9 @@ MAX_FILE = 128 * 1024 * 1024
 MAX_TOTAL = 512 * 1024 * 1024
 CATALOG = 'docs/validation/archive/index.json'
 ACTIVE_JSON = {'phase-1-template.json', 'release-evidence.schema.json'}
+ROOT_PROJECT_FILES = {'.gitattributes', '.gitignore', '.node-version', 'AGENTS.md',
+                      'CLAUDE.md', 'CHANGELOG.md', 'README.md', 'index.html',
+                      'package.json', 'package-lock.json', 'tsconfig.json', 'vite.config.ts'}
 
 
 def digest(data):
@@ -249,14 +252,17 @@ def check_layout(root):
     bad = [name for name in names if name and historical_path(name) and name not in evidence.retained and (root / name).is_file()]
     if bad:
         raise ValueError('Loose generated evidence is tracked in source: ' + ', '.join(bad[:5]))
+    loose = [name for name in names if name and '/' not in name and name not in ROOT_PROJECT_FILES
+             and (root / name).is_file()]
+    if loose:
+        raise ValueError('Non-entrypoint files belong outside the repository root: ' + ', '.join(loose[:5]))
     check_guide_links(root, evidence)
 
 
 def check_guide_links(root, evidence):
     archived = {(root / name).resolve() for name in evidence.by_path if name not in evidence.retained}
-    guides = [root / name for name in ['README.md', 'WEB_PORT_PLAN.md', 'IMPLEMENTATION_STATUS.md',
-                                      'WEB_IMPLEMENTATION_DETAILS.md', 'docs/native-allocation-census.md']]
-    for directory in ['docs/development', 'tools']:
+    guides = [root / name for name in ['README.md', 'docs/native-allocation-census.md']]
+    for directory in ['docs/development', 'docs/porting', 'tools']:
         guides.extend((root / directory).rglob('*.md'))
     for guide in guides:
         if not guide.is_file():

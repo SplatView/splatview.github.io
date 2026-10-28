@@ -1,7 +1,7 @@
 # Project structure
 
 Start with [README](../../README.md), [AGENTS](../../AGENTS.md), the
-[port plan](../../WEB_PORT_PLAN.md) and [implementation status](../../IMPLEMENTATION_STATUS.md).
+[port plan](../porting/plan.md) and [implementation status](../porting/status.md).
 The source branch is `source`; `main` contains the published static website.
 
 | Location | Maintained responsibility |
@@ -16,17 +16,23 @@ The source branch is `source`; `main` contains the published static website.
 | `tests/`, `e2e/` | Portable tests, required fixtures and actual browser journeys. |
 | `tools/` | Source/build verification, benchmark/release tools and evidence inspection. |
 | `.github/` | Source CI, qualified release promotion and reviewed Actions updates. |
+| `config/` | Browser profiles and standalone build/declaration configs; see the [configuration map](../../config/README.md). |
 | `contracts/` | Sealed product bundle, explicit adapter and generated policy inputs. |
 | `native/`, `reference/` | Locked native/WASM sources, toolchains and source captures. |
 | `public/` | Curated runtime assets; `public/wasm/` is generated and verified separately. |
 | `design/feature-reviews/` | Required platform decisions and implementation reviews. |
 | `docs/development/`, `docs/parity/`, `docs/third-party/` | Maintainer guides, capability contracts and attribution. |
+| `docs/porting/` | [Port plan, status, implementation details and frozen review baselines](../porting/README.md). |
 | `docs/validation/` | Active evidence schemas/templates and the historical archive catalog. |
 | `.build/validation/` | Ignored local reports, traces, archive cache and restored evidence. |
 | `dist/`, `dist-engine/` | Generated application and standalone renderer distributions. |
 
-The root keeps entry documents, package/dependency locks and conventional build
-configuration. JSON contracts, source captures, localization and fixtures are
+The root keeps 12 conventional entry files: README/changelog, agent instructions,
+package/dependency locks, HTML, primary Vite/TypeScript configs and hidden Git/Node
+controls. Browser profiles and standalone configs belong in `config/`; port
+documents and review baselines belong in `docs/porting/`. `verify:project` rejects
+new loose root files until the entry-point policy is explicitly reviewed.
+JSON contracts, source captures, localization and fixtures are
 maintained inputs. Test logs, reports and screenshots belong to validation runs.
 
 ## Working commands

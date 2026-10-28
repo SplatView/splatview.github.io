@@ -11,7 +11,7 @@ replay a committed edit or implement a separate browser history model.
 
 Local design and implementation references:
 
-- [Unknown edit outcomes](../../WEB_IMPLEMENTATION_DETAILS.md) describes the
+- [Unknown edit outcomes](../porting/implementation.md) describes the
   operation identity, receipt, retained resources, retry and publication contract.
 - [Native adapter](../../native/wasm/bindings.cpp) owns identified transactions.
 - [Fixed receipt ledger](../../native/wasm/operation_receipt.hpp) retains the

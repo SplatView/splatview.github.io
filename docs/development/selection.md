@@ -99,7 +99,7 @@ npm run test:selection:e2e
 ```
 
 The browser command runs the maintained 126-case cohort in
-[playwright.selection.config.ts](../../playwright.selection.config.ts). It reuses
+[playwright.selection.config.ts](../../config/playwright.selection.config.ts). It reuses
 the base browser/security/worker policy and starts or reuses the development
 server. Each spec retains its separate project identity, so browser workers
 retire between specs. Fill, Connected Color and Volume use their reviewed

@@ -1,5 +1,6 @@
 import { defineConfig } from '@playwright/test';
 import base from './playwright.config';
+import { fileURLToPath } from 'node:url';
 
 // These specs use ui-size-harness: startup substitutes initialize() and never
 // creates a native worker or GPU. Hardware-rendering suites retain their own lanes.
@@ -12,7 +13,7 @@ export default defineConfig({
   ...base,
   projects,
   forbidOnly: true,
-  outputDir: './.build/validation/ci-browser',
-  reporter: [['list'], ['json', { outputFile: './.build/validation/ci-browser.json' }]],
+  outputDir: '../.build/validation/ci-browser',
+  reporter: [['list'], ['json', { outputFile: fileURLToPath(new URL('../.build/validation/ci-browser.json', import.meta.url)) }]],
   webServer: { ...webServer, reuseExistingServer: false },
 });

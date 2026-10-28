@@ -5,10 +5,10 @@
   "actual_mac_run_occurred": false,
   "template_notice": "No Mac run or measurement is recorded. Copy once per hardware/browser/host cell; replace pending fields only with observed evidence. This is a report template, not an implemented runner or validator.",
   "specification": {
-    "foundation_scope": "../../WEB_PORT_PLAN.md#immediate-mac-proof-alongside-foundation-work",
-    "measurement_protocol": "../../WEB_IMPLEMENTATION_DETAILS.md#performance-measurement-protocol",
-    "capture_contract": "../../WEB_IMPLEMENTATION_DETAILS.md#reference-capture-manifest",
-    "evidence_lifetime": "../../WEB_PORT_PLAN.md#qualification-evidence-lifetime"
+    "foundation_scope": "../porting/plan.md#immediate-mac-proof-alongside-foundation-work",
+    "measurement_protocol": "../porting/implementation.md#performance-measurement-protocol",
+    "capture_contract": "../porting/implementation.md#reference-capture-manifest",
+    "evidence_lifetime": "../porting/plan.md#qualification-evidence-lifetime"
   },
   "run": {
     "run_id": null,
