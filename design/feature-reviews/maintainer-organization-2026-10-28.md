@@ -64,8 +64,14 @@ receipts or present their cases as newly run at this source.
 The first full local run passed all moved Python/Node tests, then an existing
 file-heavy genuine-fixture case exceeded its five-second limit under the default
 Vitest pool on a 32-logical-CPU host. Bound default file concurrency to
-`min(4, availableParallelism())` in the existing Vite/Vitest configuration and
+`min(4, max(1, availableParallelism() - 1))` in the existing Vite/Vitest configuration and
 rerun the full suite. Preserve isolation, all cases/assertions and per-case
 timeouts. This is test-runner scheduling, not an app worker/codec budget or
 renderer change. Retain the failed diagnostic and allow ordinary CLI worker
 overrides for explicit profiling. Record the final source-specific CI result.
+
+The initial four-worker cap passed locally but used all four CPUs on hosted CI;
+its timed-out benchmark/memory and sort-oracle cases remain diagnostic. The
+final expression retains Vitest's existing one-CPU runner reserve, verified in
+the locked installed Vitest source, while bounding high-core machines. No case
+is skipped, retried, removed or given a longer deadline to obtain a passing run.

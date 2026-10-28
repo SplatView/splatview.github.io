@@ -46,7 +46,7 @@ installed npm dependencies. It neither restores inputs nor writes test receipts.
 | `npm run test:ci` | Chromium appearance/update-notice journeys using the UI-only startup harness. Install the pinned browser first with `npx playwright install chromium`. |
 | `npm run test:e2e` | Existing browser suites; select the relevant hardware/feature projects for the change. |
 
-Portable tests default to at most four workers to bound concurrent fixture I/O.
+Portable tests default to at most four workers, reserving one CPU for the runner.
 Existing timeouts and isolation remain in place. Explicit CLI worker overrides
 are available for profiling; app worker/codec budgets are separate.
 

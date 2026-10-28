@@ -17,7 +17,7 @@ export default defineConfig(({ command }) => ({
     rolldownOptions: { output: { codeSplitting: false, entryFileNames: workerEntryFileName } },
   },
   // Keep file-heavy tool fixtures responsive on high-core developer machines.
-  test: { include: ['tests/**/*.test.ts'], maxWorkers: Math.min(4, availableParallelism()) },
+  test: { include: ['tests/**/*.test.ts'], maxWorkers: Math.min(4, Math.max(1, availableParallelism() - 1)) },
   server: {
     // Only source/UI changes need development transforms. Large generated and
     // captured trees can exhaust watcher capacity and leave stale transforms.
