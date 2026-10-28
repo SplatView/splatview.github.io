@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.2.2 — October 27, 2026
+
+- Flatten Settings into compact rows and actions, removing redundant headings
+  and subtitles. Show SteadySplats tuning directly when selected.
+- Move the update notice into the top toolbar beside Tools/Settings, using the
+  same icon-only styling, tooltip and keyboard behavior as the other controls.
+- Preserve update save/discard/cancel guards, native history, rendering quality,
+  sorted capture and automatic WebGPU-to-WebGL2 fallback.
+- Clean up the source layout, archive historical validation with checksums and
+  an explicit restore tool, and direct new reports into ignored build folders.
+- Improve evidence-cache recovery and include every Playwright configuration
+  in the existing TypeScript checks. Dependencies and native inputs are unchanged.
+
 ## 0.2.1 — October 26, 2026
 
 - Reduce loading delay by overlapping GPU upload completion with saved-view and
