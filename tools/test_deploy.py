@@ -98,3 +98,10 @@ class StaticStageTests(unittest.TestCase):
             self.qualified['files'] = [record(name, b'bad replacement')]
             with self.subTest(name=name), self.assertRaises(ValueError):
                 deploy.stage_distribution(self.target, self.distribution, self.qualified, 'v0.2.2', 'a' * 40)
+
+    def test_existing_hashed_asset_cannot_be_replaced_with_different_bytes(self):
+        self.write(self.distribution, 'assets/old.js', b'changed old client asset')
+        self.qualified['files'] = [record('assets/old.js', b'changed old client asset')]
+        with self.assertRaisesRegex(ValueError, 'Previously published asset'):
+            deploy.stage_distribution(self.target, self.distribution, self.qualified, 'v0.2.2', 'a' * 40)
+        self.assertEqual((self.target / 'assets/old.js').read_bytes(), b'old client')

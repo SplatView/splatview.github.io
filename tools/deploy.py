@@ -127,6 +127,8 @@ def stage_distribution(target, distribution, qualified, tag, commit):
         if name in protected and data != protected[name]:
             raise ValueError(f'Release would change preserved publisher/legal asset: {name}')
         path = checked_path(target, name)
+        if name.startswith('assets/') and path.exists() and path.read_bytes() != data:
+            raise ValueError(f'Previously published asset path has different bytes: {name}')
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_bytes(data)
     checked_path(target, '.gitattributes').write_bytes(b'* -text\n')

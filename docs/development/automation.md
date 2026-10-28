@@ -87,7 +87,8 @@ links, path traversal, case aliases and oversized archives are refused.
 An isolated static worktree stages the qualified bytes. Git-index blobs must
 match them exactly; nine existing publisher/legal assets and prior hashed assets
 are preserved. Version downgrades and changing an already published version's
-deployment identity are refused. The candidate, file inventory, base/source
+deployment identity are refused, as is reusing a published `assets/` path with
+different bytes. The candidate, file inventory, base/source
 commits, deployment identity and staged diff remain in a fresh ignored
 `.build/validation/deploy-*/` directory for inspection. A dry run does not commit,
 push, request a Pages build or alter a GitHub release.

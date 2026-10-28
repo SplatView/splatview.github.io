@@ -1,3 +1,4 @@
+import { Buffer } from 'node:buffer';
 import { createHash } from 'node:crypto';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { BUILD_DESCRIPTOR } from '../src/generated/buildIdentity';
@@ -155,7 +156,7 @@ beforeEach(async () => {
       nativeReply = failWrite ? { ok: false, error: 'Native checkpoint write failed.' } : { ok: true, byteLength: nativeInput!.length, written: offset + length }; return 12; },
     _sv_recovery_restore_finish() { finishes++; expect(busy).toBe(true);
       if (failFinish) { nativeReply = { ok: false, error: 'Native graph validation failed.' }; return 12; }
-      expect(nativeInput).toEqual(source.bytes); nativeSummary = { ...summary(true), count: source.plan.currentLoadedCount,
+      expect(Buffer.compare(nativeInput!, source.bytes)).toBe(0); nativeSummary = { ...summary(true), count: source.plan.currentLoadedCount,
         sourceCount: source.plan.currentSourceCount, duplicateRange: source.plan.currentDuplicateRange,
         visible: source.plan.currentLoadedCount, selected: source.plan.currentDuplicateRange?.count ?? 2 };
       busy = false; nativeInput = undefined; return 8; },
@@ -215,11 +216,11 @@ describe('worker recovery transport ownership', () => {
     expect(readCalls).toHaveLength(0); expect(busy).toBe(true); expect(releases).toBe(0);
     const queryCount = summaryQueries;
     const first = context.next('recovery-chunk'); control('recovery-proceed'); const chunk = await first;
-    expect(new Uint8Array(chunk.bytes)).toEqual(source.bytes.subarray(0, 1048576));
+    expect(Buffer.compare(new Uint8Array(chunk.bytes), source.bytes.subarray(0, 1048576))).toBe(0);
     await tick(); expect(readCalls).toHaveLength(1); expect(summaryQueries).toBe(queryCount);
     const second = context.next('recovery-chunk'); acknowledge(chunk); const remainder = await second;
     expect(remainder).toMatchObject({ index: 1, offset: 1048576, length: 201 });
-    expect(new Uint8Array(remainder.bytes)).toEqual(source.bytes.subarray(1048576));
+    expect(Buffer.compare(new Uint8Array(remainder.bytes), source.bytes.subarray(1048576))).toBe(0);
     const complete = context.next('recovery-exported'); acknowledge(remainder); await complete;
     expect(busy).toBe(true); expect(releases).toBe(0); expect(summaryQueries).toBe(queryCount);
     const terminal = context.next('recovery-result'); control('recovery-release');
