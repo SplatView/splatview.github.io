@@ -14,7 +14,8 @@ The source branch is `source`; `main` contains the published static website.
 | `src/ui/dialogs/`, `src/ui/settings/` | Focused modal implementations and Settings components. |
 | `src/input/`, `src/io/` | Pure navigation/input policies and browser file/view boundaries. |
 | `tests/`, `e2e/` | Portable tests, required fixtures and actual browser journeys. |
-| `tools/` | Source/build verification, benchmark/release tools and evidence inspection. |
+| `tools/` | Source/build verification, benchmark/release tools and evidence inspection; see the [tools map](../../tools/README.md). |
+| `tools/tests/` | Python and Node regressions for the maintainer tools. |
 | `.github/` | Source CI, qualified release promotion and reviewed Actions updates. |
 | `config/` | Browser profiles and standalone build/declaration configs; see the [configuration map](../../config/README.md). |
 | `contracts/` | Sealed product bundle, explicit adapter and generated policy inputs. |

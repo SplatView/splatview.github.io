@@ -9,7 +9,7 @@ import unittest
 import warnings
 import zipfile
 
-SPEC = importlib.util.spec_from_file_location('restore_references', Path(__file__).with_name('restore-references.py'))
+SPEC = importlib.util.spec_from_file_location('restore_references', Path(__file__).resolve().parents[1] / 'restore-references.py')
 references = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(references)
 

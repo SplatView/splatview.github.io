@@ -9,7 +9,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-SPEC = importlib.util.spec_from_file_location('capture_sources', Path(__file__).with_name('capture-sources.py'))
+SPEC = importlib.util.spec_from_file_location('capture_sources', Path(__file__).resolve().parents[1] / 'capture-sources.py')
 capture = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(capture)
 

@@ -8,10 +8,10 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-SPEC = importlib.util.spec_from_file_location('verify_toolchain', Path(__file__).with_name('verify-toolchain.py'))
+SPEC = importlib.util.spec_from_file_location('verify_toolchain', Path(__file__).resolve().parents[1] / 'verify-toolchain.py')
 verifier = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(verifier)
-BUILD_SPEC = importlib.util.spec_from_file_location('build_core', Path(__file__).with_name('build-core.py'))
+BUILD_SPEC = importlib.util.spec_from_file_location('build_core', Path(__file__).resolve().parents[1] / 'build-core.py')
 builder = importlib.util.module_from_spec(BUILD_SPEC)
 BUILD_SPEC.loader.exec_module(builder)
 

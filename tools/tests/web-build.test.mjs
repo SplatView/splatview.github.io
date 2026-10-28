@@ -6,7 +6,7 @@ import { tmpdir } from 'node:os';
 import { basename, dirname, join, resolve } from 'node:path';
 import { test } from 'node:test';
 import { assertApplicationClosure, assertBuildInputsUnchanged, canonicalJson, collectApplicationInputs, copyQualifiedPublic, createDeploymentManifest,
-  descriptorFromInputs, emittedBundlePaths, prepareBuild, protectHtml, sha256, webBuildIdentityPlugin, workerClosurePlugin, workerEntryFileName, writeDeploymentManifest } from './web-build.mjs';
+  descriptorFromInputs, emittedBundlePaths, prepareBuild, protectHtml, sha256, webBuildIdentityPlugin, workerClosurePlugin, workerEntryFileName, writeDeploymentManifest } from '../web-build.mjs';
 
 const nativeInputId = sha256('native inputs A');
 const contract = {
@@ -323,8 +323,8 @@ function qualifiedFixture(t) {
     'public/wasm/splatview-core.mjs', 'public/wasm/splatview-core.wasm',
     'public/wasm/splatview-camera.mjs', 'public/wasm/splatview-camera.wasm']) write(path, path);
   writePublicInventory(root, ['icons/check.svg']);
-  write('tools/verify-toolchain.py', readFileSync(new URL('./verify-toolchain.py', import.meta.url)));
-  write('native/wasm/runtime-contract.json', readFileSync(new URL('../native/wasm/runtime-contract.json', import.meta.url)));
+  write('tools/verify-toolchain.py', readFileSync(new URL('../verify-toolchain.py', import.meta.url)));
+  write('native/wasm/runtime-contract.json', readFileSync(new URL('../../native/wasm/runtime-contract.json', import.meta.url)));
   write('native/SOURCE_LOCK.json', JSON.stringify({ schemaVersion: 1, capturedUtc: 'fixture-time',
     windowsBehaviorVersion: '0.12.82', packages: { splatview: { files: 1, treeSha256: 'a'.repeat(64), origin: '/fixture' } },
     files: [{ package: 'splatview', path: 'native/upstream/splatview/src/core/model.cpp', bytes: 10, sha256: 'b'.repeat(64) }] }));

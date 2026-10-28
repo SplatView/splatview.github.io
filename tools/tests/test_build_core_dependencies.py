@@ -9,7 +9,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-SPEC = importlib.util.spec_from_file_location('tested_build_core', Path(__file__).with_name('build-core.py'))
+SPEC = importlib.util.spec_from_file_location('tested_build_core', Path(__file__).resolve().parents[1] / 'build-core.py')
 builder = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(builder)
 

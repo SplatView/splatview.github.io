@@ -14,7 +14,7 @@ import unittest
 from unittest.mock import patch
 
 
-SPEC = importlib.util.spec_from_file_location('capture_target', Path(__file__).with_name('capture-target.py'))
+SPEC = importlib.util.spec_from_file_location('capture_target', Path(__file__).resolve().parents[1] / 'capture-target.py')
 capture_target = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(capture_target)
 

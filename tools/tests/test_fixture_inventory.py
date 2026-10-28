@@ -8,7 +8,7 @@ import subprocess
 import tempfile
 import unittest
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 SPEC = importlib.util.spec_from_file_location('fixture_inventory_producer', ROOT / 'tools/build-offline-fixtures.py')
 producer = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(producer)

@@ -3,8 +3,8 @@ import { mkdirSync, mkdtempSync, readFileSync, realpathSync, rmSync, writeFileSy
 import { tmpdir } from 'node:os';
 import { dirname, resolve } from 'node:path';
 import { test } from 'node:test';
-import { collectApplicationInputs, createDeploymentManifest, descriptorFromInputs, sha256 } from './web-build.mjs';
-import { verifyDistribution } from './verify-distribution.mjs';
+import { collectApplicationInputs, createDeploymentManifest, descriptorFromInputs, sha256 } from '../web-build.mjs';
+import { verifyDistribution } from '../verify-distribution.mjs';
 
 function fixture(t) {
   const root = mkdtempSync(resolve(realpathSync.native(tmpdir()), 'splatview-promotion-'));

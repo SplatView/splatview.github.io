@@ -46,6 +46,10 @@ installed npm dependencies. It neither restores inputs nor writes test receipts.
 | `npm run test:ci` | Chromium appearance/update-notice journeys using the UI-only startup harness. Install the pinned browser first with `npx playwright install chromium`. |
 | `npm run test:e2e` | Existing browser suites; select the relevant hardware/feature projects for the change. |
 
+Portable tests default to at most four workers to bound concurrent fixture I/O.
+Existing timeouts and isolation remain in place. Explicit CLI worker overrides
+are available for profiling; app worker/codec budgets are separate.
+
 `setup`, `check` and `ci` stream output and retain numbered UTF-8 logs plus exit
 codes in fresh `.build/validation/<task>-<time>-<random>/` directories. The first
 failed step stops the command. They never edit old receipts. Run `doctor` for

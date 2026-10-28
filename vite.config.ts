@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
+import { availableParallelism } from 'node:os';
 import { webBuildIdentityPlugin, workerClosurePlugin, workerEntryFileName } from './tools/web-build.mjs';
 
 export default defineConfig(({ command }) => ({
@@ -15,7 +16,8 @@ export default defineConfig(({ command }) => ({
     // navigations; the document worker keeps its content-addressed name.
     rolldownOptions: { output: { codeSplitting: false, entryFileNames: workerEntryFileName } },
   },
-  test: { include: ['tests/**/*.test.ts'] },
+  // Keep file-heavy tool fixtures responsive on high-core developer machines.
+  test: { include: ['tests/**/*.test.ts'], maxWorkers: Math.min(4, availableParallelism()) },
   server: {
     // Only source/UI changes need development transforms. Large generated and
     // captured trees can exhaust watcher capacity and leave stale transforms.
