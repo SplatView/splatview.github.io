@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { collectionArrowVisibility, collectionPageDirection } from '../src/ui/App';
+import { collectionArrowVisibility, collectionPageDirection } from '../src/input/collectionNavigation';
 
 const key = { key: 'PageDown', repeat: false, ctrlKey: false, metaKey: false, altKey: false, isComposing: false, defaultPrevented: false };
 const context = { available: true, text: false, activeUi: false, popup: false, captured: false };

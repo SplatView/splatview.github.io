@@ -4,7 +4,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { webFeatureAllowed } from '../src/app/productPolicy';
 import { setApp, useApp } from '../src/app/store';
 import { transformDefaults } from '../src/document/transformProtocol';
-import { SelectionActions } from '../src/ui/App';
+import { SelectionActions } from '../src/ui/SelectionControls';
 import { TutorialSelectionActions } from '../src/ui/FloatingSelectionActions';
 import { SelectionRangeTutorial } from '../src/ui/SelectionRangeControl';
 import { SelectionMorphology } from '../src/ui/SelectionMorphology';

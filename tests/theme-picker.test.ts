@@ -2,7 +2,7 @@ import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { useThemePreferences } from '../src/app/themePreferences';
-import { ThemePicker } from '../src/ui/ThemePicker';
+import { ThemePicker } from '../src/ui/settings/ThemePicker';
 
 // Static markup scope only. Mounted preview, focus and listener cleanup are
 // qualified by root's actual browser runs; these tests do not emulate a DOM.

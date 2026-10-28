@@ -1,7 +1,7 @@
 import { useEffect, useId, useLayoutEffect, useRef, type ReactNode, type RefObject } from 'react';
-import { Icon } from './Icon';
-import { focusAndReveal } from './focusScroll';
-import { useTranslation } from '../app/useLanguageAppearance';
+import { Icon } from '../Icon';
+import { focusAndReveal } from '../focusScroll';
+import { useTranslation } from '../../app/useLanguageAppearance';
 
 export type SettingsTab = 'general' | 'privacy' | 'help';
 const tabs = [['general', 'General'], ['privacy', 'Privacy'], ['help', 'Help']] as const;

@@ -10,7 +10,9 @@ The source branch is `source`; `main` contains the published static website.
 | `src/renderer/` | Shared rendering contracts plus WebGPU/WebGL2 resource owners. |
 | `src/engine/` | Standalone browser renderer entry and public types. |
 | `src/document/` | Native worker, scene protocol, budgets, history and recovery. |
-| `src/ui/`, `src/input/`, `src/io/` | UI, navigation and browser file/view boundaries. |
+| `src/ui/` | App composition, feature components and shared UI primitives; see the [UI module map](ui.md). |
+| `src/ui/dialogs/`, `src/ui/settings/` | Focused modal implementations and Settings components. |
+| `src/input/`, `src/io/` | Pure navigation/input policies and browser file/view boundaries. |
 | `tests/`, `e2e/` | Portable tests, required fixtures and actual browser journeys. |
 | `tools/` | Source/build verification, benchmark/release tools and evidence inspection. |
 | `contracts/` | Sealed product bundle, explicit adapter and generated policy inputs. |

@@ -4,7 +4,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import type { AppController } from '../src/app/controller';
 import { webFeatureAllowed } from '../src/app/productPolicy';
 import { setApp, useApp } from '../src/app/store';
-import { captureSelectionRangePointerOptions, SelectionOptions } from '../src/ui/App';
+import { captureSelectionRangePointerOptions, SelectionOptions } from '../src/ui/SelectionControls';
 import { SelectionRangeControl, selectionRangeFromRatio, selectionRangeRatio, type SelectionRangeController } from '../src/ui/SelectionRangeControl';
 import { SelectionRangeOverlay } from '../src/ui/SelectionRangeOverlay';
 import { currentDesktopIcons } from '../src/generated/currentDesktopIcons';

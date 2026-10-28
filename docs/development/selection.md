@@ -20,6 +20,10 @@ core; the controller remains responsible for accepted commands and history.
 | [selectionMaps.ts](../../src/app/selectionMaps.ts) | Production adapter: uses the dependency snapshot, prepares rendering, admits shared-ledger work, adopts native maps and isolates diagnostic observation. |
 | [selectionMapSnapshot.ts](../../src/app/selectionMapSnapshot.ts) | App-owned capture of source/view/preview dependencies, cache-key encoding, currentness checks and immutable captured render inputs. No GPU/native work or cache lifecycle. |
 | [controller.ts](../../src/app/controller.ts) | Gesture/command dispatch, eligible brush-region requests, scene changes and existing history ownership. |
+| [SelectionControls.tsx](../../src/ui/SelectionControls.tsx) | Selection actions/help/options, polygon and tolerance UI, and immutable pointer-option capture. Calls existing controller operations; owns no native history or GPU work. |
+| [ToolsPanel.tsx](../../src/ui/ToolsPanel.tsx) | Tools presentation and retained drafts/scroll, using App-owned retention and the existing controller. |
+
+See the [UI module map](ui.md) for application composition, dialogs and Settings.
 
 ```mermaid
 flowchart LR

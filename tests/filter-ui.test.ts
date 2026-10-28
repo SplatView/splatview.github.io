@@ -5,7 +5,7 @@ import { filterDefaults, type SelectionFilterKind } from '../src/document/filter
 import { FilterControls } from '../src/ui/FilterControls';
 import { filterDisplaySegments } from '../src/ui/FilterOverlay';
 import { FILTER_CHOICES, SelectionMenus } from '../src/ui/SelectionMenus';
-import { SelectionActions, SelectionControlsPopup } from '../src/ui/App';
+import { SelectionActions, SelectionControlsPopup } from '../src/ui/SelectionControls';
 
 function controls(kind: SelectionFilterKind, patch: Partial<Parameters<typeof FilterControls>[0]> = {}) {
   return renderToStaticMarkup(createElement(FilterControls, { kind, parameters: filterDefaults(), enabled: true,

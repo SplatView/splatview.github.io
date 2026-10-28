@@ -4,7 +4,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { webFeatureAllowed } from '../src/app/productPolicy';
 import { setApp, setSelectionPreferences, switchToolsMode, useApp } from '../src/app/store';
 import { desktopIcons } from '../src/generated/desktop';
-import { SelectionActions } from '../src/ui/App';
+import { SelectionActions } from '../src/ui/SelectionControls';
 
 // Opt in only the retained full-editor component fixtures; other policies stay real.
 const retainedFullEditorSelectionFixture = vi.hoisted(() => ({ enabled: false }));

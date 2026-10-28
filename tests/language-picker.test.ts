@@ -2,7 +2,7 @@ import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { LANGUAGE_SAVE_ERROR, useLanguagePreferences } from '../src/app/languagePreferences';
-import { LanguagePicker } from '../src/ui/LanguagePicker';
+import { LanguagePicker } from '../src/ui/settings/LanguagePicker';
 
 // Static chrome only; actual preview/focus/keyboard/observer behavior belongs to
 // root's browser cohorts. This suite does not emulate a document or GPU.

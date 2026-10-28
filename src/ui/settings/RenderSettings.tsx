@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
-import type { AppController } from '../app/controller';
-import { useApp } from '../app/store';
-import { useTranslation } from '../app/useLanguageAppearance';
-import type { GaussianRenderMode, SteadySettings } from '../renderer/steadySettings';
-import type { GraphicsBackendPreference } from '../renderer/backend';
+import type { AppController } from '../../app/controller';
+import { useApp } from '../../app/store';
+import { useTranslation } from '../../app/useLanguageAppearance';
+import type { GaussianRenderMode, SteadySettings } from '../../renderer/steadySettings';
+import type { GraphicsBackendPreference } from '../../renderer/backend';
 
 export function RenderSettings({ controller }: { controller: AppController }) {
   const { t, locale } = useTranslation();

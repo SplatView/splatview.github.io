@@ -1,7 +1,7 @@
 import { Children, createElement, isValidElement, type ReactNode } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it, vi } from 'vitest';
-import { SelectionActions } from '../src/ui/App';
+import { SelectionActions } from '../src/ui/SelectionControls';
 import { desktopIcons } from '../src/generated/desktop';
 import { currentDesktopIcons } from '../src/generated/currentDesktopIcons';
 

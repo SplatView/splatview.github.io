@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useId, useRef, useState, type KeyboardEvent } from 'react';
 import { createPortal } from 'react-dom';
-import { captureMenuScroll, type MenuScrollOwner } from './menuScroll';
-import { UI_SIZES, uiSizeStyle, useUiPreferences } from '../app/uiPreferences';
-import { Icon } from './Icon';
-import { DecorativeChevron } from './DecorativeChevron';
-import { useTranslation } from '../app/useLanguageAppearance';
+import { captureMenuScroll, type MenuScrollOwner } from '../menuScroll';
+import { UI_SIZES, uiSizeStyle, useUiPreferences } from '../../app/uiPreferences';
+import { Icon } from '../Icon';
+import { DecorativeChevron } from '../DecorativeChevron';
+import { useTranslation } from '../../app/useLanguageAppearance';
 
 export function FontSizePicker() {
   const { t } = useTranslation();

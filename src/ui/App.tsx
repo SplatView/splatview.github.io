@@ -1,6 +1,7 @@
-import { useCallback, useEffect, useId, useLayoutEffect, useRef, useState, type MouseEvent as ReactMouseEvent, type RefObject, type ReactNode, type CSSProperties } from 'react';
-import { createPortal, flushSync } from 'react-dom';
-import { webFeatureAllowed, productTokens } from '../app/productPolicy';
+import { useCallback, useEffect, useId, useLayoutEffect, useRef, useState, type MouseEvent as ReactMouseEvent, type RefObject } from 'react';
+import { flushSync } from 'react-dom';
+
+import { webFeatureAllowed } from '../app/productPolicy';
 import { AppController, type DeferredColorPointerToken, type DeferredSelectionOptions, type FilterGizmoGestureToken, type TransformGizmoGestureToken } from '../app/controller';
 import { installProductionBenchmarkBridge } from '../app/benchmarkBridge';
 import type { CameraController, FilterGizmoSession } from '../input/camera';
@@ -8,55 +9,45 @@ import type { FilterGizmoMode } from '../document/filterGizmo';
 import type { TransformGizmoSession } from '../document/transformGizmo';
 import { setApp, setSelectionPreferences, switchToolsMode, useApp, type SelectionTool } from '../app/store';
 import type { SceneCommand } from '../document/types';
-import { SCENE_EXPORT_FORMATS, sceneExportDescriptor, type SceneExportFormat } from '../document/exportFormats';
-import { colorFields } from '../generated/desktop';
 import type { AutoColorMethod } from '../document/colorProtocol';
-import { sameColorValues } from '../document/colorSession';
 import { navigationKey, translationKey } from '../input/navigation';
 import { admitWheel } from '../input/wheel';
 import { DeferredPointerQueue, DEFERRED_POINTER_REPLAY_BATCH_SIZE, type DeferredPointerKind } from '../input/deferredPointer';
 import { KeyOwnershipLedger, type InputContext, type ScopeTransition } from '../input/inputScope';
-import { useDialogFocus } from './useDialogFocus';
-import { toleranceFromRatio, tolerancePercent, toleranceRatio } from '../input/tolerance';
 import { BACKGROUND_COLORS, type BackgroundColor } from '../input/background';
 import { Icon } from './Icon';
-import { DecorativeChevron } from './DecorativeChevron';
-import { FontSizePicker } from './FontSizePicker';
-import { ThemePicker } from './ThemePicker';
-import { RenderSettings, GraphicsDiagnostics } from './RenderSettings';
+import { FontSizePicker } from './settings/FontSizePicker';
+import { ThemePicker } from './settings/ThemePicker';
+import { RenderSettings, GraphicsDiagnostics } from './settings/RenderSettings';
 import { useThemeAppearance } from '../app/useThemeAppearance';
 import { useLanguageAppearance, useTranslation } from '../app/useLanguageAppearance';
 import { translateStatus } from '../app/i18n';
-import { LanguagePicker } from './LanguagePicker';
+import { LanguagePicker } from './settings/LanguagePicker';
 import { ViewportGuidesOverlay } from './ViewportGuides';
 import { nextViewportGuides, viewportGuidesTooltip, type ViewportGuides } from '../input/viewportGuides';
-import { SettingsDialog, type SettingsTab } from './SettingsDialog';
-import { RenderedHistogram } from './RenderedHistogram';
-import { SelectionMorphology } from './SelectionMorphology';
-import { SelectionRangeControl, SelectionRangeTutorial } from './SelectionRangeControl';
+import { SettingsDialog, type SettingsTab } from './settings/SettingsDialog';
 import { ManualSelectionFeedback } from './ManualSelectionFeedback';
 import { handleFloatingSelectionKey } from './FloatingSelectionActions';
-import { SelectionMenus } from './SelectionMenus';
-import { FilterControls } from './FilterControls';
 import { FilterOverlay } from './FilterOverlay';
 import { FilterGizmo, filterGizmoConfig } from './FilterGizmo';
-import { TransformControls } from './TransformControls';
-import { OpacityControls } from './OpacityControls';
-import { GradeControls } from './GradeControls';
-import { TransformModeMenu } from './TransformModeMenu';
 import { TransformGizmo, transformGizmoConfig } from './TransformGizmo';
 import { TransformGizmoActions, handleTransformGizmoKey } from './TransformGizmoActions';
-import { AutoColorActions, ColorApplyButton } from './AutoColorActions';
-import { AlignmentControls, AlignmentOverlay, alignmentControlsEnabled, handleAlignmentKey, projectAlignmentPoint, projectAlignmentSegment,
-  projectAlignmentNormal, projectFloorOverlay, type AlignmentNormalProjection, type FloorOverlayProjection } from './AlignmentControls';
+import { AlignmentOverlay, alignmentControlsEnabled, handleAlignmentKey, projectAlignmentPoint, projectAlignmentSegment, projectAlignmentNormal, projectFloorOverlay, type AlignmentNormalProjection, type FloorOverlayProjection } from './AlignmentControls';
 import { UI_SIZES, uiSizeStyle, useUiPreferences } from '../app/uiPreferences';
-import { type TutorialStep, type TutorialTarget } from '../app/tutorialCatalog';
 import { TutorialOverlay } from './TutorialOverlay';
 import { useTutorial } from './useTutorial';
 import { SceneAccessibility } from './SceneAccessibility';
 import { OfflineStatus, OfflineUpdateNotice } from './OfflineStatus';
-import { BUILD_DESCRIPTOR } from '../generated/buildIdentity';
-import { version as webVersion } from '../../package.json';
+import '../styles/app.css';
+
+import { IconButton } from './IconButton';
+import { ToolsPanel, type ToolsPanelRetention } from './ToolsPanel';
+import { captureSelectionRangePointerOptions, type PolygonActions } from './SelectionControls';
+import { ModalFrame, type ModalFocusOptions } from './dialogs/ModalFrame';
+import { AboutDialog } from './dialogs/AboutDialog';
+import { SceneExportDialog } from './dialogs/SceneExportDialog';
+import { SavedViewChooser } from './dialogs/SavedViewChooser';
+import { collectionArrowVisibility, collectionPageDirection } from '../input/collectionNavigation';
 import '../styles/app.css';
 
 type CapturedGizmo = { camera: CameraController; pointerId: number; pointer: [number, number]; mode: FilterGizmoMode } & (
@@ -65,12 +56,6 @@ type CapturedGizmo = { camera: CameraController; pointerId: number; pointer: [nu
   { target: 'transform'; token: TransformGizmoGestureToken; session: TransformGizmoSession; transformId: number; baseId: number });
 
 type DeferredPointerOptions = DeferredSelectionOptions & Readonly<{ tool: SelectionTool; brushSize: number; operation: number }>;
-/** Physical press preferences are detached before delayed color settlement or
- * a released-pick queue can observe a later tool/radius change. */
-export function captureSelectionRangePointerOptions(state: Pick<ReturnType<typeof useApp.getState>, 'colorRange' | 'fillRange' | 'brushSize'>, scaleX: number) {
-  return { colorRange: Object.freeze({ ...state.colorRange }), fillRange: Object.freeze({ ...state.fillRange }),
-    sampleRadiusPixels: state.brushSize * scaleX / 2 };
-}
 type SceneMouseInput = Pick<ReactMouseEvent<HTMLCanvasElement>, 'clientX' | 'clientY' | 'button' | 'buttons' | 'detail' |
   'shiftKey' | 'ctrlKey' | 'metaKey' | 'altKey' | 'preventDefault'> & { nativeEvent?: Event; replayed?: boolean };
 type ScenePointerInput = SceneMouseInput & { pointerId: number; pointerType: string };
@@ -79,197 +64,9 @@ type DeferredPointerOwner = { token: DeferredColorPointerToken; queue: DeferredP
   tool: SelectionTool; physicalPointer: number | null; lastPointer: number; options: DeferredPointerOptions;
   refusedPointer: number | null; acceptCompanion: boolean; ready: boolean; pumping: boolean; bounds: readonly number[] };
 
-type CollectionRect = Readonly<{ left: number; right: number; top: number; bottom: number }>;
-/** Desktop edge hit areas are omitted when they intersect another shell control. */
-export function collectionArrowVisibility(width: number, height: number, scale: number, controls: readonly CollectionRect[]) {
-  const inset = 12 * scale, arrowWidth = 36 * scale, arrowHeight = 64 * scale;
-  if (width - 2 * inset < 2 * arrowWidth + 6 * scale || height < arrowHeight + 2 * inset) return [false, false] as const;
-  const top = (height - arrowHeight) / 2;
-  const clear = (left: number) => !controls.some(rect => left < rect.right && left + arrowWidth > rect.left && top < rect.bottom && top + arrowHeight > rect.top);
-  return [clear(inset), clear(width - inset - arrowWidth)] as const;
-}
-export function collectionPageDirection(event: Pick<KeyboardEvent, 'key' | 'repeat' | 'ctrlKey' | 'metaKey' | 'altKey' | 'isComposing' | 'defaultPrevented'>,
-  context: Readonly<{ available: boolean; text: boolean; activeUi: boolean; popup: boolean; captured: boolean }>) {
-  if (event.key !== 'PageUp' && event.key !== 'PageDown') return undefined;
-  if (event.defaultPrevented || event.isComposing || event.repeat || event.ctrlKey || event.metaKey || event.altKey ||
-      !context.available || context.text || context.activeUi || context.popup || context.captured) return 0;
-  return event.key === 'PageUp' ? -1 : 1;
-}
-
-type ButtonProps = { icon: string; label: string; onClick: () => void; disabled?: boolean; active?: boolean; small?: boolean; shortcut?: string; hint?: string; buttonRef?: RefObject<HTMLButtonElement | null>; tutorialTarget?: TutorialTarget | 'duplicate' };
-type ModalFocusOptions = Omit<Parameters<typeof useDialogFocus>[0], 'initialFocus' | 'onEscape'>;
 function appModalOwner(current: ReturnType<typeof useApp.getState>): InputContext['modal'] {
   return current.outputPending ? 'output' : current.navigationPrompt ? 'unsaved' : current.exportOpen ? 'save'
     : current.settingsOpen ? 'settings' : current.savedViewChoices.length ? 'chooser' : null;
-}
-function ModalFrame({ label, focus, onEscape, floating = false, children }: {
-  label: string; focus: ModalFocusOptions; onEscape?(): void; floating?: boolean; children: ReactNode;
-}) {
-  const panel = useDialogFocus({ ...focus, onEscape });
-  const contents = <div ref={panel} role="dialog" aria-modal="true" aria-label={label} tabIndex={-1}
-    className={floating ? 'output-dialog' : 'dialog panel'}>{children}</div>;
-  return floating ? contents : <div className="dialog-backdrop">{contents}</div>;
-}
-// The browser app has its own version and build identity. Native Store update
-// actions stay in the desktop host; web update controls live in General.
-function AboutDialog({ focus, onClose }: { focus: ModalFocusOptions; onClose(): void }) {
-  const { t } = useTranslation(), close = useRef<HTMLButtonElement>(null);
-  const panel = useDialogFocus({ ...focus, onEscape: onClose, initialFocus: () => close.current });
-  return <div className="dialog-backdrop"><div ref={panel} className="about-dialog panel" role="dialog" aria-modal="true" aria-label={t('About')} tabIndex={-1}>
-    <div className="panel-heading"><h1>{t('About')}</h1><span className="grow" />
-      <IconButton buttonRef={close} icon="Cancel" label="Close about" small onClick={onClose} />
-    </div>
-    <div className="about-content">
-      <p>SplatView</p><p>{t('Version')} <span data-web-version>{webVersion}</span></p>
-      <p>{t('SplatView web viewer and editor.')}</p>
-      <p className="about-build"><span>{t('Application')}</span><code data-app-input-id title={BUILD_DESCRIPTOR.appInputId}>{BUILD_DESCRIPTOR.appInputId}</code></p>
-      <div className="about-links"><a href="https://opsiclear.com/" target="_blank" rel="noopener noreferrer">{t('Help & feedback')}</a>
-        <a href="mailto:support@opsiclear.com?subject=SplatView%20web%20bug%20report">{t('Report a bug')}</a></div>
-    </div>
-  </div></div>;
-}
-export function SceneExportDialog({ acceptedFormat, scope, onScopeChange, count, sourceCount, disabled, onCancel, onExport, focus }: {
-  acceptedFormat: SceneExportFormat; scope: number; onScopeChange(scope: number): void;
-  count?: number; sourceCount?: number; disabled: boolean; onCancel(): void; onExport(format: SceneExportFormat, scope: number): void; focus?: ModalFocusOptions;
-}) {
-  const { t, locale } = useTranslation();
-  // Each opening mounts a fresh draft. Only the controller's accepted choice is
-  // used on the next opening; changing this select or cancelling cannot save it.
-  const [format, setFormat] = useState<SceneExportFormat>(acceptedFormat);
-  const formatSelect = useRef<HTMLSelectElement>(null);
-  const panel = useDialogFocus({ ...focus, onEscape: onCancel, initialFocus: () => formatSelect.current });
-  return <div className="dialog-backdrop"><div ref={panel} className="dialog panel" role="dialog" aria-modal="true" tabIndex={-1} aria-label={t("Save scene")}><h1>{t("Save scene")}</h1>
-    {count !== undefined && sourceCount !== undefined && count < sourceCount && <p>{t('Only the %s loaded splats will be exported.', count.toLocaleString(locale))}</p>}
-    <label>{t("Format")}<select ref={formatSelect} aria-label={t("Export format")} value={format} style={{ minWidth: 0 }} onChange={event => {
-      const descriptor = sceneExportDescriptor(Number(event.target.value));
-      if (descriptor) setFormat(descriptor.format);
-    }}>{SCENE_EXPORT_FORMATS.map(descriptor => <option value={descriptor.format} key={descriptor.format}>{t(descriptor.label)}</option>)}</select></label>
-    <label>{t("Scope")}<select aria-label={t("Export scope")} value={scope} onChange={event => onScopeChange(Number(event.target.value))}>{['All', 'Selected', 'Remainder'].map((name, index) => <option value={index} key={name}>{t(name)}</option>)}</select></label>
-    <div className="dialog-actions"><button onClick={onCancel}>{t("Cancel")}</button><button onClick={() => onExport(format, scope)} disabled={disabled}>{t("Download")}</button></div>
-  </div></div>;
-}
-function SavedViewChooser({ controller, returnFocus }: { controller: AppController; returnFocus: RefObject<HTMLButtonElement | null> }) {
-  const { t, locale } = useTranslation();
-  const choices = useApp(state => state.savedViewChoices), panel = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const previous = document.activeElement instanceof HTMLElement ? document.activeElement : null;
-    panel.current?.querySelector('button')?.focus();
-    return () => {
-      // Loading disables Open and the browser may move focus to body before
-      // this dialog mounts. Use the initiating toolbar action in that case.
-      const usable = (target: HTMLElement | null) => target?.isConnected && target !== document.body &&
-        !target.matches(':disabled') && target.getClientRects().length > 0;
-      const target = usable(previous) ? previous : usable(returnFocus.current) ? returnFocus.current : null;
-      target?.focus({ preventScroll: true });
-    };
-  }, [returnFocus]);
-  return <div className="dialog-backdrop"><div ref={panel} className="dialog panel" role="dialog" aria-modal="true" aria-label={t("Choose saved view")}
-    onKeyDown={event => {
-      if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); controller.dismissSavedViews(); }
-      if (event.key === 'Tab') {
-        const buttons = Array.from(panel.current?.querySelectorAll('button') ?? []);
-        const index = buttons.indexOf(document.activeElement as HTMLButtonElement);
-        if (buttons.length) {
-          event.preventDefault();
-          buttons[index < 0 ? event.shiftKey ? buttons.length - 1 : 0 : (index + (event.shiftKey ? buttons.length - 1 : 1)) % buttons.length]?.focus();
-        }
-      }
-    }}>
-    <h1>{t("Choose saved view")}</h1><p>{t("Several saved views match this content.")}</p>
-    {choices.map(record => <button className="saved-view-choice" key={record.recordId} onClick={() => void controller.chooseSavedView(record.recordId)}>
-      {record.displayName || t('Saved view')}<small>{new Date(record.updatedAt).toLocaleString(locale)}</small></button>)}
-    <div className="dialog-actions"><button onClick={() => controller.dismissSavedViews()}>{t("Use initial view")}</button></div>
-  </div></div>;
-}
-function IconButton({ icon, label, onClick, disabled, active, small, shortcut, hint, buttonRef, tutorialTarget }: ButtonProps) {
-  const { t } = useTranslation();
-  return <button ref={buttonRef} data-tutorial-target={tutorialTarget} type="button" aria-label={t(label)} title={hint ? t(hint) : (shortcut ? `${t(label)} (${shortcut})` : t(label))} aria-keyshortcuts={shortcut} onClick={onClick} disabled={disabled}
-    className={`icon-button ${active ? 'active' : ''} ${small ? 'small' : ''}`} aria-pressed={active}><Icon name={icon} /></button>;
-}
-export function SelectionControlsPopup({ tool, filter = false, apple = false, returnFocus, onClose }: {
-  tool: SelectionTool | null; filter?: boolean; apple?: boolean; returnFocus: RefObject<HTMLButtonElement | null>; onClose(): void;
-}) {
-  const { t } = useTranslation();
-  const panel = useRef<HTMLDivElement>(null), body = useRef<HTMLDivElement>(null), close = useRef<HTMLButtonElement>(null);
-  useEffect(() => {
-    close.current?.focus({ preventScroll: true });
-    const capture = (event: KeyboardEvent) => {
-      // This capture runs before the scene's Page/G/editor listeners. Opening
-      // Help must not confirm, cancel, or alter an unfinished manual gesture.
-      event.stopImmediatePropagation();
-      // Escape belongs to this read-only popup, even if focus was moved out of it.
-      if (event.key === 'Escape') { event.preventDefault(); onClose(); return; }
-      if (event.key === 'Tab') {
-        event.preventDefault();
-        (document.activeElement === close.current ? body.current : close.current)?.focus({ preventScroll: true });
-      }
-      if ((event.key === 'Enter' || event.key === ' ') && document.activeElement === close.current) {
-        event.preventDefault(); if (!event.repeat) onClose();
-      }
-      if ((event.ctrlKey || event.metaKey) && ['o', 's', 'z', 'y', 'a', 'i', 'e'].includes(event.key.toLowerCase())) event.preventDefault();
-    };
-    const captureRelease = (event: KeyboardEvent) => event.stopImmediatePropagation();
-    window.addEventListener('keydown', capture, true); window.addEventListener('keyup', captureRelease, true);
-    return () => {
-      window.removeEventListener('keydown', capture, true); window.removeEventListener('keyup', captureRelease, true);
-      if (returnFocus.current?.isConnected && !returnFocus.current.matches(':disabled')) returnFocus.current.focus({ preventScroll: true });
-    };
-  }, [onClose, returnFocus]);
-  const primary = apple ? 'Cmd' : 'Ctrl';
-  const rows: [string, string][] = [
-    ...(tool || filter ? [['Combine', '1 / 2 / 3 / 4']] as [string, string][] : []),
-    ...(tool && !filter ? [['Union', 'Shift'], ['Subtract', primary], ['Intersect', `Shift+${primary}`]] as [string, string][] : []),
-    ...(!filter ? [['All / clear', `${primary}+A / C`], ['Invert', 'I']] as [string, string][] : []), ['Undo / redo', `${primary}+Z / ${primary}+Y`],
-    ...(!filter && (tool === 'brush' || tool === 'volume') ? [['Brush size', '[ / ] or Alt+wheel']] as [string, string][] : []),
-    ...(!filter && tool === 'polygon' ? [['Close polygon', 'Enter'], ['Undo point', 'Backspace']] as [string, string][] : []),
-    ['Clear selection / exit tool', 'Right-click'], ['Pan', 'Right-drag'], ...(tool || filter ? [['Cancel', 'Esc']] as [string, string][] : []),
-  ];
-  return <div className="selection-controls-backdrop" onPointerDown={event => {
-    if (event.target === event.currentTarget) { event.preventDefault(); event.stopPropagation(); onClose(); }
-  }}><div ref={panel} className="selection-controls-popup panel" role="dialog" aria-modal="false" aria-label={t("Selection controls")} data-selection-controls data-chrome>
-    <div className="panel-heading"><h1>{t("Selection")}</h1><span className="grow" /><IconButton buttonRef={close} icon="Cancel" label="Close Selection controls" hint="Close" small onClick={onClose} /></div>
-    <div ref={body} className="selection-controls-body" tabIndex={0} aria-label={t("Selection control shortcuts")}><table><thead><tr><th scope="col">{t("Control")}</th><th scope="col">{t("Input")}</th></tr></thead><tbody>
-      {rows.map(([control, input]) => <tr key={control}><td>{t(control)}</td><td>{t(input)}</td></tr>)}
-    </tbody></table></div>
-  </div></div>;
-}
-export function SelectionActions({ enabled, selected, hasDeleted = false, tool = null, filter = false, apple = false, helpEnabled = enabled,
-  pro = false, duplicateEnabled = false,
-  currentViewOnly = false, currentViewOnlyEnabled = enabled, onCurrentViewOnly, onCommand, onHelpOpened, onInputScopeChange }: {
-  enabled: boolean; selected: number; hasDeleted?: boolean; tool?: SelectionTool | null; filter?: boolean; apple?: boolean; helpEnabled?: boolean;
-  pro?: boolean; duplicateEnabled?: boolean;
-  currentViewOnly?: boolean; currentViewOnlyEnabled?: boolean; onCurrentViewOnly?(): void;
-  onCommand(command: string): void; onHelpOpened?(): void; onInputScopeChange?(owner: string, open: boolean): void;
-}) {
-  const { t } = useTranslation();
-  const [helpOpen, setHelpOpen] = useState(false), help = useRef<HTMLButtonElement>(null);
-  const scopeCallback = useRef(onInputScopeChange); scopeCallback.current = onInputScopeChange;
-  const closeHelp = useRef(() => { scopeCallback.current?.('selection-help', false); setHelpOpen(false); }).current;
-  useEffect(() => () => scopeCallback.current?.('selection-help', false), []);
-  const popupHost = help.current?.closest('.viewport-shell');
-  return <fieldset disabled={!enabled && !filter && !currentViewOnlyEnabled} className="selection-actions">
-    <div className="selection-actions-caption"><span>{t("Actions")}</span></div>
-    <div className="selection-action-groups">
-      <div className="selection-segments" role="group" aria-label={t("Selection actions")}>
-        <IconButton icon="All" label="Select all" tutorialTarget="actions" disabled={!enabled} onClick={() => onCommand('selectAll')} />
-        <IconButton icon="Clear" label="Clear selection" tutorialTarget="actions" disabled={!enabled || selected === 0} onClick={() => onCommand('selectNone')} />
-        <IconButton icon="Invert" label="Invert selection" tutorialTarget="actions" disabled={!enabled} onClick={() => onCommand('invert')} />
-        {webFeatureAllowed('selection.advanced') && <IconButton icon="Frustum" label="Current view only" tutorialTarget="current-view" hint={'Current view only\nLimit selection and selected edits to the camera frustum'}
-          active={currentViewOnly} disabled={!currentViewOnlyEnabled} onClick={() => onCurrentViewOnly?.()} />}
-      </div>
-      <div className="selection-segments" role="group" aria-label={t("Delete or keep selection")}>
-        <IconButton icon="Delete" label="Delete selected" tutorialTarget="selection-edits" disabled={!enabled || selected === 0} onClick={() => onCommand('delete')} />
-        <IconButton icon="Crop" label="Keep selected" tutorialTarget="selection-edits" disabled={!enabled || selected === 0} onClick={() => onCommand('crop')} />
-        {pro && <IconButton icon="Duplicate" label="Duplicate selection" tutorialTarget="duplicate"
-          hint={'Duplicate selection\nCopy selected splats in place as a green selection\nMoving or editing the copy turns it yellow and allows another duplicate'}
-          disabled={!enabled || !duplicateEnabled || selected === 0} onClick={() => onCommand('duplicate')} />}
-      </div>
-      <button ref={help} type="button" className="icon-button selection-controls-help" aria-label={t("Selection controls")} title={t("Selection controls")}
-        disabled={!helpEnabled} aria-haspopup="dialog" aria-expanded={helpOpen} onClick={() => { onHelpOpened?.(); onInputScopeChange?.('selection-help', true); setHelpOpen(true); }}><Icon name="Help" /></button>
-    </div>
-    <div className="selection-action-restore" hidden={!hasDeleted}><IconButton icon="Restore" label="Restore deleted" small disabled={!enabled} onClick={() => onCommand('restore')} /></div>
-    {helpOpen && popupHost && createPortal(<SelectionControlsPopup tool={tool} filter={filter} apple={apple} returnFocus={help} onClose={closeHelp} />, popupHost)}
-  </fieldset>;
 }
 function BackgroundButton({ value, disabled, onClick }: { value: BackgroundColor; disabled: boolean; onClick: () => void }) {
   const { t } = useTranslation();
@@ -280,334 +77,6 @@ function BackgroundButton({ value, disabled, onClick }: { value: BackgroundColor
       <rect x="11" y="11" width="14" height="14" rx="2" fill={['#000', '#808080', '#fff'][tone]} stroke="#b3bac7" strokeWidth="1.5" />
     </svg></button>;
 }
-// Captured cleanup_context.hpp: hidden preferences retain their per-mode values;
-// the active tool changes which controls exist, never the selection itself.
-const TOOL_OPTIONS = {
-  single: ['live'], brush: ['visibleOnly', 'overlap', 'live'], volume: ['visibleOnly', 'overlap', 'live'],
-  rectangle: ['overlap', 'live'], polygon: ['overlap', 'live'], color: ['connectedColor', 'range'], fill: ['visibleOnly', 'overlap', 'range'],
-} as const;
-type PolygonActions = { count: number; closeEnabled: boolean; editEnabled: boolean; close(): void; previous(): void; cancel(): void };
-function PolygonSelectionControls({ polygon, disabled }: { polygon: PolygonActions; disabled: boolean }) {
-  const { t } = useTranslation();
-  return <fieldset disabled={disabled} className="polygon-controls">
-    <div className="selection-segments polygon-actions" role="group" aria-label={t('Polygon')}>
-      <IconButton icon="Check" label="Close polygon (Enter)" disabled={!polygon.closeEnabled} onClick={polygon.close} />
-      <IconButton icon="Undo" label="Previous point (Backspace)" disabled={!polygon.editEnabled} onClick={polygon.previous} />
-      <IconButton icon="Cancel" label="Cancel polygon" disabled={!polygon.editEnabled} onClick={polygon.cancel} />
-    </div>
-    <div className="polygon-point-count sr-only" role="status">{t('%zu points', polygon.count)}</div>
-  </fieldset>;
-}
-export function SelectionOptions({ controller, tool, disabled, polygon, tutorial, showPolygon = true }: {
-  controller: AppController; tool: SelectionTool | null; disabled: boolean; polygon: PolygonActions; tutorial?: 'options' | 'range'; showPolygon?: boolean;
-}) {
-  const { t } = useTranslation(), state = useApp();
-  if (!tool) return null;
-  const controls = {
-    visibleOnly: { icon: 'Visible', label: 'Visible only', shortcut: 'N', hint: 'Visible only (N)\nBrush and fill tools\nOff: select through all depths\nOn: select splats contributing to the rendered surface' },
-    overlap: { icon: 'Overlap', label: 'Include splat edges', shortcut: 'M', hint: 'Include splat edges (M)\nArea tools only\nOff: select by center\nOn: include splats whose edges touch the selection' },
-    live: { icon: 'LiveSelection', label: 'Live selection', hint: 'Live selection\nSingle splat, brush, rectangle and polygon tools\nOff: update when finished\nOn: preview while drawing' },
-    connectedColor: { icon: 'ConnectedColor', label: 'Connected colors', hint: `${t('Color picker')}\n${t('Connected colors\nOff: match across the scene\nOn: match only the connected region in the current view')}` },
-    range: { icon: 'Sphere', label: 'Range', hint: `${t('Range')}\n${t('Limit matches to a sphere around the picked point. Adjust its radius to update the last selection.')}` },
-  };
-  return <fieldset disabled={disabled || !!tutorial} className="selection-options" data-tutorial-target="options">
-    <div className="selection-options-caption">{t('Options')}</div>
-    <div className="selection-option-groups"><div className="selection-segments" role="group" aria-label={t('Options')}>
-      {TOOL_OPTIONS[tool].filter(key => key !== 'range' || webFeatureAllowed('selection.advanced')).map(key => { const control = controls[key]; return <IconButton key={key}
-        icon={control.icon} label={control.label} hint={control.hint} shortcut={'shortcut' in control ? control.shortcut : undefined}
-        tutorialTarget={key === 'range' ? 'range' : undefined}
-        active={key === 'range' ? tutorial === 'range' || (tool === 'fill' ? state.fillRange.enabled : state.colorRange.enabled) : state[key]}
-        disabled={key === 'connectedColor' && state.selectionDragging || key === 'range' && !controller.selectionRangeControlsEnabled}
-        onClick={() => key === 'range' ? controller.setSelectionRangeEnabled(!(tool === 'fill' ? state.fillRange.enabled : state.colorRange.enabled), tool === 'fill' ? 'fill' : 'color') :
-          key === 'connectedColor' ? controller.setConnectedColor(!state.connectedColor) : setSelectionPreferences({ [key]: !state[key] })} />; })}
-    </div></div>
-    {showPolygon && tool === 'polygon' && <PolygonSelectionControls polygon={polygon} disabled={disabled || !!tutorial} />}
-  </fieldset>;
-}
-
-function ToleranceControl({ value, disabled, onChange, onNumericFocus }: {
-  value: number; disabled: boolean; onChange: (value: number) => void; onNumericFocus?(token: object, active: boolean): void;
-}) {
-  const { t } = useTranslation();
-  const [editing, setEditing] = useState(false), [text, setText] = useState('');
-  const initial = useRef(value), number = useRef<HTMLInputElement>(null);
-  const sliderToken = useRef<object>({}), numberToken = useRef<object>({}), focusListener = useRef(onNumericFocus);
-  const sliderActivity = useRef({ keys: new Set<string>(), pointerId: null as number | null, active: false }), numberActive = useRef(false);
-  focusListener.current = onNumericFocus;
-  const publishSliderActivity = () => {
-    const activity = sliderActivity.current, active = activity.keys.size > 0 || activity.pointerId !== null;
-    if (activity.active !== active) { activity.active = active; focusListener.current?.(sliderToken.current, active); }
-  };
-  const setNumberActivity = (active: boolean) => {
-    if (numberActive.current !== active) { numberActive.current = active; focusListener.current?.(numberToken.current, active); }
-  };
-  const endSliderPointer = (pointerId: number) => {
-    if (sliderActivity.current.pointerId === pointerId) { sliderActivity.current.pointerId = null; publishSliderActivity(); }
-  };
-  useEffect(() => { if (editing) { number.current?.focus(); number.current?.select(); } }, [editing]);
-  useEffect(() => () => {
-    if (sliderActivity.current.active) { sliderActivity.current.active = false; focusListener.current?.(sliderToken.current, false); }
-    if (numberActive.current) { numberActive.current = false; focusListener.current?.(numberToken.current, false); }
-  }, []);
-  const edit = () => {
-    if (!disabled) {
-      initial.current = value; setText(String(value * 100)); setNumberActivity(true);
-      sliderActivity.current.keys.clear(); sliderActivity.current.pointerId = null; publishSliderActivity(); setEditing(true);
-    }
-  };
-  return <div className="slider-control" onContextMenu={event => { event.preventDefault(); edit(); }}>
-    {editing ? <input ref={number} type="number" aria-label={t("Tolerance percent")} min="0" max="100" step="any" value={text}
-      style={{ width: '100%', height: '100%', minWidth: 0, background: 'transparent', padding: '0 7px' }} disabled={disabled}
-      onFocus={() => setNumberActivity(true)}
-      onChange={event => { const next = event.target.value; setText(next); if (next.trim() && Number.isFinite(Number(next))) onChange(Math.max(0, Math.min(100, Number(next))) / 100); }}
-      onBlur={() => { setNumberActivity(false); setEditing(false); }} onKeyDown={event => {
-        if (event.key === 'Enter') { event.preventDefault(); event.currentTarget.blur(); }
-        else if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); onChange(initial.current); setNumberActivity(false); setEditing(false); }
-      }} /> : <><input type="range" aria-label={t("Selection tolerance")} aria-valuetext={`${tolerancePercent(value)}%`} min="0" max="1" step="any"
-        value={toleranceRatio(value)} disabled={disabled} onChange={event => onChange(toleranceFromRatio(Number(event.target.value)))}
-        onBlur={() => { sliderActivity.current.keys.clear(); publishSliderActivity(); }}
-        onPointerDown={event => {
-          if (event.ctrlKey || event.metaKey) { event.preventDefault(); edit(); }
-          else if (event.button === 0 && sliderActivity.current.pointerId === null) {
-            sliderActivity.current.pointerId = event.pointerId; publishSliderActivity();
-            try { event.currentTarget.setPointerCapture(event.pointerId); } catch { /* The element may have retired during the callback. */ }
-          }
-        }}
-        onPointerUp={event => endSliderPointer(event.pointerId)} onPointerCancel={event => endSliderPointer(event.pointerId)}
-        onLostPointerCapture={event => endSliderPointer(event.pointerId)}
-        onKeyDown={event => {
-          if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End', 'PageUp', 'PageDown'].includes(event.key)) {
-            sliderActivity.current.keys.add(event.key); publishSliderActivity();
-          } else if (event.key === 'Enter') { event.preventDefault(); edit(); }
-        }}
-        onKeyUp={event => { if (sliderActivity.current.keys.delete(event.key)) publishSliderActivity(); }} />
-      <output>{tolerancePercent(value)}%</output></>}
-  </div>;
-}
-
-type ToolsPanelRetention = {
-  folding: { selection: boolean; color: boolean; transform: boolean };
-  scroll: Record<'basic' | 'pro', { body: number; panel: number }>;
-};
-function ToolsPanel({ controller, scene, chromeVisible, autoMethod, onAutoMethod, visible = true, tutorialStep, onInputScopeChange, retention, polygon }: {
-  controller: AppController; scene: RefObject<HTMLCanvasElement | null>; chromeVisible: boolean; autoMethod: AutoColorMethod; onAutoMethod(method: AutoColorMethod): void;
-  visible?: boolean; tutorialStep?: TutorialStep; onInputScopeChange(owner: string, open: boolean): void; retention: ToolsPanelRetention; polygon: PolygonActions;
-}) {
-  const { t } = useTranslation();
-  const state = useApp();
-  const [folding, setFolding] = useState(() => ({ ...retention.folding }));
-  const { selection: selectionOpen, transform: transformOpen, color: colorOpen } = folding;
-  const setSectionOpen = (section: keyof ToolsPanelRetention['folding'], open: boolean) => {
-    retention.folding[section] = open; setFolding({ ...retention.folding });
-  };
-  const displayMode = webFeatureAllowed('processing.advanced') ? tutorialStep?.displayMode ?? state.mode : 'basic';
-  const showSelection = displayMode === 'basic' || selectionOpen || tutorialStep?.section === 'Selection';
-  const showColor = displayMode === 'basic' || colorOpen || tutorialStep?.section === 'Color';
-  const showTransform = displayMode === 'basic' || transformOpen || tutorialStep?.section === 'Transform';
-  const selectionTutorial = tutorialStep?.target === 'options' || tutorialStep?.target === 'range' ? tutorialStep.target : undefined;
-  const panel = useRef<HTMLElement>(null), body = useRef<HTMLDivElement>(null);
-  useLayoutEffect(() => {
-    if (!tutorialStep && visible) {
-      // Native gives Basic and Pro separate child-window identities. Retain
-      // their offsets outside this component so hiding Tools also preserves it.
-      const position = retention.scroll[state.mode];
-      if (body.current) body.current.scrollTop = position.body;
-      if (panel.current) panel.current.scrollTop = position.panel;
-    }
-  }, [state.mode, !!tutorialStep, visible, retention]);
-  const [gradeResetRevision, setGradeResetRevision] = useState(0);
-  const [opacityResetRevision, setOpacityResetRevision] = useState(0);
-  const gradeValueScope = `${controller.client?.revision.documentId ?? 'none'}:${controller.client?.revision.sourceGeneration ?? 0}:${state.mode}:${gradeResetRevision}`;
-  const gradeInputScope = `${gradeValueScope}:${colorOpen}`;
-  const gradeDesiredValues = useRef<readonly number[]>(state.grade);
-  const gradeObservedValues = useRef<readonly number[]>(state.grade);
-  const gradeDesiredScope = useRef(gradeValueScope);
-  const [gradeDraft, setGradeDraft] = useState<{ scope: string; observed: readonly number[]; values: readonly number[] }>({
-    scope: gradeValueScope, observed: state.grade, values: state.grade,
-  });
-  const gradeDisplay = gradeDraft.scope === gradeValueScope && sameColorValues(gradeDraft.observed, state.grade) ? gradeDraft.values : state.grade;
-  useLayoutEffect(() => {
-    if (gradeDesiredScope.current !== gradeValueScope || !sameColorValues(gradeObservedValues.current, state.grade)) {
-      gradeDesiredScope.current = gradeValueScope;
-      gradeObservedValues.current = state.grade;
-      gradeDesiredValues.current = state.grade;
-      setGradeDraft({ scope: gradeValueScope, observed: state.grade, values: state.grade });
-    }
-  }, [gradeValueScope, state.grade]);
-  const onGradeValues = useCallback((values: number[]) => {
-    const observed = useApp.getState().grade;
-    if (!controller.colorPreviewEnabled) {
-      gradeDesiredValues.current = observed;
-      setGradeDraft({ scope: gradeValueScope, observed, values: observed }); return;
-    }
-    // A clean retained owner may still be materializing. Preserve all submitted
-    // fields while its eventual publication catches up with the visible inputs.
-    gradeDesiredValues.current = values;
-    setGradeDraft({ scope: gradeValueScope, observed, values });
-    controller.setGrade(values);
-  }, [controller, gradeValueScope]);
-  const [gradeValidity, setGradeValidity] = useState({ scope: gradeInputScope, valid: true });
-  const gradeInputValid = gradeValidity.scope !== gradeInputScope || gradeValidity.valid;
-  const onGradeValidity = useCallback((valid: boolean) => setGradeValidity(previous =>
-    previous.scope === gradeInputScope && previous.valid === valid ? previous : { scope: gradeInputScope, valid }), [gradeInputScope]);
-  // A read-only PLY can project these controls during the tutorial. Its
-  // geometry summary never grants editing or supplies editable splat counts.
-  const editableSummary = state.summary?.kind === 0 ? state.summary : null;
-  const editingAvailable = !!editableSummary && controller.editingAvailable;
-  const enabled = !!state.summary && editingAvailable && !state.busy;
-  const selectionEnabled = !!editableSummary && (editingAvailable || controller.filterControlsEnabled) &&
-    (!state.busy || controller.isReleasedSelectionBusy || controller.selectionActive || controller.filterActive);
-  const resetCleanupEnabled = (enabled || controller.filterControlsEnabled) && (!!state.filter || !!state.tool || !!state.summary?.selected || !!state.summary && state.summary.visible < state.summary.count);
-  const effectiveOperation = state.filter?.operation ?? state.selectionOperation ?? ((state.selectionModifiers & 2) ? (state.selectionModifiers & 1) ? 3 : 2 : (state.selectionModifiers & 1) ? 1 : state.operation);
-  const selectionControlDisabled = !selectionEnabled || state.selectionDragging;
-  // Both native profiles use the same Tool menu and the same cleanup boundary.
-  const chooseSelectionTool = (tool: SelectionTool | null) => {
-    if (controller.filterActive || useApp.getState().transform || controller.opacityActive || controller.opacityPending) {
-      void controller.activateSelectionTool(tool); return;
-    }
-    const current = useApp.getState();
-    controller.cancelAlignment();
-    if (tool === null) {
-      if (current.tool || current.fly) { void controller.cancelSelectionGesture(); controller.endToleranceSelection(); setApp({ tool: null, fly: false }); }
-    } else if (current.tool !== tool) setApp({ tool, fly: false });
-  };
-  const shownFields = displayMode === 'basic' ? [0, 1, 3, 5] : colorFields.map((_, index) => index);
-  const retainedFields = state.mode === 'basic' ? [0, 1, 3, 5] : colorFields.map((_, index) => index);
-  return <aside ref={panel} className="tools-panel panel" style={{ '--product-panel-bottom': `${productTokens.panelBottomPadding}px` } as CSSProperties} hidden={!visible} inert={!chromeVisible} aria-hidden={!chromeVisible || undefined} data-chrome data-tutorial-display-mode={displayMode} aria-label={t("Tools")}
-    onScroll={event => { if (!tutorialStep && event.target === event.currentTarget) retention.scroll[state.mode].panel = event.currentTarget.scrollTop; }}>
-    <div className="tools-fixed">
-      <div className="panel-heading"><h1>{t("Tools")}</h1><span className="grow" />
-        <div className="history-actions" data-tutorial-target="undo-redo" role="group" aria-label={t("Edit history")}>
-          <IconButton icon="Undo" label="Undo" small disabled={!enabled || !state.summary?.canUndo} onClick={() => void controller.command({ command: 'undo' })} />
-          <IconButton icon="Redo" label="Redo" small disabled={!enabled || !state.summary?.canRedo} onClick={() => void controller.command({ command: 'redo' })} />
-        </div>
-        <IconButton icon="Settings" label="Settings" tutorialTarget={tutorialStep?.id === 'thumbnail' ? 'thumbnail' : 'settings'} small onClick={() => setApp({ settingsOpen: true })} />
-        <button hidden={!webFeatureAllowed('processing.advanced')} className="mode-button" data-tutorial-target="modes" aria-pressed={displayMode === 'pro'} disabled={!editingAvailable && !controller.filterControlsEnabled && !controller.transformControlsEnabled && !controller.opacityControlsEnabled} onClick={() => {
-          const requested = (state.pendingMode ?? state.mode) === 'basic' ? 'pro' : 'basic';
-          void (async () => { if (controller.filterActive && !await controller.cancelFilter()) return;
-            const transform = useApp.getState().transform;
-            const retainGizmo = transform?.kind === 'gizmo' && transform.phase === 'ready' &&
-              !!useApp.getState().transformGizmoMode && !useApp.getState().transformGizmoDragging && !controller.transformPending && !controller.transformDirty;
-            if (transform && !retainGizmo && !await controller.endTransformSession(true)) return;
-            if (controller.opacityActive && !await controller.endOpacitySession(true)) return;
-            switchToolsMode(requested, controller.isReleasedSelectionBusy || state.tool === 'polygon' && controller.selectionActive); })();
-        }}><span className="mode-label"><span aria-hidden="true">{t("Basic")}</span><span aria-hidden="true">{t("Pro")}</span><span>{t(displayMode === 'basic' ? 'Basic' : 'Pro')}</span></span><span className="mode-switch" aria-hidden="true" /></button>
-      </div>
-      <div className="model-info" title={state.sourceName}>{state.sourceName || t('No scene open')}</div>
-      {state.summary && <div className="model-stats" data-tutorial-target="scope" title={`${t(state.summary.selected ? 'Color and manual transforms affect selected splats. Alignment always affects the whole scene.' : 'Color and manual transforms affect the whole scene. Alignment always affects the whole scene.')}${state.summary.count < state.summary.sourceCount ? ` ${t('Sampled preview. Save includes the loaded visible splats.')}` : ''}`}>
-        {t('%s/%s splats | SH%u', (editableSummary?.selected ?? 0).toLocaleString('en-US'), (editableSummary?.visible ?? 0).toLocaleString('en-US'), Math.min(state.summary.shDegree, 3))}
-      </div>}
-      {!state.summary && tutorialStep && <div className="model-stats" data-tutorial-target="scope">{t('No scene open')}</div>}
-      {state.preferencesError && <p>{t(state.preferencesError)}</p>}
-      <RenderedHistogram controller={controller} visible={chromeVisible} />
-    </div>
-    <div ref={body} className="tools-body" onScroll={event => { if (!tutorialStep) retention.scroll[state.mode].body = event.currentTarget.scrollTop; }}>
-        <section><fieldset disabled={!selectionEnabled}><div className="section-heading tools-section-heading">
-          {displayMode === 'pro' ? <h2 className="selection-fold-heading tools-section-title"><button type="button" className="selection-section-toggle tools-section-label" aria-expanded={showSelection} aria-controls="selection-panel-controls" onClick={() => setSectionOpen('selection', !selectionOpen)}>
-            <span className="selection-section-chevron" aria-hidden="true"><DecorativeChevron direction={showSelection ? 'down' : 'right'} /></span><span className="tools-section-caption">{t("Selection")}</span><span className="tools-section-rule" aria-hidden="true" /></button></h2>
-            : <h2 className="tools-section-title"><span className="tools-section-label"><span className="tools-section-caption">{t("Selection")}</span><span className="tools-section-rule" aria-hidden="true" /></span></h2>}
-          <IconButton icon="Reset" label="Reset cleanup" tutorialTarget="cleanup-reset" small disabled={!resetCleanupEnabled} onClick={() => void (async () => {
-            if (controller.filterActive && !await controller.cancelFilter()) return; await controller.command({ command: 'resetCleanup' });
-          })()} /></div></fieldset>
-          {(state.mode === 'basic' || selectionOpen || showSelection) && <div id="selection-panel-controls" hidden={!showSelection}><fieldset disabled={!selectionEnabled}>
-          <SelectionMenus tool={state.tool} filter={state.filter?.kind ?? null} mode={displayMode} enabled={selectionEnabled} onInputScopeChange={onInputScopeChange}
-            onTool={chooseSelectionTool} onFilter={kind => void controller.selectFilter(kind)} />
-          <div className="selection-boundary-row"><div className="selection-boundary-group" data-tutorial-target="combine">
-            <span className="selection-boundary-label">{t("Combine")}</span><div className="selection-segments">{['Replace', 'Add', 'Subtract', 'Intersect'].map((label, operation) => <IconButton key={label} icon={label} label={label}
-              active={effectiveOperation === operation} onClick={() => state.filter ? controller.setFilterOperation(operation) : controller.setSelectionOperation(operation)} />)}</div></div>
-            {displayMode === 'pro' && <SelectionMorphology controller={controller} displayMode={displayMode} presentationOnly={!!tutorialStep} />}
-            {(!state.filter || selectionTutorial) && <SelectionOptions controller={controller}
-              tool={selectionTutorial === 'options' ? 'brush' : selectionTutorial === 'range' ? 'color' : state.tool}
-              disabled={!selectionEnabled || !!tutorialStep} polygon={polygon} tutorial={selectionTutorial} showPolygon={false} />}
-          </div>
-          </fieldset>
-          {(!state.filter || selectionTutorial) && <>
-          {state.tool === 'polygon' && <PolygonSelectionControls polygon={polygon} disabled={!selectionEnabled || !!tutorialStep} />}
-          {selectionTutorial === 'range' && <SelectionRangeTutorial />}
-          {(state.tool === 'brush' || state.tool === 'volume') && <label className="slider-row"><span>{t("Brush size")}</span><input aria-label={t("Brush size")} type="range" min="8" max="320" disabled={selectionControlDisabled} value={state.brushSize}
-            onChange={event => { if (!useApp.getState().selectionDragging) setApp({ brushSize: Number(event.target.value) }); }} /></label>}
-          {(state.tool === 'color' || state.tool === 'fill') && <div className="slider-row">
-            <span title={t(state.tool === 'fill' ? 'Higher tolerance crosses larger opacity changes. Logarithmic scale gives fine control below 10%. Right-click to type an exact value. Updates the last selection immediately.' : 'Higher tolerance includes more colors. Logarithmic scale gives fine control below 10%. Right-click to type an exact value. Updates the last selection immediately.')}>
-              {t('Tolerance')}</span>
-            <ToleranceControl key={state.tool} value={state.tool === 'fill' ? state.fillTolerance : state.colorTolerance}
-              disabled={selectionControlDisabled}
-              onNumericFocus={(token, active) => controller.setTransformNumericFocus(token, active)}
-              onChange={value => controller.setSelectionTolerance(value)} />
-          </div>}
-          {!tutorialStep && webFeatureAllowed('selection.advanced') && (state.tool === 'color' || state.tool === 'fill') && <SelectionRangeControl key={state.tool} controller={controller}
-            tool={state.tool} scene={scene} disabled={selectionControlDisabled} previewEnabled={chromeVisible} />}
-          </>}
-          {state.filter && <FilterControls kind={state.filter.kind} parameters={state.filter.parameters} enabled={controller.filterControlsEnabled && !state.filterGizmoDragging}
-            dirty={state.filter.dirty} previewPending={controller.filterPreviewPending} showVolume={state.filterVolumeVisible} centerPicking={state.filterCenterPicking}
-            previewEnabled={controller.filterPreviewEnabled}
-            gizmoMode={state.filterGizmoMode} gizmoEnabled={controller.filterGizmoModeEnabled && !state.filterGizmoDragging} localAxes={state.filterLocalAxes} snap={state.filterSnap}
-            onParameters={patch => controller.setFilterParameters(patch)} onReset={() => controller.resetFilter()} onPreview={() => void controller.previewFilter()}
-            onCurrentView={() => controller.useFilterCurrentView()} onPickCenter={() => state.filterCenterPicking ? controller.cancelFilterCenterPick() : controller.startFilterCenterPick()}
-            onVolume={filterVolumeVisible => setApp({ filterVolumeVisible })} onGizmo={mode => controller.setFilterGizmoMode(mode)}
-            onLocalAxes={filterLocalAxes => { if (controller.filterGizmoModeEnabled) setApp({ filterLocalAxes }); }}
-            onSnap={filterSnap => { if (controller.filterGizmoModeEnabled) setApp({ filterSnap }); }} />}
-          <SelectionActions enabled={enabled} selected={state.summary?.selected ?? 0} hasDeleted={!!state.summary && state.summary.visible < state.summary.count} tool={state.tool} filter={!!state.filter}
-            pro={displayMode === 'pro'} duplicateEnabled={controller.duplicateControlsEnabled}
-            apple={/Mac|iPhone|iPad/.test(navigator.platform)} helpEnabled={selectionEnabled}
-            currentViewOnly={state.currentViewOnly} currentViewOnlyEnabled={controller.currentViewOnlyControlsEnabled}
-            onCurrentViewOnly={() => void controller.setCurrentViewOnly(!useApp.getState().currentViewOnly)}
-            onHelpOpened={() => controller.camera?.clearInput()} onInputScopeChange={onInputScopeChange} onCommand={command => void controller.command({ command })} />
-          </div>}
-        </section>
-      <section><div className="section-heading tools-section-heading">
-        {displayMode === 'pro' ? <h2 className="selection-fold-heading tools-section-title"><button type="button" className="selection-section-toggle tools-section-label"
-          aria-expanded={showTransform} aria-controls="transform-panel-controls" onClick={() => setSectionOpen('transform', !transformOpen)}>
-          <span className="selection-section-chevron" aria-hidden="true"><DecorativeChevron direction={showTransform ? 'down' : 'right'} /></span><span className="tools-section-caption">{t("Transform")}</span><span className="tools-section-rule" aria-hidden="true" /></button></h2>
-          : <h2 className="tools-section-title"><span className="tools-section-label"><span className="tools-section-caption">{t("Transform")}</span><span className="tools-section-rule" aria-hidden="true" /></span></h2>}
-        <IconButton icon="Reset" label="Reset transform" tutorialTarget="transform-reset" small disabled={!controller.transformResetEnabled} onClick={() => void controller.resetTransform()} />
-      </div>
-        {(state.mode === 'basic' || transformOpen || showTransform) && <div id="transform-panel-controls" hidden={!showTransform}>
-          <div className={displayMode === 'pro' ? 'two-columns transform-selectors' : undefined} role="group" aria-label={t("Transform selectors")}>
-            <AlignmentControls controller={controller} scene={scene} showReset={false} />
-            <div hidden={displayMode !== 'pro'} data-tutorial-target="transform-mode"><TransformModeMenu mode={tutorialStep ? 'euler' : state.transformParameters.mode} enabled={!tutorialStep && controller.transformControlsEnabled && !state.transformGizmoDragging}
-              onMode={mode => controller.setTransformMode(mode)} /></div>
-          </div>
-          <TransformControls mode={displayMode} parameters={state.transformParameters} enabled={controller.transformControlsEnabled} presentationOnly={!!tutorialStep}
-            applyEnabled={controller.transformApplyEnabled} cancelEnabled={controller.transformCancelEnabled} pending={controller.transformPending}
-            dirty={!!state.transform?.dirty} gizmoMode={state.transformGizmoMode} gizmoEnabled={controller.transformGizmoModeEnabled && !state.transformGizmoDragging}
-            localAxes={state.filterLocalAxes} snap={state.filterSnap} onParameters={patch => controller.setTransformParameters(patch)}
-            onNumericFocus={(token, active) => controller.setTransformNumericFocus(token, active)}
-            onFlip={(axis, active) => controller.setTransformFlip(axis, active)} pivotMode={state.transformPivotMode}
-            pivotChosen={state.transformPivotChosen} pivotPending={state.transformPivotPending} hasSelected={(state.summary?.selected ?? 0) > 0}
-            onCyclePivot={() => void controller.cycleTransformPivot()}
-            onApply={() => controller.applyTransform()} onCancel={() => void controller.cancelTransformPreview()}
-            onGizmo={mode => void controller.setTransformGizmoMode(mode)} onLocalAxes={value => controller.setTransformLocalAxes(value)}
-            onSnap={value => controller.setTransformSnap(value)} />
-        </div>}
-      </section>
-      <section><div className="section-heading tools-section-heading">
-        {displayMode === 'pro' ? <h2 className="selection-fold-heading tools-section-title"><button type="button" className="selection-section-toggle tools-section-label"
-          aria-expanded={showColor} aria-controls="color-panel-controls" onKeyDown={event => event.stopPropagation()}
-          onKeyUp={event => event.stopPropagation()} onClick={() => setSectionOpen('color', !colorOpen)}>
-          <span className="selection-section-chevron" aria-hidden="true"><DecorativeChevron direction={showColor ? 'down' : 'right'} /></span><span className="tools-section-caption">{t("Color")}</span><span className="tools-section-rule" aria-hidden="true" /></button></h2>
-          : <h2 className="tools-section-title"><span className="tools-section-label"><span className="tools-section-caption">{t("Color")}</span><span className="tools-section-rule" aria-hidden="true" /></span></h2>}
-        <IconButton icon="Reset" label="Reset color preview" tutorialTarget="color-reset" small
-        disabled={!controller.colorResetPreviewEnabled} onClick={() => void controller.resetColorPreview().then(accepted => {
-          if (accepted) { setOpacityResetRevision(revision => revision + 1); setGradeResetRevision(revision => revision + 1); }
-        })} /></div>
-        {(state.mode === 'basic' || colorOpen || showColor) && <div id="color-panel-controls" hidden={!showColor}>
-        <fieldset disabled={!controller.colorPreviewEnabled}>
-        <AutoColorActions controller={controller} onInputScopeChange={onInputScopeChange} displayMode={displayMode} method={autoMethod} onMethodChanged={onAutoMethod} validInput={gradeInputValid} onPresetValues={onGradeValues} />
-        <GradeControls key={gradeInputScope} grade={gradeDisplay} fields={colorFields} shownIndices={shownFields} retainedIndices={tutorialStep ? retainedFields : undefined}
-          enabled={controller.colorPreviewEnabled} resetRevision={gradeResetRevision} desiredValuesRef={gradeDesiredValues}
-          onValues={onGradeValues} onValidityChanged={onGradeValidity} />
-        <ColorApplyButton controller={controller} validInput={gradeInputValid} />
-        </fieldset>
-        {(state.mode === 'pro' || displayMode === 'pro') && <div hidden={displayMode !== 'pro'} data-tutorial-target="pro-color"><OpacityControls key={controller.client?.revision.documentId ?? 'none'} scale={state.opacityScale} enabled={controller.opacityControlsEnabled}
-          applyEnabled={controller.opacityApplyEnabled} cancelEnabled={controller.opacityCancelEnabled} pending={controller.opacityPending}
-          dirty={!!state.opacity?.dirty} resetRevision={opacityResetRevision} onScale={value => controller.setOpacityScale(value)}
-          onApply={() => controller.applyOpacity()} onCancel={() => void controller.cancelOpacityPreview()} /></div>}
-        </div>}
-      </section>
-    </div>
-  </aside>;
-}
-
 export function App() {
   useThemeAppearance(); useLanguageAppearance();
   const { t, locale } = useTranslation();

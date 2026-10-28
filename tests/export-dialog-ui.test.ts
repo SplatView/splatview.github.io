@@ -1,7 +1,7 @@
 import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
-import { SceneExportDialog } from '../src/ui/App';
+import { SceneExportDialog } from '../src/ui/dialogs/SceneExportDialog';
 import type { SceneExportFormat } from '../src/document/exportFormats';
 
 const renderDialog = (acceptedFormat: SceneExportFormat, disabled = false, count = 10, sourceCount = 10) =>

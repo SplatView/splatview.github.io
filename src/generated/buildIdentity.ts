@@ -64,5 +64,5 @@ export const BUILD_DESCRIPTOR: BuildDescriptor = {
       "nativeInputId": "59b0d5f23b429590c4804a68ecba23fb6d3b0b1c3c44f17cb92d6b5ba81b3230"
     }
   },
-  "appInputId": "a3927b83a69a3a632ee43f6e60abff2afd022ecb2c6b3838479845e5996a7686"
+  "appInputId": "f0d55b412e5dc634bd81326372a52241a3dd251946889b3287380fa6b8e488e0"
 };
